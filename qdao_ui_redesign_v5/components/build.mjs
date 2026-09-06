@@ -88,7 +88,13 @@ function badge(symbol) {
     taiji: `<circle cx="60" cy="57" r="29" fill="#FFF7DE"/><path d="M60 28a29 29 0 0 1 0 58 14.5 14.5 0 0 1 0-29 14.5 14.5 0 0 0 0-29" fill="#176C5F"/><circle cx="60" cy="42.5" r="5" fill="#176C5F"/><circle cx="60" cy="71.5" r="5" fill="#FFF7DE"/><circle cx="60" cy="57" r="29" fill="none" stroke="#E8D197" stroke-width="1.5"/>`,
     pagoda: `<g fill="#FFF7DE" stroke="#E8D197" stroke-width="1.4" stroke-linejoin="round"><path d="M58 28h4v8h-4z"/><path d="M35 47q14-3 25-17 11 14 25 17l-3 5H38z"/><path d="M31 66q16-4 29-15 13 11 29 15l-4 5H35z"/><path d="M44 51h32v12H44zM41 71h38v13H41z"/></g><g stroke="#176C5F" stroke-width="4"><path d="M51 54v9m18-9v9M50 74v10m20-10v10M60 72v12"/></g><path d="M34 87h52" stroke="#FFF7DE" stroke-width="3" stroke-linecap="round"/>`,
     lotus: `<g stroke="#E8D197" stroke-width="1.5" stroke-linejoin="round"><path d="M60 75C37 58 47 38 60 29c13 9 23 29 0 46" fill="#FFF7DE"/><path d="M60 77C36 77 27 61 30 43c20 4 29 14 30 34" fill="#E6E6BE"/><path d="M60 77c24 0 33-16 30-34-20 4-29 14-30 34" fill="#E6E6BE"/><path d="M60 81c-19 6-33-4-37-18 17-2 28 3 37 18m0 0c19 6 33-4 37-18-17-2-28 3-37 18" fill="#FFF7DE"/></g><path d="M38 90h44" stroke="#E8D197" stroke-width="2" stroke-linecap="round"/>`,
-    mountain: `<path d="m25 84 24-39 10 16 13-31 25 54z" fill="#F7EFCE" stroke="#E8D197" stroke-width="2" stroke-linejoin="round"/><path d="m62 55 10-25 12 26-10-6-5 8z" fill="#FFFDF0"/><path d="m39 61 10-16 8 13-8-4-4 9z" fill="#FFFDF0"/><path d="m49 57-8 27m31-31-10 31m15-14 10 14" fill="none" stroke="#679682" stroke-width="3" stroke-linecap="round"/><path d="M34 91h52" stroke="#E8D197" stroke-width="2" stroke-linecap="round"/>`
+    mountain: `<path d="m25 84 24-39 10 16 13-31 25 54z" fill="#F7EFCE" stroke="#E8D197" stroke-width="2" stroke-linejoin="round"/><path d="m62 55 10-25 12 26-10-6-5 8z" fill="#FFFDF0"/><path d="m39 61 10-16 8 13-8-4-4 9z" fill="#FFFDF0"/><path d="m49 57-8 27m31-31-10 31m15-14 10 14" fill="none" stroke="#679682" stroke-width="3" stroke-linecap="round"/><path d="M34 91h52" stroke="#E8D197" stroke-width="2" stroke-linecap="round"/>`,
+    furnace: `<g stroke="#E8D197" stroke-width="2" stroke-linejoin="round"><path d="M39 51c-17-17-22 12-5 14m47-14c17-17 22 12 5 14" fill="none" stroke="#FFF7DE" stroke-width="5" stroke-linecap="round"/><path d="m43 76-5 13h10l4-11m16 0 4 11h10l-5-13m-21 3-1 12h10l-1-12" fill="#E8D197"/><path d="M34 48h52l-3 22c-3 16-43 16-46 0z" fill="#FFF7DE"/><path d="M35 43q9-13 25-13t25 13z" fill="#FFF7DE"/><path d="M57 31c-7-5-3-11 3-13 6 2 10 8 3 13z" fill="#E8D197"/></g><path d="M39 52h42" stroke="#176C5F" stroke-width="3"/><path d="M59 58c1 6-6 7-5 13 1 7 14 7 14-2 0-4-3-6-4-8 0 4-2 5-3 5 1-3 0-6-2-8z" fill="#176C5F"/>`,
+    sword: `<g stroke="#E8D197" stroke-width="1.8" stroke-linejoin="round"><path d="M54 43h12v34l-6 15-6-15z" fill="#FFF7DE"/><path d="M54 24h12v20H54z" fill="#E8D197"/><path d="m60 18 8 7-8 5-8-5z" fill="#FFF7DE"/><path d="M37 43q8-8 16-2l7 4 7-4q8-6 16 2l-4 7-7-4-12 7-12-7-7 4z" fill="#FFF7DE"/></g><path d="M57 31h6m-6 6h6M60 55v26" stroke="#176C5F" stroke-width="2.3" stroke-linecap="round"/>`,
+    water: `<path d="M30 70c-13-24 5-47 29-45 17 1 28 13 29 25-9-12-23-18-36-11-12 6-12 22-2 27-2-9 4-19 15-18 12 1 21 12 18 24-4 17-26 24-43 13 17 4 34-5 34-17 0-7-8-12-14-8 9 2 8 11 1 16-11 8-24 3-31-6z" fill="#FFF7DE" stroke="#E8D197" stroke-width="1.7" stroke-linejoin="round"/><path d="M30 73c-5-9-6-20-1-28m60 12c4 15-6 29-19 33" fill="none" stroke="#E8D197" stroke-width="3" stroke-linecap="round"/><path d="m41 32 1 6m14-11-1 7m15-3-3 6" stroke="#176C5F" stroke-width="3" stroke-linecap="round"/>`,
+    compass: `<path d="m60 21 9 13 16-2-2 16 13 9-13 9 2 16-16-2-9 13-9-13-16 2 2-16-13-9 13-9-2-16 16 2z" fill="#E8D197" stroke="#FFF7DE" stroke-width="1.5" stroke-linejoin="round"/><circle cx="60" cy="57" r="25" fill="#176C5F" stroke="#FFF7DE" stroke-width="3"/><path d="m60 36 7 16 14 5-16 6-5 15-6-16-15-5 15-5z" fill="#FFF7DE"/><path d="m60 39 1 18 6-5zM61 58l-1 17-6-13z" fill="#E8D197"/><circle cx="60" cy="57" r="4" fill="#176C5F" stroke="#E8D197" stroke-width="1.5"/>`,
+    peach_spirit: `<path d="M60 39c-7-9-6-17-2-20 8 2 12 8 9 17 4-12 12-13 20-12-1 12-9 18-23 16z" fill="#E8D197" stroke="#FFF7DE" stroke-width="1.5" stroke-linejoin="round"/><path d="M60 33c-6 12-20 9-27 25-8 20 5 30 27 36 23-6 35-16 27-36-6-16-20-13-27-25z" fill="#FFF7DE" stroke="#E8D197" stroke-width="2" stroke-linejoin="round"/><path d="M60 39c-7 10-2 19 4 28 6 8 2 17-4 22" fill="none" stroke="#679682" stroke-width="3" stroke-linecap="round"/><path d="M39 57q-5 9-2 17" fill="none" stroke="#E8D197" stroke-width="2.4" stroke-linecap="round"/>`,
+    flame: `<path d="M62 21c8 14-9 21-2 33 7-5 8-13 10-18 13 9 6 20 11 25 5-4 7-9 6-13 15 30-4 44-25 44-22 0-35-13-33-30 1-10 8-17 14-24-1 13 3 17 7 18-7-16 14-20 12-35z" fill="#FFF7DE" stroke="#E8D197" stroke-width="1.8" stroke-linejoin="round"/><path d="M59 87c-12-3-17-14-8-24 0 8 5 11 8 10-3-7 3-13 8-18-1 10 11 14 7 24-2 5-7 8-11 8 4-5 1-9-2-10 0 6-3 6-2 10z" fill="#176C5F"/>`
   };
   return `<circle cx="60" cy="64" r="52" fill="#503C2B" opacity=".17"/><circle cx="60" cy="59" r="52" fill="url(#wood)"/><circle cx="60" cy="57" r="51" fill="url(#gold)"/><circle cx="60" cy="57" r="46" fill="url(#jade)" stroke="#82622E" stroke-width="1.5"/><circle cx="60" cy="57" r="41.5" fill="none" stroke="#E3CB8C" stroke-width="1.2"/>${emblems[symbol]}<path d="M32 20a46 46 0 0 1 56 0" fill="none" stroke="#FFF4C3" stroke-width="2" stroke-linecap="round"/>`;
 }
@@ -117,7 +123,7 @@ for (const [kind, w, h, l, t, r, b] of specs) {
 register('summary_bar', 1280, 79, surface(1280, 79, 'normal', 'summary_bar'), { category: 'summary_bar', resize_axes: 'horizontal', fixed_height: 79, nine_slice: slices(1280, 79, 90, 24, 94, 28), minimum_size: [400, 79], content_insets: { left: 32, top: 17, right: 100, bottom: 22 }, text_color: palette.ink });
 register('main_frame', 1440, 840, panel(1440, 840, true), { category: 'main_frame', resize_axes: 'both', nine_slice: slices(1440, 840, 148, 112, 148, 125), minimum_size: [420, 320], content_insets: { left: 56, top: 56, right: 56, bottom: 66 }, text_color: palette.ink });
 register('content_panel', 1080, 620, panel(1080, 620, false), { category: 'content_panel', resize_axes: 'both', nine_slice: slices(1080, 620, 145, 108, 145, 122), minimum_size: [380, 290], content_insets: { left: 44, top: 44, right: 44, bottom: 54 }, text_color: palette.ink });
-for (const icon of ['taiji', 'pagoda', 'lotus', 'mountain']) register(`round_badge_${icon}`, 120, 120, badge(icon), { category: 'round_badge', symbol: icon, nine_slice: null });
+for (const icon of ['taiji', 'pagoda', 'lotus', 'mountain', 'furnace', 'sword', 'water', 'compass', 'peach_spirit', 'flame']) register(`round_badge_${icon}`, 120, 120, badge(icon), { category: 'round_badge', symbol: icon, nine_slice: null });
 for (const [state, fill, glyph] of [['green', '#308B68', '<path d="m10 16 4 4 8-9"/>'], ['orange', '#BD741E', '<path d="M16 9v8m0 5v.1"/>'], ['gray', '#6F7A6A', '<path d="M10 16h12"/>']]) register(`status_dot_${state}`, 32, 32, `<circle cx="16" cy="18" r="13.5" fill="#594530" opacity=".15"/><circle cx="16" cy="16" r="13" fill="url(#gold)"/><circle cx="16" cy="16" r="10" fill="${fill}"/><g fill="none" stroke="#FFFBE7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${glyph}</g>`, { category: 'status_dot', state, nine_slice: null, meaning: { green: 'available', orange: 'busy', gray: 'unavailable' }[state], semantics: 'Design semantics only; bind to real server states in the client.' });
 register('recommend_badge', 96, 40, `<path d="M5 6h86v24H53l-5 6-5-6H5z" fill="url(#gold)" stroke="#8C6933" stroke-width="1.5"/><path d="M9 10h78v16H9z" fill="#FFF7DE" opacity=".55"/><path d="m18 13 1.7 3.6 4 .6-2.8 2.7.7 4-3.6-1.9-3.6 1.9.7-4-2.8-2.7 4-.6z" fill="#795638"/>`, { category: 'recommend_badge', nine_slice: null, content_insets: { left: 29, top: 8, right: 12, bottom: 12 }, text_color: '#674B2F' });
 register('check', 48, 48, check(0, 0, 48), { category: 'check', nine_slice: null });
@@ -133,7 +139,7 @@ for (const a of assets) {
 
 // An annotated review board. Labels are separate from the actual export assets.
 const boardW = 1800;
-let board = `<rect width="1800" height="2360" fill="#F3EFE0"/><path d="M0 0h1800v205H0z" fill="#164D43"/><text x="65" y="83" font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif" font-size="40" font-weight="700" fill="#FFF7DE">五行奇谈 · 通用界面控件</text><text x="65" y="135" font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif" font-size="23" fill="#DDD1AB">玉绿 · 米白 · 暖金 · 桃木 / 33 个无动态文字资产</text>`;
+let board = `<rect width="1800" height="2600" fill="#F3EFE0"/><path d="M0 0h1800v205H0z" fill="#164D43"/><text x="65" y="83" font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif" font-size="40" font-weight="700" fill="#FFF7DE">五行奇谈 · 通用界面控件</text><text x="65" y="135" font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif" font-size="23" fill="#DDD1AB">玉绿 · 米白 · 暖金 · 桃木 / ${assets.length} 个无动态文字资产</text>`;
 const text = (x, y, t, size = 22, fill = '#344D43') => `<text x="${x}" y="${y}" font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif" font-size="${size}" fill="${fill}">${escape(t)}</text>`;
 const place = (a, x, y, w, h) => `<svg x="${x}" y="${y}" width="${w}" height="${h}" viewBox="0 0 ${a.width} ${a.height}">${defs}${a.body}</svg>`;
 board += text(70, 252, '控件 / 原始尺寸', 19) + text(575, 252, '普通', 21) + text(1090, 252, '已选：勾记 + 边缘标识', 21) + text(1498, 252, '不可用：锁形', 21);
@@ -168,22 +174,45 @@ for (const [i, a] of icons.entries()) {
   board += place(a, cx + (130 - a.width * scale) / 2, cy, a.width * scale, a.height * scale);
   board += text(cx - 15, cy + 158, a.id, 16) + text(cx + 15, cy + 186, `${a.width} × ${a.height}`, 16, '#756B53');
 }
-const overview = svg(boardW, 2360, board, '五行奇谈 通用 UI 控件总览');
+const overview = svg(boardW, 2600, board, '五行奇谈 通用 UI 控件总览');
 await fs.writeFile(path.join(root, 'overview.svg'), overview, 'utf8');
 if (sharp) await sharp(Buffer.from(overview)).png({ compressionLevel: 9 }).toFile(path.join(root, 'overview.png'));
-const html = `<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>五行奇谈 · 通用 UI 控件</title><style>body{margin:0;background:#e6e5d9;color:#344d43;font:16px/1.6 "Microsoft YaHei",sans-serif}header{padding:24px 5vw;background:#164d43;color:#fff7de;display:flex;gap:24px;align-items:center;flex-wrap:wrap}h1{font-size:24px;margin:0}a{color:#f0d492}main{max-width:1800px;margin:auto}img{display:block;width:100%;height:auto}p{margin:0}</style><header><h1>五行奇谈 · 33 个通用 UI 控件</h1><p>总览文字仅用于检查，SVG / PNG 控件未烘焙动态文字。</p><a href="manifest.json">尺寸与九宫格</a><a href="README.md">接入说明</a></header><main><img src="overview.svg" alt="普通、选中、不可用控件及面板、徽标、状态图标总览"></main></html>`;
+// All ten symbols at delivery size and two small sizes; labels stay on the review sheet.
+const badgeNames = { taiji: '太极', pagoda: '楼阁', lotus: '莲花', mountain: '山', furnace: '炼丹炉', sword: '剑', water: '水纹', compass: '罗盘', peach_spirit: '桃灵', flame: '火焰' };
+const badgeLegacyNames = { taiji: 'icon_yin_yang.png', pagoda: 'icon_pagoda.png', lotus: 'icon_lotus.png', mountain: 'icon_mountain.png', furnace: 'icon_cauldron.png', sword: 'icon_sword.png', water: 'icon_water.png', compass: 'icon_compass.png', peach_spirit: 'icon_peach_spirit.png', flame: 'icon_fire.png' };
+const badges = assets.filter(a => a.category === 'round_badge');
+let badgeBoard = `<rect width="1200" height="880" fill="#F3EFE0"/><path d="M0 0h1200v145H0z" fill="#164D43"/>${text(46, 62, '五行奇谈 · 十枚圆徽标', 34, '#FFF7DE')}${text(46, 105, '120 × 120 透明资产 · 同一玉绿金框 · 等比缩放', 22, '#DDD1AB')}`;
+badgeBoard += text(46, 181, '原始尺寸 / 120 px', 21);
+for (const [i, a] of badges.entries()) {
+  const x = 46 + (i % 5) * 232, y = 203 + Math.floor(i / 5) * 195;
+  badgeBoard += place(a, x + 26, y, 120, 120) + text(x + 86, y + 147, badgeNames[a.symbol], 20).replace('<text ', '<text text-anchor="middle" ');
+  badgeBoard += text(x + 86, y + 172, a.symbol, 15, '#756B53').replace('<text ', '<text text-anchor="middle" ');
+}
+for (const [size, top, fill] of [[48, 604, '#E5E8D9'], [32, 750, '#DBE2D5']]) {
+  badgeBoard += `<rect x="26" y="${top}" width="1148" height="112" rx="12" fill="${fill}"/>` + text(46, top + 26, `${size} px / 小尺寸辨识`, 18);
+  for (const [i, a] of badges.entries()) {
+    const cx = 70 + i * 115;
+    badgeBoard += place(a, cx - size / 2, top + 36, size, size);
+    badgeBoard += text(cx, top + 102, badgeNames[a.symbol], 15).replace('<text ', '<text text-anchor="middle" ');
+  }
+}
+const badgeOverview = svg(1200, 880, badgeBoard, '五行奇谈 十枚圆徽标 120 / 48 / 32 px 辨识预览');
+await fs.writeFile(path.join(root, 'badges_overview.svg'), badgeOverview, 'utf8');
+if (sharp) await sharp(Buffer.from(badgeOverview)).png({ compressionLevel: 9 }).toFile(path.join(root, 'badges_overview.png'));
+const html = `<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>五行奇谈 · 通用 UI 控件</title><style>body{margin:0;background:#e6e5d9;color:#344d43;font:16px/1.6 "Microsoft YaHei",sans-serif}header{padding:24px 5vw;background:#164d43;color:#fff7de;display:flex;gap:24px;align-items:center;flex-wrap:wrap}h1{font-size:24px;margin:0}a{color:#f0d492}main{max-width:1800px;margin:auto}img{display:block;width:100%;height:auto}p{margin:0}</style><header><h1>五行奇谈 · ${assets.length} 个通用 UI 控件</h1><p>总览文字仅用于检查，SVG / PNG 控件未烘焙动态文字。</p><a href="manifest.json">尺寸与九宫格</a><a href="README.md">接入说明</a><a href="badges_overview.svg">十枚徽标与小尺寸检查</a></header><main><img src="overview.svg" alt="普通、选中、不可用控件及面板、徽标、状态图标总览"></main></html>`;
 await fs.writeFile(path.join(root, 'overview.html'), html, 'utf8');
 
 const manifest = {
-  product: '五行奇谈', version: '5.1', created: '2026-09-06', asset_count: assets.length,
+  product: '五行奇谈', version: '5.2', created: '2026-09-06', asset_count: assets.length, badge_count: badges.length,
   authoring: 'Original native SVG geometry; no source game images or dynamic text embedded.',
+  badge_replacements: { legacy_directory: '../../q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic', symbols: badges.map(a => ({ legacy_file: badgeLegacyNames[a.symbol], replacement_id: a.id, meaning: badgeNames[a.symbol], svg: a.svg, png: a.png })) },
   palette, renderer: sharp ? { sharp: sharp.versions.sharp, vips: sharp.versions.vips } : null,
   states: { normal: '可用普通态', selected: '勾记、边缘标识和金色三角共同表达；不等于推荐或键盘焦点', disabled: '锁形和降低强调表达不可用；文字保持可辨，点击规则由客户端实施' },
   png_alpha: 'RGBA; transparent outside the control; no opaque rectangular canvas.',
   nine_slice_convention: 'left/top/right/bottom are fixed source pixel borders, including transparent shadow margins; center is the stretch rectangle. Respect resize_axes: marked controls keep their source height; only the two large panels support both axes. Never stretch round icons or text.',
   interaction_note: 'This kit supplies visuals only. Client owns text, input, pointer/keyboard focus, hit testing, state transitions, and accessibility labels. Exported shadows do not enlarge hit targets.',
   text_note: 'Use a readable CJK font. Suggested labels: 28–32 px for buttons/tabs; 24–28 px for rows/cards/search at original size. Do not shrink interactive text to the overview board size.',
-  artifacts: { overview: 'overview.html', overview_svg: 'overview.svg', overview_png: sharp ? 'overview.png' : null, source_builder: 'build.mjs', readme: 'README.md' },
+  artifacts: { overview: 'overview.html', overview_svg: 'overview.svg', overview_png: sharp ? 'overview.png' : null, source_builder: 'build.mjs', readme: 'README.md', badges_overview_svg: 'badges_overview.svg', badges_overview_png: sharp ? 'badges_overview.png' : null, badge_design_brief: 'badge_design_brief.md' },
   assets: assets.map(({ body, ...a }) => a)
 };
 await fs.writeFile(path.join(root, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n', 'utf8');

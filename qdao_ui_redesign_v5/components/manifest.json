@@ -1,9 +1,85 @@
 {
   "product": "五行奇谈",
-  "version": "5.1",
+  "version": "5.2",
   "created": "2026-09-06",
-  "asset_count": 33,
+  "asset_count": 39,
+  "badge_count": 10,
   "authoring": "Original native SVG geometry; no source game images or dynamic text embedded.",
+  "badge_replacements": {
+    "legacy_directory": "../../q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic",
+    "symbols": [
+      {
+        "legacy_file": "icon_yin_yang.png",
+        "replacement_id": "round_badge_taiji",
+        "meaning": "太极",
+        "svg": "svg/round_badge_taiji.svg",
+        "png": "png/round_badge_taiji.png"
+      },
+      {
+        "legacy_file": "icon_pagoda.png",
+        "replacement_id": "round_badge_pagoda",
+        "meaning": "楼阁",
+        "svg": "svg/round_badge_pagoda.svg",
+        "png": "png/round_badge_pagoda.png"
+      },
+      {
+        "legacy_file": "icon_lotus.png",
+        "replacement_id": "round_badge_lotus",
+        "meaning": "莲花",
+        "svg": "svg/round_badge_lotus.svg",
+        "png": "png/round_badge_lotus.png"
+      },
+      {
+        "legacy_file": "icon_mountain.png",
+        "replacement_id": "round_badge_mountain",
+        "meaning": "山",
+        "svg": "svg/round_badge_mountain.svg",
+        "png": "png/round_badge_mountain.png"
+      },
+      {
+        "legacy_file": "icon_cauldron.png",
+        "replacement_id": "round_badge_furnace",
+        "meaning": "炼丹炉",
+        "svg": "svg/round_badge_furnace.svg",
+        "png": "png/round_badge_furnace.png"
+      },
+      {
+        "legacy_file": "icon_sword.png",
+        "replacement_id": "round_badge_sword",
+        "meaning": "剑",
+        "svg": "svg/round_badge_sword.svg",
+        "png": "png/round_badge_sword.png"
+      },
+      {
+        "legacy_file": "icon_water.png",
+        "replacement_id": "round_badge_water",
+        "meaning": "水纹",
+        "svg": "svg/round_badge_water.svg",
+        "png": "png/round_badge_water.png"
+      },
+      {
+        "legacy_file": "icon_compass.png",
+        "replacement_id": "round_badge_compass",
+        "meaning": "罗盘",
+        "svg": "svg/round_badge_compass.svg",
+        "png": "png/round_badge_compass.png"
+      },
+      {
+        "legacy_file": "icon_peach_spirit.png",
+        "replacement_id": "round_badge_peach_spirit",
+        "meaning": "桃灵",
+        "svg": "svg/round_badge_peach_spirit.svg",
+        "png": "png/round_badge_peach_spirit.png"
+      },
+      {
+        "legacy_file": "icon_fire.png",
+        "replacement_id": "round_badge_flame",
+        "meaning": "火焰",
+        "svg": "svg/round_badge_flame.svg",
+        "png": "png/round_badge_flame.png"
+      }
+    ]
+  },
   "palette": {
     "jade": "#176C5F",
     "jadeLight": "#438E78",
@@ -32,7 +108,10 @@
     "overview_svg": "overview.svg",
     "overview_png": "overview.png",
     "source_builder": "build.mjs",
-    "readme": "README.md"
+    "readme": "README.md",
+    "badges_overview_svg": "badges_overview.svg",
+    "badges_overview_png": "badges_overview.png",
+    "badge_design_brief": "badge_design_brief.md"
   },
   "assets": [
     {
@@ -875,6 +954,84 @@
       "dynamic_text_baked": false,
       "category": "round_badge",
       "symbol": "mountain",
+      "nine_slice": null
+    },
+    {
+      "id": "round_badge_furnace",
+      "width": 120,
+      "height": 120,
+      "title": "round_badge_furnace",
+      "svg": "svg/round_badge_furnace.svg",
+      "png": "png/round_badge_furnace.png",
+      "state": "normal",
+      "dynamic_text_baked": false,
+      "category": "round_badge",
+      "symbol": "furnace",
+      "nine_slice": null
+    },
+    {
+      "id": "round_badge_sword",
+      "width": 120,
+      "height": 120,
+      "title": "round_badge_sword",
+      "svg": "svg/round_badge_sword.svg",
+      "png": "png/round_badge_sword.png",
+      "state": "normal",
+      "dynamic_text_baked": false,
+      "category": "round_badge",
+      "symbol": "sword",
+      "nine_slice": null
+    },
+    {
+      "id": "round_badge_water",
+      "width": 120,
+      "height": 120,
+      "title": "round_badge_water",
+      "svg": "svg/round_badge_water.svg",
+      "png": "png/round_badge_water.png",
+      "state": "normal",
+      "dynamic_text_baked": false,
+      "category": "round_badge",
+      "symbol": "water",
+      "nine_slice": null
+    },
+    {
+      "id": "round_badge_compass",
+      "width": 120,
+      "height": 120,
+      "title": "round_badge_compass",
+      "svg": "svg/round_badge_compass.svg",
+      "png": "png/round_badge_compass.png",
+      "state": "normal",
+      "dynamic_text_baked": false,
+      "category": "round_badge",
+      "symbol": "compass",
+      "nine_slice": null
+    },
+    {
+      "id": "round_badge_peach_spirit",
+      "width": 120,
+      "height": 120,
+      "title": "round_badge_peach_spirit",
+      "svg": "svg/round_badge_peach_spirit.svg",
+      "png": "png/round_badge_peach_spirit.png",
+      "state": "normal",
+      "dynamic_text_baked": false,
+      "category": "round_badge",
+      "symbol": "peach_spirit",
+      "nine_slice": null
+    },
+    {
+      "id": "round_badge_flame",
+      "width": 120,
+      "height": 120,
+      "title": "round_badge_flame",
+      "svg": "svg/round_badge_flame.svg",
+      "png": "png/round_badge_flame.png",
+      "state": "normal",
+      "dynamic_text_baked": false,
+      "category": "round_badge",
+      "symbol": "flame",
       "nine_slice": null
     },
     {

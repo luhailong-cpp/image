@@ -1,8 +1,8 @@
-# 五行奇谈 · 通用 UI 控件 v5.1
+# 五行奇谈 · 通用 UI 控件 v5.2
 
 本套件重做仓库现有的通用 UI 形状，使用玉绿 `#176C5F` / `#438E78`、米白 `#FFF7DE`、暖金 `#C59645` 和桃木 `#795638`。双层金框、轻微厚度与阴影建立按钮层级，云纹只放在不遮文字的边缘。源文件是原创矢量图形，不含人物、场景或外部图片。
 
-查看 [可视总览](overview.html)、[总览 PNG](overview.png) 和 [资源清单](manifest.json)。总览中的中文只是检查用的独立文字，**33 个 SVG 和 33 个 PNG 控件均未烘焙动态文字**。
+查看 [可视总览](overview.html)、[总览 PNG](overview.png)、[十枚徽标与小尺寸总览](badges_overview.png) 和 [资源清单](manifest.json)。总览中的中文只是检查用的独立文字，**39 个 SVG 和 39 个 PNG 控件均未烘焙动态文字**。
 
 ## 资源范围
 
@@ -17,7 +17,7 @@
 | `summary_bar` | 1280 × 79 | 1 张 |
 | `main_frame` | 1440 × 840 | 1 张 |
 | `content_panel` | 1080 × 620 | 1 张 |
-| `round_badge` | 120 × 120 | 太极、楼阁、莲花、山，共 4 张 |
+| `round_badge` | 120 × 120 | 太极、楼阁、莲花、山、炼丹炉、剑、水纹、罗盘、桃灵、火焰，共 10 张 |
 | `status_dot` | 32 × 32 | 绿勾、橙感叹号、灰横线，共 3 张 |
 | `recommend_badge` | 96 × 40 | 1 张，无文字；客户端叠加“推荐” |
 | `check` / `lock` | 48 × 48 | 各 1 张 |
@@ -66,4 +66,12 @@ Windows 本机的复现示例：
 
 在其他电脑上替换上述运行时与包路径。若 Sharp 可以从本脚本解析，直接 `node build.mjs` 即可；脚本也会检查当前用户的 Codex bundled runtime。无 Sharp 时可执行 `node build.mjs --svg-only` 只重建 SVG / 清单 / 网页，清单会将 PNG 路径置空；已有 PNG 不会被删除或假称为本次重新导出。
 
-构建后 [validation.json](validation.json) 记录 33 张 PNG 的尺寸、RGBA 与 Alpha 范围。再用浏览器打开 `overview.html` 检查形状、边缘、标识和客户端叠字空间。本次另经 XML 解析确认 33 个源文件有效且没有 `<text>`、外链图片或脚本；透明 PNG 完整性、尺寸、状态对应关系和九宫格边界检查通过，并已实看总览核对勾记、锁形、边缘和图标。引擎内九宫格和交互尚未验收。
+构建后 [validation.json](validation.json) 记录 39 张 PNG 的尺寸、RGBA 与 Alpha 范围。再用浏览器打开 `overview.html` 检查形状、边缘、标识和客户端叠字空间。本次另经 XML 解析确认 39 个源文件有效且没有 `<text>`、外链图片或脚本；透明 PNG 完整性、尺寸、状态对应关系和九宫格边界检查通过，并已实看总览核对勾记、锁形、边缘和图标。引擎内九宫格和交互尚未验收。
+
+## 十枚圆徽标补齐记录
+
+六枚新增徽标沿用原四枚的底盘几何、双金边、玉绿渐变与阴影；尺寸统一为 120 × 120，符号使用米白和暖金。先实看旧母图确认炼丹炉、竖剑、旋涡水纹、八向罗盘、桃果叶片与卷芯火焰，再以原生 SVG 重绘。桃灵沿用桃果语义，不新增人物脸或职业定义。完整制作指令与逐项旧资源映射见 [设计说明](badge_design_brief.md)；同一映射已写入清单的 `badge_replacements`。
+
+[徽标 SVG 总览](badges_overview.svg) 与 PNG 总览同时检查 120、48、32 px。已实看十枚同框及小尺寸行，六枚轮廓可区分；32 px 会减少炉身火纹、剑柄等内部细节，建议有操作含义的徽标采用 48 px 或更大并配原生标签。图标本身不提供运行时触控区域或交互。
+
+[补齐验证记录](badge_validation.json) 包含 39 个 SVG 的 XML 与禁嵌元素检查、39 个 PNG 的尺寸与 Alpha 检查、10 枚徽标的透明角落、SHA-256，以及与交接提交 `60134a6` 中原 33 枚输出的比较。原 33 个 PNG 内容未改变；原 SVG 在换行规范化后内容未改变。新徽标文件名固定为 `round_badge_furnace`、`round_badge_sword`、`round_badge_water`、`round_badge_compass`、`round_badge_peach_spirit` 和 `round_badge_flame`，各有同名 SVG 与 PNG。
