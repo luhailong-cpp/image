@@ -1,4 +1,4 @@
-"""Export the five reviewed v5 screens; never invokes an image API.
+"""Export the six reviewed v5 screens; never invokes an image API.
 
 Run: python qdao_ui_redesign_v5/export_ui.py
 Verify existing exports: python qdao_ui_redesign_v5/export_ui.py --check
@@ -11,6 +11,7 @@ import json
 import shutil
 from pathlib import Path
 from PIL import Image, ImageOps
+from build_transition import export_transition, check_transition
 
 ROOT = Path(__file__).resolve().parent
 TARGET = (2560, 1080)
@@ -20,6 +21,7 @@ SCREENS = (
     ("03_character_select", "character_selection", "image_gen", "source/03_character_select.prompt.txt"),
     ("04_main_city_hud", "main_city_hud", "native_svg_composition", "hud/build.mjs"),
     ("05_battle_scene", "battle_background", "image_gen", "source/05_battle_scene.prompt.txt"),
+    ("06_battle_entry_loading", "battle_entry_loading", "image_gen", "source/06_battle_entry_loading.prompt.txt"),
 )
 
 def digest(path: Path) -> str:
@@ -61,11 +63,12 @@ def export() -> dict:
                         "source": before, "export": inspect(dst), "resampling": resampling,
                         "source_crop_box_xyxy": crop_box, "relative_aspect_error": round(ratio_error, 8),
                         "native_2560x1080_generation": False})
+    export_transition()
     result = {"schema_version": 1, "game_title": "五行奇谈", "date": "2026-09-06",
               "target_size": list(TARGET), "status": "visual_assets_only_not_engine_integrated",
               "screens": records,
               "components_manifest": "components/manifest.json", "hud_placement": "hud/placement.json",
-              "copy_source": "copy.zh-CN.json", "remaining_work": "../docs/WUXING_QITAN_HANDOFF.md"}
+              "copy_source": "copy.zh-CN.json", "transition_manifest": "transition_manifest.json", "remaining_work": "../docs/WUXING_QITAN_HANDOFF.md"}
     (ROOT / "manifest.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return result
 
@@ -83,6 +86,7 @@ def check() -> dict:
             raise ValueError("Export size mismatch")
         if not (ROOT / entry["recipe"]).is_file():
             raise FileNotFoundError(entry["recipe"])
+    check_transition()
     return manifest
 
 def main() -> None:

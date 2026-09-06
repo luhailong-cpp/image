@@ -8,7 +8,19 @@
 | **符小虎** | 符箓虎崽 | 杏金虎纹、额前小符箓、太极铃铛，举爪打招呼 | [图片](02_fu_xiao_hu.png) · [提示词](02_fu_xiao_hu.prompt.txt) |
 | **云啾啾** | 云游小仙鹤 | 白羽红冠、青绿翼尖、祥云脚垫，展开小翅膀 | [图片](03_yun_jiu_jiu.png) · [提示词](03_yun_jiu_jiu.prompt.txt) |
 
-## 图片
+## 本轮透明素材
+
+三只均新增1254×1254真RGBA静态图，原概念图保留。
+
+|宠物|透明PNG|透明版提示词|
+|---|---|---|
+|葫团团|[成品](01_hu_tuan_tuan-transparent_1254.png)|[prompt](01_hu_tuan_tuan-transparent_1254.prompt.txt)|
+|符小虎|[成品](02_fu_xiao_hu-transparent_1254.png)|[prompt](02_fu_xiao_hu-transparent_1254.prompt.txt)|
+|云啾啾|[成品](03_yun_jiu_jiu-transparent_1254.png)|[prompt](03_yun_jiu_jiu-transparent_1254.prompt.txt)|
+
+[统一清单与验收](../qdao_asset_refresh_v6/pets/README.md)记录真实生成尺寸、处理参数、Alpha和哈希。透明版本按原参考使用内置生图重绘，再清底、对齐并检查毛羽边缘；未做宠物动画或客户端接入。
+
+## 原概念图
 
 ### 葫团团
 
@@ -28,4 +40,4 @@
 
 基础风格参考为 [主城](../qdao_main_city_chibi_v1.png) 和 [发带小道童](../q_daoist_hero_chibi_headband_v3.png)。后两只同时参考前面已经完成的宠物，以统一眼睛、毛羽、金饰和背景的表现。
 
-继续迭代时先查看对应宠物图片，再读取同名 `.prompt.txt`，保持名字、动物种类和上述识别特征一致。当前这组是带底色的静态立绘；需要透明精灵时，参考 [v4 人物素材包](../qdao_chibi_game_pack_v4/README.md) 的生成与透明化流程，单独交付 Alpha PNG。
+继续迭代时先查看对应宠物图片，再读取同名 `.prompt.txt`，保持名字、动物种类和上述识别特征一致。原三张是带底色的静态概念图；本轮真透明精灵使用上表的新文件。后续动作需按实际引擎与播放需求另行制作，不把静态交付冒称动画。

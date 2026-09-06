@@ -139,7 +139,7 @@ for (const a of assets) {
 
 // An annotated review board. Labels are separate from the actual export assets.
 const boardW = 1800;
-let board = `<rect width="1800" height="2600" fill="#F3EFE0"/><path d="M0 0h1800v205H0z" fill="#164D43"/><text x="65" y="83" font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif" font-size="40" font-weight="700" fill="#FFF7DE">五行奇谈 · 通用界面控件</text><text x="65" y="135" font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif" font-size="23" fill="#DDD1AB">玉绿 · 米白 · 暖金 · 桃木 / ${assets.length} 个无动态文字资产</text>`;
+let board = `<rect width="1800" height="2360" fill="#F3EFE0"/><path d="M0 0h1800v205H0z" fill="#164D43"/><text x="65" y="83" font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif" font-size="40" font-weight="700" fill="#FFF7DE">五行奇谈 · 通用界面控件</text><text x="65" y="135" font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif" font-size="23" fill="#DDD1AB">玉绿 · 米白 · 暖金 · 桃木 / ${assets.length} 个无动态文字资产</text>`;
 const text = (x, y, t, size = 22, fill = '#344D43') => `<text x="${x}" y="${y}" font-family="Microsoft YaHei,Noto Sans CJK SC,sans-serif" font-size="${size}" fill="${fill}">${escape(t)}</text>`;
 const place = (a, x, y, w, h) => `<svg x="${x}" y="${y}" width="${w}" height="${h}" viewBox="0 0 ${a.width} ${a.height}">${defs}${a.body}</svg>`;
 board += text(70, 252, '控件 / 原始尺寸', 19) + text(575, 252, '普通', 21) + text(1090, 252, '已选：勾记 + 边缘标识', 21) + text(1498, 252, '不可用：锁形', 21);
@@ -169,12 +169,12 @@ board += text(1270, 1300, '灰阶与形状仍可辨认', 22) + text(1270, 1340, 
 board += text(70, 1820, '徽标、状态与装饰', 26);
 const icons = assets.filter(a => ['round_badge', 'status_dot', 'recommend_badge', 'check', 'lock', 'gold_flower', 'cloud_corner'].includes(a.category));
 for (const [i, a] of icons.entries()) {
-  const col = i % 7, row = Math.floor(i / 7), cx = 100 + col * 235, cy = 1850 + row * 240;
-  const scale = Math.min(1, 130 / a.width, 130 / a.height);
-  board += place(a, cx + (130 - a.width * scale) / 2, cy, a.width * scale, a.height * scale);
-  board += text(cx - 15, cy + 158, a.id, 16) + text(cx + 15, cy + 186, `${a.width} × ${a.height}`, 16, '#756B53');
+  const col = i % 7, row = Math.floor(i / 7), cx = 100 + col * 235, cy = 1810 + row * 165;
+  const scale = Math.min(1, 90 / a.width, 90 / a.height);
+  board += place(a, cx + (90 - a.width * scale) / 2, cy, a.width * scale, a.height * scale);
+  board += text(cx - 15, cy + 116, a.id, 14) + text(cx + 15, cy + 142, `${a.width} × ${a.height}`, 14, '#756B53');
 }
-const overview = svg(boardW, 2600, board, '五行奇谈 通用 UI 控件总览');
+const overview = svg(boardW, 2360, board, '五行奇谈 通用 UI 控件总览');
 await fs.writeFile(path.join(root, 'overview.svg'), overview, 'utf8');
 if (sharp) await sharp(Buffer.from(overview)).png({ compressionLevel: 9 }).toFile(path.join(root, 'overview.png'));
 // All ten symbols at delivery size and two small sizes; labels stay on the review sheet.

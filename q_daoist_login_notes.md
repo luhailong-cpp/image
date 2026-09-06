@@ -1,21 +1,13 @@
-# Q 版道家登录界面素材说明
+# 五行奇谈 · 旧登录／选服路径说明
 
-## 输出文件
+本轮已将旧选服画面、透明分层、物件图标、徽标和九宫格控件更新为道家 Q 版，原文件名与像素尺寸保留。旧名称中包含 login 的部分实际展示选服界面。
 
-- `q_daoist_login_concept.png`：原始生成概念图，尺寸 1928x816。
-- `q_daoist_login_concept_2560x1080.png`：客户端更易接入的 2560x1080 标准版。
-- `q_daoist_login_clear.png`：更清晰的游戏内用原始版，边缘和 UI 轮廓更硬朗。
-- `q_daoist_login_clear_2560x1080.png`：当前已接入客户端的清晰版，尺寸 2560x1080。
+- [12张旧画面及透明分层](q_daoist_login_ui_uncropped_highres_final_layers/README_NATIVE_Q5.md)：独立背景装饰、按钮、无字合成与文字 SVG。
+- [50张旧切片](exact_qdao_slices/README.md)：按原尺寸重建，并记录九宫格和缩放边界。
+- [原子控件与十徽标](q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/README_NATIVE_Q5.md)。
+- [124枚物件图标与原布局图集](qdao_asset_refresh_v6/icons/README.md)。
+- [六张标准视觉稿与通用控件](qdao_ui_redesign_v5/README.md)。
 
-## 原创化处理
+根目录 `q_daoist_login_clear_2560x1080.png` 等RGB画面用于视觉参考；动态服名、搜索、状态与按钮文字由客户端绘制，文本来源为 [copy.zh-CN.json](qdao_ui_redesign_v5/copy.zh-CN.json)。透明分层不烘焙动态文字。正式名“五行奇谈”已确认，区服和角色仍为演示数据。
 
-- 只保留“顶部页签、左侧筛选、右侧服务器列表”的功能层级。
-- 视觉主题改为 Q 版道家仙侠：青绿山水、玉石面板、桃木边框、符箓、太极、葫芦、小道童。
-- 避开参考图中的蓝色宠物、花藤角饰、米橙色服列表、红色关闭按钮、具体文字与图标组合。
-- 界面文字使用抽象笔触占位，客户端中建议用真实 UI 字体重新绘制。
-
-## 接入建议
-
-- 如果当前客户端支持整图背景，可先用 `q_daoist_login_concept_2560x1080.png` 做登录/选服页背景草案。
-- 真正上线前建议把 UI 拆成背景、面板、按钮、服务器卡片、状态点、吉祥物等独立图层，客户端里用原生控件排版。
-- 服务器名、区服名、推荐标签、按钮文字不要烘焙进图片，改用客户端文本渲染，方便热更和多分辨率适配。
+当前仅完成素材库交付，未定位或接入实际客户端；历史说明中的“已接入客户端”没有本轮工程证据，已移除。完整范围、验证和下一阶段见 [交接文档](docs/WUXING_QITAN_HANDOFF.md)。

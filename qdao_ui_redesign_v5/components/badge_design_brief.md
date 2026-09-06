@@ -12,7 +12,7 @@
 
 ## 旧资源与新版的对应
 
-旧目录为 [q_daoist_login_buttons_redrawn_atomic](../../q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/)，母图为 [ai_qstyle_badges_sheet_chroma.png](../../q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/ai_qstyle_badges_sheet_chroma.png)。旧文件保留，新输出位于本目录 `svg/` 和 `png/`。
+旧目录为 [q_daoist_login_buttons_redrawn_atomic](../../q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/)，母图为 [ai_qstyle_badges_sheet_chroma.png](../../q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/ai_qstyle_badges_sheet_chroma.png)。旧文件名继续保留。用户扩大范围后，旧原子目录已补齐对应的 420 × 420 新版透明徽标和母图；本目录 `svg/` 和 `png/` 保留 120 × 120 设计源。
 
 | 旧文件 | 新 ID | 本批状态 |
 |---|---|---|
@@ -27,7 +27,7 @@
 | `icon_peach_spirit.png` | `round_badge_peach_spirit` | 新补齐 |
 | `icon_fire.png` | `round_badge_flame` | 新补齐 |
 
-该表仅说明符号替换关系。旧徽标通常为 420 × 420，而这套 v5 组件的原始设计尺寸为 120 × 120；不是将 120 像素文件直接冒称原尺寸替换。后续兼容旧尺寸导出需由全库替换清单单列。功能名称和客户端路由仍由真实业务确定。
+该表说明符号替换关系。这套 v5 组件的原始设计尺寸为 120 × 120；旧原子目录中 10 枚独立徽标已从矢量源按 420 × 420 导出，另外提供 `icon_leaf.png` → `icon_peach_spirit.png` 兼容别名。旧母图按原 1774 × 887 像素和原单元位置重建为真 RGBA。完整记录见 [旧路径重建清单](../../exact_qdao_slices/manifest_native_q5.json)。功能名称和客户端路由仍由真实业务确定。
 
 ## 验证与预览
 

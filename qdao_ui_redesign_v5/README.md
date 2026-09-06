@@ -1,6 +1,6 @@
 # 五行奇谈 · UI 与场景重设计 v5
 
-日期：2026-09-06。游戏正式名称为 **五行奇谈**。本组重做登录、选服、选角、主城 HUD 和森林石桥战斗背景，并重做 33 个通用 UI 控件。统一使用玉绿、米白、暖金，以及太极、葫芦、云纹装饰；人物沿用新版 Q 道童，登录与选角同行宠物统一为灵秀 Q 版九尾狐。
+日期：2026-09-06。游戏正式名称为 **五行奇谈**。本组重做登录、选服、选角、主城 HUD、森林石桥战斗背景和战斗入场过场，并提供 39 个通用 UI 控件。统一使用玉绿、米白、暖金，以及太极、葫芦、云纹装饰；人物沿用新版 Q 道童，登录与选角同行宠物统一为灵秀 Q 版九尾狐。
 
 本组交付为**美术视觉稿、界面规范和演示文案数据**。游戏名已正式确认；服务器、角色、等级及槽位数量仍是演示内容，尚未确认生产业务。本次未接入 Unity、FairyGUI、登录服务、游戏服务器或战斗系统。
 
@@ -15,6 +15,7 @@
 | 03 选择角色 | [03_character_select_2560x1080.png](03_character_select_2560x1080.png) | [来源图](source/03_character_select.png) · [提示词](source/03_character_select.prompt.txt) |
 | 04 主城 HUD | [04_main_city_hud_2560x1080.png](04_main_city_hud_2560x1080.png) | [合成来源图](source/04_main_city_hud.png) · [原生 SVG 构建脚本](hud/build.mjs) |
 | 05 战斗场景 | [05_battle_scene_2560x1080.png](05_battle_scene_2560x1080.png) | [来源图](source/05_battle_scene.png) · [提示词](source/05_battle_scene.prompt.txt) |
+| 06 战斗入场/加载过场 | [06_battle_entry_loading_2560x1080.png](06_battle_entry_loading_2560x1080.png) | [来源图](source/06_battle_entry_loading.png) · [提示词](source/06_battle_entry_loading.prompt.txt) |
 
 标准导出目标为 2560 × 1080；来源图的原生尺寸以 [manifest.json](manifest.json) 的实际记录为准。导出由 [export_ui.py](export_ui.py) 完成，需要尺寸适配时使用等比 cover 和重采样。导出尺寸不代表原生生成分辨率；具体原图、裁切与导出情况以清单为准。
 
@@ -42,7 +43,7 @@
 
 ## 通用控件与主城透明 HUD
 
-本轮完成五张视觉稿，以及 **33 个 SVG、33 个 PNG 通用控件**。控件源文件、三态与九宫格说明见 [通用控件文档](components/README.md)，目录索引见 [组件清单](components/manifest.json)。
+本轮共有六张标准视觉稿，以及 **39 个 SVG、39 个 PNG 通用控件**。控件源文件、三态与九宫格说明见 [通用控件文档](components/README.md)，目录索引见 [组件清单](components/manifest.json)。
 
 主城 HUD 使用本地原生 SVG 构建，不是 AI 生图，也没有 `source/04_main_city_hud.prompt.txt`。它复用 v4 场景预览并叠加按钮；[source/04_main_city_hud.png](source/04_main_city_hud.png) 是合成效果图。可直接交接的分层资源如下：
 
@@ -56,9 +57,17 @@
 
 图片原生尺寸、导出尺寸和文件哈希见 [总清单](manifest.json)、[组件清单](components/manifest.json) 与 [HUD 排布记录](hud/placement.json)。本段记录视觉文件交付范围，不代表 Unity/FairyGUI 或按钮业务已经完成验收。
 
-## 已知剩余项
+## 战斗入场、云气与遮罩
 
-战斗入场/加载过场、六枚圆徽标尚待补齐；任务输入、文件命名和验收标准见 [后续交接](../docs/WUXING_QITAN_HANDOFF.md)。新九尾狐独立设定图见 [灵玥](pet/README.md)，为1254×1254有底静态图。
+[06战斗入场](06_battle_entry_loading_2560x1080.png) 已沿用金发带Q道童和灵玥，画面通往新版森林石桥。它是独立过场插画，无加载条、百分比或提示文字；动态进度交给客户端。原生1931×814，等比适配为2560×1080。
+
+[纯云气前景](06_battle_entry_clouds_fg_2560x1080.png) 是新版真RGBA，只保留米白玉绿暖金云气，中央透明，不含旧道童。原生1927×816 RGBA；导出保留Alpha，并清除1/255透明度量化残点。旧暗色遮罩原样复用：黑色RGB(0,0,0)、Alpha178，等效opacity=178/255。
+
+[过场清单](transition_manifest.json) 记录三旧资源的新映射/复用理由、来源哈希与合成顺序；[构建入口](build_transition.py)由export_ui.py调用。根目录旧入场、云气和战斗背景路径已输出同尺寸兼容图。
+
+六枚缺失徽标已补齐，总计十枚：太极、楼阁、莲花、山、炼丹炉、剑、水纹、罗盘、桃灵、火焰。圆徽标等比缩放，不作九宫格拉伸。原子控件与50旧切片另见[原尺寸重建](../exact_qdao_slices/README.md)，旧选服透明分层见[分层说明](../q_daoist_login_ui_uncropped_highres_final_layers/README_NATIVE_Q5.md)。
+
+全库任务与后续接入边界见[交接](../docs/WUXING_QITAN_HANDOFF.md)。
 
 ## 相关素材与历史
 
@@ -67,4 +76,4 @@
 - [历史宠物探索](../qdao_chibi_pets_v1/README.md)：保留早期三只宠物的独立素材；本组登录与选角已改用九尾狐。
 - [AI 设计工具安装与交接](../docs/AI_DESIGN_TOOLS_SETUP.md)：其他电脑所需 Skills、MCP 和运行时安装说明。
 
-历史登录图片、v1/v3 定调图和 v4 素材保留原文件。本组未修改工具安装记录或 MCP 启用状态。
+v1/v3 已确认定调图和 v4 素材保留；旧登录兼容路径已按本轮授权更新为新版Q素材。本组未修改工具安装记录或 MCP 启用状态。
