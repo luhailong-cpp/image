@@ -30,3 +30,7 @@
 以上原图保留不变。主城 v1 为场景定调插画；人物 v3 为浅米色背景的单人物定调稿。原生尺寸和后续素材拆分要求见 [美术定调文档](docs/QDAO_ART_DIRECTION.md)。
 
 原登录素材说明见 [q_daoist_login_notes.md](q_daoist_login_notes.md)。
+
+## 道家 Q 版宠物
+
+新增 [三只宠物与命名说明](qdao_chibi_pets_v1/README.md)：葫芦灵狐 **葫团团**、符箓虎崽 **符小虎**、云游小仙鹤 **云啾啾**。每只包含独立图片、完整提示词和制作记录。
