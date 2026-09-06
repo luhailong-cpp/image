@@ -1,14 +1,33 @@
-# 道家 Q 版游戏美术
+# 五行奇谈 · Q 版游戏美术
 
-本仓库保存道家 Q 版游戏的界面、场景和人物素材。新增美术沿用青绿山水、玉色屋瓦、暖金装饰、太极与葫芦元素。
+本仓库保存“五行奇谈”的道家 Q 版界面、场景和人物素材。新增美术沿用青绿山水、玉色屋瓦、暖金装饰、太极与葫芦元素。
 
 ## 给接手的 Codex
+
+**开新窗口继续制作时，先阅读 [五行奇谈后续交接](docs/WUXING_QITAN_HANDOFF.md)**，其中列出剩余任务、所需输入与执行顺序。
 
 需要在另一台电脑安装或补齐工具时，先阅读 [AI 设计工具安装与交接](docs/AI_DESIGN_TOOLS_SETUP.md)。文档列出 9 个 Skills、4 个 MCP、固定版本、安装命令、必要路径适配和验证步骤；安装程序仍需在当前用户环境执行。
 
 制作新素材前，阅读 [主城与人物美术定调](docs/QDAO_ART_DIRECTION.md)，查看指定参考图、版本记录与图旁提示词。需要使用标准宽屏背景、透明人物或重建导出时，阅读 [v4 素材包说明](qdao_chibi_game_pack_v4/README.md)。保留已经被客户端使用的旧图；新增版本后再按实际接入任务替换。
 
-## 最新素材包：v4
+## 最新界面重设计：v5
+
+2026-09-06：正式游戏名确定为“五行奇谈”；重做登录、选服、选角、主城 HUD、森林石桥战斗背景和通用控件，登录与选角统一使用灵秀 Q 版九尾狐。入口见 [v5 UI 交付说明](qdao_ui_redesign_v5/README.md)。
+
+| 页面 | 视觉稿 |
+|---|---|
+| 登录 | [01_login_2560x1080.png](qdao_ui_redesign_v5/01_login_2560x1080.png) |
+| 选择服务器 | [02_server_select_2560x1080.png](qdao_ui_redesign_v5/02_server_select_2560x1080.png) |
+| 选择角色 | [03_character_select_2560x1080.png](qdao_ui_redesign_v5/03_character_select_2560x1080.png) |
+| 主城 HUD | [04_main_city_hud_2560x1080.png](qdao_ui_redesign_v5/04_main_city_hud_2560x1080.png) |
+| 森林石桥战斗背景 | [05_battle_scene_2560x1080.png](qdao_ui_redesign_v5/05_battle_scene_2560x1080.png) |
+| 九尾狐灵玥 | [独立设定图与命名](qdao_ui_redesign_v5/pet/README.md) |
+| 通用 UI 控件 | [组件资源与状态说明](qdao_ui_redesign_v5/components/README.md) |
+| 主城透明 HUD 图层 | [无字皮肤、完整 HUD 与排布记录](qdao_ui_redesign_v5/hud/README.md) |
+
+接手实现先读 [UI 规范](qdao_ui_redesign_v5/UI_SPEC.md)，文案以 [中文 JSON](qdao_ui_redesign_v5/copy.zh-CN.json) 为准，动态文字由客户端原生绘制。游戏名已经确认；区服、角色和槽位仍为演示数据。本轮完成五张视觉稿与 33 个 SVG、33 个 PNG 通用控件。主城 HUD 用原生 SVG 在 v4 场景预览上重做“战斗”“观战”“角色”三个入口，提供独立透明图层；战斗场景为静态背景。未接入 Unity、FairyGUI、登录/区服或战斗系统。原生尺寸与标准导出情况见包内清单。
+
+## 游戏素材包：v4
 
 2026-09-06：基于主城 v1 与人物 v3 的定调，补充可单独使用的背景和透明人物，并提供排布预览与本地重建记录。
 
@@ -31,6 +50,6 @@
 
 原登录素材说明见 [q_daoist_login_notes.md](q_daoist_login_notes.md)。
 
-## 道家 Q 版宠物
+## 历史宠物探索
 
-新增 [三只宠物与命名说明](qdao_chibi_pets_v1/README.md)：葫芦灵狐 **葫团团**、符箓虎崽 **符小虎**、云游小仙鹤 **云啾啾**。每只包含独立图片、完整提示词和制作记录。
+保留 [三只宠物与命名说明](qdao_chibi_pets_v1/README.md)：葫芦灵狐 **葫团团**、符箓虎崽 **符小虎**、云游小仙鹤 **云啾啾**。每只包含独立图片、完整提示词和制作记录。v5 登录与选角已改用九尾狐，早期宠物素材作为历史探索保留。
