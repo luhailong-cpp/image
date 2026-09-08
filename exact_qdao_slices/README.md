@@ -1,8 +1,8 @@
 # 五行奇谈 · 旧路径 UI 原尺寸重建
 
-本批已在原文件路径重做全部 **50 张 exact 切片** 与 **11 个原子控件**，补齐旧清单缺失的 **10 枚 420 × 420 圆徽标**，并增加 `icon_leaf.png` 作为桃灵兼容别名；原徽标母图保持 **1774 × 887**，现为真 RGBA。合计 **73 个 PNG + 73 个 SVG 源文件**。未生成额外过程 PNG。
+本批已在原文件路径重做全部 **50 张 exact 切片** 与 **11 个原子控件**，补齐旧清单缺失的 **10 枚 420 × 420 圆徽标**，并增加 `icon_leaf.png` 作为桃灵兼容别名；原徽标母图保持 **1774 × 887**，现为真 RGBA。合计 **73 个 PNG + 73 个 SVG 源文件**。v7 母图和可复现中间图保存在 [v7 UI](../qdao_gpt_image2_refresh_v7/ui/README.md)。
 
-[完整逐件映射](manifest_native_q5.json) 记录每件原尺寸、原哈希、用途、源 SVG、新哈希和九宫格合同；[验证记录](validation_native_q5.json) 记录 73 件 XML、尺寸、透明边角与 11 项旧导入合同。SVG 在各交付目录的 `svg_q5/`，均为无字原生几何。
+[完整逐件映射](manifest_native_q5.json) 记录每件原尺寸、原哈希、用途、源 SVG、新哈希和九宫格合同；[验证记录](validation_native_q5.json) 记录 73 件 XML、尺寸、透明边角与 11 项旧导入合同。SVG 在各交付目录的 `svg_q5/`，均为无动态文字的便携 SVG 包装，内嵌本轮 image_gen 新绘制并适配的 PNG。
 
 ## 拆层与使用
 
@@ -23,11 +23,11 @@
 
 ## 重建与检查
 
-在仓库根目录运行（Node 22+，已有 Sharp）：
+先运行 `python qdao_gpt_image2_refresh_v7/ui/prepare_assets.py` 裁切本轮母图，再在仓库根目录运行（Node 22+，已有 Sharp）：
 
 ```powershell
 node exact_qdao_slices/build_native_q5.mjs --sharp '<已安装 node_modules>/sharp'
 node exact_qdao_slices/build_native_q5.mjs --check --sharp '<已安装 node_modules>/sharp'
 ```
 
-构建只写本目录和旧原子控件目录；不会碰 124 件物件、FairyGUI、未知客户端或 v5 已完成五张标准画面。v5 圆徽标与花饰 SVG 是重建依赖。检查完成代表美术文件合格，不代表已经进游戏。
+构建只写本目录和旧原子控件目录；不会碰 124 件物件、FairyGUI、未知客户端或 v5 已完成五张标准画面。本轮 source-map 与 derived/legacy 固定尺寸 AI 皮肤是重建依赖；SVG 内的位图不是原生矢量几何。检查完成代表美术文件合格，不代表已经进游戏。

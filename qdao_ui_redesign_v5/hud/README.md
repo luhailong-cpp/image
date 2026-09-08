@@ -2,7 +2,7 @@
 
 历史诊断截图已按本轮清理要求删除，三个入口的布局数据仍保存在本包。
 
-本交付仅重做基线 `60134a6` 主城诊断截图右侧的 **战斗 / 观战 / 角色** 三个入口。使用 [v4 主城人物预览](../../qdao_chibi_game_pack_v4/preview-main-city_2560x1080.png)作为不可变背景，复用 [通用组件 primary_button_normal](../components/svg/primary_button_normal.svg)；没有重绘场景、改动人物或增加未确认功能。
+本交付仅重做基线 `60134a6` 主城诊断截图右侧的 **战斗 / 观战 / 角色** 三个入口。使用 [v4 主城人物预览](../../qdao_chibi_game_pack_v4/preview-main-city_2560x1080.png)作为本次组合的背景来源，复用 [通用组件 primary_button_normal](../components/svg/primary_button_normal.svg)；v7 背景、人物和按钮均取自本轮新 AI 美术；三个入口的位置和独立文字层保留。组合步骤本身不再修改背景来源像素。
 
 查看 [分层网页预览](preview.html) 或 [完整画面 PNG](../source/04_main_city_hud.png)。画布均为 **2560 × 1080**。
 

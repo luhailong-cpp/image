@@ -1,188 +1,702 @@
 {
   "passed": true,
-  "date": "2026-09-06",
+  "date": "2026-09-07",
   "count": 12,
+  "v7_ui_validation": "../qdao_gpt_image2_refresh_v7/ui/validation.json",
+  "compositions": [
+    {
+      "size": [
+        5120,
+        2160
+      ],
+      "alpha_over_max_channel_error": 1,
+      "passed": true,
+      "note": "Pillow reference vs Sharp/libvips compositor; rounding tolerance <=2/255."
+    },
+    {
+      "size": [
+        10240,
+        4320
+      ],
+      "alpha_over_max_channel_error": 1,
+      "passed": true,
+      "note": "Pillow reference vs Sharp/libvips compositor; rounding tolerance <=2/255."
+    }
+  ],
   "checks": [
     {
-      "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_background_ui_uncropped_final_5120x2160.png",
-      "dimensions": [
-        5120,
-        2160
-      ],
-      "mode": "RGBA",
-      "alpha_range": [
-        0,
-        255
-      ],
-      "sha256_matches": true
-    },
-    {
-      "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_buttons_uncropped_final_5120x2160.png",
-      "dimensions": [
-        5120,
-        2160
-      ],
-      "mode": "RGBA",
-      "alpha_range": [
-        0,
-        255
-      ],
-      "sha256_matches": true
-    },
-    {
-      "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_ui_uncropped_final_recomposed_5120x2160.png",
-      "dimensions": [
-        5120,
-        2160
-      ],
-      "mode": "RGBA",
-      "alpha_range": [
-        0,
-        255
-      ],
-      "sha256_matches": true
-    },
-    {
-      "path": "q_daoist_login_ui_lidazui_headband_v2_5120x2160.png",
-      "dimensions": [
-        5120,
-        2160
-      ],
-      "mode": "RGBA",
-      "alpha_range": [
-        0,
-        255
-      ],
-      "sha256_matches": true
-    },
-    {
-      "path": "q_daoist_login_ui_redrawn_transparent_5120x2160.png",
-      "dimensions": [
-        5120,
-        2160
-      ],
-      "mode": "RGBA",
-      "alpha_range": [
-        0,
-        255
-      ],
-      "sha256_matches": true
-    },
-    {
-      "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_background_ui_uncropped_final_10240x4320.png",
-      "dimensions": [
-        10240,
-        4320
-      ],
-      "mode": "RGBA",
-      "alpha_range": [
-        0,
-        255
-      ],
-      "sha256_matches": true
-    },
-    {
-      "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_buttons_uncropped_final_10240x4320.png",
-      "dimensions": [
-        10240,
-        4320
-      ],
-      "mode": "RGBA",
-      "alpha_range": [
-        0,
-        255
-      ],
-      "sha256_matches": true
-    },
-    {
-      "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_ui_uncropped_final_recomposed_10240x4320.png",
-      "dimensions": [
-        10240,
-        4320
-      ],
-      "mode": "RGBA",
-      "alpha_range": [
-        0,
-        255
-      ],
-      "sha256_matches": true
-    },
-    {
       "path": "q_daoist_login_clear_2560x1080.png",
-      "dimensions": [
+      "old_sha256": "0c51a549f91fd5badc35f2415fbfd9b4be8648d2389e57f3dbdcce0a3b6cd2e7",
+      "new_sha256": "9a095557d15550c53894ca694e6866d4d36331f428ee63138d0b8a622cfe1378",
+      "changed": true,
+      "original_size": [
+        2560,
+        1080
+      ],
+      "category": "legacy_screen_layers_and_compat",
+      "size": [
         2560,
         1080
       ],
       "mode": "RGB",
       "alpha_range": null,
-      "sha256_matches": true
+      "canvas_preserved": true,
+      "mode_preserved": true,
+      "derivation": "New v7 AI UI components assembled under preserved layout; labels remain separate true-value text. Scene/hero compatibility outputs are transitive v7 dependencies where present.",
+      "source_components": "qdao_ui_redesign_v5/components/manifest.json",
+      "composition_manifest": "q_daoist_login_ui_uncropped_highres_final_layers/manifest_native_q5.json",
+      "status": "redrawn_from_new_ai_artwork",
+      "tool": "built-in image_gen plus deterministic local derivative processing",
+      "native_sources": [
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-skins-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "e559694998f632ed6bcfb2817e30b2ff124ca7ea71dde425c45f56352bafd3bf"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-emblems-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "5b20f2a549793dc5e04a2f98c8437efe81aa587f169df5ae1f9311e0914a0411"
+        }
+      ]
     },
     {
       "path": "q_daoist_login_clear_lidazui_headband_2560x1080.png",
-      "dimensions": [
+      "old_sha256": "0c51a549f91fd5badc35f2415fbfd9b4be8648d2389e57f3dbdcce0a3b6cd2e7",
+      "new_sha256": "9a095557d15550c53894ca694e6866d4d36331f428ee63138d0b8a622cfe1378",
+      "changed": true,
+      "original_size": [
+        2560,
+        1080
+      ],
+      "category": "legacy_screen_layers_and_compat",
+      "size": [
         2560,
         1080
       ],
       "mode": "RGB",
       "alpha_range": null,
-      "sha256_matches": true
+      "canvas_preserved": true,
+      "mode_preserved": true,
+      "derivation": "New v7 AI UI components assembled under preserved layout; labels remain separate true-value text. Scene/hero compatibility outputs are transitive v7 dependencies where present.",
+      "source_components": "qdao_ui_redesign_v5/components/manifest.json",
+      "composition_manifest": "q_daoist_login_ui_uncropped_highres_final_layers/manifest_native_q5.json",
+      "status": "redrawn_from_new_ai_artwork",
+      "tool": "built-in image_gen plus deterministic local derivative processing",
+      "native_sources": [
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-skins-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "e559694998f632ed6bcfb2817e30b2ff124ca7ea71dde425c45f56352bafd3bf"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-emblems-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "5b20f2a549793dc5e04a2f98c8437efe81aa587f169df5ae1f9311e0914a0411"
+        }
+      ]
     },
     {
-      "path": "ugui_qdao_headband_2560x1080.png",
-      "dimensions": [
-        2560,
-        1080
+      "path": "q_daoist_login_ui_lidazui_headband_v2_5120x2160.png",
+      "old_sha256": "84165228ff7e1e40948aefe7867645f39ccfeb998d19612ee8bc25fd44d0596d",
+      "new_sha256": "262a649a2f23caefd8c63944223ea267fe5881ceba04afcf61f6430ff0bdb3a6",
+      "changed": true,
+      "original_size": [
+        5120,
+        2160
       ],
-      "mode": "RGB",
-      "alpha_range": null,
-      "sha256_matches": true
-    },
-    {
-      "path": "ugui_qdao_headband_native_2560x1080.png",
-      "dimensions": [
-        2560,
-        1080
-      ],
-      "mode": "RGB",
-      "alpha_range": null,
-      "sha256_matches": true
-    }
-  ],
-  "layer_recomposition": [
-    {
+      "category": "legacy_screen_layers_and_compat",
       "size": [
         5120,
         2160
       ],
-      "png_bytes_match": true,
-      "base": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_background_ui_uncropped_final_5120x2160.png",
-      "controls": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_buttons_uncropped_final_5120x2160.png",
-      "combined": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_ui_uncropped_final_recomposed_5120x2160.png"
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "canvas_preserved": true,
+      "mode_preserved": true,
+      "transparent_corners": true,
+      "alpha_preserved": true,
+      "derivation": "New v7 AI UI components assembled under preserved layout; labels remain separate true-value text. Scene/hero compatibility outputs are transitive v7 dependencies where present.",
+      "source_components": "qdao_ui_redesign_v5/components/manifest.json",
+      "composition_manifest": "q_daoist_login_ui_uncropped_highres_final_layers/manifest_native_q5.json",
+      "status": "redrawn_from_new_ai_artwork",
+      "tool": "built-in image_gen plus deterministic local derivative processing",
+      "native_sources": [
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-skins-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "e559694998f632ed6bcfb2817e30b2ff124ca7ea71dde425c45f56352bafd3bf"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-emblems-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "5b20f2a549793dc5e04a2f98c8437efe81aa587f169df5ae1f9311e0914a0411"
+        }
+      ]
     },
     {
+      "path": "q_daoist_login_ui_redrawn_transparent_5120x2160.png",
+      "old_sha256": "84165228ff7e1e40948aefe7867645f39ccfeb998d19612ee8bc25fd44d0596d",
+      "new_sha256": "262a649a2f23caefd8c63944223ea267fe5881ceba04afcf61f6430ff0bdb3a6",
+      "changed": true,
+      "original_size": [
+        5120,
+        2160
+      ],
+      "category": "legacy_screen_layers_and_compat",
+      "size": [
+        5120,
+        2160
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "canvas_preserved": true,
+      "mode_preserved": true,
+      "transparent_corners": true,
+      "alpha_preserved": true,
+      "derivation": "New v7 AI UI components assembled under preserved layout; labels remain separate true-value text. Scene/hero compatibility outputs are transitive v7 dependencies where present.",
+      "source_components": "qdao_ui_redesign_v5/components/manifest.json",
+      "composition_manifest": "q_daoist_login_ui_uncropped_highres_final_layers/manifest_native_q5.json",
+      "status": "redrawn_from_new_ai_artwork",
+      "tool": "built-in image_gen plus deterministic local derivative processing",
+      "native_sources": [
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-skins-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "e559694998f632ed6bcfb2817e30b2ff124ca7ea71dde425c45f56352bafd3bf"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-emblems-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "5b20f2a549793dc5e04a2f98c8437efe81aa587f169df5ae1f9311e0914a0411"
+        }
+      ]
+    },
+    {
+      "path": "q_daoist_login_ui_uncropped_highres_final_layers/native_q5/base.svg",
+      "old_sha256": "21f7254d181ceaf5d2007ab1381b6876a38decceb7b9067bc76f3391c89d663d",
+      "new_sha256": "c79635b3e07ebf5d5d79d866d4eb50bed3c5d11584c76419d249e6dafabb0fce",
+      "changed": true,
+      "original_size": [
+        2560,
+        1080
+      ],
+      "category": "legacy_screen_layers_and_compat",
+      "size": [
+        2560,
+        1080
+      ],
+      "viewBox": "0 0 2560 1080",
+      "canvas_preserved": true,
+      "portable_embedded_images": true,
+      "no_scripts": true,
+      "text_nodes": 0,
+      "derivation": "New v7 AI UI components assembled under preserved layout; labels remain separate true-value text. Scene/hero compatibility outputs are transitive v7 dependencies where present.",
+      "source_components": "qdao_ui_redesign_v5/components/manifest.json",
+      "composition_manifest": "q_daoist_login_ui_uncropped_highres_final_layers/manifest_native_q5.json",
+      "status": "redrawn_from_new_ai_artwork",
+      "tool": "built-in image_gen plus deterministic local derivative processing",
+      "native_sources": [
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-skins-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "e559694998f632ed6bcfb2817e30b2ff124ca7ea71dde425c45f56352bafd3bf"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-emblems-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "5b20f2a549793dc5e04a2f98c8437efe81aa587f169df5ae1f9311e0914a0411"
+        }
+      ]
+    },
+    {
+      "path": "q_daoist_login_ui_uncropped_highres_final_layers/native_q5/controls.svg",
+      "old_sha256": "047c50767a5cbbb52f3ead0b9804446b743e9e4e0e6fad116d48fee69fbb005e",
+      "new_sha256": "07472c5ad3e94dcd1b1da792bbaad05e6aa998db9a266588b5d2ed3529b52eac",
+      "changed": true,
+      "original_size": [
+        2560,
+        1080
+      ],
+      "category": "legacy_screen_layers_and_compat",
+      "size": [
+        2560,
+        1080
+      ],
+      "viewBox": "0 0 2560 1080",
+      "canvas_preserved": true,
+      "portable_embedded_images": true,
+      "no_scripts": true,
+      "text_nodes": 0,
+      "derivation": "New v7 AI UI components assembled under preserved layout; labels remain separate true-value text. Scene/hero compatibility outputs are transitive v7 dependencies where present.",
+      "source_components": "qdao_ui_redesign_v5/components/manifest.json",
+      "composition_manifest": "q_daoist_login_ui_uncropped_highres_final_layers/manifest_native_q5.json",
+      "status": "redrawn_from_new_ai_artwork",
+      "tool": "built-in image_gen plus deterministic local derivative processing",
+      "native_sources": [
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-skins-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "e559694998f632ed6bcfb2817e30b2ff124ca7ea71dde425c45f56352bafd3bf"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-emblems-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "5b20f2a549793dc5e04a2f98c8437efe81aa587f169df5ae1f9311e0914a0411"
+        }
+      ]
+    },
+    {
+      "path": "q_daoist_login_ui_uncropped_highres_final_layers/native_q5/labels.svg",
+      "old_sha256": "21af6965612e74a1e7a0a014b931ccc20023231f5b5c53e55a7729b1be36e029",
+      "new_sha256": "21af6965612e74a1e7a0a014b931ccc20023231f5b5c53e55a7729b1be36e029",
+      "changed": false,
+      "original_size": [
+        2560,
+        1080
+      ],
+      "category": "legacy_screen_layers_and_compat",
+      "size": [
+        2560,
+        1080
+      ],
+      "viewBox": "0 0 2560 1080",
+      "canvas_preserved": true,
+      "portable_embedded_images": true,
+      "no_scripts": true,
+      "text_nodes": 28,
+      "derivation": "New v7 AI UI components assembled under preserved layout; labels remain separate true-value text. Scene/hero compatibility outputs are transitive v7 dependencies where present.",
+      "source_components": "qdao_ui_redesign_v5/components/manifest.json",
+      "composition_manifest": "q_daoist_login_ui_uncropped_highres_final_layers/manifest_native_q5.json",
+      "status": "preserved_text_data",
+      "reason": "Only approved Chinese text and layout; no painted artwork. Regenerated unchanged; not falsely attributed to AI.",
+      "tool": "built-in image_gen plus deterministic local derivative processing",
+      "native_sources": [
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-skins-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "e559694998f632ed6bcfb2817e30b2ff124ca7ea71dde425c45f56352bafd3bf"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-emblems-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "5b20f2a549793dc5e04a2f98c8437efe81aa587f169df5ae1f9311e0914a0411"
+        }
+      ]
+    },
+    {
+      "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_background_ui_uncropped_final_10240x4320.png",
+      "old_sha256": "2db6fb1e4b71f2fb05327d88f4e9dbe034bc2021dea38579a42c1e81d050bd6f",
+      "new_sha256": "0ce9c2d91c6e0289416285172ba57cf17ab1d84ae189748a14b012686c36ab85",
+      "changed": true,
+      "original_size": [
+        10240,
+        4320
+      ],
+      "category": "legacy_screen_layers_and_compat",
       "size": [
         10240,
         4320
       ],
-      "png_bytes_match": true,
-      "base": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_background_ui_uncropped_final_10240x4320.png",
-      "controls": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_buttons_uncropped_final_10240x4320.png",
-      "combined": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_ui_uncropped_final_recomposed_10240x4320.png"
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "canvas_preserved": true,
+      "mode_preserved": true,
+      "transparent_corners": true,
+      "alpha_preserved": true,
+      "derivation": "New v7 AI UI components assembled under preserved layout; labels remain separate true-value text. Scene/hero compatibility outputs are transitive v7 dependencies where present.",
+      "source_components": "qdao_ui_redesign_v5/components/manifest.json",
+      "composition_manifest": "q_daoist_login_ui_uncropped_highres_final_layers/manifest_native_q5.json",
+      "status": "redrawn_from_new_ai_artwork",
+      "tool": "built-in image_gen plus deterministic local derivative processing",
+      "native_sources": [
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-skins-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "e559694998f632ed6bcfb2817e30b2ff124ca7ea71dde425c45f56352bafd3bf"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-emblems-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "5b20f2a549793dc5e04a2f98c8437efe81aa587f169df5ae1f9311e0914a0411"
+        }
+      ]
+    },
+    {
+      "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_background_ui_uncropped_final_5120x2160.png",
+      "old_sha256": "c60899445102249178edc676cbad22586223f03e3621f546c5ceeca348455509",
+      "new_sha256": "4d838b0e8952cb2870a2f0c410d48021c8b746dd36ec11705c5f8d26ed86d26f",
+      "changed": true,
+      "original_size": [
+        5120,
+        2160
+      ],
+      "category": "legacy_screen_layers_and_compat",
+      "size": [
+        5120,
+        2160
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "canvas_preserved": true,
+      "mode_preserved": true,
+      "transparent_corners": true,
+      "alpha_preserved": true,
+      "derivation": "New v7 AI UI components assembled under preserved layout; labels remain separate true-value text. Scene/hero compatibility outputs are transitive v7 dependencies where present.",
+      "source_components": "qdao_ui_redesign_v5/components/manifest.json",
+      "composition_manifest": "q_daoist_login_ui_uncropped_highres_final_layers/manifest_native_q5.json",
+      "status": "redrawn_from_new_ai_artwork",
+      "tool": "built-in image_gen plus deterministic local derivative processing",
+      "native_sources": [
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-skins-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "e559694998f632ed6bcfb2817e30b2ff124ca7ea71dde425c45f56352bafd3bf"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-emblems-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "5b20f2a549793dc5e04a2f98c8437efe81aa587f169df5ae1f9311e0914a0411"
+        }
+      ]
+    },
+    {
+      "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_buttons_uncropped_final_10240x4320.png",
+      "old_sha256": "98cc38d6b84f58d571a6a4ffc98e5df37dfadbdfa4205281ca7c9f63662b2dd1",
+      "new_sha256": "dddabe5659d6e56adb001b314c00a74233fe790b8a2172d1a887be78d9f9c902",
+      "changed": true,
+      "original_size": [
+        10240,
+        4320
+      ],
+      "category": "legacy_screen_layers_and_compat",
+      "size": [
+        10240,
+        4320
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "canvas_preserved": true,
+      "mode_preserved": true,
+      "transparent_corners": true,
+      "alpha_preserved": true,
+      "derivation": "New v7 AI UI components assembled under preserved layout; labels remain separate true-value text. Scene/hero compatibility outputs are transitive v7 dependencies where present.",
+      "source_components": "qdao_ui_redesign_v5/components/manifest.json",
+      "composition_manifest": "q_daoist_login_ui_uncropped_highres_final_layers/manifest_native_q5.json",
+      "status": "redrawn_from_new_ai_artwork",
+      "tool": "built-in image_gen plus deterministic local derivative processing",
+      "native_sources": [
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-skins-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "e559694998f632ed6bcfb2817e30b2ff124ca7ea71dde425c45f56352bafd3bf"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-emblems-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "5b20f2a549793dc5e04a2f98c8437efe81aa587f169df5ae1f9311e0914a0411"
+        }
+      ]
+    },
+    {
+      "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_buttons_uncropped_final_5120x2160.png",
+      "old_sha256": "2358a019b010d0532d2fda5e7005a8df6e7d72243aea63e31f0209365ee34538",
+      "new_sha256": "02a8e72b71c2a963fe711cdcdad1d85a69459839aa73c36f5c759b628821a70f",
+      "changed": true,
+      "original_size": [
+        5120,
+        2160
+      ],
+      "category": "legacy_screen_layers_and_compat",
+      "size": [
+        5120,
+        2160
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "canvas_preserved": true,
+      "mode_preserved": true,
+      "transparent_corners": true,
+      "alpha_preserved": true,
+      "derivation": "New v7 AI UI components assembled under preserved layout; labels remain separate true-value text. Scene/hero compatibility outputs are transitive v7 dependencies where present.",
+      "source_components": "qdao_ui_redesign_v5/components/manifest.json",
+      "composition_manifest": "q_daoist_login_ui_uncropped_highres_final_layers/manifest_native_q5.json",
+      "status": "redrawn_from_new_ai_artwork",
+      "tool": "built-in image_gen plus deterministic local derivative processing",
+      "native_sources": [
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-skins-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "e559694998f632ed6bcfb2817e30b2ff124ca7ea71dde425c45f56352bafd3bf"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-emblems-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "5b20f2a549793dc5e04a2f98c8437efe81aa587f169df5ae1f9311e0914a0411"
+        }
+      ]
+    },
+    {
+      "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_ui_uncropped_final_recomposed_10240x4320.png",
+      "old_sha256": "10602cbe2bf706bfc76c3cbcc932936e39d9fcb5f47e4c648f673ea42cd7d9d3",
+      "new_sha256": "d9c8ba71aa08bc18a006c0c94629a6e716df6b4c26ea0d4c9bfd721c2b7461c5",
+      "changed": true,
+      "original_size": [
+        10240,
+        4320
+      ],
+      "category": "legacy_screen_layers_and_compat",
+      "size": [
+        10240,
+        4320
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "canvas_preserved": true,
+      "mode_preserved": true,
+      "transparent_corners": true,
+      "alpha_preserved": true,
+      "derivation": "New v7 AI UI components assembled under preserved layout; labels remain separate true-value text. Scene/hero compatibility outputs are transitive v7 dependencies where present.",
+      "source_components": "qdao_ui_redesign_v5/components/manifest.json",
+      "composition_manifest": "q_daoist_login_ui_uncropped_highres_final_layers/manifest_native_q5.json",
+      "status": "redrawn_from_new_ai_artwork",
+      "tool": "built-in image_gen plus deterministic local derivative processing",
+      "native_sources": [
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-skins-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "e559694998f632ed6bcfb2817e30b2ff124ca7ea71dde425c45f56352bafd3bf"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-emblems-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "5b20f2a549793dc5e04a2f98c8437efe81aa587f169df5ae1f9311e0914a0411"
+        }
+      ]
+    },
+    {
+      "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_ui_uncropped_final_recomposed_5120x2160.png",
+      "old_sha256": "84165228ff7e1e40948aefe7867645f39ccfeb998d19612ee8bc25fd44d0596d",
+      "new_sha256": "262a649a2f23caefd8c63944223ea267fe5881ceba04afcf61f6430ff0bdb3a6",
+      "changed": true,
+      "original_size": [
+        5120,
+        2160
+      ],
+      "category": "legacy_screen_layers_and_compat",
+      "size": [
+        5120,
+        2160
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "canvas_preserved": true,
+      "mode_preserved": true,
+      "transparent_corners": true,
+      "alpha_preserved": true,
+      "derivation": "New v7 AI UI components assembled under preserved layout; labels remain separate true-value text. Scene/hero compatibility outputs are transitive v7 dependencies where present.",
+      "source_components": "qdao_ui_redesign_v5/components/manifest.json",
+      "composition_manifest": "q_daoist_login_ui_uncropped_highres_final_layers/manifest_native_q5.json",
+      "status": "redrawn_from_new_ai_artwork",
+      "tool": "built-in image_gen plus deterministic local derivative processing",
+      "native_sources": [
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-skins-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "e559694998f632ed6bcfb2817e30b2ff124ca7ea71dde425c45f56352bafd3bf"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-emblems-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "5b20f2a549793dc5e04a2f98c8437efe81aa587f169df5ae1f9311e0914a0411"
+        }
+      ]
+    },
+    {
+      "path": "ugui_qdao_headband_2560x1080.png",
+      "old_sha256": "0c51a549f91fd5badc35f2415fbfd9b4be8648d2389e57f3dbdcce0a3b6cd2e7",
+      "new_sha256": "9a095557d15550c53894ca694e6866d4d36331f428ee63138d0b8a622cfe1378",
+      "changed": true,
+      "original_size": [
+        2560,
+        1080
+      ],
+      "category": "legacy_screen_layers_and_compat",
+      "size": [
+        2560,
+        1080
+      ],
+      "mode": "RGB",
+      "alpha_range": null,
+      "canvas_preserved": true,
+      "mode_preserved": true,
+      "derivation": "New v7 AI UI components assembled under preserved layout; labels remain separate true-value text. Scene/hero compatibility outputs are transitive v7 dependencies where present.",
+      "source_components": "qdao_ui_redesign_v5/components/manifest.json",
+      "composition_manifest": "q_daoist_login_ui_uncropped_highres_final_layers/manifest_native_q5.json",
+      "status": "redrawn_from_new_ai_artwork",
+      "tool": "built-in image_gen plus deterministic local derivative processing",
+      "native_sources": [
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-skins-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "e559694998f632ed6bcfb2817e30b2ff124ca7ea71dde425c45f56352bafd3bf"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-emblems-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "5b20f2a549793dc5e04a2f98c8437efe81aa587f169df5ae1f9311e0914a0411"
+        }
+      ]
+    },
+    {
+      "path": "ugui_qdao_headband_native_2560x1080.png",
+      "old_sha256": "0c51a549f91fd5badc35f2415fbfd9b4be8648d2389e57f3dbdcce0a3b6cd2e7",
+      "new_sha256": "9a095557d15550c53894ca694e6866d4d36331f428ee63138d0b8a622cfe1378",
+      "changed": true,
+      "original_size": [
+        2560,
+        1080
+      ],
+      "category": "legacy_screen_layers_and_compat",
+      "size": [
+        2560,
+        1080
+      ],
+      "mode": "RGB",
+      "alpha_range": null,
+      "canvas_preserved": true,
+      "mode_preserved": true,
+      "derivation": "New v7 AI UI components assembled under preserved layout; labels remain separate true-value text. Scene/hero compatibility outputs are transitive v7 dependencies where present.",
+      "source_components": "qdao_ui_redesign_v5/components/manifest.json",
+      "composition_manifest": "q_daoist_login_ui_uncropped_highres_final_layers/manifest_native_q5.json",
+      "status": "redrawn_from_new_ai_artwork",
+      "tool": "built-in image_gen plus deterministic local derivative processing",
+      "native_sources": [
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-skins-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "e559694998f632ed6bcfb2817e30b2ff124ca7ea71dde425c45f56352bafd3bf"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-emblems-native.png",
+          "size": [
+            1254,
+            1254
+          ],
+          "sha256": "5b20f2a549793dc5e04a2f98c8437efe81aa587f169df5ae1f9311e0914a0411"
+        }
+      ]
     }
-  ],
-  "root_rgba_aliases_identical": true,
-  "integer_patch_seam_check": {
-    "sample_x": [
-      445,
-      451
-    ],
-    "y": 430,
-    "uniform_rgb": [
-      251,
-      245,
-      228
-    ]
-  },
-  "visual_review": "Viewed final RGB server-selection screen and both high-resolution transparent layers. New Q hero is complete; all eight server names and existing category/status/selection/action labels match the copy JSON. Rebuilt integer-aligned patches remove visible dark seams.",
-  "client_integration_verified": false
+  ]
 }

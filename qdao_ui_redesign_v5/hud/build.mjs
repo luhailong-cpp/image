@@ -1,5 +1,17 @@
 /** 五行奇谈 · 主城三入口 HUD. Only writes hud/* and source/04_main_city_hud.png. */
 import fs from 'node:fs/promises';
+// Windows viewers can briefly hold a generated asset while it is refreshed.
+const rawWriteFile = fs.writeFile.bind(fs);
+fs.writeFile = async (...params) => {
+  for (let attempt=0;;attempt++) {
+    try { return await rawWriteFile(...params); }
+    catch (error) {
+      if (attempt>=12 || !['UNKNOWN','EBUSY','EPERM'].includes(error.code)) throw error;
+      await new Promise(resolve=>setTimeout(resolve,250));
+    }
+  }
+};
+
 import path from 'node:path';
 import os from 'node:os';
 import crypto from 'node:crypto';
@@ -45,11 +57,11 @@ const sources = {
 };
 for (const [name, source] of Object.entries(sources)) {
   await fs.writeFile(path.join(root, `${name}.svg`), source, 'utf8');
-  await sharp(Buffer.from(source)).png({ compressionLevel: 9 }).toFile(path.join(root, `${name}.png`));
+  await fs.writeFile(path.join(root, `${name}.png`), await sharp(Buffer.from(source)).png({ compressionLevel: 9 }).toBuffer());
 }
 const overlay = await fs.readFile(path.join(root, 'hud_overlay.png'));
 const fullPath = path.resolve(root, '../source/04_main_city_hud.png');
-await sharp(background).composite([{ input: overlay, left: 0, top: 0 }]).removeAlpha().png({ compressionLevel: 9 }).toFile(fullPath);
+await fs.writeFile(fullPath, await sharp(background).composite([{ input: overlay, left: 0, top: 0 }]).removeAlpha().png({ compressionLevel: 9 }).toBuffer());
 const originalRaw = await sharp(background).removeAlpha().raw().toBuffer();
 const composedRaw = await sharp(fullPath).removeAlpha().raw().toBuffer();
 const overlayRaw = await sharp(overlay).ensureAlpha().raw().toBuffer();

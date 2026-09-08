@@ -1,5 +1,17 @@
 /** 五行奇谈 · 原生 UI 控件。 Node >= 22; PNG export requires Sharp. */
 import fs from 'node:fs/promises';
+// Windows viewers can briefly hold a generated asset while it is refreshed.
+const rawWriteFile = fs.writeFile.bind(fs);
+fs.writeFile = async (...params) => {
+  for (let attempt=0;;attempt++) {
+    try { return await rawWriteFile(...params); }
+    catch (error) {
+      if (attempt>=12 || !['UNKNOWN','EBUSY','EPERM'].includes(error.code)) throw error;
+      await new Promise(resolve=>setTimeout(resolve,250));
+    }
+  }
+};
+
 import path from 'node:path';
 import os from 'node:os';
 import { fileURLToPath } from 'node:url';
@@ -131,10 +143,17 @@ register('lock', 48, 48, lock(0, 0, 48), { category: 'lock', nine_slice: null })
 register('gold_flower', 120, 120, `<g fill="url(#gold)" stroke="#9D733B" stroke-width="1.4">${Array.from({ length: 8 }, (_, i) => `<path d="M60 55C43 42 48 21 60 12c12 9 17 30 0 43Z" transform="rotate(${i * 45} 60 60)"/>`).join('')}</g><circle cx="60" cy="60" r="19" fill="url(#jade)" stroke="#E3CA83" stroke-width="3"/><circle cx="60" cy="60" r="10" fill="url(#gold)"/><circle cx="57" cy="57" r="3" fill="#FFF5CC"/>`, { category: 'gold_flower', nine_slice: null });
 register('cloud_corner', 160, 160, `<g fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 142V54Q12 14 53 14h94" stroke="#795638" stroke-width="8" opacity=".2"/><path d="M12 136V48Q12 10 51 10h91" stroke="url(#gold)" stroke-width="6"/><path d="M23 133V51q0-29 29-29h81" stroke="#D5B36C" stroke-width="2"/><path d="M30 88h38c19 0 22-27 2-27-13 0-16 18-3 18h35c21 0 24-32 3-32-12 0-17 10-12 19" stroke="#C59645" stroke-width="4"/><path d="M42 105h55c25 0 28-27 49-27" stroke="#C59645" stroke-width="3"/><path d="M34 120h41" stroke="#C59645" stroke-width="2"/></g>`, { category: 'cloud_corner', nine_slice: null });
 
+// v7 artwork: newly generated built-in image_gen inputs, prepared at fixed dimensions.
+const aiRoot = path.resolve(root, '../../qdao_gpt_image2_refresh_v7/ui');
+const aiSourceMap = JSON.parse(await fs.readFile(path.join(aiRoot, 'source-map.json'), 'utf8'));
 for (const a of assets) {
+  const painted = await fs.readFile(path.join(aiRoot, 'derived/components', `${a.id}.png`));
+  a.body = `<image x="0" y="0" width="${a.width}" height="${a.height}" href="data:image/png;base64,${painted.toString('base64')}"/>`;
+  a.authoring = 'New built-in image_gen artwork; deterministic alpha cleanup, nine-slice layout and status placement; portable embedded PNG in SVG.';
+  a.v7_sources = aiSourceMap.derivatives[a.id];
   const source = svg(a.width, a.height, a.body, `五行奇谈 ${a.id}`);
   await fs.writeFile(path.join(root, a.svg), source, 'utf8');
-  if (sharp) await sharp(Buffer.from(source)).png({ compressionLevel: 9 }).toFile(path.join(root, a.png));
+  if (sharp) await fs.writeFile(path.join(root, a.png), await sharp(Buffer.from(source)).png({ compressionLevel: 9 }).toBuffer());
 }
 
 // An annotated review board. Labels are separate from the actual export assets.
@@ -176,7 +195,7 @@ for (const [i, a] of icons.entries()) {
 }
 const overview = svg(boardW, 2360, board, '五行奇谈 通用 UI 控件总览');
 await fs.writeFile(path.join(root, 'overview.svg'), overview, 'utf8');
-if (sharp) await sharp(Buffer.from(overview)).png({ compressionLevel: 9 }).toFile(path.join(root, 'overview.png'));
+if (sharp) await fs.writeFile(path.join(root, 'overview.png'), await sharp(Buffer.from(overview)).png({ compressionLevel: 9 }).toBuffer());
 // All ten symbols at delivery size and two small sizes; labels stay on the review sheet.
 const badgeNames = { taiji: '太极', pagoda: '楼阁', lotus: '莲花', mountain: '山', furnace: '炼丹炉', sword: '剑', water: '水纹', compass: '罗盘', peach_spirit: '桃灵', flame: '火焰' };
 const badgeLegacyNames = { taiji: 'icon_yin_yang.png', pagoda: 'icon_pagoda.png', lotus: 'icon_lotus.png', mountain: 'icon_mountain.png', furnace: 'icon_cauldron.png', sword: 'icon_sword.png', water: 'icon_water.png', compass: 'icon_compass.png', peach_spirit: 'icon_peach_spirit.png', flame: 'icon_fire.png' };
@@ -198,13 +217,14 @@ for (const [size, top, fill] of [[48, 604, '#E5E8D9'], [32, 750, '#DBE2D5']]) {
 }
 const badgeOverview = svg(1200, 880, badgeBoard, '五行奇谈 十枚圆徽标 120 / 48 / 32 px 辨识预览');
 await fs.writeFile(path.join(root, 'badges_overview.svg'), badgeOverview, 'utf8');
-if (sharp) await sharp(Buffer.from(badgeOverview)).png({ compressionLevel: 9 }).toFile(path.join(root, 'badges_overview.png'));
+if (sharp) await fs.writeFile(path.join(root, 'badges_overview.png'), await sharp(Buffer.from(badgeOverview)).png({ compressionLevel: 9 }).toBuffer());
 const html = `<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>五行奇谈 · 通用 UI 控件</title><style>body{margin:0;background:#e6e5d9;color:#344d43;font:16px/1.6 "Microsoft YaHei",sans-serif}header{padding:24px 5vw;background:#164d43;color:#fff7de;display:flex;gap:24px;align-items:center;flex-wrap:wrap}h1{font-size:24px;margin:0}a{color:#f0d492}main{max-width:1800px;margin:auto}img{display:block;width:100%;height:auto}p{margin:0}</style><header><h1>五行奇谈 · ${assets.length} 个通用 UI 控件</h1><p>总览文字仅用于检查，SVG / PNG 控件未烘焙动态文字。</p><a href="manifest.json">尺寸与九宫格</a><a href="README.md">接入说明</a><a href="badges_overview.svg">十枚徽标与小尺寸检查</a></header><main><img src="overview.svg" alt="普通、选中、不可用控件及面板、徽标、状态图标总览"></main></html>`;
 await fs.writeFile(path.join(root, 'overview.html'), html, 'utf8');
 
 const manifest = {
-  product: '五行奇谈', version: '5.2', created: '2026-09-06', asset_count: assets.length, badge_count: badges.length,
-  authoring: 'Original native SVG geometry; no source game images or dynamic text embedded.',
+  product: '五行奇谈', version: '7.0', created: '2026-09-07', asset_count: assets.length, badge_count: badges.length,
+  authoring: 'New built-in image_gen artwork, fixed-contract derivatives embedded portably in SVG. Dynamic text remains separate.',
+  ai_provenance: { source_map: '../../qdao_gpt_image2_refresh_v7/ui/source-map.json', prepare: '../../qdao_gpt_image2_refresh_v7/ui/prepare_assets.py', native_sources: aiSourceMap.native_sources, model_parameter_exposed: false, quality_parameter_exposed: false },
   badge_replacements: { legacy_directory: '../../q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic', symbols: badges.map(a => ({ legacy_file: badgeLegacyNames[a.symbol], replacement_id: a.id, meaning: badgeNames[a.symbol], svg: a.svg, png: a.png })) },
   palette, renderer: sharp ? { sharp: sharp.versions.sharp, vips: sharp.versions.vips } : null,
   states: { normal: '可用普通态', selected: '勾记、边缘标识和金色三角共同表达；不等于推荐或键盘焦点', disabled: '锁形和降低强调表达不可用；文字保持可辨，点击规则由客户端实施' },

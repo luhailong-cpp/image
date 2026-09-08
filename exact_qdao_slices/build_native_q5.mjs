@@ -1,5 +1,17 @@
 /** Rebuild legacy Q UI assets in place. Node >=22 and the existing Sharp runtime. */
 import fs from 'node:fs/promises';
+// Windows viewers can briefly hold a generated asset while it is refreshed.
+const rawWriteFile = fs.writeFile.bind(fs);
+fs.writeFile = async (...params) => {
+  for (let attempt=0;;attempt++) {
+    try { return await rawWriteFile(...params); }
+    catch (error) {
+      if (attempt>=12 || !['UNKNOWN','EBUSY','EPERM'].includes(error.code)) throw error;
+      await new Promise(resolve=>setTimeout(resolve,250));
+    }
+  }
+};
+
 import path from 'node:path';
 import os from 'node:os';
 import crypto from 'node:crypto';
@@ -59,13 +71,16 @@ async function emit(dir, file, w, h, body, info = {}, vw = w, vh = h) {
     catch(e) { if(e.code!=='ENOENT')throw e; original={existed:false,dimensions:[w,h],reason:'Previously referenced in the legacy manifest but missing from disk.'}; }
   }
   if(original.existed&&(original.dimensions[0]!==w||original.dimensions[1]!==h)) throw new Error(`Original dimensions changed: ${file}`);
+  // New v7 AI painting; logical SVG viewBox and physical canvas remain intact.
+  const painted=await fs.readFile(path.join(repo,'qdao_gpt_image2_refresh_v7/ui/derived/legacy',file));
+  body=`<image x="0" y="0" width="${vw}" height="${vh}" href="data:image/png;base64,${painted.toString('base64')}"/>`;
   const source=xml(w,h,body,file,vw,vh), svgFile=path.join(dir,'svg_q5',file.replace(/\.png$/,'.svg'));
   await fs.mkdir(path.dirname(svgFile),{recursive:true});
   await fs.writeFile(svgFile,source,'utf8');
-  await sharp(Buffer.from(source)).png({compressionLevel:9}).toFile(dest);
+  await fs.writeFile(dest, await sharp(Buffer.from(source)).png({compressionLevel:9}).toBuffer());
   const rendered=await fs.readFile(dest), meta=await sharp(rendered).metadata(), stats=await sharp(rendered).stats();
   if(meta.width!==w||meta.height!==h||!meta.hasAlpha||stats.channels[3].min!==0||stats.channels[3].max!==255) throw new Error(`RGBA validation failed: ${file}`);
-  assets.push({png:key,svg:relative(svgFile),width:w,height:h,original,authoring:'Native SVG, palette and symbols from 五行奇谈 v5 components.',dynamic_text_baked:false,alpha_range:[0,255],...info,png_sha256:hash(rendered),svg_sha256:hash(Buffer.from(source))});
+  assets.push({png:key,svg:relative(svgFile),width:w,height:h,original,authoring:'New built-in image_gen v7 artwork; alpha cleanup and fixed-border resampling; embedded portable PNG in SVG.',v7_source_map:'qdao_gpt_image2_refresh_v7/ui/source-map.json',dynamic_text_baked:false,alpha_range:[0,255],...info,png_sha256:hash(rendered),svg_sha256:hash(Buffer.from(source))});
 }
 const exactSkin = async (name,w,h,active,grid,role,search=false) => emit(exact,name,w,h,skin(w,h,active,grid,search),{role,state:active?'selected':'normal',round_badge_baked:false,status_baked:false,nine_slice:{basis:'New safe grid; no prior numeric grid exists in this asset repository.',center_xywh:grid},resize_axes:search?'horizontal':'both',fixed_height:search?h:null});
 await exactSkin('fx_top_tab_active.png',260,76,true,[48,22,164,32],'tab');
@@ -104,9 +119,9 @@ const cells=JSON.parse(await fs.readFile(path.join(atomic,'manifest_ai_qstyle_ba
 let sheet='';
 for(const [i,symbol] of Object.keys(iconNames).entries()) { const [x,y,w,h]=cells[i].source_cell; sheet+=place(badgeBodies[symbol],x+(w-328)/2,y+(h-328)/2,328,328); }
 await emit(atomic,'ai_qstyle_badges_sheet_chroma.png',1774,887,sheet,{role:'badge_sheet',symbols:Object.keys(iconNames),nine_slice:null,legacy_filename_note:'Kept for compatibility; background now has real Alpha rather than chroma green.',source_cells_preserved:true,legacy_import:{target_name:'badges_chroma_sheet_v3.png',target_size:[1024,512],scale9grid_center_xywh:null,disableTrim:true}});
-const manifest={product:'五行奇谈',version:'native-q5.2',date:'2026-09-06',asset_count:assets.length,exact_slice_count:50,atomic_control_count:11,round_symbol_count:10,round_symbol_alias_count:1,badge_sheet_count:1,renderer:{sharp:sharp.versions.sharp,vips:sharp.versions.vips},source_builder:relative(fileURLToPath(import.meta.url)),scope:'Replaces all 50 exact slices and all 11 atomic UI controls in place, fills 10 missing 420px symbols and one legacy alias, replaces the badge sheet at its original dimensions.',nine_slice_note:'Existing atomic UI_PIECES target dimensions and center xywh values are preserved exactly. Exact slices had no numeric grid metadata; new safe grids are explicitly marked. Search magnifiers keep fixed target height. Round icons, statuses, ornaments and dividers scale uniformly.',client_note:'Artwork and metadata only. No unknown client directory was read or modified. Server state meanings and dynamic text belong to the client.',assets};
+const manifest={product:'五行奇谈',version:'gpt-image2-q7',date:'2026-09-07',asset_count:assets.length,exact_slice_count:50,atomic_control_count:11,round_symbol_count:10,round_symbol_alias_count:1,badge_sheet_count:1,renderer:{sharp:sharp.versions.sharp,vips:sharp.versions.vips},source_builder:relative(fileURLToPath(import.meta.url)),scope:'Replaces all 50 exact slices and all 11 atomic UI controls in place, fills 10 missing 420px symbols and one legacy alias, replaces the badge sheet at its original dimensions.',nine_slice_note:'Existing atomic UI_PIECES target dimensions and center xywh values are preserved exactly. Exact slices had no numeric grid metadata; new safe grids are explicitly marked. Search magnifiers keep fixed target height. Round icons, statuses, ornaments and dividers scale uniformly.',client_note:'Artwork and metadata only. No unknown client directory was read or modified. Server state meanings and dynamic text belong to the client.',assets};
 await fs.writeFile(specPath,JSON.stringify(manifest,null,2)+'\n','utf8');
 await fs.writeFile(path.join(atomic,'manifest_native_q5.json'),JSON.stringify({...manifest,assets:assets.filter(a=>a.png.startsWith(relative(atomic)+'/')),asset_count:23,exact_slice_count:0,full_manifest:'../../exact_qdao_slices/manifest_native_q5.json'},null,2)+'\n','utf8');
-await fs.writeFile(path.join(atomic,'manifest_redrawn.json'),JSON.stringify({product:'五行奇谈',version:'native-q5.2',backgrounds:atomicSpecs.map(s=>s[0]),status:['status_red_dot.png'],ornaments:['ornament_gold_flower.png'],round_icons:Object.values(iconNames),aliases:{'icon_leaf.png':'icon_peach_spirit.png'},notes:'All PNGs have real Alpha. Backgrounds contain no text, status dot or round badge. The search magnifier remains part of the fixed-height search asset.',native_manifest:'manifest_native_q5.json'},null,2)+'\n','utf8');
-await fs.writeFile(path.join(atomic,'manifest_ai_qstyle_badges.json'),JSON.stringify({source_sheet:'ai_qstyle_badges_sheet_chroma.png',authoring:'Native SVG rebuilt from v5 symbols; this legacy filename now stores true RGBA.',native_dimensions:[1774,887],transparent:true,outputs:cells.map((cell,i)=>({...cell,file:Object.values(iconNames)[i],normalized_size:[420,420],symbol:Object.keys(iconNames)[i]})),aliases:{'icon_leaf.png':'icon_peach_spirit.png'}},null,2)+'\n','utf8');
+await fs.writeFile(path.join(atomic,'manifest_redrawn.json'),JSON.stringify({product:'五行奇谈',version:'gpt-image2-q7',backgrounds:atomicSpecs.map(s=>s[0]),status:['status_red_dot.png'],ornaments:['ornament_gold_flower.png'],round_icons:Object.values(iconNames),aliases:{'icon_leaf.png':'icon_peach_spirit.png'},notes:'All PNGs have real Alpha. Backgrounds contain no text, status dot or round badge. The search magnifier remains part of the fixed-height search asset.',native_manifest:'manifest_native_q5.json'},null,2)+'\n','utf8');
+await fs.writeFile(path.join(atomic,'manifest_ai_qstyle_badges.json'),JSON.stringify({source_sheet:'ai_qstyle_badges_sheet_chroma.png',authoring:'New built-in image_gen v7 emblems; true-alpha atlas at legacy coordinates.',native_dimensions:[1774,887],transparent:true,outputs:cells.map((cell,i)=>({...cell,file:Object.values(iconNames)[i],normalized_size:[420,420],symbol:Object.keys(iconNames)[i]})),aliases:{'icon_leaf.png':'icon_peach_spirit.png'}},null,2)+'\n','utf8');
 console.log(JSON.stringify({assets:assets.length,exact:50,atomic_controls:11,round_symbols:10,alias:1,badge_sheet:1,validation:'RGBA, exact dimensions, SHA-256'}));
