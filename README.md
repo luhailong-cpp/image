@@ -12,6 +12,12 @@
 
 制作新素材前，阅读 [主城与人物美术定调](docs/QDAO_ART_DIRECTION.md)，查看指定参考图、版本记录与图旁提示词。需要使用标准宽屏背景、透明人物或重建导出时，阅读 [v4 素材包说明](qdao_chibi_game_pack_v4/README.md)。本轮按用户授权更新旧资源路径并保持像素尺寸，最终映射和验收记录见全库交接；不对未知客户端工程执行接线。
 
+## 人物与宝宝属性面板
+
+2026-09-09：沿用玉绿、米白、暖金美术，制作人物与四只宝宝的属性展示和加点面板。包含两张 2560×1080 视觉稿与可交互的本地 HTML 预览，支持独立加点草稿、自动分配、重置和确认。数值与收益为演示，未改动客户端。
+
+[交付与预览说明](designs/attribute-panels/README.md) · [人物效果图](designs/attribute-panels/01-character_2560x1080.png) · [宝宝效果图](designs/attribute-panels/02-pet_2560x1080.png)
+
 ## 客户端主城地图归档
 
 2026-09-08：[天墉城 6×6 主城地图](tianyong_city_6x6/README.md)已从客户端同步，包含 [6144×6144 完整母图](tianyong_city_6x6/Previews/tianyong_city_master_6144.png)、[2048 预览](tianyong_city_6x6/Previews/tianyong_city_master_preview_2048.png)、36 张正式切图、来源图与切图清单。此处归档的是现有客户端素材；同步来源和文件校验见包内记录。
