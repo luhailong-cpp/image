@@ -54,8 +54,9 @@
         74
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "9355d828da7f2ce6ab0c38efacb1da785eac1e60185c4e47bd31f0c3281e6942",
+      "outputSha256": "7aba0f0d6834a5f70eeb29c4308d57f171594e3e9894921569fdd6a602720663",
       "size": [
         1546,
         743
@@ -66,7 +67,8 @@
         97,
         99
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/window_frame"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/window_frame",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/paper_tile.png",
@@ -117,6 +119,7 @@
       ],
       "processing": "Text-free paper texture cropped from the clean center of the new painted panel, resampled to the contracted tile size.",
       "preservedArtwork": false,
+      "transparentGuardPixels": 0,
       "samePixelsAsPreviousSprite": false,
       "outputSha256": "1e49b07c8c1fd508ab4798d3b68c28dd827b2421afa6438a15f6c81175d26992",
       "size": [
@@ -129,7 +132,8 @@
         11,
         11
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/paper_tile"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/paper_tile",
+      "outerAlphaMax": 255
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/title_plate.png",
@@ -150,7 +154,7 @@
         199
       ],
       "sourceArtworkEntry": {
-        "resize_mode": "horizontal_caps",
+        "resize_mode": "nine_slice",
         "file": "title.png",
         "size": [
           598,
@@ -198,6 +202,7 @@
           598,
           165
         ],
+        "hanging_inside_canvas": true,
         "edge_samples": {
           "top": [
             195,
@@ -210,7 +215,25 @@
             100,
             220,
             165
-          ]
+          ],
+          "left": {
+            "box": [
+              195,
+              0,
+              220,
+              65
+            ],
+            "rotate": 90
+          },
+          "right": {
+            "box": [
+              195,
+              0,
+              220,
+              65
+            ],
+            "rotate": 270
+          }
         },
         "horizontal_center_sample": [
           195,
@@ -238,6 +261,26 @@
               161
             ],
             "anchor": "center-bottom"
+          },
+          {
+            "file": "title.side-0.png",
+            "source_box_xyxy": [
+              0,
+              65,
+              95,
+              127
+            ],
+            "anchor": "left-center"
+          },
+          {
+            "file": "title.side-1.png",
+            "source_box_xyxy": [
+              503,
+              65,
+              598,
+              127
+            ],
+            "anchor": "right-center"
           }
         ]
       },
@@ -250,8 +293,9 @@
         38
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "f01d7472196236ac52e2f2a143e3853f2b9a42f03862bb36c6b32fa6c2c16845",
+      "outputSha256": "f018371c402b83ac90cf71b80456008ed6e709a718ad576315f8f55cf3f1ca38",
       "size": [
         655,
         110
@@ -262,7 +306,8 @@
         0,
         0
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/title_plate"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/title_plate",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/title_character.png",
@@ -303,7 +348,8 @@
         0,
         0
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/title_character"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/title_character",
+      "outerAlphaMax": 37
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/title_pet.png",
@@ -344,7 +390,8 @@
         0,
         0
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/title_pet"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/title_pet",
+      "outerAlphaMax": 12
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/button_primary.png",
@@ -365,7 +412,7 @@
         215
       ],
       "sourceArtworkEntry": {
-        "resize_mode": "horizontal_caps",
+        "resize_mode": "nine_slice",
         "file": "jade.png",
         "size": [
           597,
@@ -412,6 +459,49 @@
         "body_size": [
           597,
           176
+        ],
+        "hanging_inside_canvas": true,
+        "edge_samples": {
+          "left": {
+            "box": [
+              195,
+              0,
+              220,
+              69
+            ],
+            "rotate": 90
+          },
+          "right": {
+            "box": [
+              195,
+              0,
+              220,
+              69
+            ],
+            "rotate": 270
+          }
+        },
+        "fixed_stamps": [
+          {
+            "file": "jade.side-0.png",
+            "source_box_xyxy": [
+              0,
+              62,
+              95,
+              127
+            ],
+            "anchor": "left-center"
+          },
+          {
+            "file": "jade.side-1.png",
+            "source_box_xyxy": [
+              502,
+              62,
+              597,
+              127
+            ],
+            "anchor": "right-center"
+          }
         ]
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
@@ -423,8 +513,9 @@
         30
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "c823a381ae42eb52434c50ea3cc4c2341a2d7622cd81ba9a776ae24b081c659a",
+      "outputSha256": "b8d843af683e593b4fb10f4033f35198c8b887451b119e3bd86d85d93e8c95b1",
       "size": [
         376,
         97
@@ -435,7 +526,8 @@
         66,
         30
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/button_primary"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/button_primary",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/button_secondary.png",
@@ -456,7 +548,7 @@
         180
       ],
       "sourceArtworkEntry": {
-        "resize_mode": "horizontal_caps",
+        "resize_mode": "nine_slice",
         "file": "ivory.png",
         "size": [
           597,
@@ -476,7 +568,49 @@
           "right": 142,
           "bottom": 66
         },
-        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained"
+        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
+        "edge_samples": {
+          "left": {
+            "box": [
+              195,
+              0,
+              220,
+              68
+            ],
+            "rotate": 90
+          },
+          "right": {
+            "box": [
+              195,
+              0,
+              220,
+              68
+            ],
+            "rotate": 270
+          }
+        },
+        "fixed_stamps": [
+          {
+            "file": "ivory.side-0.png",
+            "source_box_xyxy": [
+              0,
+              62,
+              95,
+              128
+            ],
+            "anchor": "left-center"
+          },
+          {
+            "file": "ivory.side-1.png",
+            "source_box_xyxy": [
+              502,
+              62,
+              597,
+              128
+            ],
+            "anchor": "right-center"
+          }
+        ]
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "processing": "Nine-part mechanical assembly from new text-free painted art, preserving original Unity destination borders; no legacy skin pixels.",
@@ -487,8 +621,9 @@
         27
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "4aa474df2ed42fd42a18fa325d5d488c82a61b9349fd02cb377e348c8ce920af",
+      "outputSha256": "72a3dba771db5feb640d5192ab261e51ac654779380c00a40825b3a51afa62fb",
       "size": [
         271,
         82
@@ -499,7 +634,8 @@
         30,
         27
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/button_secondary"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/button_secondary",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/button_scheme.png",
@@ -520,7 +656,7 @@
         180
       ],
       "sourceArtworkEntry": {
-        "resize_mode": "horizontal_caps",
+        "resize_mode": "nine_slice",
         "file": "ivory.png",
         "size": [
           597,
@@ -540,7 +676,49 @@
           "right": 142,
           "bottom": 66
         },
-        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained"
+        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
+        "edge_samples": {
+          "left": {
+            "box": [
+              195,
+              0,
+              220,
+              68
+            ],
+            "rotate": 90
+          },
+          "right": {
+            "box": [
+              195,
+              0,
+              220,
+              68
+            ],
+            "rotate": 270
+          }
+        },
+        "fixed_stamps": [
+          {
+            "file": "ivory.side-0.png",
+            "source_box_xyxy": [
+              0,
+              62,
+              95,
+              128
+            ],
+            "anchor": "left-center"
+          },
+          {
+            "file": "ivory.side-1.png",
+            "source_box_xyxy": [
+              502,
+              62,
+              597,
+              128
+            ],
+            "anchor": "right-center"
+          }
+        ]
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "processing": "Nine-part mechanical assembly from new text-free painted art, preserving original Unity destination borders; no legacy skin pixels.",
@@ -551,8 +729,9 @@
         24
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "e27ef3e994b15fce698e2d80651fb01850933737e327867693b833e17d9ade0b",
+      "outputSha256": "0edabb47cd8ac0c8e1012b8e5ef867a22c19519a9ab476c8284507bce6702e4e",
       "size": [
         389,
         79
@@ -563,7 +742,8 @@
         30,
         24
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/button_scheme"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/button_scheme",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/dropdown_arrow.png",
@@ -602,8 +782,9 @@
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "processing": "Proportional fit of complete newly painted element onto original transparent canvas; fixed ornament geometry preserved.",
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "e8f3da9be408941a271bcedf762a91e1fe13db399b4d74ebba6ada9ba324bae1",
+      "outputSha256": "3e7782d11939e08db08a68ac58e750394ba59f5dc97b74779b8cfc82b239172e",
       "size": [
         36,
         27
@@ -614,7 +795,8 @@
         0,
         0
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/dropdown_arrow"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/dropdown_arrow",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/tab_horizontal.png",
@@ -635,7 +817,7 @@
         215
       ],
       "sourceArtworkEntry": {
-        "resize_mode": "horizontal_caps",
+        "resize_mode": "nine_slice",
         "file": "jade.png",
         "size": [
           597,
@@ -682,6 +864,49 @@
         "body_size": [
           597,
           176
+        ],
+        "hanging_inside_canvas": true,
+        "edge_samples": {
+          "left": {
+            "box": [
+              195,
+              0,
+              220,
+              69
+            ],
+            "rotate": 90
+          },
+          "right": {
+            "box": [
+              195,
+              0,
+              220,
+              69
+            ],
+            "rotate": 270
+          }
+        },
+        "fixed_stamps": [
+          {
+            "file": "jade.side-0.png",
+            "source_box_xyxy": [
+              0,
+              62,
+              95,
+              127
+            ],
+            "anchor": "left-center"
+          },
+          {
+            "file": "jade.side-1.png",
+            "source_box_xyxy": [
+              502,
+              62,
+              597,
+              127
+            ],
+            "anchor": "right-center"
+          }
         ]
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
@@ -693,8 +918,9 @@
         24
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "07a003d6b6d872967ee84c092635df529c153929c2e7880291c4e2381fb422ab",
+      "outputSha256": "0ce2b3ac2d97b4540e1037d6006767ba9a083d1a879e9a91c1d8e64f610f57c1",
       "size": [
         279,
         71
@@ -705,7 +931,8 @@
         27,
         24
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/tab_horizontal"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/tab_horizontal",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/section_header.png",
@@ -745,8 +972,7 @@
           "top": 32,
           "right": 100,
           "bottom": 35
-        },
-        "resize_mode": "horizontal_caps"
+        }
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "processing": "Nine-part mechanical assembly from new text-free painted art, preserving original Unity destination borders; no legacy skin pixels.",
@@ -757,8 +983,9 @@
         20
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "eeaf2f0d8f31ff3fc8ff250aaa4b1d1cf2a5d022edad5cccfaef16f20c806442",
+      "outputSha256": "98dc6c9898d54286999b7be1010e94019582b7232a24df8cfc714ecebbc0fbda",
       "size": [
         422,
         57
@@ -769,7 +996,8 @@
         42,
         20
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/section_header"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/section_header",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/tab_vertical_normal.png",
@@ -820,8 +1048,9 @@
         21
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "962adbf7df944e463bc004ee5c597ad54c712249be69ad5b939964675a6e9985",
+      "outputSha256": "1e2f8ff206c9e208c206ea94aab3befe965aefae05546a9b5eedfa1275b1f7bc",
       "size": [
         92,
         127
@@ -832,7 +1061,8 @@
         24,
         21
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/tab_vertical_normal"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/tab_vertical_normal",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/tab_vertical_selected.png",
@@ -883,8 +1113,9 @@
         21
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "e60a7f5ed3523920e9b8bdf724928aa4fb18c5822e8df1771b9d0240e410ab41",
+      "outputSha256": "67ac18f09129d07a0b52aabdf90e34ae62f3c16e7fb7b8730f10713d2f5f5fb9",
       "size": [
         97,
         127
@@ -895,7 +1126,8 @@
         24,
         21
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/tab_vertical_selected"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/tab_vertical_selected",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/close_button.png",
@@ -934,8 +1166,9 @@
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "processing": "New painted blank circular close-button skin with an antialiased native fixed close cross glyph.",
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "07100fdf7df50f18b6794ba4df8fc0f3d646e561a8f7e0a2069890b629952920",
+      "outputSha256": "7194b5d71bf37d999e16f28b5ed7da55ecd9d674b438254ea134a9283b498339",
       "size": [
         81,
         80
@@ -946,7 +1179,8 @@
         0,
         0
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/close_button"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/close_button",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/close_tassel.png",
@@ -985,8 +1219,9 @@
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "processing": "Proportional fit of complete newly painted element onto original transparent canvas; fixed ornament geometry preserved.",
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "e9f9f11292a0170f739f79f6427dd04ce336125136a2a91a84098f176d75533e",
+      "outputSha256": "20abbf34762758034e2c87749111a3c06dedf74d013cadc7aa997502517776a5",
       "size": [
         30,
         81
@@ -997,7 +1232,8 @@
         0,
         0
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/close_tassel"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/close_tassel",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/step_minus.png",
@@ -1042,8 +1278,9 @@
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "processing": "New painted blank step button with an antialiased native fixed minus glyph; dynamic data remains separate.",
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "ea6ca07bbe0ce8884ac008994849260d92f4cce5d261513fa641f96d3461664c",
+      "outputSha256": "e788695456c8d65c590bf0b35fbfc027b7baaccb4e42ae39983fb72e529feaa6",
       "size": [
         66,
         65
@@ -1054,7 +1291,8 @@
         0,
         0
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/step_minus"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/step_minus",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/step_plus.png",
@@ -1099,8 +1337,9 @@
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "processing": "New painted blank step button with an antialiased native fixed plus glyph; dynamic data remains separate.",
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "4414f56200a9f90eb1dc171f2a9af7946dd018daa974c20bd16e1618e81c4a61",
+      "outputSha256": "cc5a01c6224ab1d2c5b29e448ccd8a18d4fd30d431dd068c279d598f2237e71f",
       "size": [
         66,
         65
@@ -1111,7 +1350,8 @@
         0,
         0
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/step_plus"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/step_plus",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/step_plate.png",
@@ -1162,8 +1402,9 @@
         15
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "ffb7ca8aad297d56030d56f28969e556ecc8822c22d1fac2b6ae693cba872db8",
+      "outputSha256": "e90a79a03cfc48f8716c57c39bfeb922e3d3f4c052642c8d1c1b90c5b5358033",
       "size": [
         66,
         65
@@ -1174,7 +1415,8 @@
         15,
         15
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/step_plate"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/step_plate",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/slider_track.png",
@@ -1226,8 +1468,9 @@
         7
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "9d0e007298903faa8c1ed579aa2be6494ca7ad18c4a580d0fe21aa0e685867cd",
+      "outputSha256": "f35d337bd76d4481db6636aba64172c0d86621fbddc043f3af1c6f7e1ae9697f",
       "size": [
         324,
         23
@@ -1238,7 +1481,8 @@
         7,
         7
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/slider_track"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/slider_track",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/slider_fill.png",
@@ -1290,8 +1534,9 @@
         7
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "055ab3932e11b0134d970483a0481da9c5efc8fa983b9d529d16a8f5b7f641ec",
+      "outputSha256": "6613b6f5a4ac1d03e1e92082efc92fd61c339b98d04523ac2a289bdac75acf0f",
       "size": [
         60,
         23
@@ -1302,7 +1547,8 @@
         7,
         7
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/slider_fill"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/slider_fill",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/slider_thumb.png",
@@ -1341,8 +1587,9 @@
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "processing": "Proportional fit of complete newly painted element onto original transparent canvas; fixed ornament geometry preserved.",
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "46339ab099a2a68c5a2c44034a250f46dcab1884682b0d7fdc51ddf7c48e49fe",
+      "outputSha256": "9cab35f55f601663f5f0020600e5815b81de09e303262ddda4be2571207d2aef",
       "size": [
         51,
         51
@@ -1353,7 +1600,8 @@
         0,
         0
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/slider_thumb"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/slider_thumb",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/notice_icon.png",
@@ -1392,8 +1640,9 @@
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "processing": "New painted blank circular knob skin with a native fixed notice exclamation glyph.",
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "8400f0290fc5ff344f8c04a84a2fbaad1495f16e56c2384077e8ec0d5f6dab79",
+      "outputSha256": "cbf6754ffe44bbbbf2c6fc31e27153e22b07debcd9072ac55188ed388aff510b",
       "size": [
         47,
         47
@@ -1404,7 +1653,8 @@
         0,
         0
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/notice_icon"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/notice_icon",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/stat_field.png",
@@ -1444,8 +1694,7 @@
           "top": 32,
           "right": 80,
           "bottom": 32
-        },
-        "resize_mode": "horizontal_caps"
+        }
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "processing": "Nine-part mechanical assembly from new text-free painted art, preserving original Unity destination borders; no legacy skin pixels.",
@@ -1456,8 +1705,9 @@
         12
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "9d35cb30fe7352591080ac2fb94b6eeafb630e59335e53565abf6ab88423c6b2",
+      "outputSha256": "c175e6e627776393cb7371df797ebe88bdfa0916769829269089ee22ac9b8c46",
       "size": [
         273,
         62
@@ -1468,7 +1718,8 @@
         12,
         12
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/stat_field"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/stat_field",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/divider.png",
@@ -1541,8 +1792,9 @@
       "rotationDegrees": 90,
       "centerOrnamentPreserved": true,
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "2055bf2cab2632815fc0280595623ece4f5ef5f19e776a602a85688bf53080de",
+      "outputSha256": "628ddbfc48a51b5c7e0375ad4fd25d734e559c051c5b69b41963fc9c3a40bbe3",
       "size": [
         34,
         661
@@ -1553,7 +1805,8 @@
         0,
         0
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/divider"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/divider",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/pet_card_normal.png",
@@ -1574,7 +1827,7 @@
         200
       ],
       "sourceArtworkEntry": {
-        "resize_mode": "horizontal_caps",
+        "resize_mode": "nine_slice",
         "file": "card_normal.png",
         "size": [
           601,
@@ -1594,7 +1847,49 @@
           "right": 89,
           "bottom": 54
         },
-        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained"
+        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
+        "edge_samples": {
+          "left": {
+            "box": [
+              195,
+              0,
+              220,
+              51
+            ],
+            "rotate": 90
+          },
+          "right": {
+            "box": [
+              195,
+              0,
+              220,
+              51
+            ],
+            "rotate": 270
+          }
+        },
+        "fixed_stamps": [
+          {
+            "file": "card_normal.side-0.png",
+            "source_box_xyxy": [
+              0,
+              65,
+              70,
+              143
+            ],
+            "anchor": "left-center"
+          },
+          {
+            "file": "card_normal.side-1.png",
+            "source_box_xyxy": [
+              531,
+              65,
+              601,
+              143
+            ],
+            "anchor": "right-center"
+          }
+        ]
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "processing": "Nine-part mechanical assembly from new text-free painted art, preserving original Unity destination borders; no legacy skin pixels.",
@@ -1605,8 +1900,9 @@
         21
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "457eb751529b165bd4def8495d9af3f6aa5d63e24f5b44c1a934408a57579c3e",
+      "outputSha256": "347ffb7e3f79e1064a00da1a1ff10e3b8648854671dfd48d50a7a66a9ebc12f0",
       "size": [
         419,
         135
@@ -1617,7 +1913,8 @@
         21,
         21
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/pet_card_normal"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/pet_card_normal",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/pet_card_selected.png",
@@ -1638,7 +1935,7 @@
         200
       ],
       "sourceArtworkEntry": {
-        "resize_mode": "horizontal_caps",
+        "resize_mode": "nine_slice",
         "file": "card_selected.png",
         "size": [
           600,
@@ -1658,7 +1955,49 @@
           "right": 87,
           "bottom": 54
         },
-        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained"
+        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
+        "edge_samples": {
+          "left": {
+            "box": [
+              195,
+              0,
+              220,
+              51
+            ],
+            "rotate": 90
+          },
+          "right": {
+            "box": [
+              195,
+              0,
+              220,
+              51
+            ],
+            "rotate": 270
+          }
+        },
+        "fixed_stamps": [
+          {
+            "file": "card_selected.side-0.png",
+            "source_box_xyxy": [
+              0,
+              65,
+              70,
+              143
+            ],
+            "anchor": "left-center"
+          },
+          {
+            "file": "card_selected.side-1.png",
+            "source_box_xyxy": [
+              530,
+              65,
+              600,
+              143
+            ],
+            "anchor": "right-center"
+          }
+        ]
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "processing": "Nine-part mechanical assembly from new text-free painted art, preserving original Unity destination borders; no legacy skin pixels.",
@@ -1669,8 +2008,9 @@
         21
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "515f624871892126669f8e699a955695ce6239984f3f10826e2127d51abe5612",
+      "outputSha256": "1170fbed411fb46487d86aa04062cf5c200ca6936e7e75d285e275eba88c90c6",
       "size": [
         419,
         135
@@ -1681,7 +2021,8 @@
         21,
         21
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/pet_card_selected"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/pet_card_selected",
+      "outerAlphaMax": 0
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
@@ -1714,7 +2055,8 @@
         0,
         0
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/portrait_lingyue"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/portrait_lingyue",
+      "outerAlphaMax": 255
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
@@ -1747,7 +2089,8 @@
         0,
         0
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/portrait_hutuantuan"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/portrait_hutuantuan",
+      "outerAlphaMax": 255
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
@@ -1780,7 +2123,8 @@
         0,
         0
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/portrait_fuxiaohu"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/portrait_fuxiaohu",
+      "outerAlphaMax": 255
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
@@ -1813,7 +2157,8 @@
         0,
         0
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/portrait_yunjiujiu"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/portrait_yunjiujiu",
+      "outerAlphaMax": 255
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_frame.png",
@@ -1864,8 +2209,9 @@
         11
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "samePixelsAsPreviousSprite": false,
-      "outputSha256": "2c66427e3acb52a575e1de9e68c4adc81cce4c343a2a72c5af63760b3452b07c",
+      "outputSha256": "fab13d1b2dd5bef7260209fc22fcbd15c9e5a835b83d359ed0d3b5b9d5a0e4a0",
       "size": [
         134,
         115
@@ -1876,7 +2222,8 @@
         11,
         11
       ],
-      "resourcePath": "UI/Ugui/AttributesPaintedV2/portrait_frame"
+      "resourcePath": "UI/Ugui/AttributesPaintedV2/portrait_frame",
+      "outerAlphaMax": 0
     }
   ],
   "preservedArtworkPolicy": "Static calligraphy and approved pet identity are recut without artistic alteration; old UI skins must change.",

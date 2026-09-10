@@ -109,7 +109,7 @@ def nine_slice(name, w, h, dest_borders, pad=0):
     hanging = entry.get('hanging_overlays', [])
     extension = max((part['source_box_xyxy'][3]-source.height for part in hanging),default=0)
     ornament_scale = min((dl-pad)/sl,(dr-pad)/sr,(dt-pad)/st,(db-pad)/(sb+max(0,extension)))
-    reserve = min(max(0,round(extension*ornament_scale)),db-pad-1)
+    reserve = 0 if entry.get('hanging_inside_canvas') else min(max(0,round(extension*ornament_scale)),db-pad-1)
     xs,ys = [0,sl,source.width-sr,source.width],[0,st,source.height-sb,source.height]
     dx,dy = [pad,dl,width-dr,width-pad],[pad,dt,height-db,height-pad-reserve]
     result = Image.new('RGBA',(width,height))
@@ -118,7 +118,7 @@ def nine_slice(name, w, h, dest_borders, pad=0):
         for col in range(3):
             rect = entry.get('edge_samples',{}).get(edge_names.get((row,col)),
                     [xs[col],ys[row],xs[col+1],ys[row+1]])
-            tile = source.crop(rect)
+            tile = source.crop(rect['box']).rotate(rect.get('rotate',0),expand=True) if isinstance(rect,dict) else source.crop(rect)
             tile = tile.resize((dx[col+1]-dx[col],dy[row+1]-dy[row]),LANCZOS)
             result.alpha_composite(tile,(dx[col],dy[row]))
     for part in hanging:
@@ -127,7 +127,7 @@ def nine_slice(name, w, h, dest_borders, pad=0):
         item = item.resize((max(1,round(item.width*ornament_scale)),max(1,round(item.height*ornament_scale))),LANCZOS)
         x = (pad+box[0]*ornament_scale if part['anchor']=='bottom-left'
              else width-pad-(source.width-box[2])*ornament_scale-item.width)
-        y = dy[-1]+(box[1]-source.height)*ornament_scale
+        y = height-pad-item.height if entry.get('hanging_inside_canvas') else dy[-1]+(box[1]-source.height)*ornament_scale
         _composite_clipped(result,item,x,y)
     for stamp in entry.get('fixed_stamps',[]):
         item = _read(stamp['file'])

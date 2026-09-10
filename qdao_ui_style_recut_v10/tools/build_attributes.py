@@ -175,43 +175,44 @@ def build(entry):
         meta = source_paint("panel")
         meta.update({"cleanArtCropXYXY": list(box), "processing": "Text-free paper texture cropped from the clean center of the new painted panel, resampled to the contracted tile size."})
     elif name == "divider":
-        im = stretch_divider(w, h, vertical=True)
+        im = stretch_divider(w, h, vertical=True, pad=1)
         meta = source_paint("divider")
         meta.update({"processing": "Rotate new horizontal painted divider 90 degrees; preserve both fixed end ornaments and the round crescent center, stretching only the unornamented rails to the original vertical canvas.",
                      "rotationDegrees": 90, "centerOrnamentPreserved": True})
     elif name in ("step_minus", "step_plus"):
-        im = native_glyph(fit_art("step_normal", w, h), name.removeprefix("step_"))
+        im = native_glyph(fit_art("step_normal", w, h, pad=1), name.removeprefix("step_"))
         meta = source_paint("step_normal")
         meta["processing"] = "New painted blank step button with an antialiased native fixed " + name.removeprefix("step_") + " glyph; dynamic data remains separate."
     elif name == "title_plate":
-        im = nine_slice("title", w, h, (92, 36, 92, 38))
+        im = nine_slice("title", w, h, (92, 36, 92, 38), pad=1)
         meta = source_paint("title")
         meta["processing"] = "Assemble the new title plate from fixed painted ends, separate tassels, fixed center stamps and straight jade middle. Original whole-title sprite remains non-sliced at runtime."
         meta["assemblyBordersLeftTopRightBottom"] = [92, 36, 92, 38]
     elif name == "close_button":
-        im = native_glyph(fit_art("close_button", w, h), "close")
+        im = native_glyph(fit_art("close_button", w, h, pad=1), "close")
         meta = source_paint("close_button")
         meta["processing"] = "New painted blank circular close-button skin with an antialiased native fixed close cross glyph."
     elif name == "notice_icon":
-        im = native_glyph(fit_art("knob", w, h), "notice")
+        im = native_glyph(fit_art("knob", w, h, pad=1), "notice")
         meta = source_paint("knob")
         meta["processing"] = "New painted blank circular knob skin with a native fixed notice exclamation glyph."
     elif name in SKINS:
         key = SKINS[name]
         l, b, r, t = entry["borderLeftBottomRightTop"]
-        im = nine_slice(key, w, h, (l, t, r, b))
+        im = nine_slice(key, w, h, (l, t, r, b), pad=1)
         meta = source_paint(key)
         meta["processing"] = "Nine-part mechanical assembly from new text-free painted art, preserving original Unity destination borders; no legacy skin pixels."
         meta["destinationBordersLeftTopRightBottom"] = [l, t, r, b]
     elif name in FITTED:
         key = FITTED[name]
-        im = fit_art(key, w, h)
+        im = fit_art(key, w, h, pad=1)
         meta = source_paint(key)
         meta["processing"] = "Proportional fit of complete newly painted element onto original transparent canvas; fixed ornament geometry preserved."
     else:
         raise ValueError(f"Unmapped attribute: {name}")
     im = im.convert("RGBA")
     meta["preservedArtwork"] = False
+    meta["transparentGuardPixels"] = 0 if name == "paper_tile" else 1
     return im, meta
 
 
@@ -334,13 +335,96 @@ def additional_reviews(entries, images):
         draw.text((x,660),name+" on new title plate",font=qa_font(18),fill="#f2e2be")
     save(glyphs,OUT/"fixed-glyph-title-review.png")
 
+def attribute_layout_reviews(entries, images):
+    """Native-label montage of delivered pieces at their original source anchors.
+
+    This is visual QA only: neutral dashes replace stats and no gameplay is run.
+    The four allocation axes and six stat names come from v2-painted/brief.md.
+    """
+    by_name = {entry["name"]:entry for entry in entries}
+    font_path = Path("C:/Windows/Fonts/msyh.ttc")
+    if not font_path.is_file():
+        raise FileNotFoundError("Chinese QA font not available; do not emit missing-glyph previews")
+    def font(size):
+        return ImageFont.truetype(str(font_path),size)
+    for kind in ("character","pet"):
+        out=Image.new("RGBA",(1934,850),(36,60,51,255))
+        draw=ImageDraw.Draw(out)
+        def put(name,xy=None,size=None):
+            sprite=images[name]
+            if size is not None:
+                sprite=stretch_sprite(sprite,size,by_name[name]["borderLeftBottomRightTop"])
+            if xy is None:
+                x,y=by_name[name]["sourceRectNativeTopLeft"][:2]
+                xy=(round(x),round(y))
+            out.alpha_composite(sprite,xy)
+        def label(text,xy,size=28,color="#245344",anchor="mm"):
+            draw.text(xy,text,font=font(size),fill=color,anchor=anchor)
+        put("window_frame")
+        put("title_plate")
+        title=images["title_"+kind]
+        out.alpha_composite(title,(640+(655-title.width)//2,(110-title.height)//2))
+        put("close_button")
+        put("close_tassel")
+        put("divider")
+        put("tab_vertical_normal")
+        put("tab_vertical_selected")
+        label("属\n性",(1736,207),27)
+        label("加\n点",(1737,340),27,"#fff7de")
+        if kind == "character":
+            put("button_scheme")
+            label("方案：均衡流",(448,141),28)
+            put("dropdown_arrow")
+            for index,name in enumerate(("气血","法力","物伤","法伤","速度","防御")):
+                y=197+index*76
+                put("stat_field",(372,y))
+                label(name,(285,y+31),27)
+                label("—",(508,y+31),28)
+        else:
+            pets=(("lingyue","灵玥"),("hutuantuan","葫团团"),("fuxiaohu","符小虎"),("yunjiujiu","云啾啾"))
+            for index,(key,name) in enumerate(pets):
+                y=141+index*143
+                put("pet_card_selected" if index==0 else "pet_card_normal",(235,y))
+                portrait=images["portrait_"+key].resize((106,106),RESAMPLE)
+                out.alpha_composite(portrait,(256,y+14))
+                frame=images["portrait_frame"].resize((124,112),RESAMPLE)
+                out.alpha_composite(frame,(247,y+12))
+                color="#fff7de" if index==0 else "#245344"
+                label(name,(489,y+43),29,color)
+                label("已选择" if index==0 else "宝宝档案",(489,y+91),24,color)
+        put("tab_horizontal")
+        label("属性加点",(846,157),29,"#fff7de")
+        put("notice_icon")
+        label("分配预览 · 数值由客户端提供",(1057,244),27)
+        for index,name in enumerate(("体质","灵力","力量","敏捷")):
+            y=297+index*86
+            label(name,(764,y+32),29)
+            label("—",(858,y+32),28)
+            put("step_minus",(919,y))
+            put("slider_track",(1005,y+18),(494,23))
+            put("slider_fill",(1005,y+18),(92,23))
+            put("slider_thumb",(1073,y+5))
+            put("step_plus",(1523,y))
+        put("button_secondary")
+        put("button_primary")
+        label("重置",(906,696),30)
+        label("确认加点",(1281,696),31,"#fff7de")
+        draw.text((25,810),"v10 review montage | original sprite sizes/anchors | native CJK labels | demo only, no engine integration",font=qa_font(21),fill="#f2e2be")
+        save(out,OUT/(kind+"-layout-review.png"))
+
 def main():
     contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
-    assert len(contract["sprites"]) == 31
+    assert len(contract["sprites"] ) == 31
+    source_index_sha256 = hash_file(PACK / "artwork/index.json")
     entries, images, provenance, validation = [], {}, [], []
     for original in contract["sprites"]:
         im, meta = build(original)
         assert im.size == (original["width"],original["height"])
+        edge_boxes = [(0,0,im.width,1),(0,im.height-1,im.width,im.height),
+                      (0,0,1,im.height),(im.width-1,0,im.width,im.height)]
+        outer_alpha_max = max(im.getchannel("A").crop(box).getextrema()[1] for box in edge_boxes)
+        if meta.get("transparentGuardPixels") == 1 and outer_alpha_max != 0:
+            raise AssertionError("New sprite has no clear outer guard: " + original["name"])
         destination = OUT / "png" / (original["name"] + ".png")
         save(im, destination)
         images[original["name"]] = im
@@ -358,11 +442,14 @@ def main():
         item["sha256"] = hash_file(destination)
         entries.append(item)
         validation.append({"name": original["name"], **image_info(im), "sha256": item["sha256"], "samePixelsAsPreviousSprite": unchanged,
-                           "borderLeftBottomRightTop": original["borderLeftBottomRightTop"], "resourcePath": original["resourcePath"]})
+                           "borderLeftBottomRightTop": original["borderLeftBottomRightTop"], "resourcePath": original["resourcePath"], "outerAlphaMax": outer_alpha_max})
         provenance.append({"path": (RELATIVE / "png" / destination.name).as_posix(), "family": "attributes", "name": original["name"],
                            **meta, "samePixelsAsPreviousSprite": unchanged, "outputSha256": item["sha256"],
-                           "size": list(im.size), "borderLeftBottomRightTop": original["borderLeftBottomRightTop"], "resourcePath": original["resourcePath"]})
+                           "size": list(im.size), "borderLeftBottomRightTop": original["borderLeftBottomRightTop"], "resourcePath": original["resourcePath"], "outerAlphaMax": outer_alpha_max})
+    if hash_file(PACK / "artwork/index.json") != source_index_sha256:
+        raise AssertionError("Artwork index changed during attribute build; rebuild after extraction finishes")
     manifest = {"tool": "Pillow mechanical recrop/resample of built-in GPT Image 2 artwork", "recutVersion": "v10",
+                "sourceArtworkIndexSha256": source_index_sha256,
                 "styleReference": "docs/references/ui-style-20260910.png", "unityImportExecutedThisBuild": False,
                 "referenceCoordinates": "New painted art uses the central artKey crop map; legacy reference rectangles are retained separately.",
                 "sprites": entries}
@@ -379,6 +466,7 @@ def main():
     contact(entries,images)
     stretch_review(entries,images)
     additional_reviews(entries,images)
+    attribute_layout_reviews(contract["sprites"],images)
     print(json.dumps({"attributes":len(entries),"newPaintedSkinSprites":sum(not p["preservedArtwork"] for p in provenance),
                       "preservedApprovedContent":sum(p["preservedArtwork"] for p in provenance),
                       "unchangedOutputPixels":[p["name"] for p in provenance if p["samePixelsAsPreviousSprite"]]},ensure_ascii=False))

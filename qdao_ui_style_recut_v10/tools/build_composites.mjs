@@ -193,16 +193,16 @@ await writeJson(`${hudDir}/placement.json`, {
   validation: { exact_original_pixels_outside_overlay: unchangedOutside,
     layers: outputRecords.filter(r=>baseline.get(r.path).family==='hud') },
 });
-for (const source of sceneInputs) {
+for (const source of [...sceneInputs, ...componentSources]) {
   if (sha(await fs.readFile(path.join(repo,source.path))) !== source.sha256)
-    throw new Error(`Scene source changed during build: ${source.path}`);
+    throw new Error(`Source input changed during build: ${source.path}`);
 }
 if (outputRecords.length !== 15) throw new Error(`Expected 15 PNG contracts; got ${outputRecords.length}`);
 await writeJson('composite_build_report.json', {
   status: 'built', staged_only: true, built_at_utc: new Date().toISOString(), asset_count: outputRecords.length,
   source_builder: rel(fileURLToPath(import.meta.url)), component_sources: componentSources, scene_sources: sceneInputs,
   replacements: Object.fromEntries(Object.entries(transformed).map(([k,v])=>[k,{count:v.replacements,component_ids:v.component_ids}])),
-  unchanged_scene_sources: true, exact_hud_pixels_outside_overlay: unchangedOutside, files: outputRecords,
+  unchanged_scene_sources: true, unchanged_component_sources: true, exact_hud_pixels_outside_overlay: unchangedOutside, files: outputRecords,
   note: 'PNG dimensions/Alpha and HUD composition were verified; visual QA and engine integration are separate.'
 });
 const reviewSvg = Buffer.from('<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1250">'

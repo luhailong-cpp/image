@@ -85,8 +85,9 @@
         74
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "9355d828da7f2ce6ab0c38efacb1da785eac1e60185c4e47bd31f0c3281e6942"
+      "sha256": "7aba0f0d6834a5f70eeb29c4308d57f171594e3e9894921569fdd6a602720663"
     },
     {
       "name": "paper_tile",
@@ -168,6 +169,7 @@
         497
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 0,
       "recutVersion": "v10",
       "sha256": "1e49b07c8c1fd508ab4798d3b68c28dd827b2421afa6438a15f6c81175d26992"
     },
@@ -222,7 +224,7 @@
       "cleanArtPixelSha256": "5156dec42e2b7448260e78dfa1944a67797530d26bf1f2b30e6d9bccfe3cabcd",
       "sourceSha256": "02e2156e95676c54b3e94fd2f71f31c176000b0cbdac1f0aa82201a980ee0af3",
       "sourceArtworkEntry": {
-        "resize_mode": "horizontal_caps",
+        "resize_mode": "nine_slice",
         "file": "title.png",
         "size": [
           598,
@@ -270,6 +272,7 @@
           598,
           165
         ],
+        "hanging_inside_canvas": true,
         "edge_samples": {
           "top": [
             195,
@@ -282,7 +285,25 @@
             100,
             220,
             165
-          ]
+          ],
+          "left": {
+            "box": [
+              195,
+              0,
+              220,
+              65
+            ],
+            "rotate": 90
+          },
+          "right": {
+            "box": [
+              195,
+              0,
+              220,
+              65
+            ],
+            "rotate": 270
+          }
         },
         "horizontal_center_sample": [
           195,
@@ -310,6 +331,26 @@
               161
             ],
             "anchor": "center-bottom"
+          },
+          {
+            "file": "title.side-0.png",
+            "source_box_xyxy": [
+              0,
+              65,
+              95,
+              127
+            ],
+            "anchor": "left-center"
+          },
+          {
+            "file": "title.side-1.png",
+            "source_box_xyxy": [
+              503,
+              65,
+              598,
+              127
+            ],
+            "anchor": "right-center"
           }
         ]
       },
@@ -321,8 +362,9 @@
         38
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "f01d7472196236ac52e2f2a143e3853f2b9a42f03862bb36c6b32fa6c2c16845"
+      "sha256": "f018371c402b83ac90cf71b80456008ed6e709a718ad576315f8f55cf3f1ca38"
     },
     {
       "name": "title_character",
@@ -497,7 +539,7 @@
       "cleanArtPixelSha256": "dbc3665a315fe43f472697c7f96d10e94fea1f937cf2531c3fa5ce6b3346dffd",
       "sourceSha256": "02e2156e95676c54b3e94fd2f71f31c176000b0cbdac1f0aa82201a980ee0af3",
       "sourceArtworkEntry": {
-        "resize_mode": "horizontal_caps",
+        "resize_mode": "nine_slice",
         "file": "jade.png",
         "size": [
           597,
@@ -544,6 +586,49 @@
         "body_size": [
           597,
           176
+        ],
+        "hanging_inside_canvas": true,
+        "edge_samples": {
+          "left": {
+            "box": [
+              195,
+              0,
+              220,
+              69
+            ],
+            "rotate": 90
+          },
+          "right": {
+            "box": [
+              195,
+              0,
+              220,
+              69
+            ],
+            "rotate": 270
+          }
+        },
+        "fixed_stamps": [
+          {
+            "file": "jade.side-0.png",
+            "source_box_xyxy": [
+              0,
+              62,
+              95,
+              127
+            ],
+            "anchor": "left-center"
+          },
+          {
+            "file": "jade.side-1.png",
+            "source_box_xyxy": [
+              502,
+              62,
+              597,
+              127
+            ],
+            "anchor": "right-center"
+          }
         ]
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
@@ -554,8 +639,9 @@
         30
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "c823a381ae42eb52434c50ea3cc4c2341a2d7622cd81ba9a776ae24b081c659a"
+      "sha256": "b8d843af683e593b4fb10f4033f35198c8b887451b119e3bd86d85d93e8c95b1"
     },
     {
       "name": "button_secondary",
@@ -608,7 +694,7 @@
       "cleanArtPixelSha256": "d7a2cb11e60f19a9013605f1bf11aac9eb423b2b550c1eb89af35dddc99aac12",
       "sourceSha256": "02e2156e95676c54b3e94fd2f71f31c176000b0cbdac1f0aa82201a980ee0af3",
       "sourceArtworkEntry": {
-        "resize_mode": "horizontal_caps",
+        "resize_mode": "nine_slice",
         "file": "ivory.png",
         "size": [
           597,
@@ -628,7 +714,49 @@
           "right": 142,
           "bottom": 66
         },
-        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained"
+        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
+        "edge_samples": {
+          "left": {
+            "box": [
+              195,
+              0,
+              220,
+              68
+            ],
+            "rotate": 90
+          },
+          "right": {
+            "box": [
+              195,
+              0,
+              220,
+              68
+            ],
+            "rotate": 270
+          }
+        },
+        "fixed_stamps": [
+          {
+            "file": "ivory.side-0.png",
+            "source_box_xyxy": [
+              0,
+              62,
+              95,
+              128
+            ],
+            "anchor": "left-center"
+          },
+          {
+            "file": "ivory.side-1.png",
+            "source_box_xyxy": [
+              502,
+              62,
+              597,
+              128
+            ],
+            "anchor": "right-center"
+          }
+        ]
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "destinationBordersLeftTopRightBottom": [
@@ -638,8 +766,9 @@
         27
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "4aa474df2ed42fd42a18fa325d5d488c82a61b9349fd02cb377e348c8ce920af"
+      "sha256": "72a3dba771db5feb640d5192ab261e51ac654779380c00a40825b3a51afa62fb"
     },
     {
       "name": "button_scheme",
@@ -692,7 +821,7 @@
       "cleanArtPixelSha256": "d7a2cb11e60f19a9013605f1bf11aac9eb423b2b550c1eb89af35dddc99aac12",
       "sourceSha256": "02e2156e95676c54b3e94fd2f71f31c176000b0cbdac1f0aa82201a980ee0af3",
       "sourceArtworkEntry": {
-        "resize_mode": "horizontal_caps",
+        "resize_mode": "nine_slice",
         "file": "ivory.png",
         "size": [
           597,
@@ -712,7 +841,49 @@
           "right": 142,
           "bottom": 66
         },
-        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained"
+        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
+        "edge_samples": {
+          "left": {
+            "box": [
+              195,
+              0,
+              220,
+              68
+            ],
+            "rotate": 90
+          },
+          "right": {
+            "box": [
+              195,
+              0,
+              220,
+              68
+            ],
+            "rotate": 270
+          }
+        },
+        "fixed_stamps": [
+          {
+            "file": "ivory.side-0.png",
+            "source_box_xyxy": [
+              0,
+              62,
+              95,
+              128
+            ],
+            "anchor": "left-center"
+          },
+          {
+            "file": "ivory.side-1.png",
+            "source_box_xyxy": [
+              502,
+              62,
+              597,
+              128
+            ],
+            "anchor": "right-center"
+          }
+        ]
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "destinationBordersLeftTopRightBottom": [
@@ -722,8 +893,9 @@
         24
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "e27ef3e994b15fce698e2d80651fb01850933737e327867693b833e17d9ade0b"
+      "sha256": "0edabb47cd8ac0c8e1012b8e5ef867a22c19519a9ab476c8284507bce6702e4e"
     },
     {
       "name": "dropdown_arrow",
@@ -793,8 +965,9 @@
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "e8f3da9be408941a271bcedf762a91e1fe13db399b4d74ebba6ada9ba324bae1"
+      "sha256": "3e7782d11939e08db08a68ac58e750394ba59f5dc97b74779b8cfc82b239172e"
     },
     {
       "name": "tab_horizontal",
@@ -847,7 +1020,7 @@
       "cleanArtPixelSha256": "dbc3665a315fe43f472697c7f96d10e94fea1f937cf2531c3fa5ce6b3346dffd",
       "sourceSha256": "02e2156e95676c54b3e94fd2f71f31c176000b0cbdac1f0aa82201a980ee0af3",
       "sourceArtworkEntry": {
-        "resize_mode": "horizontal_caps",
+        "resize_mode": "nine_slice",
         "file": "jade.png",
         "size": [
           597,
@@ -894,6 +1067,49 @@
         "body_size": [
           597,
           176
+        ],
+        "hanging_inside_canvas": true,
+        "edge_samples": {
+          "left": {
+            "box": [
+              195,
+              0,
+              220,
+              69
+            ],
+            "rotate": 90
+          },
+          "right": {
+            "box": [
+              195,
+              0,
+              220,
+              69
+            ],
+            "rotate": 270
+          }
+        },
+        "fixed_stamps": [
+          {
+            "file": "jade.side-0.png",
+            "source_box_xyxy": [
+              0,
+              62,
+              95,
+              127
+            ],
+            "anchor": "left-center"
+          },
+          {
+            "file": "jade.side-1.png",
+            "source_box_xyxy": [
+              502,
+              62,
+              597,
+              127
+            ],
+            "anchor": "right-center"
+          }
         ]
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
@@ -904,8 +1120,9 @@
         24
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "07a003d6b6d872967ee84c092635df529c153929c2e7880291c4e2381fb422ab"
+      "sha256": "0ce2b3ac2d97b4540e1037d6006767ba9a083d1a879e9a91c1d8e64f610f57c1"
     },
     {
       "name": "section_header",
@@ -977,8 +1194,7 @@
           "top": 32,
           "right": 100,
           "bottom": 35
-        },
-        "resize_mode": "horizontal_caps"
+        }
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "destinationBordersLeftTopRightBottom": [
@@ -988,8 +1204,9 @@
         20
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "eeaf2f0d8f31ff3fc8ff250aaa4b1d1cf2a5d022edad5cccfaef16f20c806442"
+      "sha256": "98dc6c9898d54286999b7be1010e94019582b7232a24df8cfc714ecebbc0fbda"
     },
     {
       "name": "tab_vertical_normal",
@@ -1071,8 +1288,9 @@
         21
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "962adbf7df944e463bc004ee5c597ad54c712249be69ad5b939964675a6e9985"
+      "sha256": "1e2f8ff206c9e208c206ea94aab3befe965aefae05546a9b5eedfa1275b1f7bc"
     },
     {
       "name": "tab_vertical_selected",
@@ -1154,8 +1372,9 @@
         21
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "e60a7f5ed3523920e9b8bdf724928aa4fb18c5822e8df1771b9d0240e410ab41"
+      "sha256": "67ac18f09129d07a0b52aabdf90e34ae62f3c16e7fb7b8730f10713d2f5f5fb9"
     },
     {
       "name": "close_button",
@@ -1225,8 +1444,9 @@
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "07100fdf7df50f18b6794ba4df8fc0f3d646e561a8f7e0a2069890b629952920"
+      "sha256": "7194b5d71bf37d999e16f28b5ed7da55ecd9d674b438254ea134a9283b498339"
     },
     {
       "name": "close_tassel",
@@ -1296,8 +1516,9 @@
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "e9f9f11292a0170f739f79f6427dd04ce336125136a2a91a84098f176d75533e"
+      "sha256": "20abbf34762758034e2c87749111a3c06dedf74d013cadc7aa997502517776a5"
     },
     {
       "name": "step_minus",
@@ -1373,8 +1594,9 @@
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "ea6ca07bbe0ce8884ac008994849260d92f4cce5d261513fa641f96d3461664c"
+      "sha256": "e788695456c8d65c590bf0b35fbfc027b7baaccb4e42ae39983fb72e529feaa6"
     },
     {
       "name": "step_plus",
@@ -1450,8 +1672,9 @@
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "4414f56200a9f90eb1dc171f2a9af7946dd018daa974c20bd16e1618e81c4a61"
+      "sha256": "cc5a01c6224ab1d2c5b29e448ccd8a18d4fd30d431dd068c279d598f2237e71f"
     },
     {
       "name": "step_plate",
@@ -1533,8 +1756,9 @@
         15
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "ffb7ca8aad297d56030d56f28969e556ecc8822c22d1fac2b6ae693cba872db8"
+      "sha256": "e90a79a03cfc48f8716c57c39bfeb922e3d3f4c052642c8d1c1b90c5b5358033"
     },
     {
       "name": "slider_track",
@@ -1617,8 +1841,9 @@
         7
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "9d0e007298903faa8c1ed579aa2be6494ca7ad18c4a580d0fe21aa0e685867cd"
+      "sha256": "f35d337bd76d4481db6636aba64172c0d86621fbddc043f3af1c6f7e1ae9697f"
     },
     {
       "name": "slider_fill",
@@ -1701,8 +1926,9 @@
         7
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "055ab3932e11b0134d970483a0481da9c5efc8fa983b9d529d16a8f5b7f641ec"
+      "sha256": "6613b6f5a4ac1d03e1e92082efc92fd61c339b98d04523ac2a289bdac75acf0f"
     },
     {
       "name": "slider_thumb",
@@ -1772,8 +1998,9 @@
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "46339ab099a2a68c5a2c44034a250f46dcab1884682b0d7fdc51ddf7c48e49fe"
+      "sha256": "9cab35f55f601663f5f0020600e5815b81de09e303262ddda4be2571207d2aef"
     },
     {
       "name": "notice_icon",
@@ -1843,8 +2070,9 @@
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "8400f0290fc5ff344f8c04a84a2fbaad1495f16e56c2384077e8ec0d5f6dab79"
+      "sha256": "cbf6754ffe44bbbbf2c6fc31e27153e22b07debcd9072ac55188ed388aff510b"
     },
     {
       "name": "stat_field",
@@ -1916,8 +2144,7 @@
           "top": 32,
           "right": 80,
           "bottom": 32
-        },
-        "resize_mode": "horizontal_caps"
+        }
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "destinationBordersLeftTopRightBottom": [
@@ -1927,8 +2154,9 @@
         12
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "9d35cb30fe7352591080ac2fb94b6eeafb630e59335e53565abf6ab88423c6b2"
+      "sha256": "c175e6e627776393cb7371df797ebe88bdfa0916769829269089ee22ac9b8c46"
     },
     {
       "name": "divider",
@@ -2032,8 +2260,9 @@
       "rotationDegrees": 90,
       "centerOrnamentPreserved": true,
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "2055bf2cab2632815fc0280595623ece4f5ef5f19e776a602a85688bf53080de"
+      "sha256": "628ddbfc48a51b5c7e0375ad4fd25d734e559c051c5b69b41963fc9c3a40bbe3"
     },
     {
       "name": "pet_card_normal",
@@ -2086,7 +2315,7 @@
       "cleanArtPixelSha256": "25abeef0b399e46ff8a37fa01d157c84be583d0dbd1068f68c1086878ed2e29a",
       "sourceSha256": "02e2156e95676c54b3e94fd2f71f31c176000b0cbdac1f0aa82201a980ee0af3",
       "sourceArtworkEntry": {
-        "resize_mode": "horizontal_caps",
+        "resize_mode": "nine_slice",
         "file": "card_normal.png",
         "size": [
           601,
@@ -2106,7 +2335,49 @@
           "right": 89,
           "bottom": 54
         },
-        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained"
+        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
+        "edge_samples": {
+          "left": {
+            "box": [
+              195,
+              0,
+              220,
+              51
+            ],
+            "rotate": 90
+          },
+          "right": {
+            "box": [
+              195,
+              0,
+              220,
+              51
+            ],
+            "rotate": 270
+          }
+        },
+        "fixed_stamps": [
+          {
+            "file": "card_normal.side-0.png",
+            "source_box_xyxy": [
+              0,
+              65,
+              70,
+              143
+            ],
+            "anchor": "left-center"
+          },
+          {
+            "file": "card_normal.side-1.png",
+            "source_box_xyxy": [
+              531,
+              65,
+              601,
+              143
+            ],
+            "anchor": "right-center"
+          }
+        ]
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "destinationBordersLeftTopRightBottom": [
@@ -2116,8 +2387,9 @@
         21
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "457eb751529b165bd4def8495d9af3f6aa5d63e24f5b44c1a934408a57579c3e"
+      "sha256": "347ffb7e3f79e1064a00da1a1ff10e3b8648854671dfd48d50a7a66a9ebc12f0"
     },
     {
       "name": "pet_card_selected",
@@ -2170,7 +2442,7 @@
       "cleanArtPixelSha256": "23c7f345eddd46185bfb0c61ad7391df7cd515a375adbfddbb3e82a0ef4022c4",
       "sourceSha256": "02e2156e95676c54b3e94fd2f71f31c176000b0cbdac1f0aa82201a980ee0af3",
       "sourceArtworkEntry": {
-        "resize_mode": "horizontal_caps",
+        "resize_mode": "nine_slice",
         "file": "card_selected.png",
         "size": [
           600,
@@ -2190,7 +2462,49 @@
           "right": 87,
           "bottom": 54
         },
-        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained"
+        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
+        "edge_samples": {
+          "left": {
+            "box": [
+              195,
+              0,
+              220,
+              51
+            ],
+            "rotate": 90
+          },
+          "right": {
+            "box": [
+              195,
+              0,
+              220,
+              51
+            ],
+            "rotate": 270
+          }
+        },
+        "fixed_stamps": [
+          {
+            "file": "card_selected.side-0.png",
+            "source_box_xyxy": [
+              0,
+              65,
+              70,
+              143
+            ],
+            "anchor": "left-center"
+          },
+          {
+            "file": "card_selected.side-1.png",
+            "source_box_xyxy": [
+              530,
+              65,
+              600,
+              143
+            ],
+            "anchor": "right-center"
+          }
+        ]
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "destinationBordersLeftTopRightBottom": [
@@ -2200,8 +2514,9 @@
         21
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "515f624871892126669f8e699a955695ce6239984f3f10826e2127d51abe5612"
+      "sha256": "1170fbed411fb46487d86aa04062cf5c200ca6936e7e75d285e275eba88c90c6"
     },
     {
       "name": "portrait_lingyue",
@@ -2495,8 +2810,9 @@
         11
       ],
       "preservedArtwork": false,
+      "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "2c66427e3acb52a575e1de9e68c4adc81cce4c343a2a72c5af63760b3452b07c"
+      "sha256": "fab13d1b2dd5bef7260209fc22fcbd15c9e5a835b83d359ed0d3b5b9d5a0e4a0"
     }
   ]
 }

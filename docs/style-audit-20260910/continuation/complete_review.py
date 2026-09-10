@@ -50,6 +50,7 @@ groups={'ui':ui['records'],'icons':read('icons/review.json')['records'],'edges':
         'roster':list(read('review-roster.json')['files'].values()),'maps':list(read('review-maps.json')['files'].values())}
 snap=read('snapshot.json');snapshot={r['path']:r for r in snap['records']}
 coverage={};errors=[]
+late_updates={r['path']:r for r in read('ui/end-changes.json')}
 for group,rows in groups.items():
     for r in rows:
         p=r['path'];sha=r.get('sha256') or r.get('snapshot_sha256')
@@ -60,13 +61,19 @@ for group,rows in groups.items():
         c['review_groups'].append(group)
 for p,r in coverage.items():
     r['sha256_at_validation']=hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
-    if r['sha256_at_validation']!=r['sha256']:errors.append(p)
+    expected=r['sha256']
+    if p in late_updates:
+        expected=late_updates[p]['sha256']
+        r['latest_reviewed_sha256']=expected
+        r['latest_review_evidence']=late_updates[p]
+        r['latest_review_observation']='收尾更新版本已直接查看：深玉/米白/柔金与局部桂花流苏仍符合新方向，拆分主体和挂穗仍作为制作中间件，未当正式重切通过。'
+    if r['sha256_at_validation']!=expected:errors.append(p)
 new={r['path'] for r in snap['new_or_changed']}
 missing_new=sorted(new-coverage.keys())
 result={'generated_utc':now,'snapshot_cutoff_utc':snap['completed_utc'],'snapshot_visual_paths':len(snapshot),
         'review_unique_paths':len(coverage),'group_record_counts':{g:len(rs) for g,rs in groups.items()},
         'new_paths_covered':len(new)-len(missing_new),'new_paths_without_visual_review':missing_new,
-        'evidence_changed_after_review':errors,'source_art_modified':False,'records':list(coverage.values())}
+        'evidence_changed_after_review':errors,'late_updated_paths_re_reviewed':sorted(late_updates),'source_art_modified':False,'records':list(coverage.values())}
 write('coverage.json',result)
 assert not errors and not missing_new
 
@@ -89,7 +96,7 @@ report='''# 全文件夹风格补查 · 2026-09-10
 | v11人物制作稿 | 8张源图，含4立绘、52个动作格 | 25/26/28基本匹配；27比例偏长，旧斜表有方向重复及切格风险。 |
 | 天墉新增稿 | 2张地图风格稿＋1份参考副本 | 玉绿暖金stylematch稿更贴近基准；均未作为生产地图接入。 |
 
-去掉跨组重复后，本轮有 **346条唯一图像路径**得到新的视觉记录。26条新增路径全部覆盖。正式UI的38个像素一致副本通过逐件像素哈希关联到已实看的代表图；没有用统计值代替风格判断。此前未变来源的审查仍见[上次报告](../README.md)。
+去掉跨组重复后，本轮有 **346条唯一图像路径**得到新的视觉记录。26条新增路径全部覆盖。收尾时7个v10试切件再次更新，也已补看并分别记录新SHA，见[最后版本对照](ui/end-changes.jpg)。正式UI的38个像素一致副本通过逐件像素哈希关联到已实看的代表图；没有用统计值代替风格判断。此前未变来源的审查仍见[上次报告](../README.md)。
 
 ## 仍需处理的具体位置
 

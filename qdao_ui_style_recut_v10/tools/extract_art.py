@@ -65,7 +65,7 @@ def extract_plates(index):
         for name,spec in PLATES.items():
             crop=matte(source.crop(spec['box']))
             save(crop,ARTWORK/f'{name}.png')
-            entry={'resize_mode':'horizontal_caps','file':f'{name}.png','size':list(crop.size),'source':'source/01-plates.png',
+            entry={'resize_mode':'nine_slice','file':f'{name}.png','size':list(crop.size),'source':'source/01-plates.png',
                    'source_sha256':hashlib.sha256(source_path.read_bytes()).hexdigest(),
                    'source_box_xyxy':spec['box'],
                    'nine_slice':dict(zip(('left','top','right','bottom'),spec['borders'])),
@@ -80,6 +80,7 @@ def extract_plates(index):
                     ImageDraw.Draw(body).rectangle(box,fill=(0,0,0,0))
                 entry['body_file']=f'{name}.body.png'
                 entry['body_size']=list(body.size)
+                entry['hanging_inside_canvas']=True
                 save(body,ARTWORK/entry['body_file'])
             if spec.get('edge_samples'):
                 entry['edge_samples']=spec['edge_samples']
@@ -89,6 +90,24 @@ def extract_plates(index):
                 for i,(anchor,box) in enumerate(spec['stamps']):
                     file=f'{name}.stamp-{i}.png';save(crop.crop(box),ARTWORK/file)
                     entry['fixed_stamps'].append({'file':file,'source_box_xyxy':box,'anchor':anchor})
+            # Fill the contractual body height. The source's center side ornaments
+            # are fixed overlays; rotated straight top rail supplies stretchable sides.
+            body_height=entry.get('body_size',entry['size'])[1]
+            top=entry['nine_slice']['top']
+            entry.setdefault('edge_samples',{}).update({
+                'left':{'box':[195,0,220,top],'rotate':90},
+                'right':{'box':[195,0,220,top],'rotate':270}})
+            side_boxes={
+                'jade':[[0,62,95,127],[502,62,597,127]],
+                'ivory':[[0,62,95,128],[502,62,597,128]],
+                'card_normal':[[0,65,70,143],[531,65,601,143]],
+                'card_selected':[[0,65,70,143],[530,65,600,143]],
+                'title':[[0,65,95,127],[503,65,598,127]],
+                'muted':[[0,62,95,115],[503,62,598,115]]}
+            for i,box in enumerate(side_boxes[name]):
+                file=f'{name}.side-{i}.png';save(crop.crop(box),ARTWORK/file)
+                entry.setdefault('fixed_stamps',[]).append({'file':file,'source_box_xyxy':box,
+                    'anchor':'left-center' if i==0 else 'right-center'})
             index['assets'][name]=entry
     return list(PLATES)
 
@@ -159,7 +178,7 @@ def extract_sheet(index, category):
                'alpha_cleanup':'Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained'}
         if borders:
             entry['nine_slice']=dict(zip(('left','top','right','bottom'),borders))
-        if name in ('stat_field','slider_track','slider_fill','section_header'):
+        if name in ('slider_track','slider_fill'):
             entry['resize_mode']='horizontal_caps'
         if name=='divider':
             entry['fixed_horizontal_segments']={'left_end':[0,0,126,82],

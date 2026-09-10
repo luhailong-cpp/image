@@ -3,7 +3,7 @@
   "schema": "Explicit per-asset source crops and source pixel borders; full RGBA file plus optional separately anchored ornaments.",
   "assets": {
     "jade": {
-      "resize_mode": "horizontal_caps",
+      "resize_mode": "nine_slice",
       "file": "jade.png",
       "size": [
         597,
@@ -50,10 +50,53 @@
       "body_size": [
         597,
         176
+      ],
+      "hanging_inside_canvas": true,
+      "edge_samples": {
+        "left": {
+          "box": [
+            195,
+            0,
+            220,
+            69
+          ],
+          "rotate": 90
+        },
+        "right": {
+          "box": [
+            195,
+            0,
+            220,
+            69
+          ],
+          "rotate": 270
+        }
+      },
+      "fixed_stamps": [
+        {
+          "file": "jade.side-0.png",
+          "source_box_xyxy": [
+            0,
+            62,
+            95,
+            127
+          ],
+          "anchor": "left-center"
+        },
+        {
+          "file": "jade.side-1.png",
+          "source_box_xyxy": [
+            502,
+            62,
+            597,
+            127
+          ],
+          "anchor": "right-center"
+        }
       ]
     },
     "ivory": {
-      "resize_mode": "horizontal_caps",
+      "resize_mode": "nine_slice",
       "file": "ivory.png",
       "size": [
         597,
@@ -73,10 +116,52 @@
         "right": 142,
         "bottom": 66
       },
-      "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained"
+      "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
+      "edge_samples": {
+        "left": {
+          "box": [
+            195,
+            0,
+            220,
+            68
+          ],
+          "rotate": 90
+        },
+        "right": {
+          "box": [
+            195,
+            0,
+            220,
+            68
+          ],
+          "rotate": 270
+        }
+      },
+      "fixed_stamps": [
+        {
+          "file": "ivory.side-0.png",
+          "source_box_xyxy": [
+            0,
+            62,
+            95,
+            128
+          ],
+          "anchor": "left-center"
+        },
+        {
+          "file": "ivory.side-1.png",
+          "source_box_xyxy": [
+            502,
+            62,
+            597,
+            128
+          ],
+          "anchor": "right-center"
+        }
+      ]
     },
     "card_normal": {
-      "resize_mode": "horizontal_caps",
+      "resize_mode": "nine_slice",
       "file": "card_normal.png",
       "size": [
         601,
@@ -96,10 +181,52 @@
         "right": 89,
         "bottom": 54
       },
-      "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained"
+      "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
+      "edge_samples": {
+        "left": {
+          "box": [
+            195,
+            0,
+            220,
+            51
+          ],
+          "rotate": 90
+        },
+        "right": {
+          "box": [
+            195,
+            0,
+            220,
+            51
+          ],
+          "rotate": 270
+        }
+      },
+      "fixed_stamps": [
+        {
+          "file": "card_normal.side-0.png",
+          "source_box_xyxy": [
+            0,
+            65,
+            70,
+            143
+          ],
+          "anchor": "left-center"
+        },
+        {
+          "file": "card_normal.side-1.png",
+          "source_box_xyxy": [
+            531,
+            65,
+            601,
+            143
+          ],
+          "anchor": "right-center"
+        }
+      ]
     },
     "card_selected": {
-      "resize_mode": "horizontal_caps",
+      "resize_mode": "nine_slice",
       "file": "card_selected.png",
       "size": [
         600,
@@ -119,10 +246,52 @@
         "right": 87,
         "bottom": 54
       },
-      "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained"
+      "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
+      "edge_samples": {
+        "left": {
+          "box": [
+            195,
+            0,
+            220,
+            51
+          ],
+          "rotate": 90
+        },
+        "right": {
+          "box": [
+            195,
+            0,
+            220,
+            51
+          ],
+          "rotate": 270
+        }
+      },
+      "fixed_stamps": [
+        {
+          "file": "card_selected.side-0.png",
+          "source_box_xyxy": [
+            0,
+            65,
+            70,
+            143
+          ],
+          "anchor": "left-center"
+        },
+        {
+          "file": "card_selected.side-1.png",
+          "source_box_xyxy": [
+            530,
+            65,
+            600,
+            143
+          ],
+          "anchor": "right-center"
+        }
+      ]
     },
     "title": {
-      "resize_mode": "horizontal_caps",
+      "resize_mode": "nine_slice",
       "file": "title.png",
       "size": [
         598,
@@ -170,6 +339,7 @@
         598,
         165
       ],
+      "hanging_inside_canvas": true,
       "edge_samples": {
         "top": [
           195,
@@ -182,7 +352,25 @@
           100,
           220,
           165
-        ]
+        ],
+        "left": {
+          "box": [
+            195,
+            0,
+            220,
+            65
+          ],
+          "rotate": 90
+        },
+        "right": {
+          "box": [
+            195,
+            0,
+            220,
+            65
+          ],
+          "rotate": 270
+        }
       },
       "horizontal_center_sample": [
         195,
@@ -210,11 +398,31 @@
             161
           ],
           "anchor": "center-bottom"
+        },
+        {
+          "file": "title.side-0.png",
+          "source_box_xyxy": [
+            0,
+            65,
+            95,
+            127
+          ],
+          "anchor": "left-center"
+        },
+        {
+          "file": "title.side-1.png",
+          "source_box_xyxy": [
+            503,
+            65,
+            598,
+            127
+          ],
+          "anchor": "right-center"
         }
       ]
     },
     "muted": {
-      "resize_mode": "horizontal_caps",
+      "resize_mode": "nine_slice",
       "file": "muted.png",
       "size": [
         598,
@@ -234,7 +442,49 @@
         "right": 145,
         "bottom": 63
       },
-      "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained"
+      "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
+      "edge_samples": {
+        "left": {
+          "box": [
+            195,
+            0,
+            220,
+            65
+          ],
+          "rotate": 90
+        },
+        "right": {
+          "box": [
+            195,
+            0,
+            220,
+            65
+          ],
+          "rotate": 270
+        }
+      },
+      "fixed_stamps": [
+        {
+          "file": "muted.side-0.png",
+          "source_box_xyxy": [
+            0,
+            62,
+            95,
+            115
+          ],
+          "anchor": "left-center"
+        },
+        {
+          "file": "muted.side-1.png",
+          "source_box_xyxy": [
+            503,
+            62,
+            598,
+            115
+          ],
+          "anchor": "right-center"
+        }
+      ]
     },
     "frame": {
       "file": "frame.png",
@@ -732,8 +982,7 @@
         "top": 32,
         "right": 80,
         "bottom": 32
-      },
-      "resize_mode": "horizontal_caps"
+      }
     },
     "slider_track": {
       "file": "slider_track.png",
@@ -905,8 +1154,7 @@
         "top": 32,
         "right": 100,
         "bottom": 35
-      },
-      "resize_mode": "horizontal_caps"
+      }
     },
     "portrait_frame": {
       "file": "portrait_frame.png",
