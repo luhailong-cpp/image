@@ -1,6 +1,7 @@
 {
   "tool": "Pillow mechanical recrop/resample of built-in GPT Image 2 artwork",
   "recutVersion": "v10",
+  "sourceArtworkIndexSha256": "824853b9c0288a15c4eafc2394d5e529daec28120a1a4d6185488c073eaa4685",
   "styleReference": "docs/references/ui-style-20260910.png",
   "unityImportExecutedThisBuild": false,
   "referenceCoordinates": "New painted art uses the central artKey crop map; legacy reference rectangles are retained separately.",
@@ -242,37 +243,9 @@
           "left": 146,
           "top": 65,
           "right": 145,
-          "bottom": 65
+          "bottom": 99
         },
         "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
-        "hanging_overlays": [
-          {
-            "file": "title.tassel-0.png",
-            "source_box_xyxy": [
-              23,
-              153,
-              62,
-              199
-            ],
-            "anchor": "bottom-left"
-          },
-          {
-            "file": "title.tassel-1.png",
-            "source_box_xyxy": [
-              541,
-              153,
-              581,
-              199
-            ],
-            "anchor": "bottom-right"
-          }
-        ],
-        "body_file": "title.body.png",
-        "body_size": [
-          598,
-          165
-        ],
-        "hanging_inside_canvas": true,
         "edge_samples": {
           "top": [
             195,
@@ -284,26 +257,8 @@
             195,
             100,
             220,
-            165
-          ],
-          "left": {
-            "box": [
-              195,
-              0,
-              220,
-              65
-            ],
-            "rotate": 90
-          },
-          "right": {
-            "box": [
-              195,
-              0,
-              220,
-              65
-            ],
-            "rotate": 270
-          }
+            199
+          ]
         },
         "horizontal_center_sample": [
           195,
@@ -331,26 +286,28 @@
               161
             ],
             "anchor": "center-bottom"
+          }
+        ],
+        "extracted_hanging_parts": [
+          {
+            "file": "title.tassel-0.png",
+            "source_box_xyxy": [
+              23,
+              112,
+              62,
+              199
+            ],
+            "anchor": "bottom-left"
           },
           {
-            "file": "title.side-0.png",
+            "file": "title.tassel-1.png",
             "source_box_xyxy": [
-              0,
-              65,
-              95,
-              127
+              541,
+              112,
+              581,
+              199
             ],
-            "anchor": "left-center"
-          },
-          {
-            "file": "title.side-1.png",
-            "source_box_xyxy": [
-              503,
-              65,
-              598,
-              127
-            ],
-            "anchor": "right-center"
+            "anchor": "bottom-right"
           }
         ]
       },
@@ -364,7 +321,7 @@
       "preservedArtwork": false,
       "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "f018371c402b83ac90cf71b80456008ed6e709a718ad576315f8f55cf3f1ca38"
+      "sha256": "b9a01536ef28813328ea538341925106c0b7fe84fe910af49e9b93abef8c96a8"
     },
     {
       "name": "title_character",
@@ -557,15 +514,15 @@
           "left": 144,
           "top": 69,
           "right": 144,
-          "bottom": 68
+          "bottom": 107
         },
         "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
-        "hanging_overlays": [
+        "extracted_hanging_parts": [
           {
             "file": "jade.tassel-0.png",
             "source_box_xyxy": [
               20,
-              173,
+              116,
               60,
               214
             ],
@@ -575,59 +532,11 @@
             "file": "jade.tassel-1.png",
             "source_box_xyxy": [
               539,
-              173,
+              116,
               578,
               214
             ],
             "anchor": "bottom-right"
-          }
-        ],
-        "body_file": "jade.body.png",
-        "body_size": [
-          597,
-          176
-        ],
-        "hanging_inside_canvas": true,
-        "edge_samples": {
-          "left": {
-            "box": [
-              195,
-              0,
-              220,
-              69
-            ],
-            "rotate": 90
-          },
-          "right": {
-            "box": [
-              195,
-              0,
-              220,
-              69
-            ],
-            "rotate": 270
-          }
-        },
-        "fixed_stamps": [
-          {
-            "file": "jade.side-0.png",
-            "source_box_xyxy": [
-              0,
-              62,
-              95,
-              127
-            ],
-            "anchor": "left-center"
-          },
-          {
-            "file": "jade.side-1.png",
-            "source_box_xyxy": [
-              502,
-              62,
-              597,
-              127
-            ],
-            "anchor": "right-center"
           }
         ]
       },
@@ -641,7 +550,7 @@
       "preservedArtwork": false,
       "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "b8d843af683e593b4fb10f4033f35198c8b887451b119e3bd86d85d93e8c95b1"
+      "sha256": "e9e5ada2210d1f57741a3955b7166002c0a41142a92a40f089125678c1c5a24e"
     },
     {
       "name": "button_secondary",
@@ -714,49 +623,7 @@
           "right": 142,
           "bottom": 66
         },
-        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
-        "edge_samples": {
-          "left": {
-            "box": [
-              195,
-              0,
-              220,
-              68
-            ],
-            "rotate": 90
-          },
-          "right": {
-            "box": [
-              195,
-              0,
-              220,
-              68
-            ],
-            "rotate": 270
-          }
-        },
-        "fixed_stamps": [
-          {
-            "file": "ivory.side-0.png",
-            "source_box_xyxy": [
-              0,
-              62,
-              95,
-              128
-            ],
-            "anchor": "left-center"
-          },
-          {
-            "file": "ivory.side-1.png",
-            "source_box_xyxy": [
-              502,
-              62,
-              597,
-              128
-            ],
-            "anchor": "right-center"
-          }
-        ]
+        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained"
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "destinationBordersLeftTopRightBottom": [
@@ -768,7 +635,7 @@
       "preservedArtwork": false,
       "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "72a3dba771db5feb640d5192ab261e51ac654779380c00a40825b3a51afa62fb"
+      "sha256": "96fe5fe53fb30def6e5ee8931179911cfd6a21be1d092359f69d5941cb2999f5"
     },
     {
       "name": "button_scheme",
@@ -841,49 +708,7 @@
           "right": 142,
           "bottom": 66
         },
-        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
-        "edge_samples": {
-          "left": {
-            "box": [
-              195,
-              0,
-              220,
-              68
-            ],
-            "rotate": 90
-          },
-          "right": {
-            "box": [
-              195,
-              0,
-              220,
-              68
-            ],
-            "rotate": 270
-          }
-        },
-        "fixed_stamps": [
-          {
-            "file": "ivory.side-0.png",
-            "source_box_xyxy": [
-              0,
-              62,
-              95,
-              128
-            ],
-            "anchor": "left-center"
-          },
-          {
-            "file": "ivory.side-1.png",
-            "source_box_xyxy": [
-              502,
-              62,
-              597,
-              128
-            ],
-            "anchor": "right-center"
-          }
-        ]
+        "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained"
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "destinationBordersLeftTopRightBottom": [
@@ -895,7 +720,7 @@
       "preservedArtwork": false,
       "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "0edabb47cd8ac0c8e1012b8e5ef867a22c19519a9ab476c8284507bce6702e4e"
+      "sha256": "451990db93a0bba54cf0dc7856196c215ba8cc348672b00bf107a464505f5a32"
     },
     {
       "name": "dropdown_arrow",
@@ -1038,15 +863,15 @@
           "left": 144,
           "top": 69,
           "right": 144,
-          "bottom": 68
+          "bottom": 107
         },
         "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
-        "hanging_overlays": [
+        "extracted_hanging_parts": [
           {
             "file": "jade.tassel-0.png",
             "source_box_xyxy": [
               20,
-              173,
+              116,
               60,
               214
             ],
@@ -1056,59 +881,11 @@
             "file": "jade.tassel-1.png",
             "source_box_xyxy": [
               539,
-              173,
+              116,
               578,
               214
             ],
             "anchor": "bottom-right"
-          }
-        ],
-        "body_file": "jade.body.png",
-        "body_size": [
-          597,
-          176
-        ],
-        "hanging_inside_canvas": true,
-        "edge_samples": {
-          "left": {
-            "box": [
-              195,
-              0,
-              220,
-              69
-            ],
-            "rotate": 90
-          },
-          "right": {
-            "box": [
-              195,
-              0,
-              220,
-              69
-            ],
-            "rotate": 270
-          }
-        },
-        "fixed_stamps": [
-          {
-            "file": "jade.side-0.png",
-            "source_box_xyxy": [
-              0,
-              62,
-              95,
-              127
-            ],
-            "anchor": "left-center"
-          },
-          {
-            "file": "jade.side-1.png",
-            "source_box_xyxy": [
-              502,
-              62,
-              597,
-              127
-            ],
-            "anchor": "right-center"
           }
         ]
       },
@@ -1122,7 +899,7 @@
       "preservedArtwork": false,
       "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "0ce2b3ac2d97b4540e1037d6006767ba9a083d1a879e9a91c1d8e64f610f57c1"
+      "sha256": "c5dda5483942a74e0a831f853b9ee5c10ffe46c778960b188fb909617a6aaa65"
     },
     {
       "name": "section_header",
@@ -2336,48 +2113,7 @@
           "bottom": 54
         },
         "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
-        "edge_samples": {
-          "left": {
-            "box": [
-              195,
-              0,
-              220,
-              51
-            ],
-            "rotate": 90
-          },
-          "right": {
-            "box": [
-              195,
-              0,
-              220,
-              51
-            ],
-            "rotate": 270
-          }
-        },
-        "fixed_stamps": [
-          {
-            "file": "card_normal.side-0.png",
-            "source_box_xyxy": [
-              0,
-              65,
-              70,
-              143
-            ],
-            "anchor": "left-center"
-          },
-          {
-            "file": "card_normal.side-1.png",
-            "source_box_xyxy": [
-              531,
-              65,
-              601,
-              143
-            ],
-            "anchor": "right-center"
-          }
-        ]
+        "fixed_side_edge_ornaments": true
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "destinationBordersLeftTopRightBottom": [
@@ -2389,7 +2125,7 @@
       "preservedArtwork": false,
       "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "347ffb7e3f79e1064a00da1a1ff10e3b8648854671dfd48d50a7a66a9ebc12f0"
+      "sha256": "790f27926ae3042e115b34111918055f6f8b0544cf346bbe973ad51cff0f76cf"
     },
     {
       "name": "pet_card_selected",
@@ -2463,48 +2199,7 @@
           "bottom": 54
         },
         "alpha_cleanup": "Strong magenta field plus a 3px fringe only; chroma-key coverage and magenta edge unmatting, opaque painted interiors, every disconnected foreground component retained",
-        "edge_samples": {
-          "left": {
-            "box": [
-              195,
-              0,
-              220,
-              51
-            ],
-            "rotate": 90
-          },
-          "right": {
-            "box": [
-              195,
-              0,
-              220,
-              51
-            ],
-            "rotate": 270
-          }
-        },
-        "fixed_stamps": [
-          {
-            "file": "card_selected.side-0.png",
-            "source_box_xyxy": [
-              0,
-              65,
-              70,
-              143
-            ],
-            "anchor": "left-center"
-          },
-          {
-            "file": "card_selected.side-1.png",
-            "source_box_xyxy": [
-              530,
-              65,
-              600,
-              143
-            ],
-            "anchor": "right-center"
-          }
-        ]
+        "fixed_side_edge_ornaments": true
       },
       "cropProvenance": "qdao_ui_style_recut_v10/artwork/index.json",
       "destinationBordersLeftTopRightBottom": [
@@ -2516,7 +2211,7 @@
       "preservedArtwork": false,
       "transparentGuardPixels": 1,
       "recutVersion": "v10",
-      "sha256": "1170fbed411fb46487d86aa04062cf5c200ca6936e7e75d285e275eba88c90c6"
+      "sha256": "382d85143a803a0465fe9db11ff5d01150148d870f4e9340ca5271bf33d208b8"
     },
     {
       "name": "portrait_lingyue",

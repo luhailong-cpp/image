@@ -92,7 +92,7 @@ def extract_plates(index):
                     entry['fixed_stamps'].append({'file':file,'source_box_xyxy':box,'anchor':anchor})
             # Side strips retain uniform ornament scale while their clean leading
             # and trailing rows extend to fill a taller destination body.
-            if name in ('card_normal','card_selected','muted'):
+            if name in ('card_normal','card_selected'):
                 entry['fixed_side_edge_ornaments']=True
             if name=='muted':
                 entry['nine_slice']['top']=45;entry['nine_slice']['bottom']=42
