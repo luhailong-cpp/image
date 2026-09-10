@@ -186,7 +186,7 @@ def build(entry):
     elif name == "title_plate":
         im = nine_slice("title", w, h, (92, 36, 92, 38), pad=1)
         meta = source_paint("title")
-        meta["processing"] = "Assemble the new title plate from fixed painted ends, separate tassels, fixed center stamps and straight jade middle. Original whole-title sprite remains non-sliced at runtime."
+        meta["processing"] = "Nine-part assembly of the new title artwork with continuous painted ends, integrated tassels, separate fixed center stamps and a text-free jade middle. Original whole-title sprite remains non-sliced at runtime."
         meta["assemblyBordersLeftTopRightBottom"] = [92, 36, 92, 38]
     elif name == "close_button":
         im = native_glyph(fit_art("close_button", w, h, pad=1), "close")
@@ -414,7 +414,7 @@ def attribute_layout_reviews(entries, images):
 
 def main():
     contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
-    assert len(contract["sprites"] ) == 31
+    assert len(contract["sprites"]) == 31
     source_index_sha256 = hash_file(PACK / "artwork/index.json")
     entries, images, provenance, validation = [], {}, [], []
     for original in contract["sprites"]:
