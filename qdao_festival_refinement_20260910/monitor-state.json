@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-09-10T14:45:00.591587+00:00",
+  "updated_at_utc": "2026-09-10T16:20:37.869595+00:00",
   "phase": "waiting_for_prerequisites",
   "all_images_complete": false,
   "images_edited_by_this_task": 0,
@@ -10,12 +10,12 @@
   "user_latest_request": "continue working; asked whether the whole task is complete",
   "generation_gate_open": false,
   "blocking_deliveries": {
-    "ui_v10": "6 generated groups; 0 formal replacements; staged validation incomplete with 158 outputs pending",
+    "ui_v10": "46 staged outputs passed recorded QA: 31 attribute slices and 15 server/HUD PNGs. Top-level 158-missing validation is stale, not a current unmade count. Whole-package formal release remains unverified.",
     "characters_v9": "No final manifest/validation/visual QA; original task is notLoaded with previously observed interrupted latest turn",
-    "new_characters_v11": "Role 26 QC passed including recorded visual review; role 25 numeric QC passed with visual review pending; role 24 QC failed; no whole-package acceptance",
-    "task_inventory_activity_pages": "designs/gameplay-ui now has index.html and brief.md; final image delivery and acceptance remain unverified; task is active"
+    "new_characters_v11": "Roles 25 and 26 passed recorded numeric and visual QC. Role 24 QC failed at an undetermined earlier time. Other roles and whole-package completion remain unverified.",
+    "task_inventory_activity_pages": "Latest brief names 01-quests.png, 02-inventory.png and 03-activities.png; all three were absent at this follow-up. Existing task is in progress."
   },
-  "resume_other_task_question": "pending user reply; do not send a follow-up to another task without the requested authorization",
+  "resume_other_task_question": "Superseded by the user instruction: if unfinished, continue. Continuation messages were accepted for UI v10 and character tasks v9/v11; UI and main city were observed in new in-progress turns. Avoid duplicate continuation messages.",
   "completed_evidence": {
     "exposure": "published; 1027 checked, 953 modified, 74 retained",
     "style_audit": "1471-file historical review completed",
@@ -23,36 +23,39 @@
   },
   "next_step": "Refresh task states and inventory after prerequisites finish, then begin source-based image refinement and validate dependent exports.",
   "last_monitor_trigger_utc": "2026-09-10T14:42:07.849Z",
-  "monitor_decision": "Prerequisite production remains incomplete. Continue the existing hourly schedule without editing images or routine notifications.",
+  "monitor_decision": "Keep the original hourly schedule. Do not duplicate continuation messages. Wait for actual complete production delivery before source-based festival refinement.",
   "thread_observations": [
-    {
-      "id": "01a0860b-36e6-7000-b128-67e7f4d73fa1",
-      "status": "active",
-      "latest_turn": "inProgress"
-    },
     {
       "id": "01a08a19-8d1b-75c1-9e80-ee2fea9833b0",
       "status": "active",
-      "latest_turn": "inProgress"
-    },
-    {
-      "id": "01a08a2b-8ef8-7d41-be4e-8962e24735e1",
-      "status": "active",
-      "latest_turn": "interrupted"
+      "latest_turn": "inProgress",
+      "turn_id": "01a08bf9-1498-7602-8ec8-6083f5faccdc"
     },
     {
       "id": "01a08a28-6391-7100-a82e-f3a966e57349",
       "status": "active",
-      "latest_turn": "inProgress"
+      "latest_turn": "inProgress",
+      "turn_id": "01a08bfb-9bda-7822-a51d-48199711880b"
+    },
+    {
+      "id": "01a08a2b-8ef8-7d41-be4e-8962e24735e1",
+      "status": "active",
+      "latest_turn": "interrupted",
+      "continuation_message": "accepted"
     },
     {
       "id": "01a075d4-5b1f-7e31-b44f-18e351fa544f",
-      "status": "notLoaded",
+      "status": "active",
       "latest_turn": "interrupted",
-      "latest_turn_observation": "carried forward; task update time unchanged"
+      "continuation_message": "accepted"
+    },
+    {
+      "id": "01a0860b-36e6-7000-b128-67e7f4d73fa1",
+      "status": "active",
+      "latest_turn": "inProgress"
     }
   ],
-  "last_observed_change": "Role 26 QC now passed, including visual review. Role 25 gained manifest and numeric QC with visual review pending. Other final-delivery evidence remains incomplete.",
+  "last_observed_change": "Corrected stale UI counts using newer staged QA; role 25 now passed; user explicitly requested continuation and interrupted production tasks were sent continuation messages.",
   "partial_progress": {
     "role_26": {
       "manifest": "qdao_chibi_roster_v11/26_osmanthus_healer/manifest.json",
@@ -62,12 +65,21 @@
       "completion_scope": "Individual-role recorded QC only; v11 whole-package acceptance remains pending"
     },
     "role_25": {
-      "qc_status": "passed_numeric_qc_pending_visual_review",
-      "complete": false
+      "qc_status": "passed",
+      "complete": true,
+      "completion_scope": "Individual-role recorded numeric and visual QC only; whole-package acceptance pending"
     },
     "role_24": {
       "qc_status": "failed",
-      "complete": false
+      "complete": false,
+      "failure_timing": "undetermined; not evidence of a newly occurring failure"
     }
+  },
+  "last_user_followup_utc": "2026-09-10T15:37:13Z",
+  "continuation_requests": {
+    "ui_v10": "accepted; new inProgress turn observed",
+    "characters_v9": "accepted; active; fresh turn not yet observed",
+    "new_characters_v11": "accepted; active; fresh turn not yet observed",
+    "main_city": "send tool approval review timed out twice; subsequent snapshot independently confirmed a new inProgress turn"
   }
 }
