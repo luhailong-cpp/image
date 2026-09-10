@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "status": "passed_for_staged_art_delivery",
+  "reviewedAtUtc": "2026-09-10T12:40:08.055950+00:00",
+  "scope": "31 attribute sprites and 15 server/HUD PNG contracts; this report records actual visual review, not engine integration.",
+  "methods": [
+    "Actual image inspection of sprite contact sheet, original-border 9-slice stretches, fixed glyph/title sheet and native Chinese label assemblies.",
+    "Independent file checks of dimensions, RGBA mode, original public borders, resource paths and SHA-256 for all 31 attributes.",
+    "Composite builder checked dimensions/modes/alpha ranges for all 15 PNGs, unchanged source inputs and exact HUD background pixels outside the overlay."
+  ],
+  "attributes": {
+    "count": 31,
+    "newPaintedSkins": 25,
+    "approvedPortraitRecrops": 4,
+    "preservedStaticTitleLayers": [
+      "title_character",
+      "title_pet"
+    ],
+    "newNonTileAssetsWithOnePixelClearGuard": 24,
+    "pixelSizeModeBorderResourceHashChecks": "passed",
+    "visualChecks": [
+      "jade/ivory/warm-gold family consistent",
+      "native CJK labels render and fit",
+      "pet names and portraits contained by complete card bodies",
+      "continuous borders without trial seams",
+      "fixed plus/minus/close/notice/dropdown glyphs legible",
+      "approved title calligraphy clean; round crescent divider center preserved"
+    ],
+    "fileValidationSha256": "816518619845d8d6dbd2cdbacdce0601f0c03e3623f7a2d8b8572a6a90df98fb",
+    "sourceMapSha256": "13bebb192639192681c79a751ba9299dbb1a2f33df1341ecc2718af2fa1957d6"
+  },
+  "composites": {
+    "count": 15,
+    "serverPngs": 12,
+    "hudPngs": 3,
+    "visualChecks": [
+      "all server labels render in Chinese",
+      "disabled server row contains both native text lines",
+      "summary and search text clear of side decoration",
+      "HUD text has clear top/bottom space",
+      "server base and controls contain no dynamic text",
+      "painted components compose cleanly with preserved scene and hero art"
+    ],
+    "unchangedIndependentTextLayer": "hud_labels.png",
+    "hudSeparateLayerRecompositionMaxChannelDelta": 1,
+    "alphaCompositingRoundingTolerance": 1,
+    "exactHudPixelsOutsideOverlay": true,
+    "buildReportSha256": "b4fad2a34e569121b9cc721078b8c5dc4ff13bac68f50bd26cccd47de2e5c1c3"
+  },
+  "reviewImages": [
+    {
+      "path": "qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/sprite-overview.png",
+      "sha256": "0a8f5dc51782be645c4e9f998ae74dc17c5cf2de1e38859699f806421611a544"
+    },
+    {
+      "path": "qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/nine-slice-review.png",
+      "sha256": "96cfe86c7fe87696a12dcc5399a2751204853e864adf6ff9be082812a0ad1b93"
+    },
+    {
+      "path": "qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/frame-fields-review.png",
+      "sha256": "3a1cab912d53b289daabfed2ea7958debc0c183595113508efeb8e7524b5554e"
+    },
+    {
+      "path": "qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/fixed-glyph-title-review.png",
+      "sha256": "6ffb213a2e37317b58a0ba54a1369240554f5a013bb800a0b84e6275f6fdccd5"
+    },
+    {
+      "path": "qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/character-layout-review.png",
+      "sha256": "18d60fe30b7a3d43fc60412973e7912a56f67dc24e4f3aaaaee04f81a414bb2b"
+    },
+    {
+      "path": "qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/pet-layout-review.png",
+      "sha256": "29bfd67692207b633b30315b4723c6fb3530d7ecf020a329dcdca0e43e18b056"
+    },
+    {
+      "path": "qdao_ui_style_recut_v10/staged/composite-review.png",
+      "sha256": "af9f6814e8389c6225621ec17d49d36e021a4a340858170c4ad1f7f79543e59d"
+    },
+    {
+      "path": "qdao_ui_style_recut_v10/staged/ugui_qdao_headband_2560x1080.png",
+      "sha256": "89bf9b4c3c2725afe6202b61ce15a7c70657920bf3acb8fbfef4a94ccec9b667"
+    },
+    {
+      "path": "qdao_ui_style_recut_v10/staged/qdao_ui_redesign_v5/source/04_main_city_hud.png",
+      "sha256": "4c4706f0f5bda6c49a360560df7093df00d7bd6a03b5f8340fb65a7b5c53ec35"
+    }
+  ],
+  "limits": [
+    "Pillow and Sharp review montages only; no Unity/FairyGUI import or runtime screenshot is claimed.",
+    "Demo text and placeholders are review content; no business logic or production values are supplied.",
+    "This subtask wrote only v10 staging and its builders/provenance; original production/client paths were not edited."
+  ]
+}

@@ -16,8 +16,8 @@ import numpy as np
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent
-SOURCE = Path(r"E:\work\image\tianyong_festival_stylematch_20260910\tianyong-jade-gold-main-city-native.png")
-PIPELINE = Path(r"E:\work\mmorpg-client\tools\tianyong_tile_pipeline.py")
+SOURCE = ROOT / "layout-source-native.png"
+PIPELINE = ROOT / "seam_helpers.py"
 GRID = 6
 CORE = 1024
 HALO = 115
@@ -162,7 +162,7 @@ def inspect_refinements() -> list[dict]:
         if not prompt_path.is_file():
             raise ValueError(f"Missing prompt provenance: {prompt_relative}")
         prompt = prompt_path.read_text(encoding="utf-8-sig").strip()
-        if not prompt:
+        if len(prompt) < 200 or prompt.lower() in ("undefined", "null", "none"):
             raise ValueError(f"Prompt must be nonempty: {prompt_relative}")
         with Image.open(path) as native:
             native.load()
