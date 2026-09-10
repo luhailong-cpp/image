@@ -20,7 +20,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-VERSION = 1
+VERSION = 2
 CELL = 512
 FOOT = (256, 471)
 ROWS = {"cardinal": ["S", "W", "E", "N"], "diagonal": ["SW", "NW", "NE", "SE"]}
@@ -75,8 +75,11 @@ def run_processor(args, kind: str, raw: Path, work: Path) -> tuple[dict, dict]:
     native = Image.open(raw)
     source = {"path": str(raw.resolve()), "sha256": sha(raw), "native_size": list(native.size),
               "native_mode": native.mode, "source": "built-in image_gen"}
-    if kind != "portrait" and (native.width % 4 or native.height % 4 or native.width != native.height):
-        raise ValueError(f"{kind}: expected square 4x4 raw sheet divisible by 4; got {native.size}")
+    if kind != "portrait" and native.width != native.height:
+        raise ValueError(f"{kind}: expected square 4x4 raw sheet; got {native.size}")
+    if kind != "portrait":
+        source["native_cell_size"] = [native.width // 4, native.height // 4]
+        source["unused_outer_remainder_px"] = [native.width % 4, native.height % 4]
     prompt = prompt_path(args, kind)
     if prompt:
         source["prompt_file"] = str(prompt.resolve())
@@ -94,7 +97,7 @@ def run_processor(args, kind: str, raw: Path, work: Path) -> tuple[dict, dict]:
     else:
         command += ["--rows", "4", "--cols", "4", "--cell-size", str(CELL),
                     "--fit-scale", "0.84", "--align", "feet", "--scale-strategy", "preserve",
-                    "--shared-scale", "--component-mode", "largest", "--component-padding", "2",
+                    "--shared-scale", "--component-mode", "largest", "--component-padding", str(args.component_padding),
                     "--trim-border", "0", "--edge-clean-depth", "0", "--strict-qc"]
     cache = {"version": VERSION, "source_sha256": source["sha256"],
              "processor_sha256": sha(args.processor), "command": command,
@@ -111,6 +114,26 @@ def run_processor(args, kind: str, raw: Path, work: Path) -> tuple[dict, dict]:
     metadata["invocation"] = command
     metadata["processor_sha256"] = cache["processor_sha256"]
     return metadata, source
+
+
+def alpha_preserved_preframes(work: Path, metadata: dict) -> list[Image.Image]:
+    """Replay skill crop/scale/placement without squaring existing source alpha."""
+    clean = Image.open(work / "raw-sheet-clean.png").convert("RGBA")
+    used_w, used_h = (clean.width // 4) * 4, (clean.height // 4) * 4
+    if used_w < clean.width and bounds(clean.crop((used_w, 0, clean.width, clean.height))):
+        raise ValueError("visible subject pixels in excluded outer grid remainder")
+    if used_h < clean.height and bounds(clean.crop((0, used_h, clean.width, clean.height))):
+        raise ValueError("visible subject pixels in excluded outer grid remainder")
+    result = []
+    for info in metadata["frames"]:
+        source_cell = clean.crop(info["source_box"])
+        crop = source_cell.crop(info["crop_bbox"])
+        scaled = crop.resize(tuple(info["output_size"]), Image.Resampling.LANCZOS)
+        frame = Image.new("RGBA", (CELL, CELL), (0, 0, 0, 0))
+        frame.paste(scaled, tuple(info["paste_position"]))
+        result.append(frame)
+    metadata["alpha_composition_override"] = "replay measured crops and placements with unmasked RGBA paste; preserve existing alpha"
+    return result
 
 
 def normalized_frame(image: Image.Image, common_scale: float) -> tuple[Image.Image, dict]:
@@ -156,6 +179,7 @@ def main() -> int:
         parser.add_argument(f"--{kind}-prompt", type=Path)
     parser.add_argument("--processor", type=Path, default=DEFAULT_PROCESSOR)
     parser.add_argument("--tmp-root", type=Path, default=Path("E:/work/tmp/qdao-roster-v11"))
+    parser.add_argument("--component-padding", type=int, choices=range(0, 9), default=2, help="transparent padding around selected source component; use 0 only after verifying complete source silhouette")
     parser.add_argument("--duration", type=int, default=125, help="GIF frame milliseconds (default 8 fps)")
     parser.add_argument("--target-height", type=int, default=420, help="shared maximum silhouette height, not per-frame fit")
     parser.add_argument("--force", action="store_true", help="re-run processor even if raw and settings are unchanged")
@@ -186,19 +210,19 @@ def main() -> int:
                 cache.unlink()
             meta, source = run_processor(args, kind, getattr(args, kind), work / kind)
             sources[kind], metadata[kind] = source, meta
-            write_json(record_dir / f"{kind}-pipeline-meta.json", meta)
             prompt = prompt_path(args, kind)
             if prompt:
                 shutil.copyfile(prompt, record_dir / f"{kind}-prompt-used.txt")
             if kind != "portrait":
+                sheet_frames = alpha_preserved_preframes(work / kind, meta)
                 for row, direction in enumerate(ROWS[kind]):
-                    pre_frames[direction] = [Image.open(work / kind / f"walk-{row * 4 + col + 1}.png").convert("RGBA")
-                                             for col in range(4)]
+                    pre_frames[direction] = sheet_frames[row * 4:row * 4 + 4]
                     direction_qc = processor.summarize_frame_qc(meta["frames"][row * 4:row * 4 + 4])
                     qc["directions"][direction] = direction_qc
                     for metric, limit in [("body_scale_cv", 0.08), ("anchor_y_std", 0.05)]:
                         if direction_qc[metric] > limit:
                             qc["errors"].append(f"{direction}: {metric}={direction_qc[metric]:.5f} > {limit}")
+            write_json(record_dir / f"{kind}-pipeline-meta.json", meta)
         all_pre = [frame for d in DIRECTIONS for frame in pre_frames[d]]
         max_height = max(bounds(frame)[3] - bounds(frame)[1] for frame in all_pre)
         common_scale = args.target_height / max_height

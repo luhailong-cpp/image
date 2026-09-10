@@ -1,0 +1,110 @@
+{
+  "reference": {
+    "path": "docs/references/ui-style-20260910.png",
+    "sha256": "913e301b1955a4dd78888bebcec82d1dbf504c0517ed606cc8eaab667675b825"
+  },
+  "generated_utc": "2026-09-10T07:49:24.045323+00:00",
+  "findings": [
+    {
+      "id": "R01",
+      "kind": "style",
+      "priority": 1,
+      "scope": "current source assets",
+      "files": [
+        {
+          "path": "exact_qdao_slices/fx_top_tab_active.png",
+          "sha256": "d57a9dc424ded126d43640e49b09c8c643f7b2226b196242861de7f0a8004bc3"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/ui/source/ui-skins-native.png",
+          "sha256": "e965f96b88e21bf5dad0c4ff9c23a5fa21969facde3cb95af9f35864b947e080"
+        }
+      ],
+      "observation": "曝光调整后，仍是密集玉石流纹、凸起大云头；用在页签/搜索/列表时过度沿用同一种胶囊式主按钮。与参考安静深玉底、轻金边与不同控件层级不一致。",
+      "action": "从无字母件重做材质及控件层级，再同步各有效派生路径；不以再次压亮度代替造型修正。"
+    },
+    {
+      "id": "R02",
+      "kind": "cutout_quality",
+      "priority": 1,
+      "scope": "current source assets",
+      "files": [
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_frame.png",
+          "sha256": "35b5dfb2a202ba9a9e8dcef55b7cda4ec11f3edd657955b0a385019a9862be1f"
+        }
+      ],
+      "observation": "左边框大段缺失，左上下留残点；上边断续并夹有粗深绿段。比旧报告的轻微角接残点严重。",
+      "action": "依据完整头像框重切并重组验收，保留四边连续且透明边缘干净。"
+    },
+    {
+      "id": "R03",
+      "kind": "cutout_quality",
+      "priority": 1,
+      "scope": "current source assets",
+      "files": [
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/button_primary.png",
+          "sha256": "d5dec805d8107b86c24d3b103f72fcd76c8b378b0bcd4d7e09bb280f2f3126ac"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/tab_vertical_selected.png",
+          "sha256": "076c79b8eea5afebff41f438a34c20a149ab0e1c80033d95b192dc4d928fe707"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/step_plate.png",
+          "sha256": "2ae637f83a100b73b2870e661ba4dcac2541a372465e191dcbb36435d3d926d4"
+        }
+      ],
+      "observation": "主按钮中央宽矩形有横向色带及两端直切线；竖页签有矩形补纹和上下暗带；数值底板有中央米白补块。外金边基本完整，底纹不连续。",
+      "action": "重做连续无字底纹后再切，按原尺寸和实际拉伸尺寸分别检查接缝。"
+    },
+    {
+      "id": "R04",
+      "kind": "style",
+      "priority": 1,
+      "scope": "saved QA screenshot; not live client verification",
+      "files": [
+        {
+          "path": "client_ui_refresh_20260908/qa/11-result-native.png",
+          "sha256": "b0de32e12eb9810d2c704c5f65b6334cb38b9df6425211bfccf87552a057768d"
+        }
+      ],
+      "observation": "保存的结算截图仍用大面积深棕木质面板、硬直金框；只换了绿云头按钮，未形成指定参考的纸面和玉绿标题体系。",
+      "action": "将结算主窗和按钮纳入统一皮肤制作；实际客户端是否仍引用须在客户端单独核验。"
+    },
+    {
+      "id": "R05",
+      "kind": "version_consistency",
+      "priority": 2,
+      "scope": "current source assets",
+      "files": [
+        {
+          "path": "qdao_ui_redesign_v5/04_main_city_hud_2560x1080.png",
+          "sha256": "afb4d1da0c88ccc0f6b6d4349839bf43e9c67a4b1f8e6b859f9cf66c49aec6b9"
+        },
+        {
+          "path": "qdao_ui_redesign_v5/source/04_main_city_hud.png",
+          "sha256": "891c15277929d91949f5a2160e9d92a4b9afe624f6d737eb24f6796963c5ac12"
+        }
+      ],
+      "observation": "标准输出与 source 图的主城建筑布局、月轮位置及三枚按钮都不同。前者扁平绿按钮，后者厚云头玉石流纹。",
+      "action": "先确定权威场景来源，再用统一皮肤生成 HUD 与标准输出，校验 manifest 的真实来源。"
+    },
+    {
+      "id": "R06",
+      "kind": "draft_style",
+      "priority": 2,
+      "scope": "in-progress source draft; not a published cutout",
+      "files": [
+        {
+          "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/source/portrait_raw.png",
+          "sha256": "6649866c2f85c8a6c37dc76543931d70a0596536c1950575a19d56215b1121b9"
+        }
+      ],
+      "observation": "制作中源稿比基准更修长，躯干腿部偏长且轮廓更尖锐、漫画化。窄脸、高马尾、墨灰玉青和轻瘦身份本身符合人物设定。",
+      "action": "保留身份差异，收短躯干和腿部、软化硬切阴影，回到 v11 约2.2–2.8头身的目标后再制作动作；不把洋红色键底判为错误。"
+    }
+  ],
+  "method": "Current visual comparison and targeted native-pixel inspection. Metadata hashes are provenance evidence, not visual approval."
+}

@@ -37,7 +37,7 @@ def main():
             for n in range(1,5):
                 f=find_frame(base,d,n); im=Image.open(f)
                 assert im.mode=='RGBA' and im.size==(512,512),(f,im.mode,im.size)
-                alpha=im.getchannel('A'); assert alpha.getextrema()==(0,255),f
+                alpha=im.getchannel('A'); assert alpha.getextrema()[0]==0 and alpha.getextrema()[1]>=240,f
                 b=alpha.getbbox(); assert b and b[0]>0 and b[1]>0 and b[2]<512 and b[3]<512,(f,b)
                 digest=hashlib.sha256(f.read_bytes()).hexdigest()
                 hashes.append(digest); all_hash.append(digest); files.append(f.relative_to(ROOT).as_posix()); frame_count+=1
