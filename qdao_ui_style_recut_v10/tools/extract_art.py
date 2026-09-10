@@ -94,6 +94,7 @@ def extract_plates(index):
             # and trailing rows extend to fill a taller destination body.
             if name in ('card_normal','card_selected'):
                 entry['fixed_side_edge_ornaments']=True
+                entry['fit_borders_within_contract']=True
                 entry['side_rail_x']={'left':31,'right':64 if name=='card_normal' else 61}
             if name=='muted':
                 entry['nine_slice']['top']=45;entry['nine_slice']['bottom']=42

@@ -106,6 +106,13 @@ def nine_slice(name, w, h, dest_borders, pad=0):
         raise ValueError(f'{name}: invalid source borders {borders} for {source.size}')
     if not (pad<dl<width-dr<width-pad and pad<dt<height-db<height-pad):
         raise ValueError(f'{name}: invalid destination borders {(dl,dt,dr,db)} for {(width,height,pad)}')
+    if entry.get('fit_borders_within_contract'):
+        # Painted cap borders may occupy LESS than the public frozen border.
+        # This keeps round ornament geometry uniform; the rest of that frozen
+        # region contains ordinary body texture, safe for the unchanged runtime.
+        cap_scale=min((dl-pad)/sl,(dt-pad)/st,(dr-pad)/sr,(db-pad)/sb,
+                      (height-2*pad)/source.height)
+        dl,dt,dr,db=[pad+max(1,round(value*cap_scale)) for value in (sl,st,sr,sb)]
     hanging = entry.get('hanging_overlays', [])
     extension = max((part['source_box_xyxy'][3]-source.height for part in hanging),default=0)
     ornament_scale = min((dl-pad)/sl,(dr-pad)/sr,(dt-pad)/st,(db-pad)/(sb+max(0,extension)))
@@ -121,18 +128,15 @@ def nine_slice(name, w, h, dest_borders, pad=0):
             tile = source.crop(rect['box']).rotate(rect.get('rotate',0),expand=True) if isinstance(rect,dict) else source.crop(rect)
             tw,th=dx[col+1]-dx[col],dy[row+1]-dy[row]
             if entry.get('fixed_side_edge_ornaments') and row==1 and col in (0,2):
-                uniform_scale=min(tw/tile.width,th/tile.height)
-                uniform_w=max(1,min(tw,round(tile.width*uniform_scale)))
-                uniform_h=max(1,min(th,round(tile.height*uniform_scale)))
-                core=tile.resize((uniform_w,uniform_h),LANCZOS)
+                uniform_h=max(1,min(th,round(tile.height*tw/tile.width)))
+                core=tile.resize((tw,uniform_h),LANCZOS)
                 before=(th-uniform_h)//2;after=th-uniform_h-before
-                column=tile.crop((0,0,tile.width,2)).resize((tw,th),LANCZOS)
-                # Keep the source gold vertical rail aligned under a uniformly
-                # scaled flower even when the public border is unusually wide.
-                rail_x=entry['side_rail_x']['left' if col==0 else 'right']
-                core_x=round(rail_x*tw/tile.width-rail_x*uniform_scale)
-                core_x=max(0,min(tw-uniform_w,core_x))
-                column.alpha_composite(core,(core_x,before))
+                column=Image.new('RGBA',(tw,th))
+                if before:
+                    column.alpha_composite(tile.crop((0,0,tile.width,2)).resize((tw,before),LANCZOS),(0,0))
+                column.alpha_composite(core,(0,before))
+                if after:
+                    column.alpha_composite(tile.crop((0,0,tile.width,2)).resize((tw,after),LANCZOS),(0,before+uniform_h))
                 tile=column
             else:
                 tile=tile.resize((tw,th),LANCZOS)
