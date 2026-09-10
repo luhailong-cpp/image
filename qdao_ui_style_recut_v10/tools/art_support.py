@@ -129,7 +129,7 @@ def nine_slice(name, w, h, dest_borders, pad=0):
                     column.alpha_composite(tile.crop((0,0,tile.width,2)).resize((tw,before),LANCZOS),(0,0))
                 column.alpha_composite(core,(0,before))
                 if after:
-                    column.alpha_composite(tile.crop((0,tile.height-2,tile.width,tile.height)).resize((tw,after),LANCZOS),(0,before+uniform_h))
+                    column.alpha_composite(tile.crop((0,0,tile.width,2)).resize((tw,after),LANCZOS),(0,before+uniform_h))
                 tile=column
             else:
                 tile=tile.resize((tw,th),LANCZOS)

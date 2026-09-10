@@ -92,12 +92,19 @@ def extract_plates(index):
                     entry['fixed_stamps'].append({'file':file,'source_box_xyxy':box,'anchor':anchor})
             # Side strips retain uniform ornament scale while their clean leading
             # and trailing rows extend to fill a taller destination body.
-            if name in ('card_normal','card_selected','ivory','muted'):
+            if name in ('card_normal','card_selected','muted'):
                 entry['fixed_side_edge_ornaments']=True
-            if name=='ivory':
-                entry['nine_slice']['top']=55;entry['nine_slice']['bottom']=40
-            elif name=='muted':
+            if name=='muted':
                 entry['nine_slice']['top']=45;entry['nine_slice']['bottom']=42
+            if name in ('jade','title'):
+                # The complete lower source cap includes the tassel in its public
+                # bottom border. Source-continuous resampling prevents cut holes.
+                entry['nine_slice']['bottom']+=crop.height-entry['body_size'][1]
+                entry['extracted_hanging_parts']=entry.pop('hanging_overlays')
+                entry.pop('body_file',None);entry.pop('body_size',None)
+                entry.pop('hanging_inside_canvas',None)
+                if name=='title':
+                    entry['edge_samples']['bottom']=[195,100,220,crop.height]
             index['assets'][name]=entry
     return list(PLATES)
 
