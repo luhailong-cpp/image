@@ -121,15 +121,18 @@ def nine_slice(name, w, h, dest_borders, pad=0):
             tile = source.crop(rect['box']).rotate(rect.get('rotate',0),expand=True) if isinstance(rect,dict) else source.crop(rect)
             tw,th=dx[col+1]-dx[col],dy[row+1]-dy[row]
             if entry.get('fixed_side_edge_ornaments') and row==1 and col in (0,2):
-                uniform_h=max(1,min(th,round(tile.height*tw/tile.width)))
-                core=tile.resize((tw,uniform_h),LANCZOS)
+                uniform_scale=min(tw/tile.width,th/tile.height)
+                uniform_w=max(1,min(tw,round(tile.width*uniform_scale)))
+                uniform_h=max(1,min(th,round(tile.height*uniform_scale)))
+                core=tile.resize((uniform_w,uniform_h),LANCZOS)
                 before=(th-uniform_h)//2;after=th-uniform_h-before
-                column=Image.new('RGBA',(tw,th))
-                if before:
-                    column.alpha_composite(tile.crop((0,0,tile.width,2)).resize((tw,before),LANCZOS),(0,0))
-                column.alpha_composite(core,(0,before))
-                if after:
-                    column.alpha_composite(tile.crop((0,0,tile.width,2)).resize((tw,after),LANCZOS),(0,before+uniform_h))
+                column=tile.crop((0,0,tile.width,2)).resize((tw,th),LANCZOS)
+                # Keep the source gold vertical rail aligned under a uniformly
+                # scaled flower even when the public border is unusually wide.
+                rail_x=entry['side_rail_x']['left' if col==0 else 'right']
+                core_x=round(rail_x*tw/tile.width-rail_x*uniform_scale)
+                core_x=max(0,min(tw-uniform_w,core_x))
+                column.alpha_composite(core,(core_x,before))
                 tile=column
             else:
                 tile=tile.resize((tw,th),LANCZOS)
