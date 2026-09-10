@@ -119,7 +119,20 @@ def nine_slice(name, w, h, dest_borders, pad=0):
             rect = entry.get('edge_samples',{}).get(edge_names.get((row,col)),
                     [xs[col],ys[row],xs[col+1],ys[row+1]])
             tile = source.crop(rect['box']).rotate(rect.get('rotate',0),expand=True) if isinstance(rect,dict) else source.crop(rect)
-            tile = tile.resize((dx[col+1]-dx[col],dy[row+1]-dy[row]),LANCZOS)
+            tw,th=dx[col+1]-dx[col],dy[row+1]-dy[row]
+            if entry.get('fixed_side_edge_ornaments') and row==1 and col in (0,2):
+                uniform_h=max(1,min(th,round(tile.height*tw/tile.width)))
+                core=tile.resize((tw,uniform_h),LANCZOS)
+                before=(th-uniform_h)//2;after=th-uniform_h-before
+                column=Image.new('RGBA',(tw,th))
+                if before:
+                    column.alpha_composite(tile.crop((0,0,tile.width,2)).resize((tw,before),LANCZOS),(0,0))
+                column.alpha_composite(core,(0,before))
+                if after:
+                    column.alpha_composite(tile.crop((0,tile.height-2,tile.width,tile.height)).resize((tw,after),LANCZOS),(0,before+uniform_h))
+                tile=column
+            else:
+                tile=tile.resize((tw,th),LANCZOS)
             result.alpha_composite(tile,(dx[col],dy[row]))
     for part in hanging:
         item = _read(part['file'])

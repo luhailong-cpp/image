@@ -14,12 +14,12 @@ from art_support import PACK, ARTWORK, save
 # Manually reviewed source rectangles in 01-plates.png (1254 x 1254).
 PLATES = {
  'jade': {'box':[16,153,613,368], 'borders':[144,69,144,68], 'body_height':176,
-          'hanging':[[20,173,60,214],[539,173,578,214]]},
+          'hanging':[[20,116,60,214],[539,116,578,214]]},
  'ivory': {'box':[641,153,1238,333], 'borders':[142,68,142,66]},
  'card_normal': {'box':[13,514,614,714], 'borders':[89,51,89,54]},
  'card_selected': {'box':[640,514,1240,714], 'borders':[87,51,87,54]},
  'title': {'box':[16,905,614,1104], 'borders':[146,65,145,65], 'body_height':165,
-           'hanging':[[23,153,62,199],[541,153,581,199]],
+           'hanging':[[23,112,62,199],[541,112,581,199]],
            'edge_samples':{'top':[195,0,220,65],'bottom':[195,100,220,165]},
            'stamps':[['center-top',[277,13,322,45]],['center-bottom',[277,137,322,161]]]},
  'muted': {'box':[641,905,1239,1077], 'borders':[145,65,145,63]}
@@ -90,24 +90,14 @@ def extract_plates(index):
                 for i,(anchor,box) in enumerate(spec['stamps']):
                     file=f'{name}.stamp-{i}.png';save(crop.crop(box),ARTWORK/file)
                     entry['fixed_stamps'].append({'file':file,'source_box_xyxy':box,'anchor':anchor})
-            # Fill the contractual body height. The source's center side ornaments
-            # are fixed overlays; rotated straight top rail supplies stretchable sides.
-            body_height=entry.get('body_size',entry['size'])[1]
-            top=entry['nine_slice']['top']
-            entry.setdefault('edge_samples',{}).update({
-                'left':{'box':[195,0,220,top],'rotate':90},
-                'right':{'box':[195,0,220,top],'rotate':270}})
-            side_boxes={
-                'jade':[[0,62,95,127],[502,62,597,127]],
-                'ivory':[[0,62,95,128],[502,62,597,128]],
-                'card_normal':[[0,65,70,143],[531,65,601,143]],
-                'card_selected':[[0,65,70,143],[530,65,600,143]],
-                'title':[[0,65,95,127],[503,65,598,127]],
-                'muted':[[0,62,95,115],[503,62,598,115]]}
-            for i,box in enumerate(side_boxes[name]):
-                file=f'{name}.side-{i}.png';save(crop.crop(box),ARTWORK/file)
-                entry.setdefault('fixed_stamps',[]).append({'file':file,'source_box_xyxy':box,
-                    'anchor':'left-center' if i==0 else 'right-center'})
+            # Side strips retain uniform ornament scale while their clean leading
+            # and trailing rows extend to fill a taller destination body.
+            if name in ('card_normal','card_selected','ivory','muted'):
+                entry['fixed_side_edge_ornaments']=True
+            if name=='ivory':
+                entry['nine_slice']['top']=55;entry['nine_slice']['bottom']=40
+            elif name=='muted':
+                entry['nine_slice']['top']=45;entry['nine_slice']['bottom']=42
             index['assets'][name]=entry
     return list(PLATES)
 
