@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-09-10T13:45:11.162362+00:00",
+  "updated_at_utc": "2026-09-10T14:45:00.591587+00:00",
   "phase": "waiting_for_prerequisites",
   "all_images_complete": false,
   "images_edited_by_this_task": 0,
@@ -11,8 +11,8 @@
   "generation_gate_open": false,
   "blocking_deliveries": {
     "ui_v10": "6 generated groups; 0 formal replacements; staged validation incomplete with 158 outputs pending",
-    "characters_v9": "No final manifest/validation/visual QA; original task is idle with previously observed interrupted latest turn",
-    "new_characters_v11": "Role 26 now has a 51-file manifest and passed_numeric_qc_pending_visual_review; role 24 partial QC remains; no whole-package acceptance",
+    "characters_v9": "No final manifest/validation/visual QA; original task is notLoaded with previously observed interrupted latest turn",
+    "new_characters_v11": "Role 26 QC passed including recorded visual review; role 25 numeric QC passed with visual review pending; role 24 QC failed; no whole-package acceptance",
     "task_inventory_activity_pages": "designs/gameplay-ui now has index.html and brief.md; final image delivery and acceptance remain unverified; task is active"
   },
   "resume_other_task_question": "pending user reply; do not send a follow-up to another task without the requested authorization",
@@ -22,7 +22,7 @@
     "new_city": "1254x1254 style preview and references copied into image; not production map replacement"
   },
   "next_step": "Refresh task states and inventory after prerequisites finish, then begin source-based image refinement and validate dependent exports.",
-  "last_monitor_trigger_utc": "2026-09-10T13:42:06.910Z",
+  "last_monitor_trigger_utc": "2026-09-10T14:42:07.849Z",
   "monitor_decision": "Prerequisite production remains incomplete. Continue the existing hourly schedule without editing images or routine notifications.",
   "thread_observations": [
     {
@@ -47,17 +47,26 @@
     },
     {
       "id": "01a075d4-5b1f-7e31-b44f-18e351fa544f",
-      "status": "idle",
+      "status": "notLoaded",
       "latest_turn": "interrupted",
       "latest_turn_observation": "carried forward; task update time unchanged"
     }
   ],
-  "last_observed_change": "Role 26 osmanthus healer gained a manifest and numeric QC; visual review and whole-package acceptance remain pending. Other delivery evidence is unchanged.",
+  "last_observed_change": "Role 26 QC now passed, including visual review. Role 25 gained manifest and numeric QC with visual review pending. Other final-delivery evidence remains incomplete.",
   "partial_progress": {
     "role_26": {
       "manifest": "qdao_chibi_roster_v11/26_osmanthus_healer/manifest.json",
       "listed_file_count": 51,
+      "qc_status": "passed",
+      "complete": true,
+      "completion_scope": "Individual-role recorded QC only; v11 whole-package acceptance remains pending"
+    },
+    "role_25": {
       "qc_status": "passed_numeric_qc_pending_visual_review",
+      "complete": false
+    },
+    "role_24": {
+      "qc_status": "failed",
       "complete": false
     }
   }

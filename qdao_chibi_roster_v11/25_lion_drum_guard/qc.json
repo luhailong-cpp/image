@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "status": "passed_numeric_qc_pending_visual_review",
+  "status": "passed",
   "errors": [],
   "directions": {
     "S": {
@@ -182,9 +182,35 @@
       471
     ]
   },
-  "visual_review": "required: verify character identity, direction, gait, complete limbs, and key edges",
+  "visual_review": {
+    "status": "passed",
+    "reviewed_contact_sheet": "processing/visual-review.jpg",
+    "checks": [
+      "same stocky square-faced buzz-cut lion-drum guardian identity in all 32 frames",
+      "eight directions distinguishable; SW corrected to preserve left-facing angle and SE regenerated with correct male identity",
+      "visible stride, leg lift and arm movement in each four-drawing short loop",
+      "full hair, limbs, boots, drum and costume silhouette retained; transparent edges clear on neutral background",
+      "common anatomical scale within each direction and aligned ground contact"
+    ],
+    "review_scope": "image assets only; no client integration"
+  },
   "shared_final_scale": 1.1864406779661016,
   "pre_max_subject_height": 354,
   "requested_max_subject_height": 420,
-  "cross_direction_mean_height_ratio": 1.0096385542168675
+  "cross_direction_mean_height_ratio": 1.0096385542168675,
+  "artifact_validation": {
+    "portrait": "1024x1024 RGBA",
+    "independent_walk_frames": 32,
+    "unique_frame_hashes": 32,
+    "frame_size": [
+      512,
+      512
+    ],
+    "directions": 8,
+    "strips": "2048x512 RGBA",
+    "gifs": 8,
+    "gif_frames_each": 4,
+    "duration_ms": 120,
+    "all_feet_y": 471
+  }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "strategy": "preserve then one global scale, per-frame translation only",
+  "strategy": "one isotropic scale shared across all four frames of each independently generated direction, then one global scale and per-frame foot translation",
   "cell_size": [
     512,
     512
@@ -12,17 +12,387 @@
   "processor_preserve_fit_scale": 0.84,
   "final_common_scale": 1.1864406779661016,
   "native_sheet_sizes": {
-    "cardinal": [
-      2048,
-      2048
+    "S": [
+      1254,
+      1254
     ],
-    "diagonal": [
-      2048,
-      2048
+    "W": [
+      1254,
+      1254
+    ],
+    "E": [
+      1254,
+      1254
+    ],
+    "N": [
+      1254,
+      1254
+    ],
+    "SW": [
+      1254,
+      1254
+    ],
+    "NW": [
+      1254,
+      1254
+    ],
+    "NE": [
+      1254,
+      1254
+    ],
+    "SE": [
+      1254,
+      1254
     ]
   },
   "source_normalization": "same 512-square raw-cell normalization; isotropic, no independent frame fitting",
   "mirrored_frames": false,
   "synthetic_or_repeated_frames": false,
-  "expected_frames_per_direction": 4
+  "expected_frames_per_direction": 4,
+  "directional_source_normalization": {
+    "S": {
+      "file": "sources/walk_S_2x2.png",
+      "source": "built-in image_gen",
+      "sha256": "c86123c514238e95e948bacfa03bd2fe640f1a60037eeafc2190c610755a5aa5",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "layout": "2x2 reading order TL TR BL BR",
+      "component_boxes": [
+        [
+          129,
+          30,
+          555,
+          598
+        ],
+        [
+          708,
+          30,
+          1120,
+          597
+        ],
+        [
+          125,
+          634,
+          545,
+          1207
+        ],
+        [
+          708,
+          634,
+          1118,
+          1207
+        ]
+      ],
+      "same_scale_all_four_frames": 0.7381370826010545,
+      "native_subject_heights": [
+        564,
+        563,
+        569,
+        569
+      ]
+    },
+    "W": {
+      "file": "sources/walk_W_2x2.png",
+      "source": "built-in image_gen",
+      "sha256": "293e1d909d5d9e2821c56403c65cf0629aa3e4df837608daac1ef7431e2ee1a0",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "layout": "2x2 reading order TL TR BL BR",
+      "component_boxes": [
+        [
+          147,
+          37,
+          547,
+          604
+        ],
+        [
+          778,
+          37,
+          1074,
+          611
+        ],
+        [
+          141,
+          648,
+          548,
+          1216
+        ],
+        [
+          778,
+          647,
+          1087,
+          1224
+        ]
+      ],
+      "same_scale_all_four_frames": 0.7329842931937173,
+      "native_subject_heights": [
+        563,
+        570,
+        564,
+        573
+      ]
+    },
+    "E": {
+      "file": "sources/walk_E_2x2.png",
+      "source": "built-in image_gen",
+      "sha256": "078924d5cbb9592c0f3fdfd2c918d2e76a548a23ac739d5e309f4abcfde6cfaa",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "layout": "2x2 reading order TL TR BL BR",
+      "component_boxes": [
+        [
+          114,
+          31,
+          554,
+          617
+        ],
+        [
+          759,
+          31,
+          1054,
+          619
+        ],
+        [
+          119,
+          646,
+          558,
+          1220
+        ],
+        [
+          760,
+          647,
+          1097,
+          1223
+        ]
+      ],
+      "same_scale_all_four_frames": 0.7191780821917808,
+      "native_subject_heights": [
+        582,
+        584,
+        570,
+        572
+      ]
+    },
+    "N": {
+      "file": "sources/walk_N_2x2.png",
+      "source": "built-in image_gen",
+      "sha256": "7b40ab41f1af7a1d336d38b4b10724c7396eb0b3bf4c853834e3f5b65df668ed",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "layout": "2x2 reading order TL TR BL BR",
+      "component_boxes": [
+        [
+          132,
+          33,
+          526,
+          590
+        ],
+        [
+          730,
+          33,
+          1096,
+          588
+        ],
+        [
+          145,
+          630,
+          526,
+          1191
+        ],
+        [
+          736,
+          630,
+          1095,
+          1186
+        ]
+      ],
+      "same_scale_all_four_frames": 0.7540394973070018,
+      "native_subject_heights": [
+        553,
+        551,
+        557,
+        552
+      ]
+    },
+    "SW": {
+      "file": "sources/walk_SW_2x2.png",
+      "source": "built-in image_gen",
+      "sha256": "0617d36fa1334d893b697d6d0ff82acfcd5042c9efd23bae8c82c21ee3319b10",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "layout": "2x2 reading order TL TR BL BR",
+      "component_boxes": [
+        [
+          124,
+          32,
+          565,
+          592
+        ],
+        [
+          735,
+          33,
+          1106,
+          590
+        ],
+        [
+          124,
+          633,
+          562,
+          1205
+        ],
+        [
+          735,
+          636,
+          1132,
+          1205
+        ]
+      ],
+      "same_scale_all_four_frames": 0.7394366197183099,
+      "native_subject_heights": [
+        556,
+        553,
+        568,
+        565
+      ]
+    },
+    "NW": {
+      "file": "sources/walk_NW_2x2.png",
+      "source": "built-in image_gen",
+      "sha256": "2e688d34fedd28bd4723c6100a6d45ef9e0a65b519af1c69c386d8a75729b204",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "layout": "2x2 reading order TL TR BL BR",
+      "component_boxes": [
+        [
+          117,
+          41,
+          557,
+          606
+        ],
+        [
+          732,
+          43,
+          1110,
+          597
+        ],
+        [
+          113,
+          641,
+          546,
+          1204
+        ],
+        [
+          725,
+          639,
+          1094,
+          1204
+        ]
+      ],
+      "same_scale_all_four_frames": 0.7486631016042781,
+      "native_subject_heights": [
+        561,
+        550,
+        559,
+        561
+      ]
+    },
+    "NE": {
+      "file": "sources/walk_NE_2x2.png",
+      "source": "built-in image_gen",
+      "sha256": "cae1c9c1e9d07df06c828c3858ee9c331389e86bcd66c38ea3cd9673f9662961",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "layout": "2x2 reading order TL TR BL BR",
+      "component_boxes": [
+        [
+          124,
+          46,
+          558,
+          610
+        ],
+        [
+          741,
+          44,
+          1083,
+          603
+        ],
+        [
+          116,
+          641,
+          538,
+          1209
+        ],
+        [
+          747,
+          641,
+          1083,
+          1200
+        ]
+      ],
+      "same_scale_all_four_frames": 0.7446808510638298,
+      "native_subject_heights": [
+        560,
+        555,
+        564,
+        555
+      ]
+    },
+    "SE": {
+      "file": "sources/walk_SE_2x2.png",
+      "source": "built-in image_gen",
+      "sha256": "bed3c2b51c9090df13d67df12e845104a35c7c1c2c09b3616e9edb9d99431e8c",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "layout": "2x2 reading order TL TR BL BR",
+      "component_boxes": [
+        [
+          104,
+          43,
+          552,
+          607
+        ],
+        [
+          724,
+          44,
+          1112,
+          594
+        ],
+        [
+          99,
+          644,
+          562,
+          1209
+        ],
+        [
+          699,
+          644,
+          1120,
+          1206
+        ]
+      ],
+      "same_scale_all_four_frames": 0.7486631016042781,
+      "native_subject_heights": [
+        560,
+        546,
+        561,
+        558
+      ]
+    }
+  }
 }
