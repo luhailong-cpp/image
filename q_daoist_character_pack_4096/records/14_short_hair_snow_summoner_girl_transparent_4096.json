@@ -1,8 +1,9 @@
 {
   "file": "14_short_hair_snow_summoner_girl_transparent_4096.png",
+  "art_revision": "v9-character-diversity",
   "generator": "built-in image_gen",
-  "generation_file": "exec-9eecb50b-81f0-4ca7-aa5c-a257b32667a9.png",
-  "raw_sha256": "dec8181ea829f01b8b0d9b50772a2904a8bf387d2a4f4a88c36331ccb1e36fd5",
+  "generation_file": "exec-9567084a-24df-483c-a264-1b08773878ef.png",
+  "raw_sha256": "0e971d35278859857d8c666e1b9aea100dc8f46e3aef9c4f87ab658a8b69c046",
   "native_generation_size": [
     1254,
     1254
@@ -12,27 +13,35 @@
     4096
   ],
   "native_4096_generation": false,
-  "export_method": "skill chroma cleanup, fit/feet alignment, RGBA LANCZOS export",
+  "export_method": "skill alpha cleanup at full source resolution, feet alignment, LANCZOS compatibility export",
   "prompt": "prompts/14_short_hair_snow_summoner_girl_transparent_4096.prompt.txt",
-  "reference_delivery": "Conversation image: new approved hero + original HEAD role identity. Direct reference path hit Windows ACL.",
-  "reference_baseline": "9adcf9291e4a867601868889a5965f3cd48630ba",
+  "reference_delivery": "Visible in-memory board of baseline 13–18 faceless lower costume crops; num_last_images_to_include=1; paint and material only. Original sleepy human child, smooth straight silver bangs and low buns, ball cloak and held rabbit, no animal ears or copied franchise character.",
+  "reference_baseline": "230e782aa9b6278c8f77133e59e47c4470b93a74",
+  "previous_sha256": "c413678e50a9faeda50f647198c0afa337614a2de9756bbc0b467289aeb21087",
+  "design_brief": "../qdao_character_diversity_v9/DESIGN_BRIEF.md",
+  "model_preference": "gpt-image-2",
+  "quality_preference": "high",
+  "model_parameter_exposed": false,
+  "quality_parameter_exposed": false,
+  "model_and_quality_verified": false,
+  "parameter_note": "Built-in tool has no model or quality arguments; these preferences were not force-set or independently verified.",
   "alpha_range": [
     0,
     255
   ],
   "subject_bounds": [
-    685,
-    241,
-    3408,
+    825,
+    240,
+    3271,
     3859
   ],
-  "sha256": "c413678e50a9faeda50f647198c0afa337614a2de9756bbc0b467289aeb21087",
+  "sha256": "a3faf81a8f0a50698a4193e6f8be35be16e37e8bd49d4aa6da155fbd32009c6c",
   "processor_qc": {
     "target": "asset",
     "mode": "single",
     "prompt": "",
     "role": "",
-    "input": "qdao_gpt_image2_refresh_v7\\characters\\sources\\professions12-22\\14_short_hair_snow_summoner_girl_transparent_4096.png",
+    "input": "C:\\Users\\luyua\\.codex\\generated_images\\01a08705-a63e-74a2-875c-54a2a52f7f34\\exec-9567084a-24df-483c-a264-1b08773878ef.png",
     "threshold": 130,
     "edge_threshold": 170,
     "duration": 200,
@@ -65,46 +74,46 @@
           1254
         ],
         "component_mode": "all",
-        "component_count": 6,
+        "component_count": 2,
         "selected_component_area": null,
         "selected_component_bbox": null,
         "crop_bbox": [
-          199,
-          17,
-          1037,
-          1132
+          252,
+          92,
+          975,
+          1163
         ],
         "source_frame_size": [
           1246,
           1246
         ],
         "is_empty": false,
-        "subject_area": 581486,
-        "body_core_area": 529755,
-        "body_area_fraction": 0.34122353650461573,
+        "subject_area": 532077,
+        "body_core_area": 515312,
+        "body_area_fraction": 0.33192057279924975,
         "anchor_source": [
-          675.0,
-          1048.0
+          615.0,
+          1108.0
         ],
         "source_edge_touch": false,
         "output_edge_touch": false,
         "edge_touch": false,
         "output_size": [
-          829,
+          744,
           1103
         ],
         "paste_position": [
-          212,
+          255,
           76
         ],
         "paste_clamped": false,
         "aligned_bbox": [
-          212,
+          255,
           76,
-          1041,
+          999,
           1179
         ],
-        "source_to_output_scale": 0.9897040358744396,
+        "source_to_output_scale": 1.0303641456582633,
         "bbox_scale_applied": true,
         "scale_strategy": "fit",
         "scale_changed": true
@@ -121,12 +130,12 @@
       "empty_count": 0,
       "edge_touch_count": 0,
       "paste_clamped_count": 0,
-      "body_scale_mean": 0.5841434211772103,
+      "body_scale_mean": 0.5761254835530623,
       "output_subject_height_mean": 1103.0,
       "body_scale_cv": 0.0,
       "anchor_x_std": 0.0,
       "anchor_y_std": 0.0,
-      "anchor_y_mean": 0.841091492776886
+      "anchor_y_mean": 0.8892455858747994
     },
     "qc_config": {
       "strict_qc": true,
@@ -137,26 +146,9 @@
       "max_profile_scale_drift": null
     }
   },
-  "art_only_not_engine_integrated": true,
   "strong_chroma_cleanup": {
-    "script": "clean_strong_chroma.py",
     "predicate": "R>200 and G<100 and B>200 and A>0",
-    "affected_pixels": 1885,
-    "sha256_before": "0c0ae412edb5826166f1bfa6606283ffe35979b92af225887baed27c98533890",
-    "purpose": "remove residual key-color specks only, retaining legitimate violet material"
+    "removed_pixels": 1518
   },
-  "schema": "qdao.portrait.v7.independent.1",
-  "model": "gpt-image-2",
-  "model_evidence": "Original generated PNG C2PA softwareAgent name=gpt-image version=2.0",
-  "quality_parameter_exposed": false,
-  "model_parameter_exposed": false,
-  "quality_goal": "highest available",
-  "single_portrait_native_source": true,
-  "source": "qdao_gpt_image2_refresh_v7/characters/sources/professions12-22/14_short_hair_snow_summoner_girl_transparent_4096.png",
-  "generation_cache_original": "C:\\Users\\luyua\\.codex\\generated_images\\01a07b2c-c8c2-7663-8d28-dbe7d4723cd6\\exec-9eecb50b-81f0-4ca7-aa5c-a257b32667a9.png",
-  "old_sha256": "834fbe56bc3de4aa8a241d7e12a9725095cfcf486b98066876a8e70fa343c2a8",
-  "backup": "qdao_gpt_image2_refresh_v7/characters/backups/q_daoist_character_pack_4096/14_short_hair_snow_summoner_girl_transparent_4096.png",
-  "processor_record": "qdao_gpt_image2_refresh_v7/characters/sources/professions12-22/processing/14_short_hair_snow_summoner_girl_transparent_4096.json",
-  "strict_qc_passed": true,
-  "strong_chroma_remaining_pixels": 0
+  "art_only_not_engine_integrated": true
 }

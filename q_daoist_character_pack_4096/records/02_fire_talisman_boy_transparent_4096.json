@@ -1,8 +1,9 @@
 {
   "file": "02_fire_talisman_boy_transparent_4096.png",
+  "art_revision": "v9-character-diversity",
   "generator": "built-in image_gen",
-  "generation_file": "02.png",
-  "raw_sha256": "c720ed95929abe6fb23cf48f2f187146b8be8c166edde4dfa9e6316685524a3b",
+  "generation_file": "exec-458c00b3-b100-4265-a157-e96fc87bab42.png",
+  "raw_sha256": "0723497e12e3f83db1542ede5ec7a7955770467f5bebd67dc494254858e476f2",
   "native_generation_size": [
     1254,
     1254
@@ -12,27 +13,35 @@
     4096
   ],
   "native_4096_generation": false,
-  "export_method": "skill chroma cleanup, fit/feet alignment, RGBA LANCZOS export",
+  "export_method": "skill alpha cleanup at full source resolution, feet alignment, LANCZOS compatibility export",
   "prompt": "prompts/02_fire_talisman_boy_transparent_4096.prompt.txt",
-  "reference_delivery": "in-memory board via conversation image",
-  "reference_baseline": "60134a6",
+  "reference_delivery": "In-memory costume-only crop of old 02 below y=1850 used solely for material and fire-talisman/handbell vocabulary. Original freckled snub-nosed crescent-eye child with missing-tooth grin, straight red-brown hair gathered into two tied round buns and a short pointed forelock, no curly hair texture or ringlets. Plump 2.2-head Q body, short jacket and puffball trouser silhouette. No canonical hero face or existing franchise character copied.",
+  "reference_baseline": "230e782aa9b6278c8f77133e59e47c4470b93a74",
+  "previous_sha256": "dc3e1992f1e0f7099ad140a43c5439118da286ba2a78607bdefbf234f3312bd7",
+  "design_brief": "../qdao_character_diversity_v9/DESIGN_BRIEF.md",
+  "model_preference": "gpt-image-2",
+  "quality_preference": "high",
+  "model_parameter_exposed": false,
+  "quality_parameter_exposed": false,
+  "model_and_quality_verified": false,
+  "parameter_note": "Built-in tool has no model or quality arguments; these preferences were not force-set or independently verified.",
   "alpha_range": [
     0,
     255
   ],
   "subject_bounds": [
-    443,
+    427,
     240,
-    3653,
+    3669,
     3859
   ],
-  "sha256": "dc3e1992f1e0f7099ad140a43c5439118da286ba2a78607bdefbf234f3312bd7",
+  "sha256": "4563ee100e29ef945bb4aa2fb1f19449739adc3d718873aa22cd32d8d03c669e",
   "processor_qc": {
     "target": "asset",
     "mode": "single",
     "prompt": "",
     "role": "",
-    "input": "qdao_gpt_image2_refresh_v7\\characters\\sources\\02.png",
+    "input": "C:\\Users\\luyua\\.codex\\generated_images\\01a086fe-555e-7402-b055-37f83337dc07\\exec-458c00b3-b100-4265-a157-e96fc87bab42.png",
     "threshold": 130,
     "edge_threshold": 170,
     "duration": 200,
@@ -65,46 +74,46 @@
           1254
         ],
         "component_mode": "all",
-        "component_count": 1,
+        "component_count": 5,
         "selected_component_area": null,
         "selected_component_bbox": null,
         "crop_bbox": [
-          120,
-          71,
-          1114,
-          1192
+          70,
+          37,
+          1077,
+          1161
         ],
         "source_frame_size": [
           1246,
           1246
         ],
         "is_empty": false,
-        "subject_area": 615149,
-        "body_core_area": 526353,
-        "body_area_fraction": 0.3390322547400478,
+        "subject_area": 597951,
+        "body_core_area": 498751,
+        "body_area_fraction": 0.3212533719459252,
         "anchor_source": [
-          678.0,
-          1145.0
+          634.0,
+          1118.0
         ],
         "source_edge_touch": false,
         "output_edge_touch": false,
         "edge_touch": false,
         "output_size": [
-          978,
+          988,
           1103
         ],
         "paste_position": [
-          138,
+          133,
           76
         ],
         "paste_clamped": false,
         "aligned_bbox": [
-          138,
+          133,
           76,
-          1116,
+          1121,
           1179
         ],
-        "source_to_output_scale": 0.9844067796610169,
+        "source_to_output_scale": 0.9817793594306049,
         "bbox_scale_applied": true,
         "scale_strategy": "fit",
         "scale_changed": true
@@ -121,12 +130,12 @@
       "empty_count": 0,
       "edge_touch_count": 0,
       "paste_clamped_count": 0,
-      "body_scale_mean": 0.5822647634367443,
+      "body_scale_mean": 0.5667921770331037,
       "output_subject_height_mean": 1103.0,
       "body_scale_cv": 0.0,
       "anchor_x_std": 0.0,
       "anchor_y_std": 0.0,
-      "anchor_y_mean": 0.9189406099518459
+      "anchor_y_mean": 0.8972712680577849
     },
     "qc_config": {
       "strict_qc": true,
@@ -136,6 +145,10 @@
       "max_anchor_y_std": null,
       "max_profile_scale_drift": null
     }
+  },
+  "strong_chroma_cleanup": {
+    "predicate": "R>200 and G<100 and B>200 and A>0",
+    "removed_pixels": 2584
   },
   "art_only_not_engine_integrated": true
 }

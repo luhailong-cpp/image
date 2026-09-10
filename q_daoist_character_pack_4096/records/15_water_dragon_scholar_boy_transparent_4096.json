@@ -1,8 +1,9 @@
 {
   "file": "15_water_dragon_scholar_boy_transparent_4096.png",
+  "art_revision": "v9-character-diversity",
   "generator": "built-in image_gen",
-  "generation_file": "exec-5c2c7f3c-a554-4e8b-8dde-e34e6418c408.png",
-  "raw_sha256": "061e44703cfac63947211ec27a3618725a72aa992b6a8398cc35d2e69c7c8d53",
+  "generation_file": "exec-e405c4e5-7970-40d9-a421-75aeb1a0cd1e.png",
+  "raw_sha256": "6b9c5d34b33dcbc9fa6f4956b5c8c44cfe881a0d2d3a920f48c782cdb346fb79",
   "native_generation_size": [
     1254,
     1254
@@ -12,27 +13,35 @@
     4096
   ],
   "native_4096_generation": false,
-  "export_method": "skill chroma cleanup, fit/feet alignment, RGBA LANCZOS export",
+  "export_method": "skill alpha cleanup at full source resolution, feet alignment, LANCZOS compatibility export",
   "prompt": "prompts/15_water_dragon_scholar_boy_transparent_4096.prompt.txt",
-  "reference_delivery": "Conversation image: new approved hero + original HEAD role identity. Direct reference path hit Windows ACL.",
-  "reference_baseline": "9adcf9291e4a867601868889a5965f3cd48630ba",
+  "reference_delivery": "Visible in-memory board of baseline 13–18 faceless lower costume crops; num_last_images_to_include=1; paint/material only. Original adult narrow face and willow eyes, straight center-parted black hair, compact blue-green robe and wave fan. No copied existing character. First too-tall generation rejected and not published.",
+  "reference_baseline": "230e782aa9b6278c8f77133e59e47c4470b93a74",
+  "previous_sha256": "705adc4adb4f2f6b4d05891b65278cfc7febe04ae7d2f0487bb533c8c5e3c789",
+  "design_brief": "../qdao_character_diversity_v9/DESIGN_BRIEF.md",
+  "model_preference": "gpt-image-2",
+  "quality_preference": "high",
+  "model_parameter_exposed": false,
+  "quality_parameter_exposed": false,
+  "model_and_quality_verified": false,
+  "parameter_note": "Built-in tool has no model or quality arguments; these preferences were not force-set or independently verified.",
   "alpha_range": [
     0,
     255
   ],
   "subject_bounds": [
-    459,
+    956,
     240,
-    3637,
+    3140,
     3859
   ],
-  "sha256": "705adc4adb4f2f6b4d05891b65278cfc7febe04ae7d2f0487bb533c8c5e3c789",
+  "sha256": "0ecb32c7e01f91b880528bac94bc8bab67069c091d21e73ca3c40efeee2a8e89",
   "processor_qc": {
     "target": "asset",
     "mode": "single",
     "prompt": "",
     "role": "",
-    "input": "qdao_gpt_image2_refresh_v7\\characters\\sources\\professions12-22\\15_water_dragon_scholar_boy_transparent_4096.png",
+    "input": "C:\\Users\\luyua\\.codex\\generated_images\\01a08705-a63e-74a2-875c-54a2a52f7f34\\exec-e405c4e5-7970-40d9-a421-75aeb1a0cd1e.png",
     "threshold": 130,
     "edge_threshold": 170,
     "duration": 200,
@@ -69,42 +78,42 @@
         "selected_component_area": null,
         "selected_component_bbox": null,
         "crop_bbox": [
-          146,
-          101,
-          1118,
-          1208
+          222,
+          20,
+          940,
+          1213
         ],
         "source_frame_size": [
           1246,
           1246
         ],
         "is_empty": false,
-        "subject_area": 579531,
-        "body_core_area": 492676,
-        "body_area_fraction": 0.31734036879491095,
+        "subject_area": 568501,
+        "body_core_area": 559826,
+        "body_area_fraction": 0.3605927410731999,
         "anchor_source": [
-          689.0,
-          1149.0
+          647.0,
+          1155.0
         ],
         "source_edge_touch": false,
         "output_edge_touch": false,
         "edge_touch": false,
         "output_size": [
-          968,
+          664,
           1103
         ],
         "paste_position": [
-          143,
+          295,
           76
         ],
         "paste_clamped": false,
         "aligned_bbox": [
-          143,
+          295,
           76,
-          1111,
+          959,
           1179
         ],
-        "source_to_output_scale": 0.9968563685636856,
+        "source_to_output_scale": 0.9249958088851634,
         "bbox_scale_applied": true,
         "scale_strategy": "fit",
         "scale_changed": true
@@ -121,12 +130,12 @@
       "empty_count": 0,
       "edge_touch_count": 0,
       "paste_clamped_count": 0,
-      "body_scale_mean": 0.5633297158813042,
+      "body_scale_mean": 0.6004937477386421,
       "output_subject_height_mean": 1103.0,
       "body_scale_cv": 0.0,
       "anchor_x_std": 0.0,
       "anchor_y_std": 0.0,
-      "anchor_y_mean": 0.9221508828250401
+      "anchor_y_mean": 0.9269662921348315
     },
     "qc_config": {
       "strict_qc": true,
@@ -137,26 +146,9 @@
       "max_profile_scale_drift": null
     }
   },
-  "art_only_not_engine_integrated": true,
   "strong_chroma_cleanup": {
-    "script": "clean_strong_chroma.py",
     "predicate": "R>200 and G<100 and B>200 and A>0",
-    "affected_pixels": 2436,
-    "sha256_before": "439404ad7c60cd9916b052cab2df156a2f600ed19d9ead497820f8419329cc4e",
-    "purpose": "remove residual key-color specks only, retaining legitimate violet material"
+    "removed_pixels": 1782
   },
-  "schema": "qdao.portrait.v7.independent.1",
-  "model": "gpt-image-2",
-  "model_evidence": "Original generated PNG C2PA softwareAgent name=gpt-image version=2.0",
-  "quality_parameter_exposed": false,
-  "model_parameter_exposed": false,
-  "quality_goal": "highest available",
-  "single_portrait_native_source": true,
-  "source": "qdao_gpt_image2_refresh_v7/characters/sources/professions12-22/15_water_dragon_scholar_boy_transparent_4096.png",
-  "generation_cache_original": "C:\\Users\\luyua\\.codex\\generated_images\\01a07b2c-c8c2-7663-8d28-dbe7d4723cd6\\exec-5c2c7f3c-a554-4e8b-8dde-e34e6418c408.png",
-  "old_sha256": "c3b96a88c2fdebb36951c8b47d3b1860b0e5895ae775bb360beb036bb393de70",
-  "backup": "qdao_gpt_image2_refresh_v7/characters/backups/q_daoist_character_pack_4096/15_water_dragon_scholar_boy_transparent_4096.png",
-  "processor_record": "qdao_gpt_image2_refresh_v7/characters/sources/professions12-22/processing/15_water_dragon_scholar_boy_transparent_4096.json",
-  "strict_qc_passed": true,
-  "strong_chroma_remaining_pixels": 0
+  "art_only_not_engine_integrated": true
 }

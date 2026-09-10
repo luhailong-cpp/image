@@ -1,8 +1,9 @@
 {
   "file": "16_golden_bell_dancer_girl_transparent_4096.png",
+  "art_revision": "v9-character-diversity",
   "generator": "built-in image_gen",
-  "generation_file": "exec-ebf9db2f-3c3a-4079-93c4-961e7dcbbdf6.png",
-  "raw_sha256": "e7189cfe14b1f61fca2e3d16e50fd5342d815c98c751220e16dbc5e88f8a07ee",
+  "generation_file": "exec-95acc11b-78bc-4391-afbb-e1e917a11777.png",
+  "raw_sha256": "bddc047dcba9aafea557cd90f8aa505c39b1ee1a1bafdd0e9a41f406a6e9df27",
   "native_generation_size": [
     1254,
     1254
@@ -12,27 +13,35 @@
     4096
   ],
   "native_4096_generation": false,
-  "export_method": "skill chroma cleanup, fit/feet alignment, RGBA LANCZOS export",
+  "export_method": "skill alpha cleanup at full source resolution, feet alignment, LANCZOS compatibility export",
   "prompt": "prompts/16_golden_bell_dancer_girl_transparent_4096.prompt.txt",
-  "reference_delivery": "Conversation image: new approved hero + original HEAD role identity. Direct reference path hit Windows ACL.",
-  "reference_baseline": "9adcf9291e4a867601868889a5965f3cd48630ba",
+  "reference_delivery": "Visible in-memory board of baseline 13–18 faceless lower costume crops; num_last_images_to_include=1; paint/material only. Original honey-skinned crescent-eyed dancer, smooth straight black hair woven into two thick braids, gold balloon trousers and raised hand bells. No copied existing heroine or curly hair.",
+  "reference_baseline": "230e782aa9b6278c8f77133e59e47c4470b93a74",
+  "previous_sha256": "c06010e550deb18336d0964546047ace5951f59352d05297ae0b5106790466cd",
+  "design_brief": "../qdao_character_diversity_v9/DESIGN_BRIEF.md",
+  "model_preference": "gpt-image-2",
+  "quality_preference": "high",
+  "model_parameter_exposed": false,
+  "quality_parameter_exposed": false,
+  "model_and_quality_verified": false,
+  "parameter_note": "Built-in tool has no model or quality arguments; these preferences were not force-set or independently verified.",
   "alpha_range": [
     0,
     255
   ],
   "subject_bounds": [
-    662,
+    600,
     240,
-    3431,
+    3496,
     3859
   ],
-  "sha256": "c06010e550deb18336d0964546047ace5951f59352d05297ae0b5106790466cd",
+  "sha256": "0e3f47cd495764fa78aac1c9c5f0dcf5e625699fd23fece017ce209b7aa76c15",
   "processor_qc": {
     "target": "asset",
     "mode": "single",
     "prompt": "",
     "role": "",
-    "input": "qdao_gpt_image2_refresh_v7\\characters\\sources\\professions12-22\\16_golden_bell_dancer_girl_transparent_4096.png",
+    "input": "C:\\Users\\luyua\\.codex\\generated_images\\01a08705-a63e-74a2-875c-54a2a52f7f34\\exec-95acc11b-78bc-4391-afbb-e1e917a11777.png",
     "threshold": 130,
     "edge_threshold": 170,
     "duration": 200,
@@ -65,46 +74,46 @@
           1254
         ],
         "component_mode": "all",
-        "component_count": 2,
+        "component_count": 3,
         "selected_component_area": null,
         "selected_component_bbox": null,
         "crop_bbox": [
-          222,
-          63,
-          1080,
-          1186
+          157,
+          27,
+          1097,
+          1202
         ],
         "source_frame_size": [
           1246,
           1246
         ],
         "is_empty": false,
-        "subject_area": 537386,
-        "body_core_area": 486111,
-        "body_area_fraction": 0.31311174892883553,
+        "subject_area": 641441,
+        "body_core_area": 546768,
+        "body_area_fraction": 0.3521818776746906,
         "anchor_source": [
-          623.0,
-          1067.0
+          610.0,
+          1140.0
         ],
         "source_edge_touch": false,
         "output_edge_touch": false,
         "edge_touch": false,
         "output_size": [
-          843,
+          882,
           1103
         ],
         "paste_position": [
-          205,
+          186,
           76
         ],
         "paste_clamped": false,
         "aligned_bbox": [
-          205,
+          186,
           76,
-          1048,
+          1068,
           1179
         ],
-        "source_to_output_scale": 0.982653606411398,
+        "source_to_output_scale": 0.9391659574468084,
         "bbox_scale_applied": true,
         "scale_strategy": "fit",
         "scale_changed": true
@@ -121,12 +130,12 @@
       "empty_count": 0,
       "edge_touch_count": 0,
       "paste_clamped_count": 0,
-      "body_scale_mean": 0.5595638917307258,
+      "body_scale_mean": 0.593449136552317,
       "output_subject_height_mean": 1103.0,
       "body_scale_cv": 0.0,
       "anchor_x_std": 0.0,
       "anchor_y_std": 0.0,
-      "anchor_y_mean": 0.8563402889245586
+      "anchor_y_mean": 0.9149277688603531
     },
     "qc_config": {
       "strict_qc": true,
@@ -137,26 +146,9 @@
       "max_profile_scale_drift": null
     }
   },
-  "art_only_not_engine_integrated": true,
   "strong_chroma_cleanup": {
-    "script": "clean_strong_chroma.py",
     "predicate": "R>200 and G<100 and B>200 and A>0",
-    "affected_pixels": 1928,
-    "sha256_before": "a10fb513c9e6929503969d047be077706d01a2b261724a42128227afaec6cbd5",
-    "purpose": "remove residual key-color specks only, retaining legitimate violet material"
+    "removed_pixels": 3051
   },
-  "schema": "qdao.portrait.v7.independent.1",
-  "model": "gpt-image-2",
-  "model_evidence": "Original generated PNG C2PA softwareAgent name=gpt-image version=2.0",
-  "quality_parameter_exposed": false,
-  "model_parameter_exposed": false,
-  "quality_goal": "highest available",
-  "single_portrait_native_source": true,
-  "source": "qdao_gpt_image2_refresh_v7/characters/sources/professions12-22/16_golden_bell_dancer_girl_transparent_4096.png",
-  "generation_cache_original": "C:\\Users\\luyua\\.codex\\generated_images\\01a07b2c-c8c2-7663-8d28-dbe7d4723cd6\\exec-ebf9db2f-3c3a-4079-93c4-961e7dcbbdf6.png",
-  "old_sha256": "c536cae5e09fb32112da8a34318ac77d9552c82dac2ea13bd09c75e3425bcf3b",
-  "backup": "qdao_gpt_image2_refresh_v7/characters/backups/q_daoist_character_pack_4096/16_golden_bell_dancer_girl_transparent_4096.png",
-  "processor_record": "qdao_gpt_image2_refresh_v7/characters/sources/professions12-22/processing/16_golden_bell_dancer_girl_transparent_4096.json",
-  "strict_qc_passed": true,
-  "strong_chroma_remaining_pixels": 0
+  "art_only_not_engine_integrated": true
 }

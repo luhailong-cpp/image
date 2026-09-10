@@ -1,0 +1,3582 @@
+{
+  "schema": "qdao.exposure.inventory.v1",
+  "inventory_kind": "supplementary_latest",
+  "created_utc": "2026-09-10T07:00:38.224132+00:00",
+  "snapshot_time": "2026-09-10T07:00:38.224132+00:00",
+  "repo": "E:\\work\\image",
+  "baseline_inventory": "qdao_exposure_refinement_v8/inventory.json",
+  "audit_created_utc": "2026-09-09T16:32:33.644195+00:00",
+  "read_only_assets": true,
+  "snapshots_are_complete_original_bytes": true,
+  "statistics_policy": {
+    "visibility": "alpha >16; color statistics use only visible sampled pixels",
+    "linear_luminance": "sRGB IEC inverse transfer, Rec.709 weights .2126 .7152 .0722",
+    "bright_fraction": "display-encoded RGB weighted luminance >0.85",
+    "nearwhite_fraction": "min(R,G,B)>0.93 and max-min<0.08, encoded RGB",
+    "colorful_fraction": "encoded RGB max-min>0.15 and max>0.20",
+    "magenta_chroma_fraction": "R>150/255 B>130/255 G<100/255",
+    "warning": "Metrics indicate candidates for visual review, not proof of lost detail or overexposure"
+  },
+  "revision_policy": {
+    "known_processing_versions": "Skip a live SHA matching original_sha256 or output_sha256 for the SAME PATH in current processing records; refresh processing knowledge if that file changes.",
+    "previous_capture": "Reuse only the same path's same captured SHA; retain existing supplementary rows as report evidence without measuring them again.",
+    "latest_sha": "Latest captured original SHA, which may differ from live_sha256 after an already-known exposure output is published.",
+    "new_revision": "Capture only a SHA different from the same path's known processing versions, audit SHA and previous captured SHA.",
+    "history": "Prior captured original revisions remain in per-asset source_history and immutable backup files. processing.json is never written."
+  },
+  "package_boundaries": {
+    "qdao_character_diversity_v9": "01-22 delivered portraits overwrite q_daoist_character_pack_4096; .work raw/reference/process files are excluded. The v9 manifest is an index, not another portrait output set.",
+    "unity_slices": "31 png/ exports are runtime sprites; sources/ are final artwork snapshots retained in source coverage. sprite-overview and unity-sprite-preview are presentation/validation views, not runtime textures; included by the original audit classification.",
+    "v8": "Entire exposure-refinement package excluded from input scan, including previous processed outputs, snapshots and review images."
+  },
+  "summary": {
+    "active_files_scanned": 1022,
+    "new_or_changed_files": 0,
+    "new_captures_this_run": 0,
+    "supplementary_report_files": 48,
+    "by_capture_status": {
+      "retained_known_processing_version": 48
+    },
+    "skipped_versions": {
+      "known_processing_version": 1022
+    },
+    "by_change_type": {
+      "new_since_audit": 35,
+      "changed_since_audit": 13
+    },
+    "by_classification": {
+      "formal": 46,
+      "source_or_matte": 2
+    },
+    "by_top_directory": {
+      "designs": 35,
+      "q_daoist_character_pack_4096": 13
+    },
+    "new_captures_by_top_directory": {},
+    "unique_byte_groups": 48,
+    "new_backup_files": 0,
+    "reused_cached_metrics": 48,
+    "contact_sheets": 1,
+    "contact_unique_groups_covered": 48,
+    "read_errors": [],
+    "capture_errors": [],
+    "changed_again_after_capture": [],
+    "baseline_active_paths_now_missing_or_excluded": [],
+    "noneligible_files_skipped": {
+      "technical_preserve": 5,
+      "reference_or_diagnostic": 3
+    }
+  },
+  "new_captures_this_run": [],
+  "assets": [
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/button_primary.png",
+      "sha256": "d5a58a27b1f8959b2224c3a110ab93c507666a30a1b668f8e42a54cc3eff96b4",
+      "latest_sha": "d5a58a27b1f8959b2224c3a110ab93c507666a30a1b668f8e42a54cc3eff96b4",
+      "audit_sha": null,
+      "bytes": 36451,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.677299+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/d5a58a27b1f8959b2224c3a110ab93c507666a30a1b668f8e42a54cc3eff96b4.png",
+      "source_mtime_ns": 1788972938562717300,
+      "source_mtime_utc": "2026-09-09T16:55:38.562717+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        376,
+        97
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          376,
+          97
+        ],
+        "visible_fraction": 0.7995174,
+        "visible_sample_pixels": 29160,
+        "linear_luminance_mean": 0.1779222,
+        "linear_luminance_p90": 0.4176743,
+        "linear_luminance_p99": 0.9133058,
+        "srgb_luminance_mean": 0.4003693,
+        "bright_fraction": 0.0501372,
+        "nearwhite_fraction": 0.0001372,
+        "colorful_fraction": 0.9449246,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "d5dec805d8107b86c24d3b103f72fcd76c8b378b0bcd4d7e09bb280f2f3126ac",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "d5a58a27b1f8959b2224c3a110ab93c507666a30a1b668f8e42a54cc3eff96b4",
+          "output_sha256": "d5dec805d8107b86c24d3b103f72fcd76c8b378b0bcd4d7e09bb280f2f3126ac",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/button_scheme.png",
+      "sha256": "c1e2e0bb0cd1382897c98bae80a71f36ee7e1f36679b702bf2f0b2965ccf8f8a",
+      "latest_sha": "c1e2e0bb0cd1382897c98bae80a71f36ee7e1f36679b702bf2f0b2965ccf8f8a",
+      "audit_sha": null,
+      "bytes": 27964,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.754269+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/c1e2e0bb0cd1382897c98bae80a71f36ee7e1f36679b702bf2f0b2965ccf8f8a.png",
+      "source_mtime_ns": 1788972938569577400,
+      "source_mtime_utc": "2026-09-09T16:55:38.569577+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        389,
+        79
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          389,
+          79
+        ],
+        "visible_fraction": 0.8982461,
+        "visible_sample_pixels": 27604,
+        "linear_luminance_mean": 0.7644457,
+        "linear_luminance_p90": 0.8699815,
+        "linear_luminance_p99": 0.9895208,
+        "srgb_luminance_mean": 0.8800564,
+        "bright_fraction": 0.8615056,
+        "nearwhite_fraction": 0.0333285,
+        "colorful_fraction": 0.1882698,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "da04dce2b73451f4ca82ac7b93c049fae1d48353119a7f2bf18c1283ff8f7c17",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "c1e2e0bb0cd1382897c98bae80a71f36ee7e1f36679b702bf2f0b2965ccf8f8a",
+          "output_sha256": "da04dce2b73451f4ca82ac7b93c049fae1d48353119a7f2bf18c1283ff8f7c17",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/button_secondary.png",
+      "sha256": "f8c9c634446ee327ee107e8a3106ebe279da82943e6860f044921f8a5f7583c2",
+      "latest_sha": "f8c9c634446ee327ee107e8a3106ebe279da82943e6860f044921f8a5f7583c2",
+      "audit_sha": null,
+      "bytes": 21696,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.767517+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/f8c9c634446ee327ee107e8a3106ebe279da82943e6860f044921f8a5f7583c2.png",
+      "source_mtime_ns": 1788972938565869200,
+      "source_mtime_utc": "2026-09-09T16:55:38.565869+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        271,
+        82
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          271,
+          82
+        ],
+        "visible_fraction": 0.8802988,
+        "visible_sample_pixels": 19562,
+        "linear_luminance_mean": 0.707803,
+        "linear_luminance_p90": 0.8381708,
+        "linear_luminance_p99": 0.9855444,
+        "srgb_luminance_mean": 0.8476411,
+        "bright_fraction": 0.8134138,
+        "nearwhite_fraction": 0.0212146,
+        "colorful_fraction": 0.2084654,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "302668024b1a388dde6cfa3fd0001595d2119502fcff88cac5bcb0c217b70a02",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "f8c9c634446ee327ee107e8a3106ebe279da82943e6860f044921f8a5f7583c2",
+          "output_sha256": "302668024b1a388dde6cfa3fd0001595d2119502fcff88cac5bcb0c217b70a02",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/close_button.png",
+      "sha256": "9a0a7d14b7784765c21a0aaadd2443dff14fa8cd9bd8bdb8a2878b24a573bc84",
+      "latest_sha": "9a0a7d14b7784765c21a0aaadd2443dff14fa8cd9bd8bdb8a2878b24a573bc84",
+      "audit_sha": null,
+      "bytes": 16889,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.775654+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/9a0a7d14b7784765c21a0aaadd2443dff14fa8cd9bd8bdb8a2878b24a573bc84.png",
+      "source_mtime_ns": 1788972938585997900,
+      "source_mtime_utc": "2026-09-09T16:55:38.585998+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        81,
+        80
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          81,
+          80
+        ],
+        "visible_fraction": 0.7287037,
+        "visible_sample_pixels": 4722,
+        "linear_luminance_mean": 0.2707983,
+        "linear_luminance_p90": 0.7056663,
+        "linear_luminance_p99": 0.9575721,
+        "srgb_luminance_mean": 0.468514,
+        "bright_fraction": 0.1035578,
+        "nearwhite_fraction": 0.0031766,
+        "colorful_fraction": 0.9470563,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "b0dae230849d13e958b722ea24b4364afed59ce39052e7693fd266919f0421cf",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "9a0a7d14b7784765c21a0aaadd2443dff14fa8cd9bd8bdb8a2878b24a573bc84",
+          "output_sha256": "b0dae230849d13e958b722ea24b4364afed59ce39052e7693fd266919f0421cf",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/close_tassel.png",
+      "sha256": "d5a5896a72a597eb2443dfd4589a77bb9a05fcb35533021af0e9e7fae07edb41",
+      "latest_sha": "d5a5896a72a597eb2443dfd4589a77bb9a05fcb35533021af0e9e7fae07edb41",
+      "audit_sha": null,
+      "bytes": 4722,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.782040+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/d5a5896a72a597eb2443dfd4589a77bb9a05fcb35533021af0e9e7fae07edb41.png",
+      "source_mtime_ns": 1788972938587593100,
+      "source_mtime_utc": "2026-09-09T16:55:38.587593+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        30,
+        81
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          30,
+          81
+        ],
+        "visible_fraction": 0.5683128,
+        "visible_sample_pixels": 1381,
+        "linear_luminance_mean": 0.2258787,
+        "linear_luminance_p90": 0.4375284,
+        "linear_luminance_p99": 0.8556892,
+        "srgb_luminance_mean": 0.4613642,
+        "bright_fraction": 0.0260681,
+        "nearwhite_fraction": 0.0007241,
+        "colorful_fraction": 0.7653874,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "27515acaa98d7beef7cbd55ace6b245ada615c1e6fc71983bb2865c7d6816a62",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "d5a5896a72a597eb2443dfd4589a77bb9a05fcb35533021af0e9e7fae07edb41",
+          "output_sha256": "27515acaa98d7beef7cbd55ace6b245ada615c1e6fc71983bb2865c7d6816a62",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/divider.png",
+      "sha256": "d022aef7f1b5e81780d99f9cd0287bc8710d2ff78a1123c10b64c4c63342ec58",
+      "latest_sha": "d022aef7f1b5e81780d99f9cd0287bc8710d2ff78a1123c10b64c4c63342ec58",
+      "audit_sha": null,
+      "bytes": 9369,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.788752+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/d022aef7f1b5e81780d99f9cd0287bc8710d2ff78a1123c10b64c4c63342ec58.png",
+      "source_mtime_ns": 1788972938601373000,
+      "source_mtime_utc": "2026-09-09T16:55:38.601373+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        34,
+        661
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          26,
+          512
+        ],
+        "visible_fraction": 0.1168119,
+        "visible_sample_pixels": 1555,
+        "linear_luminance_mean": 0.5177346,
+        "linear_luminance_p90": 0.6494702,
+        "linear_luminance_p99": 0.9060106,
+        "srgb_luminance_mean": 0.7386885,
+        "bright_fraction": 0.0810289,
+        "nearwhite_fraction": 0.0045016,
+        "colorful_fraction": 0.9279743,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "e81d0bd3bd25e4edcf9e6fd2e496869a93088355c8077287cc61d15b8f2894d9",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "d022aef7f1b5e81780d99f9cd0287bc8710d2ff78a1123c10b64c4c63342ec58",
+          "output_sha256": "e81d0bd3bd25e4edcf9e6fd2e496869a93088355c8077287cc61d15b8f2894d9",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/dropdown_arrow.png",
+      "sha256": "2f2a984c1bd69c01c3b4863b163b189f9d5ff31f1884dfb810b634a071530e97",
+      "latest_sha": "2f2a984c1bd69c01c3b4863b163b189f9d5ff31f1884dfb810b634a071530e97",
+      "audit_sha": null,
+      "bytes": 1079,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.798606+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/2f2a984c1bd69c01c3b4863b163b189f9d5ff31f1884dfb810b634a071530e97.png",
+      "source_mtime_ns": 1788972938570629900,
+      "source_mtime_utc": "2026-09-09T16:55:38.570630+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        36,
+        27
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          36,
+          27
+        ],
+        "visible_fraction": 0.3024691,
+        "visible_sample_pixels": 294,
+        "linear_luminance_mean": 0.1543092,
+        "linear_luminance_p90": 0.2422487,
+        "linear_luminance_p99": 0.4261031,
+        "srgb_luminance_mean": 0.4067897,
+        "bright_fraction": 0.0,
+        "nearwhite_fraction": 0.0,
+        "colorful_fraction": 1.0,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "40805a036ad6e836087fdaffbebb7f8b296c2f3322d167c52692d73e868c2034",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "2f2a984c1bd69c01c3b4863b163b189f9d5ff31f1884dfb810b634a071530e97",
+          "output_sha256": "40805a036ad6e836087fdaffbebb7f8b296c2f3322d167c52692d73e868c2034",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/notice_icon.png",
+      "sha256": "e8a83ac130e8005e8d9d8b38324bca11255b6aa43fc07c532b3729b6b4b02d05",
+      "latest_sha": "e8a83ac130e8005e8d9d8b38324bca11255b6aa43fc07c532b3729b6b4b02d05",
+      "audit_sha": null,
+      "bytes": 5051,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.801275+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/e8a83ac130e8005e8d9d8b38324bca11255b6aa43fc07c532b3729b6b4b02d05.png",
+      "source_mtime_ns": 1788972938596747800,
+      "source_mtime_utc": "2026-09-09T16:55:38.596748+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        47,
+        47
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          47,
+          47
+        ],
+        "visible_fraction": 0.7265731,
+        "visible_sample_pixels": 1605,
+        "linear_luminance_mean": 0.6631418,
+        "linear_luminance_p90": 0.8954144,
+        "linear_luminance_p99": 0.9967713,
+        "srgb_luminance_mean": 0.8182085,
+        "bright_fraction": 0.4890966,
+        "nearwhite_fraction": 0.0510903,
+        "colorful_fraction": 0.5096573,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "dfdf64280e9e75f0d583b42a243e8c8811dc8eb1f7c3227c72237944ba6a7b64",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "e8a83ac130e8005e8d9d8b38324bca11255b6aa43fc07c532b3729b6b4b02d05",
+          "output_sha256": "dfdf64280e9e75f0d583b42a243e8c8811dc8eb1f7c3227c72237944ba6a7b64",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/paper_tile.png",
+      "sha256": "8ebc2f79f8f27a0221e41b42585bb8256b22d08f32b59c777897b43718c37ee3",
+      "latest_sha": "8ebc2f79f8f27a0221e41b42585bb8256b22d08f32b59c777897b43718c37ee3",
+      "audit_sha": null,
+      "bytes": 23845,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.807917+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/8ebc2f79f8f27a0221e41b42585bb8256b22d08f32b59c777897b43718c37ee3.png",
+      "source_mtime_ns": 1788972938542571100,
+      "source_mtime_utc": "2026-09-09T16:55:38.542571+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        375,
+        57
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          375,
+          57
+        ],
+        "visible_fraction": 1.0,
+        "visible_sample_pixels": 21375,
+        "linear_luminance_mean": 0.8250073,
+        "linear_luminance_p90": 0.8317426,
+        "linear_luminance_p99": 0.8385317,
+        "srgb_luminance_mean": 0.918459,
+        "bright_fraction": 1.0,
+        "nearwhite_fraction": 0.0,
+        "colorful_fraction": 0.0,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "f3a28d608d6f0774ca239b98287bec3736e4216ee25f087dad3406a7c254c3ec",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "8ebc2f79f8f27a0221e41b42585bb8256b22d08f32b59c777897b43718c37ee3",
+          "output_sha256": "f3a28d608d6f0774ca239b98287bec3736e4216ee25f087dad3406a7c254c3ec",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/pet_card_normal.png",
+      "sha256": "20570adc6b8cf6c2495bb3e7796814bf5919adad5770cb10bda4bf2b63754eaa",
+      "latest_sha": "20570adc6b8cf6c2495bb3e7796814bf5919adad5770cb10bda4bf2b63754eaa",
+      "audit_sha": null,
+      "bytes": 48949,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.815045+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/20570adc6b8cf6c2495bb3e7796814bf5919adad5770cb10bda4bf2b63754eaa.png",
+      "source_mtime_ns": 1788972938615919600,
+      "source_mtime_utc": "2026-09-09T16:55:38.615920+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        419,
+        135
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          419,
+          135
+        ],
+        "visible_fraction": 0.9583665,
+        "visible_sample_pixels": 54210,
+        "linear_luminance_mean": 0.7894394,
+        "linear_luminance_p90": 0.8317426,
+        "linear_luminance_p99": 0.8532376,
+        "srgb_luminance_mean": 0.8974466,
+        "bright_fraction": 0.9003136,
+        "nearwhite_fraction": 0.0063826,
+        "colorful_fraction": 0.1150526,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "eb1d6ac6ac45a159aa7b36bbcc92d1b865b4f3f30e6cc0b3678451247ae07af5",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "20570adc6b8cf6c2495bb3e7796814bf5919adad5770cb10bda4bf2b63754eaa",
+          "output_sha256": "eb1d6ac6ac45a159aa7b36bbcc92d1b865b4f3f30e6cc0b3678451247ae07af5",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/pet_card_selected.png",
+      "sha256": "d76e6b2216a336707380f0e66d0b6f6aa8331904f850824b36535a4801279d3c",
+      "latest_sha": "d76e6b2216a336707380f0e66d0b6f6aa8331904f850824b36535a4801279d3c",
+      "audit_sha": null,
+      "bytes": 38705,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.826599+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/d76e6b2216a336707380f0e66d0b6f6aa8331904f850824b36535a4801279d3c.png",
+      "source_mtime_ns": 1788972938638041700,
+      "source_mtime_utc": "2026-09-09T16:55:38.638042+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        419,
+        135
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          419,
+          135
+        ],
+        "visible_fraction": 0.9842836,
+        "visible_sample_pixels": 55676,
+        "linear_luminance_mean": 0.1440314,
+        "linear_luminance_p90": 0.1893788,
+        "linear_luminance_p99": 0.8276083,
+        "srgb_luminance_mean": 0.3767663,
+        "bright_fraction": 0.0270673,
+        "nearwhite_fraction": 0.0002694,
+        "colorful_fraction": 0.9783749,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "e62058fc748a3b5fd883f991477e562a2e32303bef7766c33e7af11cc2bfdede",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "d76e6b2216a336707380f0e66d0b6f6aa8331904f850824b36535a4801279d3c",
+          "output_sha256": "e62058fc748a3b5fd883f991477e562a2e32303bef7766c33e7af11cc2bfdede",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_frame.png",
+      "sha256": "0f9c0f458ccbddf1b256eb6bee7f844e117240c4a56bc4382b3f30aad4beb48d",
+      "latest_sha": "0f9c0f458ccbddf1b256eb6bee7f844e117240c4a56bc4382b3f30aad4beb48d",
+      "audit_sha": null,
+      "bytes": 3142,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.837902+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/0f9c0f458ccbddf1b256eb6bee7f844e117240c4a56bc4382b3f30aad4beb48d.png",
+      "source_mtime_ns": 1788972938972128300,
+      "source_mtime_utc": "2026-09-09T16:55:38.972128+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        134,
+        115
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          134,
+          115
+        ],
+        "visible_fraction": 0.0489942,
+        "visible_sample_pixels": 755,
+        "linear_luminance_mean": 0.2923794,
+        "linear_luminance_p90": 0.6121617,
+        "linear_luminance_p99": 0.8312979,
+        "srgb_luminance_mean": 0.532712,
+        "bright_fraction": 0.0490066,
+        "nearwhite_fraction": 0.0,
+        "colorful_fraction": 0.9086093,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "35b5dfb2a202ba9a9e8dcef55b7cda4ec11f3edd657955b0a385019a9862be1f",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "0f9c0f458ccbddf1b256eb6bee7f844e117240c4a56bc4382b3f30aad4beb48d",
+          "output_sha256": "35b5dfb2a202ba9a9e8dcef55b7cda4ec11f3edd657955b0a385019a9862be1f",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+      "sha256": "9f3df994a034c56db2e25ca71830da47a3c2d66813cc97246dda0cfa4d84d458",
+      "latest_sha": "9f3df994a034c56db2e25ca71830da47a3c2d66813cc97246dda0cfa4d84d458",
+      "audit_sha": null,
+      "bytes": 58786,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.844925+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/9f3df994a034c56db2e25ca71830da47a3c2d66813cc97246dda0cfa4d84d458.png",
+      "source_mtime_ns": 1788972938876292300,
+      "source_mtime_utc": "2026-09-09T16:55:38.876292+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          160,
+          160
+        ],
+        "visible_fraction": 0.8404687,
+        "visible_sample_pixels": 21516,
+        "linear_luminance_mean": 0.5367606,
+        "linear_luminance_p90": 0.9549575,
+        "linear_luminance_p99": 0.9842553,
+        "srgb_luminance_mean": 0.6777954,
+        "bright_fraction": 0.3366332,
+        "nearwhite_fraction": 0.0309072,
+        "colorful_fraction": 0.8407697,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "d0a07b8510789d946e7d14a8e92edbd2366414f8dd12cf65c0df55e8c75705ee",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "9f3df994a034c56db2e25ca71830da47a3c2d66813cc97246dda0cfa4d84d458",
+          "output_sha256": "d0a07b8510789d946e7d14a8e92edbd2366414f8dd12cf65c0df55e8c75705ee",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+      "sha256": "0ce1d5bda9fa3aafb7693dfd61173e2549994a804958d097755986e6999aaf93",
+      "latest_sha": "0ce1d5bda9fa3aafb7693dfd61173e2549994a804958d097755986e6999aaf93",
+      "audit_sha": null,
+      "bytes": 43893,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.855389+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/0ce1d5bda9fa3aafb7693dfd61173e2549994a804958d097755986e6999aaf93.png",
+      "source_mtime_ns": 1788972938804913000,
+      "source_mtime_utc": "2026-09-09T16:55:38.804913+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          160,
+          160
+        ],
+        "visible_fraction": 0.6721094,
+        "visible_sample_pixels": 17206,
+        "linear_luminance_mean": 0.6748507,
+        "linear_luminance_p90": 0.9599143,
+        "linear_luminance_p99": 0.9786143,
+        "srgb_luminance_mean": 0.789972,
+        "bright_fraction": 0.5924677,
+        "nearwhite_fraction": 0.0821806,
+        "colorful_fraction": 0.6626177,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "abd979e8515e45c2ef391fc65c1c6f93b8e908a4dcac3ab881767a27fce9fd0a",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "0ce1d5bda9fa3aafb7693dfd61173e2549994a804958d097755986e6999aaf93",
+          "output_sha256": "abd979e8515e45c2ef391fc65c1c6f93b8e908a4dcac3ab881767a27fce9fd0a",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+      "sha256": "4d122b2cbd3129e0f1f912d5657f2bc34d0bb7d8e5800278da5d2752dae1da40",
+      "latest_sha": "4d122b2cbd3129e0f1f912d5657f2bc34d0bb7d8e5800278da5d2752dae1da40",
+      "audit_sha": null,
+      "bytes": 66119,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.863609+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/4d122b2cbd3129e0f1f912d5657f2bc34d0bb7d8e5800278da5d2752dae1da40.png",
+      "source_mtime_ns": 1788972938728629900,
+      "source_mtime_utc": "2026-09-09T16:55:38.728630+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          160,
+          160
+        ],
+        "visible_fraction": 0.8891406,
+        "visible_sample_pixels": 22762,
+        "linear_luminance_mean": 0.5990941,
+        "linear_luminance_p90": 0.9603171,
+        "linear_luminance_p99": 0.9929939,
+        "srgb_luminance_mean": 0.764069,
+        "bright_fraction": 0.382831,
+        "nearwhite_fraction": 0.1875934,
+        "colorful_fraction": 0.2132502,
+        "magenta_chroma_fraction": 0.0011862
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "66857c3ca3818d2c325af26f9c643a697ef3902906f888a4989e79e0560a2d01",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "4d122b2cbd3129e0f1f912d5657f2bc34d0bb7d8e5800278da5d2752dae1da40",
+          "output_sha256": "66857c3ca3818d2c325af26f9c643a697ef3902906f888a4989e79e0560a2d01",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+      "sha256": "703984eb092903b4aadbad3df77c60ba1af727b4d489aadc3a130337d48d0a40",
+      "latest_sha": "703984eb092903b4aadbad3df77c60ba1af727b4d489aadc3a130337d48d0a40",
+      "audit_sha": null,
+      "bytes": 39379,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.875253+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/703984eb092903b4aadbad3df77c60ba1af727b4d489aadc3a130337d48d0a40.png",
+      "source_mtime_ns": 1788972938962240100,
+      "source_mtime_utc": "2026-09-09T16:55:38.962240+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          160,
+          160
+        ],
+        "visible_fraction": 0.5323438,
+        "visible_sample_pixels": 13628,
+        "linear_luminance_mean": 0.6420208,
+        "linear_luminance_p90": 0.9848612,
+        "linear_luminance_p99": 0.9923548,
+        "srgb_luminance_mean": 0.7573746,
+        "bright_fraction": 0.5722043,
+        "nearwhite_fraction": 0.222263,
+        "colorful_fraction": 0.5069709,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "b9f3ba73e2a7e72bed493bbb333538a97276415e5edcdd76e5cbbd2a0ad1cbb0",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "703984eb092903b4aadbad3df77c60ba1af727b4d489aadc3a130337d48d0a40",
+          "output_sha256": "b9f3ba73e2a7e72bed493bbb333538a97276415e5edcdd76e5cbbd2a0ad1cbb0",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/section_header.png",
+      "sha256": "0c40970a124ca4ddd6b4f9836624ee7452ac37310eca3f592d5ca3898d3474e8",
+      "latest_sha": "0c40970a124ca4ddd6b4f9836624ee7452ac37310eca3f592d5ca3898d3474e8",
+      "audit_sha": null,
+      "bytes": 24359,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.886199+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/0c40970a124ca4ddd6b4f9836624ee7452ac37310eca3f592d5ca3898d3474e8.png",
+      "source_mtime_ns": 1788972938576936900,
+      "source_mtime_utc": "2026-09-09T16:55:38.576937+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        422,
+        57
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          422,
+          57
+        ],
+        "visible_fraction": 0.888002,
+        "visible_sample_pixels": 21360,
+        "linear_luminance_mean": 0.7435314,
+        "linear_luminance_p90": 0.8771663,
+        "linear_luminance_p99": 1.0,
+        "srgb_luminance_mean": 0.8673688,
+        "bright_fraction": 0.7805243,
+        "nearwhite_fraction": 0.0450843,
+        "colorful_fraction": 0.24897,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "ca0749e0e7055bea4622b44a8ae4672bb0dc66714c200399bfb655f1a29a3307",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "0c40970a124ca4ddd6b4f9836624ee7452ac37310eca3f592d5ca3898d3474e8",
+          "output_sha256": "ca0749e0e7055bea4622b44a8ae4672bb0dc66714c200399bfb655f1a29a3307",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/slider_fill.png",
+      "sha256": "fc8b4d38a22ab42b72071bb480bf8481759577379b54ed1900d799df773d314a",
+      "latest_sha": "fc8b4d38a22ab42b72071bb480bf8481759577379b54ed1900d799df773d314a",
+      "audit_sha": null,
+      "bytes": 2137,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.895321+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/fc8b4d38a22ab42b72071bb480bf8481759577379b54ed1900d799df773d314a.png",
+      "source_mtime_ns": 1788972938592185600,
+      "source_mtime_utc": "2026-09-09T16:55:38.592185+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        60,
+        23
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          60,
+          23
+        ],
+        "visible_fraction": 1.0,
+        "visible_sample_pixels": 1380,
+        "linear_luminance_mean": 0.4519314,
+        "linear_luminance_p90": 0.8440037,
+        "linear_luminance_p99": 0.9517307,
+        "srgb_luminance_mean": 0.6618085,
+        "bright_fraction": 0.2615942,
+        "nearwhite_fraction": 0.0304348,
+        "colorful_fraction": 0.6115942,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "915accf4297e3d64a7d63309916abec9716c3c2eb1eee15d310258a652db5652",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "fc8b4d38a22ab42b72071bb480bf8481759577379b54ed1900d799df773d314a",
+          "output_sha256": "915accf4297e3d64a7d63309916abec9716c3c2eb1eee15d310258a652db5652",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/slider_thumb.png",
+      "sha256": "6411c98039df49e16d16c1470b53c8abb414134b67411ec3486d3fb318e88c58",
+      "latest_sha": "6411c98039df49e16d16c1470b53c8abb414134b67411ec3486d3fb318e88c58",
+      "audit_sha": null,
+      "bytes": 6051,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.898303+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/6411c98039df49e16d16c1470b53c8abb414134b67411ec3486d3fb318e88c58.png",
+      "source_mtime_ns": 1788972938594738600,
+      "source_mtime_utc": "2026-09-09T16:55:38.594738+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        51,
+        51
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          51,
+          51
+        ],
+        "visible_fraction": 0.727797,
+        "visible_sample_pixels": 1893,
+        "linear_luminance_mean": 0.6408183,
+        "linear_luminance_p90": 0.9210001,
+        "linear_luminance_p99": 0.9933629,
+        "srgb_luminance_mean": 0.7966145,
+        "bright_fraction": 0.4770206,
+        "nearwhite_fraction": 0.0945589,
+        "colorful_fraction": 0.5694665,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "61b1234e982f872c33e83978bb0a99ae2611dc3ce7eb1f8e90f3018c95a6bcbf",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "6411c98039df49e16d16c1470b53c8abb414134b67411ec3486d3fb318e88c58",
+          "output_sha256": "61b1234e982f872c33e83978bb0a99ae2611dc3ce7eb1f8e90f3018c95a6bcbf",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/slider_track.png",
+      "sha256": "c0ae0e5673add8f11c38d0db482c2dda0918bad320495291f191dbf75805d6af",
+      "latest_sha": "c0ae0e5673add8f11c38d0db482c2dda0918bad320495291f191dbf75805d6af",
+      "audit_sha": null,
+      "bytes": 8293,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.905194+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/c0ae0e5673add8f11c38d0db482c2dda0918bad320495291f191dbf75805d6af.png",
+      "source_mtime_ns": 1788972938591189100,
+      "source_mtime_utc": "2026-09-09T16:55:38.591189+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        324,
+        23
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          324,
+          23
+        ],
+        "visible_fraction": 1.0,
+        "visible_sample_pixels": 7452,
+        "linear_luminance_mean": 0.5595084,
+        "linear_luminance_p90": 0.8140581,
+        "linear_luminance_p99": 0.9554514,
+        "srgb_luminance_mean": 0.7645682,
+        "bright_fraction": 0.2247719,
+        "nearwhite_fraction": 0.0375738,
+        "colorful_fraction": 0.0,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "6c974d7877bdd8b4c03c9a1e4a26e9dc940a5c23f553605ea1369287fba64f69",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "c0ae0e5673add8f11c38d0db482c2dda0918bad320495291f191dbf75805d6af",
+          "output_sha256": "6c974d7877bdd8b4c03c9a1e4a26e9dc940a5c23f553605ea1369287fba64f69",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/stat_field.png",
+      "sha256": "bcdedeb001c5e0a3c0c857619cd419d9cb9f19394bef35612f68d65e78e1a6df",
+      "latest_sha": "bcdedeb001c5e0a3c0c857619cd419d9cb9f19394bef35612f68d65e78e1a6df",
+      "audit_sha": null,
+      "bytes": 13774,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.915809+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/bcdedeb001c5e0a3c0c857619cd419d9cb9f19394bef35612f68d65e78e1a6df.png",
+      "source_mtime_ns": 1788972938599268500,
+      "source_mtime_utc": "2026-09-09T16:55:38.599268+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        273,
+        62
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          273,
+          62
+        ],
+        "visible_fraction": 1.0,
+        "visible_sample_pixels": 16926,
+        "linear_luminance_mean": 0.7441285,
+        "linear_luminance_p90": 0.8147596,
+        "linear_luminance_p99": 0.8442742,
+        "srgb_luminance_mean": 0.8769965,
+        "bright_fraction": 0.9335933,
+        "nearwhite_fraction": 0.0,
+        "colorful_fraction": 0.0,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "40f8c20c4a4160d48bb8a97e8e84479cf22d310643f649e722588ad43fd6f10a",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "bcdedeb001c5e0a3c0c857619cd419d9cb9f19394bef35612f68d65e78e1a6df",
+          "output_sha256": "40f8c20c4a4160d48bb8a97e8e84479cf22d310643f649e722588ad43fd6f10a",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/step_minus.png",
+      "sha256": "ae939108e879485b16a2f58afed23ebe4a5f77977a4df4a39dc1e4e3e16b17a6",
+      "latest_sha": "ae939108e879485b16a2f58afed23ebe4a5f77977a4df4a39dc1e4e3e16b17a6",
+      "audit_sha": null,
+      "bytes": 5357,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.923724+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/ae939108e879485b16a2f58afed23ebe4a5f77977a4df4a39dc1e4e3e16b17a6.png",
+      "source_mtime_ns": 1788972938588633500,
+      "source_mtime_utc": "2026-09-09T16:55:38.588634+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        66,
+        65
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          66,
+          65
+        ],
+        "visible_fraction": 0.6946387,
+        "visible_sample_pixels": 2980,
+        "linear_luminance_mean": 0.680184,
+        "linear_luminance_p90": 0.9187018,
+        "linear_luminance_p99": 0.9956924,
+        "srgb_luminance_mean": 0.8251555,
+        "bright_fraction": 0.5204698,
+        "nearwhite_fraction": 0.0781879,
+        "colorful_fraction": 0.4278523,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "1450092e888fe6eaef85accdb912354a8bb78c57cd734734458b2828fb471d96",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "ae939108e879485b16a2f58afed23ebe4a5f77977a4df4a39dc1e4e3e16b17a6",
+          "output_sha256": "1450092e888fe6eaef85accdb912354a8bb78c57cd734734458b2828fb471d96",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/step_plate.png",
+      "sha256": "e7895bf984ebf6a820f94fd7d6ddbb279a94f4a165b0889e34c7f6b0e7795fd3",
+      "latest_sha": "e7895bf984ebf6a820f94fd7d6ddbb279a94f4a165b0889e34c7f6b0e7795fd3",
+      "audit_sha": null,
+      "bytes": 4776,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.926871+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/e7895bf984ebf6a820f94fd7d6ddbb279a94f4a165b0889e34c7f6b0e7795fd3.png",
+      "source_mtime_ns": 1788972938590185400,
+      "source_mtime_utc": "2026-09-09T16:55:38.590185+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        66,
+        65
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          66,
+          65
+        ],
+        "visible_fraction": 0.6946387,
+        "visible_sample_pixels": 2980,
+        "linear_luminance_mean": 0.7293631,
+        "linear_luminance_p90": 0.9115112,
+        "linear_luminance_p99": 0.9841269,
+        "srgb_luminance_mean": 0.8596945,
+        "bright_fraction": 0.6489933,
+        "nearwhite_fraction": 0.0681208,
+        "colorful_fraction": 0.3721477,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "2ae637f83a100b73b2870e661ba4dcac2541a372465e191dcbb36435d3d926d4",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "e7895bf984ebf6a820f94fd7d6ddbb279a94f4a165b0889e34c7f6b0e7795fd3",
+          "output_sha256": "2ae637f83a100b73b2870e661ba4dcac2541a372465e191dcbb36435d3d926d4",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/step_plus.png",
+      "sha256": "9fb60ed8959b5f395941328a5375606f90867edc381b0d3d45bbaac4edefdde0",
+      "latest_sha": "9fb60ed8959b5f395941328a5375606f90867edc381b0d3d45bbaac4edefdde0",
+      "audit_sha": null,
+      "bytes": 5944,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.930473+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/9fb60ed8959b5f395941328a5375606f90867edc381b0d3d45bbaac4edefdde0.png",
+      "source_mtime_ns": 1788972938589180700,
+      "source_mtime_utc": "2026-09-09T16:55:38.589181+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        66,
+        65
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          66,
+          65
+        ],
+        "visible_fraction": 0.7167832,
+        "visible_sample_pixels": 3075,
+        "linear_luminance_mean": 0.6522815,
+        "linear_luminance_p90": 0.9161124,
+        "linear_luminance_p99": 0.9917191,
+        "srgb_luminance_mean": 0.8068569,
+        "bright_fraction": 0.4956098,
+        "nearwhite_fraction": 0.0637398,
+        "colorful_fraction": 0.3869919,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "5eb6ec664abc4da7be8aba7fc0dc76c3c53c9d1101f8e845c58352c210a157f9",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "9fb60ed8959b5f395941328a5375606f90867edc381b0d3d45bbaac4edefdde0",
+          "output_sha256": "5eb6ec664abc4da7be8aba7fc0dc76c3c53c9d1101f8e845c58352c210a157f9",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/tab_horizontal.png",
+      "sha256": "8f6ae36149400098c1adbf6f236e7e769ac29b6189690bb0f80529db431bf3cd",
+      "latest_sha": "8f6ae36149400098c1adbf6f236e7e769ac29b6189690bb0f80529db431bf3cd",
+      "audit_sha": null,
+      "bytes": 21586,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.938366+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/8f6ae36149400098c1adbf6f236e7e769ac29b6189690bb0f80529db431bf3cd.png",
+      "source_mtime_ns": 1788972938573279500,
+      "source_mtime_utc": "2026-09-09T16:55:38.573279+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        279,
+        71
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          279,
+          71
+        ],
+        "visible_fraction": 0.8735928,
+        "visible_sample_pixels": 17305,
+        "linear_luminance_mean": 0.1629885,
+        "linear_luminance_p90": 0.3547289,
+        "linear_luminance_p99": 0.9419268,
+        "srgb_luminance_mean": 0.3855861,
+        "bright_fraction": 0.0501589,
+        "nearwhite_fraction": 0.0,
+        "colorful_fraction": 0.9530194,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "4c75ee304ab11909f5147550d67e3a1d13a13d5e5c7feedcb23c87c6226ab4e5",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "8f6ae36149400098c1adbf6f236e7e769ac29b6189690bb0f80529db431bf3cd",
+          "output_sha256": "4c75ee304ab11909f5147550d67e3a1d13a13d5e5c7feedcb23c87c6226ab4e5",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/tab_vertical_normal.png",
+      "sha256": "385d84d4e293a6264bb2d121b76f8eee35703785b5d8c91c8fdc9887024182ae",
+      "latest_sha": "385d84d4e293a6264bb2d121b76f8eee35703785b5d8c91c8fdc9887024182ae",
+      "audit_sha": null,
+      "bytes": 14514,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.945171+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/385d84d4e293a6264bb2d121b76f8eee35703785b5d8c91c8fdc9887024182ae.png",
+      "source_mtime_ns": 1788972938579630500,
+      "source_mtime_utc": "2026-09-09T16:55:38.579631+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        92,
+        127
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          92,
+          127
+        ],
+        "visible_fraction": 0.899264,
+        "visible_sample_pixels": 10507,
+        "linear_luminance_mean": 0.5399529,
+        "linear_luminance_p90": 0.6885645,
+        "linear_luminance_p99": 0.8652647,
+        "srgb_luminance_mean": 0.7435158,
+        "bright_fraction": 0.0806129,
+        "nearwhite_fraction": 9.52e-05,
+        "colorful_fraction": 0.8552394,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "a4e0e7b8cf82aea38433cacf81e7973e879dc8c15e5acf3ef6c3b63394df2e9c",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "385d84d4e293a6264bb2d121b76f8eee35703785b5d8c91c8fdc9887024182ae",
+          "output_sha256": "a4e0e7b8cf82aea38433cacf81e7973e879dc8c15e5acf3ef6c3b63394df2e9c",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/tab_vertical_selected.png",
+      "sha256": "c39ef661a84292b510e4afe06d04751196a016b98ded7211937230532742c536",
+      "latest_sha": "c39ef661a84292b510e4afe06d04751196a016b98ded7211937230532742c536",
+      "audit_sha": null,
+      "bytes": 19016,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.951804+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/c39ef661a84292b510e4afe06d04751196a016b98ded7211937230532742c536.png",
+      "source_mtime_ns": 1788972938581748300,
+      "source_mtime_utc": "2026-09-09T16:55:38.581748+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        97,
+        127
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          97,
+          127
+        ],
+        "visible_fraction": 0.9529183,
+        "visible_sample_pixels": 11739,
+        "linear_luminance_mean": 0.1619429,
+        "linear_luminance_p90": 0.4507443,
+        "linear_luminance_p99": 0.8495106,
+        "srgb_luminance_mean": 0.381932,
+        "bright_fraction": 0.0382486,
+        "nearwhite_fraction": 0.0003407,
+        "colorful_fraction": 0.9205213,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "076c79b8eea5afebff41f438a34c20a149ab0e1c80033d95b192dc4d928fe707",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "c39ef661a84292b510e4afe06d04751196a016b98ded7211937230532742c536",
+          "output_sha256": "076c79b8eea5afebff41f438a34c20a149ab0e1c80033d95b192dc4d928fe707",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/title_character.png",
+      "sha256": "9a411bf95a6be9653188f72b7a88a5fdbde74e250132dce6e2be9ddc69ce1c2a",
+      "latest_sha": "9a411bf95a6be9653188f72b7a88a5fdbde74e250132dce6e2be9ddc69ce1c2a",
+      "audit_sha": null,
+      "bytes": 4283,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.959044+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/9a411bf95a6be9653188f72b7a88a5fdbde74e250132dce6e2be9ddc69ce1c2a.png",
+      "source_mtime_ns": 1788972938555981700,
+      "source_mtime_utc": "2026-09-09T16:55:38.555982+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        221,
+        48
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          221,
+          48
+        ],
+        "visible_fraction": 0.1910822,
+        "visible_sample_pixels": 2027,
+        "linear_luminance_mean": 0.9279128,
+        "linear_luminance_p90": 0.9279128,
+        "linear_luminance_p99": 0.9279128,
+        "srgb_luminance_mean": 0.9668033,
+        "bright_fraction": 1.0,
+        "nearwhite_fraction": 0.0,
+        "colorful_fraction": 0.0,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "9a411bf95a6be9653188f72b7a88a5fdbde74e250132dce6e2be9ddc69ce1c2a",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "original_sha256",
+            "output_sha256"
+          ],
+          "original_sha256": "9a411bf95a6be9653188f72b7a88a5fdbde74e250132dce6e2be9ddc69ce1c2a",
+          "output_sha256": "9a411bf95a6be9653188f72b7a88a5fdbde74e250132dce6e2be9ddc69ce1c2a",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/title_pet.png",
+      "sha256": "6fc1b01f6454e0a7fcebb50dda787a4ead3ce30d6a3ac4d53553382bd879c997",
+      "latest_sha": "6fc1b01f6454e0a7fcebb50dda787a4ead3ce30d6a3ac4d53553382bd879c997",
+      "audit_sha": null,
+      "bytes": 4024,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.961870+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/6fc1b01f6454e0a7fcebb50dda787a4ead3ce30d6a3ac4d53553382bd879c997.png",
+      "source_mtime_ns": 1788972938557485200,
+      "source_mtime_utc": "2026-09-09T16:55:38.557485+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        212,
+        47
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          212,
+          47
+        ],
+        "visible_fraction": 0.2045363,
+        "visible_sample_pixels": 2038,
+        "linear_luminance_mean": 0.9279128,
+        "linear_luminance_p90": 0.9279128,
+        "linear_luminance_p99": 0.9279128,
+        "srgb_luminance_mean": 0.9668033,
+        "bright_fraction": 1.0,
+        "nearwhite_fraction": 0.0,
+        "colorful_fraction": 0.0,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "6fc1b01f6454e0a7fcebb50dda787a4ead3ce30d6a3ac4d53553382bd879c997",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "original_sha256",
+            "output_sha256"
+          ],
+          "original_sha256": "6fc1b01f6454e0a7fcebb50dda787a4ead3ce30d6a3ac4d53553382bd879c997",
+          "output_sha256": "6fc1b01f6454e0a7fcebb50dda787a4ead3ce30d6a3ac4d53553382bd879c997",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/title_plate.png",
+      "sha256": "f694ac2788721fbe1ca24d672998ef88bc0860512394e58774cc98cb84ce3e9b",
+      "latest_sha": "f694ac2788721fbe1ca24d672998ef88bc0860512394e58774cc98cb84ce3e9b",
+      "audit_sha": null,
+      "bytes": 81908,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.969363+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/f694ac2788721fbe1ca24d672998ef88bc0860512394e58774cc98cb84ce3e9b.png",
+      "source_mtime_ns": 1788972938554976100,
+      "source_mtime_utc": "2026-09-09T16:55:38.554976+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        655,
+        110
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          512,
+          86
+        ],
+        "visible_fraction": 0.6134402,
+        "visible_sample_pixels": 27011,
+        "linear_luminance_mean": 0.2262189,
+        "linear_luminance_p90": 0.5805213,
+        "linear_luminance_p99": 0.9194997,
+        "srgb_luminance_mean": 0.445757,
+        "bright_fraction": 0.0555329,
+        "nearwhite_fraction": 0.0018511,
+        "colorful_fraction": 0.9084077,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "525eb503948c5210e098d4c6f017e317e4be924959063ea7b678d958582525f9",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "f694ac2788721fbe1ca24d672998ef88bc0860512394e58774cc98cb84ce3e9b",
+          "output_sha256": "525eb503948c5210e098d4c6f017e317e4be924959063ea7b678d958582525f9",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/window_frame.png",
+      "sha256": "fb72ea0c53d6cd02a168d54b6a2a5364e0bb33d38f4b06bccc40e2bcd9456133",
+      "latest_sha": "fb72ea0c53d6cd02a168d54b6a2a5364e0bb33d38f4b06bccc40e2bcd9456133",
+      "audit_sha": null,
+      "bytes": 424052,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:06.978266+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/fb72ea0c53d6cd02a168d54b6a2a5364e0bb33d38f4b06bccc40e2bcd9456133.png",
+      "source_mtime_ns": 1788972938539945100,
+      "source_mtime_utc": "2026-09-09T16:55:38.539945+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        1546,
+        743
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          512,
+          246
+        ],
+        "visible_fraction": 0.954697,
+        "visible_sample_pixels": 120246,
+        "linear_luminance_mean": 0.7814136,
+        "linear_luminance_p90": 0.8317426,
+        "linear_luminance_p99": 0.8385317,
+        "srgb_luminance_mean": 0.8899943,
+        "bright_fraction": 0.9060925,
+        "nearwhite_fraction": 8.3e-06,
+        "colorful_fraction": 0.0828052,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "b0c73e1892f3ee0c64604ba2cea4d2ccff708ee96ed388a321c8e5a56a6e3e9c",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "fb72ea0c53d6cd02a168d54b6a2a5364e0bb33d38f4b06bccc40e2bcd9456133",
+          "output_sha256": "b0c73e1892f3ee0c64604ba2cea4d2ccff708ee96ed388a321c8e5a56a6e3e9c",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/sources/character.png",
+      "sha256": "a1fcf86ea45ef237c24ac7d5e7d6394146b5118d44d226e5a69e6cedf7b54c62",
+      "latest_sha": "a1fcf86ea45ef237c24ac7d5e7d6394146b5118d44d226e5a69e6cedf7b54c62",
+      "audit_sha": null,
+      "bytes": 1570852,
+      "extension": ".png",
+      "classification": "source_or_matte",
+      "classification_reason": "Production source or chroma/matte artwork",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:07.015715+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/a1fcf86ea45ef237c24ac7d5e7d6394146b5118d44d226e5a69e6cedf7b54c62.png",
+      "source_mtime_ns": 1788965694015917400,
+      "source_mtime_utc": "2026-09-09T14:54:54.015917+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        1932,
+        814
+      ],
+      "mode": "RGB",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          512,
+          216
+        ],
+        "visible_fraction": 1.0,
+        "visible_sample_pixels": 110592,
+        "linear_luminance_mean": 0.5144292,
+        "linear_luminance_p90": 0.8271372,
+        "linear_luminance_p99": 0.9030838,
+        "srgb_luminance_mean": 0.6896642,
+        "bright_fraction": 0.5053892,
+        "nearwhite_fraction": 0.0053621,
+        "colorful_fraction": 0.1597132,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "e64a817c55b59cf5cc47533428f2e560c64a83f3577067a6fb5969244baf3d6b",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "a1fcf86ea45ef237c24ac7d5e7d6394146b5118d44d226e5a69e6cedf7b54c62",
+          "output_sha256": "e64a817c55b59cf5cc47533428f2e560c64a83f3577067a6fb5969244baf3d6b",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/sources/pet.png",
+      "sha256": "7df72d51111129f7e1dc314c0cee73325633a76a73ef0387bd412df62114c24f",
+      "latest_sha": "7df72d51111129f7e1dc314c0cee73325633a76a73ef0387bd412df62114c24f",
+      "audit_sha": null,
+      "bytes": 1729032,
+      "extension": ".png",
+      "classification": "source_or_matte",
+      "classification_reason": "Production source or chroma/matte artwork",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:07.059865+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/7df72d51111129f7e1dc314c0cee73325633a76a73ef0387bd412df62114c24f.png",
+      "source_mtime_ns": 1788964730823651000,
+      "source_mtime_utc": "2026-09-09T14:38:50.823651+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        1931,
+        814
+      ],
+      "mode": "RGB",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          512,
+          216
+        ],
+        "visible_fraction": 1.0,
+        "visible_sample_pixels": 110592,
+        "linear_luminance_mean": 0.5092613,
+        "linear_luminance_p90": 0.8362163,
+        "linear_luminance_p99": 0.9278004,
+        "srgb_luminance_mean": 0.6845211,
+        "bright_fraction": 0.4953161,
+        "nearwhite_fraction": 0.0078758,
+        "colorful_fraction": 0.2055212,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "b30b4117b18f3e3550e222068b610b1914d5195b8c4e54ab6f70c764813ca91d",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "7df72d51111129f7e1dc314c0cee73325633a76a73ef0387bd412df62114c24f",
+          "output_sha256": "b30b4117b18f3e3550e222068b610b1914d5195b8c4e54ab6f70c764813ca91d",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/sprite-overview.png",
+      "sha256": "0611c3655c37ccb46e6f95857af6aad5afa6a6a26fb1a4243624d7ca7c792cc1",
+      "latest_sha": "0611c3655c37ccb46e6f95857af6aad5afa6a6a26fb1a4243624d7ca7c792cc1",
+      "audit_sha": null,
+      "bytes": 462813,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:07.101037+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/0611c3655c37ccb46e6f95857af6aad5afa6a6a26fb1a4243624d7ca7c792cc1.png",
+      "source_mtime_ns": 1788972974208688000,
+      "source_mtime_utc": "2026-09-09T16:56:14.208688+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        1440,
+        1568
+      ],
+      "mode": "RGB",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          470,
+          512
+        ],
+        "visible_fraction": 1.0,
+        "visible_sample_pixels": 240640,
+        "linear_luminance_mean": 0.4705198,
+        "linear_luminance_p90": 0.8143842,
+        "linear_luminance_p99": 0.900753,
+        "srgb_luminance_mean": 0.6547436,
+        "bright_fraction": 0.3226687,
+        "nearwhite_fraction": 0.0058885,
+        "colorful_fraction": 0.0680228,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "813513203ab6be414c5596a7ca5b911a3194bed7985a9670121fb7650db90d8a",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "0611c3655c37ccb46e6f95857af6aad5afa6a6a26fb1a4243624d7ca7c792cc1",
+          "output_sha256": "813513203ab6be414c5596a7ca5b911a3194bed7985a9670121fb7650db90d8a",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/unity-sprite-preview.png",
+      "sha256": "07837105d30e592f97d926bb0fec66c1185ca522feee78cec6f580b4d30119fc",
+      "latest_sha": "07837105d30e592f97d926bb0fec66c1185ca522feee78cec6f580b4d30119fc",
+      "audit_sha": null,
+      "bytes": 614460,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "new_since_audit",
+      "snapshot_time": "2026-09-09T18:05:07.144319+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/07837105d30e592f97d926bb0fec66c1185ca522feee78cec6f580b4d30119fc.png",
+      "source_mtime_ns": 1788972973718072600,
+      "source_mtime_utc": "2026-09-09T16:56:13.718073+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        1440,
+        1000
+      ],
+      "mode": "RGB",
+      "alpha_range": [
+        255,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          512,
+          356
+        ],
+        "visible_fraction": 1.0,
+        "visible_sample_pixels": 182272,
+        "linear_luminance_mean": 0.3023608,
+        "linear_luminance_p90": 0.8282034,
+        "linear_luminance_p99": 0.8988434,
+        "srgb_luminance_mean": 0.4690427,
+        "bright_fraction": 0.2935064,
+        "nearwhite_fraction": 0.0034783,
+        "colorful_fraction": 0.2064552,
+        "magenta_chroma_fraction": 0.0
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "edf35511b070e5376f671e3c7a1b4019837013aa9a6ecf5b8126d08c92d67130",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "07837105d30e592f97d926bb0fec66c1185ca522feee78cec6f580b4d30119fc",
+          "output_sha256": "edf35511b070e5376f671e3c7a1b4019837013aa9a6ecf5b8126d08c92d67130",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "q_daoist_character_pack_4096/01_ice_sword_girl_transparent_4096.png",
+      "sha256": "b45c42d320d615f16c1f65ffc3b13f0a5c3bee63d2692cb2e7846a0a79185723",
+      "latest_sha": "b45c42d320d615f16c1f65ffc3b13f0a5c3bee63d2692cb2e7846a0a79185723",
+      "audit_sha": "465cbb3dcbbd6cee6038c2a72c5c7f6ffee0ef053702ad6bcf8342d6e70d9436",
+      "bytes": 4864172,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "changed_since_audit",
+      "snapshot_time": "2026-09-09T18:05:07.225505+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/b45c42d320d615f16c1f65ffc3b13f0a5c3bee63d2692cb2e7846a0a79185723.png",
+      "source_mtime_ns": 1788972532427198200,
+      "source_mtime_utc": "2026-09-09T16:48:52.427198+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          512,
+          512
+        ],
+        "visible_fraction": 0.2178078,
+        "visible_sample_pixels": 57097,
+        "linear_luminance_mean": 0.4610992,
+        "linear_luminance_p90": 0.9350559,
+        "linear_luminance_p99": 0.9968268,
+        "srgb_luminance_mean": 0.6132024,
+        "bright_fraction": 0.3645551,
+        "nearwhite_fraction": 0.1030527,
+        "colorful_fraction": 0.2454245,
+        "magenta_chroma_fraction": 8.76e-05
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "b1e91ea1827da53f3e1f7128634c4dfb1ad663eaadeaa5241e87b960f12bd35f",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "b45c42d320d615f16c1f65ffc3b13f0a5c3bee63d2692cb2e7846a0a79185723",
+          "output_sha256": "b1e91ea1827da53f3e1f7128634c4dfb1ad663eaadeaa5241e87b960f12bd35f",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "q_daoist_character_pack_4096/02_fire_talisman_boy_transparent_4096.png",
+      "sha256": "4563ee100e29ef945bb4aa2fb1f19449739adc3d718873aa22cd32d8d03c669e",
+      "latest_sha": "4563ee100e29ef945bb4aa2fb1f19449739adc3d718873aa22cd32d8d03c669e",
+      "audit_sha": "dc3e1992f1e0f7099ad140a43c5439118da286ba2a78607bdefbf234f3312bd7",
+      "bytes": 8097755,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "changed_since_audit",
+      "snapshot_time": "2026-09-09T18:05:07.378048+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/4563ee100e29ef945bb4aa2fb1f19449739adc3d718873aa22cd32d8d03c669e.png",
+      "source_mtime_ns": 1788972565403738000,
+      "source_mtime_utc": "2026-09-09T16:49:25.403738+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          512,
+          512
+        ],
+        "visible_fraction": 0.3691177,
+        "visible_sample_pixels": 96762,
+        "linear_luminance_mean": 0.2520179,
+        "linear_luminance_p90": 0.6676638,
+        "linear_luminance_p99": 0.8244614,
+        "srgb_luminance_mean": 0.409277,
+        "bright_fraction": 0.0546599,
+        "nearwhite_fraction": 0.0002584,
+        "colorful_fraction": 0.9054794,
+        "magenta_chroma_fraction": 0.0003307
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "026a8cae213f2d091f1a7d346f0f21d4c4fd43621d43d2f9cbc8230ab8f1be82",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "4563ee100e29ef945bb4aa2fb1f19449739adc3d718873aa22cd32d8d03c669e",
+          "output_sha256": "026a8cae213f2d091f1a7d346f0f21d4c4fd43621d43d2f9cbc8230ab8f1be82",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "q_daoist_character_pack_4096/03_lotus_healer_girl_transparent_4096.png",
+      "sha256": "8578a5c8583483c1cea46d64bc704b955feef9ad998f02679c22c3164dd5808f",
+      "latest_sha": "8578a5c8583483c1cea46d64bc704b955feef9ad998f02679c22c3164dd5808f",
+      "audit_sha": "8521046cbd9e8d94688bcfc21646493f205f97df4181974ce2270de60b4bf949",
+      "bytes": 8931994,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "changed_since_audit",
+      "snapshot_time": "2026-09-09T18:05:07.569009+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/8578a5c8583483c1cea46d64bc704b955feef9ad998f02679c22c3164dd5808f.png",
+      "source_mtime_ns": 1788972944665504300,
+      "source_mtime_utc": "2026-09-09T16:55:44.665504+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          512,
+          512
+        ],
+        "visible_fraction": 0.3841286,
+        "visible_sample_pixels": 100697,
+        "linear_luminance_mean": 0.452167,
+        "linear_luminance_p90": 0.7938754,
+        "linear_luminance_p99": 0.9564409,
+        "srgb_luminance_mean": 0.6487572,
+        "bright_fraction": 0.1789924,
+        "nearwhite_fraction": 0.0064749,
+        "colorful_fraction": 0.9280614,
+        "magenta_chroma_fraction": 0.0001291
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "150285134e3a692c08715cd61c532f0371a7ae8676d8de8d2b16af7443848632",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "8578a5c8583483c1cea46d64bc704b955feef9ad998f02679c22c3164dd5808f",
+          "output_sha256": "150285134e3a692c08715cd61c532f0371a7ae8676d8de8d2b16af7443848632",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "q_daoist_character_pack_4096/04_mountain_guardian_boy_transparent_4096.png",
+      "sha256": "9200e8f733fbef8ad087dd828cc01426a988f9aeeb62608f6c6917cc16db49cb",
+      "latest_sha": "9200e8f733fbef8ad087dd828cc01426a988f9aeeb62608f6c6917cc16db49cb",
+      "audit_sha": "8a1b6c60ed6be401b8d5a9eeabc55e9752513d78e5fb492efd4ce1f18e04527c",
+      "bytes": 9651912,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "changed_since_audit",
+      "snapshot_time": "2026-09-09T18:05:07.758980+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/9200e8f733fbef8ad087dd828cc01426a988f9aeeb62608f6c6917cc16db49cb.png",
+      "source_mtime_ns": 1788973230422022700,
+      "source_mtime_utc": "2026-09-09T17:00:30.422023+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          512,
+          512
+        ],
+        "visible_fraction": 0.4014168,
+        "visible_sample_pixels": 105229,
+        "linear_luminance_mean": 0.2795676,
+        "linear_luminance_p90": 0.6099181,
+        "linear_luminance_p99": 0.9094054,
+        "srgb_luminance_mean": 0.4841871,
+        "bright_fraction": 0.0567239,
+        "nearwhite_fraction": 0.0015015,
+        "colorful_fraction": 0.8502409,
+        "magenta_chroma_fraction": 0.0003611
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "f5f6685c69a75d8f7e085ed174cef15e65b040dceec8cbcab5d9407737c334f5",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "9200e8f733fbef8ad087dd828cc01426a988f9aeeb62608f6c6917cc16db49cb",
+          "output_sha256": "f5f6685c69a75d8f7e085ed174cef15e65b040dceec8cbcab5d9407737c334f5",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "q_daoist_character_pack_4096/07_moon_shadow_assassin_girl_transparent_4096.png",
+      "sha256": "b24de3f1aeefe1dde7c604c03aa00b7b34c2116a0509012ca05b1720956b7d2d",
+      "latest_sha": "b24de3f1aeefe1dde7c604c03aa00b7b34c2116a0509012ca05b1720956b7d2d",
+      "audit_sha": "d1d87d03356d9b823ee8ea02a0cdf3dcc710215db34564604372e50f993cd50d",
+      "bytes": 7069281,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "changed_since_audit",
+      "snapshot_time": "2026-09-09T18:05:07.974133+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/b24de3f1aeefe1dde7c604c03aa00b7b34c2116a0509012ca05b1720956b7d2d.png",
+      "source_mtime_ns": 1788972479101454000,
+      "source_mtime_utc": "2026-09-09T16:47:59.101454+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          512,
+          512
+        ],
+        "visible_fraction": 0.2497826,
+        "visible_sample_pixels": 65479,
+        "linear_luminance_mean": 0.168281,
+        "linear_luminance_p90": 0.5241399,
+        "linear_luminance_p99": 0.9565924,
+        "srgb_luminance_mean": 0.3410609,
+        "bright_fraction": 0.0442432,
+        "nearwhite_fraction": 0.0116984,
+        "colorful_fraction": 0.4415614,
+        "magenta_chroma_fraction": 0.0003513
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "afc0b72931ef119f60e4c75fe4f4501c6ca1d3823ad9155ec39d35cd3eb9646c",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "b24de3f1aeefe1dde7c604c03aa00b7b34c2116a0509012ca05b1720956b7d2d",
+          "output_sha256": "afc0b72931ef119f60e4c75fe4f4501c6ca1d3823ad9155ec39d35cd3eb9646c",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "q_daoist_character_pack_4096/08_alchemy_prodigy_boy_transparent_4096.png",
+      "sha256": "34b249e13542a7b72d60aaaca5e135d3b227cacf7151fb5caa1d7e29b1efa3b0",
+      "latest_sha": "34b249e13542a7b72d60aaaca5e135d3b227cacf7151fb5caa1d7e29b1efa3b0",
+      "audit_sha": "fcbf04089dbc229887d9c18b2b21e9dfb7997c5ec28c086e45db2d78e9bef82e",
+      "bytes": 8451685,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "changed_since_audit",
+      "snapshot_time": "2026-09-09T18:05:08.140695+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/34b249e13542a7b72d60aaaca5e135d3b227cacf7151fb5caa1d7e29b1efa3b0.png",
+      "source_mtime_ns": 1788972489557804600,
+      "source_mtime_utc": "2026-09-09T16:48:09.557805+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          512,
+          512
+        ],
+        "visible_fraction": 0.4745445,
+        "visible_sample_pixels": 124399,
+        "linear_luminance_mean": 0.3672791,
+        "linear_luminance_p90": 0.7308486,
+        "linear_luminance_p99": 0.9203674,
+        "srgb_luminance_mean": 0.5603626,
+        "bright_fraction": 0.1288515,
+        "nearwhite_fraction": 0.0013183,
+        "colorful_fraction": 0.9462938,
+        "magenta_chroma_fraction": 0.0001527
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "2eab336db800b8ea343efca3af909bb06c45617cec48418bff03f0bc98c3ea63",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "34b249e13542a7b72d60aaaca5e135d3b227cacf7151fb5caa1d7e29b1efa3b0",
+          "output_sha256": "2eab336db800b8ea343efca3af909bb06c45617cec48418bff03f0bc98c3ea63",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "q_daoist_character_pack_4096/09_bamboo_archer_girl_transparent_4096.png",
+      "sha256": "cd426362899156ac60bea8e2e1ddbae7f0afa0f9346a355feedd06df1ca5dd14",
+      "latest_sha": "cd426362899156ac60bea8e2e1ddbae7f0afa0f9346a355feedd06df1ca5dd14",
+      "audit_sha": "c7ba2937630b589f16c0581f76421f20eccb19599aba6b47cca748de450447dd",
+      "bytes": 7148963,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "changed_since_audit",
+      "snapshot_time": "2026-09-09T18:05:08.336486+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/cd426362899156ac60bea8e2e1ddbae7f0afa0f9346a355feedd06df1ca5dd14.png",
+      "source_mtime_ns": 1788974732973849100,
+      "source_mtime_utc": "2026-09-09T17:25:32.973849+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          512,
+          512
+        ],
+        "visible_fraction": 0.2657089,
+        "visible_sample_pixels": 69654,
+        "linear_luminance_mean": 0.2369315,
+        "linear_luminance_p90": 0.5777138,
+        "linear_luminance_p99": 0.8702245,
+        "srgb_luminance_mean": 0.445328,
+        "bright_fraction": 0.0607575,
+        "nearwhite_fraction": 0.0009188,
+        "colorful_fraction": 0.756884,
+        "magenta_chroma_fraction": 0.000847
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "658fef330fb0c0c540347748c0a51c330abe04e62a941d6b0d94a734128d79c7",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "cd426362899156ac60bea8e2e1ddbae7f0afa0f9346a355feedd06df1ca5dd14",
+          "output_sha256": "658fef330fb0c0c540347748c0a51c330abe04e62a941d6b0d94a734128d79c7",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "q_daoist_character_pack_4096/13_short_hair_wind_blade_girl_transparent_4096.png",
+      "sha256": "93c3eb96897d9d0e1482bb8065edc751e43753732454c18c79b195c3469c1892",
+      "latest_sha": "93c3eb96897d9d0e1482bb8065edc751e43753732454c18c79b195c3469c1892",
+      "audit_sha": "857762fc20894c6202cc6eccc7b120f056695f015ae67885a86997470edb1ea2",
+      "bytes": 6426493,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "changed_since_audit",
+      "snapshot_time": "2026-09-09T18:05:08.538479+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/93c3eb96897d9d0e1482bb8065edc751e43753732454c18c79b195c3469c1892.png",
+      "source_mtime_ns": 1788972547466188900,
+      "source_mtime_utc": "2026-09-09T16:49:07.466189+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          512,
+          512
+        ],
+        "visible_fraction": 0.2339859,
+        "visible_sample_pixels": 61338,
+        "linear_luminance_mean": 0.3729957,
+        "linear_luminance_p90": 0.8349038,
+        "linear_luminance_p99": 0.9561109,
+        "srgb_luminance_mean": 0.5608115,
+        "bright_fraction": 0.2215918,
+        "nearwhite_fraction": 0.0097167,
+        "colorful_fraction": 0.6642049,
+        "magenta_chroma_fraction": 0.0006684
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "a0f7a83e53297fd2007148e7aa918f642c9fcc4523f2a77a76a5c66bab5f487f",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "93c3eb96897d9d0e1482bb8065edc751e43753732454c18c79b195c3469c1892",
+          "output_sha256": "a0f7a83e53297fd2007148e7aa918f642c9fcc4523f2a77a76a5c66bab5f487f",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "q_daoist_character_pack_4096/14_short_hair_snow_summoner_girl_transparent_4096.png",
+      "sha256": "a3faf81a8f0a50698a4193e6f8be35be16e37e8bd49d4aa6da155fbd32009c6c",
+      "latest_sha": "a3faf81a8f0a50698a4193e6f8be35be16e37e8bd49d4aa6da155fbd32009c6c",
+      "audit_sha": "c413678e50a9faeda50f647198c0afa337614a2de9756bbc0b467289aeb21087",
+      "bytes": 6754576,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "changed_since_audit",
+      "snapshot_time": "2026-09-09T18:05:08.700738+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/a3faf81a8f0a50698a4193e6f8be35be16e37e8bd49d4aa6da155fbd32009c6c.png",
+      "source_mtime_ns": 1788972568158370700,
+      "source_mtime_utc": "2026-09-09T16:49:28.158371+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          512,
+          512
+        ],
+        "visible_fraction": 0.3599663,
+        "visible_sample_pixels": 94363,
+        "linear_luminance_mean": 0.6761693,
+        "linear_luminance_p90": 0.9684204,
+        "linear_luminance_p99": 0.9898319,
+        "srgb_luminance_mean": 0.8216068,
+        "bright_fraction": 0.5265199,
+        "nearwhite_fraction": 0.2069349,
+        "colorful_fraction": 0.2083656,
+        "magenta_chroma_fraction": 0.0002014
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "e45f93bc3efad7f445050668a9082ff60ef2ec079e983376dfcabd80fab0e694",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "a3faf81a8f0a50698a4193e6f8be35be16e37e8bd49d4aa6da155fbd32009c6c",
+          "output_sha256": "e45f93bc3efad7f445050668a9082ff60ef2ec079e983376dfcabd80fab0e694",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "q_daoist_character_pack_4096/15_water_dragon_scholar_boy_transparent_4096.png",
+      "sha256": "0ecb32c7e01f91b880528bac94bc8bab67069c091d21e73ca3c40efeee2a8e89",
+      "latest_sha": "0ecb32c7e01f91b880528bac94bc8bab67069c091d21e73ca3c40efeee2a8e89",
+      "audit_sha": "705adc4adb4f2f6b4d05891b65278cfc7febe04ae7d2f0487bb533c8c5e3c789",
+      "bytes": 7310418,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "changed_since_audit",
+      "snapshot_time": "2026-09-09T18:05:08.878428+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/0ecb32c7e01f91b880528bac94bc8bab67069c091d21e73ca3c40efeee2a8e89.png",
+      "source_mtime_ns": 1788972889678291500,
+      "source_mtime_utc": "2026-09-09T16:54:49.678292+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          512,
+          512
+        ],
+        "visible_fraction": 0.3105125,
+        "visible_sample_pixels": 81399,
+        "linear_luminance_mean": 0.3454863,
+        "linear_luminance_p90": 0.8030785,
+        "linear_luminance_p99": 0.9200524,
+        "srgb_luminance_mean": 0.5344504,
+        "bright_fraction": 0.21058,
+        "nearwhite_fraction": 0.0021008,
+        "colorful_fraction": 0.4538016,
+        "magenta_chroma_fraction": 0.0002457
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "96797f775e1c0c2c1264f729cee80697d17a9c1933d39148d70b7c4aedb2478a",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "0ecb32c7e01f91b880528bac94bc8bab67069c091d21e73ca3c40efeee2a8e89",
+          "output_sha256": "96797f775e1c0c2c1264f729cee80697d17a9c1933d39148d70b7c4aedb2478a",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "q_daoist_character_pack_4096/16_golden_bell_dancer_girl_transparent_4096.png",
+      "sha256": "0e3f47cd495764fa78aac1c9c5f0dcf5e625699fd23fece017ce209b7aa76c15",
+      "latest_sha": "0e3f47cd495764fa78aac1c9c5f0dcf5e625699fd23fece017ce209b7aa76c15",
+      "audit_sha": "c06010e550deb18336d0964546047ace5951f59352d05297ae0b5106790466cd",
+      "bytes": 7994226,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "changed_since_audit",
+      "snapshot_time": "2026-09-09T18:05:09.055332+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/0e3f47cd495764fa78aac1c9c5f0dcf5e625699fd23fece017ce209b7aa76c15.png",
+      "source_mtime_ns": 1788973118445473000,
+      "source_mtime_utc": "2026-09-09T16:58:38.445473+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          512,
+          512
+        ],
+        "visible_fraction": 0.3619003,
+        "visible_sample_pixels": 94870,
+        "linear_luminance_mean": 0.318627,
+        "linear_luminance_p90": 0.7035681,
+        "linear_luminance_p99": 0.975373,
+        "srgb_luminance_mean": 0.5041945,
+        "bright_fraction": 0.0994413,
+        "nearwhite_fraction": 0.0172657,
+        "colorful_fraction": 0.7441341,
+        "magenta_chroma_fraction": 0.0006219
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "3eab1f5a4d47597b9f006b2d649dfedf8c27d2141d8c0caaf28698ae7e987797",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "0e3f47cd495764fa78aac1c9c5f0dcf5e625699fd23fece017ce209b7aa76c15",
+          "output_sha256": "3eab1f5a4d47597b9f006b2d649dfedf8c27d2141d8c0caaf28698ae7e987797",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "q_daoist_character_pack_4096/17_ghost_script_calligrapher_boy_transparent_4096.png",
+      "sha256": "8de1f9d290d37411f10183c35d927fb18cdb56df8516b2b9a7019a89238ab11d",
+      "latest_sha": "8de1f9d290d37411f10183c35d927fb18cdb56df8516b2b9a7019a89238ab11d",
+      "audit_sha": "7b9b349b505dc66e29069f4ebdb380a70e4547cecb6f9a46d3e3aeefcfe925c9",
+      "bytes": 6562736,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "changed_since_audit",
+      "snapshot_time": "2026-09-09T18:05:09.242544+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/8de1f9d290d37411f10183c35d927fb18cdb56df8516b2b9a7019a89238ab11d.png",
+      "source_mtime_ns": 1788976158249752400,
+      "source_mtime_utc": "2026-09-09T17:49:18.249752+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          512,
+          512
+        ],
+        "visible_fraction": 0.2917175,
+        "visible_sample_pixels": 76472,
+        "linear_luminance_mean": 0.3434821,
+        "linear_luminance_p90": 0.8346062,
+        "linear_luminance_p99": 0.9685435,
+        "srgb_luminance_mean": 0.5131781,
+        "bright_fraction": 0.20958,
+        "nearwhite_fraction": 0.0130113,
+        "colorful_fraction": 0.448151,
+        "magenta_chroma_fraction": 0.0001569
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "f0757abbdbd85b0b7203c5b8b2a4493b7893be272941ab3520081757cbc55d48",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "8de1f9d290d37411f10183c35d927fb18cdb56df8516b2b9a7019a89238ab11d",
+          "output_sha256": "f0757abbdbd85b0b7203c5b8b2a4493b7893be272941ab3520081757cbc55d48",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    },
+    {
+      "path": "q_daoist_character_pack_4096/19_spirit_beast_tamer_boy_transparent_4096.png",
+      "sha256": "c4ba721746f767d12601892d009ab7018d3ca8db32ecfb5aa089352467ce2a56",
+      "latest_sha": "c4ba721746f767d12601892d009ab7018d3ca8db32ecfb5aa089352467ce2a56",
+      "audit_sha": "75455e0a33d534c699e5f27d8c18afc71302656105b6d8ad268ee617a5f249f0",
+      "bytes": 6641653,
+      "extension": ".png",
+      "classification": "formal",
+      "classification_reason": "Formal asset or presentation output",
+      "treatment_included": true,
+      "change_type": "changed_since_audit",
+      "snapshot_time": "2026-09-09T18:05:09.446018+00:00",
+      "snapshot_path": "qdao_exposure_refinement_v8/backups/c4ba721746f767d12601892d009ab7018d3ca8db32ecfb5aa089352467ce2a56.png",
+      "source_mtime_ns": 1788972785819205100,
+      "source_mtime_utc": "2026-09-09T16:53:05.819205+00:00",
+      "measurement_input": "Complete immutable captured bytes, not live path or contact thumbnail",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "alpha_measurement": "Full original first-frame alpha extrema",
+      "frames": 1,
+      "sample_method": "Deterministic nearest-neighbor spatial sample, max 512px; frame 0",
+      "metrics": {
+        "sample_size": [
+          512,
+          512
+        ],
+        "visible_fraction": 0.2535667,
+        "visible_sample_pixels": 66471,
+        "linear_luminance_mean": 0.2034502,
+        "linear_luminance_p90": 0.5709118,
+        "linear_luminance_p99": 0.7894883,
+        "srgb_luminance_mean": 0.3946058,
+        "bright_fraction": 0.0309007,
+        "nearwhite_fraction": 0.000346,
+        "colorful_fraction": 0.6612207,
+        "magenta_chroma_fraction": 0.0003761
+      },
+      "live_changed_after_capture": false,
+      "live_sha256": "57dcd2b9a82250d0ef7cbacdfbd7f666a698c21ea899ad25b9b6d23f1605d838",
+      "last_observed_time": "2026-09-10T07:00:38.224132+00:00",
+      "capture_status": "retained_known_processing_version",
+      "captured_this_run": false,
+      "needs_processing": false,
+      "measurement_reused_without_recalculation": true,
+      "processing_matches": [
+        {
+          "fields": [
+            "output_sha256"
+          ],
+          "original_sha256": "c4ba721746f767d12601892d009ab7018d3ca8db32ecfb5aa089352467ce2a56",
+          "output_sha256": "57dcd2b9a82250d0ef7cbacdfbd7f666a698c21ea899ad25b9b6d23f1605d838",
+          "status": "published"
+        }
+      ],
+      "report_snapshot_is_current_processing_original": true
+    }
+  ],
+  "groups": [
+    {
+      "id": "L0001",
+      "sha256": "d5a58a27b1f8959b2224c3a110ab93c507666a30a1b668f8e42a54cc3eff96b4",
+      "latest_sha": "d5a58a27b1f8959b2224c3a110ab93c507666a30a1b668f8e42a54cc3eff96b4",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/button_primary.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/button_primary.png"
+    },
+    {
+      "id": "L0002",
+      "sha256": "c1e2e0bb0cd1382897c98bae80a71f36ee7e1f36679b702bf2f0b2965ccf8f8a",
+      "latest_sha": "c1e2e0bb0cd1382897c98bae80a71f36ee7e1f36679b702bf2f0b2965ccf8f8a",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/button_scheme.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/button_scheme.png"
+    },
+    {
+      "id": "L0003",
+      "sha256": "f8c9c634446ee327ee107e8a3106ebe279da82943e6860f044921f8a5f7583c2",
+      "latest_sha": "f8c9c634446ee327ee107e8a3106ebe279da82943e6860f044921f8a5f7583c2",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/button_secondary.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/button_secondary.png"
+    },
+    {
+      "id": "L0004",
+      "sha256": "9a0a7d14b7784765c21a0aaadd2443dff14fa8cd9bd8bdb8a2878b24a573bc84",
+      "latest_sha": "9a0a7d14b7784765c21a0aaadd2443dff14fa8cd9bd8bdb8a2878b24a573bc84",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/close_button.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/close_button.png"
+    },
+    {
+      "id": "L0005",
+      "sha256": "d5a5896a72a597eb2443dfd4589a77bb9a05fcb35533021af0e9e7fae07edb41",
+      "latest_sha": "d5a5896a72a597eb2443dfd4589a77bb9a05fcb35533021af0e9e7fae07edb41",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/close_tassel.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/close_tassel.png"
+    },
+    {
+      "id": "L0006",
+      "sha256": "d022aef7f1b5e81780d99f9cd0287bc8710d2ff78a1123c10b64c4c63342ec58",
+      "latest_sha": "d022aef7f1b5e81780d99f9cd0287bc8710d2ff78a1123c10b64c4c63342ec58",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/divider.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/divider.png"
+    },
+    {
+      "id": "L0007",
+      "sha256": "2f2a984c1bd69c01c3b4863b163b189f9d5ff31f1884dfb810b634a071530e97",
+      "latest_sha": "2f2a984c1bd69c01c3b4863b163b189f9d5ff31f1884dfb810b634a071530e97",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/dropdown_arrow.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/dropdown_arrow.png"
+    },
+    {
+      "id": "L0008",
+      "sha256": "e8a83ac130e8005e8d9d8b38324bca11255b6aa43fc07c532b3729b6b4b02d05",
+      "latest_sha": "e8a83ac130e8005e8d9d8b38324bca11255b6aa43fc07c532b3729b6b4b02d05",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/notice_icon.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/notice_icon.png"
+    },
+    {
+      "id": "L0009",
+      "sha256": "8ebc2f79f8f27a0221e41b42585bb8256b22d08f32b59c777897b43718c37ee3",
+      "latest_sha": "8ebc2f79f8f27a0221e41b42585bb8256b22d08f32b59c777897b43718c37ee3",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/paper_tile.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/paper_tile.png"
+    },
+    {
+      "id": "L0010",
+      "sha256": "20570adc6b8cf6c2495bb3e7796814bf5919adad5770cb10bda4bf2b63754eaa",
+      "latest_sha": "20570adc6b8cf6c2495bb3e7796814bf5919adad5770cb10bda4bf2b63754eaa",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/pet_card_normal.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/pet_card_normal.png"
+    },
+    {
+      "id": "L0011",
+      "sha256": "d76e6b2216a336707380f0e66d0b6f6aa8331904f850824b36535a4801279d3c",
+      "latest_sha": "d76e6b2216a336707380f0e66d0b6f6aa8331904f850824b36535a4801279d3c",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/pet_card_selected.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/pet_card_selected.png"
+    },
+    {
+      "id": "L0012",
+      "sha256": "0f9c0f458ccbddf1b256eb6bee7f844e117240c4a56bc4382b3f30aad4beb48d",
+      "latest_sha": "0f9c0f458ccbddf1b256eb6bee7f844e117240c4a56bc4382b3f30aad4beb48d",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/portrait_frame.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_frame.png"
+    },
+    {
+      "id": "L0013",
+      "sha256": "9f3df994a034c56db2e25ca71830da47a3c2d66813cc97246dda0cfa4d84d458",
+      "latest_sha": "9f3df994a034c56db2e25ca71830da47a3c2d66813cc97246dda0cfa4d84d458",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png"
+    },
+    {
+      "id": "L0014",
+      "sha256": "0ce1d5bda9fa3aafb7693dfd61173e2549994a804958d097755986e6999aaf93",
+      "latest_sha": "0ce1d5bda9fa3aafb7693dfd61173e2549994a804958d097755986e6999aaf93",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png"
+    },
+    {
+      "id": "L0015",
+      "sha256": "4d122b2cbd3129e0f1f912d5657f2bc34d0bb7d8e5800278da5d2752dae1da40",
+      "latest_sha": "4d122b2cbd3129e0f1f912d5657f2bc34d0bb7d8e5800278da5d2752dae1da40",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png"
+    },
+    {
+      "id": "L0016",
+      "sha256": "703984eb092903b4aadbad3df77c60ba1af727b4d489aadc3a130337d48d0a40",
+      "latest_sha": "703984eb092903b4aadbad3df77c60ba1af727b4d489aadc3a130337d48d0a40",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png"
+    },
+    {
+      "id": "L0017",
+      "sha256": "0c40970a124ca4ddd6b4f9836624ee7452ac37310eca3f592d5ca3898d3474e8",
+      "latest_sha": "0c40970a124ca4ddd6b4f9836624ee7452ac37310eca3f592d5ca3898d3474e8",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/section_header.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/section_header.png"
+    },
+    {
+      "id": "L0018",
+      "sha256": "fc8b4d38a22ab42b72071bb480bf8481759577379b54ed1900d799df773d314a",
+      "latest_sha": "fc8b4d38a22ab42b72071bb480bf8481759577379b54ed1900d799df773d314a",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/slider_fill.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/slider_fill.png"
+    },
+    {
+      "id": "L0019",
+      "sha256": "6411c98039df49e16d16c1470b53c8abb414134b67411ec3486d3fb318e88c58",
+      "latest_sha": "6411c98039df49e16d16c1470b53c8abb414134b67411ec3486d3fb318e88c58",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/slider_thumb.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/slider_thumb.png"
+    },
+    {
+      "id": "L0020",
+      "sha256": "c0ae0e5673add8f11c38d0db482c2dda0918bad320495291f191dbf75805d6af",
+      "latest_sha": "c0ae0e5673add8f11c38d0db482c2dda0918bad320495291f191dbf75805d6af",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/slider_track.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/slider_track.png"
+    },
+    {
+      "id": "L0021",
+      "sha256": "bcdedeb001c5e0a3c0c857619cd419d9cb9f19394bef35612f68d65e78e1a6df",
+      "latest_sha": "bcdedeb001c5e0a3c0c857619cd419d9cb9f19394bef35612f68d65e78e1a6df",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/stat_field.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/stat_field.png"
+    },
+    {
+      "id": "L0022",
+      "sha256": "ae939108e879485b16a2f58afed23ebe4a5f77977a4df4a39dc1e4e3e16b17a6",
+      "latest_sha": "ae939108e879485b16a2f58afed23ebe4a5f77977a4df4a39dc1e4e3e16b17a6",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/step_minus.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/step_minus.png"
+    },
+    {
+      "id": "L0023",
+      "sha256": "e7895bf984ebf6a820f94fd7d6ddbb279a94f4a165b0889e34c7f6b0e7795fd3",
+      "latest_sha": "e7895bf984ebf6a820f94fd7d6ddbb279a94f4a165b0889e34c7f6b0e7795fd3",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/step_plate.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/step_plate.png"
+    },
+    {
+      "id": "L0024",
+      "sha256": "9fb60ed8959b5f395941328a5375606f90867edc381b0d3d45bbaac4edefdde0",
+      "latest_sha": "9fb60ed8959b5f395941328a5375606f90867edc381b0d3d45bbaac4edefdde0",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/step_plus.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/step_plus.png"
+    },
+    {
+      "id": "L0025",
+      "sha256": "8f6ae36149400098c1adbf6f236e7e769ac29b6189690bb0f80529db431bf3cd",
+      "latest_sha": "8f6ae36149400098c1adbf6f236e7e769ac29b6189690bb0f80529db431bf3cd",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/tab_horizontal.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/tab_horizontal.png"
+    },
+    {
+      "id": "L0026",
+      "sha256": "385d84d4e293a6264bb2d121b76f8eee35703785b5d8c91c8fdc9887024182ae",
+      "latest_sha": "385d84d4e293a6264bb2d121b76f8eee35703785b5d8c91c8fdc9887024182ae",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/tab_vertical_normal.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/tab_vertical_normal.png"
+    },
+    {
+      "id": "L0027",
+      "sha256": "c39ef661a84292b510e4afe06d04751196a016b98ded7211937230532742c536",
+      "latest_sha": "c39ef661a84292b510e4afe06d04751196a016b98ded7211937230532742c536",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/tab_vertical_selected.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/tab_vertical_selected.png"
+    },
+    {
+      "id": "L0028",
+      "sha256": "9a411bf95a6be9653188f72b7a88a5fdbde74e250132dce6e2be9ddc69ce1c2a",
+      "latest_sha": "9a411bf95a6be9653188f72b7a88a5fdbde74e250132dce6e2be9ddc69ce1c2a",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/title_character.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/title_character.png"
+    },
+    {
+      "id": "L0029",
+      "sha256": "6fc1b01f6454e0a7fcebb50dda787a4ead3ce30d6a3ac4d53553382bd879c997",
+      "latest_sha": "6fc1b01f6454e0a7fcebb50dda787a4ead3ce30d6a3ac4d53553382bd879c997",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/title_pet.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/title_pet.png"
+    },
+    {
+      "id": "L0030",
+      "sha256": "f694ac2788721fbe1ca24d672998ef88bc0860512394e58774cc98cb84ce3e9b",
+      "latest_sha": "f694ac2788721fbe1ca24d672998ef88bc0860512394e58774cc98cb84ce3e9b",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/title_plate.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/title_plate.png"
+    },
+    {
+      "id": "L0031",
+      "sha256": "fb72ea0c53d6cd02a168d54b6a2a5364e0bb33d38f4b06bccc40e2bcd9456133",
+      "latest_sha": "fb72ea0c53d6cd02a168d54b6a2a5364e0bb33d38f4b06bccc40e2bcd9456133",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/png/window_frame.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/png/window_frame.png"
+    },
+    {
+      "id": "L0032",
+      "sha256": "a1fcf86ea45ef237c24ac7d5e7d6394146b5118d44d226e5a69e6cedf7b54c62",
+      "latest_sha": "a1fcf86ea45ef237c24ac7d5e7d6394146b5118d44d226e5a69e6cedf7b54c62",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/sources/character.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/sources/character.png"
+    },
+    {
+      "id": "L0033",
+      "sha256": "7df72d51111129f7e1dc314c0cee73325633a76a73ef0387bd412df62114c24f",
+      "latest_sha": "7df72d51111129f7e1dc314c0cee73325633a76a73ef0387bd412df62114c24f",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/sources/pet.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/sources/pet.png"
+    },
+    {
+      "id": "L0034",
+      "sha256": "0611c3655c37ccb46e6f95857af6aad5afa6a6a26fb1a4243624d7ca7c792cc1",
+      "latest_sha": "0611c3655c37ccb46e6f95857af6aad5afa6a6a26fb1a4243624d7ca7c792cc1",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/sprite-overview.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/sprite-overview.png"
+    },
+    {
+      "id": "L0035",
+      "sha256": "07837105d30e592f97d926bb0fec66c1185ca522feee78cec6f580b4d30119fc",
+      "latest_sha": "07837105d30e592f97d926bb0fec66c1185ca522feee78cec6f580b4d30119fc",
+      "paths": [
+        "designs/attribute-panels/v2-painted/unity-slices/unity-sprite-preview.png"
+      ],
+      "count": 1,
+      "review_representative": "designs/attribute-panels/v2-painted/unity-slices/unity-sprite-preview.png"
+    },
+    {
+      "id": "L0036",
+      "sha256": "b45c42d320d615f16c1f65ffc3b13f0a5c3bee63d2692cb2e7846a0a79185723",
+      "latest_sha": "b45c42d320d615f16c1f65ffc3b13f0a5c3bee63d2692cb2e7846a0a79185723",
+      "paths": [
+        "q_daoist_character_pack_4096/01_ice_sword_girl_transparent_4096.png"
+      ],
+      "count": 1,
+      "review_representative": "q_daoist_character_pack_4096/01_ice_sword_girl_transparent_4096.png"
+    },
+    {
+      "id": "L0037",
+      "sha256": "4563ee100e29ef945bb4aa2fb1f19449739adc3d718873aa22cd32d8d03c669e",
+      "latest_sha": "4563ee100e29ef945bb4aa2fb1f19449739adc3d718873aa22cd32d8d03c669e",
+      "paths": [
+        "q_daoist_character_pack_4096/02_fire_talisman_boy_transparent_4096.png"
+      ],
+      "count": 1,
+      "review_representative": "q_daoist_character_pack_4096/02_fire_talisman_boy_transparent_4096.png"
+    },
+    {
+      "id": "L0038",
+      "sha256": "8578a5c8583483c1cea46d64bc704b955feef9ad998f02679c22c3164dd5808f",
+      "latest_sha": "8578a5c8583483c1cea46d64bc704b955feef9ad998f02679c22c3164dd5808f",
+      "paths": [
+        "q_daoist_character_pack_4096/03_lotus_healer_girl_transparent_4096.png"
+      ],
+      "count": 1,
+      "review_representative": "q_daoist_character_pack_4096/03_lotus_healer_girl_transparent_4096.png"
+    },
+    {
+      "id": "L0039",
+      "sha256": "9200e8f733fbef8ad087dd828cc01426a988f9aeeb62608f6c6917cc16db49cb",
+      "latest_sha": "9200e8f733fbef8ad087dd828cc01426a988f9aeeb62608f6c6917cc16db49cb",
+      "paths": [
+        "q_daoist_character_pack_4096/04_mountain_guardian_boy_transparent_4096.png"
+      ],
+      "count": 1,
+      "review_representative": "q_daoist_character_pack_4096/04_mountain_guardian_boy_transparent_4096.png"
+    },
+    {
+      "id": "L0040",
+      "sha256": "b24de3f1aeefe1dde7c604c03aa00b7b34c2116a0509012ca05b1720956b7d2d",
+      "latest_sha": "b24de3f1aeefe1dde7c604c03aa00b7b34c2116a0509012ca05b1720956b7d2d",
+      "paths": [
+        "q_daoist_character_pack_4096/07_moon_shadow_assassin_girl_transparent_4096.png"
+      ],
+      "count": 1,
+      "review_representative": "q_daoist_character_pack_4096/07_moon_shadow_assassin_girl_transparent_4096.png"
+    },
+    {
+      "id": "L0041",
+      "sha256": "34b249e13542a7b72d60aaaca5e135d3b227cacf7151fb5caa1d7e29b1efa3b0",
+      "latest_sha": "34b249e13542a7b72d60aaaca5e135d3b227cacf7151fb5caa1d7e29b1efa3b0",
+      "paths": [
+        "q_daoist_character_pack_4096/08_alchemy_prodigy_boy_transparent_4096.png"
+      ],
+      "count": 1,
+      "review_representative": "q_daoist_character_pack_4096/08_alchemy_prodigy_boy_transparent_4096.png"
+    },
+    {
+      "id": "L0042",
+      "sha256": "cd426362899156ac60bea8e2e1ddbae7f0afa0f9346a355feedd06df1ca5dd14",
+      "latest_sha": "cd426362899156ac60bea8e2e1ddbae7f0afa0f9346a355feedd06df1ca5dd14",
+      "paths": [
+        "q_daoist_character_pack_4096/09_bamboo_archer_girl_transparent_4096.png"
+      ],
+      "count": 1,
+      "review_representative": "q_daoist_character_pack_4096/09_bamboo_archer_girl_transparent_4096.png"
+    },
+    {
+      "id": "L0043",
+      "sha256": "93c3eb96897d9d0e1482bb8065edc751e43753732454c18c79b195c3469c1892",
+      "latest_sha": "93c3eb96897d9d0e1482bb8065edc751e43753732454c18c79b195c3469c1892",
+      "paths": [
+        "q_daoist_character_pack_4096/13_short_hair_wind_blade_girl_transparent_4096.png"
+      ],
+      "count": 1,
+      "review_representative": "q_daoist_character_pack_4096/13_short_hair_wind_blade_girl_transparent_4096.png"
+    },
+    {
+      "id": "L0044",
+      "sha256": "a3faf81a8f0a50698a4193e6f8be35be16e37e8bd49d4aa6da155fbd32009c6c",
+      "latest_sha": "a3faf81a8f0a50698a4193e6f8be35be16e37e8bd49d4aa6da155fbd32009c6c",
+      "paths": [
+        "q_daoist_character_pack_4096/14_short_hair_snow_summoner_girl_transparent_4096.png"
+      ],
+      "count": 1,
+      "review_representative": "q_daoist_character_pack_4096/14_short_hair_snow_summoner_girl_transparent_4096.png"
+    },
+    {
+      "id": "L0045",
+      "sha256": "0ecb32c7e01f91b880528bac94bc8bab67069c091d21e73ca3c40efeee2a8e89",
+      "latest_sha": "0ecb32c7e01f91b880528bac94bc8bab67069c091d21e73ca3c40efeee2a8e89",
+      "paths": [
+        "q_daoist_character_pack_4096/15_water_dragon_scholar_boy_transparent_4096.png"
+      ],
+      "count": 1,
+      "review_representative": "q_daoist_character_pack_4096/15_water_dragon_scholar_boy_transparent_4096.png"
+    },
+    {
+      "id": "L0046",
+      "sha256": "0e3f47cd495764fa78aac1c9c5f0dcf5e625699fd23fece017ce209b7aa76c15",
+      "latest_sha": "0e3f47cd495764fa78aac1c9c5f0dcf5e625699fd23fece017ce209b7aa76c15",
+      "paths": [
+        "q_daoist_character_pack_4096/16_golden_bell_dancer_girl_transparent_4096.png"
+      ],
+      "count": 1,
+      "review_representative": "q_daoist_character_pack_4096/16_golden_bell_dancer_girl_transparent_4096.png"
+    },
+    {
+      "id": "L0047",
+      "sha256": "8de1f9d290d37411f10183c35d927fb18cdb56df8516b2b9a7019a89238ab11d",
+      "latest_sha": "8de1f9d290d37411f10183c35d927fb18cdb56df8516b2b9a7019a89238ab11d",
+      "paths": [
+        "q_daoist_character_pack_4096/17_ghost_script_calligrapher_boy_transparent_4096.png"
+      ],
+      "count": 1,
+      "review_representative": "q_daoist_character_pack_4096/17_ghost_script_calligrapher_boy_transparent_4096.png"
+    },
+    {
+      "id": "L0048",
+      "sha256": "c4ba721746f767d12601892d009ab7018d3ca8db32ecfb5aa089352467ce2a56",
+      "latest_sha": "c4ba721746f767d12601892d009ab7018d3ca8db32ecfb5aa089352467ce2a56",
+      "paths": [
+        "q_daoist_character_pack_4096/19_spirit_beast_tamer_boy_transparent_4096.png"
+      ],
+      "count": 1,
+      "review_representative": "q_daoist_character_pack_4096/19_spirit_beast_tamer_boy_transparent_4096.png"
+    }
+  ],
+  "contacts": "qdao_exposure_refinement_v8/review/latest-contacts.json"
+}

@@ -1,0 +1,1431 @@
+{
+  "schema": "qdao.composite_rebuild.v1",
+  "version": "staged-svg-composites-1.2",
+  "operation": "incremental_quantized_edge_protection",
+  "started_utc": "2026-09-09T19:13:53.262166+00:00",
+  "status": "completed",
+  "formal_assets_written": false,
+  "originals_and_backups_written": false,
+  "validation_input": "qdao_exposure_refinement_v8\\staged_validation.json",
+  "prior_rebuild_version": "staged-svg-composites-1.1",
+  "policy": {
+    "original_alpha_min": 1,
+    "original_alpha_max": 4,
+    "original_max_rgb_times_alpha_max": 255,
+    "action": "preserve_exact_original_rgb",
+    "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+  },
+  "checks": [
+    {
+      "target": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/list_bg_unselected.png",
+      "original_sha256": "f1933026f0d8f9142410cbf42a7894d38f80d553608c439d3c69f0bdfb06f7d4",
+      "before_output_sha256": "34d17b5631ad5d41ed1fe9e23233c0b894a255525252a3445616fdc542b7e41c",
+      "output_sha256": "fef717ea50c69b98d1f498bb366b547eb7443d15fc531dc3e7243486b8e934fe",
+      "before_check": {
+        "original": "E:\\work\\image\\qdao_exposure_refinement_v8\\backups\\f1933026f0d8f9142410cbf42a7894d38f80d553608c439d3c69f0bdfb06f7d4.png",
+        "output": "E:\\work\\image\\qdao_exposure_refinement_v8\\staged\\f1933026f0d8f9142410cbf42a7894d38f80d553608c439d3c69f0bdfb06f7d4.png",
+        "alpha_different_pixels": 0,
+        "hidden_rgb_different_pixels": 0,
+        "brighter_srgb_pixels": 0,
+        "brighter_linear_pixels": 0,
+        "newly_crushed_pixels": 2,
+        "channel_increase_pixels": 0,
+        "max_channel_increase": 0,
+        "max_srgb_increase_codevalues": 0.0,
+        "max_linear_increase": 0.0,
+        "changed_rgb_pixels": 444125,
+        "first_brightness_increases": [],
+        "original_size": [
+          1419,
+          380
+        ],
+        "output_size": [
+          1419,
+          380
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "status": "failed",
+        "error": "Rebuild changed transparency, brightened pixels, or newly crushed visible pixels; no clamping applied"
+      },
+      "edge_protection": {
+        "policy": {
+          "original_alpha_min": 1,
+          "original_alpha_max": 4,
+          "original_max_rgb_times_alpha_max": 255,
+          "action": "preserve_exact_original_rgb",
+          "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+        },
+        "protected_changed_pixels": 3,
+        "alpha_histogram": {
+          "1": 3
+        },
+        "max_premultiplied_channel_delta_codevalues": 1.0
+      },
+      "after_check": {
+        "original": "E:\\work\\image\\qdao_exposure_refinement_v8\\backups\\f1933026f0d8f9142410cbf42a7894d38f80d553608c439d3c69f0bdfb06f7d4.png",
+        "output": "E:\\work\\image\\qdao_exposure_refinement_v8\\review\\rebuilt\\edge_repair_v1.2\\after\\f1933026f0d8f9142410cbf42a7894d38f80d553608c439d3c69f0bdfb06f7d4.png",
+        "alpha_different_pixels": 0,
+        "hidden_rgb_different_pixels": 0,
+        "brighter_srgb_pixels": 0,
+        "brighter_linear_pixels": 0,
+        "newly_crushed_pixels": 0,
+        "channel_increase_pixels": 0,
+        "max_channel_increase": 0,
+        "max_srgb_increase_codevalues": 0.0,
+        "max_linear_increase": 0.0,
+        "changed_rgb_pixels": 444122,
+        "first_brightness_increases": [],
+        "original_size": [
+          1419,
+          380
+        ],
+        "output_size": [
+          1419,
+          380
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "status": "passed"
+      },
+      "generic_metrics": {
+        "original_size": [
+          1419,
+          380
+        ],
+        "output_size": [
+          1419,
+          380
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "original_frames": 1,
+        "output_frames": 1,
+        "size_equal": true,
+        "mode_equal": true,
+        "pixels": 539220,
+        "visible_pixels": 471522,
+        "hidden_pixels": 67698,
+        "alpha_changed_pixels": 0,
+        "hidden_rgb_changed_pixels": 0,
+        "visible_rgb_changed_pixels": 444122,
+        "luminance_increased_pixels": 0,
+        "newly_crushed_pixels": 0,
+        "visible_sample_pixels": 471522,
+        "highlight_sample_pixels": 396928,
+        "shadow_sample_pixels": 1432,
+        "decoded_pixel_sha256": "a11a5dcd9e594f5e96f10a88c8e8d80fb5d2ce0c53066629371344cc1c5fc3f9",
+        "max_luminance_increase": 0.0,
+        "luminance_space": "sRGB Rec.709-weighted luma, range 0..1",
+        "visible_original_mean": 0.8695882289752421,
+        "visible_output_mean": 0.7781995796060163,
+        "visible_mean_drop": 0.09138864936922586,
+        "visible_retention": 0.8949058343660862,
+        "highlight_original_mean": 0.909248070563145,
+        "highlight_output_mean": 0.8076897628953938,
+        "highlight_mean_drop": 0.1015583076677512,
+        "highlight_retention": 0.8883051711015996,
+        "shadow_original_mean": 0.11804426231252628,
+        "shadow_output_mean": 0.11804426231252628,
+        "shadow_mean_drop": 0.0,
+        "shadow_retention": 1.0,
+        "original_linear_mean": 0.7526309232529506,
+        "output_linear_mean": 0.582208933154845,
+        "original_luma_percentiles": {
+          "10": 0.7019607843137254,
+          "50": 0.9137254901960784,
+          "90": 0.9490196078431372,
+          "99": 0.9882352941176471
+        },
+        "output_luma_percentiles": {
+          "10": 0.6627450980392157,
+          "50": 0.8117647058823529,
+          "90": 0.8352941176470589,
+          "99": 0.8627450980392157
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "target": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/top_button_green_selected.png",
+      "original_sha256": "27a1de1bea01f7dbc33a36b078a9d7a3dd83a6a54ed5f9791ac4d71fcd3fb103",
+      "before_output_sha256": "536d10c00942854a15f8a5f1d8ef3ff6261db34191afdb2d6a16cf309b26c55b",
+      "output_sha256": "712dc4ec8c3934216854120c7c19fec857f72e89cf2130886af24cd7fdc32a6b",
+      "before_check": {
+        "original": "E:\\work\\image\\qdao_exposure_refinement_v8\\backups\\27a1de1bea01f7dbc33a36b078a9d7a3dd83a6a54ed5f9791ac4d71fcd3fb103.png",
+        "output": "E:\\work\\image\\qdao_exposure_refinement_v8\\staged\\27a1de1bea01f7dbc33a36b078a9d7a3dd83a6a54ed5f9791ac4d71fcd3fb103.png",
+        "alpha_different_pixels": 0,
+        "hidden_rgb_different_pixels": 0,
+        "brighter_srgb_pixels": 0,
+        "brighter_linear_pixels": 0,
+        "newly_crushed_pixels": 2,
+        "channel_increase_pixels": 0,
+        "max_channel_increase": 0,
+        "max_srgb_increase_codevalues": 0.0,
+        "max_linear_increase": 0.0,
+        "changed_rgb_pixels": 493856,
+        "first_brightness_increases": [],
+        "original_size": [
+          1391,
+          441
+        ],
+        "output_size": [
+          1391,
+          441
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "status": "failed",
+        "error": "Rebuild changed transparency, brightened pixels, or newly crushed visible pixels; no clamping applied"
+      },
+      "edge_protection": {
+        "policy": {
+          "original_alpha_min": 1,
+          "original_alpha_max": 4,
+          "original_max_rgb_times_alpha_max": 255,
+          "action": "preserve_exact_original_rgb",
+          "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+        },
+        "protected_changed_pixels": 3,
+        "alpha_histogram": {
+          "1": 3
+        },
+        "max_premultiplied_channel_delta_codevalues": 1.0
+      },
+      "after_check": {
+        "original": "E:\\work\\image\\qdao_exposure_refinement_v8\\backups\\27a1de1bea01f7dbc33a36b078a9d7a3dd83a6a54ed5f9791ac4d71fcd3fb103.png",
+        "output": "E:\\work\\image\\qdao_exposure_refinement_v8\\review\\rebuilt\\edge_repair_v1.2\\after\\27a1de1bea01f7dbc33a36b078a9d7a3dd83a6a54ed5f9791ac4d71fcd3fb103.png",
+        "alpha_different_pixels": 0,
+        "hidden_rgb_different_pixels": 0,
+        "brighter_srgb_pixels": 0,
+        "brighter_linear_pixels": 0,
+        "newly_crushed_pixels": 0,
+        "channel_increase_pixels": 0,
+        "max_channel_increase": 0,
+        "max_srgb_increase_codevalues": 0.0,
+        "max_linear_increase": 0.0,
+        "changed_rgb_pixels": 493853,
+        "first_brightness_increases": [],
+        "original_size": [
+          1391,
+          441
+        ],
+        "output_size": [
+          1391,
+          441
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "status": "passed"
+      },
+      "generic_metrics": {
+        "original_size": [
+          1391,
+          441
+        ],
+        "output_size": [
+          1391,
+          441
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "original_frames": 1,
+        "output_frames": 1,
+        "size_equal": true,
+        "mode_equal": true,
+        "pixels": 613431,
+        "visible_pixels": 536056,
+        "hidden_pixels": 77375,
+        "alpha_changed_pixels": 0,
+        "hidden_rgb_changed_pixels": 0,
+        "visible_rgb_changed_pixels": 493853,
+        "luminance_increased_pixels": 0,
+        "newly_crushed_pixels": 0,
+        "visible_sample_pixels": 536056,
+        "highlight_sample_pixels": 87764,
+        "shadow_sample_pixels": 4719,
+        "decoded_pixel_sha256": "f56377d424cc48591b6ac7679404cffcea4dbb2d02ef7e84b4797813623ce808",
+        "max_luminance_increase": 0.0,
+        "luminance_space": "sRGB Rec.709-weighted luma, range 0..1",
+        "visible_original_mean": 0.6316813071898306,
+        "visible_output_mean": 0.6037983914731183,
+        "visible_mean_drop": 0.02788291571671231,
+        "visible_retention": 0.9558592040015313,
+        "highlight_original_mean": 0.8621579813658692,
+        "highlight_output_mean": 0.7753274872681758,
+        "highlight_mean_drop": 0.08683049409769339,
+        "highlight_retention": 0.8992870263056283,
+        "shadow_original_mean": 0.1234387195726652,
+        "shadow_output_mean": 0.1234387195726652,
+        "shadow_mean_drop": 0.0,
+        "shadow_retention": 1.0,
+        "original_linear_mean": 0.39709878453652625,
+        "output_linear_mean": 0.35369200520037897,
+        "original_luma_percentiles": {
+          "10": 0.5019607843137255,
+          "50": 0.6039215686274509,
+          "90": 0.8274509803921568,
+          "99": 0.9803921568627451
+        },
+        "output_luma_percentiles": {
+          "10": 0.4980392156862745,
+          "50": 0.5882352941176471,
+          "90": 0.7490196078431373,
+          "99": 0.8588235294117647
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "target": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/search_box_with_icon.png",
+      "original_sha256": "31244fd1da5f63757c17da885f870cc0d0f87b6192b3b02d9c4459965c6d7aa4",
+      "before_output_sha256": "e3dff6753e3d0288511727865d84c2855ad61a8c23400752b73667fc55483ae2",
+      "output_sha256": "d46c9c1bf76a33e6b52ed91f1b62c3620c992c6cc5c369f0ea72b772ec27033a",
+      "before_check": {
+        "original": "E:\\work\\image\\qdao_exposure_refinement_v8\\backups\\31244fd1da5f63757c17da885f870cc0d0f87b6192b3b02d9c4459965c6d7aa4.png",
+        "output": "E:\\work\\image\\qdao_exposure_refinement_v8\\staged\\31244fd1da5f63757c17da885f870cc0d0f87b6192b3b02d9c4459965c6d7aa4.png",
+        "alpha_different_pixels": 0,
+        "hidden_rgb_different_pixels": 0,
+        "brighter_srgb_pixels": 0,
+        "brighter_linear_pixels": 0,
+        "newly_crushed_pixels": 726,
+        "channel_increase_pixels": 0,
+        "max_channel_increase": 0,
+        "max_srgb_increase_codevalues": 0.0,
+        "max_linear_increase": 0.0,
+        "changed_rgb_pixels": 326521,
+        "first_brightness_increases": [],
+        "original_size": [
+          1428,
+          285
+        ],
+        "output_size": [
+          1428,
+          285
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "status": "failed",
+        "error": "Rebuild changed transparency, brightened pixels, or newly crushed visible pixels; no clamping applied"
+      },
+      "edge_protection": {
+        "policy": {
+          "original_alpha_min": 1,
+          "original_alpha_max": 4,
+          "original_max_rgb_times_alpha_max": 255,
+          "action": "preserve_exact_original_rgb",
+          "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+        },
+        "protected_changed_pixels": 726,
+        "alpha_histogram": {
+          "1": 726
+        },
+        "max_premultiplied_channel_delta_codevalues": 1.0
+      },
+      "after_check": {
+        "original": "E:\\work\\image\\qdao_exposure_refinement_v8\\backups\\31244fd1da5f63757c17da885f870cc0d0f87b6192b3b02d9c4459965c6d7aa4.png",
+        "output": "E:\\work\\image\\qdao_exposure_refinement_v8\\review\\rebuilt\\edge_repair_v1.2\\after\\31244fd1da5f63757c17da885f870cc0d0f87b6192b3b02d9c4459965c6d7aa4.png",
+        "alpha_different_pixels": 0,
+        "hidden_rgb_different_pixels": 0,
+        "brighter_srgb_pixels": 0,
+        "brighter_linear_pixels": 0,
+        "newly_crushed_pixels": 0,
+        "channel_increase_pixels": 0,
+        "max_channel_increase": 0,
+        "max_srgb_increase_codevalues": 0.0,
+        "max_linear_increase": 0.0,
+        "changed_rgb_pixels": 325795,
+        "first_brightness_increases": [],
+        "original_size": [
+          1428,
+          285
+        ],
+        "output_size": [
+          1428,
+          285
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "status": "passed"
+      },
+      "generic_metrics": {
+        "original_size": [
+          1428,
+          285
+        ],
+        "output_size": [
+          1428,
+          285
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "original_frames": 1,
+        "output_frames": 1,
+        "size_equal": true,
+        "mode_equal": true,
+        "pixels": 406980,
+        "visible_pixels": 351715,
+        "hidden_pixels": 55265,
+        "alpha_changed_pixels": 0,
+        "hidden_rgb_changed_pixels": 0,
+        "visible_rgb_changed_pixels": 325795,
+        "luminance_increased_pixels": 0,
+        "newly_crushed_pixels": 0,
+        "visible_sample_pixels": 351715,
+        "highlight_sample_pixels": 284141,
+        "shadow_sample_pixels": 4259,
+        "decoded_pixel_sha256": "a5485b4bb814adbc38afc6d3080c77c6c07a42d1d9c299073bdcbe85f7aa9f26",
+        "max_luminance_increase": 0.0,
+        "luminance_space": "sRGB Rec.709-weighted luma, range 0..1",
+        "visible_original_mean": 0.8555815080558382,
+        "visible_output_mean": 0.7677202405788637,
+        "visible_mean_drop": 0.08786126747697454,
+        "visible_retention": 0.8973081271045419,
+        "highlight_original_mean": 0.9056031028792814,
+        "highlight_output_mean": 0.8052206865774622,
+        "highlight_mean_drop": 0.10038241630181921,
+        "highlight_retention": 0.8891540720403203,
+        "shadow_original_mean": 0.11391868760865574,
+        "shadow_output_mean": 0.11391868760865574,
+        "shadow_mean_drop": 0.0,
+        "shadow_retention": 1.0,
+        "original_linear_mean": 0.7316020541253555,
+        "output_linear_mean": 0.5686099103640757,
+        "original_luma_percentiles": {
+          "10": 0.6509803921568628,
+          "50": 0.9098039215686274,
+          "90": 0.9490196078431372,
+          "99": 0.984313725490196
+        },
+        "output_luma_percentiles": {
+          "10": 0.6235294117647059,
+          "50": 0.807843137254902,
+          "90": 0.8352941176470589,
+          "99": 0.8588235294117647
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "target": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_ui_uncropped_final_recomposed_5120x2160.png",
+      "original_sha256": "262a649a2f23caefd8c63944223ea267fe5881ceba04afcf61f6430ff0bdb3a6",
+      "before_output_sha256": "cc4467a1f7a214bde978192a2eda5ad7b7e5b1de1c574c619a7975f348cdedde",
+      "output_sha256": "f179e523458749384ecf84758e65cf49457236bd1b00dc4d270f078b82cebf11",
+      "before_check": {
+        "original": "E:\\work\\image\\qdao_exposure_refinement_v8\\backups\\262a649a2f23caefd8c63944223ea267fe5881ceba04afcf61f6430ff0bdb3a6.png",
+        "output": "E:\\work\\image\\qdao_exposure_refinement_v8\\staged\\262a649a2f23caefd8c63944223ea267fe5881ceba04afcf61f6430ff0bdb3a6.png",
+        "alpha_different_pixels": 0,
+        "hidden_rgb_different_pixels": 0,
+        "brighter_srgb_pixels": 0,
+        "brighter_linear_pixels": 0,
+        "newly_crushed_pixels": 242,
+        "channel_increase_pixels": 0,
+        "max_channel_increase": 0,
+        "max_srgb_increase_codevalues": 0.0,
+        "max_linear_increase": 0.0,
+        "changed_rgb_pixels": 5840946,
+        "first_brightness_increases": [],
+        "original_size": [
+          5120,
+          2160
+        ],
+        "output_size": [
+          5120,
+          2160
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "status": "failed",
+        "error": "Rebuild changed transparency, brightened pixels, or newly crushed visible pixels; no clamping applied"
+      },
+      "edge_protection": {
+        "policy": {
+          "original_alpha_min": 1,
+          "original_alpha_max": 4,
+          "original_max_rgb_times_alpha_max": 255,
+          "action": "preserve_exact_original_rgb",
+          "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+        },
+        "protected_changed_pixels": 441,
+        "alpha_histogram": {
+          "1": 438,
+          "4": 1,
+          "2": 2
+        },
+        "max_premultiplied_channel_delta_codevalues": 1.0
+      },
+      "after_check": {
+        "original": "E:\\work\\image\\qdao_exposure_refinement_v8\\backups\\262a649a2f23caefd8c63944223ea267fe5881ceba04afcf61f6430ff0bdb3a6.png",
+        "output": "E:\\work\\image\\qdao_exposure_refinement_v8\\review\\rebuilt\\edge_repair_v1.2\\after\\262a649a2f23caefd8c63944223ea267fe5881ceba04afcf61f6430ff0bdb3a6.png",
+        "alpha_different_pixels": 0,
+        "hidden_rgb_different_pixels": 0,
+        "brighter_srgb_pixels": 0,
+        "brighter_linear_pixels": 0,
+        "newly_crushed_pixels": 0,
+        "channel_increase_pixels": 0,
+        "max_channel_increase": 0,
+        "max_srgb_increase_codevalues": 0.0,
+        "max_linear_increase": 0.0,
+        "changed_rgb_pixels": 5840505,
+        "first_brightness_increases": [],
+        "original_size": [
+          5120,
+          2160
+        ],
+        "output_size": [
+          5120,
+          2160
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "status": "passed"
+      },
+      "generic_metrics": {
+        "original_size": [
+          5120,
+          2160
+        ],
+        "output_size": [
+          5120,
+          2160
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "original_frames": 1,
+        "output_frames": 1,
+        "size_equal": true,
+        "mode_equal": true,
+        "pixels": 11059200,
+        "visible_pixels": 6417692,
+        "hidden_pixels": 4641508,
+        "alpha_changed_pixels": 0,
+        "hidden_rgb_changed_pixels": 0,
+        "visible_rgb_changed_pixels": 5840505,
+        "luminance_increased_pixels": 0,
+        "newly_crushed_pixels": 0,
+        "visible_sample_pixels": 6417692,
+        "highlight_sample_pixels": 4163764,
+        "shadow_sample_pixels": 48865,
+        "decoded_pixel_sha256": "7a3e85d32bafedc803f3e313aa7060eec4aadea5dcdc294ea8a812dd2a158e17",
+        "max_luminance_increase": 0.0,
+        "luminance_space": "sRGB Rec.709-weighted luma, range 0..1",
+        "visible_original_mean": 0.7959024980589604,
+        "visible_output_mean": 0.7254995014274646,
+        "visible_mean_drop": 0.07040299663149585,
+        "visible_retention": 0.9115431892685423,
+        "highlight_original_mean": 0.9125094466999826,
+        "highlight_output_mean": 0.813233497532331,
+        "highlight_mean_drop": 0.09927594916765159,
+        "highlight_retention": 0.8912055655679236,
+        "shadow_original_mean": 0.10225579404096308,
+        "shadow_output_mean": 0.10225000869790594,
+        "shadow_mean_drop": 5.785343057132519e-06,
+        "shadow_retention": 0.999943422833773,
+        "original_linear_mean": 0.6480036778017881,
+        "output_linear_mean": 0.5175743826246969,
+        "original_luma_percentiles": {
+          "10": 0.5333333333333333,
+          "50": 0.8980392156862745,
+          "90": 0.9450980392156862,
+          "99": 0.9764705882352941
+        },
+        "output_luma_percentiles": {
+          "10": 0.5254901960784314,
+          "50": 0.803921568627451,
+          "90": 0.8392156862745098,
+          "99": 0.8627450980392157
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "target": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_background_ui_uncropped_final_10240x4320.png",
+      "original_sha256": "0ce9c2d91c6e0289416285172ba57cf17ab1d84ae189748a14b012686c36ab85",
+      "before_output_sha256": "fbd70a0182cbb70aef64ebad1701bf096c2be406586c486dab44c1857f91f693",
+      "output_sha256": "048fa7d61c319a86cdd6b5694101a7adb6d1fc4099b18eeec16b3f09157149bf",
+      "before_check": {
+        "original": "E:\\work\\image\\qdao_exposure_refinement_v8\\backups\\0ce9c2d91c6e0289416285172ba57cf17ab1d84ae189748a14b012686c36ab85.png",
+        "output": "E:\\work\\image\\qdao_exposure_refinement_v8\\staged\\0ce9c2d91c6e0289416285172ba57cf17ab1d84ae189748a14b012686c36ab85.png",
+        "alpha_different_pixels": 0,
+        "hidden_rgb_different_pixels": 0,
+        "brighter_srgb_pixels": 0,
+        "brighter_linear_pixels": 0,
+        "newly_crushed_pixels": 161,
+        "channel_increase_pixels": 0,
+        "max_channel_increase": 0,
+        "max_srgb_increase_codevalues": 0.0,
+        "max_linear_increase": 0.0,
+        "changed_rgb_pixels": 24487349,
+        "first_brightness_increases": [],
+        "original_size": [
+          10240,
+          4320
+        ],
+        "output_size": [
+          10240,
+          4320
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "status": "failed",
+        "error": "Rebuild changed transparency, brightened pixels, or newly crushed visible pixels; no clamping applied"
+      },
+      "edge_protection": {
+        "policy": {
+          "original_alpha_min": 1,
+          "original_alpha_max": 4,
+          "original_max_rgb_times_alpha_max": 255,
+          "action": "preserve_exact_original_rgb",
+          "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+        },
+        "protected_changed_pixels": 810,
+        "alpha_histogram": {
+          "1": 769,
+          "2": 36,
+          "3": 2,
+          "4": 3
+        },
+        "max_premultiplied_channel_delta_codevalues": 1.0
+      },
+      "after_check": {
+        "original": "E:\\work\\image\\qdao_exposure_refinement_v8\\backups\\0ce9c2d91c6e0289416285172ba57cf17ab1d84ae189748a14b012686c36ab85.png",
+        "output": "E:\\work\\image\\qdao_exposure_refinement_v8\\review\\rebuilt\\edge_repair_v1.2\\after\\0ce9c2d91c6e0289416285172ba57cf17ab1d84ae189748a14b012686c36ab85.png",
+        "alpha_different_pixels": 0,
+        "hidden_rgb_different_pixels": 0,
+        "brighter_srgb_pixels": 0,
+        "brighter_linear_pixels": 0,
+        "newly_crushed_pixels": 0,
+        "channel_increase_pixels": 0,
+        "max_channel_increase": 0,
+        "max_srgb_increase_codevalues": 0.0,
+        "max_linear_increase": 0.0,
+        "changed_rgb_pixels": 24486539,
+        "first_brightness_increases": [],
+        "original_size": [
+          10240,
+          4320
+        ],
+        "output_size": [
+          10240,
+          4320
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "status": "passed"
+      },
+      "generic_metrics": {
+        "original_size": [
+          10240,
+          4320
+        ],
+        "output_size": [
+          10240,
+          4320
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "original_frames": 1,
+        "output_frames": 1,
+        "size_equal": true,
+        "mode_equal": true,
+        "pixels": 44236800,
+        "visible_pixels": 25656682,
+        "hidden_pixels": 18580118,
+        "alpha_changed_pixels": 0,
+        "hidden_rgb_changed_pixels": 0,
+        "visible_rgb_changed_pixels": 24486539,
+        "luminance_increased_pixels": 0,
+        "newly_crushed_pixels": 0,
+        "visible_sample_pixels": 25656682,
+        "highlight_sample_pixels": 19529585,
+        "shadow_sample_pixels": 197587,
+        "decoded_pixel_sha256": "5c293ad1d475942a93ec4843be2fd03a88f1aff3098d18e519302549912c15eb",
+        "max_luminance_increase": 0.0,
+        "luminance_space": "sRGB Rec.709-weighted luma, range 0..1",
+        "visible_original_mean": 0.8478844912783488,
+        "visible_output_mean": 0.7635525684525664,
+        "visible_mean_drop": 0.08433192282578239,
+        "visible_retention": 0.9005384298294739,
+        "highlight_original_mean": 0.9320762612300753,
+        "highlight_output_mean": 0.8275015830414159,
+        "highlight_mean_drop": 0.1045746781886594,
+        "highlight_retention": 0.8878045900979705,
+        "shadow_original_mean": 0.10069196644341893,
+        "shadow_output_mean": 0.10068759646427902,
+        "shadow_mean_drop": 4.369979139912106e-06,
+        "shadow_retention": 0.9999566005184498,
+        "original_linear_mean": 0.7324765091013857,
+        "output_linear_mean": 0.5716728803232637,
+        "original_luma_percentiles": {
+          "10": 0.5686274509803921,
+          "50": 0.9372549019607843,
+          "90": 0.9490196078431372,
+          "99": 0.9568627450980393
+        },
+        "output_luma_percentiles": {
+          "10": 0.5568627450980392,
+          "50": 0.8313725490196079,
+          "90": 0.8392156862745098,
+          "99": 0.8470588235294118
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "target": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_background_ui_uncropped_final_5120x2160.png",
+      "original_sha256": "4d838b0e8952cb2870a2f0c410d48021c8b746dd36ec11705c5f8d26ed86d26f",
+      "before_output_sha256": "7695c448693dfcd5fc38ab10c0f50d89c0f05e1f74fc2c7b11fbd7281f535be9",
+      "output_sha256": "8001ec149aa8ae243dfeea559bd9835353f45b30dbf14fabfac7431659533cec",
+      "before_check": {
+        "original": "E:\\work\\image\\qdao_exposure_refinement_v8\\backups\\4d838b0e8952cb2870a2f0c410d48021c8b746dd36ec11705c5f8d26ed86d26f.png",
+        "output": "E:\\work\\image\\qdao_exposure_refinement_v8\\staged\\4d838b0e8952cb2870a2f0c410d48021c8b746dd36ec11705c5f8d26ed86d26f.png",
+        "alpha_different_pixels": 0,
+        "hidden_rgb_different_pixels": 0,
+        "brighter_srgb_pixels": 0,
+        "brighter_linear_pixels": 0,
+        "newly_crushed_pixels": 242,
+        "channel_increase_pixels": 0,
+        "max_channel_increase": 0,
+        "max_srgb_increase_codevalues": 0.0,
+        "max_linear_increase": 0.0,
+        "changed_rgb_pixels": 6122413,
+        "first_brightness_increases": [],
+        "original_size": [
+          5120,
+          2160
+        ],
+        "output_size": [
+          5120,
+          2160
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "status": "failed",
+        "error": "Rebuild changed transparency, brightened pixels, or newly crushed visible pixels; no clamping applied"
+      },
+      "edge_protection": {
+        "policy": {
+          "original_alpha_min": 1,
+          "original_alpha_max": 4,
+          "original_max_rgb_times_alpha_max": 255,
+          "action": "preserve_exact_original_rgb",
+          "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+        },
+        "protected_changed_pixels": 441,
+        "alpha_histogram": {
+          "1": 438,
+          "4": 1,
+          "2": 2
+        },
+        "max_premultiplied_channel_delta_codevalues": 1.0
+      },
+      "after_check": {
+        "original": "E:\\work\\image\\qdao_exposure_refinement_v8\\backups\\4d838b0e8952cb2870a2f0c410d48021c8b746dd36ec11705c5f8d26ed86d26f.png",
+        "output": "E:\\work\\image\\qdao_exposure_refinement_v8\\review\\rebuilt\\edge_repair_v1.2\\after\\4d838b0e8952cb2870a2f0c410d48021c8b746dd36ec11705c5f8d26ed86d26f.png",
+        "alpha_different_pixels": 0,
+        "hidden_rgb_different_pixels": 0,
+        "brighter_srgb_pixels": 0,
+        "brighter_linear_pixels": 0,
+        "newly_crushed_pixels": 0,
+        "channel_increase_pixels": 0,
+        "max_channel_increase": 0,
+        "max_srgb_increase_codevalues": 0.0,
+        "max_linear_increase": 0.0,
+        "changed_rgb_pixels": 6121972,
+        "first_brightness_increases": [],
+        "original_size": [
+          5120,
+          2160
+        ],
+        "output_size": [
+          5120,
+          2160
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "status": "passed"
+      },
+      "generic_metrics": {
+        "original_size": [
+          5120,
+          2160
+        ],
+        "output_size": [
+          5120,
+          2160
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "original_frames": 1,
+        "output_frames": 1,
+        "size_equal": true,
+        "mode_equal": true,
+        "pixels": 11059200,
+        "visible_pixels": 6417692,
+        "hidden_pixels": 4641508,
+        "alpha_changed_pixels": 0,
+        "hidden_rgb_changed_pixels": 0,
+        "visible_rgb_changed_pixels": 6121972,
+        "luminance_increased_pixels": 0,
+        "newly_crushed_pixels": 0,
+        "visible_sample_pixels": 6417692,
+        "highlight_sample_pixels": 4883652,
+        "shadow_sample_pixels": 48713,
+        "decoded_pixel_sha256": "2a2f2a858d4a7bf0d1f7c8ae59019b7853fc2312734e9e465e69fcf6ff3b2c9a",
+        "max_luminance_increase": 0.0,
+        "luminance_space": "sRGB Rec.709-weighted luma, range 0..1",
+        "visible_original_mean": 0.8478871027514086,
+        "visible_output_mean": 0.7635639044352898,
+        "visible_mean_drop": 0.08432319831611879,
+        "visible_retention": 0.9005490258756284,
+        "highlight_original_mean": 0.9320007786274508,
+        "highlight_output_mean": 0.8274420983711799,
+        "highlight_mean_drop": 0.10455868025627091,
+        "highlight_retention": 0.8878126685577951,
+        "shadow_original_mean": 0.10165285405744484,
+        "shadow_output_mean": 0.101647232476084,
+        "shadow_mean_drop": 5.621581360845673e-06,
+        "shadow_retention": 0.9999446982437141,
+        "original_linear_mean": 0.7324141778678599,
+        "output_linear_mean": 0.5716361391689209,
+        "original_luma_percentiles": {
+          "10": 0.5686274509803921,
+          "50": 0.9372549019607843,
+          "90": 0.9490196078431372,
+          "99": 0.9568627450980393
+        },
+        "output_luma_percentiles": {
+          "10": 0.5568627450980392,
+          "50": 0.8313725490196079,
+          "90": 0.8392156862745098,
+          "99": 0.8470588235294118
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "target": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_buttons_uncropped_final_10240x4320.png",
+      "original_sha256": "dddabe5659d6e56adb001b314c00a74233fe790b8a2172d1a887be78d9f9c902",
+      "before_output_sha256": "9aa651061cdcc659018be8efde9e82c45fe78c5ceff1e91df01a69dc6aeae5bc",
+      "output_sha256": "d27da82ee665438c225d3eab2d039d7c2870ee110a2c4435620d80a9d26bf45e",
+      "before_check": {
+        "original": "E:\\work\\image\\qdao_exposure_refinement_v8\\backups\\dddabe5659d6e56adb001b314c00a74233fe790b8a2172d1a887be78d9f9c902.png",
+        "output": "E:\\work\\image\\qdao_exposure_refinement_v8\\staged\\dddabe5659d6e56adb001b314c00a74233fe790b8a2172d1a887be78d9f9c902.png",
+        "alpha_different_pixels": 0,
+        "hidden_rgb_different_pixels": 0,
+        "brighter_srgb_pixels": 0,
+        "brighter_linear_pixels": 0,
+        "newly_crushed_pixels": 120,
+        "channel_increase_pixels": 0,
+        "max_channel_increase": 0,
+        "max_srgb_increase_codevalues": 0.0,
+        "max_linear_increase": 0.0,
+        "changed_rgb_pixels": 10366583,
+        "first_brightness_increases": [],
+        "original_size": [
+          10240,
+          4320
+        ],
+        "output_size": [
+          10240,
+          4320
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "status": "failed",
+        "error": "Rebuild changed transparency, brightened pixels, or newly crushed visible pixels; no clamping applied"
+      },
+      "edge_protection": {
+        "policy": {
+          "original_alpha_min": 1,
+          "original_alpha_max": 4,
+          "original_max_rgb_times_alpha_max": 255,
+          "action": "preserve_exact_original_rgb",
+          "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+        },
+        "protected_changed_pixels": 335,
+        "alpha_histogram": {
+          "1": 254,
+          "2": 74,
+          "3": 6,
+          "4": 1
+        },
+        "max_premultiplied_channel_delta_codevalues": 1.0
+      },
+      "after_check": {
+        "original": "E:\\work\\image\\qdao_exposure_refinement_v8\\backups\\dddabe5659d6e56adb001b314c00a74233fe790b8a2172d1a887be78d9f9c902.png",
+        "output": "E:\\work\\image\\qdao_exposure_refinement_v8\\review\\rebuilt\\edge_repair_v1.2\\after\\dddabe5659d6e56adb001b314c00a74233fe790b8a2172d1a887be78d9f9c902.png",
+        "alpha_different_pixels": 0,
+        "hidden_rgb_different_pixels": 0,
+        "brighter_srgb_pixels": 0,
+        "brighter_linear_pixels": 0,
+        "newly_crushed_pixels": 0,
+        "channel_increase_pixels": 0,
+        "max_channel_increase": 0,
+        "max_srgb_increase_codevalues": 0.0,
+        "max_linear_increase": 0.0,
+        "changed_rgb_pixels": 10366248,
+        "first_brightness_increases": [],
+        "original_size": [
+          10240,
+          4320
+        ],
+        "output_size": [
+          10240,
+          4320
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "status": "passed"
+      },
+      "generic_metrics": {
+        "original_size": [
+          10240,
+          4320
+        ],
+        "output_size": [
+          10240,
+          4320
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "original_frames": 1,
+        "output_frames": 1,
+        "size_equal": true,
+        "mode_equal": true,
+        "pixels": 44236800,
+        "visible_pixels": 12154292,
+        "hidden_pixels": 32082508,
+        "alpha_changed_pixels": 0,
+        "hidden_rgb_changed_pixels": 0,
+        "visible_rgb_changed_pixels": 10366248,
+        "luminance_increased_pixels": 0,
+        "newly_crushed_pixels": 0,
+        "visible_sample_pixels": 12154292,
+        "highlight_sample_pixels": 7881024,
+        "shadow_sample_pixels": 108163,
+        "decoded_pixel_sha256": "d24ad21ea392faaecaad47e9b03e19d607a0b058f85817bf0199d0679c178999",
+        "max_luminance_increase": 0.0,
+        "luminance_space": "sRGB Rec.709-weighted luma, range 0..1",
+        "visible_original_mean": 0.7971543449643002,
+        "visible_output_mean": 0.7276058158520178,
+        "visible_mean_drop": 0.06954852911228238,
+        "visible_retention": 0.9127539985805421,
+        "highlight_original_mean": 0.9007718961932428,
+        "highlight_output_mean": 0.8041043940246796,
+        "highlight_mean_drop": 0.09666750216856324,
+        "highlight_retention": 0.8926837054118913,
+        "shadow_original_mean": 0.14876586171749637,
+        "shadow_output_mean": 0.1487643761062337,
+        "shadow_mean_drop": 1.4856112626748796e-06,
+        "shadow_retention": 0.9999900137622603,
+        "original_linear_mean": 0.6434633602776736,
+        "output_linear_mean": 0.515932411561845,
+        "original_luma_percentiles": {
+          "10": 0.5411764705882353,
+          "50": 0.8823529411764706,
+          "90": 0.9411764705882353,
+          "99": 0.9803921568627451
+        },
+        "output_luma_percentiles": {
+          "10": 0.5333333333333333,
+          "50": 0.788235294117647,
+          "90": 0.8313725490196079,
+          "99": 0.8627450980392157
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "target": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_buttons_uncropped_final_5120x2160.png",
+      "original_sha256": "02a8e72b71c2a963fe711cdcdad1d85a69459839aa73c36f5c759b628821a70f",
+      "before_output_sha256": "9b48b6ed45646f5b451adfebff606eff507b66363b448c80f691d6cdb45fd09a",
+      "output_sha256": "ff02338920101a4318759e79ed84453356f09708ef5506284a8ae15fd86a7f41",
+      "before_check": {
+        "original": "E:\\work\\image\\qdao_exposure_refinement_v8\\backups\\02a8e72b71c2a963fe711cdcdad1d85a69459839aa73c36f5c759b628821a70f.png",
+        "output": "E:\\work\\image\\qdao_exposure_refinement_v8\\staged\\02a8e72b71c2a963fe711cdcdad1d85a69459839aa73c36f5c759b628821a70f.png",
+        "alpha_different_pixels": 0,
+        "hidden_rgb_different_pixels": 0,
+        "brighter_srgb_pixels": 0,
+        "brighter_linear_pixels": 0,
+        "newly_crushed_pixels": 40,
+        "channel_increase_pixels": 0,
+        "max_channel_increase": 0,
+        "max_srgb_increase_codevalues": 0.0,
+        "max_linear_increase": 0.0,
+        "changed_rgb_pixels": 2594878,
+        "first_brightness_increases": [],
+        "original_size": [
+          5120,
+          2160
+        ],
+        "output_size": [
+          5120,
+          2160
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "status": "failed",
+        "error": "Rebuild changed transparency, brightened pixels, or newly crushed visible pixels; no clamping applied"
+      },
+      "edge_protection": {
+        "policy": {
+          "original_alpha_min": 1,
+          "original_alpha_max": 4,
+          "original_max_rgb_times_alpha_max": 255,
+          "action": "preserve_exact_original_rgb",
+          "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+        },
+        "protected_changed_pixels": 81,
+        "alpha_histogram": {
+          "1": 68,
+          "2": 13
+        },
+        "max_premultiplied_channel_delta_codevalues": 1.0
+      },
+      "after_check": {
+        "original": "E:\\work\\image\\qdao_exposure_refinement_v8\\backups\\02a8e72b71c2a963fe711cdcdad1d85a69459839aa73c36f5c759b628821a70f.png",
+        "output": "E:\\work\\image\\qdao_exposure_refinement_v8\\review\\rebuilt\\edge_repair_v1.2\\after\\02a8e72b71c2a963fe711cdcdad1d85a69459839aa73c36f5c759b628821a70f.png",
+        "alpha_different_pixels": 0,
+        "hidden_rgb_different_pixels": 0,
+        "brighter_srgb_pixels": 0,
+        "brighter_linear_pixels": 0,
+        "newly_crushed_pixels": 0,
+        "channel_increase_pixels": 0,
+        "max_channel_increase": 0,
+        "max_srgb_increase_codevalues": 0.0,
+        "max_linear_increase": 0.0,
+        "changed_rgb_pixels": 2594797,
+        "first_brightness_increases": [],
+        "original_size": [
+          5120,
+          2160
+        ],
+        "output_size": [
+          5120,
+          2160
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "status": "passed"
+      },
+      "generic_metrics": {
+        "original_size": [
+          5120,
+          2160
+        ],
+        "output_size": [
+          5120,
+          2160
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "original_frames": 1,
+        "output_frames": 1,
+        "size_equal": true,
+        "mode_equal": true,
+        "pixels": 11059200,
+        "visible_pixels": 3039964,
+        "hidden_pixels": 8019236,
+        "alpha_changed_pixels": 0,
+        "hidden_rgb_changed_pixels": 0,
+        "visible_rgb_changed_pixels": 2594797,
+        "luminance_increased_pixels": 0,
+        "newly_crushed_pixels": 0,
+        "visible_sample_pixels": 3039964,
+        "highlight_sample_pixels": 1965947,
+        "shadow_sample_pixels": 26467,
+        "decoded_pixel_sha256": "afd6825428486b5e54980f52694f9c0552ba8226689eaeab8095a2c8adb84ca1",
+        "max_luminance_increase": 0.0,
+        "luminance_space": "sRGB Rec.709-weighted luma, range 0..1",
+        "visible_original_mean": 0.7971810911832358,
+        "visible_output_mean": 0.7276301095478228,
+        "visible_mean_drop": 0.06955098163541296,
+        "visible_retention": 0.9127538492763543,
+        "highlight_original_mean": 0.9008111721475722,
+        "highlight_output_mean": 0.8041097664414775,
+        "highlight_mean_drop": 0.09670140570609476,
+        "highlight_retention": 0.8926507477970611,
+        "shadow_original_mean": 0.1470044825462806,
+        "shadow_output_mean": 0.14700332928153445,
+        "shadow_mean_drop": 1.1532647461454104e-06,
+        "shadow_retention": 0.9999921549008155,
+        "original_linear_mean": 0.6433991172969055,
+        "output_linear_mean": 0.5158864422416475,
+        "original_luma_percentiles": {
+          "10": 0.5411764705882353,
+          "50": 0.8823529411764706,
+          "90": 0.9411764705882353,
+          "99": 0.9803921568627451
+        },
+        "output_luma_percentiles": {
+          "10": 0.5333333333333333,
+          "50": 0.792156862745098,
+          "90": 0.8313725490196079,
+          "99": 0.8627450980392157
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "target": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_ui_uncropped_final_recomposed_10240x4320.png",
+      "original_sha256": "d9c8ba71aa08bc18a006c0c94629a6e716df6b4c26ea0d4c9bfd721c2b7461c5",
+      "before_output_sha256": "1f0a008adec717314000a600b8916fea4935e4d87bf24cf435f17f80c695a6d1",
+      "output_sha256": "cd95f6e4a5f2aad074f0c438de5f32fad778f21bd49532244ce790f169081ef3",
+      "before_check": {
+        "original": "E:\\work\\image\\qdao_exposure_refinement_v8\\backups\\d9c8ba71aa08bc18a006c0c94629a6e716df6b4c26ea0d4c9bfd721c2b7461c5.png",
+        "output": "E:\\work\\image\\qdao_exposure_refinement_v8\\staged\\d9c8ba71aa08bc18a006c0c94629a6e716df6b4c26ea0d4c9bfd721c2b7461c5.png",
+        "alpha_different_pixels": 0,
+        "hidden_rgb_different_pixels": 0,
+        "brighter_srgb_pixels": 0,
+        "brighter_linear_pixels": 0,
+        "newly_crushed_pixels": 161,
+        "channel_increase_pixels": 0,
+        "max_channel_increase": 0,
+        "max_srgb_increase_codevalues": 0.0,
+        "max_linear_increase": 0.0,
+        "changed_rgb_pixels": 23353265,
+        "first_brightness_increases": [],
+        "original_size": [
+          10240,
+          4320
+        ],
+        "output_size": [
+          10240,
+          4320
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "status": "failed",
+        "error": "Rebuild changed transparency, brightened pixels, or newly crushed visible pixels; no clamping applied"
+      },
+      "edge_protection": {
+        "policy": {
+          "original_alpha_min": 1,
+          "original_alpha_max": 4,
+          "original_max_rgb_times_alpha_max": 255,
+          "action": "preserve_exact_original_rgb",
+          "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+        },
+        "protected_changed_pixels": 810,
+        "alpha_histogram": {
+          "1": 769,
+          "2": 36,
+          "3": 2,
+          "4": 3
+        },
+        "max_premultiplied_channel_delta_codevalues": 1.0
+      },
+      "after_check": {
+        "original": "E:\\work\\image\\qdao_exposure_refinement_v8\\backups\\d9c8ba71aa08bc18a006c0c94629a6e716df6b4c26ea0d4c9bfd721c2b7461c5.png",
+        "output": "E:\\work\\image\\qdao_exposure_refinement_v8\\review\\rebuilt\\edge_repair_v1.2\\after\\d9c8ba71aa08bc18a006c0c94629a6e716df6b4c26ea0d4c9bfd721c2b7461c5.png",
+        "alpha_different_pixels": 0,
+        "hidden_rgb_different_pixels": 0,
+        "brighter_srgb_pixels": 0,
+        "brighter_linear_pixels": 0,
+        "newly_crushed_pixels": 0,
+        "channel_increase_pixels": 0,
+        "max_channel_increase": 0,
+        "max_srgb_increase_codevalues": 0.0,
+        "max_linear_increase": 0.0,
+        "changed_rgb_pixels": 23352455,
+        "first_brightness_increases": [],
+        "original_size": [
+          10240,
+          4320
+        ],
+        "output_size": [
+          10240,
+          4320
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "status": "passed"
+      },
+      "generic_metrics": {
+        "original_size": [
+          10240,
+          4320
+        ],
+        "output_size": [
+          10240,
+          4320
+        ],
+        "original_mode": "RGBA",
+        "output_mode": "RGBA",
+        "original_frames": 1,
+        "output_frames": 1,
+        "size_equal": true,
+        "mode_equal": true,
+        "pixels": 44236800,
+        "visible_pixels": 25656682,
+        "hidden_pixels": 18580118,
+        "alpha_changed_pixels": 0,
+        "hidden_rgb_changed_pixels": 0,
+        "visible_rgb_changed_pixels": 23352455,
+        "luminance_increased_pixels": 0,
+        "newly_crushed_pixels": 0,
+        "visible_sample_pixels": 25656682,
+        "highlight_sample_pixels": 16659528,
+        "shadow_sample_pixels": 198755,
+        "decoded_pixel_sha256": "c98634a515a154ad9790f9729fcb26adfe4c2f01560a76066836eb5619d27a9f",
+        "max_luminance_increase": 0.0,
+        "luminance_space": "sRGB Rec.709-weighted luma, range 0..1",
+        "visible_original_mean": 0.7958869028381781,
+        "visible_output_mean": 0.7254764624603283,
+        "visible_mean_drop": 0.07041044037784983,
+        "visible_retention": 0.9115321032086818,
+        "highlight_original_mean": 0.9125414787618854,
+        "highlight_output_mean": 0.8132626309993021,
+        "highlight_mean_drop": 0.09927884776258333,
+        "highlight_retention": 0.8912062080758427,
+        "shadow_original_mean": 0.10170958973317135,
+        "shadow_output_mean": 0.10170524246891753,
+        "shadow_mean_drop": 4.347264253815042e-06,
+        "shadow_retention": 0.9999572580691238,
+        "original_linear_mean": 0.6480772945670477,
+        "output_linear_mean": 0.5176204442256636,
+        "original_luma_percentiles": {
+          "10": 0.5333333333333333,
+          "50": 0.8980392156862745,
+          "90": 0.9450980392156862,
+          "99": 0.9764705882352941
+        },
+        "output_luma_percentiles": {
+          "10": 0.5254901960784314,
+          "50": 0.803921568627451,
+          "90": 0.8392156862745098,
+          "99": 0.8627450980392157
+        }
+      },
+      "status": "passed"
+    }
+  ],
+  "rebuilt_groups": [
+    {
+      "original_sha256": "f1933026f0d8f9142410cbf42a7894d38f80d553608c439d3c69f0bdfb06f7d4",
+      "output_sha256": "fef717ea50c69b98d1f498bb366b547eb7443d15fc531dc3e7243486b8e934fe",
+      "aliases": [
+        "client_ui_refresh_20260908/prepared/UI/Ugui/Native/list_idle.png",
+        "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/list_bg_unselected.png"
+      ],
+      "candidate": "review/rebuilt/edge_repair_v1.2/after/f1933026f0d8f9142410cbf42a7894d38f80d553608c439d3c69f0bdfb06f7d4.png",
+      "edge_protection": {
+        "policy": {
+          "original_alpha_min": 1,
+          "original_alpha_max": 4,
+          "original_max_rgb_times_alpha_max": 255,
+          "action": "preserve_exact_original_rgb",
+          "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+        },
+        "protected_changed_pixels": 3,
+        "alpha_histogram": {
+          "1": 3
+        },
+        "max_premultiplied_channel_delta_codevalues": 1.0
+      }
+    },
+    {
+      "original_sha256": "27a1de1bea01f7dbc33a36b078a9d7a3dd83a6a54ed5f9791ac4d71fcd3fb103",
+      "output_sha256": "712dc4ec8c3934216854120c7c19fec857f72e89cf2130886af24cd7fdc32a6b",
+      "aliases": [
+        "client_ui_refresh_20260908/prepared/UI/Ugui/Native/tab_selected.png",
+        "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/top_button_green_selected.png"
+      ],
+      "candidate": "review/rebuilt/edge_repair_v1.2/after/27a1de1bea01f7dbc33a36b078a9d7a3dd83a6a54ed5f9791ac4d71fcd3fb103.png",
+      "edge_protection": {
+        "policy": {
+          "original_alpha_min": 1,
+          "original_alpha_max": 4,
+          "original_max_rgb_times_alpha_max": 255,
+          "action": "preserve_exact_original_rgb",
+          "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+        },
+        "protected_changed_pixels": 3,
+        "alpha_histogram": {
+          "1": 3
+        },
+        "max_premultiplied_channel_delta_codevalues": 1.0
+      }
+    },
+    {
+      "original_sha256": "31244fd1da5f63757c17da885f870cc0d0f87b6192b3b02d9c4459965c6d7aa4",
+      "output_sha256": "d46c9c1bf76a33e6b52ed91f1b62c3620c992c6cc5c369f0ea72b772ec27033a",
+      "aliases": [
+        "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/search_box_with_icon.png"
+      ],
+      "candidate": "review/rebuilt/edge_repair_v1.2/after/31244fd1da5f63757c17da885f870cc0d0f87b6192b3b02d9c4459965c6d7aa4.png",
+      "edge_protection": {
+        "policy": {
+          "original_alpha_min": 1,
+          "original_alpha_max": 4,
+          "original_max_rgb_times_alpha_max": 255,
+          "action": "preserve_exact_original_rgb",
+          "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+        },
+        "protected_changed_pixels": 726,
+        "alpha_histogram": {
+          "1": 726
+        },
+        "max_premultiplied_channel_delta_codevalues": 1.0
+      }
+    },
+    {
+      "original_sha256": "262a649a2f23caefd8c63944223ea267fe5881ceba04afcf61f6430ff0bdb3a6",
+      "output_sha256": "f179e523458749384ecf84758e65cf49457236bd1b00dc4d270f078b82cebf11",
+      "aliases": [
+        "q_daoist_login_ui_lidazui_headband_v2_5120x2160.png",
+        "q_daoist_login_ui_redrawn_transparent_5120x2160.png",
+        "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_ui_uncropped_final_recomposed_5120x2160.png"
+      ],
+      "candidate": "review/rebuilt/edge_repair_v1.2/after/262a649a2f23caefd8c63944223ea267fe5881ceba04afcf61f6430ff0bdb3a6.png",
+      "edge_protection": {
+        "policy": {
+          "original_alpha_min": 1,
+          "original_alpha_max": 4,
+          "original_max_rgb_times_alpha_max": 255,
+          "action": "preserve_exact_original_rgb",
+          "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+        },
+        "protected_changed_pixels": 441,
+        "alpha_histogram": {
+          "1": 438,
+          "4": 1,
+          "2": 2
+        },
+        "max_premultiplied_channel_delta_codevalues": 1.0
+      }
+    },
+    {
+      "original_sha256": "0ce9c2d91c6e0289416285172ba57cf17ab1d84ae189748a14b012686c36ab85",
+      "output_sha256": "048fa7d61c319a86cdd6b5694101a7adb6d1fc4099b18eeec16b3f09157149bf",
+      "aliases": [
+        "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_background_ui_uncropped_final_10240x4320.png"
+      ],
+      "candidate": "review/rebuilt/edge_repair_v1.2/after/0ce9c2d91c6e0289416285172ba57cf17ab1d84ae189748a14b012686c36ab85.png",
+      "edge_protection": {
+        "policy": {
+          "original_alpha_min": 1,
+          "original_alpha_max": 4,
+          "original_max_rgb_times_alpha_max": 255,
+          "action": "preserve_exact_original_rgb",
+          "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+        },
+        "protected_changed_pixels": 810,
+        "alpha_histogram": {
+          "1": 769,
+          "2": 36,
+          "3": 2,
+          "4": 3
+        },
+        "max_premultiplied_channel_delta_codevalues": 1.0
+      }
+    },
+    {
+      "original_sha256": "4d838b0e8952cb2870a2f0c410d48021c8b746dd36ec11705c5f8d26ed86d26f",
+      "output_sha256": "8001ec149aa8ae243dfeea559bd9835353f45b30dbf14fabfac7431659533cec",
+      "aliases": [
+        "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_background_ui_uncropped_final_5120x2160.png"
+      ],
+      "candidate": "review/rebuilt/edge_repair_v1.2/after/4d838b0e8952cb2870a2f0c410d48021c8b746dd36ec11705c5f8d26ed86d26f.png",
+      "edge_protection": {
+        "policy": {
+          "original_alpha_min": 1,
+          "original_alpha_max": 4,
+          "original_max_rgb_times_alpha_max": 255,
+          "action": "preserve_exact_original_rgb",
+          "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+        },
+        "protected_changed_pixels": 441,
+        "alpha_histogram": {
+          "1": 438,
+          "4": 1,
+          "2": 2
+        },
+        "max_premultiplied_channel_delta_codevalues": 1.0
+      }
+    },
+    {
+      "original_sha256": "dddabe5659d6e56adb001b314c00a74233fe790b8a2172d1a887be78d9f9c902",
+      "output_sha256": "d27da82ee665438c225d3eab2d039d7c2870ee110a2c4435620d80a9d26bf45e",
+      "aliases": [
+        "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_buttons_uncropped_final_10240x4320.png"
+      ],
+      "candidate": "review/rebuilt/edge_repair_v1.2/after/dddabe5659d6e56adb001b314c00a74233fe790b8a2172d1a887be78d9f9c902.png",
+      "edge_protection": {
+        "policy": {
+          "original_alpha_min": 1,
+          "original_alpha_max": 4,
+          "original_max_rgb_times_alpha_max": 255,
+          "action": "preserve_exact_original_rgb",
+          "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+        },
+        "protected_changed_pixels": 335,
+        "alpha_histogram": {
+          "1": 254,
+          "2": 74,
+          "3": 6,
+          "4": 1
+        },
+        "max_premultiplied_channel_delta_codevalues": 1.0
+      }
+    },
+    {
+      "original_sha256": "02a8e72b71c2a963fe711cdcdad1d85a69459839aa73c36f5c759b628821a70f",
+      "output_sha256": "ff02338920101a4318759e79ed84453356f09708ef5506284a8ae15fd86a7f41",
+      "aliases": [
+        "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_buttons_uncropped_final_5120x2160.png"
+      ],
+      "candidate": "review/rebuilt/edge_repair_v1.2/after/02a8e72b71c2a963fe711cdcdad1d85a69459839aa73c36f5c759b628821a70f.png",
+      "edge_protection": {
+        "policy": {
+          "original_alpha_min": 1,
+          "original_alpha_max": 4,
+          "original_max_rgb_times_alpha_max": 255,
+          "action": "preserve_exact_original_rgb",
+          "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+        },
+        "protected_changed_pixels": 81,
+        "alpha_histogram": {
+          "1": 68,
+          "2": 13
+        },
+        "max_premultiplied_channel_delta_codevalues": 1.0
+      }
+    },
+    {
+      "original_sha256": "d9c8ba71aa08bc18a006c0c94629a6e716df6b4c26ea0d4c9bfd721c2b7461c5",
+      "output_sha256": "cd95f6e4a5f2aad074f0c438de5f32fad778f21bd49532244ce790f169081ef3",
+      "aliases": [
+        "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_ui_uncropped_final_recomposed_10240x4320.png"
+      ],
+      "candidate": "review/rebuilt/edge_repair_v1.2/after/d9c8ba71aa08bc18a006c0c94629a6e716df6b4c26ea0d4c9bfd721c2b7461c5.png",
+      "edge_protection": {
+        "policy": {
+          "original_alpha_min": 1,
+          "original_alpha_max": 4,
+          "original_max_rgb_times_alpha_max": 255,
+          "action": "preserve_exact_original_rgb",
+          "reason": "At most one code value per premultiplied channel; prevent edge quantization color loss"
+        },
+        "protected_changed_pixels": 810,
+        "alpha_histogram": {
+          "1": 769,
+          "2": 36,
+          "3": 2,
+          "4": 3
+        },
+        "max_premultiplied_channel_delta_codevalues": 1.0
+      }
+    }
+  ],
+  "requested_target_count": 9,
+  "requested_original_hash_groups": 9,
+  "staged_payloads_written": true,
+  "stage_files_to_replace": 9,
+  "updated_records_including_aliases": 13,
+  "newly_crushed_before": 1696,
+  "newly_crushed_after": 0,
+  "total_protected_edge_pixels": 3650,
+  "completed_utc": "2026-09-09T19:14:55.751424+00:00"
+}

@@ -1,8 +1,9 @@
 {
   "file": "07_moon_shadow_assassin_girl_transparent_4096.png",
+  "art_revision": "v9-character-diversity",
   "generator": "built-in image_gen",
-  "generation_file": "07.png",
-  "raw_sha256": "7f4f80675d5545de6e79a1c39610c107f51340a926597ce68c618a59587f882a",
+  "generation_file": "exec-df93f0f5-c9c1-474e-af6c-ab72a8efec45.png",
+  "raw_sha256": "f3b8930ca885beb82d0fd336976ca1b5e84aa264d0b6525ba273e80ceb9f178d",
   "native_generation_size": [
     1254,
     1254
@@ -12,27 +13,35 @@
     4096
   ],
   "native_4096_generation": false,
-  "export_method": "skill chroma cleanup, fit/feet alignment, RGBA LANCZOS export",
+  "export_method": "skill alpha cleanup at full source resolution, feet alignment, LANCZOS compatibility export",
   "prompt": "prompts/07_moon_shadow_assassin_girl_transparent_4096.prompt.txt",
-  "reference_delivery": "in-memory board via conversation image",
-  "reference_baseline": "60134a6",
+  "reference_delivery": "Viewed original 07; only headless clothing and crescent-blade crop supplied as in-memory JPEG via num_last_images_to_include=1. Face, age, hair, anatomy and silhouette newly designed. Visual hair review: cropped straight indigo side-part, no curls. Original identity: tan angular adult face, gray eyes, low sideways stance and fitted black-blue Daoist tailoring.",
+  "reference_baseline": "230e782aa9b6278c8f77133e59e47c4470b93a74",
+  "previous_sha256": "d1d87d03356d9b823ee8ea02a0cdf3dcc710215db34564604372e50f993cd50d",
+  "design_brief": "../qdao_character_diversity_v9/DESIGN_BRIEF.md",
+  "model_preference": "gpt-image-2",
+  "quality_preference": "high",
+  "model_parameter_exposed": false,
+  "quality_parameter_exposed": false,
+  "model_and_quality_verified": false,
+  "parameter_note": "Built-in tool has no model or quality arguments; these preferences were not force-set or independently verified.",
   "alpha_range": [
     0,
     255
   ],
   "subject_bounds": [
-    512,
+    407,
     240,
-    3584,
+    3689,
     3859
   ],
-  "sha256": "d1d87d03356d9b823ee8ea02a0cdf3dcc710215db34564604372e50f993cd50d",
+  "sha256": "b24de3f1aeefe1dde7c604c03aa00b7b34c2116a0509012ca05b1720956b7d2d",
   "processor_qc": {
     "target": "asset",
     "mode": "single",
     "prompt": "",
     "role": "",
-    "input": "qdao_gpt_image2_refresh_v7\\characters\\sources\\07.png",
+    "input": "C:\\Users\\luyua\\.codex\\generated_images\\01a08705-4be9-7761-904b-46d538013643\\exec-df93f0f5-c9c1-474e-af6c-ab72a8efec45.png",
     "threshold": 130,
     "edge_threshold": 170,
     "duration": 200,
@@ -69,42 +78,42 @@
         "selected_component_area": null,
         "selected_component_bbox": null,
         "crop_bbox": [
-          147,
-          55,
-          1109,
-          1189
+          77,
+          21,
+          1170,
+          1227
         ],
         "source_frame_size": [
           1246,
           1246
         ],
         "is_empty": false,
-        "subject_area": 557780,
-        "body_core_area": 492611,
-        "body_area_fraction": 0.31729850127148446,
+        "subject_area": 464313,
+        "body_core_area": 396382,
+        "body_area_fraction": 0.25531588724367416,
         "anchor_source": [
-          646.0,
-          1125.0
+          555.0,
+          1149.0
         ],
         "source_edge_touch": false,
         "output_edge_touch": false,
         "edge_touch": false,
         "output_size": [
-          936,
+          1000,
           1103
         ],
         "paste_position": [
-          159,
+          127,
           76
         ],
         "paste_clamped": false,
         "aligned_bbox": [
-          159,
+          127,
           76,
-          1095,
+          1127,
           1179
         ],
-        "source_to_output_scale": 0.9731216931216932,
+        "source_to_output_scale": 0.9150248756218906,
         "bbox_scale_applied": true,
         "scale_strategy": "fit",
         "scale_changed": true
@@ -121,12 +130,12 @@
       "empty_count": 0,
       "edge_touch_count": 0,
       "paste_clamped_count": 0,
-      "body_scale_mean": 0.5632925538931652,
+      "body_scale_mean": 0.5052879250918967,
       "output_subject_height_mean": 1103.0,
       "body_scale_cv": 0.0,
       "anchor_x_std": 0.0,
       "anchor_y_std": 0.0,
-      "anchor_y_mean": 0.9028892455858748
+      "anchor_y_mean": 0.9221508828250401
     },
     "qc_config": {
       "strict_qc": true,
@@ -136,6 +145,10 @@
       "max_anchor_y_std": null,
       "max_profile_scale_drift": null
     }
+  },
+  "strong_chroma_cleanup": {
+    "predicate": "R>200 and G<100 and B>200 and A>0",
+    "removed_pixels": 2872
   },
   "art_only_not_engine_integrated": true
 }

@@ -1,8 +1,9 @@
 {
   "file": "13_short_hair_wind_blade_girl_transparent_4096.png",
+  "art_revision": "v9-character-diversity",
   "generator": "built-in image_gen",
-  "generation_file": "exec-bcb5f2d9-9ace-48a4-888d-e1c9607841d5.png",
-  "raw_sha256": "ab78f47fa630b9dc7b72ea3c80fd54f0ab8f280f549f3992ebbb81c8f03540f8",
+  "generation_file": "exec-4093ad90-6688-4164-8bc5-0993ab02d9fa.png",
+  "raw_sha256": "367e66ef1d368a300af3c00c988f3c36e3b3b3fd32e3595b9484a2f240ace7e3",
   "native_generation_size": [
     1254,
     1254
@@ -12,27 +13,35 @@
     4096
   ],
   "native_4096_generation": false,
-  "export_method": "skill chroma cleanup, fit/feet alignment, RGBA LANCZOS export",
+  "export_method": "skill alpha cleanup at full source resolution, feet alignment, LANCZOS compatibility export",
   "prompt": "prompts/13_short_hair_wind_blade_girl_transparent_4096.prompt.txt",
-  "reference_delivery": "Conversation image: new approved hero + original HEAD role identity. Direct reference path hit Windows ACL.",
-  "reference_baseline": "9adcf9291e4a867601868889a5965f3cd48630ba",
+  "reference_delivery": "Visible in-memory board of baseline 13–18 faceless lower costume crops; num_last_images_to_include=1; paint and material only. Original adult heart face, asymmetric straight layered auburn bob, triangular cape, trousers and dual blades; no existing character identity copied.",
+  "reference_baseline": "230e782aa9b6278c8f77133e59e47c4470b93a74",
+  "previous_sha256": "857762fc20894c6202cc6eccc7b120f056695f015ae67885a86997470edb1ea2",
+  "design_brief": "../qdao_character_diversity_v9/DESIGN_BRIEF.md",
+  "model_preference": "gpt-image-2",
+  "quality_preference": "high",
+  "model_parameter_exposed": false,
+  "quality_parameter_exposed": false,
+  "model_and_quality_verified": false,
+  "parameter_note": "Built-in tool has no model or quality arguments; these preferences were not force-set or independently verified.",
   "alpha_range": [
     0,
     255
   ],
   "subject_bounds": [
-    237,
-    525,
-    3856,
+    737,
+    240,
+    3359,
     3859
   ],
-  "sha256": "857762fc20894c6202cc6eccc7b120f056695f015ae67885a86997470edb1ea2",
+  "sha256": "93c3eb96897d9d0e1482bb8065edc751e43753732454c18c79b195c3469c1892",
   "processor_qc": {
     "target": "asset",
     "mode": "single",
     "prompt": "",
     "role": "",
-    "input": "qdao_gpt_image2_refresh_v7\\characters\\sources\\professions12-22\\13_short_hair_wind_blade_girl_transparent_4096.png",
+    "input": "C:\\Users\\luyua\\.codex\\generated_images\\01a08705-a63e-74a2-875c-54a2a52f7f34\\exec-4093ad90-6688-4164-8bc5-0993ab02d9fa.png",
     "threshold": 130,
     "edge_threshold": 170,
     "duration": 200,
@@ -69,42 +78,42 @@
         "selected_component_area": null,
         "selected_component_bbox": null,
         "crop_bbox": [
-          69,
-          86,
-          1209,
-          1136
+          105,
+          17,
+          970,
+          1213
         ],
         "source_frame_size": [
           1246,
           1246
         ],
         "is_empty": false,
-        "subject_area": 581269,
-        "body_core_area": 465590,
-        "body_area_fraction": 0.2998938497252202,
+        "subject_area": 428304,
+        "body_core_area": 414689,
+        "body_area_fraction": 0.2671077141878087,
         "anchor_source": [
-          628.0,
-          1079.0
+          607.0,
+          1158.0
         ],
         "source_edge_touch": false,
         "output_edge_touch": false,
         "edge_touch": false,
         "output_size": [
-          1103,
-          1016
+          798,
+          1103
         ],
         "paste_position": [
-          75,
-          163
+          228,
+          76
         ],
         "paste_clamped": false,
         "aligned_bbox": [
-          75,
-          163,
-          1178,
+          228,
+          76,
+          1026,
           1179
         ],
-        "source_to_output_scale": 0.9680000000000001,
+        "source_to_output_scale": 0.9226755852842811,
         "bbox_scale_applied": true,
         "scale_strategy": "fit",
         "scale_changed": true
@@ -121,12 +130,12 @@
       "empty_count": 0,
       "edge_touch_count": 0,
       "paste_clamped_count": 0,
-      "body_scale_mean": 0.5476256474319114,
-      "output_subject_height_mean": 1016.0,
+      "body_scale_mean": 0.5168246454918812,
+      "output_subject_height_mean": 1103.0,
       "body_scale_cv": 0.0,
       "anchor_x_std": 0.0,
       "anchor_y_std": 0.0,
-      "anchor_y_mean": 0.8659711075441413
+      "anchor_y_mean": 0.9293739967897271
     },
     "qc_config": {
       "strict_qc": true,
@@ -137,26 +146,9 @@
       "max_profile_scale_drift": null
     }
   },
-  "art_only_not_engine_integrated": true,
   "strong_chroma_cleanup": {
-    "script": "clean_strong_chroma.py",
     "predicate": "R>200 and G<100 and B>200 and A>0",
-    "affected_pixels": 2123,
-    "sha256_before": "588e0e309be911a360213d0633c314a3ea170f2368baec5b6d171e09c75e4b35",
-    "purpose": "remove residual key-color specks only, retaining legitimate violet material"
+    "removed_pixels": 2583
   },
-  "schema": "qdao.portrait.v7.independent.1",
-  "model": "gpt-image-2",
-  "model_evidence": "Original generated PNG C2PA softwareAgent name=gpt-image version=2.0",
-  "quality_parameter_exposed": false,
-  "model_parameter_exposed": false,
-  "quality_goal": "highest available",
-  "single_portrait_native_source": true,
-  "source": "qdao_gpt_image2_refresh_v7/characters/sources/professions12-22/13_short_hair_wind_blade_girl_transparent_4096.png",
-  "generation_cache_original": "C:\\Users\\luyua\\.codex\\generated_images\\01a07b2c-c8c2-7663-8d28-dbe7d4723cd6\\exec-bcb5f2d9-9ace-48a4-888d-e1c9607841d5.png",
-  "old_sha256": "7755cf7c1712f1a8efb0a2cbbf01d9de7e6bad94257dd70163f89a01737830fe",
-  "backup": "qdao_gpt_image2_refresh_v7/characters/backups/q_daoist_character_pack_4096/13_short_hair_wind_blade_girl_transparent_4096.png",
-  "processor_record": "qdao_gpt_image2_refresh_v7/characters/sources/professions12-22/processing/13_short_hair_wind_blade_girl_transparent_4096.json",
-  "strict_qc_passed": true,
-  "strong_chroma_remaining_pixels": 0
+  "art_only_not_engine_integrated": true
 }

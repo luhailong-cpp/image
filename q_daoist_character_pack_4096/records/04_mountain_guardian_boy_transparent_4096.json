@@ -1,8 +1,9 @@
 {
   "file": "04_mountain_guardian_boy_transparent_4096.png",
+  "art_revision": "v9-character-diversity",
   "generator": "built-in image_gen",
-  "generation_file": "04.png",
-  "raw_sha256": "d88ad4f400d51b106a70563c6f21cef789d703156d086af8a553d917ab705697",
+  "generation_file": "exec-73a448e6-645c-4e63-a305-2a5442b65820.png",
+  "raw_sha256": "2bde2563d322f9b67ede2136a9b21a0ffb53e270a8cf2c36dda03cafff8a65a7",
   "native_generation_size": [
     1254,
     1254
@@ -12,27 +13,35 @@
     4096
   ],
   "native_4096_generation": false,
-  "export_method": "skill chroma cleanup, fit/feet alignment, RGBA LANCZOS export",
+  "export_method": "skill alpha cleanup at full source resolution, feet alignment, LANCZOS compatibility export",
   "prompt": "prompts/04_mountain_guardian_boy_transparent_4096.prompt.txt",
-  "reference_delivery": "in-memory board via conversation image",
-  "reference_baseline": "60134a6",
+  "reference_delivery": "In-memory costume-only crop of old 04 below y=1900 used for staff/shield and ochre/jade material vocabulary. Original mature square-jawed guardian with straight brows, small brown eyes, short black goatee, exceptionally broad squat Q body and block armor. Smooth straight black hair tightly combed into a high tied Daoist knot, no curls, wavy bangs or ringlets. Original mountain-in-ring scepter and octagonal chest protector. No canonical hero face or existing franchise character copied.",
+  "reference_baseline": "230e782aa9b6278c8f77133e59e47c4470b93a74",
+  "previous_sha256": "8a1b6c60ed6be401b8d5a9eeabc55e9752513d78e5fb492efd4ce1f18e04527c",
+  "design_brief": "../qdao_character_diversity_v9/DESIGN_BRIEF.md",
+  "model_preference": "gpt-image-2",
+  "quality_preference": "high",
+  "model_parameter_exposed": false,
+  "quality_parameter_exposed": false,
+  "model_and_quality_verified": false,
+  "parameter_note": "Built-in tool has no model or quality arguments; these preferences were not force-set or independently verified.",
   "alpha_range": [
     0,
     255
   ],
   "subject_bounds": [
-    678,
+    469,
     240,
-    3415,
+    3627,
     3859
   ],
-  "sha256": "8a1b6c60ed6be401b8d5a9eeabc55e9752513d78e5fb492efd4ce1f18e04527c",
+  "sha256": "9200e8f733fbef8ad087dd828cc01426a988f9aeeb62608f6c6917cc16db49cb",
   "processor_qc": {
     "target": "asset",
     "mode": "single",
     "prompt": "",
     "role": "",
-    "input": "qdao_gpt_image2_refresh_v7\\characters\\sources\\04.png",
+    "input": "C:\\Users\\luyua\\.codex\\generated_images\\01a086fe-555e-7402-b055-37f83337dc07\\exec-73a448e6-645c-4e63-a305-2a5442b65820.png",
     "threshold": 130,
     "edge_threshold": 170,
     "duration": 200,
@@ -69,42 +78,42 @@
         "selected_component_area": null,
         "selected_component_bbox": null,
         "crop_bbox": [
-          179,
-          39,
-          1071,
-          1220
+          167,
+          73,
+          1099,
+          1141
         ],
         "source_frame_size": [
           1246,
           1246
         ],
         "is_empty": false,
-        "subject_area": 613122,
-        "body_core_area": 527824,
-        "body_area_fraction": 0.3399797490009765,
+        "subject_area": 589404,
+        "body_core_area": 476862,
+        "body_area_fraction": 0.3071543224031186,
         "anchor_source": [
-          675.0,
-          1161.0
+          604.0,
+          1103.0
         ],
         "source_edge_touch": false,
         "output_edge_touch": false,
         "edge_touch": false,
         "output_size": [
-          833,
+          962,
           1103
         ],
         "paste_position": [
-          210,
+          146,
           76
         ],
         "paste_clamped": false,
         "aligned_bbox": [
-          210,
+          146,
           76,
-          1043,
+          1108,
           1179
         ],
-        "source_to_output_scale": 0.9343945808636749,
+        "source_to_output_scale": 1.0332584269662923,
         "bbox_scale_applied": true,
         "scale_strategy": "fit",
         "scale_changed": true
@@ -121,12 +130,12 @@
       "empty_count": 0,
       "edge_touch_count": 0,
       "paste_clamped_count": 0,
-      "body_scale_mean": 0.5830778241375473,
+      "body_scale_mean": 0.5542150506826016,
       "output_subject_height_mean": 1103.0,
       "body_scale_cv": 0.0,
       "anchor_x_std": 0.0,
       "anchor_y_std": 0.0,
-      "anchor_y_mean": 0.9317817014446228
+      "anchor_y_mean": 0.8852327447833066
     },
     "qc_config": {
       "strict_qc": true,
@@ -136,6 +145,10 @@
       "max_anchor_y_std": null,
       "max_profile_scale_drift": null
     }
+  },
+  "strong_chroma_cleanup": {
+    "predicate": "R>200 and G<100 and B>200 and A>0",
+    "removed_pixels": 2050
   },
   "art_only_not_engine_integrated": true
 }

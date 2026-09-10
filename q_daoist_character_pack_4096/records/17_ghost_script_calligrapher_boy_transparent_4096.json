@@ -1,8 +1,9 @@
 {
   "file": "17_ghost_script_calligrapher_boy_transparent_4096.png",
+  "art_revision": "v9-character-diversity",
   "generator": "built-in image_gen",
-  "generation_file": "exec-4f045128-0596-4aa4-ae7f-df82897ba4c1.png",
-  "raw_sha256": "be5b686788752426803e88c357a9b84ed65d21755b10c82fec470b8e71d9d384",
+  "generation_file": "exec-8976fcf5-a295-463e-89b7-89f549642db7.png",
+  "raw_sha256": "75b7c8df105e2ee8707b71f3fc0b367365c8fc22e0bb6e35e39b3d8e85ad3beb",
   "native_generation_size": [
     1254,
     1254
@@ -12,27 +13,35 @@
     4096
   ],
   "native_4096_generation": false,
-  "export_method": "skill chroma cleanup, fit/feet alignment, RGBA LANCZOS export",
+  "export_method": "skill alpha cleanup at full source resolution, feet alignment, LANCZOS compatibility export",
   "prompt": "prompts/17_ghost_script_calligrapher_boy_transparent_4096.prompt.txt",
-  "reference_delivery": "Conversation image: new approved hero + original HEAD role identity. Direct reference path hit Windows ACL.",
-  "reference_baseline": "9adcf9291e4a867601868889a5965f3cd48630ba",
+  "reference_delivery": "Visible in-memory board of baseline 13–18 faceless lower costume crops; num_last_images_to_include=1; paint/material only. Original thin elderly face, long straight white eyebrows and beard, tiny black spectacles, high plain black hat, ink robe and brush/scroll. Smooth swept straight hair, no curls or copied existing character.",
+  "reference_baseline": "230e782aa9b6278c8f77133e59e47c4470b93a74",
+  "previous_sha256": "7b9b349b505dc66e29069f4ebdb380a70e4547cecb6f9a46d3e3aeefcfe925c9",
+  "design_brief": "../qdao_character_diversity_v9/DESIGN_BRIEF.md",
+  "model_preference": "gpt-image-2",
+  "quality_preference": "high",
+  "model_parameter_exposed": false,
+  "quality_parameter_exposed": false,
+  "model_and_quality_verified": false,
+  "parameter_note": "Built-in tool has no model or quality arguments; these preferences were not force-set or independently verified.",
   "alpha_range": [
     0,
     255
   ],
   "subject_bounds": [
-    463,
+    825,
     240,
-    3630,
+    3271,
     3859
   ],
-  "sha256": "7b9b349b505dc66e29069f4ebdb380a70e4547cecb6f9a46d3e3aeefcfe925c9",
+  "sha256": "8de1f9d290d37411f10183c35d927fb18cdb56df8516b2b9a7019a89238ab11d",
   "processor_qc": {
     "target": "asset",
     "mode": "single",
     "prompt": "",
     "role": "",
-    "input": "qdao_gpt_image2_refresh_v7\\characters\\sources\\professions12-22\\17_ghost_script_calligrapher_boy_transparent_4096.png",
+    "input": "C:\\Users\\luyua\\.codex\\generated_images\\01a08705-a63e-74a2-875c-54a2a52f7f34\\exec-8976fcf5-a295-463e-89b7-89f549642db7.png",
     "threshold": 130,
     "edge_threshold": 170,
     "duration": 200,
@@ -69,42 +78,42 @@
         "selected_component_area": null,
         "selected_component_bbox": null,
         "crop_bbox": [
-          210,
-          72,
-          1178,
-          1178
+          246,
+          17,
+          1049,
+          1208
         ],
         "source_frame_size": [
           1246,
           1246
         ],
         "is_empty": false,
-        "subject_area": 641075,
-        "body_core_area": 498021,
-        "body_area_fraction": 0.3207831674520585,
+        "subject_area": 531909,
+        "body_core_area": 504485,
+        "body_area_fraction": 0.3249467316278866,
         "anchor_source": [
-          656.0,
-          1128.0
+          591.0,
+          1153.0
         ],
         "source_edge_touch": false,
         "output_edge_touch": false,
         "edge_touch": false,
         "output_size": [
-          965,
+          744,
           1103
         ],
         "paste_position": [
-          144,
+          255,
           76
         ],
         "paste_clamped": false,
         "aligned_bbox": [
-          144,
+          255,
           76,
-          1109,
+          999,
           1179
         ],
-        "source_to_output_scale": 0.997757685352622,
+        "source_to_output_scale": 0.9265491183879094,
         "bbox_scale_applied": true,
         "scale_strategy": "fit",
         "scale_changed": true
@@ -121,12 +130,12 @@
       "empty_count": 0,
       "edge_touch_count": 0,
       "paste_clamped_count": 0,
-      "body_scale_mean": 0.5663772306970491,
+      "body_scale_mean": 0.5700409911821137,
       "output_subject_height_mean": 1103.0,
       "body_scale_cv": 0.0,
       "anchor_x_std": 0.0,
       "anchor_y_std": 0.0,
-      "anchor_y_mean": 0.9052969502407705
+      "anchor_y_mean": 0.9253611556982343
     },
     "qc_config": {
       "strict_qc": true,
@@ -137,26 +146,9 @@
       "max_profile_scale_drift": null
     }
   },
-  "art_only_not_engine_integrated": true,
   "strong_chroma_cleanup": {
-    "script": "clean_strong_chroma.py",
     "predicate": "R>200 and G<100 and B>200 and A>0",
-    "affected_pixels": 3501,
-    "sha256_before": "eb865f8389775fe0084eac03f2e933785e1da6d58d2a31f3ac02fca13faeec0f",
-    "purpose": "remove residual key-color specks only, retaining legitimate violet material"
+    "removed_pixels": 1643
   },
-  "schema": "qdao.portrait.v7.independent.1",
-  "model": "gpt-image-2",
-  "model_evidence": "Original generated PNG C2PA softwareAgent name=gpt-image version=2.0",
-  "quality_parameter_exposed": false,
-  "model_parameter_exposed": false,
-  "quality_goal": "highest available",
-  "single_portrait_native_source": true,
-  "source": "qdao_gpt_image2_refresh_v7/characters/sources/professions12-22/17_ghost_script_calligrapher_boy_transparent_4096.png",
-  "generation_cache_original": "C:\\Users\\luyua\\.codex\\generated_images\\01a07b2c-c8c2-7663-8d28-dbe7d4723cd6\\exec-4f045128-0596-4aa4-ae7f-df82897ba4c1.png",
-  "old_sha256": "34d13fe2558dee7ab8403180a7cd4c26e95b0b9795181053057b5759c69a5614",
-  "backup": "qdao_gpt_image2_refresh_v7/characters/backups/q_daoist_character_pack_4096/17_ghost_script_calligrapher_boy_transparent_4096.png",
-  "processor_record": "qdao_gpt_image2_refresh_v7/characters/sources/professions12-22/processing/17_ghost_script_calligrapher_boy_transparent_4096.json",
-  "strict_qc_passed": true,
-  "strong_chroma_remaining_pixels": 0
+  "art_only_not_engine_integrated": true
 }
