@@ -12,7 +12,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
-from art_support import PACK, REPO, fit_art, load_art, nine_slice, save
+from art_support import PACK, REPO, fit_art, load_art, nine_slice, save, stretch_divider
 
 RELATIVE = Path("designs/attribute-panels/v2-painted/unity-slices")
 OUT = PACK / "staged" / RELATIVE
@@ -175,21 +175,10 @@ def build(entry):
         meta = source_paint("panel")
         meta.update({"cleanArtCropXYXY": list(box), "processing": "Text-free paper texture cropped from the clean center of the new painted panel, resampled to the contracted tile size."})
     elif name == "divider":
-        # The artwork is horizontal. Rotate first, then preserve ornament end caps.
-        source = load_art("divider").rotate(90, expand=True)
-        sw, sh = source.size
-        scale = min(1.0, w / sw)
-        dw = max(1, round(sw * scale))
-        cap_source = min(round(sh * .24), max(1, sh//3))
-        cap_dest = min(round(cap_source * scale), (h-1)//2)
-        im = Image.new("RGBA", (w, h))
-        for sy1, sy2, dy1, dy2 in ((0, cap_source, 0, cap_dest), (cap_source, sh-cap_source, cap_dest, h-cap_dest), (sh-cap_source, sh, h-cap_dest, h)):
-            if dy2 > dy1 and sy2 > sy1:
-                part = source.crop((0, sy1, sw, sy2)).resize((dw, dy2-dy1), RESAMPLE)
-                im.alpha_composite(part, ((w-dw)//2, dy1))
+        im = stretch_divider(w, h, vertical=True)
         meta = source_paint("divider")
-        meta.update({"processing": "Rotate new horizontal painted divider 90 degrees; preserve the end ornaments and stretch only the straight middle to the contracted vertical canvas.",
-                     "rotationDegrees": 90, "sourceEndCapPixelsAfterRotation": cap_source, "destinationEndCapPixels": cap_dest})
+        meta.update({"processing": "Rotate new horizontal painted divider 90 degrees; preserve both fixed end ornaments and the round crescent center, stretching only the unornamented rails to the original vertical canvas.",
+                     "rotationDegrees": 90, "centerOrnamentPreserved": True})
     elif name in ("step_minus", "step_plus"):
         im = native_glyph(fit_art("step_normal", w, h), name.removeprefix("step_"))
         meta = source_paint("step_normal")
@@ -293,6 +282,58 @@ def stretch_review(entries, images):
     save(out, OUT / "nine-slice-review.png")
 
 
+def additional_reviews(entries, images):
+    """Review all remaining slices and native glyphs without touching artwork."""
+    by_name = {entry["name"]: entry for entry in entries}
+    out = Image.new("RGBA", (1760, 1570), (36, 60, 51, 255))
+    draw = ImageDraw.Draw(out)
+    draw.text((20, 16), "FRAME + FIELDS | delivered PNGs, original Unity borders | Pillow QA", font=qa_font(23), fill="#f2e2be")
+    frame_entry = by_name["window_frame"]
+    for size, xy in (((780, 430), (25, 90)), ((900, 430), (835, 90))):
+        draw.text((xy[0], xy[1]-28), f"window_frame {size[0]}x{size[1]}", font=qa_font(18), fill="#f2e2be")
+        out.alpha_composite(stretch_sprite(images["window_frame"], size, frame_entry["borderLeftBottomRightTop"]), xy)
+    rows = [
+        ("tab_vertical_normal", (92,127), (150,210)),
+        ("tab_vertical_selected", (97,127), (160,210)),
+        ("section_header", (260,57), (500,57)),
+        ("slider_track", (250,23), (550,23)),
+        ("slider_fill", (100,23), (500,23)),
+        ("step_plate", (66,65), (110,85)),
+        ("portrait_frame", (160,160), (240,240)),
+        ("paper_tile", (250,57), (500,80)),
+    ]
+    for index, (name, size1, size2) in enumerate(rows):
+        x, y = (index%2)*880+25, (index//2)*240+555
+        draw.text((x,y), name, font=qa_font(18), fill="#f2e2be")
+        for size, offset in ((size1,0), (size2,max(size1[0]+35,230))):
+            sprite = stretch_sprite(images[name], size, by_name[name]["borderLeftBottomRightTop"])
+            board = checker(sprite.width,sprite.height)
+            board.alpha_composite(sprite)
+            out.alpha_composite(board, (x+offset,y+30))
+    save(out, OUT/"frame-fields-review.png")
+    # Native symbol rendering is intentionally separate from AI skin generation.
+    names = ["step_minus", "step_plus", "close_button", "notice_icon", "dropdown_arrow", "slider_thumb", "close_tassel"]
+    glyphs = Image.new("RGBA", (1460, 850), (36,60,51,255))
+    draw = ImageDraw.Draw(glyphs)
+    draw.text((20,16), "FIXED SYMBOLS + APPROVED TITLE INK | native-size and 3x QA", font=qa_font(23), fill="#f2e2be")
+    for index,name in enumerate(names):
+        x,y=(index%4)*365+15,(index//4)*280+65
+        draw.text((x,y),name,font=qa_font(17),fill="#f2e2be")
+        sprite=images[name]
+        for scale,dx in ((1,0),(3,100)):
+            test=sprite.resize((sprite.width*scale,sprite.height*scale),Image.Resampling.NEAREST)
+            board=checker(test.width,test.height)
+            board.alpha_composite(test)
+            glyphs.alpha_composite(board,(x+dx,y+28))
+    for index,name in enumerate(("title_character","title_pet")):
+        x=20+index*720
+        plate=images["title_plate"].copy()
+        title=images[name]
+        plate.alpha_composite(title,((plate.width-title.width)//2,(plate.height-title.height)//2))
+        glyphs.alpha_composite(plate,(x,690))
+        draw.text((x,660),name+" on new title plate",font=qa_font(18),fill="#f2e2be")
+    save(glyphs,OUT/"fixed-glyph-title-review.png")
+
 def main():
     contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
     assert len(contract["sprites"]) == 31
@@ -337,6 +378,7 @@ def main():
         path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     contact(entries,images)
     stretch_review(entries,images)
+    additional_reviews(entries,images)
     print(json.dumps({"attributes":len(entries),"newPaintedSkinSprites":sum(not p["preservedArtwork"] for p in provenance),
                       "preservedApprovedContent":sum(p["preservedArtwork"] for p in provenance),
                       "unchangedOutputPixels":[p["name"] for p in provenance if p["samePixelsAsPreviousSprite"]]},ensure_ascii=False))

@@ -205,5 +205,21 @@ await writeJson('composite_build_report.json', {
   unchanged_scene_sources: true, exact_hud_pixels_outside_overlay: unchangedOutside, files: outputRecords,
   note: 'PNG dimensions/Alpha and HUD composition were verified; visual QA and engine integration are separate.'
 });
+const reviewSvg = Buffer.from('<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1250">'
+  + '<defs><pattern id="checker" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="#e2e0d1"/><path d="M0 0H12V12H0ZM12 12H24V24H12Z" fill="#ced4ca"/></pattern></defs>'
+  + '<rect width="2560" height="1250" fill="#243c33"/>'
+  + '<rect x="0" y="695" width="2560" height="540" fill="url(#checker)"/>'
+  + '<g font-family="Arial,sans-serif" font-size="29" fill="#f2e2be">'
+  + '<text x="20" y="40">v10 RECOMPOSED UI | new painted components, preserved native labels and scene art | Sharp QA</text>'
+  + '<text x="20" y="88">SERVER SELECTION — demonstrative native text</text>'
+  + '<text x="1300" y="88">MAIN CITY HUD — original scene pixels outside overlay</text>'
+  + '<text x="20" y="677">SERVER BASE — no dynamic text</text>'
+  + '<text x="1300" y="677">SERVER CONTROLS — no dynamic text</text>'
+  + '</g></svg>');
+const reviewImages = await Promise.all([screen, full, page.base, page.controls]
+  .map(input => sharp(input).resize(1280,540).png().toBuffer()));
+const review = await sharp(reviewSvg).composite(reviewImages.map((input,index)=>({input,
+  left:(index%2)*1280,top:index<2?105:695}))).png({compressionLevel:9}).toBuffer();
+await writeStage('composite-review.png',review);
 console.log(JSON.stringify({ status:'built',stage:staged,png_contracts:outputRecords.length,
   unchanged_text_layer:'hud_labels.png', extra_hud_preview:true, scene_sources_unchanged:true }));

@@ -144,3 +144,28 @@ def nine_slice(name, w, h, dest_borders, pad=0):
              if vertical=='bottom' else (pad+dy[-1]-item.height)/2)
         _composite_clipped(result,item,x,y)
     return result
+
+
+def stretch_divider(w, h, vertical=False, pad=0):
+    """Preserve painted end-scrolls and center crescent; stretch straight rails."""
+    width,height=(int(h),int(w)) if vertical else (int(w),int(h))
+    entry=_entry('divider')
+    source=_read(entry['file'])
+    parts=entry['fixed_horizontal_segments']
+    fixed_width=sum(parts[key][2]-parts[key][0] for key in ('left_end','center','right_end'))
+    scale=min((height-2*pad)/source.height,(width-2*pad-2)/fixed_width)
+    scaled={}
+    for key in ('left_end','center','right_end'):
+        tile=source.crop(parts[key])
+        scaled[key]=tile.resize((max(1,round(tile.width*scale)),max(1,round(source.height*scale))),LANCZOS)
+    dh=scaled['center'].height
+    free=width-2*pad-sum(tile.width for tile in scaled.values())
+    if free<2:
+        return _fit(source.rotate(90,expand=True) if vertical else source,w,h,pad)
+    rail_widths=(free//2,free-free//2)
+    result=Image.new('RGBA',(width,height))
+    x=pad;y=(height-dh)//2
+    for key,dw in (('left_end',0),('left_rail',rail_widths[0]),('center',0),('right_rail',rail_widths[1]),('right_end',0)):
+        item=scaled[key] if key in scaled else source.crop(parts[key]).resize((dw,dh),LANCZOS)
+        result.alpha_composite(item,(x,y));x+=item.width
+    return result.rotate(90,expand=True) if vertical else result

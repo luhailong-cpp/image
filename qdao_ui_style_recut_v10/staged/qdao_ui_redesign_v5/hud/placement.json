@@ -1,0 +1,145 @@
+{
+  "product": "五行奇谈",
+  "version": 10,
+  "canvas": {
+    "width": 2560,
+    "height": 1080
+  },
+  "source_background": {
+    "path": "qdao_chibi_game_pack_v4/preview-main-city_2560x1080.png",
+    "sha256": "21a0feb76c7646bb7037cf5b5f1c7068292295dbc7355148c3256486fcd5fe10",
+    "size": [
+      2560,
+      1080
+    ],
+    "role": "existing_hud_city"
+  },
+  "source_component": {
+    "id": "primary_button_normal",
+    "path": "qdao_ui_style_recut_v10/staged/qdao_ui_redesign_v5/components/png/primary_button_normal.png",
+    "sha256": "b9ae1dffc61633d57eb43abe583fed0f1615e15f425a3056a48154d51b59dc60",
+    "size": [
+      460,
+      112
+    ]
+  },
+  "layout": {
+    "anchor": "right-top",
+    "right_margin": 64,
+    "top": 176,
+    "button_gap": 22.4,
+    "uniform_skin_scale": 0.7304347826086957,
+    "button_height_exact": 81.6,
+    "center_city_and_hero_uncovered": true
+  },
+  "text": {
+    "native_layer": "hud_labels.svg",
+    "skin_without_labels": "hud_skin.svg",
+    "font_family": "Microsoft YaHei,Noto Sans CJK SC,Source Han Sans SC,sans-serif",
+    "font_size": 36,
+    "weight": 600,
+    "color": "#FFF7DE",
+    "separate_from_skin": true
+  },
+  "buttons": [
+    {
+      "id": "battle",
+      "label": "战斗",
+      "x": 2160,
+      "y": 176,
+      "width": 336,
+      "height": 81.6,
+      "state": "normal",
+      "label_source": "existing repository movement screenshot",
+      "action_binding": null
+    },
+    {
+      "id": "spectate",
+      "label": "观战",
+      "x": 2160,
+      "y": 280,
+      "width": 336,
+      "height": 81.6,
+      "state": "normal",
+      "label_source": "existing repository movement screenshot",
+      "action_binding": null
+    },
+    {
+      "id": "character",
+      "label": "角色",
+      "x": 2160,
+      "y": 384,
+      "width": 336,
+      "height": 81.6,
+      "state": "normal",
+      "label_source": "existing repository movement screenshot",
+      "action_binding": null
+    }
+  ],
+  "artifacts": {
+    "overlay_svg": "hud_overlay.svg",
+    "overlay_png": "hud_overlay.png",
+    "skin_svg": "hud_skin.svg",
+    "skin_png": "hud_skin.png",
+    "labels_svg": "hud_labels.svg",
+    "labels_png": "hud_labels.png",
+    "composed_preview": "../source/04_main_city_hud.png",
+    "html": "preview.html"
+  },
+  "validation": {
+    "exact_original_pixels_outside_overlay": true,
+    "layers": [
+      {
+        "path": "qdao_ui_redesign_v5/hud/hud_skin.png",
+        "role": "hud_skin",
+        "size": [
+          2560,
+          1080
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "original_sha256": "e2797942a985359bde3d350baabcd8f438699296d0727dc4085d50bf539418ae",
+        "sha256": "a9e5e22019e7264feb01e88d74ed90e7fefe3b08a81c5105b4b38c06de9e6c98",
+        "dynamic_text_baked": false
+      },
+      {
+        "path": "qdao_ui_redesign_v5/hud/hud_overlay.png",
+        "role": "hud_overlay",
+        "size": [
+          2560,
+          1080
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "original_sha256": "50dcb0e6a733b16757bd70f81c88d7b4bbfc5bfaee78e3eb84d519c5677438e8",
+        "sha256": "0b911d1895693a04ad7c19a4336461982fdac0b3d42f43948b6d5ee00533b3e7",
+        "dynamic_text_baked": true
+      },
+      {
+        "path": "qdao_ui_redesign_v5/hud/hud_labels.png",
+        "role": "hud_labels",
+        "size": [
+          2560,
+          1080
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "original_sha256": "6f07d33c958496ead3dc46eb8a99bd83c72c8439963fcb4e4884c99b1ba0ca8d",
+        "sha256": "6f07d33c958496ead3dc46eb8a99bd83c72c8439963fcb4e4884c99b1ba0ca8d",
+        "unchanged_reason": "Independent approved text layer is intentionally preserved"
+      }
+    ]
+  },
+  "scope": "Visual HUD only. These are the three actions observed in the baseline 60134a6 movement diagnostic screenshot, which was removed after final asset validation. No other screens, interaction logic, or action bindings are implemented.",
+  "staged_only": true,
+  "source_builder": "qdao_ui_style_recut_v10/tools/build_composites.mjs"
+}
