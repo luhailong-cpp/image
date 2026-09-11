@@ -45,3 +45,5 @@ python -X utf8 qdao_cutout_edge_repair_20260911/27/tools/publish_approved_batch.
 准备阶段还会复核完整发布载荷：拼接输入从保存的真实原画、source_box、等比缩放和 target_box 重新排版，与接受的 2×2 输入逐像素一致；逐帧 prompt SHA、原生尺寸与实际复制路径一致。assembly spec 与 helper 若在来源链中记录，会复制并校验。这些准备检查未通过时，正式文件不会被替换。
 
 正式来源引用也复制实际参考图、参考图提示词与裁格记录；当前引用指向真实正式路径。原生裁格参考可按 source_box 逐像素复核。参考图片仅作为参考时，不增加 native_generation_count。
+
+六项并行元数据变更已由 root 实际审查并单独备份。原始 production-baseline.json 与 production-baseline.original.json 保留；当前发布基线为 production-baseline-reviewed.json，关联 root-reviewed-baseline-transition.json。发布器必须验证仅这六项从记录的旧SHA转为备份新SHA，其余93项一致；任何新差异仍立即停止。
