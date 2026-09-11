@@ -6,7 +6,7 @@
     1254
   ],
   "native_mode": "RGB",
-  "source": "built-in image_gen",
+  "source": "deterministic layout of independently reviewed native built-in image_gen frames",
   "output_size_is_not_native_resolution": true,
   "processing_tool_sha256": {
     "batch_processor": "186fc00f49f5fc2c60d4734c18e339063fad97f07481bd6594bb03b2f78689a3",
@@ -230,5 +230,229 @@
       "path": "walk/NE/walk.gif",
       "sha256": "83c7f10d950488f2e8802668b570455d93511b6ab63fde0705abd129c0d5baf5"
     }
-  ]
+  ],
+  "source_type": "assembled_2x2_from_native_generations",
+  "assembled": true,
+  "native_generation": false,
+  "native_size_semantics": "assembled processing-input canvas, not one native generated image",
+  "native_generation_count": 3,
+  "generation_lineage": {
+    "operation": "crop_native_cells_and_uniformly_resample_whole_canvases_then_layout",
+    "body_warp_or_per_frame_bbox_fit": false,
+    "spec_file": "NE-layout-review/assembly-spec.json",
+    "spec_sha256": "05e5884d0f1f026ebed87a9d834adef0a35fcbc5be902315fc1ce994b33c9559",
+    "assembler_sha256": "55efb2b7b3a09e26911ade1dffc4017f1769a9379d9110defe059ac9663f6afb",
+    "frames": [
+      {
+        "frame": 1,
+        "raw_source": "sources/walk_NE_2x2_candidate_attempt03.png",
+        "raw_sha256": "35968551a671a6ee971b6459d93ee7f800d540a7561d98cda6076734e7355d1f",
+        "source_box": [
+          0,
+          0,
+          627,
+          627
+        ],
+        "prompt_file": "prompts/walk_NE_camera_gait_fix_attempt03.txt",
+        "prompt_sha256": "cfaebcc0d812fd1007c085e36fd367aa41de7812380542d66003aff1e99173cd",
+        "visual_status": "passed_single_pose_review",
+        "visual_review_by": "root and finish_27_edges",
+        "reference_images": [
+          {
+            "path": "sources/walk_N_2x2.png",
+            "sha256": "2979810733be2a49e351e9f312f5bfac81188de56188a8a6860de79b534b06ce",
+            "role": "accepted_four_phase_motion_master"
+          },
+          {
+            "path": "sources/walk_NE_2x2_rejected_attempt02.png",
+            "sha256": "da25ae46d15fc3efcb546d6161d91153b2002825b5ca0184e3951ff36050aadf",
+            "role": "diagonal_camera_only"
+          }
+        ],
+        "generation_origin": {
+          "record_file": "generation-diagonals-camera-fix-attempt03.json",
+          "record_sha256": "207fa23dd1d7be7f18387f6625de58fbb5d4916971c69d00103b21380958b50f",
+          "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a0904f-b372-7c92-bf48-1637da088532\\exec-105f1eac-b663-4ebb-a973-1c35431e8e68.png"
+        },
+        "raw_native_size": [
+          1254,
+          1254
+        ],
+        "whole_canvas_scale": 1.0,
+        "target_box": [
+          0,
+          0,
+          627,
+          627
+        ]
+      },
+      {
+        "frame": 2,
+        "raw_source": "sources/walk_NE_2x2_candidate_attempt03.png",
+        "raw_sha256": "35968551a671a6ee971b6459d93ee7f800d540a7561d98cda6076734e7355d1f",
+        "source_box": [
+          627,
+          0,
+          1254,
+          627
+        ],
+        "prompt_file": "prompts/walk_NE_camera_gait_fix_attempt03.txt",
+        "prompt_sha256": "cfaebcc0d812fd1007c085e36fd367aa41de7812380542d66003aff1e99173cd",
+        "visual_status": "passed_single_pose_review",
+        "visual_review_by": "root and finish_27_edges",
+        "reference_images": [
+          {
+            "path": "sources/walk_N_2x2.png",
+            "sha256": "2979810733be2a49e351e9f312f5bfac81188de56188a8a6860de79b534b06ce",
+            "role": "accepted_four_phase_motion_master"
+          },
+          {
+            "path": "sources/walk_NE_2x2_rejected_attempt02.png",
+            "sha256": "da25ae46d15fc3efcb546d6161d91153b2002825b5ca0184e3951ff36050aadf",
+            "role": "diagonal_camera_only"
+          }
+        ],
+        "generation_origin": {
+          "record_file": "generation-diagonals-camera-fix-attempt03.json",
+          "record_sha256": "207fa23dd1d7be7f18387f6625de58fbb5d4916971c69d00103b21380958b50f",
+          "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a0904f-b372-7c92-bf48-1637da088532\\exec-105f1eac-b663-4ebb-a973-1c35431e8e68.png"
+        },
+        "raw_native_size": [
+          1254,
+          1254
+        ],
+        "whole_canvas_scale": 1.0,
+        "target_box": [
+          627,
+          0,
+          1254,
+          627
+        ]
+      },
+      {
+        "frame": 3,
+        "raw_source": "sources/frame-originals/recovered-exec-d55e7964-6b24-4fd1-9940-1e4240ada60e.png",
+        "raw_sha256": "ea49dc5b3764cc5338743bf7755511a3708f08646dcd6cbf3ac5fb60548abb31",
+        "source_box": [
+          0,
+          0,
+          1254,
+          1254
+        ],
+        "prompt_file": "prompts/walk_NE03_action_only_attempt05.txt",
+        "prompt_sha256": "d1aa4938fd9ec355e96823f641d2d6cfe27d9346c080d81b64f3c5d49acd41e7",
+        "visual_status": "passed_single_pose_review",
+        "visual_review_by": "root",
+        "reference_images": [
+          {
+            "path": "references/single-gait-attempt05/NE03_action_only.png",
+            "sha256": "671b82ca24b2e99c76e5f30c23869a191be31615b5d3ffe2bf0a22ec4424ca57",
+            "role": "sole_accepted_action_reference",
+            "native_source": "sources/walk_N_2x2.png",
+            "native_sha256": "2979810733be2a49e351e9f312f5bfac81188de56188a8a6860de79b534b06ce",
+            "source_box": [
+              0,
+              627,
+              627,
+              1254
+            ],
+            "cardinal_phase": "N03"
+          }
+        ],
+        "generation_origin": {
+          "source": "host built-in image_gen",
+          "tool_cell": "87",
+          "reference_transport": "num_last_images_to_include=1",
+          "reference_lineage_file": "references/single-gait-attempt05/reference-lineage.json",
+          "reference_lineage_sha256": "591dae16adf945d135752e5601a2cbccb56f8a8f57a272c017db85fb8d975932",
+          "host_generated_file": "C:/Users/luyua/.codex/generated_images/01a0904f-b372-7c92-bf48-1637da088532/exec-d55e7964-6b24-4fd1-9940-1e4240ada60e.png"
+        },
+        "raw_native_size": [
+          1254,
+          1254
+        ],
+        "whole_canvas_scale": 0.5,
+        "target_box": [
+          0,
+          627,
+          627,
+          1254
+        ]
+      },
+      {
+        "frame": 4,
+        "raw_source": "sources/frame-originals/walk_NE04_attempt06.png",
+        "raw_sha256": "981ffb5aaf67d675291028a9c3cf952f3d89c390bfbee50a1af14dc6fb6ee478",
+        "source_box": [
+          0,
+          0,
+          1254,
+          1254
+        ],
+        "prompt_file": "prompts/walk_NE04_from_NE03_attempt06.txt",
+        "prompt_sha256": "aec63a9baff7caa6a432cb2e6bd562a0df4997fb1db9d5c010fa46f6aab51962",
+        "visual_status": "passed_single_pose_review",
+        "visual_review_by": "root",
+        "reference_images": [
+          {
+            "path": "sources/frame-originals/recovered-exec-d55e7964-6b24-4fd1-9940-1e4240ada60e.png",
+            "sha256": "ea49dc5b3764cc5338743bf7755511a3708f08646dcd6cbf3ac5fb60548abb31"
+          }
+        ],
+        "generation_origin": {
+          "record_file": "generation-single-NE04-attempt06.json",
+          "record_sha256": "a678812120c7af034280b47565f014ae6018af0896fa22f2f3203cdf98ce8100",
+          "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a086ef-2e8c-73a2-bf70-7ac4b4bcde02\\exec-b5c0723c-5561-4867-8a13-f1c2bb07ed2a.png",
+          "reference_transport": "num_last_images_to_include=1"
+        },
+        "raw_native_size": [
+          1254,
+          1254
+        ],
+        "whole_canvas_scale": 0.5,
+        "target_box": [
+          627,
+          627,
+          1254,
+          1254
+        ]
+      }
+    ],
+    "raw_artifacts": [
+      {
+        "path": "sources/walk_NE_2x2_candidate_attempt03.png",
+        "sha256": "35968551a671a6ee971b6459d93ee7f800d540a7561d98cda6076734e7355d1f",
+        "native_size": [
+          1254,
+          1254
+        ],
+        "prompt_file": "prompts/walk_NE_camera_gait_fix_attempt03.txt",
+        "prompt_sha256": "cfaebcc0d812fd1007c085e36fd367aa41de7812380542d66003aff1e99173cd",
+        "source_type": "native_imagegen_output"
+      },
+      {
+        "path": "sources/frame-originals/recovered-exec-d55e7964-6b24-4fd1-9940-1e4240ada60e.png",
+        "sha256": "ea49dc5b3764cc5338743bf7755511a3708f08646dcd6cbf3ac5fb60548abb31",
+        "native_size": [
+          1254,
+          1254
+        ],
+        "prompt_file": "prompts/walk_NE03_action_only_attempt05.txt",
+        "prompt_sha256": "d1aa4938fd9ec355e96823f641d2d6cfe27d9346c080d81b64f3c5d49acd41e7",
+        "source_type": "native_imagegen_output"
+      },
+      {
+        "path": "sources/frame-originals/walk_NE04_attempt06.png",
+        "sha256": "981ffb5aaf67d675291028a9c3cf952f3d89c390bfbee50a1af14dc6fb6ee478",
+        "native_size": [
+          1254,
+          1254
+        ],
+        "prompt_file": "prompts/walk_NE04_from_NE03_attempt06.txt",
+        "prompt_sha256": "aec63a9baff7caa6a432cb2e6bd562a0df4997fb1db9d5c010fa46f6aab51962",
+        "source_type": "native_imagegen_output"
+      }
+    ]
+  },
+  "source_lineage_file": "sources/walk_NE_2x2.lineage.json"
 }
