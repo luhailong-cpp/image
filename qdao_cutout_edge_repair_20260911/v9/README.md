@@ -1,6 +1,6 @@
-# v9 04 / 14 连续色边修复（待正式发布）
+# v9 04 / 14 连续色边修复（已正式发布）
 
-两张 4096 × 4096 RGBA 已完成独立暂存及视觉验收，正式路径未覆盖。
+两张 4096 × 4096 RGBA 已完成视觉验收并原子写回正式路径。9 个原文件已备份至 backups/；22 张其他人物与历史生成、曝光和初次清边记录保持不变。
 
 - 04：沿已确认甲缝、袖口及邻接金杖从顶环至底端清边，共 61,593 个 RGB 像素。
 - 14：沿白发外轮廓、飞发环与两侧发髻完整清边，共 37,336 个 RGB 像素。
@@ -9,6 +9,6 @@
 
 最终入口：`stage_expanded_edges.py`。`stage_local_edges.py` 为首轮局部方法留档，最终结果以 `review.json` 与 `staged/` 为准。`review-04-*`、`review-14-*` 为首轮证据；`expanded-review-*` 是最终验收页。
 
-发布前核对 `review.json` 的 source_sha256，先备份再复制 staged_path 到 path；随后同步两张人物的 manifest、来源记录与 1024 预备图。
+发布结果见 `published.json`。两张 PNG 与 7 个当前元数据文件已同步；双 manifest、24 张图片、22 条逐图记录、两张主角继承来源链、22 条视觉验收与 24 条兼容映射的 SHA 已核对一致。实际客户端和 Git 未操作。
 
 ![完整人物前后](full-portrait-before-after.jpg)
