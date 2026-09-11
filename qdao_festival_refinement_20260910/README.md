@@ -11,14 +11,14 @@
 - [source-families.json](source-families.json)：八类素材的来源、派生关系、前置任务和验收约束。
 - [monitor-state.json](monitor-state.json)：实际已核对的进度与下一步；任务状态须在继续前重新读取。
 - [build_inventory.py](build_inventory.py)：重新建立元数据快照，只读源图片，输出本目录清单。未对当前全库重新计算哈希；历史哈希仅作来源记录，不能将旧审计结论自动套到新图。
-- 2026-09-11 人物 v9 静态重绘已完整交付：22 个职业人物与 2 个保留主角参考，24 个原路径均为 4096×4096 RGBA。当前[完成记录](../qdao_character_diversity_v9/completion.json)、[最终校验](../qdao_character_diversity_v9/validation.json)、[逐图视觉验收](../qdao_character_diversity_v9/visual_qa.json)及[兼容映射](../qdao_character_diversity_v9/compatibility_map.json)齐全且与当前成品哈希匹配；不再将 v9 本体列为缺失交付。v11 新增人物、动画及其他在制项目仍按各自任务核对。
+- 2026-09-11 人物 v9 静态重绘已完整交付：22 个职业人物与 2 个保留主角参考，24 个原路径均为 4096×4096 RGBA。当前[完成记录](../qdao_character_diversity_v9/completion.json)、[最终校验](../qdao_character_diversity_v9/validation.json)、[逐图视觉验收](../qdao_character_diversity_v9/visual_qa.json)及[兼容映射](../qdao_character_diversity_v9/compatibility_map.json)齐全且与当前成品哈希匹配。另有 22 张仓库内 `prepared` 职业人物准备副本已同步为 v9，保持原路径与 1024×1024 RGBA，逐像素与当前源图的降采样结果一致，见[准备副本同步验收](../qdao_character_diversity_v9/prepared_sync.json)。实际客户端未访问、未同步，此结果仅表示仓库内导入准备完成。v11 新增人物、动画及其他在制项目仍按各自任务核对。
+- 2026-09-11 任务／背包／活动三张静态 UI 效果图已完成：保留 `01-quests.png`，补齐 `02-inventory.png` 和 `03-activities.png`；均为原生 1931×814 RGB。查看[交付说明](../designs/gameplay-ui/README.md)与[逐图清单](../designs/gameplay-ui/manifest.json)。这是独立的静态图交付与本地预览，不代表客户端功能接入。
 
 ## 尚待完成的出图
 
 1. UI v10 正在制作。原画进度与最新监测结果见 `monitor-state.json`；158 个正式输出的 staged 验收尚未完成，现有正式素材没有因此丢失。
 2. 新增六位人物与八方向移动包 v11 尚未完整交付，最近一轮任务中断；已生成的局部帧或 QC 不能当作整包完成。
-3. 任务／背包／活动三页是独立的静态 UI 交付，见[页面约定](../designs/gameplay-ui/brief.md)。当前已有 `01-quests.png`，`02-inventory.png` 与 `03-activities.png` 尚缺，不能将三页视为完整交付。原任务归属仍待确认；接续前按实际任务与文件核对，避免重复制作。此事项与已完成的 v9 静态人物重绘分开记录。
-4. 新主城图已同步到本库，但其清单明确是 1254×1254 风格预览，尚未替换生产地图或验证新导航。精修使用该画法作为参考，正式地图仍遵守 6144 母图和 36 张 1024 切片的既有约定。
+3. 新主城图已同步到本库，但其清单明确是 1254×1254 风格预览，尚未替换生产地图或验证新导航。精修使用该画法作为参考，正式地图仍遵守 6144 母图和 36 张 1024 切片的既有约定。
 
 ## 开始后的处理顺序
 
