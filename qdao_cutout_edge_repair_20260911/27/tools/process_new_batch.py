@@ -50,7 +50,7 @@ def key_matte(image):
     key=np.median(samples,axis=0)
     keydistance=np.sqrt(np.sum((rgb-key)**2,axis=2))
     field=(keydistance<=8)&(dom>170)
-    strong=(dom>160)&(g<85)
+    strong=(dom>65)&(g<140)&(b>r*.62)
     # Enclosed key pockets between hair/kite strings can differ from the
     # outer field after generation; include their neighboring antialiasing.
     near=np.asarray(Image.fromarray(((field|strong)*255).astype('uint8')).filter(ImageFilter.MaxFilter(21)))>0
