@@ -13,7 +13,9 @@ PACK=Path(__file__).resolve().parents[1]
 ROOT=PACK.parents[1]
 STAGE=PACK/'staged-v2'
 TARGET=ROOT/'qdao_chibi_roster_v11/27_ink_kite_ranger'
-BASELINE=PACK/'production-baseline.json'
+ORIGINAL_BASELINE=PACK/'production-baseline.json'
+TRANSITION=PACK/'root-reviewed-baseline-transition.json'
+BASELINE=PACK/'production-baseline-reviewed.json' if (PACK/'production-baseline-reviewed.json').exists() else ORIGINAL_BASELINE
 APPROVAL=STAGE/'processing/final-visual-approval.json'
 DIRS=['S','SW','W','NW','N','NE','E','SE']
 ROWS={'cardinal':['S','W','E','N'],'diagonal':['SW','NW','NE','SE']}
@@ -28,6 +30,18 @@ def safe(p,root):
 def baseline():
  d=read(BASELINE);assert Path(d['target']).resolve()==TARGET.resolve();rows={r['path']:r for r in d['files']}
  assert len(rows)==len(d['files'])==99,'Unexpected production baseline'
+ if BASELINE!=ORIGINAL_BASELINE:
+  transition=read(TRANSITION);assert transition['schema']=='qdao.root-reviewed-baseline-transition.v1' and transition['status']=='root_reviewed'
+  assert sha(ORIGINAL_BASELINE)==transition['original_baseline']['sha256']==sha(PACK/'production-baseline.original.json')
+  assert sha(BASELINE)==transition['reviewed_baseline']['sha256']
+  previous={r['path']:r for r in read(ORIGINAL_BASELINE)['files']};assert set(previous)==set(rows)
+  updates={r['path']:r for r in transition['allowed_updates']}
+  assert set(updates)=={'manifest.json','processing/scale-profile.json','prompts/walk_E_2x2.txt','prompts/walk_W_2x2.txt','qc.json','STATUS.md'}
+  for name,row in rows.items():
+   if name in updates:
+    update=updates[name];assert previous[name]['sha256']==update['baseline_sha256'] and row['sha256']==update['actual_sha256']
+    assert sha(safe(PACK/update['read_only_snapshot'],PACK/'production-drift-20260911'))==update['actual_sha256']==update['backup_sha256']
+   else:assert row['sha256']==previous[name]['sha256'],'Unreviewed baseline change'
  return rows
 def baseline_check(rows):
  for name,r in rows.items():assert sha(safe(TARGET/name,TARGET))==r['sha256'],'Production changed since baseline: '+name
@@ -202,6 +216,9 @@ def prepare():
   dest=safe(release/name,release);dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(text,encoding='utf-8');payload[name]=dest
  for name in MEDIA:add(name,STAGE/name)
  capture(BASELINE);capture(APPROVAL);capture(Path(__file__))
+ if BASELINE!=ORIGINAL_BASELINE:
+  capture(ORIGINAL_BASELINE);capture(PACK/'production-baseline.original.json');capture(TRANSITION)
+  for update in read(TRANSITION)['allowed_updates']:capture(PACK/update['read_only_snapshot'])
  originals={};sources={};prompt_names={};history_files={};native_artifacts={};relocations={}
  # Current reference paths must resolve in the release, including raw-cell references.
  for key in ['portrait']+DIRS:
