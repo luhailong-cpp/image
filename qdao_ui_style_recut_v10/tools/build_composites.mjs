@@ -44,7 +44,8 @@ const inventory = await readJson(path.join(pack, 'contracts/current_files.json')
 const baseline = new Map(inventory.files.map(item => [item.path, item]));
 const layerDir = 'q_daoist_login_ui_uncropped_highres_final_layers';
 const hudDir = 'qdao_ui_redesign_v5/hud';
-const hudContract = await readJson(path.join(repo, hudDir, 'placement.json'));
+const inputRoot = path.join(pack, 'contracts/composite-inputs');
+const hudContract = await readJson(path.join(inputRoot, hudDir, 'placement.json'));
 const embedded = /data:image\/png;base64,[A-Za-z0-9+/=]+/g;
 const replacements = new Map(), componentSources = [], missing = [];
 
@@ -58,7 +59,7 @@ for (const asset of componentContract.assets) {
   const png = await fs.readFile(candidate), meta = await sharp(png).metadata();
   if (meta.width !== asset.width || meta.height !== asset.height || !meta.hasAlpha)
     throw new Error(`Wrong staged component contract: ${asset.id}`);
-  const original = await fs.readFile(path.join(repo, 'qdao_ui_redesign_v5/components', asset.svg), 'utf8');
+  const original = await fs.readFile(path.join(inputRoot, 'qdao_ui_redesign_v5/components', asset.svg), 'utf8');
   const oldUris = [...new Set(original.match(embedded) || [])];
   if (oldUris.length !== 1) throw new Error(`Expected one old PNG in ${asset.svg}; found ${oldUris.length}`);
   const newUri = 'data:image/png;base64,' + png.toString('base64');
@@ -82,13 +83,13 @@ function replacePaint(original, name) {
 }
 const transformed = {};
 for (const name of ['base', 'controls']) {
-  const original = await fs.readFile(path.join(repo, layerDir, 'native_q5', name + '.svg'), 'utf8');
+  const original = await fs.readFile(path.join(inputRoot, layerDir, 'native_q5', name + '.svg'), 'utf8');
   transformed[name] = replacePaint(original, 'server/' + name);
   if (/<text\b/.test(transformed[name].source)) throw new Error(`Dynamic text in server ${name}`);
 }
-const labelsSource = await fs.readFile(path.join(repo, layerDir, 'native_q5/labels.svg'), 'utf8');
+const labelsSource = await fs.readFile(path.join(inputRoot, layerDir, 'native_q5/labels.svg'), 'utf8');
 for (const name of ['hud_skin', 'hud_overlay']) {
-  const original = await fs.readFile(path.join(repo, hudDir, name + '.svg'), 'utf8');
+  const original = await fs.readFile(path.join(inputRoot, hudDir, name + '.svg'), 'utf8');
   transformed[name] = replacePaint(original, name);
 }
 if (/<text\b/.test(transformed.hud_skin.source)) throw new Error('Text in HUD skin');
@@ -169,8 +170,8 @@ for (const name of ['hud_skin', 'hud_overlay']) {
   await savePng(`${hudDir}/${name}.png`, await render(transformed[name].source,2560,1080), name,
     { dynamic_text_baked: name === 'hud_overlay' });
 }
-await writeStage(`${hudDir}/hud_labels.svg`, await fs.readFile(path.join(repo,hudDir,'hud_labels.svg')));
-await savePng(`${hudDir}/hud_labels.png`, await fs.readFile(path.join(repo,hudDir,'hud_labels.png')),
+await writeStage(`${hudDir}/hud_labels.svg`, await fs.readFile(path.join(inputRoot,hudDir,'hud_labels.svg')));
+await savePng(`${hudDir}/hud_labels.png`, await fs.readFile(path.join(inputRoot,hudDir,'hud_labels.png')),
   'hud_labels', { unchanged_reason: 'Independent approved text layer is intentionally preserved' });
 const overlay = await fs.readFile(insideStage(`${hudDir}/hud_overlay.png`));
 const full = await sharp(hudBackgroundPath).composite([{input:overlay,left:0,top:0}])

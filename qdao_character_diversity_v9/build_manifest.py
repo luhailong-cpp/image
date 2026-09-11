@@ -51,12 +51,14 @@ def write(path, data):
 def main():
     baseline = read(HERE / 'baseline.json')
     previous = {x['path']: x for x in baseline['assets']}
+    inherited = {x['path']: x for x in read(HERE / 'inherited_refinements.json')['records']}
     assets = []
     # Limit this revision to the original paths; later packs are independent.
     for path in sorted(REPO / row['path'] for row in baseline['assets']):
         number = int(path.name[:2]) if path.name[:2].isdigit() else 0
         name = DESIGNS[number][0] if number else '金发带Q道童'
         digest = sha(path)
+        candidates = 0
         with Image.open(path) as im:
             im.verify()
         with Image.open(path) as im:
@@ -66,9 +68,10 @@ def main():
             assert min(bbox[0], bbox[1], 4096-bbox[2], 4096-bbox[3]) > 20
             if number:
                 p = np.asarray(im)
-                assert not ((p[:, :, 0]>200) & (p[:, :, 1]<100) & (p[:, :, 2]>200) & (p[:, :, 3]>0)).any(), path.name
+                candidates = int(((p[:, :, 0]>200) & (p[:, :, 1]<100) & (p[:, :, 2]>200) & (p[:, :, 3]>0)).sum())
         row = {'id': path.stem, 'name': name, 'path': path.name, 'size': [4096,4096],
-               'mode': 'RGBA', 'alpha_range': [0,255], 'subject_bounds': list(bbox), 'sha256': digest}
+               'mode': 'RGBA', 'alpha_range': [0,255], 'subject_bounds': list(bbox), 'sha256': digest,
+               'strong_chroma_candidates': candidates}
         original = previous[path.relative_to(REPO).as_posix()]
         if number:
             record_path = PACK / 'records' / f'{path.stem}.json'
@@ -83,8 +86,12 @@ def main():
                         'creation_method': 'individually generated original Daoist Q redesign',
                         'native_generation_size': record['native_generation_size']})
         else:
-            assert digest == original['sha256'], 'Preserved canonical hero changed'
-            row.update({'creation_method': 'unchanged approved canonical hero',
+            refinement = inherited.get(path.relative_to(REPO).as_posix())
+            expected_sha = refinement['output_sha256'] if refinement else original['sha256']
+            if refinement:
+                assert refinement['original_sha256'] == original['sha256'] and refinement['alpha_unchanged']
+            assert digest == expected_sha, 'Preserved canonical hero changed outside verified refinement'
+            row.update({'creation_method': 'approved canonical hero identity preserved; inherited verified v8 exposure refinement',
                         'record': '../qdao_asset_refresh_v6/hero_compat_manifest.json'})
         assets.append(row)
     assert len(assets) == 24 and sum('age_direction' in row for row in assets) == 22
@@ -95,6 +102,7 @@ def main():
         if 'age_direction' in row:
             assert reviewed[row['id']]['sha256'] == row['sha256'], 'Visual review is stale'
             assert reviewed[row['id']]['status'] == 'passed'
+            assert row['strong_chroma_candidates'] == reviewed[row['id']].get('accepted_color_candidates', 0), 'Unreviewed color-key candidate'
     manifest = {'schema': 'qdao.portraits.v9', 'date': '2026-09-11',
                 'baseline_commit': baseline['baseline_commit'], 'final_count':24,
                 'individually_redesigned_characters':22, 'preserved_canonical_hero_aliases':2,
@@ -113,13 +121,17 @@ def main():
           } for row in assets for prior in [previous['q_daoist_character_pack_4096/' + row['path']]]]})
     write(HERE / 'validation.json', {'status':'passed', 'date':'2026-09-11', 'redesigned':22, 'preserved':2,
           'all_same_original_paths_and_sizes':True, 'all_rgba':True,
-          'all_current_record_hashes_match':True, 'all_redesigns_changed':True,
-          'strong_magenta_pixels':0, 'all_transparent_margins_over_20px':True,
+          'all_current_record_hashes_match':True,
+          'inherited_published_refinements':len(inherited),
+          'inherited_alpha_unchanged':True, 'all_redesigns_changed':True,
+          'unreviewed_strong_chroma_candidates':0,
+          'reviewed_color_candidates':sum(row['strong_chroma_candidates'] for row in assets),
+          'all_transparent_margins_over_20px':True,
           'native_resolution_separately_recorded':True,
           'visual_review':'passed; current hashes match visual_qa.json',
           'engine_integration':False})
     lines = ['# 五行奇谈 · 原创道家Q版人物', '',
-       '2026-09-11完成根据“人物太相似”的反馈重设计01–22职业人物。全部保留原文件名和4096×4096真RGBA画布；两张金发带主角参考保持不变。角色通过脸型、年龄感、直发发型、胖瘦体态、衣袍轮廓和姿态区分。', '',
+       '2026-09-11完成根据“人物太相似”的反馈重设计01–22职业人物。全部保留原文件名和4096×4096真RGBA画布；两张金发带主角参考造型保持，沿用此前已验收的曝光修正。角色通过脸型、年龄感、直发发型、胖瘦体态、衣袍轮廓和姿态区分。', '',
        '全部不用卷发；直发可剪短、束起、盘髻或编辫。可借鉴传统仙侠群像的洒脱、清灵、英气和灵动气质，具体脸型、头饰、服装、配色和法器为本项目重新设计，不采用既有角色的成套标志性组合。', '',
        '[角色清单](manifest.json) · [设计说明](../qdao_character_diversity_v9/DESIGN_BRIEF.md) · [验证](../qdao_character_diversity_v9/validation.json) · [视觉验收](../qdao_character_diversity_v9/visual_qa.json)', '',
        '完整人工提示词在prompts/，逐图生成和透明处理记录在records/。实际原生尺寸单独记录；4096为原路径兼容导出，不冒称原生4K。按AGENTS使用宿主内置GPT Image 2路径；工具不开放模型/质量参数开关，high是质量目标，未宣称逐次强制设置。过程母图和处理副本不保留为交付。', '',
@@ -131,7 +143,7 @@ def main():
               'python -B qdao_character_diversity_v9/process_character.py --raw <本轮生成PNG> --id <原stem> --reference-note <实际参考方式>', '```', '',
               '本包是静态人物，未改主角[八向动作](../character_move_8dir/README.md)，未制作这些职业人物的新动画或接入客户端。']
     (PACK / 'README.md').write_text('\n'.join(lines)+'\n', encoding='utf8')
-    print('PASS: 22 redesigned v9 portraits + 2 unchanged hero references; all 4096 RGBA')
+    print('PASS: 22 redesigned v9 portraits + 2 preserved hero references; all 4096 RGBA')
 
 
 if __name__ == '__main__':

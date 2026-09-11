@@ -415,6 +415,7 @@ def attribute_layout_reviews(entries, images):
 def main():
     contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
     assert len(contract["sprites"]) == 31
+    baseline = {r["path"]: r for r in json.loads((PACK / "contracts/current_files.json").read_text(encoding="utf-8"))["files"]}
     source_index_sha256 = hash_file(PACK / "artwork/index.json")
     entries, images, provenance, validation = [], {}, [], []
     for original in contract["sprites"]:
@@ -428,8 +429,8 @@ def main():
         destination = OUT / "png" / (original["name"] + ".png")
         save(im, destination)
         images[original["name"]] = im
-        current = Image.open(REPO / RELATIVE / "png" / destination.name).convert("RGBA")
-        unchanged = current.tobytes() == im.tobytes()
+        previous = baseline[(RELATIVE / "png" / destination.name).as_posix()]
+        unchanged = previous["pixel_sha256"] == hashlib.sha256(im.tobytes()).hexdigest()
         if unchanged and not meta.get("preservedArtwork",False):
             raise AssertionError("Old skin unchanged: " + original["name"])
         item = deepcopy(original)

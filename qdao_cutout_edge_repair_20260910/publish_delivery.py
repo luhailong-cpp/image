@@ -1,7 +1,7 @@
 """Hash-guarded, backed-up publication of reviewed cutout repairs only."""
 from pathlib import Path
 from datetime import datetime,timezone
-import argparse,os,shutil,json
+import argparse,os,shutil,json,hashlib
 from PIL import Image
 import repair_edges as b
 import metadata_updates
@@ -50,6 +50,7 @@ def plan(kind):
     for rel,data in updates.items():
         out=folder/rel;b.dump(out,data)
         rows.append({'path':rel,'stage':out.relative_to(b.ROOT).as_posix(),'before_sha256':b.sha(b.ROOT/rel),'sha256':b.sha(out)})
+    for r in rows:r['backup_file']=hashlib.sha256(r['path'].encode()).hexdigest()[:24]+Path(r['path']).suffix
     result={'status':'ready_to_publish','id':record['id'],'kind':kind,'review':review,'records':rows,'dependencies':dependencies,
             'backup_root':f'qdao_cutout_edge_repair_20260910/backups/{record["id"]}','engine_import_performed':False}
     b.dump(b.PACK/f'publish-plan-{kind}.json',result)
@@ -67,7 +68,7 @@ def publish(kind):
         assert actual==d['sha256'],'Atlas source changed: '+d['path']
     backup=b.ROOT/p['backup_root'];assert backup.resolve().is_relative_to(b.PACK)
     for r in rows:
-        dst=backup/r['path'];dst.parent.mkdir(parents=True,exist_ok=True);assert not dst.exists();shutil.copy2(b.ROOT/r['path'],dst)
+        dst=backup/r['backup_file'];dst.parent.mkdir(parents=True,exist_ok=True);assert not dst.exists();shutil.copy2(b.ROOT/r['path'],dst)
     completed=[]
     try:
         for r in rows:
@@ -78,7 +79,7 @@ def publish(kind):
     except Exception:
         # Restore only our own already-written bytes, never a concurrent edit.
         for r in reversed(completed):
-            if b.sha(b.ROOT/r['path'])==r['sha256']:shutil.copy2(backup/r['path'],b.ROOT/r['path'])
+            if b.sha(b.ROOT/r['path'])==r['sha256']:shutil.copy2(backup/r['backup_file'],b.ROOT/r['path'])
         raise
     p['status']='published_verified';p['published_utc']=datetime.now(timezone.utc).isoformat();p['verified_files']=len(rows)
     b.dump(b.PACK/f'published-{kind}.json',p)
