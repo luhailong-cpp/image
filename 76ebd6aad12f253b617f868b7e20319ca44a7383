@@ -1,0 +1,3031 @@
+{
+  "schema": "qdao.svg.raster_pairs.v1",
+  "purpose": "Staging-only render candidates and read-only original source audit. Pass --check first. When grading, redirect svg and overlay source paths to the already graded sources; png remains the original alpha/hidden-RGB contract.",
+  "pairs": [
+    {
+      "id": "overview",
+      "svg": "qdao_ui_redesign_v5/components/overview.svg",
+      "png": "qdao_ui_redesign_v5/components/overview.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/qdao_ui_redesign_v5/components/overview.png",
+      "reason": "Composite SVG contains positioned embedded rasters; preserve vector labels/background while reusing graded component PNGs.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "50d653e23e59b8307b2254e3f5c779f721e295011ef6b34a60b9e435d6e277d0"
+      }
+    },
+    {
+      "id": "badges_overview",
+      "svg": "qdao_ui_redesign_v5/components/badges_overview.svg",
+      "png": "qdao_ui_redesign_v5/components/badges_overview.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/qdao_ui_redesign_v5/components/badges_overview.png",
+      "reason": "Composite SVG contains positioned embedded rasters; preserve vector labels/background while reusing graded component PNGs.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "070df6462cf7a0339e4bd5778d06c7585fc35010e260353165f943722cd899b4"
+      }
+    },
+    {
+      "id": "hud_skin",
+      "svg": "qdao_ui_redesign_v5/hud/hud_skin.svg",
+      "png": "qdao_ui_redesign_v5/hud/hud_skin.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/qdao_ui_redesign_v5/hud/hud_skin.png",
+      "reason": "Composite SVG contains positioned embedded rasters; preserve vector labels/background while reusing graded component PNGs.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "dcb6b180dca906769c741886b1755d7155df1847da805112c76ddabda4849c75"
+      }
+    },
+    {
+      "id": "hud_overlay",
+      "svg": "qdao_ui_redesign_v5/hud/hud_overlay.svg",
+      "png": "qdao_ui_redesign_v5/hud/hud_overlay.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/qdao_ui_redesign_v5/hud/hud_overlay.png",
+      "reason": "Composite SVG contains positioned embedded rasters; preserve vector labels/background while reusing graded component PNGs.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "eee17dcdb04879eb9c5d72d2975ca1552546de409833a3e785538aaea04344c7"
+      }
+    },
+    {
+      "id": "q_daoist_login_background_ui_uncropped_final_5120x2160",
+      "svg": "q_daoist_login_ui_uncropped_highres_final_layers/native_q5/base.svg",
+      "png": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_background_ui_uncropped_final_5120x2160.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_background_ui_uncropped_final_5120x2160.png",
+      "width": 5120,
+      "height": 2160,
+      "overlays": [
+        {
+          "png": "qdao_chibi_game_pack_v4/hero-transparent_1024.png",
+          "left": 4084,
+          "top": 60,
+          "width": 620,
+          "height": 620
+        }
+      ],
+      "reason": "Existing build_layers.mjs base recipe, direct SVG render at 2x and sequential alpha-over; hero is separate from base.svg.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "4d838b0e8952cb2870a2f0c410d48021c8b746dd36ec11705c5f8d26ed86d26f"
+      }
+    },
+    {
+      "id": "q_daoist_login_buttons_uncropped_final_5120x2160",
+      "svg": "q_daoist_login_ui_uncropped_highres_final_layers/native_q5/controls.svg",
+      "png": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_buttons_uncropped_final_5120x2160.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_buttons_uncropped_final_5120x2160.png",
+      "width": 5120,
+      "height": 2160,
+      "overlays": [],
+      "reason": "Existing build_layers.mjs controls recipe, direct SVG render at 2x and sequential alpha-over; hero is separate from base.svg.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "02a8e72b71c2a963fe711cdcdad1d85a69459839aa73c36f5c759b628821a70f"
+      }
+    },
+    {
+      "id": "q_daoist_login_ui_uncropped_final_recomposed_5120x2160",
+      "svg": "q_daoist_login_ui_uncropped_highres_final_layers/native_q5/base.svg",
+      "png": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_ui_uncropped_final_recomposed_5120x2160.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_ui_uncropped_final_recomposed_5120x2160.png",
+      "width": 5120,
+      "height": 2160,
+      "overlays": [
+        {
+          "png": "qdao_chibi_game_pack_v4/hero-transparent_1024.png",
+          "left": 4084,
+          "top": 60,
+          "width": 620,
+          "height": 620
+        },
+        {
+          "svg": "q_daoist_login_ui_uncropped_highres_final_layers/native_q5/controls.svg",
+          "left": 0,
+          "top": 0,
+          "width": 5120,
+          "height": 2160
+        }
+      ],
+      "reason": "Existing build_layers.mjs combined recipe, direct SVG render at 2x and sequential alpha-over; hero is separate from base.svg.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "262a649a2f23caefd8c63944223ea267fe5881ceba04afcf61f6430ff0bdb3a6"
+      }
+    },
+    {
+      "id": "q_daoist_login_ui_lidazui_headband_v2_5120x2160",
+      "svg": "q_daoist_login_ui_uncropped_highres_final_layers/native_q5/base.svg",
+      "png": "q_daoist_login_ui_lidazui_headband_v2_5120x2160.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/q_daoist_login_ui_lidazui_headband_v2_5120x2160.png",
+      "width": 5120,
+      "height": 2160,
+      "overlays": [
+        {
+          "png": "qdao_chibi_game_pack_v4/hero-transparent_1024.png",
+          "left": 4084,
+          "top": 60,
+          "width": 620,
+          "height": 620
+        },
+        {
+          "svg": "q_daoist_login_ui_uncropped_highres_final_layers/native_q5/controls.svg",
+          "left": 0,
+          "top": 0,
+          "width": 5120,
+          "height": 2160
+        }
+      ],
+      "reason": "Existing build_layers.mjs transparent_ui_alias recipe, direct SVG render at 2x and sequential alpha-over; hero is separate from base.svg.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "262a649a2f23caefd8c63944223ea267fe5881ceba04afcf61f6430ff0bdb3a6"
+      }
+    },
+    {
+      "id": "q_daoist_login_ui_redrawn_transparent_5120x2160",
+      "svg": "q_daoist_login_ui_uncropped_highres_final_layers/native_q5/base.svg",
+      "png": "q_daoist_login_ui_redrawn_transparent_5120x2160.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/q_daoist_login_ui_redrawn_transparent_5120x2160.png",
+      "width": 5120,
+      "height": 2160,
+      "overlays": [
+        {
+          "png": "qdao_chibi_game_pack_v4/hero-transparent_1024.png",
+          "left": 4084,
+          "top": 60,
+          "width": 620,
+          "height": 620
+        },
+        {
+          "svg": "q_daoist_login_ui_uncropped_highres_final_layers/native_q5/controls.svg",
+          "left": 0,
+          "top": 0,
+          "width": 5120,
+          "height": 2160
+        }
+      ],
+      "reason": "Existing build_layers.mjs transparent_ui_alias recipe, direct SVG render at 2x and sequential alpha-over; hero is separate from base.svg.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "262a649a2f23caefd8c63944223ea267fe5881ceba04afcf61f6430ff0bdb3a6"
+      }
+    },
+    {
+      "id": "q_daoist_login_background_ui_uncropped_final_10240x4320",
+      "svg": "q_daoist_login_ui_uncropped_highres_final_layers/native_q5/base.svg",
+      "png": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_background_ui_uncropped_final_10240x4320.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_background_ui_uncropped_final_10240x4320.png",
+      "width": 10240,
+      "height": 4320,
+      "overlays": [
+        {
+          "png": "qdao_chibi_game_pack_v4/hero-transparent_1024.png",
+          "left": 8168,
+          "top": 120,
+          "width": 1240,
+          "height": 1240
+        }
+      ],
+      "reason": "Existing build_layers.mjs base recipe, direct SVG render at 4x and sequential alpha-over; hero is separate from base.svg.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "0ce9c2d91c6e0289416285172ba57cf17ab1d84ae189748a14b012686c36ab85"
+      }
+    },
+    {
+      "id": "q_daoist_login_buttons_uncropped_final_10240x4320",
+      "svg": "q_daoist_login_ui_uncropped_highres_final_layers/native_q5/controls.svg",
+      "png": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_buttons_uncropped_final_10240x4320.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_buttons_uncropped_final_10240x4320.png",
+      "width": 10240,
+      "height": 4320,
+      "overlays": [],
+      "reason": "Existing build_layers.mjs controls recipe, direct SVG render at 4x and sequential alpha-over; hero is separate from base.svg.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "dddabe5659d6e56adb001b314c00a74233fe790b8a2172d1a887be78d9f9c902"
+      }
+    },
+    {
+      "id": "q_daoist_login_ui_uncropped_final_recomposed_10240x4320",
+      "svg": "q_daoist_login_ui_uncropped_highres_final_layers/native_q5/base.svg",
+      "png": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_ui_uncropped_final_recomposed_10240x4320.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_ui_uncropped_final_recomposed_10240x4320.png",
+      "width": 10240,
+      "height": 4320,
+      "overlays": [
+        {
+          "png": "qdao_chibi_game_pack_v4/hero-transparent_1024.png",
+          "left": 8168,
+          "top": 120,
+          "width": 1240,
+          "height": 1240
+        },
+        {
+          "svg": "q_daoist_login_ui_uncropped_highres_final_layers/native_q5/controls.svg",
+          "left": 0,
+          "top": 0,
+          "width": 10240,
+          "height": 4320
+        }
+      ],
+      "reason": "Existing build_layers.mjs combined recipe, direct SVG render at 4x and sequential alpha-over; hero is separate from base.svg.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "d9c8ba71aa08bc18a006c0c94629a6e716df6b4c26ea0d4c9bfd721c2b7461c5"
+      }
+    },
+    {
+      "id": "wrapper_bottom_bar_bg_green_white",
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/bottom_bar_bg_green_white.svg",
+      "png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/bottom_bar_bg_green_white.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/bottom_bar_bg_green_white.png",
+      "reason": "Embedded PNG pixels are mapped through a smaller SVG viewBox and default image preserveAspectRatio=meet. Root physical dimensions have a slightly different aspect ratio. Compare a render of the original SVG to the target PNG, not the raw embedded pixels.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "e27c78d3f3ca6ed815d2ff3dd791a0fe7f5fd53298e3e91417caa0afb7290e7e"
+      }
+    },
+    {
+      "id": "wrapper_list_bg_selected_green",
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/list_bg_selected_green.svg",
+      "png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/list_bg_selected_green.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/list_bg_selected_green.png",
+      "reason": "Embedded PNG pixels are mapped through a smaller SVG viewBox and default image preserveAspectRatio=meet. Root physical dimensions have a slightly different aspect ratio. Compare a render of the original SVG to the target PNG, not the raw embedded pixels.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "f49f4f3a2230f6b963b7e1c0cdae54385b7e70a5c3e1f69f73ef945c90293874"
+      }
+    },
+    {
+      "id": "wrapper_list_bg_unselected",
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/list_bg_unselected.svg",
+      "png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/list_bg_unselected.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/list_bg_unselected.png",
+      "reason": "Embedded PNG pixels are mapped through a smaller SVG viewBox and default image preserveAspectRatio=meet. Root physical dimensions have a slightly different aspect ratio. Compare a render of the original SVG to the target PNG, not the raw embedded pixels.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "f1933026f0d8f9142410cbf42a7894d38f80d553608c439d3c69f0bdfb06f7d4"
+      }
+    },
+    {
+      "id": "wrapper_search_box_with_icon",
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/search_box_with_icon.svg",
+      "png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/search_box_with_icon.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/search_box_with_icon.png",
+      "reason": "Embedded PNG pixels are mapped through a smaller SVG viewBox and default image preserveAspectRatio=meet. Root physical dimensions have a slightly different aspect ratio. Compare a render of the original SVG to the target PNG, not the raw embedded pixels.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "31244fd1da5f63757c17da885f870cc0d0f87b6192b3b02d9c4459965c6d7aa4"
+      }
+    },
+    {
+      "id": "wrapper_server_card_bg_medium",
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/server_card_bg_medium.svg",
+      "png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/server_card_bg_medium.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/server_card_bg_medium.png",
+      "reason": "Embedded PNG pixels are mapped through a smaller SVG viewBox and default image preserveAspectRatio=meet. Root physical dimensions have a slightly different aspect ratio. Compare a render of the original SVG to the target PNG, not the raw embedded pixels.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "44f5798e547eb98161c0b994b3a948e23c8dfe7a8178918cdcba0ca02aeb0ad7"
+      }
+    },
+    {
+      "id": "wrapper_server_card_bg_medium_selected_green",
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/server_card_bg_medium_selected_green.svg",
+      "png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/server_card_bg_medium_selected_green.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/server_card_bg_medium_selected_green.png",
+      "reason": "Embedded PNG pixels are mapped through a smaller SVG viewBox and default image preserveAspectRatio=meet. Root physical dimensions have a slightly different aspect ratio. Compare a render of the original SVG to the target PNG, not the raw embedded pixels.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "9852abf0ed921c987a62db131b91d6efecff75ec3fdee62f0fb926b2694d2e4b"
+      }
+    },
+    {
+      "id": "wrapper_server_card_bg_wide",
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/server_card_bg_wide.svg",
+      "png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/server_card_bg_wide.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/server_card_bg_wide.png",
+      "reason": "Embedded PNG pixels are mapped through a smaller SVG viewBox and default image preserveAspectRatio=meet. Root physical dimensions have a slightly different aspect ratio. Compare a render of the original SVG to the target PNG, not the raw embedded pixels.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "b7db09c49c2929962e0a326b289826f2a546243e820dacd94f3d4d3cdda58fca"
+      }
+    },
+    {
+      "id": "wrapper_server_card_bg_wide_selected_green",
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/server_card_bg_wide_selected_green.svg",
+      "png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/server_card_bg_wide_selected_green.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/server_card_bg_wide_selected_green.png",
+      "reason": "Embedded PNG pixels are mapped through a smaller SVG viewBox and default image preserveAspectRatio=meet. Root physical dimensions have a slightly different aspect ratio. Compare a render of the original SVG to the target PNG, not the raw embedded pixels.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "c37173e6d89225ca1f4353965be404752f6dcbdb2b7fe146b028f84715a1f103"
+      }
+    },
+    {
+      "id": "wrapper_top_button_green_selected",
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/top_button_green_selected.svg",
+      "png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/top_button_green_selected.png",
+      "output": "qdao_exposure_refinement_v8/staged_svg_rasters/q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/top_button_green_selected.png",
+      "reason": "Embedded PNG pixels are mapped through a smaller SVG viewBox and default image preserveAspectRatio=meet. Root physical dimensions have a slightly different aspect ratio. Compare a render of the original SVG to the target PNG, not the raw embedded pixels.",
+      "original_baseline": {
+        "raw_render_exact_pixels": true,
+        "raw_render_alpha_different_pixels": 0,
+        "raw_render_png_bytes_exact": true,
+        "sha256": "27a1de1bea01f7dbc33a36b078a9d7a3dd83a6a54ed5f9791ac4d71fcd3fb103"
+      }
+    }
+  ],
+  "single_image_wrapper_count": 112,
+  "single_image_wrappers": [
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_bottom_bar.svg",
+      "candidate_png": "exact_qdao_slices/fx_bottom_bar.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        1250,
+        180
+      ],
+      "png_dimensions": [
+        1250,
+        180
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 4318,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_left_row_active.svg",
+      "candidate_png": "exact_qdao_slices/fx_left_row_active.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        240,
+        65
+      ],
+      "png_dimensions": [
+        240,
+        65
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 778,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_left_row_idle_1.svg",
+      "candidate_png": "exact_qdao_slices/fx_left_row_idle_1.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        240,
+        65
+      ],
+      "png_dimensions": [
+        240,
+        65
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 749,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_left_row_idle_2.svg",
+      "candidate_png": "exact_qdao_slices/fx_left_row_idle_2.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        240,
+        65
+      ],
+      "png_dimensions": [
+        240,
+        65
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 749,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_left_row_idle_3.svg",
+      "candidate_png": "exact_qdao_slices/fx_left_row_idle_3.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        240,
+        65
+      ],
+      "png_dimensions": [
+        240,
+        65
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 749,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_left_row_idle_4.svg",
+      "candidate_png": "exact_qdao_slices/fx_left_row_idle_4.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        240,
+        65
+      ],
+      "png_dimensions": [
+        240,
+        65
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 749,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_search_box.svg",
+      "candidate_png": "exact_qdao_slices/fx_search_box.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        250,
+        61
+      ],
+      "png_dimensions": [
+        250,
+        61
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 734,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_0.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_0.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        473,
+        100
+      ],
+      "png_dimensions": [
+        473,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1630,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_0_badge.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_0_badge.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        116,
+        100
+      ],
+      "png_dimensions": [
+        116,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 405,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_0_base.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_0_base.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        473,
+        100
+      ],
+      "png_dimensions": [
+        473,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1630,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_0_dot.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_0_dot.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        47,
+        46
+      ],
+      "png_dimensions": [
+        47,
+        46
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 161,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_0_stroke.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_0_stroke.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        142,
+        35
+      ],
+      "png_dimensions": [
+        142,
+        35
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 430,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_1.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_1.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        473,
+        100
+      ],
+      "png_dimensions": [
+        473,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1630,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_1_badge.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_1_badge.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        116,
+        100
+      ],
+      "png_dimensions": [
+        116,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 421,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_1_base.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_1_base.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        473,
+        100
+      ],
+      "png_dimensions": [
+        473,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1630,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_1_dot.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_1_dot.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        47,
+        46
+      ],
+      "png_dimensions": [
+        47,
+        46
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 161,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_1_stroke.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_1_stroke.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        142,
+        35
+      ],
+      "png_dimensions": [
+        142,
+        35
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 430,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_2.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_2.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        473,
+        100
+      ],
+      "png_dimensions": [
+        473,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1630,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_2_badge.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_2_badge.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        116,
+        100
+      ],
+      "png_dimensions": [
+        116,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 405,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_2_base.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_2_base.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        473,
+        100
+      ],
+      "png_dimensions": [
+        473,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1630,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_2_dot.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_2_dot.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        47,
+        46
+      ],
+      "png_dimensions": [
+        47,
+        46
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 161,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_2_stroke.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_2_stroke.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        142,
+        35
+      ],
+      "png_dimensions": [
+        142,
+        35
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 430,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_3.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_3.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        473,
+        100
+      ],
+      "png_dimensions": [
+        473,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1630,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_3_badge.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_3_badge.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        116,
+        100
+      ],
+      "png_dimensions": [
+        116,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 417,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_3_base.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_3_base.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        473,
+        100
+      ],
+      "png_dimensions": [
+        473,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1630,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_3_dot.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_3_dot.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        47,
+        46
+      ],
+      "png_dimensions": [
+        47,
+        46
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 161,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_3_stroke.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_3_stroke.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        142,
+        35
+      ],
+      "png_dimensions": [
+        142,
+        35
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 430,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_4.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_4.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        473,
+        100
+      ],
+      "png_dimensions": [
+        473,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1630,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_4_badge.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_4_badge.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        116,
+        100
+      ],
+      "png_dimensions": [
+        116,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 377,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_4_base.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_4_base.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        473,
+        100
+      ],
+      "png_dimensions": [
+        473,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1630,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_4_dot.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_4_dot.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        47,
+        46
+      ],
+      "png_dimensions": [
+        47,
+        46
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 161,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_4_stroke.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_4_stroke.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        142,
+        35
+      ],
+      "png_dimensions": [
+        142,
+        35
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 430,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_5.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_5.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        473,
+        100
+      ],
+      "png_dimensions": [
+        473,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1630,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_5_badge.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_5_badge.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        116,
+        100
+      ],
+      "png_dimensions": [
+        116,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 407,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_5_base.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_5_base.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        473,
+        100
+      ],
+      "png_dimensions": [
+        473,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1630,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_5_dot.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_5_dot.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        47,
+        46
+      ],
+      "png_dimensions": [
+        47,
+        46
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 161,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_5_stroke.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_5_stroke.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        142,
+        35
+      ],
+      "png_dimensions": [
+        142,
+        35
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 430,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_6.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_6.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        473,
+        100
+      ],
+      "png_dimensions": [
+        473,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1630,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_6_badge.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_6_badge.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        116,
+        100
+      ],
+      "png_dimensions": [
+        116,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 397,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_6_base.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_6_base.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        473,
+        100
+      ],
+      "png_dimensions": [
+        473,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1630,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_6_dot.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_6_dot.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        47,
+        46
+      ],
+      "png_dimensions": [
+        47,
+        46
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 161,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_6_stroke.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_6_stroke.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        142,
+        35
+      ],
+      "png_dimensions": [
+        142,
+        35
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 430,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_7.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_7.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        473,
+        100
+      ],
+      "png_dimensions": [
+        473,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1630,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_7_badge.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_7_badge.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        116,
+        100
+      ],
+      "png_dimensions": [
+        116,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 391,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_7_base.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_7_base.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        473,
+        100
+      ],
+      "png_dimensions": [
+        473,
+        100
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1630,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_7_dot.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_7_dot.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        47,
+        46
+      ],
+      "png_dimensions": [
+        47,
+        46
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 161,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_server_card_7_stroke.svg",
+      "candidate_png": "exact_qdao_slices/fx_server_card_7_stroke.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        142,
+        35
+      ],
+      "png_dimensions": [
+        142,
+        35
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 430,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_top_tab_active.svg",
+      "candidate_png": "exact_qdao_slices/fx_top_tab_active.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        260,
+        76
+      ],
+      "png_dimensions": [
+        260,
+        76
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 798,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_top_tab_idle_mid.svg",
+      "candidate_png": "exact_qdao_slices/fx_top_tab_idle_mid.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        300,
+        66
+      ],
+      "png_dimensions": [
+        300,
+        66
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 881,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "exact_qdao_slices/svg_q5/fx_top_tab_idle_right.svg",
+      "candidate_png": "exact_qdao_slices/fx_top_tab_idle_right.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        344,
+        66
+      ],
+      "png_dimensions": [
+        344,
+        66
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1003,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/ai_qstyle_badges_sheet_chroma.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/ai_qstyle_badges_sheet_chroma.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        1774,
+        887
+      ],
+      "png_dimensions": [
+        1774,
+        887
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 27206,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/bottom_bar_bg_green_white.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/bottom_bar_bg_green_white.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        6679,
+        413
+      ],
+      "png_dimensions": [
+        6679,
+        413
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": false,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": false,
+      "rgb_max_abs_difference": 255,
+      "opaque_rgb_different_pixels": 805740,
+      "semi_transparent_rgb_different_pixels": 155553,
+      "note": "Embedded PNG pixels are mapped through a smaller SVG viewBox and default image preserveAspectRatio=meet. Root physical dimensions have a slightly different aspect ratio. Compare a render of the original SVG to the target PNG, not the raw embedded pixels.",
+      "requires_svg_render": true,
+      "id": "wrapper_bottom_bar_bg_green_white"
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/icon_cauldron.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/icon_cauldron.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        420,
+        420
+      ],
+      "png_dimensions": [
+        420,
+        420
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 4386,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/icon_compass.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/icon_compass.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        420,
+        420
+      ],
+      "png_dimensions": [
+        420,
+        420
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 4365,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/icon_fire.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/icon_fire.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        420,
+        420
+      ],
+      "png_dimensions": [
+        420,
+        420
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 4472,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/icon_leaf.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/icon_leaf.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        420,
+        420
+      ],
+      "png_dimensions": [
+        420,
+        420
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 4268,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/icon_lotus.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/icon_lotus.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        420,
+        420
+      ],
+      "png_dimensions": [
+        420,
+        420
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 4537,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/icon_mountain.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/icon_mountain.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        420,
+        420
+      ],
+      "png_dimensions": [
+        420,
+        420
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 4571,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/icon_pagoda.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/icon_pagoda.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        420,
+        420
+      ],
+      "png_dimensions": [
+        420,
+        420
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 4350,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/icon_peach_spirit.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/icon_peach_spirit.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        420,
+        420
+      ],
+      "png_dimensions": [
+        420,
+        420
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 4268,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/icon_sword.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/icon_sword.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        420,
+        420
+      ],
+      "png_dimensions": [
+        420,
+        420
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 4417,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/icon_water.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/icon_water.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        420,
+        420
+      ],
+      "png_dimensions": [
+        420,
+        420
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 4602,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/icon_yin_yang.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/icon_yin_yang.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        420,
+        420
+      ],
+      "png_dimensions": [
+        420,
+        420
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 4993,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/list_bg_selected_green.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/list_bg_selected_green.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        1419,
+        380
+      ],
+      "png_dimensions": [
+        1419,
+        380
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": false,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": false,
+      "rgb_max_abs_difference": 255,
+      "opaque_rgb_different_pixels": 295618,
+      "semi_transparent_rgb_different_pixels": 32761,
+      "note": "Embedded PNG pixels are mapped through a smaller SVG viewBox and default image preserveAspectRatio=meet. Root physical dimensions have a slightly different aspect ratio. Compare a render of the original SVG to the target PNG, not the raw embedded pixels.",
+      "requires_svg_render": true,
+      "id": "wrapper_list_bg_selected_green"
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/list_bg_unselected.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/list_bg_unselected.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        1419,
+        380
+      ],
+      "png_dimensions": [
+        1419,
+        380
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": false,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": false,
+      "rgb_max_abs_difference": 255,
+      "opaque_rgb_different_pixels": 234870,
+      "semi_transparent_rgb_different_pixels": 36782,
+      "note": "Embedded PNG pixels are mapped through a smaller SVG viewBox and default image preserveAspectRatio=meet. Root physical dimensions have a slightly different aspect ratio. Compare a render of the original SVG to the target PNG, not the raw embedded pixels.",
+      "requires_svg_render": true,
+      "id": "wrapper_list_bg_unselected"
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/ornament_gold_flower.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/ornament_gold_flower.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        360,
+        360
+      ],
+      "png_dimensions": [
+        360,
+        360
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 2578,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/search_box_with_icon.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/search_box_with_icon.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        1428,
+        285
+      ],
+      "png_dimensions": [
+        1428,
+        285
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": false,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": false,
+      "rgb_max_abs_difference": 255,
+      "opaque_rgb_different_pixels": 143767,
+      "semi_transparent_rgb_different_pixels": 37477,
+      "note": "Embedded PNG pixels are mapped through a smaller SVG viewBox and default image preserveAspectRatio=meet. Root physical dimensions have a slightly different aspect ratio. Compare a render of the original SVG to the target PNG, not the raw embedded pixels.",
+      "requires_svg_render": true,
+      "id": "wrapper_search_box_with_icon"
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/server_card_bg_medium.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/server_card_bg_medium.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        2364,
+        574
+      ],
+      "png_dimensions": [
+        2364,
+        574
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": false,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": false,
+      "rgb_max_abs_difference": 255,
+      "opaque_rgb_different_pixels": 476611,
+      "semi_transparent_rgb_different_pixels": 64220,
+      "note": "Embedded PNG pixels are mapped through a smaller SVG viewBox and default image preserveAspectRatio=meet. Root physical dimensions have a slightly different aspect ratio. Compare a render of the original SVG to the target PNG, not the raw embedded pixels.",
+      "requires_svg_render": true,
+      "id": "wrapper_server_card_bg_medium"
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/server_card_bg_medium_selected_green.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/server_card_bg_medium_selected_green.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        2364,
+        574
+      ],
+      "png_dimensions": [
+        2364,
+        574
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": false,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": false,
+      "rgb_max_abs_difference": 255,
+      "opaque_rgb_different_pixels": 622411,
+      "semi_transparent_rgb_different_pixels": 66154,
+      "note": "Embedded PNG pixels are mapped through a smaller SVG viewBox and default image preserveAspectRatio=meet. Root physical dimensions have a slightly different aspect ratio. Compare a render of the original SVG to the target PNG, not the raw embedded pixels.",
+      "requires_svg_render": true,
+      "id": "wrapper_server_card_bg_medium_selected_green"
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/server_card_bg_wide.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/server_card_bg_wide.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        2606,
+        574
+      ],
+      "png_dimensions": [
+        2606,
+        574
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": false,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": false,
+      "rgb_max_abs_difference": 255,
+      "opaque_rgb_different_pixels": 367113,
+      "semi_transparent_rgb_different_pixels": 94256,
+      "note": "Embedded PNG pixels are mapped through a smaller SVG viewBox and default image preserveAspectRatio=meet. Root physical dimensions have a slightly different aspect ratio. Compare a render of the original SVG to the target PNG, not the raw embedded pixels.",
+      "requires_svg_render": true,
+      "id": "wrapper_server_card_bg_wide"
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/server_card_bg_wide_selected_green.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/server_card_bg_wide_selected_green.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        2606,
+        574
+      ],
+      "png_dimensions": [
+        2606,
+        574
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": false,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": false,
+      "rgb_max_abs_difference": 255,
+      "opaque_rgb_different_pixels": 418392,
+      "semi_transparent_rgb_different_pixels": 87027,
+      "note": "Embedded PNG pixels are mapped through a smaller SVG viewBox and default image preserveAspectRatio=meet. Root physical dimensions have a slightly different aspect ratio. Compare a render of the original SVG to the target PNG, not the raw embedded pixels.",
+      "requires_svg_render": true,
+      "id": "wrapper_server_card_bg_wide_selected_green"
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/status_red_dot.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/status_red_dot.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        128,
+        128
+      ],
+      "png_dimensions": [
+        128,
+        128
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 473,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/svg_q5/top_button_green_selected.svg",
+      "candidate_png": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/top_button_green_selected.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        1391,
+        441
+      ],
+      "png_dimensions": [
+        1391,
+        441
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": false,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": false,
+      "rgb_max_abs_difference": 255,
+      "opaque_rgb_different_pixels": 249120,
+      "semi_transparent_rgb_different_pixels": 34385,
+      "note": "Embedded PNG pixels are mapped through a smaller SVG viewBox and default image preserveAspectRatio=meet. Root physical dimensions have a slightly different aspect ratio. Compare a render of the original SVG to the target PNG, not the raw embedded pixels.",
+      "requires_svg_render": true,
+      "id": "wrapper_top_button_green_selected"
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/check.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/check.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        48,
+        48
+      ],
+      "png_dimensions": [
+        48,
+        48
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 164,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/cloud_corner.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/cloud_corner.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        160,
+        160
+      ],
+      "png_dimensions": [
+        160,
+        160
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1143,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/content_panel.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/content_panel.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        1080,
+        620
+      ],
+      "png_dimensions": [
+        1080,
+        620
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 14866,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/gold_flower.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/gold_flower.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        120,
+        120
+      ],
+      "png_dimensions": [
+        120,
+        120
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 477,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/list_row_disabled.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/list_row_disabled.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        360,
+        96
+      ],
+      "png_dimensions": [
+        360,
+        96
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1497,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/list_row_normal.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/list_row_normal.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        360,
+        96
+      ],
+      "png_dimensions": [
+        360,
+        96
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1425,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/list_row_selected.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/list_row_selected.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        360,
+        96
+      ],
+      "png_dimensions": [
+        360,
+        96
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1325,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/lock.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/lock.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        48,
+        48
+      ],
+      "png_dimensions": [
+        48,
+        48
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 211,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/main_frame.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/main_frame.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        1440,
+        840
+      ],
+      "png_dimensions": [
+        1440,
+        840
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 13364,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/primary_button_disabled.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/primary_button_disabled.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        460,
+        112
+      ],
+      "png_dimensions": [
+        460,
+        112
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1497,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/primary_button_normal.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/primary_button_normal.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        460,
+        112
+      ],
+      "png_dimensions": [
+        460,
+        112
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1765,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/primary_button_selected.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/primary_button_selected.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        460,
+        112
+      ],
+      "png_dimensions": [
+        460,
+        112
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1765,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/recommend_badge.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/recommend_badge.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        96,
+        40
+      ],
+      "png_dimensions": [
+        96,
+        40
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 296,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/round_badge_compass.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/round_badge_compass.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        120,
+        120
+      ],
+      "png_dimensions": [
+        120,
+        120
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 474,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/round_badge_flame.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/round_badge_flame.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        120,
+        120
+      ],
+      "png_dimensions": [
+        120,
+        120
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 459,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/round_badge_furnace.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/round_badge_furnace.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        120,
+        120
+      ],
+      "png_dimensions": [
+        120,
+        120
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 460,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/round_badge_lotus.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/round_badge_lotus.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        120,
+        120
+      ],
+      "png_dimensions": [
+        120,
+        120
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 475,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/round_badge_mountain.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/round_badge_mountain.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        120,
+        120
+      ],
+      "png_dimensions": [
+        120,
+        120
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 461,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/round_badge_pagoda.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/round_badge_pagoda.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        120,
+        120
+      ],
+      "png_dimensions": [
+        120,
+        120
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 451,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/round_badge_peach_spirit.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/round_badge_peach_spirit.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        120,
+        120
+      ],
+      "png_dimensions": [
+        120,
+        120
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 456,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/round_badge_sword.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/round_badge_sword.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        120,
+        120
+      ],
+      "png_dimensions": [
+        120,
+        120
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 441,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/round_badge_taiji.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/round_badge_taiji.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        120,
+        120
+      ],
+      "png_dimensions": [
+        120,
+        120
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 464,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/round_badge_water.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/round_badge_water.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        120,
+        120
+      ],
+      "png_dimensions": [
+        120,
+        120
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 461,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/search_disabled.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/search_disabled.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        420,
+        84
+      ],
+      "png_dimensions": [
+        420,
+        84
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1355,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/search_normal.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/search_normal.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        420,
+        84
+      ],
+      "png_dimensions": [
+        420,
+        84
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1229,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/search_selected.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/search_selected.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        420,
+        84
+      ],
+      "png_dimensions": [
+        420,
+        84
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1582,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/server_card_medium_disabled.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/server_card_medium_disabled.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        520,
+        126
+      ],
+      "png_dimensions": [
+        520,
+        126
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 2216,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/server_card_medium_normal.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/server_card_medium_normal.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        520,
+        126
+      ],
+      "png_dimensions": [
+        520,
+        126
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 2466,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/server_card_medium_selected.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/server_card_medium_selected.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        520,
+        126
+      ],
+      "png_dimensions": [
+        520,
+        126
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 2442,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/server_card_wide_disabled.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/server_card_wide_disabled.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        640,
+        141
+      ],
+      "png_dimensions": [
+        640,
+        141
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 2726,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/server_card_wide_normal.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/server_card_wide_normal.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        640,
+        141
+      ],
+      "png_dimensions": [
+        640,
+        141
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 3096,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/server_card_wide_selected.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/server_card_wide_selected.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        640,
+        141
+      ],
+      "png_dimensions": [
+        640,
+        141
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 3001,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/status_dot_gray.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/status_dot_gray.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        32,
+        32
+      ],
+      "png_dimensions": [
+        32,
+        32
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 112,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/status_dot_green.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/status_dot_green.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        32,
+        32
+      ],
+      "png_dimensions": [
+        32,
+        32
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 104,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/status_dot_orange.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/status_dot_orange.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        32,
+        32
+      ],
+      "png_dimensions": [
+        32,
+        32
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 108,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/summary_bar.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/summary_bar.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        1280,
+        79
+      ],
+      "png_dimensions": [
+        1280,
+        79
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 3877,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/tab_disabled.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/tab_disabled.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        360,
+        114
+      ],
+      "png_dimensions": [
+        360,
+        114
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1265,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/tab_normal.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/tab_normal.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        360,
+        114
+      ],
+      "png_dimensions": [
+        360,
+        114
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1417,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    },
+    {
+      "svg": "qdao_ui_redesign_v5/components/svg/tab_selected.svg",
+      "candidate_png": "qdao_ui_redesign_v5/components/png/tab_selected.png",
+      "candidate_exists": true,
+      "embedded_dimensions": [
+        360,
+        114
+      ],
+      "png_dimensions": [
+        360,
+        114
+      ],
+      "embedded_bytes_match_png": false,
+      "same_shape": true,
+      "alpha_exact": true,
+      "rgba_pixels_exact": false,
+      "hidden_rgb_exact": true,
+      "rgb_max_abs_difference": 1,
+      "opaque_rgb_different_pixels": 0,
+      "semi_transparent_rgb_different_pixels": 1477,
+      "note": "Existing SVG rasterization produces premultiplication rounding in RGB at semi-transparent edges. Alpha and hidden RGB are identical. This is not an exposure mismatch.",
+      "requires_svg_render": false
+    }
+  ],
+  "unchanged_vector_only_pairs": [
+    {
+      "svg": "qdao_ui_redesign_v5/hud/hud_labels.svg",
+      "png": "qdao_ui_redesign_v5/hud/hud_labels.png",
+      "action": "Keep original text raster and SVG unchanged; no embedded PNG."
+    },
+    {
+      "svg": "q_daoist_login_ui_uncropped_highres_final_layers/native_q5/labels.svg",
+      "png": null,
+      "action": "Keep original text SVG unchanged."
+    }
+  ],
+  "downstream_not_simple_svg_pairs": [
+    {
+      "png": "qdao_ui_redesign_v5/source/04_main_city_hud.png",
+      "recipe": "Alpha-over freshly rendered hud_overlay.png on graded qdao_chibi_game_pack_v4/preview-main-city_2560x1080.png; existing HUD build.mjs does this."
+    },
+    {
+      "pngs": [
+        "q_daoist_login_clear_2560x1080.png",
+        "q_daoist_login_clear_lidazui_headband_2560x1080.png",
+        "ugui_qdao_headband_2560x1080.png",
+        "ugui_qdao_headband_native_2560x1080.png"
+      ],
+      "recipe": "Historical build_layers.mjs: graded city + flat #EFF5DA 25% veil + 2560x1080 base+hero+controls + labels.svg. These paths may have since been replaced with newer v7 scene renderings; verify current content before rebuilding from the historical recipe.",
+      "current_matches_historical_manifest": [
+        {
+          "png": "q_daoist_login_clear_2560x1080.png",
+          "matches": true
+        },
+        {
+          "png": "q_daoist_login_clear_lidazui_headband_2560x1080.png",
+          "matches": true
+        },
+        {
+          "png": "ugui_qdao_headband_2560x1080.png",
+          "matches": true
+        },
+        {
+          "png": "ugui_qdao_headband_native_2560x1080.png",
+          "matches": true
+        }
+      ]
+    }
+  ],
+  "single_image_wrapper_summary": {
+    "count": 112,
+    "direct_wrappers": 103,
+    "viewbox_fit_wrappers": 9,
+    "direct_wrappers_all_alpha_exact": true,
+    "direct_wrappers_all_hidden_rgb_exact": true,
+    "direct_wrappers_all_opaque_rgb_exact": true,
+    "direct_wrappers_maximum_rgb_rounding_difference": 1
+  },
+  "baseline_summary": {
+    "verified_pairs": 21,
+    "all_raw_renders_png_byte_exact": true,
+    "all_original_alpha_exact": true,
+    "report_files": [
+      "svg_raster_pairs_baseline_direct.json",
+      "svg_raster_pairs_baseline_layers.json",
+      "svg_raster_pairs_baseline_wrappers.json"
+    ]
+  }
+}
