@@ -83,19 +83,44 @@ def nodes(value):
  elif isinstance(value,list):
   for v in value:yield from nodes(v)
 
+def assembled(rec):
+ return bool(rec.get('assembled')) or rec.get('source_type')=='assembled_2x2_from_native_generations'
+
+def real_prompt(rec):
+ # Inline prompt prose is generation history, never a filesystem path.
+ for field in ['prompt_file','prompt']:
+  value=rec.get(field)
+  if not isinstance(value,str) or len(value)>240 or '\n' in value or '\r' in value:continue
+  try:
+   path=safe(PACK/value,PACK)
+   if not path.is_file():continue
+  except (OSError,ValueError,AssertionError):continue
+  if rec.get('prompt_sha256'):assert sha(path)==rec['prompt_sha256'],'Generation prompt changed'
+  return path
+ return None
+
 def find_prompt(source_sha):
- """Match a final source's exact SHA to an actual recorded generation prompt."""
+ """Prefer the nine final accepted input mappings; skip all inline prose."""
+ final=PACK/'generation-final.json'
+ generation_files=[final] if final.exists() else sorted(PACK.glob('generation*.json'))+sorted((PACK/'sources').glob('*generation*.json'))
  matches=[]
- for path in sorted(PACK.glob('generation*.json'))+sorted((PACK/'sources').glob('*generation*.json')):
+ for path in generation_files:
   data=read(path)
-  for rec in nodes(data):
-   if rec.get('sha256',rec.get('source_sha256'))!=source_sha or not isinstance(rec.get('prompt'),str):continue
-   prompt=safe(PACK/rec['prompt'],PACK);assert prompt.is_file(),'Recorded prompt missing'
-   if rec.get('prompt_sha256'):assert sha(prompt)==rec['prompt_sha256'],'Generation prompt changed'
+  candidates=data['records'] if path==final else nodes(data)
+  for rec in candidates:
+   if rec.get('sha256',rec.get('source_sha256'))!=source_sha:continue
+   prompt=real_prompt(rec)
+   if prompt is None and not assembled(rec):continue
    matches.append((prompt,path,rec))
- assert matches,'No source-SHA-matched generation prompt record: '+source_sha
- assert len({sha(item[0]) for item in matches})==1,'Conflicting prompt records for one source SHA'
+ assert matches,'No source-SHA-matched final generation/prompt record: '+source_sha
+ assert len({sha(item[0]) if item[0] is not None else None for item in matches})==1,'Conflicting prompt records for one source SHA'
  return matches[-1]
+
+def remap_paths(value,mapping):
+ if isinstance(value,dict):return {k:remap_paths(v,mapping) for k,v in value.items()}
+ if isinstance(value,list):return [remap_paths(v,mapping) for v in value]
+ if isinstance(value,str):return mapping.get(value,mapping.get(value.replace('\\','/'),value))
+ return value
 
 def inspect():
  rows=baseline();diff=[]
@@ -122,21 +147,55 @@ def prepare():
   dest=safe(release/name,release);dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(text,encoding='utf-8');payload[name]=dest
  for name in MEDIA:add(name,STAGE/name)
  capture(BASELINE);capture(APPROVAL);capture(Path(__file__))
- originals={};sources={};prompt_names={};history_files={}
+ originals={};sources={};prompt_names={};history_files={};native_artifacts={};relocations={}
  for key in ['portrait']+DIRS:
   rec_path=STAGE/'processing'/f'{key}.json';capture(rec_path);rec=read(rec_path)
   source=safe(Path(rec['path']),PACK/'sources');assert sha(source)==rec['sha256']
   expected_name='portrait_raw.png' if key=='portrait' else f'walk_{key}_2x2.png';assert source.name==expected_name
-  prompt,generation,generation_record=find_prompt(rec['sha256']);capture(prompt);capture(generation)
+  prompt,generation,generation_record=find_prompt(rec['sha256']);capture(generation)
+  composite=assembled(generation_record) or assembled(rec)
+  if prompt is not None:capture(prompt)
   originals[key]=copy.deepcopy(rec);new=copy.deepcopy(rec)
   canonical_prompt='portrait.txt' if key=='portrait' else f'walk_{key}_2x2.txt'
-  add('sources/'+expected_name,source);add('prompts/'+canonical_prompt,prompt);prompt_names[key]='prompts/'+canonical_prompt
+  add('sources/'+expected_name,source)
+  if prompt is not None:add('prompts/'+canonical_prompt,prompt)
+  else:
+   assert composite,'A native generated input requires an actual prompt file'
+   prose('prompts/'+canonical_prompt,'Deterministic 2x2 layout of separately generated art cells. This is an assembly recipe, not an ImageGen prompt. See processing/'+key+'.json generation_lineage for native raw sources, source boxes, uniform scales, target boxes, and each actual generation prompt.\n')
+  prompt_names[key]='prompts/'+canonical_prompt
   new['staging_source_path']=new['path'];new['path']=str((TARGET/'sources'/expected_name).resolve())
-  new['prompt_file']=str((TARGET/'prompts'/canonical_prompt).resolve());new['prompt_sha256']=sha(prompt)
+  new['prompt_file']=str((TARGET/'prompts'/canonical_prompt).resolve());new['prompt_sha256']=sha(release/'prompts'/canonical_prompt)
   new['generation_record']='processing/generation-history/'+generation.name
+  new['source_type']=generation_record.get('source_type',rec.get('source_type','native_generated_art'))
+  new['native_generation']=not composite
+  if composite:
+   new['assembled']=True;new['native_size_semantics']='assembled processing-input canvas, not one native generated image'
+   lineage=copy.deepcopy(generation_record.get('generation_lineage',rec.get('generation_lineage')))
+   assert isinstance(lineage,dict) and len(lineage['frames'])==4 and lineage['raw_artifacts'],'Assembled input requires exact per-frame native lineage'
+   local_map={}
+   for index,raw in enumerate(lineage['raw_artifacts']):
+    raw_path=safe(PACK/raw['path'],PACK);assert sha(raw_path)==raw['sha256'];capture(raw_path)
+    with Image.open(raw_path) as raw_im:assert list(raw_im.size)==raw['native_size']
+    raw_prompt=real_prompt(raw);assert raw_prompt is not None,'Native per-frame prompt missing';capture(raw_prompt)
+    raw_dest='sources/frame-originals/'+key+'-'+str(index).zfill(2)+'-'+raw_path.name
+    prompt_dest='prompts/frame-originals/'+key+'-'+str(index).zfill(2)+'-'+raw_prompt.name
+    add(raw_dest,raw_path);add(prompt_dest,raw_prompt)
+    for original,final in [(raw['path'],str((TARGET/raw_dest).resolve())),(str(raw_path),str((TARGET/raw_dest).resolve())),(raw.get('prompt_file',raw.get('prompt')),str((TARGET/prompt_dest).resolve())),(str(raw_prompt),str((TARGET/prompt_dest).resolve()))]:
+     if isinstance(original,str):local_map[original]=final;local_map[original.replace('\\','/')]=final
+    native_artifacts[raw['sha256']]={'path':raw_dest,'sha256':raw['sha256'],'native_size':raw['native_size']}
+   for frame in lineage['frames']:
+    raw=safe(PACK/frame['raw_source'],PACK);assert sha(raw)==frame['raw_sha256']
+    with Image.open(raw) as raw_im:assert list(raw_im.size)==frame['raw_native_size']
+    assert any(x['sha256']==frame['raw_sha256'] for x in lineage['raw_artifacts'])
+    assert len(frame['source_box'])==len(frame['target_box'])==4
+   new['generation_lineage']=remap_paths(lineage,local_map);new['source']='deterministic layout of separately generated native art cells'
+  else:native_artifacts[rec['sha256']]={'path':'sources/'+expected_name,'sha256':rec['sha256'],'native_size':rec['native_size']}
+  if generation_record.get('reference_images'):
+   new['reference_images']=copy.deepcopy(generation_record['reference_images'])
+   for reference in generation_record['reference_images']:
+    reference_path=safe(PACK/reference['path'],ROOT);assert sha(reference_path)==reference['sha256'];capture(reference_path)
   new['visual_approval']={'status':'approved','record':'processing/final-visual-approval.json','sha256':approved_sha}
-  sources[key]=new;doc('processing/'+key+'.json',new)
-  history_files[generation.name]=generation
+  sources[key]=new;doc('processing/'+key+'.json',new);history_files[generation.name]=generation
  for name,path in history_files.items():doc('processing/generation-history/'+name,{'original_record_path':str(path.resolve()),'original_sha256':sha(path),'record':read(path)})
  for name in ['scale-profile.json','frame-transforms.json']:add('processing/'+name,STAGE/'processing'/name)
  doc('processing/sources.json',sources)
@@ -149,18 +208,18 @@ def prepare():
   record={'kind':'deterministic_assembly_of_approved_processed_frames','native_generation':False,
    'size':[2048,2048],'path':str((TARGET/alias).resolve()),'sha256':sha(STAGE/sheet),
    'row_order':directions,'source_records':{d:'processing/'+d+'.json' for d in directions},
-   'note':'Compatibility 4x4 sheet. Native generated sources are the separate 2x2 inputs in sources/walk_DIRECTION_2x2.png.'}
+   'note':'Compatibility 4x4 sheet. The separate sources/walk_DIRECTION_2x2.png files are processing inputs; some are composite layouts. Actual native sources are listed in each generation_lineage.'}
   assembly[kind]=record;doc(f'processing/{kind}-pipeline-meta.json',record)
-  text=f'Deterministic compatibility assembly of the new approved 512px RGBA frames; rows {", ".join(directions)}, four frames per row. This is not native generated raw art. See processing/sources.json for the eight native 2x2 inputs.\n'
+  text=f'Deterministic compatibility assembly of the new approved 512px RGBA frames; rows {", ".join(directions)}, four frames per row. This is not native generated raw art. See processing/sources.json for the eight processing inputs and their actual native generation lineages.\n'
   prose(f'prompts/{kind}_assembled.txt',text);prose(f'processing/{kind}-prompt-used.txt',text)
  doc('sources/assembly.json',assembly)
- doc('processing/portrait-pipeline-meta.json',sources['portrait']);add('processing/portrait-prompt-used.txt',find_prompt(sources['portrait']['sha256'])[0])
- manifest=read(capture(STAGE/'manifest.json'));manifest['sources']=sources;manifest['status']='published_visual_and_numeric_verified'
+ doc('processing/portrait-pipeline-meta.json',sources['portrait']);add('processing/portrait-prompt-used.txt',release/'prompts/portrait.txt')
+ manifest=read(capture(STAGE/'manifest.json'));manifest['sources']=sources;manifest['status']='published_visual_and_numeric_verified';manifest['source_resolution_note']='Processing-input canvas sizes do not imply native generation resolution for assembled inputs. source_type/native_generation identify composites; generation_lineage records each actual raw native size, source crop, scale, target placement and prompt.'
  manifest['visual_approval']={'path':'processing/final-visual-approval.json','sha256':approved_sha}
  manifest['compatibility_assembly']=assembly;manifest['current_rebuild_workflow']='qdao_cutout_edge_repair_20260911/27/tools/process_new_batch.py -> repair-folder staging -> visual approval -> publish_approved_batch.py'
  doc('manifest.json',manifest)
  qc=read(capture(STAGE/'qc.json'));qc['status']='passed_visual_and_numeric_qc';qc['visual_review']={'status':'approved','record':'processing/final-visual-approval.json','sha256':approved_sha};doc('qc.json',qc)
- status='''# 27 墨鸢：本轮交付已完成\n\n立绘、八向各四帧、八条 strip、八个 GIF 与两张 4×4 表共 51 个媒体已完成当前 SHA 的视觉和机械验收。客户端未导入。\n\n当前原画在 sources/portrait_raw.png 与 sources/walk_DIRECTION_2x2.png；原生尺寸逐份记录，1024/512/2048 为处理后的导出尺寸。sources/cardinal_assembled.png 与 diagonal_assembled.png 是新帧拼接的兼容表，不是原生生图。\n\n当前重建入口为本轮 qdao_cutout_edge_repair_20260911/27/tools/process_new_batch.py：先输出修复目录暂存，复核当前 SHA，再由同目录 publish_approved_batch.py 受保护发布。旧 assemble_directions.py、supplement_manifest.py 与旧流水线属于历史流程，不能不经复核覆盖当前成品。旧 source/ 内 raw 和 sources/ 内 rejected 候选保留为历史资料，不是当前原画。\n\n验收：processing/final-visual-approval.json、processing/artifact-validation.json、qc.json。来源：processing/sources.json 和逐方向处理记录。\n'''
+ status='''# 27 墨鸢：本轮交付已完成\n\n立绘、八向各四帧、八条 strip、八个 GIF 与两张 4×4 表共 51 个媒体已完成当前 SHA 的视觉和机械验收。客户端未导入。\n\n当前处理输入在 sources/portrait_raw.png 与 sources/walk_DIRECTION_2x2.png，共9个输入；其中部分2×2是分别生成的姿态原画排版，不能计作一张原生生图。实际原生图及逐帧native尺寸、source_box、缩放和提示词见generation_lineage与sources/frame-originals/。1024/512/2048为处理后的导出尺寸。sources/cardinal_assembled.png 与 diagonal_assembled.png 是新帧拼接的兼容表，不是原生生图。\n\n当前重建入口为本轮 qdao_cutout_edge_repair_20260911/27/tools/process_new_batch.py：先输出修复目录暂存，复核当前 SHA，再由同目录 publish_approved_batch.py 受保护发布。旧 assemble_directions.py、supplement_manifest.py 与旧流水线属于历史流程，不能不经复核覆盖当前成品。旧 source/ 内 raw 和 sources/ 内 rejected 候选保留为历史资料，不是当前原画。\n\n验收：processing/final-visual-approval.json、processing/artifact-validation.json、qc.json。来源：processing/sources.json 和逐方向处理记录。\n'''
  prose('STATUS.md',status);prose('README.md',status)
  # Freeze an auditable pending plan, without changing any production file.
  for path,s in inputs.items():assert sha(ROOT/path)==s,'Input changed during preparation: '+path
@@ -174,9 +233,9 @@ def prepare():
    'backup':'qdao_cutout_edge_repair_20260911/27/backups/'+f'{i:03d}'+Path(name).suffix})
  plan={'status':'prepared_not_published','prepared_utc':now(),'target':str(TARGET),'release':str(release),
   'approval':str(APPROVAL),'approval_sha256':approved_sha,'baseline_sha256':sha(BASELINE),'inputs':inputs,
-  'files':entries,'historical_unchanged':{name:r['sha256'] for name,r in rows.items() if name not in payload},'numeric_validation':numeric}
+  'files':entries,'historical_unchanged':{name:r['sha256'] for name,r in rows.items() if name not in payload},'numeric_validation':numeric,'native_generation_artifacts':list(native_artifacts.values())}
  write(PACK/'publication-plan.json',plan)
- print(json.dumps({'status':plan['status'],'files':len(entries),'approved_media':51,'native_sources':9,'production_written':False}))
+ print(json.dumps({'status':plan['status'],'files':len(entries),'approved_media':51,'processing_inputs':9,'native_generation_artifacts':len(native_artifacts),'production_written':False}))
 
 def publish():
  plan_path=PACK/'publication-plan.json';plan=read(plan_path);assert plan['status']=='prepared_not_published'
@@ -213,6 +272,13 @@ def publish():
   for key,r in manifest['sources'].items():
    assert sha(Path(r['path']))==r['sha256'];assert sha(Path(r['prompt_file']))==r['prompt_sha256']
    assert safe(Path(r['path']),TARGET/'sources').is_file();assert safe(Path(r['prompt_file']),TARGET/'prompts').is_file()
+  for r in manifest['sources'].values():
+   for raw in r.get('generation_lineage',{}).get('raw_artifacts',[]):
+    assert sha(Path(raw['path']))==raw['sha256'];assert sha(Path(raw['prompt_file']))==raw['prompt_sha256']
+    assert safe(Path(raw['path']),TARGET/'sources/frame-originals').is_file()
+   for frame in r.get('generation_lineage',{}).get('frames',[]):
+    assert sha(Path(frame['raw_source']))==frame['raw_sha256'];assert sha(Path(frame['prompt_file']))==frame['prompt_sha256']
+    with Image.open(frame['raw_source']) as raw_im:assert list(raw_im.size)==frame['raw_native_size']
   for kind in ROWS:assert sha(TARGET/'sources'/f'{kind}_assembled.png')==sha(TARGET/f'walk-{kind}.png')
   for name,s in plan['historical_unchanged'].items():assert sha(TARGET/name)==s,'Historical file changed: '+name
   for r in plan['files']:assert sha(TARGET/r['path'])==r['output_sha256']
@@ -220,7 +286,7 @@ def publish():
    visual_approval_sha256=plan['approval_sha256'])
  except BaseException as e:
   report.update(status='stopped_due_to_error',error=str(e),stopped_utc=now());write(report_path,report);raise
- report['native_sources_and_prompts_verified']=9;report['historical_files_preserved']=len(plan['historical_unchanged']);report['client_accessed']=False;report['git_modified']=False
+ report['processing_inputs_and_prompts_verified']=9;report['historical_files_preserved']=len(plan['historical_unchanged']);report['client_accessed']=False;report['git_modified']=False;report['native_generation_artifacts_verified']=len(plan['native_generation_artifacts'])
  write(report_path,report);print(json.dumps({'status':report['status'],'files':len(report['files']),'approved_media':51}))
 
 if __name__=='__main__':

@@ -69,7 +69,7 @@ def assemble(spec_path):
     if out.exists():
         raise FileExistsError('Never silently overwrite an accepted processing input')
     sheet.save(out)
-    record = {'direction':direction,'path':rel(out),'sha256':sha(out),'native_size':list(sheet.size),'source':'deterministic layout of independently reviewed native built-in image_gen frames','source_type':'assembled_2x2_from_native_generations','assembled':True,'native_generation_count':len(artifacts),'generation_lineage':{'operation':'crop_native_cells_and_uniformly_resample_whole_canvases_then_layout','body_warp_or_per_frame_bbox_fit':False,'spec_file':rel(spec_path),'spec_sha256':sha(spec_path),'assembler_sha256':sha(Path(__file__)),'frames':lineage,'raw_artifacts':list(artifacts.values())}}
+    record = {'direction':direction,'path':rel(out),'sha256':sha(out),'native_size':list(sheet.size),'source':'deterministic layout of independently reviewed native built-in image_gen frames','source_type':'assembled_2x2_from_native_generations','assembled':True,'native_generation':False,'native_size_semantics':'assembled processing-input canvas, not one native generated image','native_generation_count':len(artifacts),'generation_lineage':{'operation':'crop_native_cells_and_uniformly_resample_whole_canvases_then_layout','body_warp_or_per_frame_bbox_fit':False,'spec_file':rel(spec_path),'spec_sha256':sha(spec_path),'assembler_sha256':sha(Path(__file__)),'frames':lineage,'raw_artifacts':list(artifacts.values())}}
     sidecar = PACK / f'sources/walk_{direction}_2x2.lineage.json'
     sidecar.write_text(json.dumps(record,ensure_ascii=False,indent=2),encoding='utf-8')
     print(json.dumps(record,ensure_ascii=False,indent=2))
