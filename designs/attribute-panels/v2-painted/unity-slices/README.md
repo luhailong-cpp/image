@@ -2,7 +2,7 @@
 
 更新：2026-09-11。当前 31 张 PNG 依据全项目指定选角风格重新制作：25 张新 UI 皮肤／控件、4 张宠物头像重裁，2 张干净的独立书法标题保留原像素。遵守深玉绿、象牙米白、细暖金、道家 Q 版及少量春节／元宵／中秋点缀；其他游戏截图只提供功能布局。完整原画和复现流程见 [v10](../../../../qdao_ui_style_recut_v10/README.md)。
 
-本次没有重新导入 Unity 或执行引擎内 UGUI 验收。原有 `unity-validation.json`、`unity-sprite-preview.png` 记录的是 2026-09-09 旧版导入，不能用于证明当前 v10 图片已经在客户端加载。
+2026-09-11 已通过官方 Unity relay MCP 将 31 张 v10 切图同步到客户端，保留原 GUID，并核验资源加载、哈希、尺寸和九宫格边距。真实人物／宝宝面板在 2560×1080、1920×1080 下共 10 张编辑器截图通过验收，相关测试 26 项通过。截图使用离线样例数据，不代表在线服务器验收。见 [v10 引擎报告](unity-validation-v10.json)、[导入报告](unity-import-v10.json) 和 [验收记录](unity-review-v10/qa-checks.txt)。原有 `unity-validation.json`、`unity-sprite-preview.png` 仅记录 2026-09-09 旧版。
 
 - [当前切片总览](sprite-overview.png)
 - [文件、边距与资源路径清单](manifest.json) · [文件核验](file-validation.json)
@@ -35,16 +35,25 @@
 
 ## 客户端接入合同
 
-既有目标目录为 `E:/work/mmorpg-client/Assets/Resources/UI/Ugui/AttributesPaintedV2/`，资源键仍是 `UI/Ugui/AttributesPaintedV2/<name>`。本次只更新本美术仓库的资源，不声称该客户端目录已经同步。
+既有目标目录为 `E:/work/mmorpg-client/Assets/Resources/UI/Ugui/AttributesPaintedV2/`，资源键仍是 `UI/Ugui/AttributesPaintedV2/<name>`。31 张 PNG 和 manifest 已同步，暂存区、美术正式目录、客户端三方哈希一致。
 
 接入时按当前 `manifest.json` 核对 31 个文件和哈希，沿用原名称、画布及 `borderLeftBottomRightTop`。可伸缩底板采用 Sliced；标题、头像与圆形图标保持比例。文字、真实属性值、等级、名称、状态和点击事件由原生控件实现；“相性点”继续移除。
 
-已有导入合同为 Sprite Single、Full Rect、Clamp、Bilinear、无压缩、关闭 mipmap、Alpha Is Transparency、最大纹理尺寸 4096。同步后仍需重新执行资源加载、中文排版、实际尺寸九宫格和游戏页面检查，保存针对新哈希的引擎报告。
+已有导入合同为 Sprite Single、Full Rect、Clamp、Bilinear、无压缩、关闭 mipmap、Alpha Is Transparency、最大纹理尺寸 4096。这些导入设置已在官方 MCP 中核验，并保存了针对当前哈希的 v10 报告。人物滑杆同时修正了纵向拉伸锚点导致点击区域变高的问题，真实控件区域保持 60×60。
 
 ## 重建与历史脚本
 
-在仓库根按 [v10 确定性重建步骤](../../../../qdao_ui_style_recut_v10/README.md#确定性重建)执行。属性构建入口为 `python qdao_ui_style_recut_v10/tools/build_attributes.py`，输出到 v10 暂存区；统一核验与发布器负责正式路径写入。
+在仓库根按 [v10 确定性重建步骤](../../../../qdao_ui_style_recut_v10/README.md#确定性重建)执行。属性构建入口为 `python qdao_ui_style_recut_v10/tools/build_attributes.py`，输出到 v10 暂存区；本次属性 31 件经逐文件哈希门禁后，由 `tools/ImportAttributesV10.cs` 通过官方 Unity MCP 发布到正式美术目录和客户端。
 
 `tools/SliceAttributeArtwork.cs` 是旧版 Unity 原图裁切脚本，原逻辑会同时覆盖美术仓库和客户端为旧皮肤，现已阻止执行并提示使用 v10。代码保留供历史追溯。`tools/VerifyAttributeSlices.cs` 是旧版引擎验证脚本，重用前须核对其输入和检查项适用于当前清单；不能直接沿用旧报告。
 
-本目录组合检查为离线静态美术检查，未运行 Unity。上级 HTML 和静态效果稿也没有随本次换皮。
+本目录 `*-review.png` 为离线美术组合检查；`unity-review-v10/` 为本次真实 Unity UGUI 面板截图及测试记录。上级 HTML 和旧静态效果稿仍为历史参考。当前服务端宝宝 1002（石灵）、1003（金猊）缺少已确认的对应头像，继续使用中性徽记；葫团团与符小虎切片已导入，未错误绑定到这两个模型。
+
+## 当前 Unity 面板预览
+
+- [人物属性](unity-review-v10/01-character-normal_2560x1080.png)
+- [宝宝属性](unity-review-v10/03-pets-normal_2560x1080.png)
+- [人物扩展列表底部](unity-review-v10/02-character-eight-rows-bottom_1920x1080.png)
+- [宝宝十项列表底部](unity-review-v10/05-pets-ten-bottom_1920x1080.png)
+
+`tools/ImportAttributesV10.cs` 保存本次官方 MCP 执行的导入命令，可审计其哈希门禁与备份行为；它使用本工作区的明确路径，仅用于这 31 张属性资源。

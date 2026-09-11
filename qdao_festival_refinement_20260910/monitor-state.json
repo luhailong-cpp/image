@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-09-11T07:02:33.986306+00:00",
+  "updated_at_utc": "2026-09-11T07:47:11.306073+00:00",
   "phase": "waiting_for_prerequisites",
   "all_images_complete": false,
   "images_edited_by_this_task": 0,
@@ -10,12 +10,12 @@
   "user_latest_request": "continue working; asked whether the whole task is complete",
   "generation_gate_open": false,
   "blocking_deliveries": {
-    "ui_v10": "Latest review covers all 158 actual outputs: 155 changed, 2 unchanged, 1 allowed retention, no missing. Review remains incomplete; 46 staged outputs passed recorded visual QA. Whole-package acceptance and formal release remain pending. Ignore stale top-level 158-missing count.",
-    "characters_v9": "Owner task explicitly confirmed resumption and is restoring/completing original straight-hair Daoist chibi roles 01-22. Wait for its final acceptance and completion report.",
-    "new_characters_v11": "Roles 25 and 26 passed recorded numeric and visual QC. Role 23 has 51 outputs and numeric contracts passed, but SW frame 4 gait needs one targeted repair. Role 24 QC failed at an undetermined earlier time; role 28 walking incomplete. No whole-package acceptance.",
-    "task_inventory_activity_pages": "01-quests.png exists. 02-inventory.png and 03-activities.png are still absent. Latest task turn is interrupted.",
-    "main_city_and_scenes": "New tianyong_festival_hd_20260910 progress records 10 of 36 detailed tiles; final 6144 master, manifest and verification not yet present. qdao_festival_scenes_20260910 currently holds four source-reference entries, not finished scenes; confirmed courtyard scope has no delivery yet. Latest map/scenes task turn interrupted.",
-    "style_repair": "Latest task is interrupted during two-frame edge-colour trial and staged UI checks; no final repair delivery verified."
+    "ui_v10": "Latest validation.json is ready_for_visual_review: 155 changed_needs_visual_review and 3 allowed_unchanged. README already describes formal delivery, but its linked publication.json is absent. Do not infer publication from draft README wording. Final hash-bound visual acceptance and publication remain unverified.",
+    "characters_v9": "visual_qa.json passed for 22 roles. README describes delivery, but linked manifest.json, validation.json and compatibility_map.json were absent at inspection. Owner is finishing final checks; do not stage or commit its in-progress directories.",
+    "new_characters_v11": "Roles 25 and 26 passed recorded numeric and visual QC. Role 23 requires targeted SW frame 4 gait repair; role 24 QC failed earlier; role 28 walking incomplete. Whole-package acceptance still pending.",
+    "task_inventory_activity_pages": "01-quests.png exists; 02-inventory.png and 03-activities.png remain absent. Coarse task is active, latest snapshot still shows the previously interrupted turn.",
+    "main_city_and_scenes": "HD main city remains 10/36 detailed tiles with final master/manifest/verification absent. Scene expansion still contains source references rather than finished scenes, with no courtyard delivery. Coarse task is active; latest snapshot still shows the previously interrupted turn.",
+    "style_repair": "Coarse task is active; latest snapshot remains the previously interrupted two-frame edge-colour trial. No new final repair acceptance verified."
   },
   "resume_other_task_question": "Superseded by the user instruction: if unfinished, continue. Continuation messages were accepted for UI v10 and character tasks v9/v11; UI and main city were observed in new in-progress turns. Avoid duplicate continuation messages.",
   "completed_evidence": {
@@ -24,26 +24,25 @@
     "new_city": "1254 style previews remain available; newer HD production is tracked separately and is incomplete."
   },
   "next_step": "Refresh task states and inventory after prerequisites finish, then begin source-based image refinement and validate dependent exports.",
-  "last_monitor_trigger_utc": "2026-09-11T06:56:41.488Z",
-  "monitor_decision": "Keep the original hourly schedule and preserve images while prerequisites remain incomplete. Do not duplicate previously accepted continuation messages. Notify once about newly confirmed interrupted prerequisite work after prior resume.",
+  "last_monitor_trigger_utc": "2026-09-11T07:42:12.137Z",
+  "monitor_decision": "Continue the original hourly schedule without image edits or duplicate continuation messages. Production is progressing but the global gate remains closed; do not repeat the previous interruption notice.",
   "thread_observations": [
     {
       "id": "01a08a19-8d1b-75c1-9e80-ee2fea9833b0",
-      "status": "idle",
-      "latest_turn": "interrupted",
-      "turn_id": "01a08bf9-1498-7602-8ec8-6083f5faccdc"
+      "status": "active",
+      "latest_turn": "inProgress",
+      "turn_id": "01a08f43-aa09-7d83-9234-f01d6e74f6ed"
     },
     {
       "id": "01a08a28-6391-7100-a82e-f3a966e57349",
-      "status": "notLoaded",
+      "status": "active",
       "latest_turn": "interrupted",
       "turn_id": "01a08bfb-9bda-7822-a51d-48199711880b"
     },
     {
       "id": "01a08a2b-8ef8-7d41-be4e-8962e24735e1",
-      "status": "notLoaded",
-      "latest_turn": "unverified",
-      "read_status": "tool error; files inspected; previously observed interrupted"
+      "status": "active",
+      "latest_turn": "interrupted"
     },
     {
       "id": "01a075d4-5b1f-7e31-b44f-18e351fa544f",
@@ -53,18 +52,18 @@
     },
     {
       "id": "01a0860b-36e6-7000-b128-67e7f4d73fa1",
-      "status": "notLoaded",
+      "status": "active",
       "latest_turn": "interrupted",
       "turn_id": "01a0872b-3f47-7eb2-9175-dfc27b869635"
     },
     {
       "id": "01a086ef-2e8c-73a2-bf70-7ac4b4bcde02",
-      "status": "notLoaded",
+      "status": "active",
       "latest_turn": "interrupted",
       "turn_id": "01a08bf8-c9f5-7c71-9711-aa571aef3ea8"
     }
   ],
-  "last_observed_change": "Newer HD-city production and scene-expansion roots found; HD city at 10/36. Role 23 has one targeted gait repair pending. UI, map/scenes, gameplay and style-repair latest turns are now interrupted after prior activity.",
+  "last_observed_change": "v9 visual QA passed for 22 roles; final linked records still absent. UI reached ready_for_visual_review for 155 changed plus 3 allowed-retained resources; linked publication record still absent. Other incomplete deliveries unchanged.",
   "partial_progress": {
     "role_26": {
       "manifest": "qdao_chibi_roster_v11/26_osmanthus_healer/manifest.json",
@@ -114,14 +113,24 @@
       "complete": false
     },
     "ui_review": {
-      "path": "qdao_ui_style_recut_v10/review_validation_20260910.json",
-      "status": "incomplete",
+      "path": "qdao_ui_style_recut_v10/validation.json",
+      "status": "ready_for_visual_review",
       "covered_outputs": 158,
-      "pixel_updated": 155,
-      "pixel_unchanged": 2,
-      "allowed_retained": 1,
-      "missing": 0,
-      "staged_visual_qa_passed": 46,
+      "changed_needs_visual_review": 155,
+      "allowed_unchanged": 3,
+      "publication_file": "qdao_ui_style_recut_v10/publication.json",
+      "publication_present_at_inspection": false,
+      "prior_staged_visual_qa_count": 46,
+      "prior_staged_qa_note": "Prior recorded group-level QA; not a substitute for current hash-bound whole-package visual acceptance.",
+      "complete": false
+    },
+    "characters_v9": {
+      "visual_qa_file": "qdao_character_diversity_v9/visual_qa.json",
+      "visual_qa_status": "passed",
+      "visually_reviewed_roles": 22,
+      "manifest_present_at_inspection": false,
+      "validation_present_at_inspection": false,
+      "compatibility_map_present_at_inspection": false,
       "complete": false
     }
   },
@@ -149,5 +158,10 @@
       "restriction": "Do not stage or commit these in-progress files before owner task completion. Owner handles validation, cleanup and its own local commit.",
       "v11_scope": "Separate roles 23-28; do not mix ownership."
     }
-  }
+  },
+  "related_client_tasks": {
+    "01a086f8-7613-7c43-844d-a17e5c8171c6": "active new inProgress turn; current messages empty, no verified new image-library output dependency; not an additional blocker solely for client work",
+    "01a086eb-a80d-71e0-b4ec-eb95a90a8669": "active new inProgress turn; current messages empty, no verified new image-library output dependency; not an additional blocker solely for client work"
+  },
+  "last_heartbeat_decision": "DONT_NOTIFY"
 }

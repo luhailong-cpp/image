@@ -93,9 +93,9 @@ for (const name of ['hud_skin', 'hud_overlay']) {
   transformed[name] = replacePaint(original, name);
 }
 if (/<text\b/.test(transformed.hud_skin.source)) throw new Error('Text in HUD skin');
-const heroPath = path.join(repo, 'qdao_chibi_game_pack_v4/hero-transparent_1024.png');
-const cityPath = path.join(repo, 'qdao_chibi_game_pack_v4/main-city_2560x1080.png');
-const hudBackgroundPath = path.join(repo, 'qdao_chibi_game_pack_v4/preview-main-city_2560x1080.png');
+const heroPath = path.join(inputRoot, 'qdao_chibi_game_pack_v4/hero-transparent_1024.png');
+const cityPath = path.join(inputRoot, 'qdao_chibi_game_pack_v4/main-city_2560x1080.png');
+const hudBackgroundPath = path.join(inputRoot, 'qdao_chibi_game_pack_v4/preview-main-city_2560x1080.png');
 const sceneInputs = [];
 for (const [p, role] of [[heroPath, 'existing_transparent_hero'], [cityPath, 'existing_server_city'],
   [hudBackgroundPath, 'existing_hud_city']]) {

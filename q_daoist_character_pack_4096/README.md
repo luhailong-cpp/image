@@ -1,41 +1,45 @@
-# 五行奇谈 · 4096 透明人物包
+# 五行奇谈 · 原创道家Q版人物
 
-原24个PNG路径和4096×4096画布保持不变。22个职业人物逐张使用内置image_gen重绘，按新版大头、圆脸、短身Q比例统一，保留各人的法器、发型与属性身份。两张参考道童统一复用已确认金发带角色。
+2026-09-11完成根据“人物太相似”的反馈重设计01–22职业人物。全部保留原文件名和4096×4096真RGBA画布；两张金发带主角参考造型保持，沿用此前已验收的曝光修正。角色通过脸型、年龄感、直发发型、胖瘦体态、衣袍轮廓和姿态区分。
 
-每张最终图均为真RGBA。原生生成通常1254×1254；通过generate2dsprite色键清理、脚底对齐后等比导出4096。4096是兼容画布，不代表原生4K细节。
+全部不用卷发；直发可剪短、束起、盘髻或编辫。可借鉴传统仙侠群像的洒脱、清灵、英气和灵动气质，具体脸型、头饰、服装、配色和法器为本项目重新设计，不采用既有角色的成套标志性组合。
 
-[逐图清单](manifest.json)记录尺寸、Alpha、边界、哈希与生成记录。完整提示词在prompts/，来源ID、原始哈希和技能处理数据在records/。过程母图、裁格和GIF不作为交付；重新生成需运行内置生图并视觉验收，然后用[处理入口](process_portrait.py)导出。
+[角色清单](manifest.json) · [设计说明](../qdao_character_diversity_v9/DESIGN_BRIEF.md) · [验证](../qdao_character_diversity_v9/validation.json) · [视觉验收](../qdao_character_diversity_v9/visual_qa.json)
+
+完整人工提示词在prompts/，逐图生成和透明处理记录在records/。实际原生尺寸单独记录；4096为原路径兼容导出，不冒称原生4K。按AGENTS使用宿主内置GPT Image 2路径；工具不开放模型/质量参数开关，high是质量目标，未宣称逐次强制设置。过程母图和处理副本不保留为交付。
+
+旧英文文件名中的boy/girl仅作为历史资源ID；实际年龄与造型以本表和当前图片为准。
+
+|角色|年龄感|脸型、头发|轮廓|成品|
+|---|---|---|---|---|
+|金发带Q道童|主角|原形象；金发带直短发|原形象|[PNG](00_reference_topright_boy_transparent_4096.png)|
+|霜刃女冠|成年|窄鹅蛋脸、细长眼；直黑短发、白玉道冠|直线长袍、清冷收剑|[PNG](01_ice_sword_girl_transparent_4096.png)|
+|赤符小顽童|幼童|雀斑圆鼻、缺牙笑；直发双丸束髻|矮圆短打、蓬松裤脚|[PNG](02_fire_talisman_boy_transparent_4096.png)|
+|莲灯医姑|中年|丰润脸、弯月笑眼；低盘直发、一缕白发|宽大藕粉医袍、莲灯|[PNG](03_lotus_healer_girl_transparent_4096.png)|
+|镇岳护法|成年|方脸浓平眉、小胡须；直发高束髻|宽肩短厚护甲、圆盾|[PNG](04_mountain_guardian_boy_transparent_4096.png)|
+|紫微琴师|成年|长椭圆脸、半垂凤眼；银灰直发长辫|紫灰大袖、侧身弦乐|[PNG](05_celestial_musician_girl_transparent_4096.png)|
+|白眉雷师|老年|白眉短白须、圆鼻；直白发、黑高法冠|矮实深靛法袍、雷令|[PNG](06_thunder_caster_boy_transparent_4096.png)|
+|玄月夜行女|青年|小麦肤、棱角脸灰眼；短直靛发、偏分|精瘦短道服、双月刃|[PNG](07_moon_shadow_assassin_girl_transparent_4096.png)|
+|圆肚丹师|中年|圆眼镜、小胡须；直发小髻、后退发际|最圆腹、橘米围袍、丹炉|[PNG](08_alchemy_prodigy_boy_transparent_4096.png)|
+|竹间弓手|青年|晒肤长脸、浅雀斑；直发长辫、竹笠|轻短袍、绑腿、竹弓|[PNG](09_bamboo_archer_girl_transparent_4096.png)|
+|赤缨枪将|成年|方圆脸、利落浓眉；直黑高马尾|强健短甲、方形裙甲|[PNG](10_crimson_spear_girl_transparent_4096.png)|
+|玉拳少年|少年|圆脸粗弯眉、眯眼笑；直短寸头、侧边剃线|矮壮桶形、大玉护拳|[PNG](11_jade_fist_flat_top_boy_transparent_4096.png)|
+|铁刃老客|年长|窄长脸、灰胡须；直发、黑布方巾|瘦长宽袍、肩扛铁刀|[PNG](12_iron_saber_flat_top_boy_transparent_4096.png)|
+|风行短发女|青年|心形脸、单侧虎牙；栗红偏分短直发|三角披风、灯笼裤|[PNG](13_short_hair_wind_blade_girl_transparent_4096.png)|
+|雪团小女冠|幼童|困倦圆眼、小圆脸；直银发、低双发髻|最矮球形厚斗篷、抱雪兔|[PNG](14_short_hair_snow_summoner_girl_transparent_4096.png)|
+|沧浪水士|成年|长脸柳叶眼；中分直黑发、小玉冠|修长Q长衫、水纹折扇|[PNG](15_water_dragon_scholar_boy_transparent_4096.png)|
+|金铃舞姬|青年|蜜色肤、弯眉笑眼；直黑发双粗辫|灯笼裤、短披肩、双铃|[PNG](16_golden_bell_dancer_girl_transparent_4096.png)|
+|墨篆先生|老年|白眉长须、小圆墨镜；直白发、高儒道冠|细窄墨袍、毛笔卷轴|[PNG](17_ghost_script_calligrapher_boy_transparent_4096.png)|
+|沙海道姑|成年|深棕肤、宽颧骨；直发盘辫、沙色头巾|坚实披袍、宽腰带、日轮杖|[PNG](18_desert_sun_monk_girl_transparent_4096.png)|
+|山野御灵童|少年|棕肤三角脸、机灵眉；分层短直发、叶饰|草编披肩、短裤、竹笛|[PNG](19_spirit_beast_tamer_boy_transparent_4096.png)|
+|星盘女掌门|成年|菱形脸、窄长眼；直黑发高盘髻、银月簪|庄重钟形长袍、罗盘阵旗|[PNG](20_star_formation_master_girl_transparent_4096.png)|
+|胖灶道长|中年|宽圆脸、八字胡笑眼；直黑短发、白厨巾|宽壮圆腹、围裙、铁锅|[PNG](21_lidazui_hair_cook_boy_transparent_4096.png)|
+|茶肆小刀客|青年|窄下巴、单挑眉；整齐直黑锅盖短发|细瘦短褂、白围腰、茶盘短刀|[PNG](22_lidazui_hair_waiter_saber_boy_transparent_4096.png)|
+|金发带Q道童|主角|原形象；金发带直短发|原形象|[PNG](q_daoist_topright_character_full_uncropped_transparent_4096.png)|
 
 ```powershell
-python q_daoist_character_pack_4096/build_manifest.py
-python q_daoist_character_pack_4096/process_portrait.py --raw <本轮内置生图输出> --id <原文件stem>
+python -B qdao_character_diversity_v9/build_manifest.py
+python -B qdao_character_diversity_v9/process_character.py --raw <本轮生成PNG> --id <原stem> --reference-note <实际参考方式>
 ```
 
-|角色|最终图片|
-|---|---|
-|金发带Q道童|[00_reference_topright_boy_transparent_4096](00_reference_topright_boy_transparent_4096.png)|
-|冰剑少女|[01_ice_sword_girl_transparent_4096](01_ice_sword_girl_transparent_4096.png)|
-|火符少年|[02_fire_talisman_boy_transparent_4096](02_fire_talisman_boy_transparent_4096.png)|
-|莲花医者|[03_lotus_healer_girl_transparent_4096](03_lotus_healer_girl_transparent_4096.png)|
-|山岳守卫|[04_mountain_guardian_boy_transparent_4096](04_mountain_guardian_boy_transparent_4096.png)|
-|天音少女|[05_celestial_musician_girl_transparent_4096](05_celestial_musician_girl_transparent_4096.png)|
-|雷法少年|[06_thunder_caster_boy_transparent_4096](06_thunder_caster_boy_transparent_4096.png)|
-|月影少女|[07_moon_shadow_assassin_girl_transparent_4096](07_moon_shadow_assassin_girl_transparent_4096.png)|
-|炼丹童子|[08_alchemy_prodigy_boy_transparent_4096](08_alchemy_prodigy_boy_transparent_4096.png)|
-|竹弓少女|[09_bamboo_archer_girl_transparent_4096](09_bamboo_archer_girl_transparent_4096.png)|
-|赤枪少女|[10_crimson_spear_girl_transparent_4096](10_crimson_spear_girl_transparent_4096.png)|
-|玉拳少年|[11_jade_fist_flat_top_boy_transparent_4096](11_jade_fist_flat_top_boy_transparent_4096.png)|
-|铁刀少年|[12_iron_saber_flat_top_boy_transparent_4096](12_iron_saber_flat_top_boy_transparent_4096.png)|
-|风刃少女|[13_short_hair_wind_blade_girl_transparent_4096](13_short_hair_wind_blade_girl_transparent_4096.png)|
-|唤雪少女|[14_short_hair_snow_summoner_girl_transparent_4096](14_short_hair_snow_summoner_girl_transparent_4096.png)|
-|水龙书生|[15_water_dragon_scholar_boy_transparent_4096](15_water_dragon_scholar_boy_transparent_4096.png)|
-|金铃舞者|[16_golden_bell_dancer_girl_transparent_4096](16_golden_bell_dancer_girl_transparent_4096.png)|
-|灵篆书生|[17_ghost_script_calligrapher_boy_transparent_4096](17_ghost_script_calligrapher_boy_transparent_4096.png)|
-|沙海日轮少女|[18_desert_sun_monk_girl_transparent_4096](18_desert_sun_monk_girl_transparent_4096.png)|
-|御兽少年|[19_spirit_beast_tamer_boy_transparent_4096](19_spirit_beast_tamer_boy_transparent_4096.png)|
-|星阵少女|[20_star_formation_master_girl_transparent_4096](20_star_formation_master_girl_transparent_4096.png)|
-|厨道童子|[21_lidazui_hair_cook_boy_transparent_4096](21_lidazui_hair_cook_boy_transparent_4096.png)|
-|执刀小侍|[22_lidazui_hair_waiter_saber_boy_transparent_4096](22_lidazui_hair_waiter_saber_boy_transparent_4096.png)|
-|金发带Q道童|[q_daoist_topright_character_full_uncropped_transparent_4096](q_daoist_topright_character_full_uncropped_transparent_4096.png)|
-
-此包是静态人物；移动32帧见[八方向动作](../character_move_8dir/README.md)。未接入客户端、骨骼或战斗技能。
+本包是静态人物，未改主角[八向动作](../character_move_8dir/README.md)，未制作这些职业人物的新动画或接入客户端。

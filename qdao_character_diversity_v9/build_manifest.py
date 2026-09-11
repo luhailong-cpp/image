@@ -52,6 +52,8 @@ def main():
     baseline = read(HERE / 'baseline.json')
     previous = {x['path']: x for x in baseline['assets']}
     inherited = {x['path']: x for x in read(HERE / 'inherited_refinements.json')['records']}
+    edges = {x['path']:x for x in read(HERE / 'final_edge_cleanup.json')['records']}
+    assert set(edges) <= set(previous)
     assert set(inherited) <= set(previous)
     published = {x['path']: x for x in read(REPO / 'qdao_exposure_refinement_v8/processing.json')['records']}
     assets = []
@@ -76,11 +78,16 @@ def main():
                'strong_chroma_candidates': candidates}
         original = previous[path.relative_to(REPO).as_posix()]
         refinement = inherited.get(path.relative_to(REPO).as_posix())
+        edge = edges.get(path.relative_to(REPO).as_posix())
+        if edge:
+            assert edge['status'] == 'passed' and edge['alpha_unchanged'] and edge['outside_regions_unchanged']
+            assert digest == edge['output_sha256']
         if refinement:
             source = published[refinement['path']]
             assert refinement['status'] == source['status'] == 'published'
             assert refinement['alpha_unchanged'] is True
-            assert digest == refinement['output_sha256'] == source['output_sha256']
+            inherited_output = edge['before_sha256'] if edge else digest
+            assert inherited_output == refinement['output_sha256'] == source['output_sha256']
             assert refinement['original_sha256'] == source['original_sha256']
         if number:
             record_path = PACK / 'records' / f'{path.stem}.json'
@@ -90,6 +97,8 @@ def main():
             if refinement:
                 assert record['generation_export_sha256'] == refinement['original_sha256']
                 assert record['inherited_refinement'] == refinement
+            if edge:
+                assert record['final_edge_cleanup'] == edge
             assert (PACK / record['prompt']).is_file()
             assert record['model_and_quality_verified'] is False
             row.update({'age_direction': DESIGNS[number][1], 'face_direction': DESIGNS[number][2],
@@ -135,7 +144,9 @@ def main():
           'all_same_original_paths_and_sizes':True, 'all_rgba':True,
           'all_current_record_hashes_match':True,
           'inherited_published_refinements':len(inherited),
-          'inherited_alpha_unchanged':True, 'all_redesigns_changed':True,
+          'inherited_alpha_unchanged':True,
+          'local_edge_cleanup_count':len(edges),
+          'local_edge_cleanup_alpha_and_outside_regions_unchanged':True, 'all_redesigns_changed':True,
           'unreviewed_strong_chroma_candidates':0,
           'reviewed_color_candidates':sum(row['strong_chroma_candidates'] for row in assets),
           'all_transparent_margins_over_20px':True,

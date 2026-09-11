@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "status": "passed_numeric_qc_pending_visual_review",
+  "status": "passed",
   "errors": [],
   "directions": {
     "S": {
@@ -93,17 +93,17 @@
       "empty_count": 0,
       "edge_touch_count": 0,
       "paste_clamped_count": 0,
-      "body_scale_mean": 0.47675776361684746,
+      "body_scale_mean": 0.47234668423027093,
       "output_subject_height_mean": 417.25,
-      "body_scale_cv": 0.004936831285192732,
-      "anchor_x_std": 0.0016914558667664816,
-      "anchor_y_std": 0.0016020388011253974,
-      "anchor_y_mean": 0.8706250000000004,
+      "body_scale_cv": 0.00575596771304823,
+      "anchor_x_std": 0.0021836601342771385,
+      "anchor_y_std": 0.0009765625,
+      "anchor_y_mean": 0.8720703125,
       "output_subject_heights": [
-        417,
+        418,
         420,
         414,
-        418
+        417
       ],
       "unique_frames": 4,
       "output_foot_y_std": 0.0
@@ -183,22 +183,34 @@
     ]
   },
   "visual_review": {
-    "status": "pending_one_targeted_repair",
+    "status": "passed",
+    "reviewed_at_utc": "2026-09-11T07:51:55.059462+00:00",
     "accepted_directions": [
       "S",
+      "SW",
       "W",
-      "E",
-      "N",
       "NW",
+      "N",
       "NE",
+      "E",
       "SE"
     ],
-    "pending": [
-      "SW frame 04 repeats right-knee-lift of frame 02; needs anatomical left knee lifted and right leg supporting"
+    "pending": [],
+    "reviewed_artifacts": [
+      "source/SW.png",
+      "processing/visual-review.jpg",
+      "walk/SW/walk.gif (all four decoded frames)"
     ],
-    "last_tool_error": "built-in image_gen connection failed on three requests during SW frame 04 repair; source and prompt saved for retry",
-    "reference": "source/SW.png",
-    "repair_prompt": "prompts/walk-SW-final-repair.txt"
+    "findings": [
+      "Final built-in SW repair keeps the character facing southwest with the lantern in her anatomical left hand.",
+      "SW frame 04 now raises the anatomical left knee on image right while the anatomical right boot is planted on image left, opposite the passing leg in frame 02.",
+      "All 32 final frames were visually reviewed together: identity, eight facing directions, four distinct poses per direction, complete contained silhouettes, consistent body scale and aligned contact line accepted.",
+      "Final SW GIF decoded frames preserve the corrected leg phase. PNG is the RGBA deliverable; GIF is a palette preview."
+    ],
+    "repair_prompt": "prompts/walk-SW-final-repair.txt",
+    "source_sha256": "741967f06712b16f337df1f37db40a9c34be5c15c29f4e2f7d4b0351ae502e7f",
+    "preview_sha256": "5d5972707f3707dedbada94358c7073600f9c1ed32dc98b83e5669fce311dfde",
+    "historical_tool_errors": "Three connection failures on 2026-09-10; retry succeeded on 2026-09-11. Standard view_image was blocked by Windows ACL helper; a read-only in-memory JPEG preview displayed the source before editing."
   },
   "shared_final_scale": 1.1864406779661016,
   "pre_max_subject_height": 354,
