@@ -41,3 +41,5 @@ python -X utf8 qdao_cutout_edge_repair_20260911/27/tools/publish_approved_batch.
 当前 9 个处理输入、使用中的提示词、逐方向 processing 与当前 manifest/STATUS/README 一并发布。旧 source/raw、rejected 候选及旧未用流程保留为历史。`sources/cardinal_assembled.png` / `diagonal_assembled.png` 保持兼容时更新为新帧拼接表，元数据明确其非原生生图来源。
 
 当前重建入口是 `tools/process_new_batch.py`：先在修复目录暂存，再验收和受保护发布。正式目录旧 `assemble_directions.py` 等为历史流程，不能未经复核覆盖当前交付。辅助脚本不操作 Git 或实际客户端。
+
+准备阶段还会复核完整发布载荷：拼接输入从保存的真实原画、source_box、等比缩放和 target_box 重新排版，与接受的 2×2 输入逐像素一致；逐帧 prompt SHA、原生尺寸与实际复制路径一致。assembly spec 与 helper 若在来源链中记录，会复制并校验。这些准备检查未通过时，正式文件不会被替换。

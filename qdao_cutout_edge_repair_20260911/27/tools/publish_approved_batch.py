@@ -122,6 +122,50 @@ def remap_paths(value,mapping):
  if isinstance(value,str):return mapping.get(value,mapping.get(value.replace('\\','/'),value))
  return value
 
+def validate_sources(base):
+ """Verify copied provenance and reproduce composite input layouts without edits."""
+ manifest=read(base/'manifest.json');sources=manifest['sources'];assert set(sources)==set(['portrait']+DIRS)
+ for key,rec in sources.items():
+  # During preparation these paths already name the intended production files.
+  def artifact(value):
+   path=safe(Path(value),TARGET);return safe(base/path.relative_to(TARGET),base)
+  source=artifact(rec['path']);prompt=artifact(rec['prompt_file'])
+  assert sha(source)==rec['sha256'] and sha(prompt)==rec['prompt_sha256']
+  with Image.open(source) as im:assert list(im.size)==rec['native_size']
+  assert read(base/'processing'/f'{key}.json')==rec
+  for reference in rec.get('reference_images',[]):
+   reference_path=safe(Path(reference['path']),ROOT)
+   assert sha(reference_path)==reference['sha256']
+  if not assembled(rec):continue
+  lineage=rec['generation_lineage'];assert [r['frame'] for r in lineage['frames']]==[1,2,3,4]
+  if lineage.get('spec_file'):assert sha(artifact(lineage['spec_file']))==lineage['spec_sha256']
+  if lineage.get('assembler_file'):assert sha(artifact(lineage['assembler_file']))==lineage['assembler_sha256']
+  raw_hashes=set()
+  for raw in lineage['raw_artifacts']:
+   path=artifact(raw['path']);raw_prompt=artifact(raw['prompt_file'])
+   assert path.is_relative_to(base/'sources/frame-originals') and raw_prompt.is_relative_to(base/'prompts/frame-originals')
+   assert sha(path)==raw['sha256'] and sha(raw_prompt)==raw['prompt_sha256']
+   with Image.open(path) as im:assert list(im.size)==raw['native_size']
+   raw_hashes.add(raw['sha256'])
+  original=Image.open(source).convert('RGB');rebuilt=Image.new('RGB',original.size,(255,0,255))
+  coverage=np.zeros((original.height,original.width),dtype=np.uint8)
+  for frame in lineage['frames']:
+   raw=artifact(frame['raw_source']);raw_prompt=artifact(frame['prompt_file'])
+   assert sha(raw)==frame['raw_sha256'] and frame['raw_sha256'] in raw_hashes
+   assert sha(raw_prompt)==frame['prompt_sha256']
+   im=Image.open(raw);assert list(im.size)==frame['raw_native_size']
+   l,t,r,b=frame['source_box'];x,y,right,bottom=frame['target_box']
+   assert 0<=l<r<=im.width and 0<=t<b<=im.height
+   assert 0<=x<right<=original.width and 0<=y<bottom<=original.height
+   scale=frame['whole_canvas_scale'];assert scale>0
+   assert abs((r-l)*scale-(right-x))<1e-8 and abs((b-t)*scale-(bottom-y))<1e-8
+   tile=im.crop((l,t,r,b)).convert('RGB')
+   if tile.size!=(right-x,bottom-y):tile=tile.resize((right-x,bottom-y),Image.Resampling.LANCZOS)
+   rebuilt.paste(tile,(x,y));coverage[y:bottom,x:right]+=1
+  assert np.all(coverage==1),'Composite cells overlap or leave an undocumented gap'
+  assert rebuilt.tobytes()==original.tobytes(),'Composite source pixels do not match recorded raw-cell layout'
+ return {'status':'passed_source_lineage_validation','processing_inputs':9,'composite_layouts_reproduced':sum(assembled(r) for r in sources.values())}
+
 def inspect():
  rows=baseline();diff=[]
  for name,r in rows.items():
@@ -134,6 +178,9 @@ def inspect():
 
 def prepare():
  rows=baseline();baseline_check(rows);approval=approval_check();approved_sha=sha(APPROVAL)
+ final_generation=read(PACK/'generation-final.json')
+ assert len(final_generation['records'])==9,'Require exactly nine final accepted processing-input records'
+ assert len({r.get('sha256',r.get('source_sha256')) for r in final_generation['records']})==9
  numeric=validate_media(STAGE)
  release=PACK/('release-'+approved_sha[:12]);release.mkdir(parents=True,exist_ok=True)
  inputs={};payload={}
@@ -173,6 +220,14 @@ def prepare():
    lineage=copy.deepcopy(generation_record.get('generation_lineage',rec.get('generation_lineage')))
    assert isinstance(lineage,dict) and len(lineage['frames'])==4 and lineage['raw_artifacts'],'Assembled input requires exact per-frame native lineage'
    local_map={}
+   if lineage.get('spec_file'):
+    spec=safe(PACK/lineage['spec_file'],PACK);assert sha(spec)==lineage['spec_sha256']
+    dest='processing/generation-history/'+key+'-assembly-spec.json';add(dest,spec)
+    local_map[lineage['spec_file']]=str((TARGET/dest).resolve());local_map[str(spec)]=str((TARGET/dest).resolve())
+   if lineage.get('assembler_sha256'):
+    helper=PACK/'tools/assemble_direction_inputs.py';assert sha(helper)==lineage['assembler_sha256']
+    dest='processing/generation-history/assemble_direction_inputs.py';add(dest,helper)
+    lineage['assembler_file']=str((TARGET/dest).resolve())
    for index,raw in enumerate(lineage['raw_artifacts']):
     raw_path=safe(PACK/raw['path'],PACK);assert sha(raw_path)==raw['sha256'];capture(raw_path)
     with Image.open(raw_path) as raw_im:assert list(raw_im.size)==raw['native_size']
@@ -191,9 +246,10 @@ def prepare():
    new['generation_lineage']=remap_paths(lineage,local_map);new['source']='deterministic layout of separately generated native art cells'
   else:native_artifacts[rec['sha256']]={'path':'sources/'+expected_name,'sha256':rec['sha256'],'native_size':rec['native_size']}
   if generation_record.get('reference_images'):
-   new['reference_images']=copy.deepcopy(generation_record['reference_images'])
+   new['reference_images']=[]
    for reference in generation_record['reference_images']:
     reference_path=safe(PACK/reference['path'],ROOT);assert sha(reference_path)==reference['sha256'];capture(reference_path)
+    new['reference_images'].append({**copy.deepcopy(reference),'path':str(reference_path)})
   new['visual_approval']={'status':'approved','record':'processing/final-visual-approval.json','sha256':approved_sha}
   sources[key]=new;doc('processing/'+key+'.json',new);history_files[generation.name]=generation
  for name,path in history_files.items():doc('processing/generation-history/'+name,{'original_record_path':str(path.resolve()),'original_sha256':sha(path),'record':read(path)})
@@ -221,6 +277,7 @@ def prepare():
  qc=read(capture(STAGE/'qc.json'));qc['status']='passed_visual_and_numeric_qc';qc['visual_review']={'status':'approved','record':'processing/final-visual-approval.json','sha256':approved_sha};doc('qc.json',qc)
  status='''# 27 墨鸢：本轮交付已完成\n\n立绘、八向各四帧、八条 strip、八个 GIF 与两张 4×4 表共 51 个媒体已完成当前 SHA 的视觉和机械验收。客户端未导入。\n\n当前处理输入在 sources/portrait_raw.png 与 sources/walk_DIRECTION_2x2.png，共9个输入；其中部分2×2是分别生成的姿态原画排版，不能计作一张原生生图。实际原生图及逐帧native尺寸、source_box、缩放和提示词见generation_lineage与sources/frame-originals/。1024/512/2048为处理后的导出尺寸。sources/cardinal_assembled.png 与 diagonal_assembled.png 是新帧拼接的兼容表，不是原生生图。\n\n当前重建入口为本轮 qdao_cutout_edge_repair_20260911/27/tools/process_new_batch.py：先输出修复目录暂存，复核当前 SHA，再由同目录 publish_approved_batch.py 受保护发布。旧 assemble_directions.py、supplement_manifest.py 与旧流水线属于历史流程，不能不经复核覆盖当前成品。旧 source/ 内 raw 和 sources/ 内 rejected 候选保留为历史资料，不是当前原画。\n\n验收：processing/final-visual-approval.json、processing/artifact-validation.json、qc.json。来源：processing/sources.json 和逐方向处理记录。\n'''
  prose('STATUS.md',status);prose('README.md',status)
+ numeric=validate_media(release);source_validation=validate_sources(release)
  # Freeze an auditable pending plan, without changing any production file.
  for path,s in inputs.items():assert sha(ROOT/path)==s,'Input changed during preparation: '+path
  baseline_check(rows)
@@ -233,7 +290,7 @@ def prepare():
    'backup':'qdao_cutout_edge_repair_20260911/27/backups/'+f'{i:03d}'+Path(name).suffix})
  plan={'status':'prepared_not_published','prepared_utc':now(),'target':str(TARGET),'release':str(release),
   'approval':str(APPROVAL),'approval_sha256':approved_sha,'baseline_sha256':sha(BASELINE),'inputs':inputs,
-  'files':entries,'historical_unchanged':{name:r['sha256'] for name,r in rows.items() if name not in payload},'numeric_validation':numeric,'native_generation_artifacts':list(native_artifacts.values())}
+  'files':entries,'historical_unchanged':{name:r['sha256'] for name,r in rows.items() if name not in payload},'numeric_validation':numeric,'source_validation':source_validation,'native_generation_artifacts':list(native_artifacts.values())}
  write(PACK/'publication-plan.json',plan)
  print(json.dumps({'status':plan['status'],'files':len(entries),'approved_media':51,'processing_inputs':9,'native_generation_artifacts':len(native_artifacts),'production_written':False}))
 
@@ -268,6 +325,7 @@ def publish():
    os.replace(temp,target);assert sha(target)==r['output_sha256']
    report['files'].append({**r,'actual_sha256':sha(target),'atomic_replace':True});write(report_path,report)
   numeric=validate_media(TARGET)
+  source_validation=validate_sources(TARGET)
   manifest=read(TARGET/'manifest.json')
   for key,r in manifest['sources'].items():
    assert sha(Path(r['path']))==r['sha256'];assert sha(Path(r['prompt_file']))==r['prompt_sha256']
@@ -282,7 +340,7 @@ def publish():
   for kind in ROWS:assert sha(TARGET/'sources'/f'{kind}_assembled.png')==sha(TARGET/f'walk-{kind}.png')
   for name,s in plan['historical_unchanged'].items():assert sha(TARGET/name)==s,'Historical file changed: '+name
   for r in plan['files']:assert sha(TARGET/r['path'])==r['output_sha256']
-  report.update(status='published_and_verified',completed_utc=now(),numeric_validation=numeric,
+  report.update(status='published_and_verified',completed_utc=now(),numeric_validation=numeric,source_validation=source_validation,
    visual_approval_sha256=plan['approval_sha256'])
  except BaseException as e:
   report.update(status='stopped_due_to_error',error=str(e),stopped_utc=now());write(report_path,report);raise
