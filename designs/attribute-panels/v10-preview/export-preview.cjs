@@ -45,6 +45,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || path.join(process.
   const broken=await page.locator('img').evaluateAll(imgs=>imgs.filter(i=>!i.complete||i.naturalWidth===0).map(i=>i.src));
   assert.deepEqual(broken,[]);
   const overflow=await page.evaluate(()=>Array.from(document.querySelectorAll('.panel-body > *')).map(e=>({name:e.className,client:e.clientHeight,scroll:e.scrollHeight})).filter(x=>x.scroll>x.client+3));
+  assert.deepEqual(overflow, [], 'Desktop columns must not clip content');
   await page.goto(base+'?panel=hero&state=clean',{waitUntil:'networkidle'});
   assert.equal(await page.locator('#remaining').textContent(),'20');
   await page.setViewportSize({width:390,height:844});
@@ -58,8 +59,22 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || path.join(process.
   await page.setViewportSize({width:844,height:390});
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   assert((await page.getByRole('button',{name:'增加力量',exact:true}).boundingBox()).width>=44);
+  await page.goto(base+'?panel=hero&state=clean',{waitUntil:'networkidle'});
+  assert.equal(await page.getByText('相性点',{exact:true}).count(),0);
+  await page.locator('#range2').focus();
+  await page.keyboard.press('ArrowRight');
+  assert.equal(await page.locator('#remaining').textContent(),'19');
+  await page.keyboard.press('Escape');
+  assert(await page.locator('#reopen').isVisible());
+  await page.locator('[data-open="hero"]').click();
+  assert.equal(await page.locator('#remaining').textContent(),'19');
+  await page.locator('[data-mode="pet"]').click();
+  for (const id of ['hutuantuan','fuxiaohu','yunjiujiu','lingyue']) {
+    await page.locator(`[data-pet="${id}"]`).click();
+    assert.equal(await page.evaluate(()=>document.activeElement.dataset.pet),id);
+  }
   assert.deepEqual(errors,[]);
-  fs.writeFileSync(path.join(__dirname,'validation.json'),JSON.stringify({status:'passed',exports:{'01-character_2560x1080.png':[2560,1080],'02-pet_2560x1080.png':[2560,1080]},checks:['assets load','independent pet drafts','remaining points','reset draft','auto distribute','zero-points disables plus','confirm commit','saved points cannot be decremented','refund preview points','pet battle state','help dialog','close and reopen','clean state','mobile 390px layout and touch'],browserErrors:errors,desktopColumnOverflow:overflow,scope:'Browser prototype only; no game client or server integration.'},null,2));
+  fs.writeFileSync(path.join(__dirname,'validation.json'),JSON.stringify({status:'passed',exports:{'01-character_2560x1080.png':[2560,1080],'02-pet_2560x1080.png':[2560,1080]},checks:['assets load','independent pet drafts','remaining points','reset draft','auto distribute','zero-points disables plus','confirm commit','saved points cannot be decremented','refund preview points','pet battle state','help dialog','close and reopen','clean state','mobile 390px layout and touch','no affinity tab','keyboard range adjustment','Escape close and draft-preserving reopen','four-pet focus restoration'],browserErrors:errors,desktopColumnOverflow:overflow,scope:'Browser prototype only; no game client or server integration.'},null,2));
   console.log(JSON.stringify({status:'passed',browserErrors:errors,desktopColumnOverflow:overflow}));
   await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});
