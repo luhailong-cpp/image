@@ -4,7 +4,7 @@
 
 ## 本次交付
 
-已完成六组内置生图原画、45 个透明美术裁片，以及 158 个正式 PNG 合同的重制输出。155 个输出更换皮肤或重新裁切；另 3 个独立纯文字层保留：属性标题 `title_character`、`title_pet` 与 `hud_labels`。保留项不含旧框体，不虚报为新生图。正式路径发布与文件核验以 [发布记录](publication.json) 和 [全量验证](validation.json) 为准，逐件基线保存在 [current_files.json](contracts/current_files.json)。
+已完成六组内置生图原画、45 个透明美术裁片，以及 158 个正式 PNG 合同的重制输出。155 个输出更换皮肤或重新裁切；另 3 个独立纯文字层保留：属性标题 `title_character`、`title_pet` 与 `hud_labels`。保留项不含旧框体，不虚报为新生图。四只宝宝头像的最新边缘修复已纳入正式资源；[首次正式发布记录](../qdao_cutout_edge_repair_20260910/published-ui.json)确认 158 个 PNG 与 126 个伴随文件共 284 项均与暂存区一致。本次已完成 296 项正式资源、支持文件与标准预览的核验同步，最终清单以 [发布记录](publication.json) 和 [全量验证](validation.json) 为准，逐件基线保存在 [current_files.json](contracts/current_files.json)。
 
 | 家族 | 正式 PNG 数量 | 合同 |
 |---|---:|---|
@@ -37,7 +37,9 @@
 
 - [透明美术裁片索引](artwork/index.json)记录 45 个裁片的原画、源矩形、九宫格和固定饰件；[美术联系表](artwork/contact-sheet.png)用于对照。
 - [通用与旧路径映射](source-map.common.json)、[属性映射](source-map.attributes.json)记录逐件来源及保持的合同。
-- [属性与组合视觉验收](staged/attribute-composite-visual-qa.json)覆盖 31 个属性件、12 个选服及 3 个 HUD；检查文字区、边框连续性、固定符号比例、透明边缘、整屏布局与 HUD 叠层误差。
+- [公共与兼容切图视觉验收](staged/common-legacy-visual-qa.json)覆盖 112 组 PNG/SVG；[四头像修复补充验收](staged/visual-qa-supplement.json)绑定当前 46 张属性及复合图和最终展示图。
+- [属性与组合历史视觉验收](staged/attribute-composite-visual-qa.json)覆盖 31 个属性件、12 个选服及 3 个 HUD；检查文字区、边框连续性、固定符号比例、透明边缘、整屏布局与 HUD 叠层误差。
+- [最终交付审计](final-verification.json)核对 296 个正式文件、112 对 PNG/SVG、31 个属性控件复建像素、6 张标准界面及 10 张 Unity 验收截图。
 - [全量验证](validation.json)与[发布记录](publication.json)区分待发布文件和正式路径。历史 v6／v7 或旧 Unity 报告不能代替此次 v10 核验。
 
 ## 确定性重建
@@ -55,12 +57,12 @@ python qdao_ui_style_recut_v10/tools/publish_staged.py
 python qdao_ui_style_recut_v10/tools/publish_staged.py --apply
 ```
 
-Sharp 无法自动解析时，在合成命令后添加 `--sharp '<已安装的 node_modules>/sharp'`。前四步只写本包的中间图和 `staged/<原资源相对路径>`；发布器核对通过后才覆盖明确列出的正式路径。重建改变输入或图像后，须重新实看联系表、九宫格与拼合效果，不能把旧视觉报告用于新哈希。旧 components、exact、选服和 HUD 的直接写入构建入口已阻止重新写入历史皮肤；按本节重建。
+Sharp 无法自动解析时，在合成命令后添加 `--sharp '<已安装的 node_modules>/sharp'`。前四步只写本包的中间图和 `staged/<原资源相对路径>`；发布器核对通过后才覆盖明确列出的正式路径。旧布局和精确场景输入冻结在 contracts/composite-inputs，四个最终头像切片冻结在 contracts/reviewed-portraits，避免覆盖并行任务的后续原画或头像修复。重建改变输入或图像后，须重新实看联系表、九宫格与拼合效果，不能把旧视觉报告用于新哈希。旧 components、exact、选服和 HUD 的直接写入构建入口已阻止重新写入历史皮肤；按本节重建。
 
 ## 接入与后续边界
 
-本次完成美术原画、重新切图、组合检查与仓库正式资源交付。没有在 Unity／FairyGUI 中重新导入或执行游戏页面运行验收。属性包既有资源键和边距继续保留；先前 Unity 导入记录仅说明旧版本，不证明当前 v10 图片已在客户端加载。
+本次完成美术原画、重新切图、组合检查与仓库正式资源交付。并行客户端任务已通过官方 Unity relay MCP 同步 31 张 v10 属性 Sprite，保留 GUID，核对哈希、尺寸、资源加载与九宫格边距；[导入报告](../designs/attribute-panels/v2-painted/unity-slices/unity-import-v10.json)通过。人物／宝宝真实面板在 2560×1080、1920×1080 两种尺寸下完成 10 张编辑器截图检查，26 项测试通过、0 项失败，见 [v10 Unity 验收](../designs/attribute-panels/v2-painted/unity-slices/unity-validation-v10.json)与[检查记录](../designs/attribute-panels/v2-painted/unity-slices/unity-review-v10/qa-checks.txt)。验收使用临时编辑器场景和离线样例数据，没有执行在线服务器验证；该结论仅覆盖属性面板，不能扩展为全库 UI／FairyGUI 全部接入完成。
 
-`designs/attribute-panels/index.html` 的可操作预览仍为第一版交互；`v2-painted/index.html` 仍为历史静态效果稿。它们未随本轮换皮，不作为 v10 当前视觉验收。现有登录／选角等历史整屏稿也不等于全部页面已经实现。
+`designs/attribute-panels/index.html` 的可操作预览仍为第一版交互；`v2-painted/index.html` 仍为历史静态效果稿。它们未随本轮换皮，不作为 v10 当前视觉验收。标准 02 选服与 04 HUD 纳入本次新皮肤组合预览的同步范围，最终文件与哈希见发布记录；其余登录／选角等历史整屏原画继续保留，不等于全部页面已经实现。
 
 全库节庆精修仍按[节庆方案](../docs/QDAO_FESTIVAL_REFINEMENT.md)等待其他出图任务完成并读取最新交付；此次 UI 重切不改变该顺序。

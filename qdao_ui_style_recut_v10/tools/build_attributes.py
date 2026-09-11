@@ -142,22 +142,20 @@ def title_ink(entry):
 
 
 def portrait(entry):
-    relative = Path("designs/attribute-panels/assets") / (entry["name"].removeprefix("portrait_") + ".png")
-    source_path = REPO / relative
-    source = Image.open(source_path).convert("RGBA")
-    x, y, w, h = entry["sourceRectNativeTopLeft"]
-    # Keep the approved square head framing from the existing contract.
-    box = (x, y, x + w, y + h)
-    out = source.resize((entry["width"], entry["height"]), RESAMPLE, box=box)
-    return out, {
-        "source": relative.as_posix(),
-        "sourceSha256": hash_file(source_path),
-        "sourceNativeSize": list(source.size),
-        "sourceRectNativeTopLeft": [x, y, w, h],
-        "processing": "Square head recrop from latest approved transparent pet artwork using original crop bounds; Lanczos resample to 160x160. No painted alteration, stretched anatomy, or baked level.",
-        "preservedArtwork": True,
-        "preservationReason": "Approved pet identity and exposure corrections are preserved. Portrait content is separate from the newly painted UI skin; resampling does not claim a newly generated pet.",
-    }
+    """Reuse the separately reviewed final edge-cleaned crop without reintroducing its old matte."""
+    name = entry["name"]
+    reviewed = PACK / "contracts/reviewed-portraits"
+    records = json.loads((reviewed / "manifest.json").read_text(encoding="utf-8"))["outputs"]
+    meta = deepcopy(next(row for row in records if row["name"] == name))
+    source_path = reviewed / (name + ".png")
+    if hash_file(source_path) != meta["outputSha256"]:
+        raise AssertionError("Reviewed portrait crop changed: " + name)
+    out = Image.open(source_path).convert("RGBA")
+    assert out.size == (entry["width"], entry["height"])
+    meta["reviewedPortraitFile"] = source_path.relative_to(REPO).as_posix()
+    meta["reviewedPortraitSha256"] = hash_file(source_path)
+    meta["processing"] += " Final crop uses the separately reviewed alpha-preserving edge RGB repair, recorded in contracts/reviewed-portraits/review.json."
+    return out, meta
 
 
 def build(entry):

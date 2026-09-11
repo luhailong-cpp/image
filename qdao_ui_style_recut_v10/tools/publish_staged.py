@@ -27,6 +27,13 @@ def verify(path,digest):
     require(path.is_file() and sha(path)==digest,"Evidence changed: "+str(path))
 def prepare_exports():
     manifest=read(REPO/V5/"manifest.json")
+    # Other archived images were updated by earlier tasks; refresh their metadata without touching pixels.
+    for row in manifest["screens"]:
+        for kind in ["source","export"]:
+            current=REPO/V5/row[kind]["path"]
+            with Image.open(current) as im:
+                row[kind]={"path":row[kind]["path"],"size":list(im.size),"mode":im.mode,"bytes":current.stat().st_size,"sha256":sha(current)}
+    manifest["metadata_refresh"]="Current archived files inspected; v10 changes only standard server/HUD preview pixels."
     paths=[]
     for stem,source in [("04_main_city_hud",STAGE/V5/"source/04_main_city_hud.png"),
                         ("02_server_select",STAGE/"ugui_qdao_headband_2560x1080.png")]:
@@ -54,29 +61,29 @@ def check_evidence():
     require({r["path"] for r in common["files"]}==expected,"Common QA coverage mismatch")
     for r in common["files"]:
         verify(safe(STAGE,r["path"]),r["sha256"]);verify(safe(STAGE,r["svg"]),r["svg_sha256"])
-    for r in other["reviewImages"]:verify(safe(REPO,r["path"]),r["sha256"])
-    verify(STAGE/ATTR/"file-validation.json",other["attributes"]["fileValidationSha256"])
-    verify(PACK/"source-map.attributes.json",other["attributes"]["sourceMapSha256"])
+    supplement=read(STAGE/"visual-qa-supplement.json")
+    require(supplement["status"]=="passed_for_staged_art_delivery","Portrait supplement not passed")
+    expected_other={r["path"] for r in read(PACK/"contracts/current_files.json")["files"] if r["family"] not in ["components","legacy"]}
+    require({r["path"] for r in supplement["files"]}==expected_other,"Attribute/composite QA coverage mismatch")
+    for key in ["baseReport","portraitRepairReport","currentSourceMap","currentManifest","currentFileValidation","historicalFileValidation"]:
+        r=supplement[key];verify(safe(REPO,r["path"]),r["sha256"])
+    for r in supplement["files"]:verify(safe(STAGE,r["path"]),r["sha256"])
+    for r in supplement["reviewImages"]+supplement["historicalReviewImages"]:verify(safe(REPO,r["path"]),r["sha256"])
     verify(STAGE/"composite_build_report.json",other["composites"]["buildReportSha256"])
     attrs=read(PACK/"source-map.attributes.json")
     for r in attrs["outputs"]:verify(safe(STAGE,r["path"]),r["outputSha256"])
     composites=read(STAGE/"composite_build_report.json")
     for r in composites["files"]:verify(safe(STAGE,r["path"]),r["sha256"])
-    for r in composites["scene_sources"]:verify(safe(REPO,r["path"]),r["sha256"])
+    for r in composites["scene_sources"]:
+        frozen=safe(PACK/"contracts/composite-inputs",r["path"])
+        verify(frozen if frozen.exists() else safe(REPO,r["path"]),r["sha256"])
     for r in composites["component_sources"]:verify(safe(REPO,r["path"]),r["sha256"])
     verify(REPO/"docs/references/ui-style-20260910.png","913e301b1955a4dd78888bebcec82d1dbf504c0517ed606cc8eaab667675b825")
     for r in read(PACK/"generation-status.json")["successful_generations"]:verify(PACK/r["file"],r["sha256"])
     return validation,common
 
 def payload(relative):
-    raw=safe(STAGE,relative).read_bytes()
-    if relative in MANIFESTS and relative!=ATTR+"/file-validation.json":
-        value=json.loads(raw.decode("utf-8-sig"))
-        for key in ("staged_only","stagedOnly"):
-            if key in value:value[key]=False
-        value["publication_record"]="qdao_ui_style_recut_v10/publication.json (repository relative)"
-        raw=(json.dumps(value,ensure_ascii=False,indent=2)+"\n").encode("utf-8")
-    return raw
+    return safe(STAGE,relative).read_bytes()
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
@@ -106,32 +113,38 @@ def main():
             if current.exists() and oid:
                 clean=git("diff","--quiet","HEAD","--",rel,check=False)
                 require(clean.returncode==0,"Uncommitted production edit requires review: "+rel)
+        if rel in baseline:
+            before=baseline[rel]["sha256"];rev="09f32b1b"
+            oid=git("rev-parse",rev+":"+rel).stdout.decode().strip()
         entries.append({"path":rel,"kind":"contract_png" if rel in baseline else "supporting_asset",
-            "staged_sha256":sha(safe(STAGE,rel)),"published_sha256":digest,"previous_sha256":before,
-            "previous_git_oid":oid,"previous_revision":rev,"changed":before!=digest})
+            "staged_sha256":sha(safe(STAGE,rel)),"published_sha256":digest,"current_sha256_at_plan":oldsha,"previous_sha256":before,
+            "previous_git_oid":oid,"previous_revision":rev,"changed":before!=digest,"already_current":oldsha==digest})
         contents[rel]=raw
-    evidence={p.relative_to(PACK).as_posix():sha(p) for p in [PACK/"validation.json",STAGE/"common-legacy-visual-qa.json",STAGE/"attribute-composite-visual-qa.json"]}
+    evidence={p.relative_to(PACK).as_posix():sha(p) for p in [PACK/"validation.json",STAGE/"common-legacy-visual-qa.json",STAGE/"attribute-composite-visual-qa.json",STAGE/"visual-qa-supplement.json"]}
     result={"schemaVersion":1,"status":"ready_to_publish","checked_at_utc":stamp(),"before_revision":revision,
         "contract_png_count":158,"changed_png_pixels":155,"retained_text_layers":3,
         "supporting_file_count":len(entries)-158,"total_files":len(entries),"visual_review":"passed",
-        "evidence":evidence,"rollback":"For a previously existing file, restore its previous_revision:path from Git; previous_git_oid identifies the exact original blob. New review files have no previous blob. No directories were removed.",
-        "limits":["Art repository publication only; no new Unity/FairyGUI import or gameplay integration.","Historical full-screen source paintings and older interactive demos remain archived; standard server/HUD exports are updated."],
+        "evidence":evidence,
+        "adopted_publications":["qdao_cutout_edge_repair_20260910/published-ui.json","qdao_cutout_edge_repair_20260910/published-support.json"],
+        "already_current_file_count":sum(r["already_current"] for r in entries),"rollback":"For a previously existing file, restore its previous_revision:path from Git; previous_git_oid identifies the exact original blob. New review files have no previous blob. No directories were removed.",
+        "limits":["This publisher writes the art repository only. Attribute client import and 26 passing offline Unity tests were completed separately: designs/attribute-panels/v2-painted/unity-slices/unity-validation-v10.json.","Historical full-screen source paintings and older interactive demos remain archived; standard server/HUD exports are updated."],
         "files":entries}
     write_json(PACK/"publication-plan.json",result)
     if args.apply:
         # All inputs have passed; recheck every target before the first write.
         for r in entries:
             current=safe(REPO,r["path"])
-            expected={r["previous_sha256"],r["published_sha256"]}
-            require((sha(current) if current.exists() else None) in expected,"Target changed during planning: "+r["path"])
+            require((sha(current) if current.exists() else None)==r["current_sha256_at_plan"],"Target changed during planning: "+r["path"])
         for r in entries:
             target=safe(REPO,r["path"]);target.parent.mkdir(parents=True,exist_ok=True)
+            if target.exists() and sha(target)==r["published_sha256"]:continue
             temp=target.with_name(target.name+".v10-publish-tmp")
             require(not temp.exists(),"Existing interrupted temporary file: "+str(temp))
             temp.write_bytes(contents[r["path"]]);os.replace(temp,target)
         for r in entries:verify(safe(REPO,r["path"]),r["published_sha256"])
         result.update(status="published_and_verified",published_at_utc=stamp(),verified_file_count=len(entries))
         write_json(PACK/"publication.json",result)
+        subprocess.run([os.sys.executable,str(PACK/"tools/update_generation_record.py")],cwd=REPO,check=True)
         print(json.dumps({k:result[k] for k in ["status","contract_png_count","changed_png_pixels","retained_text_layers","total_files","verified_file_count"]}))
     else: print(json.dumps({k:result[k] for k in ["status","contract_png_count","total_files","supporting_file_count"]}))
 if __name__=="__main__":main()
