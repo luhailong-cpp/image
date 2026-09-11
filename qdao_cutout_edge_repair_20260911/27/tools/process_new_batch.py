@@ -69,7 +69,7 @@ def key_matte(image):
             frac=np.clip(np.sum((rgb[y,x]-colors)*v,axis=1)/np.maximum(np.sum(v*v,axis=1),1),0,1)
             predicted=colors+v*frac[:,None];err=np.sum((predicted-rgb[y,x])**2,axis=1)
             dist=(xx-x)**2+(yy-y)**2;k=int(np.argmin(err+dist*3.0))
-            found=(float(frac[k]),colors[k]);break
+            found=(float(frac[k]),colors[k],float(np.sqrt(dist[k])));break
         if found is None and keydistance[y,x] < 60 and dom[y,x] > 170:
             # Key field compression/noise far from every opaque foreground.
             # Never apply this to a strand with an available local donor.
@@ -82,6 +82,10 @@ def key_matte(image):
             unresolved.append([int(x),int(y)])
         else:t=found[0];solved+=1
         cov=1-t
+        if found is not None and cov<.07 and found[2]>6 and keydistance[y,x]<45:
+            # Near-key compression flecks remote from true foreground can
+            # borrow a distant boot/hair donor; they are field, not an edge.
+            cov=0
         if cov<.015:cov=0
         if cov>.985:cov=1
         coverage[y,x]=cov
