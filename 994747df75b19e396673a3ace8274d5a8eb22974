@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "stage": "candidate_source_mapping",
+  "requires_recheck_at_start": true,
+  "families": [
+    {
+      "id": "world_map",
+      "sources": [
+        "tianyong_city_6x6/tile_manifest.json",
+        "tianyong_city_6x6/sync_manifest.json"
+      ],
+      "new_style_candidate": "tianyong_festival_stylematch_20260910/manifest.json",
+      "candidate_status": "1254x1254 visual preview; not a published production tilemap",
+      "contract": "6144x6144 master; 6x6 tiles of 1024x1024; preserve tile names, row/column origin and seams",
+      "dependency_threads": [
+        "01a08a28-6391-7100-a82e-f3a966e57349"
+      ]
+    },
+    {
+      "id": "scene_illustrations",
+      "sources": [
+        "qdao_ui_redesign_v5/manifest.json",
+        "qdao_ui_redesign_v5/transition_manifest.json",
+        "qdao_chibi_game_pack_v4/manifest.json",
+        "qdao_chibi_game_pack_v4/placements.json"
+      ],
+      "contract": "Preserve standard 2560x1080 exports, cloud alpha, source/export mapping and gameplay whitespace",
+      "dependency_threads": [
+        "01a08a19-8d1b-75c1-9e80-ee2fea9833b0",
+        "01a075d4-5b1f-7e31-b44f-18e351fa544f"
+      ]
+    },
+    {
+      "id": "ui_and_legacy_slices",
+      "sources": [
+        "qdao_ui_style_recut_v10/contracts/current_files.json",
+        "qdao_ui_style_recut_v10/contracts/components.json",
+        "qdao_ui_style_recut_v10/contracts/legacy.json",
+        "qdao_ui_style_recut_v10/contracts/layers.json"
+      ],
+      "contract": "39 components, 73 legacy slices, 12 server-select outputs, 3 HUD outputs; preserve alpha, canvas, states, nine-slice borders, atlas names and coordinates; update paired SVG",
+      "dependency_threads": [
+        "01a08a19-8d1b-75c1-9e80-ee2fea9833b0",
+        "01a086ef-2e8c-73a2-bf70-7ac4b4bcde02"
+      ]
+    },
+    {
+      "id": "attributes_and_new_pages",
+      "sources": [
+        "designs/attribute-panels/v2-painted/manifest.json",
+        "designs/attribute-panels/v2-painted/unity-slices/manifest.json",
+        "qdao_ui_style_recut_v10/contracts/attributes.json"
+      ],
+      "contract": "31 attribute slices; preserve removed affinity tab, function layout and independent text; task/inventory/activity pages need verified delivery",
+      "dependency_threads": [
+        "01a0860b-36e6-7000-b128-67e7f4d73fa1",
+        "01a08a19-8d1b-75c1-9e80-ee2fea9833b0"
+      ]
+    },
+    {
+      "id": "characters",
+      "sources": [
+        "qdao_character_diversity_v9/DESIGN_BRIEF.md",
+        "qdao_character_diversity_v9/baseline.json",
+        "qdao_character_diversity_v9/completion.json",
+        "qdao_character_diversity_v9/manifest.json",
+        "qdao_character_diversity_v9/validation.json",
+        "qdao_character_diversity_v9/visual_qa.json",
+        "qdao_character_diversity_v9/compatibility_map.json",
+        "q_daoist_character_pack_4096/manifest.json",
+        "qdao_asset_refresh_v6/hero_compat_manifest.json"
+      ],
+      "status": "v9_static_art_completed_and_verified",
+      "verified_at": "2026-09-11",
+      "verification": "24 current PNG hashes and all 8 completion artifacts match; v9 and original-package manifests are identical. v11 characters and animations remain separate deliveries.",
+      "contract": "22 differentiated professions plus 2 preserved hero references; preserve 24 original paths and 4096 RGBA canvases, identities and compatible aliases; straight-hair rule; use completed v9 manifest, validation, visual QA and compatibility map as the current static-character delivery",
+      "dependency_threads": [
+        "01a075d4-5b1f-7e31-b44f-18e351fa544f"
+      ]
+    },
+    {
+      "id": "character_movement",
+      "sources": [
+        "character_move_8dir/manifest.json",
+        "qdao_chibi_roster_v11/DESIGN_BRIEF.md",
+        "qdao_chibi_roster_v11/PROCESSING.md"
+      ],
+      "contract": "Old set retains 32 frames at 1254 canvas and existing anchor. New six-character set uses 8x4 real frames, 512 canvas, foot point (256,471), 2048x512 strips. Keep separate interfaces. GIF is preview only",
+      "dependency_threads": [
+        "01a08a2b-8ef8-7d41-be4e-8962e24735e1"
+      ]
+    },
+    {
+      "id": "pets",
+      "sources": [
+        "qdao_ui_redesign_v5/pet/manifest.json",
+        "qdao_chibi_pets_v1/manifest.json",
+        "qdao_asset_refresh_v6/pets/manifest.json"
+      ],
+      "contract": "Synchronize transparent static art, portraits and composites; preserve nine-tail and fur-color identity; never remove intentional purple fur during matte cleanup",
+      "dependency_threads": [
+        "01a08a19-8d1b-75c1-9e80-ee2fea9833b0"
+      ]
+    },
+    {
+      "id": "items_and_atlases",
+      "sources": [
+        "qdao_asset_refresh_v6/icons/manifest.json",
+        "qdao_asset_refresh_v6/icons/validation.json",
+        "qdao_ui_redesign_v5/components/manifest.json"
+      ],
+      "contract": "124 item icons at 600x600 RGBA; 7912x6088 atlas with existing names and coordinates; UI emblems follow final v10 sources; assess festival suitability individually",
+      "dependency_threads": [
+        "01a08a19-8d1b-75c1-9e80-ee2fea9833b0"
+      ]
+    }
+  ],
+  "missing_referenced_sources": []
+}

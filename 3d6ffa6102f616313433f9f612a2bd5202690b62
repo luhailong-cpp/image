@@ -1,0 +1,50 @@
+{
+  "rows": [
+    {
+      "path": "q_daoist_character_pack_4096/04_mountain_guardian_boy_transparent_4096.png",
+      "point": [
+        1303,
+        2558
+      ],
+      "current_sha256": "bc1069d476055dd851b16acddc915897f1aee2300e6be1cc5f4982dee1f123f3",
+      "matches_final_cleanup": true,
+      "reported_alpha_unchanged": true,
+      "reported_rgb_changed": 1031,
+      "record_status": "passed"
+    },
+    {
+      "path": "q_daoist_character_pack_4096/14_short_hair_snow_summoner_girl_transparent_4096.png",
+      "point": [
+        2335,
+        348
+      ],
+      "current_sha256": "05a243a00f7cef9f9548b31454c87746b3cb69d8f10ea1491bfc135ff5675972",
+      "matches_final_cleanup": true,
+      "reported_alpha_unchanged": true,
+      "reported_rgb_changed": 2941,
+      "record_status": "passed"
+    },
+    {
+      "path": "q_daoist_character_pack_4096/14_short_hair_snow_summoner_girl_transparent_4096.png",
+      "point": [
+        2804,
+        938
+      ],
+      "current_sha256": "05a243a00f7cef9f9548b31454c87746b3cb69d8f10ea1491bfc135ff5675972",
+      "matches_final_cleanup": true,
+      "reported_alpha_unchanged": true,
+      "reported_rgb_changed": 2941,
+      "record_status": "passed"
+    }
+  ],
+  "checked_utc": "2026-09-11T11:49:36.277040+00:00",
+  "verdict": "published_cleanup_confirmed_but_local_visual_residue_remains",
+  "scope": "Only 04 and 14 originally reported coordinates and existing five cleanup regions; no other portraits modified or reviewed",
+  "visual_evidence": "v9-04-14-current-edge-crops.png",
+  "visual_observations": [
+    "04: magnified inner gap retains dark purple/burgundy speckling between otherwise brown/tan surfaces.",
+    "14: magnified silver-white hair contour retains fine pink/lilac edge on both light and dark backgrounds. The existing detector excludes blue-purple values with B-R>16.",
+    "These are localized cutout edge residues; this review does not reject the underlying character style or imply whole-portrait regeneration."
+  ],
+  "recommended_followup": "Manual region-constrained RGB cleanup preserving all alpha; do not lower the detector threshold globally because 14 includes intentional purple ornaments."
+}
