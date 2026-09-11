@@ -182,7 +182,24 @@
       471
     ]
   },
-  "visual_review": "required: verify character identity, direction, gait, complete limbs, and key edges",
+  "visual_review": {
+    "status": "pending_one_targeted_repair",
+    "accepted_directions": [
+      "S",
+      "W",
+      "E",
+      "N",
+      "NW",
+      "NE",
+      "SE"
+    ],
+    "pending": [
+      "SW frame 04 repeats right-knee-lift of frame 02; needs anatomical left knee lifted and right leg supporting"
+    ],
+    "last_tool_error": "built-in image_gen connection failed on three requests during SW frame 04 repair; source and prompt saved for retry",
+    "reference": "source/SW.png",
+    "repair_prompt": "prompts/walk-SW-final-repair.txt"
+  },
   "shared_final_scale": 1.1864406779661016,
   "pre_max_subject_height": 354,
   "requested_max_subject_height": 420,
