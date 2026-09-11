@@ -1,0 +1,291 @@
+{
+  "status": "needs_raw_art_revision",
+  "reviewed_at_utc": "2026-09-11T12:00:13.726760+00:00",
+  "reviewer": "independent_subagent_review_27_gait",
+  "scope": "只读复核27号32张512帧和1024立绘；仅输出审核JSON与对照图，未修改素材。",
+  "method": [
+    "逐方向比较01与03的接触腿身份、02与04的离地腿/支撑腿身份及靴子遮挡关系。",
+    "比较完整512帧和腿部放大图，不使用文件hash差异作为动作差异证据。",
+    "高马尾、发冠、飘带均不计入头身测量；尺寸为人工视觉估计区间，不是解剖精确分割。"
+  ],
+  "evidence": [
+    "docs/style-repair-20260911/latest-followup/27-gait-1.jpg",
+    "docs/style-repair-20260911/latest-followup/27-gait-2.jpg",
+    "docs/style-repair-20260911/latest-followup/27-walk-1.jpg",
+    "docs/style-repair-20260911/latest-followup/27-walk-2.jpg",
+    "docs/style-repair-20260911/latest-followup/27-profiles-native.jpg",
+    "docs/style-repair-20260911/latest-followup/27-diagonal-native.jpg",
+    "docs/style-repair-20260911/latest-followup/27-front-rear-native.jpg"
+  ],
+  "gait": {
+    "overall": "not_passed",
+    "directions": [
+      {
+        "direction": "S",
+        "status": "visual_pass_alternation",
+        "contact_1_3": "可见左右脚前后关系交换。",
+        "passing_2_4": "屏幕右腿和左腿分别离地，支撑腿交换。",
+        "raw_revision_frames": []
+      },
+      {
+        "direction": "N",
+        "status": "confirmed_passing_failure",
+        "contact_1_3": "可见左右脚前后关系交换。",
+        "passing_2_4": "02与04均抬屏幕右腿，屏幕左腿支撑；只改变鞋底/屈膝幅度，不是相反腿。",
+        "raw_revision_frames": [
+          "04"
+        ],
+        "confidence": "high"
+      },
+      {
+        "direction": "E",
+        "status": "confirmed_passing_failure_contact_unconfirmed",
+        "contact_1_3": "03与01仍是同一前后展开轮廓，手臂改变不足以确认腿身份交换。",
+        "passing_2_4": "02与04均为同侧同样的朝右抬膝构型，靴子遮挡及支撑腿关系未可靠互换。",
+        "raw_revision_frames": [
+          "03",
+          "04"
+        ],
+        "confidence": "high_for_passing_medium_for_contact"
+      },
+      {
+        "direction": "W",
+        "status": "confirmed_passing_failure_contact_unconfirmed",
+        "contact_1_3": "03与01前后腿轮廓及遮挡一致，只改变步幅，无法确认相反接触腿。",
+        "passing_2_4": "02与04均为同侧同样的朝左抬膝构型，支撑脚位置与遮挡关系相同。",
+        "raw_revision_frames": [
+          "03",
+          "04"
+        ],
+        "confidence": "high_for_passing_medium_for_contact"
+      },
+      {
+        "direction": "SE",
+        "status": "confirmed_passing_failure_contact_unconfirmed",
+        "contact_1_3": "03仍保持屏幕右脚在前，另一脚只向后略抬，未清楚绘出相反的接触步。",
+        "passing_2_4": "02与04均保持屏幕右脚支撑，屏幕左腿离地；04只是腿后摆得更远。",
+        "raw_revision_frames": [
+          "03",
+          "04"
+        ],
+        "confidence": "high_for_passing_medium_for_contact"
+      },
+      {
+        "direction": "SW",
+        "status": "contact_alternation_unconfirmed",
+        "contact_1_3": "01与03接触姿态极接近，腿部前后遮挡未给出足够依据区分解剖左右腿，不能通过四相门槛；不把不确定性写成已证实ABAB。",
+        "passing_2_4": "02与04可见支撑腿/离地腿交换。",
+        "raw_revision_frames": [
+          "03"
+        ],
+        "confidence": "medium"
+      },
+      {
+        "direction": "NW",
+        "status": "contact_alternation_unconfirmed",
+        "contact_1_3": "01与03接触姿态极接近，画面前侧腿一直向屏幕右后方伸出，缺少可靠的相反腿接触证据。",
+        "passing_2_4": "02与04可见支撑腿/离地腿交换。",
+        "raw_revision_frames": [
+          "03"
+        ],
+        "confidence": "medium"
+      },
+      {
+        "direction": "NE",
+        "status": "contact_alternation_unconfirmed",
+        "contact_1_3": "01与03接触姿态及前后靴子关系近似，无法确认解剖左右腿已换位。",
+        "passing_2_4": "02与04可见支撑腿/离地腿交换。",
+        "raw_revision_frames": [
+          "03"
+        ],
+        "confidence": "medium"
+      }
+    ],
+    "minimum_local_gait_redraw": [
+      "N/04",
+      "E/03",
+      "E/04",
+      "W/03",
+      "W/04",
+      "SE/03",
+      "SE/04",
+      "SW/03",
+      "NW/03",
+      "NE/03"
+    ],
+    "note": "10帧为最低局部动作修订建议；其中6个接触帧03含不可确认项，必须画出能辨认的左右腿换位才能验收，不声称全部都已被证实重复。同一方向整组重画有利于比例、身份和相位一致。"
+  },
+  "style": {
+    "status": "proportion_mismatch",
+    "target_source": "qdao_chibi_roster_v11/27_ink_kite_ranger/prompts/portrait.txt",
+    "target_heads_tall": 2.8,
+    "identity_to_preserve": [
+      "成年青年的偏长尖下巴",
+      "细长半垂眼",
+      "狭长脸和克制笑意",
+      "墨黑长高马尾",
+      "墨灰与低饱和玉青服装",
+      "紧贴背部的小风筝与腰侧短剑"
+    ],
+    "portrait_native_size": [
+      1024,
+      1024
+    ],
+    "approx_landmarks_y": {
+      "normal_skull_hair_top_excluding_ponytail": [
+        115,
+        125
+      ],
+      "chin": [
+        350,
+        360
+      ],
+      "lowest_sole": [
+        970,
+        975
+      ]
+    },
+    "approx_heads_tall_range": [
+      3.5,
+      3.8
+    ],
+    "finding": "排除马尾和冠饰后仍明显超过2.8头身；身体尤其腰下裤腿与靴子过长。长脸身份本身是明确设计要求，不该用改成圆脸幼童来纠正。",
+    "recommendation": "先用原画方式缩短身体及腿长，维持成年长脸身份和手绘材质。然后以新比例统一动作组；不要用裁切、纵向压缩或改manifest数字假装修正头身。",
+    "walk_note": "步行动作同样延续偏修长身躯；本次逐帧仅审步态，未逐帧作精确头身测量。"
+  },
+  "input_sha256": [
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/E/01.png",
+      "sha256": "f1de98d0803f4cf46cd978b91c7262c48aadfc5d26036a32569225a6244c6996"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/E/02.png",
+      "sha256": "53f97edd5a452c83fa30dd7f66891a442c99e4232315d3c1bb30554e58b4a1fd"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/E/03.png",
+      "sha256": "8f3a53f62bc6de51df7d98d08ac94496a5fc9ea64473fb20d7ea88fef7a45f46"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/E/04.png",
+      "sha256": "885c6475c171ac2e6512da9cd454230b9da763d17edaa9bfd32e4acd40d08aa8"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/N/01.png",
+      "sha256": "6bbc3f7910ad2aa176b60869d3e19a9cfcead04d65856ac3a4b1e65076515ec1"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/N/02.png",
+      "sha256": "b1cac3e674eb27bf2f8f0c3f05734b1ef6d4e4b3b2749714cf8f0240342b3a93"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/N/03.png",
+      "sha256": "855b2cb7ddba22e80e6d3a6922bbcc84aa9598698a8d0b823483163e84361b38"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/N/04.png",
+      "sha256": "65f7e7b06635efeb8d4b474b19f8110515e51fe3b97d5fd156e841505f048238"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/NE/01.png",
+      "sha256": "28a95e8a6165123bfc9932dc88635f94fae28512a18fc5eafe8c0d1573b81303"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/NE/02.png",
+      "sha256": "f35a9138bbc0be20a737864782c0cffba1ca8f9e24eecc432553c4f96a6c64ec"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/NE/03.png",
+      "sha256": "42bbf097502e23b7bd98e79fbcb8f794ede7a97871d30e266056cc7e4b057bb5"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/NE/04.png",
+      "sha256": "e24ebf663972ee9895255f306aab111d523c5387a8dd5284ba93a2e8a29f02c6"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/NW/01.png",
+      "sha256": "bc52656bf76b85994c9b50d6fabe5dd9049f5f17ce324b277b672558bf5a2b8f"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/NW/02.png",
+      "sha256": "ffbddd15a777ea922199b5491ff7ead34ea5bd3331182538ad64c879728f7270"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/NW/03.png",
+      "sha256": "d1b8c737a1b06baf74c8bd0d4fb839d2254a649bb2b31d894c18262adec3fbc3"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/NW/04.png",
+      "sha256": "33717e131fd521ae0955d4a3b88abfaff319a0f1e084cda93e76866821827aec"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/S/01.png",
+      "sha256": "9b0b3a63704e9e8bc813ff1a148a9a439e26ed322e18ca4f82309a04b08c400c"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/S/02.png",
+      "sha256": "19d553e4eb84d6856117984fd231f3bb7d10d6f505037c18c977eb11a6056588"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/S/03.png",
+      "sha256": "31a6787b2b5fc57f2ccbcdc76709100c3daa84bba1a34d499a4018636ac20e4b"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/S/04.png",
+      "sha256": "888ee60aca2c805e0d0e2e728d6a06e38c6baa79eb0185c8b1d4b03ba0c82b26"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/SE/01.png",
+      "sha256": "eb7a654238c6030dd9343e74ebdacf4c45f4ab25a6bb9f57c725f7e9433a2d86"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/SE/02.png",
+      "sha256": "8859127d46b5ea1097d8ccf7da46ef1c3879b3cb217aa9d1a58871386cccd641"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/SE/03.png",
+      "sha256": "3f200d05ad126750d3d5143a7c30d4679d48b106ae40cc67fee2c954880b1baf"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/SE/04.png",
+      "sha256": "c77486478d13fbc4808cae03bec0e2e7e6c3775ee903896a426fbcfdcfadf502"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/SW/01.png",
+      "sha256": "137a392accec03fc4b2c0186015374411d62eb87fecf23b70a2c232f8547d73a"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/SW/02.png",
+      "sha256": "a085854bd8fd37312c38332d5e7f3698fbe96fe9489df83466110229fa0fd464"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/SW/03.png",
+      "sha256": "ee1a78b154a16c8ba98ae3ec6e5c17f8a6f9919cd91afb159dcf1c499421945e"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/SW/04.png",
+      "sha256": "20521f58bbff6815ff9d33b9b23302f929e2f4b50cdd08f6c6314e6d8d9c52b5"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/W/01.png",
+      "sha256": "cab959d28abf96c7a1c435f14e6efbd9ea29aca83a5ed633e85a2505a44ee9b0"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/W/02.png",
+      "sha256": "7826e93e18f1b7b5bbea8e4751db5a3bd3f14e97783e26a845b424125b50c0fb"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/W/03.png",
+      "sha256": "d803eeac9507f502e2cfeffb9b05f03cc7561befa78f0c9c6f3a77cfa09d1235"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/W/04.png",
+      "sha256": "0ca97177da40bd33e889c15d25446d35b3d7706f999d432d731761b38e8948e2"
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/portrait.png",
+      "sha256": "293068e9520fbe1a168f7dbde92f1510d1971bfb55c325d90bfe2d94f28373e6"
+    }
+  ],
+  "source_art_modified": false
+}
