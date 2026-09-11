@@ -1,0 +1,3370 @@
+{
+  "version": 3,
+  "character_id": "27_ink_kite_ranger",
+  "generated_at_utc": "2026-09-11T18:40:42.996219+00:00",
+  "status": "passed_numeric_qc_pending_visual_review",
+  "art_source": "built-in image_gen",
+  "portrait": "portrait.png",
+  "portrait_size": [
+    1024,
+    1024
+  ],
+  "walk": {
+    "directions": [
+      "S",
+      "SW",
+      "W",
+      "NW",
+      "N",
+      "NE",
+      "E",
+      "SE"
+    ],
+    "frames_per_direction": 4,
+    "cell": [
+      512,
+      512
+    ],
+    "strip_size": [
+      2048,
+      512
+    ],
+    "frame_duration_ms": 120,
+    "fps": 8.333333333333334,
+    "feet_px_from_top_left": [
+      256,
+      471
+    ],
+    "row_order_cardinal": [
+      "S",
+      "W",
+      "E",
+      "N"
+    ],
+    "row_order_diagonal": [
+      "SW",
+      "NW",
+      "NE",
+      "SE"
+    ],
+    "frame_pattern": "walk/{direction}/{01,02,03,04}.png",
+    "strip_pattern": "walk/{direction}/strip.png",
+    "gif_pattern": "walk/{direction}/walk.gif"
+  },
+  "qc": "qc.json",
+  "client_integration": "not performed",
+  "sources": {
+    "portrait": {
+      "path": "E:\\work\\image\\qdao_cutout_edge_repair_20260911\\27\\sources\\portrait_raw.png",
+      "sha256": "4f0a6728e39e09211e383a361d225d6206d534f4020d9c94374736aa420194d5",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source": "built-in image_gen",
+      "output_size_is_not_native_resolution": true,
+      "processing_tool_sha256": {
+        "batch_processor": "186fc00f49f5fc2c60d4734c18e339063fad97f07481bd6594bb03b2f78689a3",
+        "rgb_cleanup": "5d49c4fe620f0398fc1eb37eb45b0527f2c1bd84a6fac755c219d099041c3215",
+        "anchor_contract": "dfae3008901c7558d1e79bfcdee4299ebe32c3ff8a863c2447c04403be5c659e",
+        "gif_encoder": "970895ef904fed5e41f2be1533e00218e64c100ecb0d6c8814c7d2352730581f"
+      },
+      "matte": {
+        "key_rgb": [
+          251.0,
+          3.0,
+          251.0
+        ],
+        "exact_field_pixels": 1259840,
+        "mixture_solved_pixels": 27384,
+        "mixture_unresolved": 0,
+        "mixture_unresolved_coordinates": [],
+        "post_matte_rgb_cleanup": {
+          "selected_pixels": 2160,
+          "changed_rgb_pixels": 2160,
+          "alpha_changed_pixels": 0,
+          "unselected_pixels_changed": 0,
+          "transparent_pixels_changed": 0,
+          "unresolved": 0,
+          "unresolved_coordinates": [],
+          "unresolved_alpha_max": 0,
+          "remaining_purple_pixels_alpha_gt_8": 0,
+          "max_donor_distance": 11.313708498984761,
+          "mean_donor_distance": 4.582014584258039
+        },
+        "note": "Alpha derives from new opaque key-backed raw art. Subsequent edge correction preserves this alpha exactly."
+      },
+      "output_sha256": "fedec64bcf625aa7b9bdc4c1a56fb0b95238fd86824375c03d24a30d7013d104",
+      "source_canvas_preserved_by_isotropic_fit": true,
+      "visual_review": {
+        "status": "passed_visual_review",
+        "checked_at_utc": "2026-09-11T13:22:50.839337+00:00",
+        "finding": "Accepted new source proportion retained; full silhouette, individual hair strands, closed hair/kite openings, normal red tassel and jade ribbons inspected on light/dark backgrounds.",
+        "evidence": [
+          "processing/portrait-native-review.jpg",
+          "processing/portrait-detail-review.jpg"
+        ]
+      }
+    },
+    "S": {
+      "path": "E:\\work\\image\\qdao_cutout_edge_repair_20260911\\27\\sources\\walk_S_2x2.png",
+      "sha256": "5cd083849d5924abff50dbf75765d8e1a21f3cc0336566586c920962b6d39c0f",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source": "built-in image_gen",
+      "output_size_is_not_native_resolution": true,
+      "processing_tool_sha256": {
+        "batch_processor": "186fc00f49f5fc2c60d4734c18e339063fad97f07481bd6594bb03b2f78689a3",
+        "rgb_cleanup": "5d49c4fe620f0398fc1eb37eb45b0527f2c1bd84a6fac755c219d099041c3215",
+        "anchor_contract": "dfae3008901c7558d1e79bfcdee4299ebe32c3ff8a863c2447c04403be5c659e",
+        "gif_encoder": "970895ef904fed5e41f2be1533e00218e64c100ecb0d6c8814c7d2352730581f"
+      },
+      "matte": {
+        "key_rgb": [
+          249.0,
+          3.0,
+          249.0
+        ],
+        "exact_field_pixels": 1130147,
+        "mixture_solved_pixels": 54386,
+        "mixture_unresolved": 0,
+        "mixture_unresolved_coordinates": [],
+        "post_matte_rgb_cleanup": {
+          "selected_pixels": 8375,
+          "changed_rgb_pixels": 8375,
+          "alpha_changed_pixels": 0,
+          "unselected_pixels_changed": 0,
+          "transparent_pixels_changed": 0,
+          "unresolved": 0,
+          "unresolved_coordinates": [],
+          "unresolved_alpha_max": 0,
+          "remaining_purple_pixels_alpha_gt_8": 266,
+          "max_donor_distance": 19.209372712298546,
+          "mean_donor_distance": 6.001959144122624
+        },
+        "note": "Alpha derives from new opaque key-backed raw art. Subsequent edge correction preserves this alpha exactly."
+      },
+      "layout": "2x2 TL,TR,BL,BR",
+      "source_boxes": [
+        [
+          0,
+          0,
+          627,
+          627
+        ],
+        [
+          627,
+          0,
+          1254,
+          627
+        ],
+        [
+          0,
+          627,
+          627,
+          1254
+        ],
+        [
+          627,
+          627,
+          1254,
+          1254
+        ]
+      ],
+      "native_subject_heights": [
+        605,
+        602,
+        595,
+        593
+      ],
+      "same_scale_all_four_frames": 0.6942148760330579,
+      "body_scale_cv": 0.00821391046885428,
+      "frames": [
+        {
+          "bbox_alpha_gt_8": [
+            115,
+            52,
+            330,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.6942148760330579,
+          "resized_crop_size": [
+            215,
+            422
+          ],
+          "paste_xy": [
+            115,
+            50
+          ],
+          "source_crop_bbox": [
+            143,
+            9,
+            452,
+            617
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "642b76cc40a2fe1e8196bc7d3348931deee4308a3b4ab904b1c9e68c84a49feb"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            112,
+            53,
+            327,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.6942148760330579,
+          "resized_crop_size": [
+            215,
+            419
+          ],
+          "paste_xy": [
+            112,
+            53
+          ],
+          "source_crop_bbox": [
+            106,
+            9,
+            415,
+            613
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "ba29a241fc92f338650fc0e4ec713d29c933c34c45f8121e741ce91dc2845c1d"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            141,
+            60,
+            355,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.6942148760330579,
+          "resized_crop_size": [
+            214,
+            414
+          ],
+          "paste_xy": [
+            141,
+            59
+          ],
+          "source_crop_bbox": [
+            143,
+            8,
+            451,
+            604
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "bfc9c405adf696be95b6f1c370c30341bb3516e409b45e328c1ba702cf813264"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            134,
+            59,
+            347,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.6942148760330579,
+          "resized_crop_size": [
+            213,
+            414
+          ],
+          "paste_xy": [
+            134,
+            59
+          ],
+          "source_crop_bbox": [
+            106,
+            8,
+            413,
+            605
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "2b5adee3f4e92459b2e90aa5d6cf095bf3a4e58577ce623860bf9276d9022786"
+        }
+      ],
+      "visual_review": {
+        "status": "passed_visual_review",
+        "checked_at_utc": "2026-09-11T13:22:50.839337+00:00",
+        "direction_and_gait": "Front-facing. Frames 1/3 put opposite screen-side boots forward; frames 2/4 lift opposite knees and retain the other boot as ground support. Distinct contact/passing/opposite-contact/opposite-passing order.",
+        "identity": "Consistent accepted compact mature-faced ink/jade chibi, high ponytail and kite; no changed body proportion by processing.",
+        "edges": "Full light/dark composites and leg crops inspected. Hair/kite strings, boots and red/jade accessories complete; no continuous visible magenta outline or bright leg-gap key pocket. Remaining color-count candidates include dark outlines and original warm accents; numeric hue count alone is not an art defect.",
+        "evidence": "processing/S-full-legs-review.jpg",
+        "limitations": "Four-frame hand-painted walk; no skeleton or engine playback validation."
+      },
+      "outputs": [
+        {
+          "path": "walk/S/01.png",
+          "sha256": "1d78176660a68063f0cda4352ba25afe573db7e859707884cfe6c8c7043248b7"
+        },
+        {
+          "path": "walk/S/02.png",
+          "sha256": "b14ef0925ad1d6d4e864e44fbe680ff01617407e4fdb1cb41539f0f68269dad0"
+        },
+        {
+          "path": "walk/S/03.png",
+          "sha256": "ad57036b3b974d8218c58feeb49497d87db42c1fc79b0df4fe65e62628ec9160"
+        },
+        {
+          "path": "walk/S/04.png",
+          "sha256": "35f24f19da1684b9042398186c92919176c436d9ada5b72085cc87c5e9512918"
+        },
+        {
+          "path": "walk/S/strip.png",
+          "sha256": "968a228e1fea6d0e36e309726d07a07301ad121d347f9012f7c309fafa1adc72"
+        },
+        {
+          "path": "walk/S/walk.gif",
+          "sha256": "c827c69736332ce8b6943ee34e542ff90b51a6d6102597d5dacf7d6e17d8f663"
+        }
+      ]
+    },
+    "SW": {
+      "path": "E:\\work\\image\\qdao_cutout_edge_repair_20260911\\27\\sources\\walk_SW_2x2.png",
+      "sha256": "c0c9852393e3251a7b11e7719ff68a77f3018ebe853e9fba9977be5bc0486c59",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source": "built-in image_gen",
+      "output_size_is_not_native_resolution": true,
+      "processing_tool_sha256": {
+        "batch_processor": "186fc00f49f5fc2c60d4734c18e339063fad97f07481bd6594bb03b2f78689a3",
+        "rgb_cleanup": "5d49c4fe620f0398fc1eb37eb45b0527f2c1bd84a6fac755c219d099041c3215",
+        "anchor_contract": "dfae3008901c7558d1e79bfcdee4299ebe32c3ff8a863c2447c04403be5c659e",
+        "gif_encoder": "970895ef904fed5e41f2be1533e00218e64c100ecb0d6c8814c7d2352730581f"
+      },
+      "matte": {
+        "key_rgb": [
+          249.0,
+          5.0,
+          245.0
+        ],
+        "exact_field_pixels": 1090419,
+        "mixture_solved_pixels": 54874,
+        "mixture_unresolved": 0,
+        "mixture_unresolved_coordinates": [],
+        "post_matte_rgb_cleanup": {
+          "selected_pixels": 10897,
+          "changed_rgb_pixels": 10897,
+          "alpha_changed_pixels": 0,
+          "unselected_pixels_changed": 0,
+          "transparent_pixels_changed": 0,
+          "unresolved": 0,
+          "unresolved_coordinates": [],
+          "unresolved_alpha_max": 0,
+          "remaining_purple_pixels_alpha_gt_8": 3,
+          "max_donor_distance": 20.0,
+          "mean_donor_distance": 5.667570797271164
+        },
+        "note": "Alpha derives from new opaque key-backed raw art. Subsequent edge correction preserves this alpha exactly."
+      },
+      "layout": "2x2 TL,TR,BL,BR",
+      "source_boxes": [
+        [
+          0,
+          0,
+          627,
+          627
+        ],
+        [
+          627,
+          0,
+          1254,
+          627
+        ],
+        [
+          0,
+          627,
+          627,
+          1254
+        ],
+        [
+          627,
+          627,
+          1254,
+          1254
+        ]
+      ],
+      "native_subject_heights": [
+        575,
+        574,
+        565,
+        557
+      ],
+      "same_scale_all_four_frames": 0.7304347826086957,
+      "body_scale_cv": 0.01290563706715354,
+      "frames": [
+        {
+          "bbox_alpha_gt_8": [
+            147,
+            52,
+            438,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7304347826086957,
+          "resized_crop_size": [
+            292,
+            420
+          ],
+          "paste_xy": [
+            147,
+            52
+          ],
+          "source_crop_bbox": [
+            145,
+            26,
+            545,
+            601
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "a2898e7b1bec9010718efba5b29bad662991c45999ab359a99096624438c0daa"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            132,
+            54,
+            429,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7304347826086957,
+          "resized_crop_size": [
+            297,
+            419
+          ],
+          "paste_xy": [
+            132,
+            53
+          ],
+          "source_crop_bbox": [
+            44,
+            25,
+            450,
+            599
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "e47d58d5af93b498fcc7a3f32f6ddcff5b25a2712799a4fae7416646ba3ff524"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            150,
+            60,
+            442,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7304347826086957,
+          "resized_crop_size": [
+            294,
+            414
+          ],
+          "paste_xy": [
+            150,
+            59
+          ],
+          "source_crop_bbox": [
+            145,
+            11,
+            547,
+            578
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "bb98a4de018991c547027a8af6a567894db256c55c6c25723a39ae79586f5527"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            127,
+            65,
+            423,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7304347826086957,
+          "resized_crop_size": [
+            296,
+            409
+          ],
+          "paste_xy": [
+            127,
+            64
+          ],
+          "source_crop_bbox": [
+            44,
+            10,
+            449,
+            570
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "17680e105b672e4a8ada10996d7efaa15d9c99b869e0cb15e71ec667080c677e"
+        }
+      ],
+      "visual_review": {
+        "status": "passed_cutout_visual_review",
+        "checked_at_utc": "2026-09-11T14:56:59.495445+00:00",
+        "reviewer": "check_recent_edges",
+        "scope": "All four current SW PNG cutouts on light/dark backgrounds; full frame and 2x leg/hair/kite/torso crops.",
+        "direction": "Front-left three-quarter view retained from root-approved SW source.",
+        "gait_review_scope": "Root accepted this source before processing. This check validates cutout integrity and does not independently replace the prior anatomical phase review.",
+        "identity_and_edges": "Compact ink/jade adult-faced chibi retained. Full ponytail, thin hair tips, jade ribbons, kite rods/strings, red tassel, legs and boots inspected. No visible continuous magenta fringe, detached bright key pocket or clipped silhouette in reviewed exports.",
+        "evidence": [
+          {
+            "path": "processing/SW-review.jpg",
+            "sha256": "5e9729217b03dcd5121ee96bee54ae8b9ac3302ddd2844f73c108919eb0a8921"
+          },
+          {
+            "path": "processing/SW-full-native-review.jpg",
+            "sha256": "a646b722dff5195c585468d4370a5957b45308806eec8363a867ec77172300d9"
+          },
+          {
+            "path": "processing/SW-legs-review.png",
+            "sha256": "3dac4ac9484a2faf9b6a809a7a0c6a577346de45fc48a4913866fa2a99cfd6fe"
+          },
+          {
+            "path": "processing/SW-upper-01-review.png",
+            "sha256": "24ac48d6a6c033001ed1a41e83e8cf123dd59c70a4627c9bee6416de4c38d78c"
+          },
+          {
+            "path": "processing/SW-upper-02-review.png",
+            "sha256": "ffe583a3d2e2be2fae87263bc8c9e41cf91d5930cc2a1aa234ddb03df9236f4a"
+          },
+          {
+            "path": "processing/SW-upper-03-review.png",
+            "sha256": "e80e398dc9692ab6f4a5ff0fc0983b9d947201b4114b53d94c0658d08a4e33a6"
+          },
+          {
+            "path": "processing/SW-upper-04-review.png",
+            "sha256": "f541e864c07e1e1f2bd737e7c3b8f8bb5e66451ffa2ec1b50c7c94a68cf42125"
+          }
+        ],
+        "source_sha256": "c0c9852393e3251a7b11e7719ff68a77f3018ebe853e9fba9977be5bc0486c59",
+        "processing_tools_unchanged": true,
+        "record": "processing/SW-visual-review.json",
+        "record_sha256": "706232defed3e5e8d42c512a3704b50538506ed47e2b5c68920314a99f17d172"
+      },
+      "outputs": [
+        {
+          "path": "walk/SW/01.png",
+          "sha256": "bbd7af81f2eb0505971fd978f899155a84c8bff115f57244bda1be2c4373a89f"
+        },
+        {
+          "path": "walk/SW/02.png",
+          "sha256": "5ac7323bbd55007e5bd9bc5e46112a4793dd79df5e13818a56e37f7ff378e8ae"
+        },
+        {
+          "path": "walk/SW/03.png",
+          "sha256": "fc26a34d4b40f56eb377c72521a18bdfc7d39e0f722b5c6002311576e12fdd5f"
+        },
+        {
+          "path": "walk/SW/04.png",
+          "sha256": "96a37d2c55a0b3d418c2b62f32c0d21629d44485080e762a332acec67a8a1652"
+        },
+        {
+          "path": "walk/SW/strip.png",
+          "sha256": "e20d381df3125e3b08d5b8abbe0502fe322afc4f154b2de5064a58a7765f1ea6"
+        },
+        {
+          "path": "walk/SW/walk.gif",
+          "sha256": "b94aaa97cc445d7fa0272be848489db5bd0d5bd1784d4e11512e3c7fd7df6213"
+        }
+      ]
+    },
+    "W": {
+      "path": "E:\\work\\image\\qdao_cutout_edge_repair_20260911\\27\\sources\\walk_W_2x2.png",
+      "sha256": "4ac1930ffd581c54eafd8341d413320815e4c8098eac4dc8c7cbf9c341bb0a14",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source": "built-in image_gen",
+      "output_size_is_not_native_resolution": true,
+      "processing_tool_sha256": {
+        "batch_processor": "186fc00f49f5fc2c60d4734c18e339063fad97f07481bd6594bb03b2f78689a3",
+        "rgb_cleanup": "5d49c4fe620f0398fc1eb37eb45b0527f2c1bd84a6fac755c219d099041c3215",
+        "anchor_contract": "dfae3008901c7558d1e79bfcdee4299ebe32c3ff8a863c2447c04403be5c659e",
+        "gif_encoder": "970895ef904fed5e41f2be1533e00218e64c100ecb0d6c8814c7d2352730581f"
+      },
+      "matte": {
+        "key_rgb": [
+          248.0,
+          4.0,
+          250.0
+        ],
+        "exact_field_pixels": 1086220,
+        "mixture_solved_pixels": 61530,
+        "mixture_unresolved": 0,
+        "mixture_unresolved_coordinates": [],
+        "post_matte_rgb_cleanup": {
+          "selected_pixels": 9822,
+          "changed_rgb_pixels": 9822,
+          "alpha_changed_pixels": 0,
+          "unselected_pixels_changed": 0,
+          "transparent_pixels_changed": 0,
+          "unresolved": 0,
+          "unresolved_coordinates": [],
+          "unresolved_alpha_max": 0,
+          "remaining_purple_pixels_alpha_gt_8": 81,
+          "max_donor_distance": 31.575306807693888,
+          "mean_donor_distance": 5.5794975194085055
+        },
+        "note": "Alpha derives from new opaque key-backed raw art. Subsequent edge correction preserves this alpha exactly."
+      },
+      "layout": "2x2 TL,TR,BL,BR",
+      "source_boxes": [
+        [
+          0,
+          0,
+          627,
+          627
+        ],
+        [
+          627,
+          0,
+          1254,
+          627
+        ],
+        [
+          0,
+          627,
+          627,
+          1254
+        ],
+        [
+          627,
+          627,
+          1254,
+          1254
+        ]
+      ],
+      "native_subject_heights": [
+        579,
+        584,
+        573,
+        578
+      ],
+      "same_scale_all_four_frames": 0.7191780821917808,
+      "body_scale_cv": 0.006750431872002294,
+      "frames": [
+        {
+          "bbox_alpha_gt_8": [
+            142,
+            55,
+            420,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7191780821917808,
+          "resized_crop_size": [
+            278,
+            417
+          ],
+          "paste_xy": [
+            142,
+            55
+          ],
+          "source_crop_bbox": [
+            159,
+            25,
+            545,
+            605
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "2339b2a8b8f5d49844f87b8a3d9dd765c1e522d50137fb8ec079c12be9953ebc"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            144,
+            53,
+            420,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7191780821917808,
+          "resized_crop_size": [
+            277,
+            422
+          ],
+          "paste_xy": [
+            143,
+            52
+          ],
+          "source_crop_bbox": [
+            105,
+            26,
+            490,
+            613
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "74baa22268fc772716c534e82bdab879145c0b70f3600d599f3c1fb4080ef93a"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            144,
+            60,
+            428,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7191780821917808,
+          "resized_crop_size": [
+            284,
+            412
+          ],
+          "paste_xy": [
+            144,
+            60
+          ],
+          "source_crop_bbox": [
+            150,
+            16,
+            545,
+            589
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "e3ce713210ef47c7df045aec76ebfbbedb06e2d82e8afd8f6e8af996bd840546"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            126,
+            57,
+            402,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7191780821917808,
+          "resized_crop_size": [
+            278,
+            417
+          ],
+          "paste_xy": [
+            124,
+            56
+          ],
+          "source_crop_bbox": [
+            104,
+            16,
+            490,
+            596
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "c0818eef9a3146f82c1dd928ac48d400a27879e0eed3f9cd6a7f045f345eb23a"
+        }
+      ],
+      "visual_review": {
+        "status": "passed_visual_review",
+        "checked_at_utc": "2026-09-11T13:22:50.839337+00:00",
+        "direction_and_gait": "Left profile. Frames 1/3 show the corresponding near-arm swing and hip/leg overlap switching despite similar contact silhouettes. Frame 2 is a narrow passing pose with the other boot partly hidden behind the support leg; frame 4 clearly lifts the opposite near knee. Both feet remain drawn and the four phases are distinct.",
+        "identity": "Consistent accepted compact mature-faced ink/jade chibi, high ponytail and kite; no changed body proportion by processing.",
+        "edges": "Full light/dark composites and leg crops inspected. Hair/kite strings, boots and red/jade accessories complete; no continuous visible magenta outline or bright leg-gap key pocket. Remaining color-count candidates include dark outlines and original warm accents; numeric hue count alone is not an art defect.",
+        "evidence": "processing/W-full-legs-review.jpg",
+        "limitations": "Four-frame hand-painted walk; no skeleton or engine playback validation."
+      },
+      "outputs": [
+        {
+          "path": "walk/W/01.png",
+          "sha256": "f89a3afa3851de2e6e257d977315a3167a051a752d121f8e2de698c0f38c8850"
+        },
+        {
+          "path": "walk/W/02.png",
+          "sha256": "149b7c1814685689d774f0a6b1333b312d3d91580f594cf11209e770a0c8cff1"
+        },
+        {
+          "path": "walk/W/03.png",
+          "sha256": "e202f0b22a70e534ce63a45a8a36f8b0df5fe8dd9b068a5aa1ce9b1b51f84ce4"
+        },
+        {
+          "path": "walk/W/04.png",
+          "sha256": "6728da3f1dc52bc34ea1d648c1b611cea545967d80d52b35cfed86d6c0267ed4"
+        },
+        {
+          "path": "walk/W/strip.png",
+          "sha256": "c58a6e40427d67c747eae087617f3043b2c9df365dc8df81db67ff75e2665a05"
+        },
+        {
+          "path": "walk/W/walk.gif",
+          "sha256": "839d3486dcebc6452858fc8048b6b235d9810e048f27db64ae2dab6595fbf877"
+        }
+      ]
+    },
+    "NW": {
+      "path": "E:\\work\\image\\qdao_cutout_edge_repair_20260911\\27\\sources\\walk_NW_2x2.png",
+      "sha256": "e3ac47f5384e1998f8e362d4505850f865d8c1ded89638fed8ee19b2389bece8",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source": "deterministic layout of independently reviewed native built-in image_gen frames",
+      "output_size_is_not_native_resolution": true,
+      "processing_tool_sha256": {
+        "batch_processor": "186fc00f49f5fc2c60d4734c18e339063fad97f07481bd6594bb03b2f78689a3",
+        "rgb_cleanup": "5d49c4fe620f0398fc1eb37eb45b0527f2c1bd84a6fac755c219d099041c3215",
+        "anchor_contract": "dfae3008901c7558d1e79bfcdee4299ebe32c3ff8a863c2447c04403be5c659e",
+        "gif_encoder": "970895ef904fed5e41f2be1533e00218e64c100ecb0d6c8814c7d2352730581f"
+      },
+      "matte": {
+        "key_rgb": [
+          245.0,
+          5.0,
+          246.0
+        ],
+        "exact_field_pixels": 1125074,
+        "mixture_solved_pixels": 44188,
+        "mixture_unresolved": 0,
+        "mixture_unresolved_coordinates": [],
+        "post_matte_rgb_cleanup": {
+          "selected_pixels": 6538,
+          "changed_rgb_pixels": 6538,
+          "alpha_changed_pixels": 0,
+          "unselected_pixels_changed": 0,
+          "transparent_pixels_changed": 0,
+          "unresolved": 0,
+          "unresolved_coordinates": [],
+          "unresolved_alpha_max": 0,
+          "remaining_purple_pixels_alpha_gt_8": 17,
+          "max_donor_distance": 15.264337522473747,
+          "mean_donor_distance": 5.460063368354723
+        },
+        "note": "Alpha derives from new opaque key-backed raw art. Subsequent edge correction preserves this alpha exactly."
+      },
+      "layout": "2x2 TL,TR,BL,BR",
+      "source_boxes": [
+        [
+          0,
+          0,
+          627,
+          627
+        ],
+        [
+          627,
+          0,
+          1254,
+          627
+        ],
+        [
+          0,
+          627,
+          627,
+          1254
+        ],
+        [
+          627,
+          627,
+          1254,
+          1254
+        ]
+      ],
+      "native_subject_heights": [
+        586,
+        587,
+        580,
+        573
+      ],
+      "same_scale_all_four_frames": 0.7155025553662692,
+      "body_scale_cv": 0.009613361898107436,
+      "frames": [
+        {
+          "bbox_alpha_gt_8": [
+            133,
+            53,
+            363,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7155025553662692,
+          "resized_crop_size": [
+            233,
+            421
+          ],
+          "paste_xy": [
+            133,
+            52
+          ],
+          "source_crop_bbox": [
+            187,
+            25,
+            512,
+            613
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "9fd75a2afe009835993b186bc6c0fca1598b96766472f4bb74e542cc88dfe44d"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            144,
+            52,
+            379,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7155025553662692,
+          "resized_crop_size": [
+            235,
+            421
+          ],
+          "paste_xy": [
+            144,
+            52
+          ],
+          "source_crop_bbox": [
+            125,
+            26,
+            453,
+            614
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "ef5efb1c3271269bdfb9db1775ffdf2bc867648d1ee998ceacdaa355f6b846a9"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            147,
+            57,
+            379,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7155025553662692,
+          "resized_crop_size": [
+            233,
+            415
+          ],
+          "paste_xy": [
+            147,
+            57
+          ],
+          "source_crop_bbox": [
+            131,
+            15,
+            456,
+            595
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "b4ffa98aaa5e1011db600f94382fcdc5cda10813c0824d8ff55811dc0319ea18"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            124,
+            62,
+            357,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7155025553662692,
+          "resized_crop_size": [
+            233,
+            411
+          ],
+          "paste_xy": [
+            124,
+            62
+          ],
+          "source_crop_bbox": [
+            130,
+            15,
+            455,
+            590
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "a644bb61d4dbaaa7ca8bae4ad38c25b6879f25c9b1bc158d563796c2904cd8d1"
+        }
+      ],
+      "visual_review": {
+        "status": "passed_visual_review",
+        "reviewer": "check_recent_edges",
+        "checked_at_utc": "2026-09-11T17:23:54.092120+00:00",
+        "scope": "Four complete NW cutouts on light and dark backgrounds plus enlarged leg, hair, ribbon and kite details.",
+        "direction_and_gait": "Rear-left 45-degree NW retained. NW01 screen-right heel trails while opposite boot leads. New NW03 attempt07 screen-left heel trails and screen-right boot supports weight. NW02 and NW04 raise opposite knees/soles. Retained original cells are 1/2/4; all older NW03 candidates excluded.",
+        "identity_and_scale": "Same compact chibi proportions, high ponytail, jade tie, crane cape and kite. Only the full 1254px new canvas is reduced uniformly to 627px; final direction shares one export scale with no per-body fitting.",
+        "edges": "Full hair, ribbon ends, kite rods/strings, cuffs, trousers, boot soles and red tassel inspected. No visible continuous bright magenta fringe, clipped silhouette or detached bright key pocket. Seventeen native numeric hue candidates are narrow warm skin/shadow/outline or red-accent pixels, not an automatic rejection of the observed export.",
+        "evidence": [
+          {
+            "path": "processing/NW-full-native-review.jpg",
+            "sha256": "760a849f9a5a2c1860767baf5498628a62a1904640d8c41c43a6275619fbfc7e"
+          },
+          {
+            "path": "processing/NW-legs-review.png",
+            "sha256": "81142ba2050bed4e22804c9ac8c3882f4e0138dbe008ee757aae7dc94fe06389"
+          },
+          {
+            "path": "processing/NW-upper-01-review.png",
+            "sha256": "ff2b35f50a90aab27e6071616852191b8e31ea5eac92e15fceec33455d270dac"
+          },
+          {
+            "path": "processing/NW-upper-02-review.png",
+            "sha256": "c337108380f5de381d45db064aeddefb1f9acdf9b23c8126228a57c11b0aca2a"
+          },
+          {
+            "path": "processing/NW-upper-03-review.png",
+            "sha256": "a7222d4947d49c0d76fa4c67727449376ffa115b6f1ed9aaebdccc13ca58a040"
+          },
+          {
+            "path": "processing/NW-upper-04-review.png",
+            "sha256": "199764995f1e08ac05103c59db556b4e0d14b665b970db47b89b77d8bde12d8c"
+          }
+        ],
+        "source_sha256": "e3ac47f5384e1998f8e362d4505850f865d8c1ded89638fed8ee19b2389bece8",
+        "processing_tools_unchanged": true,
+        "record": "processing/NW-visual-review.json",
+        "record_sha256": "a268ec0473d27f58ab4732fd93bb6ffcf950833c7e01f98b71f19ea8dc10a40c"
+      },
+      "outputs": [
+        {
+          "path": "walk/NW/01.png",
+          "sha256": "d0ceba2cf8d3ef5d1988f1a18b27ad84bf7baaeab3a678aea689710964bb11eb"
+        },
+        {
+          "path": "walk/NW/02.png",
+          "sha256": "94fc3edaf43663d95d4ef2964d0f224f49e31fddd40f0dc112e90fbd9a831f6d"
+        },
+        {
+          "path": "walk/NW/03.png",
+          "sha256": "686293b45997618e62612ea09714ce13783e42af6a64f9a433707c83b531ff69"
+        },
+        {
+          "path": "walk/NW/04.png",
+          "sha256": "d99ffcb497b8334b27f8126b448e471b10eb6a9f1e4a1f165fe2879a00e005f3"
+        },
+        {
+          "path": "walk/NW/strip.png",
+          "sha256": "d5d2f7b600205434e4b1dcb4f3f1acc9661fa4610ea1476317ea068b485f7c54"
+        },
+        {
+          "path": "walk/NW/walk.gif",
+          "sha256": "0cb8707a781547166e3a8544259a19d03e7791db79b4b53dbd182da2c93e4271"
+        }
+      ],
+      "source_type": "assembled_2x2_from_native_generations",
+      "assembled": true,
+      "native_generation": false,
+      "native_size_semantics": "assembled processing-input canvas, not one native generated image",
+      "native_generation_count": 2,
+      "generation_lineage": {
+        "operation": "crop_native_cells_and_uniformly_resample_whole_canvases_then_layout",
+        "body_warp_or_per_frame_bbox_fit": false,
+        "spec_file": "NW-layout-review/assembly-spec.json",
+        "spec_sha256": "aa7afa2a0d5717ce540089acb8aadfec9dcc6a9853cf73347b34c852bc48497b",
+        "assembler_sha256": "55efb2b7b3a09e26911ade1dffc4017f1769a9379d9110defe059ac9663f6afb",
+        "frames": [
+          {
+            "frame": 1,
+            "raw_source": "sources/walk_NW_2x2_candidate_attempt03.png",
+            "raw_sha256": "77254ae3fecd5822dc377552ceeb346f1e142bb4ef4ad8c567473594e6f841f9",
+            "source_box": [
+              0,
+              0,
+              627,
+              627
+            ],
+            "prompt_file": "prompts/walk_NW_camera_gait_fix_attempt03.txt",
+            "prompt_sha256": "5143a32178c19e00e39f028237fe241c43152bdb8c08447335e7b12a3dd52951",
+            "visual_status": "passed_single_pose_review",
+            "visual_review_by": "root and check_recent_edges",
+            "reference_images": [
+              {
+                "path": "sources/walk_N_2x2.png",
+                "sha256": "2979810733be2a49e351e9f312f5bfac81188de56188a8a6860de79b534b06ce",
+                "role": "accepted_four_phase_motion_master"
+              },
+              {
+                "path": "sources/walk_NW_2x2_rejected_attempt02.png",
+                "sha256": "417a655d184a351a977c1751a1943b3ddcdf9beef5b73e0eb9bb9eba0e0628be",
+                "role": "45_degree_orientation_only_reference"
+              }
+            ],
+            "generation_origin": {
+              "record_file": "generation-diagonals-camera-fix-attempt03.json",
+              "record_sha256": "207fa23dd1d7be7f18387f6625de58fbb5d4916971c69d00103b21380958b50f",
+              "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a0904f-b372-7c92-bf48-1637da088532\\exec-de0ddab4-ab22-4a8f-945e-841bbdaa52ce.png"
+            },
+            "raw_native_size": [
+              1254,
+              1254
+            ],
+            "whole_canvas_scale": 1.0,
+            "target_box": [
+              0,
+              0,
+              627,
+              627
+            ]
+          },
+          {
+            "frame": 2,
+            "raw_source": "sources/walk_NW_2x2_candidate_attempt03.png",
+            "raw_sha256": "77254ae3fecd5822dc377552ceeb346f1e142bb4ef4ad8c567473594e6f841f9",
+            "source_box": [
+              627,
+              0,
+              1254,
+              627
+            ],
+            "prompt_file": "prompts/walk_NW_camera_gait_fix_attempt03.txt",
+            "prompt_sha256": "5143a32178c19e00e39f028237fe241c43152bdb8c08447335e7b12a3dd52951",
+            "visual_status": "passed_single_pose_review",
+            "visual_review_by": "root and check_recent_edges",
+            "reference_images": [
+              {
+                "path": "sources/walk_N_2x2.png",
+                "sha256": "2979810733be2a49e351e9f312f5bfac81188de56188a8a6860de79b534b06ce",
+                "role": "accepted_four_phase_motion_master"
+              },
+              {
+                "path": "sources/walk_NW_2x2_rejected_attempt02.png",
+                "sha256": "417a655d184a351a977c1751a1943b3ddcdf9beef5b73e0eb9bb9eba0e0628be",
+                "role": "45_degree_orientation_only_reference"
+              }
+            ],
+            "generation_origin": {
+              "record_file": "generation-diagonals-camera-fix-attempt03.json",
+              "record_sha256": "207fa23dd1d7be7f18387f6625de58fbb5d4916971c69d00103b21380958b50f",
+              "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a0904f-b372-7c92-bf48-1637da088532\\exec-de0ddab4-ab22-4a8f-945e-841bbdaa52ce.png"
+            },
+            "raw_native_size": [
+              1254,
+              1254
+            ],
+            "whole_canvas_scale": 1.0,
+            "target_box": [
+              627,
+              0,
+              1254,
+              627
+            ]
+          },
+          {
+            "frame": 3,
+            "raw_source": "sources/frame-originals/walk_NW03_attempt07.png",
+            "raw_sha256": "1a6223a80e9b6b11efd0a925bbc017a657f0ee7e24727228a3334854e8dccc23",
+            "source_box": [
+              0,
+              0,
+              1254,
+              1254
+            ],
+            "prompt_file": "prompts/walk_NW03_lower_left_boot_attempt07.txt",
+            "prompt_sha256": "fd25632080b6c69b943c41b0106c9d57397adcd1c7f130ebe36b9aa733d76717",
+            "visual_status": "passed_single_pose_review",
+            "visual_review_by": "root and check_recent_edges",
+            "reference_images": [
+              {
+                "path": "references/NW04-for-contact-attempt06.png",
+                "sha256": "a7e7feeebf8aa3520534cb6c35fccf6fa7aa0504ea6a089a88f5513c14b4894b",
+                "extraction_record": "references/NW04-for-contact-attempt06.json",
+                "native_source": "sources/walk_NW_2x2_candidate_attempt03.png",
+                "native_sha256": "77254ae3fecd5822dc377552ceeb346f1e142bb4ef4ad8c567473594e6f841f9",
+                "source_box": [
+                  627,
+                  627,
+                  1254,
+                  1254
+                ],
+                "operation": "exact lossless extraction of accepted NW04 pose as imagegen reference; no pose edits",
+                "extraction_record_sha256": "750858211068956e42c63922dd53f06aadcb72c6ca2c8b9953c22ad9730c2f74"
+              }
+            ],
+            "generation_origin": {
+              "record_file": "generation-single-NW03-attempt07.json",
+              "record_sha256": "64421ece14fa3b33811c0108a60ceb401430d3f69ba1209f068cb1fd256a0c72",
+              "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a086ef-2e8c-73a2-bf70-7ac4b4bcde02\\exec-704224b6-7441-40bb-a7ef-953e80c15141.png"
+            },
+            "raw_native_size": [
+              1254,
+              1254
+            ],
+            "whole_canvas_scale": 0.5,
+            "target_box": [
+              0,
+              627,
+              627,
+              1254
+            ]
+          },
+          {
+            "frame": 4,
+            "raw_source": "sources/walk_NW_2x2_candidate_attempt03.png",
+            "raw_sha256": "77254ae3fecd5822dc377552ceeb346f1e142bb4ef4ad8c567473594e6f841f9",
+            "source_box": [
+              627,
+              627,
+              1254,
+              1254
+            ],
+            "prompt_file": "prompts/walk_NW_camera_gait_fix_attempt03.txt",
+            "prompt_sha256": "5143a32178c19e00e39f028237fe241c43152bdb8c08447335e7b12a3dd52951",
+            "visual_status": "passed_single_pose_review",
+            "visual_review_by": "root and check_recent_edges",
+            "reference_images": [
+              {
+                "path": "sources/walk_N_2x2.png",
+                "sha256": "2979810733be2a49e351e9f312f5bfac81188de56188a8a6860de79b534b06ce",
+                "role": "accepted_four_phase_motion_master"
+              },
+              {
+                "path": "sources/walk_NW_2x2_rejected_attempt02.png",
+                "sha256": "417a655d184a351a977c1751a1943b3ddcdf9beef5b73e0eb9bb9eba0e0628be",
+                "role": "45_degree_orientation_only_reference"
+              }
+            ],
+            "generation_origin": {
+              "record_file": "generation-diagonals-camera-fix-attempt03.json",
+              "record_sha256": "207fa23dd1d7be7f18387f6625de58fbb5d4916971c69d00103b21380958b50f",
+              "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a0904f-b372-7c92-bf48-1637da088532\\exec-de0ddab4-ab22-4a8f-945e-841bbdaa52ce.png"
+            },
+            "raw_native_size": [
+              1254,
+              1254
+            ],
+            "whole_canvas_scale": 1.0,
+            "target_box": [
+              627,
+              627,
+              1254,
+              1254
+            ]
+          }
+        ],
+        "raw_artifacts": [
+          {
+            "path": "sources/walk_NW_2x2_candidate_attempt03.png",
+            "sha256": "77254ae3fecd5822dc377552ceeb346f1e142bb4ef4ad8c567473594e6f841f9",
+            "native_size": [
+              1254,
+              1254
+            ],
+            "prompt_file": "prompts/walk_NW_camera_gait_fix_attempt03.txt",
+            "prompt_sha256": "5143a32178c19e00e39f028237fe241c43152bdb8c08447335e7b12a3dd52951",
+            "source_type": "native_imagegen_output",
+            "reference_images": [
+              {
+                "path": "sources/walk_N_2x2.png",
+                "sha256": "2979810733be2a49e351e9f312f5bfac81188de56188a8a6860de79b534b06ce",
+                "role": "accepted_four_phase_motion_master"
+              },
+              {
+                "path": "sources/walk_NW_2x2_rejected_attempt02.png",
+                "sha256": "417a655d184a351a977c1751a1943b3ddcdf9beef5b73e0eb9bb9eba0e0628be",
+                "role": "45_degree_orientation_only_reference"
+              }
+            ],
+            "reference_transport": "last two displayed conversation images: cardinal motion master then diagonal orientation reference",
+            "generation_origin": {
+              "record_file": "generation-diagonals-camera-fix-attempt03.json",
+              "record_sha256": "207fa23dd1d7be7f18387f6625de58fbb5d4916971c69d00103b21380958b50f",
+              "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a0904f-b372-7c92-bf48-1637da088532\\exec-de0ddab4-ab22-4a8f-945e-841bbdaa52ce.png"
+            },
+            "accepted_cells": [
+              1,
+              2,
+              4
+            ],
+            "excluded_cell": 3,
+            "native_mode": "RGB"
+          },
+          {
+            "path": "sources/frame-originals/walk_NW03_attempt07.png",
+            "sha256": "1a6223a80e9b6b11efd0a925bbc017a657f0ee7e24727228a3334854e8dccc23",
+            "native_size": [
+              1254,
+              1254
+            ],
+            "prompt_file": "prompts/walk_NW03_lower_left_boot_attempt07.txt",
+            "prompt_sha256": "fd25632080b6c69b943c41b0106c9d57397adcd1c7f130ebe36b9aa733d76717",
+            "source_type": "native_imagegen_output",
+            "reference_images": [
+              {
+                "path": "references/NW04-for-contact-attempt06.png",
+                "sha256": "a7e7feeebf8aa3520534cb6c35fccf6fa7aa0504ea6a089a88f5513c14b4894b",
+                "extraction_record": "references/NW04-for-contact-attempt06.json",
+                "native_source": "sources/walk_NW_2x2_candidate_attempt03.png",
+                "native_sha256": "77254ae3fecd5822dc377552ceeb346f1e142bb4ef4ad8c567473594e6f841f9",
+                "source_box": [
+                  627,
+                  627,
+                  1254,
+                  1254
+                ],
+                "operation": "exact lossless extraction of accepted NW04 pose as imagegen reference; no pose edits",
+                "extraction_record_sha256": "750858211068956e42c63922dd53f06aadcb72c6ca2c8b9953c22ad9730c2f74"
+              }
+            ],
+            "reference_transport": "num_last_images_to_include=1",
+            "generation_origin": {
+              "record_file": "generation-single-NW03-attempt07.json",
+              "record_sha256": "64421ece14fa3b33811c0108a60ceb401430d3f69ba1209f068cb1fd256a0c72",
+              "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a086ef-2e8c-73a2-bf70-7ac4b4bcde02\\exec-704224b6-7441-40bb-a7ef-953e80c15141.png"
+            },
+            "visual_status": "passed_single_pose_review",
+            "visual_review_by": "root and check_recent_edges",
+            "visual_finding": "Screen-left heel trails with sole visible; opposite right boot bears weight forward. This reverses retained NW01 trailing heel.",
+            "native_mode": "RGB"
+          }
+        ]
+      },
+      "source_lineage_record": {
+        "path": "E:\\work\\image\\qdao_cutout_edge_repair_20260911\\27\\sources\\walk_NW_2x2.lineage.json",
+        "sha256": "cc0fb46a11003075a24bd0ff69736cfa8607db794986f20c27103df802b5b16f"
+      }
+    },
+    "N": {
+      "path": "E:\\work\\image\\qdao_cutout_edge_repair_20260911\\27\\sources\\walk_N_2x2.png",
+      "sha256": "2979810733be2a49e351e9f312f5bfac81188de56188a8a6860de79b534b06ce",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source": "built-in image_gen",
+      "output_size_is_not_native_resolution": true,
+      "processing_tool_sha256": {
+        "batch_processor": "186fc00f49f5fc2c60d4734c18e339063fad97f07481bd6594bb03b2f78689a3",
+        "rgb_cleanup": "5d49c4fe620f0398fc1eb37eb45b0527f2c1bd84a6fac755c219d099041c3215",
+        "anchor_contract": "dfae3008901c7558d1e79bfcdee4299ebe32c3ff8a863c2447c04403be5c659e",
+        "gif_encoder": "970895ef904fed5e41f2be1533e00218e64c100ecb0d6c8814c7d2352730581f"
+      },
+      "matte": {
+        "key_rgb": [
+          249.0,
+          3.0,
+          249.0
+        ],
+        "exact_field_pixels": 1195824,
+        "mixture_solved_pixels": 40922,
+        "mixture_unresolved": 0,
+        "mixture_unresolved_coordinates": [],
+        "post_matte_rgb_cleanup": {
+          "selected_pixels": 5035,
+          "changed_rgb_pixels": 5035,
+          "alpha_changed_pixels": 0,
+          "unselected_pixels_changed": 0,
+          "transparent_pixels_changed": 0,
+          "unresolved": 0,
+          "unresolved_coordinates": [],
+          "unresolved_alpha_max": 0,
+          "remaining_purple_pixels_alpha_gt_8": 80,
+          "max_donor_distance": 11.313708498984761,
+          "mean_donor_distance": 5.543486998160407
+        },
+        "note": "Alpha derives from new opaque key-backed raw art. Subsequent edge correction preserves this alpha exactly."
+      },
+      "layout": "2x2 TL,TR,BL,BR",
+      "source_boxes": [
+        [
+          0,
+          0,
+          627,
+          627
+        ],
+        [
+          627,
+          0,
+          1254,
+          627
+        ],
+        [
+          0,
+          627,
+          627,
+          1254
+        ],
+        [
+          627,
+          627,
+          1254,
+          1254
+        ]
+      ],
+      "native_subject_heights": [
+        574,
+        577,
+        578,
+        574
+      ],
+      "same_scale_all_four_frames": 0.726643598615917,
+      "body_scale_cv": 0.00310092419823832,
+      "frames": [
+        {
+          "bbox_alpha_gt_8": [
+            172,
+            55,
+            353,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.726643598615917,
+          "resized_crop_size": [
+            181,
+            418
+          ],
+          "paste_xy": [
+            172,
+            55
+          ],
+          "source_crop_bbox": [
+            234,
+            25,
+            483,
+            600
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "23b0d845381310353452a4658ac6916b6dc52fe8f8041bb17db11c7255f88da2"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            168,
+            53,
+            355,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.726643598615917,
+          "resized_crop_size": [
+            187,
+            420
+          ],
+          "paste_xy": [
+            168,
+            52
+          ],
+          "source_crop_bbox": [
+            143,
+            25,
+            401,
+            603
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "3fcd0f22eb9b2d571222f889a9715d156549a79b2037aeac5d21397ac40c26ec"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            160,
+            53,
+            339,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.726643598615917,
+          "resized_crop_size": [
+            179,
+            421
+          ],
+          "paste_xy": [
+            160,
+            52
+          ],
+          "source_crop_bbox": [
+            234,
+            2,
+            480,
+            582
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "fb47a8f8fbe6217c574b19e44778952a99e3a0191ded9354eeda784d272e6cef"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            165,
+            53,
+            339,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.726643598615917,
+          "resized_crop_size": [
+            174,
+            419
+          ],
+          "paste_xy": [
+            165,
+            53
+          ],
+          "source_crop_bbox": [
+            160,
+            4,
+            400,
+            580
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "fd25642d26fc9bb7d40777c9cfe507283f15ce68f2c244e8270f10cf868d21df"
+        }
+      ],
+      "visual_review": {
+        "status": "passed_visual_review",
+        "checked_at_utc": "2026-09-11T13:22:50.839337+00:00",
+        "direction_and_gait": "Back-facing. Frames 1/3 swap the backward-reaching boot; frames 2/4 expose opposite lifted soles while the opposite boot stays on the ground. Four clear alternating phases.",
+        "identity": "Consistent accepted compact mature-faced ink/jade chibi, high ponytail and kite; no changed body proportion by processing.",
+        "edges": "Full light/dark composites and leg crops inspected. Hair/kite strings, boots and red/jade accessories complete; no continuous visible magenta outline or bright leg-gap key pocket. Remaining color-count candidates include dark outlines and original warm accents; numeric hue count alone is not an art defect.",
+        "evidence": "processing/N-full-legs-review.jpg",
+        "limitations": "Four-frame hand-painted walk; no skeleton or engine playback validation."
+      },
+      "outputs": [
+        {
+          "path": "walk/N/01.png",
+          "sha256": "f79c1c60e05734e9552b16fed1c61bbc90184dc5465038561dacc8b24f51be92"
+        },
+        {
+          "path": "walk/N/02.png",
+          "sha256": "4f3fe0f281e4d3630bdeb35c0a8811886f0f828b39a8aa0b58baae8aa3092692"
+        },
+        {
+          "path": "walk/N/03.png",
+          "sha256": "8ab37ba48b06b86194a5f11684771d33faf9d7b847497e268797cac83f9e00fb"
+        },
+        {
+          "path": "walk/N/04.png",
+          "sha256": "e12fa0dd3f5d6b53a4622e4465d24c988ad5f2cf7f730bdcb484faab21bedbb0"
+        },
+        {
+          "path": "walk/N/strip.png",
+          "sha256": "53ab3305157923f396445ed05abccb27c50b6b190fd99f51a4f086485350c6e0"
+        },
+        {
+          "path": "walk/N/walk.gif",
+          "sha256": "7809ff032b8e60063c8f8613510c826d2df43f4700e504c0f4570c8c0b796147"
+        }
+      ]
+    },
+    "NE": {
+      "path": "E:\\work\\image\\qdao_cutout_edge_repair_20260911\\27\\sources\\walk_NE_2x2.png",
+      "sha256": "8d5899472e6c168d29241f01f44d0b0ebed91fb1bc68151bc22fc099f7c131a2",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source": "built-in image_gen",
+      "output_size_is_not_native_resolution": true,
+      "processing_tool_sha256": {
+        "batch_processor": "186fc00f49f5fc2c60d4734c18e339063fad97f07481bd6594bb03b2f78689a3",
+        "rgb_cleanup": "5d49c4fe620f0398fc1eb37eb45b0527f2c1bd84a6fac755c219d099041c3215",
+        "anchor_contract": "dfae3008901c7558d1e79bfcdee4299ebe32c3ff8a863c2447c04403be5c659e",
+        "gif_encoder": "970895ef904fed5e41f2be1533e00218e64c100ecb0d6c8814c7d2352730581f"
+      },
+      "matte": {
+        "key_rgb": [
+          246.0,
+          4.0,
+          247.0
+        ],
+        "exact_field_pixels": 1150760,
+        "mixture_solved_pixels": 54126,
+        "mixture_unresolved": 0,
+        "mixture_unresolved_coordinates": [],
+        "post_matte_rgb_cleanup": {
+          "selected_pixels": 11126,
+          "changed_rgb_pixels": 11126,
+          "alpha_changed_pixels": 0,
+          "unselected_pixels_changed": 0,
+          "transparent_pixels_changed": 0,
+          "unresolved": 0,
+          "unresolved_coordinates": [],
+          "unresolved_alpha_max": 0,
+          "remaining_purple_pixels_alpha_gt_8": 86,
+          "max_donor_distance": 19.4164878389476,
+          "mean_donor_distance": 5.959930853068998
+        },
+        "note": "Alpha derives from new opaque key-backed raw art. Subsequent edge correction preserves this alpha exactly."
+      },
+      "layout": "2x2 TL,TR,BL,BR",
+      "source_boxes": [
+        [
+          0,
+          0,
+          627,
+          627
+        ],
+        [
+          627,
+          0,
+          1254,
+          627
+        ],
+        [
+          0,
+          627,
+          627,
+          1254
+        ],
+        [
+          627,
+          627,
+          1254,
+          1254
+        ]
+      ],
+      "native_subject_heights": [
+        581,
+        569,
+        543,
+        541
+      ],
+      "same_scale_all_four_frames": 0.7228915662650602,
+      "body_scale_cv": 0.030530694547860223,
+      "frames": [
+        {
+          "bbox_alpha_gt_8": [
+            151,
+            52,
+            380,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7228915662650602,
+          "resized_crop_size": [
+            229,
+            421
+          ],
+          "paste_xy": [
+            151,
+            52
+          ],
+          "source_crop_bbox": [
+            199,
+            32,
+            516,
+            615
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "69d789a8b0b9599dd6350d8ceefd9a36b417f1891a2f7a332ec0b91f0b97ec30"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            136,
+            61,
+            365,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7228915662650602,
+          "resized_crop_size": [
+            229,
+            412
+          ],
+          "paste_xy": [
+            136,
+            61
+          ],
+          "source_crop_bbox": [
+            120,
+            36,
+            437,
+            606
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "3d00b4ab399a726a7cd89a61db074f45b9a07e189021145669b40fdedab5bfe7"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            96,
+            79,
+            350,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7228915662650602,
+          "resized_crop_size": [
+            254,
+            393
+          ],
+          "paste_xy": [
+            96,
+            79
+          ],
+          "source_crop_bbox": [
+            89,
+            22,
+            441,
+            565
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "51ac5adb8525c67927718d366dfb7888ea466b58ec398a7b883327cfb48dc6ab"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            107,
+            82,
+            361,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7228915662650602,
+          "resized_crop_size": [
+            254,
+            392
+          ],
+          "paste_xy": [
+            107,
+            81
+          ],
+          "source_crop_bbox": [
+            89,
+            20,
+            441,
+            562
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "9753ab374827757b8b929527161b3bbb2957e58bb19fbe0f823b85f4499eaac2"
+        }
+      ],
+      "visual_review": {
+        "status": "passed_visual_review",
+        "reviewer": "root",
+        "checked_at_utc": "2026-09-11T18:29:23.617200+00:00",
+        "source_sha256": "8d5899472e6c168d29241f01f44d0b0ebed91fb1bc68151bc22fc099f7c131a2",
+        "record": "NE-root-visual-acceptance.json",
+        "record_sha256": "36dc865353965cb3169f2ebc7e6ab33950aa636792a876d6cdda278b71a5232f",
+        "findings": [
+          "Four genuine phases: left trailing contact, left sole passing, right trailing contact, right sole passing",
+          "Compact chibi head/body appearance retained; small pose and torso-angle variation remains",
+          "Transparent hair, ribbon, kite, hands and boots checked on light and dark backgrounds; no continuous magenta fringe",
+          "No body warping or mirrored pose fabrication"
+        ],
+        "files": [
+          {
+            "path": "walk/NE/01.png",
+            "sha256": "ec9a47198487253ac8239a5e7f0ac94d0efc062ff56c724fd032f1123417a85b"
+          },
+          {
+            "path": "walk/NE/02.png",
+            "sha256": "4d10a39cddcabf47a74675fd061589a72fe88ee1ca349c30887bd5ad8036fcec"
+          },
+          {
+            "path": "walk/NE/03.png",
+            "sha256": "189d604766254353973744399612bf08ba741bcbb03b40daa9d3be0aac98c753"
+          },
+          {
+            "path": "walk/NE/04.png",
+            "sha256": "868eb105712472ca0047e49040bd1f2f7f4690b7b0e6741f7a11f12581119842"
+          },
+          {
+            "path": "walk/NE/strip.png",
+            "sha256": "bb214b0438f502e38faac8cb949b3aef229b7d853cee83e1458e70a99e91956a"
+          },
+          {
+            "path": "walk/NE/walk.gif",
+            "sha256": "05b940d0070c413eef5ad6ac45aee523ea4f1790c42457101cd848da94ba313d"
+          }
+        ],
+        "evidence": [
+          {
+            "path": "staged-v2/processing/NE-full-native-review.jpg",
+            "sha256": "1e9022894d3046ed8d21b6422f9d2f115d69c6e062da685b1d3724ffb851893b"
+          }
+        ]
+      },
+      "outputs": [
+        {
+          "path": "walk/NE/01.png",
+          "sha256": "ec9a47198487253ac8239a5e7f0ac94d0efc062ff56c724fd032f1123417a85b"
+        },
+        {
+          "path": "walk/NE/02.png",
+          "sha256": "4d10a39cddcabf47a74675fd061589a72fe88ee1ca349c30887bd5ad8036fcec"
+        },
+        {
+          "path": "walk/NE/03.png",
+          "sha256": "189d604766254353973744399612bf08ba741bcbb03b40daa9d3be0aac98c753"
+        },
+        {
+          "path": "walk/NE/04.png",
+          "sha256": "868eb105712472ca0047e49040bd1f2f7f4690b7b0e6741f7a11f12581119842"
+        },
+        {
+          "path": "walk/NE/strip.png",
+          "sha256": "bb214b0438f502e38faac8cb949b3aef229b7d853cee83e1458e70a99e91956a"
+        },
+        {
+          "path": "walk/NE/walk.gif",
+          "sha256": "05b940d0070c413eef5ad6ac45aee523ea4f1790c42457101cd848da94ba313d"
+        }
+      ],
+      "source_type": "assembled_2x2_from_native_generations",
+      "assembled": true,
+      "native_generation": false,
+      "native_size_semantics": "assembled processing-input canvas, not one native generated image",
+      "native_generation_count": 3,
+      "generation_lineage": {
+        "operation": "crop_native_cells_and_uniformly_resample_whole_canvases_then_layout",
+        "body_warp_or_per_frame_bbox_fit": false,
+        "spec_file": "sources/NE-final-attempt07-assembly-spec.json",
+        "spec_sha256": "cdcc6bc45c89169024ecf24b587c3156ab51fd4bc5c833841f962297c5bdb22a",
+        "assembler_sha256": "55efb2b7b3a09e26911ade1dffc4017f1769a9379d9110defe059ac9663f6afb",
+        "frames": [
+          {
+            "frame": 1,
+            "raw_source": "sources/walk_NE_2x2_candidate_attempt03.png",
+            "raw_sha256": "35968551a671a6ee971b6459d93ee7f800d540a7561d98cda6076734e7355d1f",
+            "source_box": [
+              0,
+              0,
+              627,
+              627
+            ],
+            "prompt_file": "prompts/walk_NE_camera_gait_fix_attempt03.txt",
+            "prompt_sha256": "cfaebcc0d812fd1007c085e36fd367aa41de7812380542d66003aff1e99173cd",
+            "visual_status": "passed_single_pose_review",
+            "visual_review_by": "root and finish_27_edges",
+            "reference_images": [
+              {
+                "path": "sources/walk_N_2x2.png",
+                "sha256": "2979810733be2a49e351e9f312f5bfac81188de56188a8a6860de79b534b06ce",
+                "role": "accepted_four_phase_motion_master"
+              },
+              {
+                "path": "sources/walk_NE_2x2_rejected_attempt02.png",
+                "sha256": "da25ae46d15fc3efcb546d6161d91153b2002825b5ca0184e3951ff36050aadf",
+                "role": "diagonal_camera_only"
+              }
+            ],
+            "generation_origin": {
+              "record_file": "generation-diagonals-camera-fix-attempt03.json",
+              "record_sha256": "207fa23dd1d7be7f18387f6625de58fbb5d4916971c69d00103b21380958b50f",
+              "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a0904f-b372-7c92-bf48-1637da088532\\exec-105f1eac-b663-4ebb-a973-1c35431e8e68.png"
+            },
+            "raw_native_size": [
+              1254,
+              1254
+            ],
+            "whole_canvas_scale": 1.0,
+            "target_box": [
+              0,
+              0,
+              627,
+              627
+            ]
+          },
+          {
+            "frame": 2,
+            "raw_source": "sources/walk_NE_2x2_candidate_attempt03.png",
+            "raw_sha256": "35968551a671a6ee971b6459d93ee7f800d540a7561d98cda6076734e7355d1f",
+            "source_box": [
+              627,
+              0,
+              1254,
+              627
+            ],
+            "prompt_file": "prompts/walk_NE_camera_gait_fix_attempt03.txt",
+            "prompt_sha256": "cfaebcc0d812fd1007c085e36fd367aa41de7812380542d66003aff1e99173cd",
+            "visual_status": "passed_single_pose_review",
+            "visual_review_by": "root and finish_27_edges",
+            "reference_images": [
+              {
+                "path": "sources/walk_N_2x2.png",
+                "sha256": "2979810733be2a49e351e9f312f5bfac81188de56188a8a6860de79b534b06ce",
+                "role": "accepted_four_phase_motion_master"
+              },
+              {
+                "path": "sources/walk_NE_2x2_rejected_attempt02.png",
+                "sha256": "da25ae46d15fc3efcb546d6161d91153b2002825b5ca0184e3951ff36050aadf",
+                "role": "diagonal_camera_only"
+              }
+            ],
+            "generation_origin": {
+              "record_file": "generation-diagonals-camera-fix-attempt03.json",
+              "record_sha256": "207fa23dd1d7be7f18387f6625de58fbb5d4916971c69d00103b21380958b50f",
+              "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a0904f-b372-7c92-bf48-1637da088532\\exec-105f1eac-b663-4ebb-a973-1c35431e8e68.png"
+            },
+            "raw_native_size": [
+              1254,
+              1254
+            ],
+            "whole_canvas_scale": 1.0,
+            "target_box": [
+              627,
+              0,
+              1254,
+              627
+            ]
+          },
+          {
+            "frame": 3,
+            "raw_source": "sources/frame-originals/walk_NE03_attempt07.png",
+            "raw_sha256": "dfc53270bcffd597741f2995dbad9a3fe3e419789f5a7183e25bbea0f08ffb25",
+            "source_box": [
+              0,
+              0,
+              1254,
+              1254
+            ],
+            "prompt_file": "prompts/walk_NE03_lower_right_boot_attempt07.txt",
+            "prompt_sha256": "9a5758f75bb931a13a79da6dd4b77489ec8558524c451145ad59eccfb86c63cf",
+            "visual_status": "passed_single_pose_review",
+            "visual_review_by": "root",
+            "reference_images": [
+              {
+                "path": "references/NE04-compact-for-contact-attempt07.png",
+                "sha256": "cad2a01f535197ba5be5891df35065158a6b7965f8d280761773407315a4b53c",
+                "extraction_record": "references/NE04-compact-for-contact-attempt07.json",
+                "extraction_record_sha256": "d4a820b7049e2d74e8ff10c583cdf7dd8cbc49199c83b77ab043fc1c9ef724a8",
+                "native_source": "sources/walk_NE_2x2_rejected_attempt02.png",
+                "native_sha256": "da25ae46d15fc3efcb546d6161d91153b2002825b5ca0184e3951ff36050aadf",
+                "source_box": [
+                  627,
+                  627,
+                  1254,
+                  1254
+                ],
+                "operation": "lossless exact source-cell crop; no anatomy edit"
+              }
+            ],
+            "generation_origin": {
+              "record_file": "generation-single-NE03-attempt07.json",
+              "record_sha256": "a9800532dee3b61821c524e3762e8016ad65885f7912fde3c520ef36490dfcf2",
+              "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a086ef-2e8c-73a2-bf70-7ac4b4bcde02\\exec-38137530-09af-4e3c-857e-12a3091f2a8c.png",
+              "reference_transport": "num_last_images_to_include=1"
+            },
+            "raw_native_size": [
+              1254,
+              1254
+            ],
+            "whole_canvas_scale": 0.5,
+            "target_box": [
+              0,
+              627,
+              627,
+              1254
+            ]
+          },
+          {
+            "frame": 4,
+            "raw_source": "sources/walk_NE_2x2_rejected_attempt02.png",
+            "raw_sha256": "da25ae46d15fc3efcb546d6161d91153b2002825b5ca0184e3951ff36050aadf",
+            "source_box": [
+              627,
+              627,
+              1254,
+              1254
+            ],
+            "prompt_file": "prompts/walk_NE_local_gait_fix_attempt02.txt",
+            "prompt_sha256": "58b6816d77145872b9c8652e207774523eb371c7373cec8058295cdcbc5c192e",
+            "visual_status": "passed_single_pose_review",
+            "visual_review_by": "root",
+            "generation_origin": {
+              "record_file": "generation-diagonals-local-fix-attempt02.json",
+              "record_sha256": "c1d7ac1d90a9951b3efd735ea3cc7ec6aa72ad4a44a72e541fb4888637530d50",
+              "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a0904f-b372-7c92-bf48-1637da088532\\exec-6e49b6f2-4711-47d2-a69f-d96712757405.png"
+            },
+            "selection_note": "Only bottom-right cell retained; whole original sheet rejected for repeated contacts in other cells.",
+            "raw_native_size": [
+              1254,
+              1254
+            ],
+            "whole_canvas_scale": 1.0,
+            "target_box": [
+              627,
+              627,
+              1254,
+              1254
+            ],
+            "reference_images": [
+              {
+                "path": "sources/walk_NE_2x2_rejected_attempt01.png",
+                "sha256": "653ccdb696f4b6d8657e743b47cb26128c0981f3fc1a24bab16dd64eaf8f5f9f",
+                "role": "sole_local_edit_reference"
+              }
+            ]
+          }
+        ],
+        "raw_artifacts": [
+          {
+            "path": "sources/walk_NE_2x2_candidate_attempt03.png",
+            "sha256": "35968551a671a6ee971b6459d93ee7f800d540a7561d98cda6076734e7355d1f",
+            "native_size": [
+              1254,
+              1254
+            ],
+            "prompt_file": "prompts/walk_NE_camera_gait_fix_attempt03.txt",
+            "prompt_sha256": "cfaebcc0d812fd1007c085e36fd367aa41de7812380542d66003aff1e99173cd",
+            "source_type": "native_imagegen_output",
+            "reference_images": [
+              {
+                "path": "sources/walk_N_2x2.png",
+                "sha256": "2979810733be2a49e351e9f312f5bfac81188de56188a8a6860de79b534b06ce",
+                "role": "accepted_four_phase_motion_master"
+              },
+              {
+                "path": "sources/walk_NE_2x2_rejected_attempt02.png",
+                "sha256": "da25ae46d15fc3efcb546d6161d91153b2002825b5ca0184e3951ff36050aadf",
+                "role": "diagonal_camera_only"
+              }
+            ],
+            "generation_origin": {
+              "record_file": "generation-diagonals-camera-fix-attempt03.json",
+              "record_sha256": "207fa23dd1d7be7f18387f6625de58fbb5d4916971c69d00103b21380958b50f",
+              "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a0904f-b372-7c92-bf48-1637da088532\\exec-105f1eac-b663-4ebb-a973-1c35431e8e68.png"
+            },
+            "native_mode": "RGB",
+            "accepted_cells": [
+              1,
+              2
+            ]
+          },
+          {
+            "path": "sources/frame-originals/walk_NE03_attempt07.png",
+            "sha256": "dfc53270bcffd597741f2995dbad9a3fe3e419789f5a7183e25bbea0f08ffb25",
+            "native_size": [
+              1254,
+              1254
+            ],
+            "prompt_file": "prompts/walk_NE03_lower_right_boot_attempt07.txt",
+            "prompt_sha256": "9a5758f75bb931a13a79da6dd4b77489ec8558524c451145ad59eccfb86c63cf",
+            "source_type": "native_imagegen_output",
+            "reference_images": [
+              {
+                "path": "references/NE04-compact-for-contact-attempt07.png",
+                "sha256": "cad2a01f535197ba5be5891df35065158a6b7965f8d280761773407315a4b53c",
+                "extraction_record": "references/NE04-compact-for-contact-attempt07.json",
+                "extraction_record_sha256": "d4a820b7049e2d74e8ff10c583cdf7dd8cbc49199c83b77ab043fc1c9ef724a8",
+                "native_source": "sources/walk_NE_2x2_rejected_attempt02.png",
+                "native_sha256": "da25ae46d15fc3efcb546d6161d91153b2002825b5ca0184e3951ff36050aadf",
+                "source_box": [
+                  627,
+                  627,
+                  1254,
+                  1254
+                ],
+                "operation": "lossless exact source-cell crop; no anatomy edit"
+              }
+            ],
+            "generation_origin": {
+              "record_file": "generation-single-NE03-attempt07.json",
+              "record_sha256": "a9800532dee3b61821c524e3762e8016ad65885f7912fde3c520ef36490dfcf2",
+              "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a086ef-2e8c-73a2-bf70-7ac4b4bcde02\\exec-38137530-09af-4e3c-857e-12a3091f2a8c.png",
+              "reference_transport": "num_last_images_to_include=1"
+            },
+            "native_mode": "RGB",
+            "accepted_cells": [
+              3
+            ]
+          },
+          {
+            "path": "sources/walk_NE_2x2_rejected_attempt02.png",
+            "sha256": "da25ae46d15fc3efcb546d6161d91153b2002825b5ca0184e3951ff36050aadf",
+            "native_size": [
+              1254,
+              1254
+            ],
+            "prompt_file": "prompts/walk_NE_local_gait_fix_attempt02.txt",
+            "prompt_sha256": "58b6816d77145872b9c8652e207774523eb371c7373cec8058295cdcbc5c192e",
+            "source_type": "native_imagegen_output",
+            "reference_images": [
+              {
+                "path": "sources/walk_NE_2x2_rejected_attempt01.png",
+                "sha256": "653ccdb696f4b6d8657e743b47cb26128c0981f3fc1a24bab16dd64eaf8f5f9f",
+                "role": "sole_local_edit_reference"
+              }
+            ],
+            "generation_origin": {
+              "record_file": "generation-diagonals-local-fix-attempt02.json",
+              "record_sha256": "c1d7ac1d90a9951b3efd735ea3cc7ec6aa72ad4a44a72e541fb4888637530d50",
+              "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a0904f-b372-7c92-bf48-1637da088532\\exec-6e49b6f2-4711-47d2-a69f-d96712757405.png"
+            },
+            "native_mode": "RGB",
+            "accepted_cells": [
+              4
+            ],
+            "selection_note": "Only original bottom-right phase4 retained; whole original sheet rejected for other repeated contact cells."
+          }
+        ]
+      },
+      "source_lineage_record": {
+        "path": "sources/walk_NE_2x2.lineage.json",
+        "sha256": "2ce57419b7d3237fd8c04a6da2cb31ceeb2b94dfbb78ca6825380d281335442a"
+      },
+      "source_description": "deterministic layout of independently reviewed native built-in image_gen frames"
+    },
+    "E": {
+      "path": "E:\\work\\image\\qdao_cutout_edge_repair_20260911\\27\\sources\\walk_E_2x2.png",
+      "sha256": "53c16413a42b8c39d11efb3925ca7c7e6792fac903f6ef47625d1f0a4cbeaa80",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source": "built-in image_gen",
+      "output_size_is_not_native_resolution": true,
+      "processing_tool_sha256": {
+        "batch_processor": "186fc00f49f5fc2c60d4734c18e339063fad97f07481bd6594bb03b2f78689a3",
+        "rgb_cleanup": "5d49c4fe620f0398fc1eb37eb45b0527f2c1bd84a6fac755c219d099041c3215",
+        "anchor_contract": "dfae3008901c7558d1e79bfcdee4299ebe32c3ff8a863c2447c04403be5c659e",
+        "gif_encoder": "970895ef904fed5e41f2be1533e00218e64c100ecb0d6c8814c7d2352730581f"
+      },
+      "matte": {
+        "key_rgb": [
+          247.0,
+          4.0,
+          249.0
+        ],
+        "exact_field_pixels": 1083768,
+        "mixture_solved_pixels": 63302,
+        "mixture_unresolved": 0,
+        "mixture_unresolved_coordinates": [],
+        "post_matte_rgb_cleanup": {
+          "selected_pixels": 5892,
+          "changed_rgb_pixels": 5892,
+          "alpha_changed_pixels": 0,
+          "unselected_pixels_changed": 0,
+          "transparent_pixels_changed": 0,
+          "unresolved": 0,
+          "unresolved_coordinates": [],
+          "unresolved_alpha_max": 0,
+          "remaining_purple_pixels_alpha_gt_8": 1,
+          "max_donor_distance": 16.64331697709324,
+          "mean_donor_distance": 5.1341231140041375
+        },
+        "note": "Alpha derives from new opaque key-backed raw art. Subsequent edge correction preserves this alpha exactly."
+      },
+      "layout": "2x2 TL,TR,BL,BR",
+      "source_boxes": [
+        [
+          0,
+          0,
+          627,
+          627
+        ],
+        [
+          627,
+          0,
+          1254,
+          627
+        ],
+        [
+          0,
+          627,
+          627,
+          1254
+        ],
+        [
+          627,
+          627,
+          1254,
+          1254
+        ]
+      ],
+      "native_subject_heights": [
+        592,
+        594,
+        590,
+        588
+      ],
+      "same_scale_all_four_frames": 0.7070707070707071,
+      "body_scale_cv": 0.0037835329568524363,
+      "frames": [
+        {
+          "bbox_alpha_gt_8": [
+            83,
+            53,
+            352,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7070707070707071,
+          "resized_crop_size": [
+            269,
+            419
+          ],
+          "paste_xy": [
+            83,
+            53
+          ],
+          "source_crop_bbox": [
+            133,
+            24,
+            513,
+            617
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "521691234a4516099fc71462987969a87451737fd28eff067477f3a65ed23fc1"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            105,
+            52,
+            360,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7070707070707071,
+          "resized_crop_size": [
+            256,
+            421
+          ],
+          "paste_xy": [
+            105,
+            51
+          ],
+          "source_crop_bbox": [
+            87,
+            23,
+            449,
+            618
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "94a147a9c309b1ad2f60b131eb8564dd696bcb53e3f02e5700818c0c5c4e3713"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            91,
+            55,
+            360,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7070707070707071,
+          "resized_crop_size": [
+            271,
+            417
+          ],
+          "paste_xy": [
+            90,
+            55
+          ],
+          "source_crop_bbox": [
+            131,
+            8,
+            514,
+            598
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "4f34337a908986be21519ed054db535d0753efffde54a90ca68feb871093ad20"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            104,
+            57,
+            366,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7070707070707071,
+          "resized_crop_size": [
+            264,
+            418
+          ],
+          "paste_xy": [
+            104,
+            55
+          ],
+          "source_crop_bbox": [
+            81,
+            9,
+            454,
+            600
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "d6b308f959cfd88b4fb6b21e2a3f9a602ad383bb8c0625a6997cd88dc0750917"
+        }
+      ],
+      "visual_review": {
+        "status": "passed_visual_review",
+        "checked_at_utc": "2026-09-11T13:22:50.839337+00:00",
+        "direction_and_gait": "Right profile. Frames 1/3 switch the near arm and hip/leg overlap. Frame 2 raises the broad near knee; frame 4 raises the narrower far knee behind the garment, with the near boot supporting. Similar contact outlines are expected in side view; approval is based on limb ownership and occlusion, not SHA inequality.",
+        "identity": "Consistent accepted compact mature-faced ink/jade chibi, high ponytail and kite; no changed body proportion by processing.",
+        "edges": "Full light/dark composites and leg crops inspected. Hair/kite strings, boots and red/jade accessories complete; no continuous visible magenta outline or bright leg-gap key pocket. Remaining color-count candidates include dark outlines and original warm accents; numeric hue count alone is not an art defect.",
+        "evidence": "processing/E-full-legs-review.jpg",
+        "limitations": "Four-frame hand-painted walk; no skeleton or engine playback validation."
+      },
+      "outputs": [
+        {
+          "path": "walk/E/01.png",
+          "sha256": "6212d8aa1d7f9d178dec4609f0106d98b7c4588f0d24396865fa97c1b55ac048"
+        },
+        {
+          "path": "walk/E/02.png",
+          "sha256": "9f246eb5bb8a84a0517f1918f32f0e3a416be7e6d1a0536598afd4b2ea5a9b6c"
+        },
+        {
+          "path": "walk/E/03.png",
+          "sha256": "15abd8090594af015f47745d77f47f36c72a1310528aa881d601d5b556bf2fec"
+        },
+        {
+          "path": "walk/E/04.png",
+          "sha256": "00327050471eea862b97ee484883e7e9f7797c7b1be1956f58da0369c0b35e24"
+        },
+        {
+          "path": "walk/E/strip.png",
+          "sha256": "5400d6df671469da1cbb60221cc8ccc7778fa2202421176140e8430f0c1c62fb"
+        },
+        {
+          "path": "walk/E/walk.gif",
+          "sha256": "cde13d02cfdb957269522e0f49ceb754962f509cf032501e94245056faa6a71e"
+        }
+      ]
+    },
+    "SE": {
+      "path": "E:\\work\\image\\qdao_cutout_edge_repair_20260911\\27\\sources\\walk_SE_2x2.png",
+      "sha256": "51e8aefc5e1633fbbc5c1278c51ef2a36b5bc31b4de326216fc70de35d54ea1a",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source": "deterministic layout of independently reviewed native built-in image_gen frames",
+      "output_size_is_not_native_resolution": true,
+      "processing_tool_sha256": {
+        "batch_processor": "186fc00f49f5fc2c60d4734c18e339063fad97f07481bd6594bb03b2f78689a3",
+        "rgb_cleanup": "5d49c4fe620f0398fc1eb37eb45b0527f2c1bd84a6fac755c219d099041c3215",
+        "anchor_contract": "dfae3008901c7558d1e79bfcdee4299ebe32c3ff8a863c2447c04403be5c659e",
+        "gif_encoder": "970895ef904fed5e41f2be1533e00218e64c100ecb0d6c8814c7d2352730581f"
+      },
+      "matte": {
+        "key_rgb": [
+          248.0,
+          4.0,
+          249.0
+        ],
+        "exact_field_pixels": 1118960,
+        "mixture_solved_pixels": 44944,
+        "mixture_unresolved": 0,
+        "mixture_unresolved_coordinates": [],
+        "post_matte_rgb_cleanup": {
+          "selected_pixels": 6308,
+          "changed_rgb_pixels": 6308,
+          "alpha_changed_pixels": 0,
+          "unselected_pixels_changed": 0,
+          "transparent_pixels_changed": 0,
+          "unresolved": 0,
+          "unresolved_coordinates": [],
+          "unresolved_alpha_max": 0,
+          "remaining_purple_pixels_alpha_gt_8": 60,
+          "max_donor_distance": 14.317821063276353,
+          "mean_donor_distance": 5.571891622559792
+        },
+        "note": "Alpha derives from new opaque key-backed raw art. Subsequent edge correction preserves this alpha exactly."
+      },
+      "layout": "2x2 TL,TR,BL,BR",
+      "source_boxes": [
+        [
+          0,
+          0,
+          627,
+          627
+        ],
+        [
+          627,
+          0,
+          1254,
+          627
+        ],
+        [
+          0,
+          627,
+          627,
+          1254
+        ],
+        [
+          627,
+          627,
+          1254,
+          1254
+        ]
+      ],
+      "native_subject_heights": [
+        597,
+        594,
+        597,
+        595
+      ],
+      "same_scale_all_four_frames": 0.7035175879396985,
+      "body_scale_cv": 0.0021805087799859975,
+      "frames": [
+        {
+          "bbox_alpha_gt_8": [
+            76,
+            51,
+            324,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7035175879396985,
+          "resized_crop_size": [
+            250,
+            421
+          ],
+          "paste_xy": [
+            76,
+            51
+          ],
+          "source_crop_bbox": [
+            154,
+            17,
+            509,
+            616
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "8b864a9efb333e29c362cf7913d05283a6c9437998b2d1a6a80b7cd7620a4331"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            112,
+            54,
+            355,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7035175879396985,
+          "resized_crop_size": [
+            243,
+            419
+          ],
+          "paste_xy": [
+            112,
+            54
+          ],
+          "source_crop_bbox": [
+            75,
+            22,
+            420,
+            617
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "461563b9465cac3a9e8687b4c2f3ec8f87664b1813e92eb760ca21f108b4d9ae"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            109,
+            53,
+            342,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7035175879396985,
+          "resized_crop_size": [
+            233,
+            420
+          ],
+          "paste_xy": [
+            109,
+            53
+          ],
+          "source_crop_bbox": [
+            120,
+            13,
+            451,
+            610
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "6374d2be2256f21bd9c54b323d10eaefc4e3022beabcf5a2c12edc42b71a128b"
+        },
+        {
+          "bbox_alpha_gt_8": [
+            93,
+            52,
+            338,
+            472
+          ],
+          "foot_anchor_px": [
+            256.0,
+            471
+          ],
+          "foot_from_bottom": 40,
+          "shared_scale": 0.7035175879396985,
+          "resized_crop_size": [
+            245,
+            421
+          ],
+          "paste_xy": [
+            93,
+            51
+          ],
+          "source_crop_bbox": [
+            74,
+            6,
+            422,
+            604
+          ],
+          "output_edge_touch": false,
+          "paste_clamped": false,
+          "magenta_like_pixels": 0,
+          "rgba_sha256": "3896744531e27cc5e3e984718ddb3ee6b5f09bf06669c257656065e8b6ccc960"
+        }
+      ],
+      "visual_review": {
+        "status": "passed_visual_review",
+        "checked_at_utc": "2026-09-11T15:50:40.288597+00:00",
+        "reviewer": "check_recent_edges",
+        "scope": "All four current SE frames: light/dark full bodies, 2x legs/upper details, and 4x source-to-cutout pocket comparisons.",
+        "direction_and_gait": "Front-right three-quarter SE maintained. Frames 1 and 3 advance opposite screen-side boots; frames 2 and 4 raise opposite knees. SE04 screen-left knee is raised while screen-right boot supports weight, opposite SE02. New SE03/04 sources also accepted by root.",
+        "identity_and_scale": "Compact adult-faced ink/jade character, ponytail, crane clothing, kite and boot identity retained. Two original 627px cells remain unchanged in scale; two complete 1254px native canvases use 0.5 uniform layout scaling. Final four cutouts share one scale, no body fitting or warping.",
+        "edges": "Hair tips, kite rods/strings, ribbons, complete boots and original red tassel inspected. Former magenta areas between SE04 leg/cloth ties and surrounding cutout silhouettes are cleared. No visible continuous bright magenta fringe or detached bright key pocket in reviewed final output.",
+        "evidence": [
+          {
+            "path": "processing/SE-review.jpg",
+            "sha256": "bd079596e2b8dcf6683a58b71c02fc6d5f217273a647cda5e46609cf7daa86e3"
+          },
+          {
+            "path": "processing/SE-full-native-review.jpg",
+            "sha256": "afd240b5f708f3bc171f2de0cc55a2096f857694791fd16415e9906d3235fd89"
+          },
+          {
+            "path": "processing/SE-legs-review.png",
+            "sha256": "caa52443037e8e67a7334eb2add4a9678267a76256f8a52d832935022d90173f"
+          },
+          {
+            "path": "processing/SE-key-pockets-review.png",
+            "sha256": "5215f3dcd1c604b7a21b32dbd1b724b81fe42ed719394490beacc9becea0d085"
+          },
+          {
+            "path": "processing/SE-upper-01-review.png",
+            "sha256": "32c513580bea98f66f426103f7164c6fc50877f3bba80ecac86eddbc4a48523a"
+          },
+          {
+            "path": "processing/SE-upper-02-review.png",
+            "sha256": "765f8540bae2a845d3bb836c2ab10965e993123af6d4a3bfee8d2d10a9829205"
+          },
+          {
+            "path": "processing/SE-upper-03-review.png",
+            "sha256": "05cd2e43e897b168b656c8ceb22c492157a03662a0df95062398c9d60802e3a4"
+          },
+          {
+            "path": "processing/SE-upper-04-review.png",
+            "sha256": "66337b3e33943e4bf694e6eca88df3a8a87be98442899d43d55b8e93bb961434"
+          }
+        ],
+        "source_sha256": "51e8aefc5e1633fbbc5c1278c51ef2a36b5bc31b4de326216fc70de35d54ea1a",
+        "processing_tools_unchanged": true,
+        "record": "processing/SE-visual-review.json",
+        "record_sha256": "45bcc4dad00cee48fb16e516cb29665549f13cc67ac45e027b941161dcb32252"
+      },
+      "outputs": [
+        {
+          "path": "walk/SE/01.png",
+          "sha256": "287afe4244f7182b04fd5113244726fbff33ba09448e08ae1c0af97acef4af73"
+        },
+        {
+          "path": "walk/SE/02.png",
+          "sha256": "f6356066118ba6e3900771363dfa536aaa60b3681420ab0cfdaf79b4940bf8eb"
+        },
+        {
+          "path": "walk/SE/03.png",
+          "sha256": "6031751c82171e69bd24bf5e6ca0507187c0582d7a0d9739a902ec87ff8d9a44"
+        },
+        {
+          "path": "walk/SE/04.png",
+          "sha256": "42117ca8a26e93c2b5c215645573b1ebb285df01600d59ba567e83571a98c452"
+        },
+        {
+          "path": "walk/SE/strip.png",
+          "sha256": "51460b4c628b45edef7a3e344d82ce9bb1036e845d6e2a0dd199233b6f9aad64"
+        },
+        {
+          "path": "walk/SE/walk.gif",
+          "sha256": "a8c96f12ff36ee315c12484e9ec08338224da37f5e2ecb717139dc2283f0094b"
+        }
+      ],
+      "source_type": "assembled_2x2_from_native_generations",
+      "assembled": true,
+      "native_generation": false,
+      "native_size_semantics": "assembled processing-input canvas, not one native generated image",
+      "native_generation_count": 3,
+      "generation_lineage": {
+        "operation": "crop_native_cells_and_uniformly_resample_whole_canvases_then_layout",
+        "body_warp_or_per_frame_bbox_fit": false,
+        "spec_file": "SE-layout-review/assembly-spec.json",
+        "spec_sha256": "7be076c16a2b84bbd1c98979389073f7656f8c2640de15bc8f04e52dad8af433",
+        "assembler_sha256": "55efb2b7b3a09e26911ade1dffc4017f1769a9379d9110defe059ac9663f6afb",
+        "frames": [
+          {
+            "frame": 1,
+            "raw_source": "sources/walk_SE_2x2_candidate_attempt03.png",
+            "raw_sha256": "910a0089af1ecdda9aee00629fed139438baeae0acff7d84e20157f185a2b992",
+            "source_box": [
+              0,
+              0,
+              627,
+              627
+            ],
+            "prompt_file": "prompts/walk_SE_camera_gait_fix_attempt03.txt",
+            "prompt_sha256": "93a6c3606b089dc06bfb1a6a58c259c14e8e53b9671cfdf44bc147114c31891d",
+            "visual_status": "passed_single_pose_review",
+            "visual_review_by": "root and check_recent_edges",
+            "reference_images": [
+              {
+                "path": "sources/walk_S_2x2.png",
+                "sha256": "5cd083849d5924abff50dbf75765d8e1a21f3cc0336566586c920962b6d39c0f",
+                "role": "accepted_four_phase_motion_master"
+              },
+              {
+                "path": "sources/walk_SE_2x2_rejected_attempt02.png",
+                "sha256": "fca68927bbf5e6daac977dbffa057605939c5da10caeb3fdff83913af91c19ac",
+                "role": "45_degree_orientation_only_reference"
+              }
+            ],
+            "generation_origin": {
+              "record_file": "generation-diagonals-camera-fix-attempt03.json",
+              "record_sha256": "207fa23dd1d7be7f18387f6625de58fbb5d4916971c69d00103b21380958b50f",
+              "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a0904f-b372-7c92-bf48-1637da088532\\exec-c886d4bb-27b7-4225-ba44-4624cfe6740c.png"
+            },
+            "raw_native_size": [
+              1254,
+              1254
+            ],
+            "whole_canvas_scale": 1.0,
+            "target_box": [
+              0,
+              0,
+              627,
+              627
+            ]
+          },
+          {
+            "frame": 2,
+            "raw_source": "sources/walk_SE_2x2_candidate_attempt03.png",
+            "raw_sha256": "910a0089af1ecdda9aee00629fed139438baeae0acff7d84e20157f185a2b992",
+            "source_box": [
+              627,
+              0,
+              1254,
+              627
+            ],
+            "prompt_file": "prompts/walk_SE_camera_gait_fix_attempt03.txt",
+            "prompt_sha256": "93a6c3606b089dc06bfb1a6a58c259c14e8e53b9671cfdf44bc147114c31891d",
+            "visual_status": "passed_single_pose_review",
+            "visual_review_by": "root and check_recent_edges",
+            "reference_images": [
+              {
+                "path": "sources/walk_S_2x2.png",
+                "sha256": "5cd083849d5924abff50dbf75765d8e1a21f3cc0336566586c920962b6d39c0f",
+                "role": "accepted_four_phase_motion_master"
+              },
+              {
+                "path": "sources/walk_SE_2x2_rejected_attempt02.png",
+                "sha256": "fca68927bbf5e6daac977dbffa057605939c5da10caeb3fdff83913af91c19ac",
+                "role": "45_degree_orientation_only_reference"
+              }
+            ],
+            "generation_origin": {
+              "record_file": "generation-diagonals-camera-fix-attempt03.json",
+              "record_sha256": "207fa23dd1d7be7f18387f6625de58fbb5d4916971c69d00103b21380958b50f",
+              "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a0904f-b372-7c92-bf48-1637da088532\\exec-c886d4bb-27b7-4225-ba44-4624cfe6740c.png"
+            },
+            "raw_native_size": [
+              1254,
+              1254
+            ],
+            "whole_canvas_scale": 1.0,
+            "target_box": [
+              627,
+              0,
+              1254,
+              627
+            ]
+          },
+          {
+            "frame": 3,
+            "raw_source": "sources/frame-originals/recovered-exec-ee247440-7bfb-4b82-908b-0fb163dffb6f.png",
+            "raw_sha256": "99a6ecc5336f5bb0bfffb25fbe0dbd5ec2959f98aa533a5c964fe75403f9d9c8",
+            "source_box": [
+              0,
+              0,
+              1254,
+              1254
+            ],
+            "prompt_file": "prompts/walk_SE03_action_only_attempt05.txt",
+            "prompt_sha256": "c3485b8912038e8e6ba877a5cb29126182ef45a674c58a85f0c7e7b6344846f3",
+            "visual_status": "passed_single_pose_review",
+            "visual_review_by": "root and check_recent_edges",
+            "reference_images": [
+              {
+                "path": "references/single-gait-attempt05/SE03_action_only.png",
+                "sha256": "4dabac207ab5c92dd1c83028e8c055920db7a9d79df6ca8e4ed4b51f7124903f",
+                "native_source": "sources/walk_S_2x2.png",
+                "native_sha256": "5cd083849d5924abff50dbf75765d8e1a21f3cc0336566586c920962b6d39c0f",
+                "source_box": [
+                  0,
+                  627,
+                  627,
+                  1254
+                ],
+                "operation": "exact_native_grid_cell_crop",
+                "role": "sole_accepted_action_reference",
+                "cardinal_phase": "S03"
+              }
+            ],
+            "generation_origin": {
+              "builtin_origin": "exec-ee247440-7bfb-4b82-908b-0fb163dffb6f.png",
+              "record_status": "original host result recovered by root; exact runtime prompt supplied by root",
+              "reference_lineage_file": "references/single-gait-attempt05/reference-lineage.json",
+              "reference_lineage_sha256": "591dae16adf945d135752e5601a2cbccb56f8a8f57a272c017db85fb8d975932"
+            },
+            "raw_native_size": [
+              1254,
+              1254
+            ],
+            "whole_canvas_scale": 0.5,
+            "target_box": [
+              0,
+              627,
+              627,
+              1254
+            ]
+          },
+          {
+            "frame": 4,
+            "raw_source": "sources/frame-originals/walk_SE04_attempt04.png",
+            "raw_sha256": "92a86fb23c25ae88c4496bfbb847f63f237e84b464e455f2f82e4da1db0d40b8",
+            "source_box": [
+              0,
+              0,
+              1254,
+              1254
+            ],
+            "prompt_file": "prompts/walk_SE04_single_gait_attempt04.txt",
+            "prompt_sha256": "f471f9ef03c6aac7c69df85b8d672b4648d6bee2e8c7026d720f8ce13f02f108",
+            "visual_status": "passed_single_pose_review",
+            "visual_review_by": "root and check_recent_edges",
+            "reference_images": [
+              {
+                "role": "diagonal_target",
+                "path": "references/single-gait-attempt04/SE04_diagonal_target.png",
+                "native_source": "sources/walk_SE_2x2_candidate_attempt03.png",
+                "native_size": [
+                  1254,
+                  1254
+                ],
+                "source_box": [
+                  627,
+                  627,
+                  1254,
+                  1254
+                ],
+                "sha256": "639794ba004d8f3974a7c693d2767d2a3e87ccd432d0df9b438370fe8a534851",
+                "native_sha256": "910a0089af1ecdda9aee00629fed139438baeae0acff7d84e20157f185a2b992",
+                "operation": "exact_native_grid_cell_crop"
+              },
+              {
+                "role": "accepted_gait_reference",
+                "path": "references/single-gait-attempt04/SE04_accepted_gait_reference.png",
+                "native_source": "sources/walk_S_2x2.png",
+                "native_size": [
+                  1254,
+                  1254
+                ],
+                "source_box": [
+                  627,
+                  627,
+                  1254,
+                  1254
+                ],
+                "sha256": "e4f562483159f03fb9cba9aa0d2916b1d7f105f9d747c9f4b8449f1124a0e737",
+                "native_sha256": "5cd083849d5924abff50dbf75765d8e1a21f3cc0336566586c920962b6d39c0f",
+                "operation": "exact_native_grid_cell_crop"
+              }
+            ],
+            "generation_origin": {
+              "record_file": "generation-single-gait-attempt04.json",
+              "record_sha256": "b16ddef8961bec4e376de384b4d7473e9212d7c63e5c37cc701f1bcc5efc60da",
+              "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a0904f-b372-7c92-bf48-1637da088532\\exec-ed79e908-9a9d-483e-a38b-613221434a62.png",
+              "reference_lineage_file": "references/single-gait-attempt04/reference-lineage.json",
+              "reference_lineage_sha256": "bde7ed770df158305cecdf75668c8eaa11dcc18f2c8a985f347137e796cb370c"
+            },
+            "raw_native_size": [
+              1254,
+              1254
+            ],
+            "whole_canvas_scale": 0.5,
+            "target_box": [
+              627,
+              627,
+              1254,
+              1254
+            ]
+          }
+        ],
+        "raw_artifacts": [
+          {
+            "path": "sources/walk_SE_2x2_candidate_attempt03.png",
+            "sha256": "910a0089af1ecdda9aee00629fed139438baeae0acff7d84e20157f185a2b992",
+            "native_size": [
+              1254,
+              1254
+            ],
+            "prompt_file": "prompts/walk_SE_camera_gait_fix_attempt03.txt",
+            "prompt_sha256": "93a6c3606b089dc06bfb1a6a58c259c14e8e53b9671cfdf44bc147114c31891d",
+            "source_type": "native_imagegen_output",
+            "reference_images": [
+              {
+                "path": "sources/walk_S_2x2.png",
+                "sha256": "5cd083849d5924abff50dbf75765d8e1a21f3cc0336566586c920962b6d39c0f",
+                "role": "accepted_four_phase_motion_master"
+              },
+              {
+                "path": "sources/walk_SE_2x2_rejected_attempt02.png",
+                "sha256": "fca68927bbf5e6daac977dbffa057605939c5da10caeb3fdff83913af91c19ac",
+                "role": "45_degree_orientation_only_reference"
+              }
+            ],
+            "reference_transport": "last two displayed conversation images: cardinal motion master then diagonal orientation reference",
+            "generation_origin": {
+              "record_file": "generation-diagonals-camera-fix-attempt03.json",
+              "record_sha256": "207fa23dd1d7be7f18387f6625de58fbb5d4916971c69d00103b21380958b50f",
+              "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a0904f-b372-7c92-bf48-1637da088532\\exec-c886d4bb-27b7-4225-ba44-4624cfe6740c.png"
+            },
+            "accepted_cells": [
+              1,
+              2
+            ],
+            "other_cells": "not used; repeated gait replaced with separately generated accepted poses",
+            "native_mode": "RGB"
+          },
+          {
+            "path": "sources/frame-originals/recovered-exec-ee247440-7bfb-4b82-908b-0fb163dffb6f.png",
+            "sha256": "99a6ecc5336f5bb0bfffb25fbe0dbd5ec2959f98aa533a5c964fe75403f9d9c8",
+            "native_size": [
+              1254,
+              1254
+            ],
+            "prompt_file": "prompts/walk_SE03_action_only_attempt05.txt",
+            "prompt_sha256": "c3485b8912038e8e6ba877a5cb29126182ef45a674c58a85f0c7e7b6344846f3",
+            "source_type": "native_imagegen_output",
+            "reference_images": [
+              {
+                "path": "references/single-gait-attempt05/SE03_action_only.png",
+                "sha256": "4dabac207ab5c92dd1c83028e8c055920db7a9d79df6ca8e4ed4b51f7124903f",
+                "native_source": "sources/walk_S_2x2.png",
+                "native_sha256": "5cd083849d5924abff50dbf75765d8e1a21f3cc0336566586c920962b6d39c0f",
+                "source_box": [
+                  0,
+                  627,
+                  627,
+                  1254
+                ],
+                "operation": "exact_native_grid_cell_crop",
+                "role": "sole_accepted_action_reference",
+                "cardinal_phase": "S03"
+              }
+            ],
+            "reference_transport": "sole latest conversation image, confirmed by root producer",
+            "generation_origin": {
+              "builtin_origin": "exec-ee247440-7bfb-4b82-908b-0fb163dffb6f.png",
+              "record_status": "original host result recovered by root; exact runtime prompt supplied by root",
+              "reference_lineage_file": "references/single-gait-attempt05/reference-lineage.json",
+              "reference_lineage_sha256": "591dae16adf945d135752e5601a2cbccb56f8a8f57a272c017db85fb8d975932"
+            },
+            "visual_status": "passed_single_pose_review",
+            "visual_review_by": "root and check_recent_edges",
+            "native_mode": "RGB"
+          },
+          {
+            "path": "sources/frame-originals/walk_SE04_attempt04.png",
+            "sha256": "92a86fb23c25ae88c4496bfbb847f63f237e84b464e455f2f82e4da1db0d40b8",
+            "native_size": [
+              1254,
+              1254
+            ],
+            "prompt_file": "prompts/walk_SE04_single_gait_attempt04.txt",
+            "prompt_sha256": "f471f9ef03c6aac7c69df85b8d672b4648d6bee2e8c7026d720f8ce13f02f108",
+            "source_type": "native_imagegen_output",
+            "reference_images": [
+              {
+                "role": "diagonal_target",
+                "path": "references/single-gait-attempt04/SE04_diagonal_target.png",
+                "native_source": "sources/walk_SE_2x2_candidate_attempt03.png",
+                "native_size": [
+                  1254,
+                  1254
+                ],
+                "source_box": [
+                  627,
+                  627,
+                  1254,
+                  1254
+                ],
+                "sha256": "639794ba004d8f3974a7c693d2767d2a3e87ccd432d0df9b438370fe8a534851",
+                "native_sha256": "910a0089af1ecdda9aee00629fed139438baeae0acff7d84e20157f185a2b992",
+                "operation": "exact_native_grid_cell_crop"
+              },
+              {
+                "role": "accepted_gait_reference",
+                "path": "references/single-gait-attempt04/SE04_accepted_gait_reference.png",
+                "native_source": "sources/walk_S_2x2.png",
+                "native_size": [
+                  1254,
+                  1254
+                ],
+                "source_box": [
+                  627,
+                  627,
+                  1254,
+                  1254
+                ],
+                "sha256": "e4f562483159f03fb9cba9aa0d2916b1d7f105f9d747c9f4b8449f1124a0e737",
+                "native_sha256": "5cd083849d5924abff50dbf75765d8e1a21f3cc0336566586c920962b6d39c0f",
+                "operation": "exact_native_grid_cell_crop"
+              }
+            ],
+            "reference_transport": "two displayed conversation images: diagonal target first, accepted cardinal phase last",
+            "generation_origin": {
+              "record_file": "generation-single-gait-attempt04.json",
+              "record_sha256": "b16ddef8961bec4e376de384b4d7473e9212d7c63e5c37cc701f1bcc5efc60da",
+              "host_generated_file": "C:\\Users\\luyua\\.codex\\generated_images\\01a0904f-b372-7c92-bf48-1637da088532\\exec-ed79e908-9a9d-483e-a38b-613221434a62.png",
+              "reference_lineage_file": "references/single-gait-attempt04/reference-lineage.json",
+              "reference_lineage_sha256": "bde7ed770df158305cecdf75668c8eaa11dcc18f2c8a985f347137e796cb370c"
+            },
+            "visual_status": "passed_single_pose_review",
+            "visual_review_by": "finish_27_edges, root, check_recent_edges",
+            "visual_finding": "Screen-left knee lifted and screen-right boot supports weight, opposite raised side to SE02.",
+            "native_mode": "RGB"
+          }
+        ]
+      },
+      "source_lineage_record": {
+        "path": "E:\\work\\image\\qdao_cutout_edge_repair_20260911\\27\\sources\\walk_SE_2x2.lineage.json",
+        "sha256": "4213fc164a5c6a2e4682401830d6e0b105b9adfc800ef35d583763d7cf6d8a08"
+      }
+    }
+  },
+  "processing": "processing/scale-profile.json",
+  "source_resolution_note": "Native generated source sizes are recorded per input. Output dimensions describe deterministic resampled exports, not native art detail.",
+  "files": [
+    {
+      "path": "portrait.png",
+      "sha256": "fedec64bcf625aa7b9bdc4c1a56fb0b95238fd86824375c03d24a30d7013d104",
+      "bytes": 548626
+    },
+    {
+      "path": "walk-cardinal.png",
+      "sha256": "6703d236a9fbf4da90cb3c533647b96335e73e0f588525b55fd99597b11816b6",
+      "bytes": 2621927
+    },
+    {
+      "path": "walk-diagonal.png",
+      "sha256": "eb569f19f83fd141236740534f051be567c400d45d13b6e81399c0f7d2bb4983",
+      "bytes": 2700689
+    },
+    {
+      "path": "walk/S/01.png",
+      "sha256": "1d78176660a68063f0cda4352ba25afe573db7e859707884cfe6c8c7043248b7",
+      "bytes": 161443
+    },
+    {
+      "path": "walk/S/02.png",
+      "sha256": "b14ef0925ad1d6d4e864e44fbe680ff01617407e4fdb1cb41539f0f68269dad0",
+      "bytes": 155941
+    },
+    {
+      "path": "walk/S/03.png",
+      "sha256": "ad57036b3b974d8218c58feeb49497d87db42c1fc79b0df4fe65e62628ec9160",
+      "bytes": 157898
+    },
+    {
+      "path": "walk/S/04.png",
+      "sha256": "35f24f19da1684b9042398186c92919176c436d9ada5b72085cc87c5e9512918",
+      "bytes": 155216
+    },
+    {
+      "path": "walk/S/strip.png",
+      "sha256": "968a228e1fea6d0e36e309726d07a07301ad121d347f9012f7c309fafa1adc72",
+      "bytes": 627596
+    },
+    {
+      "path": "walk/S/walk.gif",
+      "sha256": "c827c69736332ce8b6943ee34e542ff90b51a6d6102597d5dacf7d6e17d8f663",
+      "bytes": 224553
+    },
+    {
+      "path": "walk/SW/01.png",
+      "sha256": "bbd7af81f2eb0505971fd978f899155a84c8bff115f57244bda1be2c4373a89f",
+      "bytes": 183341
+    },
+    {
+      "path": "walk/SW/02.png",
+      "sha256": "5ac7323bbd55007e5bd9bc5e46112a4793dd79df5e13818a56e37f7ff378e8ae",
+      "bytes": 184541
+    },
+    {
+      "path": "walk/SW/03.png",
+      "sha256": "fc26a34d4b40f56eb377c72521a18bdfc7d39e0f722b5c6002311576e12fdd5f",
+      "bytes": 182222
+    },
+    {
+      "path": "walk/SW/04.png",
+      "sha256": "96a37d2c55a0b3d418c2b62f32c0d21629d44485080e762a332acec67a8a1652",
+      "bytes": 185505
+    },
+    {
+      "path": "walk/SW/strip.png",
+      "sha256": "e20d381df3125e3b08d5b8abbe0502fe322afc4f154b2de5064a58a7765f1ea6",
+      "bytes": 734354
+    },
+    {
+      "path": "walk/SW/walk.gif",
+      "sha256": "b94aaa97cc445d7fa0272be848489db5bd0d5bd1784d4e11512e3c7fd7df6213",
+      "bytes": 252717
+    },
+    {
+      "path": "walk/W/01.png",
+      "sha256": "f89a3afa3851de2e6e257d977315a3167a051a752d121f8e2de698c0f38c8850",
+      "bytes": 185447
+    },
+    {
+      "path": "walk/W/02.png",
+      "sha256": "149b7c1814685689d774f0a6b1333b312d3d91580f594cf11209e770a0c8cff1",
+      "bytes": 175841
+    },
+    {
+      "path": "walk/W/03.png",
+      "sha256": "e202f0b22a70e534ce63a45a8a36f8b0df5fe8dd9b068a5aa1ce9b1b51f84ce4",
+      "bytes": 181041
+    },
+    {
+      "path": "walk/W/04.png",
+      "sha256": "6728da3f1dc52bc34ea1d648c1b611cea545967d80d52b35cfed86d6c0267ed4",
+      "bytes": 179641
+    },
+    {
+      "path": "walk/W/strip.png",
+      "sha256": "c58a6e40427d67c747eae087617f3043b2c9df365dc8df81db67ff75e2665a05",
+      "bytes": 718221
+    },
+    {
+      "path": "walk/W/walk.gif",
+      "sha256": "839d3486dcebc6452858fc8048b6b235d9810e048f27db64ae2dab6595fbf877",
+      "bytes": 255679
+    },
+    {
+      "path": "walk/NW/01.png",
+      "sha256": "d0ceba2cf8d3ef5d1988f1a18b27ad84bf7baaeab3a678aea689710964bb11eb",
+      "bytes": 166895
+    },
+    {
+      "path": "walk/NW/02.png",
+      "sha256": "94fc3edaf43663d95d4ef2964d0f224f49e31fddd40f0dc112e90fbd9a831f6d",
+      "bytes": 166818
+    },
+    {
+      "path": "walk/NW/03.png",
+      "sha256": "686293b45997618e62612ea09714ce13783e42af6a64f9a433707c83b531ff69",
+      "bytes": 161850
+    },
+    {
+      "path": "walk/NW/04.png",
+      "sha256": "d99ffcb497b8334b27f8126b448e471b10eb6a9f1e4a1f165fe2879a00e005f3",
+      "bytes": 160583
+    },
+    {
+      "path": "walk/NW/strip.png",
+      "sha256": "d5d2f7b600205434e4b1dcb4f3f1acc9661fa4610ea1476317ea068b485f7c54",
+      "bytes": 652738
+    },
+    {
+      "path": "walk/NW/walk.gif",
+      "sha256": "0cb8707a781547166e3a8544259a19d03e7791db79b4b53dbd182da2c93e4271",
+      "bytes": 240232
+    },
+    {
+      "path": "walk/N/01.png",
+      "sha256": "f79c1c60e05734e9552b16fed1c61bbc90184dc5465038561dacc8b24f51be92",
+      "bytes": 142604
+    },
+    {
+      "path": "walk/N/02.png",
+      "sha256": "4f3fe0f281e4d3630bdeb35c0a8811886f0f828b39a8aa0b58baae8aa3092692",
+      "bytes": 142766
+    },
+    {
+      "path": "walk/N/03.png",
+      "sha256": "8ab37ba48b06b86194a5f11684771d33faf9d7b847497e268797cac83f9e00fb",
+      "bytes": 140198
+    },
+    {
+      "path": "walk/N/04.png",
+      "sha256": "e12fa0dd3f5d6b53a4622e4465d24c988ad5f2cf7f730bdcb484faab21bedbb0",
+      "bytes": 138623
+    },
+    {
+      "path": "walk/N/strip.png",
+      "sha256": "53ab3305157923f396445ed05abccb27c50b6b190fd99f51a4f086485350c6e0",
+      "bytes": 559892
+    },
+    {
+      "path": "walk/N/walk.gif",
+      "sha256": "7809ff032b8e60063c8f8613510c826d2df43f4700e504c0f4570c8c0b796147",
+      "bytes": 213961
+    },
+    {
+      "path": "walk/NE/01.png",
+      "sha256": "ec9a47198487253ac8239a5e7f0ac94d0efc062ff56c724fd032f1123417a85b",
+      "bytes": 165038
+    },
+    {
+      "path": "walk/NE/02.png",
+      "sha256": "4d10a39cddcabf47a74675fd061589a72fe88ee1ca349c30887bd5ad8036fcec",
+      "bytes": 161446
+    },
+    {
+      "path": "walk/NE/03.png",
+      "sha256": "189d604766254353973744399612bf08ba741bcbb03b40daa9d3be0aac98c753",
+      "bytes": 157858
+    },
+    {
+      "path": "walk/NE/04.png",
+      "sha256": "868eb105712472ca0047e49040bd1f2f7f4690b7b0e6741f7a11f12581119842",
+      "bytes": 156638
+    },
+    {
+      "path": "walk/NE/strip.png",
+      "sha256": "bb214b0438f502e38faac8cb949b3aef229b7d853cee83e1458e70a99e91956a",
+      "bytes": 641203
+    },
+    {
+      "path": "walk/NE/walk.gif",
+      "sha256": "05b940d0070c413eef5ad6ac45aee523ea4f1790c42457101cd848da94ba313d",
+      "bytes": 230857
+    },
+    {
+      "path": "walk/E/01.png",
+      "sha256": "6212d8aa1d7f9d178dec4609f0106d98b7c4588f0d24396865fa97c1b55ac048",
+      "bytes": 185803
+    },
+    {
+      "path": "walk/E/02.png",
+      "sha256": "9f246eb5bb8a84a0517f1918f32f0e3a416be7e6d1a0536598afd4b2ea5a9b6c",
+      "bytes": 178883
+    },
+    {
+      "path": "walk/E/03.png",
+      "sha256": "15abd8090594af015f47745d77f47f36c72a1310528aa881d601d5b556bf2fec",
+      "bytes": 180321
+    },
+    {
+      "path": "walk/E/04.png",
+      "sha256": "00327050471eea862b97ee484883e7e9f7797c7b1be1956f58da0369c0b35e24",
+      "bytes": 173793
+    },
+    {
+      "path": "walk/E/strip.png",
+      "sha256": "5400d6df671469da1cbb60221cc8ccc7778fa2202421176140e8430f0c1c62fb",
+      "bytes": 716631
+    },
+    {
+      "path": "walk/E/walk.gif",
+      "sha256": "cde13d02cfdb957269522e0f49ceb754962f509cf032501e94245056faa6a71e",
+      "bytes": 258875
+    },
+    {
+      "path": "walk/SE/01.png",
+      "sha256": "287afe4244f7182b04fd5113244726fbff33ba09448e08ae1c0af97acef4af73",
+      "bytes": 176951
+    },
+    {
+      "path": "walk/SE/02.png",
+      "sha256": "f6356066118ba6e3900771363dfa536aaa60b3681420ab0cfdaf79b4940bf8eb",
+      "bytes": 170179
+    },
+    {
+      "path": "walk/SE/03.png",
+      "sha256": "6031751c82171e69bd24bf5e6ca0507187c0582d7a0d9739a902ec87ff8d9a44",
+      "bytes": 162251
+    },
+    {
+      "path": "walk/SE/04.png",
+      "sha256": "42117ca8a26e93c2b5c215645573b1ebb285df01600d59ba567e83571a98c452",
+      "bytes": 164528
+    },
+    {
+      "path": "walk/SE/strip.png",
+      "sha256": "51460b4c628b45edef7a3e344d82ce9bb1036e845d6e2a0dd199233b6f9aad64",
+      "bytes": 672681
+    },
+    {
+      "path": "walk/SE/walk.gif",
+      "sha256": "a8c96f12ff36ee315c12484e9ec08338224da37f5e2ecb717139dc2283f0094b",
+      "bytes": 238118
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schema": "qdao.generation-final.v1",
-  "status": "complete_source_and_media_mapping",
+  "status": "complete_source_mapping_pending_media_validation",
   "created_utc": "2026-09-11T14:42:13.914675+00:00",
   "complete": true,
   "publisher_eligible": false,
@@ -1154,19 +1154,14 @@
       },
       "processing_record": {
         "path": "staged-v2/processing/NE.json",
-        "sha256": "1af6dbfae30f0f413e1670500bc2b815169c261eb26d370651fff856f45ddd6e",
-        "source_sha256": "8d5899472e6c168d29241f01f44d0b0ebed91fb1bc68151bc22fc099f7c131a2",
-        "visual_status": "passed_visual_review",
-        "root_visual_acceptance": {
-          "path": "NE-root-visual-acceptance.json",
-          "sha256": "36dc865353965cb3169f2ebc7e6ab33950aa636792a876d6cdda278b71a5232f"
-        }
+        "expected_source_sha256": "8d5899472e6c168d29241f01f44d0b0ebed91fb1bc68151bc22fc099f7c131a2",
+        "status": "awaiting_current_media_validation"
       },
       "reference_chain_status": "actual_raw_prompt_and_reference_files_verified",
       "generator": "deterministic assembly of accepted native ImageGen art; composite is not a native generation",
       "generation_origin": {
         "record_file": "generation-NE-final.json",
-        "record_sha256": "1fc231b57c5050db6c6292b0e33a3a95ee096c35d0911196d69939aae45081b9"
+        "record_sha256": "ed4be47d0c8993d27e2421ca565fb85d2eb8e4d299fd5e6c70d1643720af22e9"
       }
     },
     {
@@ -2523,7 +2518,7 @@
         "to_sha256": "35968551a671a6ee971b6459d93ee7f800d540a7561d98cda6076734e7355d1f",
         "edge_type": "image_generation_reference",
         "evidence": "generation-NE-final.json",
-        "evidence_sha256": "1fc231b57c5050db6c6292b0e33a3a95ee096c35d0911196d69939aae45081b9",
+        "evidence_sha256": "ed4be47d0c8993d27e2421ca565fb85d2eb8e4d299fd5e6c70d1643720af22e9",
         "status": "recorded_and_file_sha_verified"
       },
       {
@@ -2533,7 +2528,7 @@
         "to_sha256": "35968551a671a6ee971b6459d93ee7f800d540a7561d98cda6076734e7355d1f",
         "edge_type": "image_generation_reference",
         "evidence": "generation-NE-final.json",
-        "evidence_sha256": "1fc231b57c5050db6c6292b0e33a3a95ee096c35d0911196d69939aae45081b9",
+        "evidence_sha256": "ed4be47d0c8993d27e2421ca565fb85d2eb8e4d299fd5e6c70d1643720af22e9",
         "status": "recorded_and_file_sha_verified"
       },
       {
@@ -2543,7 +2538,7 @@
         "to_sha256": "dfc53270bcffd597741f2995dbad9a3fe3e419789f5a7183e25bbea0f08ffb25",
         "edge_type": "image_generation_reference",
         "evidence": "generation-NE-final.json",
-        "evidence_sha256": "1fc231b57c5050db6c6292b0e33a3a95ee096c35d0911196d69939aae45081b9",
+        "evidence_sha256": "ed4be47d0c8993d27e2421ca565fb85d2eb8e4d299fd5e6c70d1643720af22e9",
         "status": "recorded_and_file_sha_verified"
       },
       {
@@ -2567,7 +2562,7 @@
         "to_sha256": "da25ae46d15fc3efcb546d6161d91153b2002825b5ca0184e3951ff36050aadf",
         "edge_type": "image_generation_reference",
         "evidence": "generation-NE-final.json",
-        "evidence_sha256": "1fc231b57c5050db6c6292b0e33a3a95ee096c35d0911196d69939aae45081b9",
+        "evidence_sha256": "ed4be47d0c8993d27e2421ca565fb85d2eb8e4d299fd5e6c70d1643720af22e9",
         "status": "recorded_and_file_sha_verified"
       },
       {
@@ -2870,16 +2865,14 @@
     "prompts/walk_NE_local_gait_fix_attempt02.txt": "58b6816d77145872b9c8652e207774523eb371c7373cec8058295cdcbc5c192e",
     "generation-diagonals-local-fix-attempt02.json": "c1d7ac1d90a9951b3efd735ea3cc7ec6aa72ad4a44a72e541fb4888637530d50",
     "sources/walk_NE_2x2_rejected_attempt01.png": "653ccdb696f4b6d8657e743b47cb26128c0981f3fc1a24bab16dd64eaf8f5f9f",
-    "generation-NE-final.json": "1fc231b57c5050db6c6292b0e33a3a95ee096c35d0911196d69939aae45081b9",
-    "staged-v2/processing/NE.json": "1af6dbfae30f0f413e1670500bc2b815169c261eb26d370651fff856f45ddd6e",
-    "NE-root-visual-acceptance.json": "36dc865353965cb3169f2ebc7e6ab33950aa636792a876d6cdda278b71a5232f"
+    "generation-NE-final.json": "ed4be47d0c8993d27e2421ca565fb85d2eb8e4d299fd5e6c70d1643720af22e9"
   },
   "remaining_work": [
-    "Assemble the two direction tables and validate all 51 media files.",
-    "Root visual approval binding all 51 actual media SHA values.",
-    "Guarded prepare and publication after final visual approval."
+    "Wait for root current NE six-media visual/numeric approval; then bind current NE processing record SHA.",
+    "Assemble final two sheets and complete 51-media numeric validation.",
+    "Wait for root final 51-path/SHA visual approval before guarded preparation/publication."
   ],
   "production_written": false,
   "publisher_invoked": false,
-  "updated_utc": "2026-09-11T18:40:39.858498+00:00"
+  "updated_utc": "2026-09-11T18:29:43.504356+00:00"
 }
