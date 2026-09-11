@@ -197,7 +197,7 @@ def export_pair(image, png_relative, svg_relative, derived_path, title):
            f'width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img">'
            f'<title>{escape(title)}</title><image width="{width}" height="{height}" '
            f'xlink:href="data:image/png;base64,{encoded}"/></svg>\n')
-    svg_path.write_text(svg, encoding='utf-8')
+    svg_path.write_bytes(svg.encode('utf-8'))
     return {'png_sha256': sha(data), 'svg_sha256': sha(svg.encode('utf-8'))}
 
 

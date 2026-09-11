@@ -1,8 +1,9 @@
 {
   "file": "10_crimson_spear_girl_transparent_4096.png",
+  "art_revision": "v9-character-diversity",
   "generator": "built-in image_gen",
-  "generation_file": "exec-a50c7902-3dc3-4a6a-8629-14e284e5443e.png",
-  "raw_sha256": "8a21cb31441cf9c0b96c36f08b6081368d7c1e5611f34a310063aaa8e2bd9d27",
+  "generation_file": "exec-e0c27479-72f9-4f01-b132-3b0e95331628.png",
+  "raw_sha256": "a86f4f50b7fbea0fd427c226229d7fe764f27237a2df96f7e23a5d80e7694d55",
   "native_generation_size": [
     1254,
     1254
@@ -12,27 +13,36 @@
     4096
   ],
   "native_4096_generation": false,
-  "export_method": "skill chroma cleanup, fit/feet alignment, RGBA LANCZOS export",
+  "export_method": "skill alpha cleanup at full source resolution, feet alignment, LANCZOS compatibility export",
   "prompt": "prompts/10_crimson_spear_girl_transparent_4096.prompt.txt",
-  "reference_delivery": "in-memory board via conversation image",
-  "reference_baseline": "60134a6",
+  "reference_delivery": "New original character from text-only per-role design. No face template or existing franchise image used.",
+  "reference_baseline": "230e782aa9b6278c8f77133e59e47c4470b93a74",
+  "previous_sha256": "ea068eb40dbd372b108d2e7d041c8e270e898f8ae979ce039873a08e49a0260f",
+  "design_brief": "../qdao_character_diversity_v9/DESIGN_BRIEF.md",
+  "model_preference": "gpt-image-2",
+  "quality_preference": "high",
+  "model_parameter_exposed": false,
+  "quality_parameter_exposed": false,
+  "model_and_quality_verified": false,
+  "documented_model": "gpt-image-2 (project AGENTS built-in path)",
+  "parameter_note": "The project documents built-in GPT Image 2. This callable tool exposes no model or quality arguments; high is a quality goal, not a force-set per-call parameter.",
   "alpha_range": [
     0,
     255
   ],
   "subject_bounds": [
-    244,
-    240,
-    3849,
-    3859
+    551,
+    496,
+    3829,
+    3852
   ],
-  "sha256": "ea068eb40dbd372b108d2e7d041c8e270e898f8ae979ce039873a08e49a0260f",
+  "sha256": "6ed2d57de7118980cd62d2a4038c7912bc879a9cc71dea47573fd13529979cb5",
   "processor_qc": {
     "target": "asset",
     "mode": "single",
     "prompt": "",
     "role": "",
-    "input": "C:\\Users\\luyua\\.codex\\generated_images\\01a075d5-a62b-78c2-bb47-7243769210aa\\exec-a50c7902-3dc3-4a6a-8629-14e284e5443e.png",
+    "input": "C:\\Users\\luyua\\.codex\\generated_images\\01a08c29-6ffc-77f3-89f2-1d729b972bc5\\exec-e0c27479-72f9-4f01-b132-3b0e95331628.png",
     "threshold": 130,
     "edge_threshold": 170,
     "duration": 200,
@@ -65,46 +75,46 @@
           1254
         ],
         "component_mode": "all",
-        "component_count": 1,
+        "component_count": 3,
         "selected_component_area": null,
         "selected_component_bbox": null,
         "crop_bbox": [
-          122,
-          90,
-          1214,
-          1186
+          29,
+          3,
+          1188,
+          1172
         ],
         "source_frame_size": [
           1246,
           1246
         ],
         "is_empty": false,
-        "subject_area": 595162,
-        "body_core_area": 464610,
-        "body_area_fraction": 0.29926261629509776,
+        "subject_area": 553622,
+        "body_core_area": 464538,
+        "body_area_fraction": 0.29921623996145613,
         "anchor_source": [
-          551.0,
-          1060.0
+          578.0,
+          1131.0
         ],
         "source_edge_touch": false,
         "output_edge_touch": false,
         "edge_touch": false,
         "output_size": [
-          1099,
+          1094,
           1103
         ],
         "paste_position": [
-          77,
+          80,
           76
         ],
         "paste_clamped": false,
         "aligned_bbox": [
-          77,
+          80,
           76,
-          1176,
+          1174,
           1179
         ],
-        "source_to_output_scale": 1.006861313868613,
+        "source_to_output_scale": 0.9439863130881095,
         "bbox_scale_applied": true,
         "scale_strategy": "fit",
         "scale_changed": true
@@ -121,12 +131,12 @@
       "empty_count": 0,
       "edge_touch_count": 0,
       "paste_clamped_count": 0,
-      "body_scale_mean": 0.5470490072151651,
+      "body_scale_mean": 0.5470066178406402,
       "output_subject_height_mean": 1103.0,
       "body_scale_cv": 0.0,
       "anchor_x_std": 0.0,
       "anchor_y_std": 0.0,
-      "anchor_y_mean": 0.8507223113964687
+      "anchor_y_mean": 0.9077046548956661
     },
     "qc_config": {
       "strict_qc": true,
@@ -137,30 +147,9 @@
       "max_profile_scale_drift": null
     }
   },
-  "art_only_not_engine_integrated": true,
-  "additional_chroma_cleanup": {
-    "script": "clean_residual_chroma.py",
-    "key_rgb": [
-      255,
-      0,
-      255
-    ],
-    "rgb_euclidean_distance_max": 155,
-    "affected_nontransparent_pixels": 26931,
-    "method": "Set only residual pixels near the known magenta key to transparent black after RGBA resampling. No shape drawing, recoloring or geometric transformation.",
-    "sha256_before": "1cf9790c1334dd5638ef9bacc1873ecc81c6f58d4c7401ca840f4d08328ce2b3"
+  "strong_chroma_cleanup": {
+    "predicate": "R>200 and G<100 and B>200 and A>0",
+    "removed_pixels": 48
   },
-  "prompt_sha256": "5127b4e1e6b9ada0890c7ad182d82a8591743d7c72e7889d5fcc18dfa2978932",
-  "identity_reference": {
-    "path": "q_daoist_character_pack_4096/10_crimson_spear_girl_transparent_4096.png",
-    "baseline_commit": "60134a6",
-    "baseline_sha256": "5a50ed28fbbcccd9816a2877eadf7a3e51567a199205e409881d43365dfa46d1"
-  },
-  "style_reference": "qdao_chibi_game_pack_v4/hero-transparent_1024.png",
-  "visual_review": {
-    "passed": true,
-    "reviewed_on_light_or_dark_background": true,
-    "features": "Twin hair buns, crimson spear with both complete tips, red/ivory outfit and both boots visible.",
-    "no_strong_magenta_opaque_pixels": true
-  }
+  "art_only_not_engine_integrated": true
 }
