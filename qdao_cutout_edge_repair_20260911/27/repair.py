@@ -15,7 +15,7 @@ SOURCE = ROOT/'qdao_chibi_roster_v11/27_ink_kite_ranger'
 
 def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 
-def clean(im):
+def clean(im, extra_mask=None):
     a=np.asarray(im.convert('RGBA')).copy(); out=a.copy()
     r,g,b=a[:,:,:3].astype('int16').transpose(2,0,1); alpha=a[:,:,3]
     dom=np.minimum(r,b)-g
@@ -24,7 +24,7 @@ def clean(im):
     # The established palette is charcoal/black, jade, ivory, skin and red.
     # Magenta raising BOTH R and B over G is a key contamination signature.
     # In particular this does not select red tassels or cyan bands.
-    mask=(alpha>0)&near&(dom>10)
+    mask=(alpha>0)&(near if extra_mask is None else (near|extra_mask))&(dom>10)
     donor=(alpha>=240)&inner&(dom<5)
     h,w=alpha.shape; unresolved=[]; distances=[]
     for y,x in zip(*np.nonzero(mask)):

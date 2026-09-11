@@ -92,7 +92,7 @@ def key_matte(image):
         if cov>0:out_rgb[y,x]=np.clip((rgb[y,x]-t*key)/max(1-t,1e-5),0,255)
     out=np.dstack([np.round(out_rgb),np.round(coverage*a[:,:,3])]).clip(0,255).astype('uint8');out[out[:,:,3]==0,:3]=0
     matte=Image.fromarray(out,'RGBA')
-    fixed,stats=edge.clean(matte)
+    fixed,stats=edge.clean(matte, extra_mask=candidate)
     assert np.array_equal(np.asarray(matte)[:,:,3],np.asarray(fixed)[:,:,3])
     return fixed, {'key_rgb':key.tolist(),'exact_field_pixels':int(field.sum()),'mixture_solved_pixels':solved,'mixture_unresolved':len(unresolved),'mixture_unresolved_coordinates':unresolved,'post_matte_rgb_cleanup':stats,'note':'Alpha derives from new opaque key-backed raw art. Subsequent edge correction preserves this alpha exactly.'}
 
