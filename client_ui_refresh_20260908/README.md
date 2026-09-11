@@ -1,5 +1,11 @@
 # 五行奇谈客户端素材接入 · 2026-09-08
 
+## 2026-09-11 人物准备副本更新
+
+22 张 `prepared/UI/qdao_v3/characters/` 职业人物现已更新为 v9 原创直发道家 Q 版，保留原文件名和 1024×1024 RGBA 尺寸。[逐图同步与验证记录](../qdao_character_diversity_v9/prepared_sync.json)已通过当前母图像素、透明与哈希检查。只读复核入口为 `python -B qdao_character_diversity_v9/sync_prepared.py --check`。
+
+本次仅更新本仓库准备文件，未读取、写入实际客户端或 `.meta`。`assets_manifest.json` 的这 22 条记录标为 `pending_client_sync`；顶层 2026-09-08 历史 `failed` 报告及历史客户端哈希仍保留，不能用本次准备副本验收替代客户端同步验收。下文记录早期接入流程与历史状态。
+
 本目录把 `E:/work/image` 已有 GPT Image 成果接入 `E:/work/mmorpg-client/Assets/Resources`。主体批次复用已有 GPT Image 成果；后续为登录/选角补生成一张净背景，记录见 `additional/login_background.generation.json`。所有裁切、适配、重采样均在本 image 目录中完成，再按确定的客户端资源路径复制。
 
 ## 重复执行

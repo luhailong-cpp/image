@@ -30,3 +30,13 @@ python -B qdao_character_diversity_v9/build_overview.py
 旧入口 `q_daoist_character_pack_4096/build_manifest.py` 转发到当前验证器，防止重写回 v6 清单。验证器绑定视觉验收的图片哈希；换图后必须重新实看，不能沿用旧验收。
 
 本轮交付静态人物美术，未将这些人物接入游戏，也未制作它们的新动作。主角动作、宠物、UI 及 v11 新增 23–28 号人物的进度由对应任务记录。
+
+## 1024 人物导入副本补齐
+
+2026-09-11 继续盘点时发现仓库内 22 张导入副本仍为旧人物，现已全部同步为本轮原创直发 Q 版人物，保留 `client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/` 的原路径和 1024×1024 RGBA 画布。[同步记录](prepared_sync.json)逐图保存新旧哈希、来源与透明范围；只读检查确认全部与当前 4096 母图的 LANCZOS 降采样逐像素一致。
+
+本次只更新美术仓库内准备资源，未访问实际客户端或 `.meta`。客户端清单中的 22 条人物记录标为 `pending_client_sync`，历史客户端哈希继续保留，不把旧同步记录当作本轮接入通过。
+
+```powershell
+python -B qdao_character_diversity_v9/sync_prepared.py --check
+```
