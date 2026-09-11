@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-09-11T08:51:07.131505+00:00",
+  "updated_at_utc": "2026-09-11T08:53:34.195096+00:00",
   "phase": "waiting_for_prerequisites",
   "all_images_complete": false,
   "images_edited_by_this_task": 0,
@@ -12,8 +12,7 @@
   "blocking_deliveries": {
     "new_characters_v11": "Role 23 latest QC now passed; roles 25 and 26 remain passed. Role 24 QC failed, and roles 27/28 lack final QC. Whole-package acceptance remains pending.",
     "task_inventory_activity_pages": "Task page exists; inventory and activity images remain absent. Task newly reported systemError; one recovery message accepted under the user continue instruction. Latest coarse state is active, but a fresh in-progress turn has not yet been observed.",
-    "main_city_and_scenes": "HD main city remains 10/36 detailed tiles with final master/manifest/verification absent. Scene expansion still contains source references rather than finished scenes, with no courtyard delivery. Coarse task is active; latest snapshot still shows the previously interrupted turn.",
-    "style_repair": "Final publication records exist, but current non-UI/dependency hash mismatches require follow-up: client_ui_refresh_20260908/assets_manifest.json"
+    "main_city_and_scenes": "HD main city remains 10/36 detailed tiles with final master/manifest/verification absent. Scene expansion still contains source references rather than finished scenes, with no courtyard delivery. Coarse task is active; latest snapshot still shows the previously interrupted turn."
   },
   "resume_other_task_question": "Superseded by the user instruction: if unfinished, continue. Continuation messages were accepted for UI v10 and character tasks v9/v11; UI and main city were observed in new in-progress turns. Avoid duplicate continuation messages.",
   "completed_evidence": {
@@ -55,6 +54,26 @@
       "verified_files": 296,
       "verified_evidence_files": 4,
       "note": "Mechanical validation may still read ready_for_visual_review by design. Publication binds separate visual QA and verifies formal files. Git delivery is separate."
+    },
+    "style_repair": {
+      "final_record": "qdao_cutout_edge_repair_20260910/final-verification.json",
+      "status": "completed_and_verified_with_documented_metadata_supersession",
+      "verified_utc": "2026-09-11T08:53:34.195096+00:00",
+      "producer_unique_files": 364,
+      "non_ui_and_dependency_current_hashes_verified": 201,
+      "ui_overlap_covered_by": "qdao_ui_style_recut_v10/publication.json; 296 current files verified in this cycle",
+      "metadata_supersession": {
+        "path": "client_ui_refresh_20260908/assets_manifest.json",
+        "original_staged_hash_verified": true,
+        "change_scope": "Only 22 v9 portrait record preparations and v9_portrait_preparation were added/updated after the edge publication.",
+        "edge_repair_metadata_unchanged": true,
+        "historical_status_and_failures_unchanged": true,
+        "client_sync_not_claimed": true
+      },
+      "hero_frames": 32,
+      "alpha_identical_pngs_reported": 56,
+      "atlas_cells_reported_synchronized": 124,
+      "scope": "Completed original edge-repair scope; unfinished v11 remains separate."
     }
   },
   "next_step": "Refresh task states and inventory after prerequisites finish, then begin source-based image refinement and validate dependent exports.",
@@ -98,10 +117,10 @@
       "status": "idle",
       "latest_turn": "interrupted",
       "turn_id": "01a08bf8-c9f5-7c71-9711-aa571aef3ea8",
-      "art_delivery_complete": false
+      "art_delivery_complete": true
     }
   ],
-  "last_observed_change": "UI v10 formally published and 296 current file hashes plus four evidence hashes verified. Edge-repair final records now available. Role 23 QC passed. Gameplay task hit systemError and one recovery request was accepted; maps/scenes and remaining v11/page work are still incomplete.",
+  "last_observed_change": "UI v10 publication independently verified. Edge-repair assets/dependencies verified; its one changed client manifest is a documented v9 portrait preparation update, with edge metadata unchanged. Role 23 QC passed. Gameplay systemError recovery request accepted; fresh execution not yet confirmed.",
   "partial_progress": {
     "role_26": {
       "manifest": "qdao_chibi_roster_v11/26_osmanthus_healer/manifest.json",
@@ -182,7 +201,7 @@
   "last_notification": {
     "trigger_utc": "2026-09-11T08:43:13.026Z",
     "kind": "gameplay_system_error_recovery_requested",
-    "message": "Gameplay page task reported systemError. One recovery message accepted; new active turn not yet verified. UI publication verified; other prerequisites remain incomplete.",
+    "message": "Gameplay page task reported systemError; one recovery request accepted but fresh execution not yet confirmed. UI and original edge-repair delivery verified. Remaining main city/scenes, v11 and gameplay pages are not complete.",
     "do_not_repeat_if_unchanged": true
   },
   "upstream_ownership": {
