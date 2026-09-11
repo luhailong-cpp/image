@@ -8,6 +8,12 @@
   "native_mode": "RGB",
   "source": "built-in image_gen",
   "output_size_is_not_native_resolution": true,
+  "processing_tool_sha256": {
+    "batch_processor": "4c906bd2782c6a9b76867e76c51da96ec4e8f9b8446946fd8d33b02eca43376b",
+    "rgb_cleanup": "7e21c40d637fffe1368e5956017c984868c0bee1fb735dfd7a6d3566c6728a36",
+    "anchor_contract": "dfae3008901c7558d1e79bfcdee4299ebe32c3ff8a863c2447c04403be5c659e",
+    "gif_encoder": "970895ef904fed5e41f2be1533e00218e64c100ecb0d6c8814c7d2352730581f"
+  },
   "matte": {
     "key_rgb": [
       251.0,
@@ -35,5 +41,13 @@
   },
   "output_sha256": "4054b137a80f5773ea7ff9adcf36a01ced898d4c344e77c84a762425d646339a",
   "source_canvas_preserved_by_isotropic_fit": true,
-  "visual_review": "required"
+  "visual_review": {
+    "status": "passed_for_new_portrait_staging",
+    "reviewed_files": [
+      "processing/portrait-native-review.jpg",
+      "processing/portrait-detail-review.jpg"
+    ],
+    "finding": "Full silhouette, fine top/front/ponytail hair and kite string openings retained; no visible magenta fringe on light/dark mattes; red tassel and jade ribbon retain source color. No anatomy deformation.",
+    "limits": "Four native pixels below RGB 31 retain a small purple signature; not a visible pink rim. The accepted body proportion is the source image, not a script modification."
+  }
 }

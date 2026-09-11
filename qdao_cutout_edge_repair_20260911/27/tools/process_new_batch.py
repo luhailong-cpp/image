@@ -28,9 +28,12 @@ rp=load_module('roster_contract',ROOT/'qdao_chibi_roster_v11/process_roster.py')
 sp=load_module('sprite_encoder',Path.home()/'.agents/skills/generate2dsprite/scripts/generate2dsprite.py')
 edge=load_module('ink_kite_rgb_edges',PACK/'repair.py')
 
+def tool_hashes():
+    return {'batch_processor':sha(Path(__file__)), 'rgb_cleanup':sha(PACK/'repair.py'), 'anchor_contract':sha(ROOT/'qdao_chibi_roster_v11/process_roster.py'), 'gif_encoder':sha(Path.home()/'.agents/skills/generate2dsprite/scripts/generate2dsprite.py')}
+
 def source_record(p):
     im=Image.open(p)
-    return {'path':str(p.resolve()),'sha256':sha(p),'native_size':list(im.size),'native_mode':im.mode,'source':'built-in image_gen','output_size_is_not_native_resolution':True}
+    return {'path':str(p.resolve()),'sha256':sha(p),'native_size':list(im.size),'native_mode':im.mode,'source':'built-in image_gen','output_size_is_not_native_resolution':True,'processing_tool_sha256':tool_hashes()}
 
 def key_matte(image):
     """Estimate the actual key and solve edge pixels against nearby foreground.
@@ -151,11 +154,13 @@ def assemble(sources,out):
     records={};all_images={};errors=[]
     for d in DIRS:
         rec=json.loads((out/'processing'/f'{d}.json').read_text(encoding='utf-8'));records[d]=rec
+        if rec.get('processing_tool_sha256')!=tool_hashes():raise ValueError(f'{d}: processing tool version changed; rebuild this direction')
         if sha(sources/f'walk_{d}_2x2.png')!=rec['sha256']:raise ValueError(f'{d}: new source changed after processing')
         for artifact in rec['outputs']:
             if sha(out/artifact['path'])!=artifact['sha256']:raise ValueError(f'{d}: processed output changed; rebuild direction')
         all_images[d]=[Image.open(out/'walk'/d/f'{i:02}.png').convert('RGBA') for i in range(1,5)]
     prec=json.loads((out/'processing/portrait.json').read_text(encoding='utf-8'))
+    if prec.get('processing_tool_sha256')!=tool_hashes():raise ValueError('Portrait processing tool version changed; rebuild portrait')
     if sha(sources/'portrait_raw.png')!=prec['sha256'] or sha(out/'portrait.png')!=prec['output_sha256']:raise ValueError('Portrait source/output changed after processing')
     for kind,dirs in ROWS.items():save_png(rp.compose([im for d in dirs for im in all_images[d]],4),out/f'walk-{kind}.png')
     meanheights=[float(np.mean([r['bbox_alpha_gt_8'][3]-r['bbox_alpha_gt_8'][1] for r in records[d]['frames']])) for d in DIRS]

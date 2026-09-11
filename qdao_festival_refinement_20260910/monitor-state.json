@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-09-11T11:50:16.616024+00:00",
+  "updated_at_utc": "2026-09-11T12:17:19.576228+00:00",
   "phase": "waiting_for_prerequisites",
   "all_images_complete": false,
   "images_edited_by_this_task": 0,
   "style": "Daoist chibi as the overall style; subtle Spring Festival, Lantern Festival and Mid-Autumn accents",
   "automation_id": "automation",
   "monitor_interval_hours": 1,
-  "user_latest_request": "做完了吗，没做完帮我继续",
+  "user_latest_request": "做完了吗，没做完帮我继续继续",
   "generation_gate_open": false,
   "blocking_deliveries": {
-    "new_characters_v11": "Roles 23/25/26 have passed producer QC. Role 27 now has a manifest and passed numeric QC, but visual review is pending. Role 24 retains the older failed QC from 2026-09-10 08:05 UTC; role 28 lacks final QC. No whole-package acceptance yet.",
+    "new_characters_v11": "Current scope is eight characters: 23, young Lu Dongbin replacing 24, 25-28, He Xiangu and Han Xiangzi. Roles 23/25/26 have passed producer QC; 27 awaits visual review; 28 lacks final QC. Young Lu Dongbin and He Xiangu have portrait sources but lack the complete accepted movement packages. Han Xiangzi has no discovered delivery yet. The old crane-hermit role 24 is retired and its failed QC is not a blocker. Whole-package acceptance remains pending.",
     "main_city_and_scenes": "20 named refined city tile PNGs exist out of 36; count is not final visual acceptance. The progress file still reports 10 and is stale. Final 6144 master, manifest and verification remain absent. Five expanded scenes still have source references and a main-city prompt but no completed image delivery; courtyard remains absent."
   },
   "resume_other_task_question": "Superseded by the user instruction: if unfinished, continue. Continuation messages were accepted for UI v10 and character tasks v9/v11; UI and main city were observed in new in-progress turns. Avoid duplicate continuation messages.",
@@ -113,7 +113,7 @@
   },
   "next_step": "Check remaining main-city/scenes and v11 delivery hourly. Once their production and acceptance are complete, refresh the full inventory and refine all applicable source assets and dependent exports under the documented Daoist chibi festival direction.",
   "last_monitor_trigger_utc": "2026-09-11T11:43:41.174Z",
-  "monitor_decision": "User requested continuation. Remaining source-production tasks already report active, so do not duplicate continuation messages or edit their in-progress outputs. Continue hourly acceptance monitoring, then perform the authorized full-library refinement. Newly active UI/client follow-up turns have no verified new image-production scope and do not erase completed image delivery evidence.",
+  "monitor_decision": "Continue tracking active producers and actual accepted files hourly. Use the updated eight-character scope, not the stale six-role brief. Do not repair retired role 24 or duplicate running tasks. Start authorized whole-library refinement only after current source production is fully delivered and accepted.",
   "thread_observations": [
     {
       "id": "01a08a19-8d1b-75c1-9e80-ee2fea9833b0",
@@ -128,28 +128,34 @@
     {
       "id": "01a08a28-6391-7100-a82e-f3a966e57349",
       "status": "active",
-      "latest_turn": "interrupted",
-      "turn_id": "01a08bfb-9bda-7822-a51d-48199711880b",
+      "latest_turn": "started_no_completion_seen",
+      "turn_id": "01a0904a-48c6-7923-828c-0027af600f7e",
       "cursor": "917065e2-9666-4b17-aa5d-3c3ce12b714a:2",
       "coarse_snapshot_unchanged": true,
       "cursor_reset": false,
       "error": null,
       "observed_utc": "2026-09-11T11:50:16.616024+00:00",
-      "state_note": "Coarse task state is active; compact snapshot still shows the historical interrupted turn. File delivery is incomplete; no duplicate continuation prompt sent."
+      "state_note": "Direct local task log confirms a newer task_started event absent from the stale compact app snapshot.",
+      "fresh_turn_observed": true,
+      "turn_started_utc": "2026-09-11T11:46:22.601Z",
+      "last_verified_artifact_modified_utc": "2026-09-11T09:13:56Z"
     },
     {
       "id": "01a08a2b-8ef8-7d41-be4e-8962e24735e1",
       "status": "active",
-      "latest_turn": "interrupted",
+      "latest_turn": "started_no_completion_seen",
       "cursor": "fb7c69fc-18ba-4f71-b9cb-d41ec8a86504:2",
       "coarse_snapshot_unchanged": true,
       "latest_read_status": "tool_retrieval_failed",
-      "latest_turn_not_freshly_confirmed": true,
+      "latest_turn_not_freshly_confirmed": false,
       "production_status_basis": "File delivery and QC; task-read error is not a production error.",
-      "turn_id": "01a08a2e-0b5c-79e0-b99e-7d144d52a3bb",
+      "turn_id": "01a0904a-2dc9-7881-874b-0c59592712f0",
       "error": null,
       "observed_utc": "2026-09-11T11:50:16.616024+00:00",
-      "state_note": "Coarse task state is active; compact snapshot still shows the historical interrupted turn. File delivery is incomplete; no duplicate continuation prompt sent."
+      "state_note": "Direct local task log and newly saved Lu Dongbin portrait confirm real continuation beyond the stale app snapshot.",
+      "fresh_turn_observed": true,
+      "turn_started_utc": "2026-09-11T11:46:15.678Z",
+      "latest_local_event_utc": "2026-09-11T12:07:58.993Z"
     },
     {
       "id": "01a075d4-5b1f-7e31-b44f-18e351fa544f",
@@ -199,7 +205,7 @@
       "observed_utc": "2026-09-11T11:50:16.616024+00:00"
     }
   ],
-  "last_observed_change": "Main-city and v11 tasks are active again; a fresh read-only delivery check finds no new final handoff. City remains 20/36 refined files and scenes incomplete. v11 role 27 awaits visual review; 24/28 and whole-package acceptance remain pending. No new production error.",
+  "last_observed_change": "Verified actual new Lu Dongbin portrait and fresh producer continuation. Corrected previously missed scope change: retired the old crane hermit from blocking and included young Lu Dongbin, He Xiangu and Han Xiangzi. Main-city tile count remains 20/36 and expanded scenes have no final delivery.",
   "partial_progress": {
     "role_26": {
       "manifest": "qdao_chibi_roster_v11/26_osmanthus_healer/manifest.json",
@@ -214,9 +220,15 @@
       "completion_scope": "Individual-role recorded numeric and visual QC only; whole-package acceptance pending"
     },
     "role_24": {
-      "qc_status": "failed",
-      "complete": false,
-      "failure_timing": "Existing failed record last modified 2026-09-10 08:05 UTC; not a newly occurring failure."
+      "identity": "young Lu Dongbin",
+      "root": "qdao_chibi_roster_v11/24_lu_dongbin",
+      "portrait_source": "qdao_chibi_roster_v11/24_lu_dongbin/source/portrait.png",
+      "portrait_source_modified_utc": "2026-09-11T12:03:09Z",
+      "status_file": "qdao_chibi_roster_v11/24_lu_dongbin/STATUS.md",
+      "portrait_visual_review_pending": true,
+      "eight_direction_movement_present": false,
+      "final_qc_present": false,
+      "complete": false
     },
     "role_23": {
       "complete": true,
@@ -285,14 +297,36 @@
       "complete": false,
       "final_qc_present": false,
       "completion_scope": "Individual role and whole-package acceptance pending"
+    },
+    "role_29": {
+      "identity": "He Xiangu",
+      "root": "qdao_chibi_roster_v11/29_he_xiangu",
+      "portrait_source": "qdao_chibi_roster_v11/29_he_xiangu/sources/portrait.png",
+      "portrait_source_modified_utc": "2026-09-11T10:15:28Z",
+      "status_file": "qdao_chibi_roster_v11/29_he_xiangu/STATUS.txt",
+      "portrait_acceptance_reported_by_producer": true,
+      "cardinal_direction_prompt_present": true,
+      "eight_direction_movement_present": false,
+      "final_qc_present": false,
+      "complete": false
+    },
+    "han_xiangzi": {
+      "identity": "Han Xiangzi",
+      "root": null,
+      "delivery_path_established": false,
+      "portrait_present": false,
+      "movement_present": false,
+      "final_qc_present": false,
+      "complete": false,
+      "scope_basis": "Producer plan under user request to add Eight Immortals characters; no local delivery path found."
     }
   },
-  "last_user_followup_utc": "2026-09-11T11:50:16.616024+00:00",
+  "last_user_followup_utc": "2026-09-11T12:17:19.576228+00:00",
   "continuation_requests": {
     "ui_v10": "accepted; new inProgress turn observed",
     "characters_v9": "Owner confirmed completion; no further resume messages needed.",
-    "new_characters_v11": "Already active on this user follow-up; historical interrupted turn still appears in compact snapshot. No duplicate prompt sent.",
-    "main_city": "Already active on this user follow-up; historical interrupted turn still appears in compact snapshot. No duplicate prompt sent.",
+    "new_characters_v11": "Fresh continuation confirmed from local log and new portrait; do not send a duplicate continuation prompt.",
+    "main_city": "Fresh task_started event confirmed in local log at 11:46 UTC; final art still incomplete. No duplicate continuation prompt sent.",
     "gameplay_pages": {
       "reason": "new systemError on 2026-09-11",
       "message_accepted": true,
@@ -305,10 +339,10 @@
     }
   },
   "last_notification": {
-    "utc": "2026-09-11T11:50:16.616024+00:00",
+    "utc": "2026-09-11T12:17:19.576228+00:00",
     "source": "direct_user_status_response",
-    "kind": "remaining_work_active_and_incomplete",
-    "message": "Remaining main city/scenes and v11 are still incomplete; both source tasks report active. Main city has 20/36 refined files and role 27 awaits visual review. Existing hourly monitor continues; full-library image edits have not begun.",
+    "kind": "new_portrait_and_roster_scope_corrected",
+    "message": "New Lu Dongbin portrait verified; old crane-hermit role retired, and He Xiangu/Han Xiangzi included in current monitoring. Main city/scenes and accepted character movement remain incomplete.",
     "do_not_repeat_if_unchanged": true
   },
   "upstream_ownership": {
@@ -330,7 +364,7 @@
   "last_heartbeat_decision": "DONT_NOTIFY",
   "last_check_kind": "user_followup",
   "last_monitor_findings": {
-    "checked_utc": "2026-09-11T11:50:16.616024+00:00",
+    "checked_utc": "2026-09-11T12:17:19.576228+00:00",
     "city_refined_files": 20,
     "city_target_tiles": 36,
     "city_final_delivery_present": false,
@@ -339,7 +373,12 @@
     "role_27_visual_review_pending": true,
     "v11_whole_package_complete": false,
     "new_production_errors": false,
-    "image_edit_gate_open": false
+    "image_edit_gate_open": false,
+    "new_lu_dongbin_portrait_present": true,
+    "current_roster_count": 8,
+    "retired_crane_hermit_is_blocker": false,
+    "han_xiangzi_delivery_found": false,
+    "actual_continuation_confirmed": true
   },
   "last_monitor_metadata_check": {
     "trigger_utc": "2026-09-11T11:43:41.174Z",
@@ -349,5 +388,36 @@
     "main_city_snapshot_changed": false,
     "file_audit_reused_from_utc": "2026-09-11T11:39:53.967055+00:00",
     "new_production_error_observed": false
+  },
+  "retired_sources": {
+    "24_crane_hermit": {
+      "path": "qdao_chibi_roster_v11/24_crane_hermit",
+      "status": "retired_from_current_production_scope",
+      "old_qc_status": "failed",
+      "blocking": false,
+      "reason": "User requested removing the old man and adding several Eight Immortals characters; the producer is replacing him with young Lu Dongbin. Retain old artifacts as history.",
+      "user_message_utc": "2026-09-10T16:14:51.117Z",
+      "user_message": "不要这个老头 ，加几个八仙的角色"
+    }
+  },
+  "roster_scope": {
+    "checked_utc": "2026-09-11T12:17:19.576228+00:00",
+    "current_character_count": 8,
+    "active_roles": [
+      "23_lantern_courier",
+      "24_lu_dongbin",
+      "25_lion_drum_guard",
+      "26_osmanthus_healer",
+      "27_ink_kite_ranger",
+      "28_moon_rabbit_artificer",
+      "29_he_xiangu",
+      "Han Xiangzi (delivery path not yet established)"
+    ],
+    "user_change": "Remove the old man and add several Eight Immortals characters.",
+    "producer_plan": "Young Lu Dongbin replaces the old role 24; add He Xiangu and Han Xiangzi, with eight-direction movement.",
+    "scope_evidence": "User message and producer continuation in task 01a08a2b-8ef8-7d41-be4e-8962e24735e1; local task log directly read because app snapshots omit recent turns.",
+    "root_design_brief_stale": true,
+    "root_design_brief": "qdao_chibi_roster_v11/DESIGN_BRIEF.md",
+    "note": "Do not use the old six-role brief or retired crane-hermit QC as the current delivery scope."
   }
 }
