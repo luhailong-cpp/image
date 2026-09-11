@@ -43,3 +43,5 @@ python -X utf8 qdao_cutout_edge_repair_20260911/27/tools/publish_approved_batch.
 当前重建入口是 `tools/process_new_batch.py`：先在修复目录暂存，再验收和受保护发布。正式目录旧 `assemble_directions.py` 等为历史流程，不能未经复核覆盖当前交付。辅助脚本不操作 Git 或实际客户端。
 
 准备阶段还会复核完整发布载荷：拼接输入从保存的真实原画、source_box、等比缩放和 target_box 重新排版，与接受的 2×2 输入逐像素一致；逐帧 prompt SHA、原生尺寸与实际复制路径一致。assembly spec 与 helper 若在来源链中记录，会复制并校验。这些准备检查未通过时，正式文件不会被替换。
+
+正式来源引用也复制实际参考图、参考图提示词与裁格记录；当前引用指向真实正式路径。原生裁格参考可按 source_box 逐像素复核。参考图片仅作为参考时，不增加 native_generation_count。
