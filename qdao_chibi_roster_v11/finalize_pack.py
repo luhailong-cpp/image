@@ -3,7 +3,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 import json, hashlib
 ROOT=Path(__file__).resolve().parent
-ROSTER=[('23_lantern_courier','灯穗小使'),('24_crane_hermit','云鹤散人'),('25_lion_drum_guard','狮鼓护卫'),('26_osmanthus_healer','桂香药婆'),('27_ink_kite_ranger','墨鸢游侠'),('28_moon_rabbit_artificer','月兔机关师')]
+ROSTER=[('23_lantern_courier','灯穗小使'),('24_lu_dongbin','吕洞宾'),('25_lion_drum_guard','狮鼓护卫'),('26_osmanthus_healer','桂香药婆'),('27_ink_kite_ranger','墨鸢游侠'),('28_moon_rabbit_artificer','月兔机关师'),('29_he_xiangu','何仙姑'),('30_han_xiangzi','韩湘子')]
 DIRS=['S','SW','W','NW','N','NE','E','SE']
 LABELS={'S':'正面','SW':'左前','W':'向左','NW':'左后','N':'背面','NE':'右后','E':'向右','SE':'右前'}
 def font(n):
@@ -20,14 +20,18 @@ def find_frame(base,d,n):
     raise FileNotFoundError(f'{base.name} {d} {n}')
 
 def main():
-    overview=Image.new('RGB',(1500,1200),'#f3efe3'); draw=ImageDraw.Draw(overview)
-    draw.text((60,30),'五行奇谈 · 六位新伙伴',font=font(40),fill='#243e35')
+    overview=Image.new('RGB',(2000,1200),'#f3efe3'); draw=ImageDraw.Draw(overview)
+    draw.text((60,30),'五行奇谈 · 八位新伙伴',font=font(40),fill='#243e35')
     draw.text((60,88),'独立造型 / 直发 / 道家 Q 版 / 八方向真实行走帧',font=font(21),fill='#647266')
     entries=[]
     for i,(slug,name) in enumerate(ROSTER):
         base=ROOT/slug; p=base/'portrait.png'
         assert p.exists(),str(p)
-        x=35+(i%3)*490; y=150+(i//3)*500
+        qc=json.loads((base/'qc.json').read_text(encoding='utf-8-sig'))
+        assert qc.get('status')=='passed', (slug,'numeric/overall QC not accepted',qc.get('status'))
+        visual=qc.get('visual_review',{})
+        assert isinstance(visual,dict) and visual.get('status')=='passed', (slug,'visual QC not accepted')
+        x=35+(i%4)*490; y=150+(i//4)*500
         draw.rounded_rectangle((x,y,x+470,y+474),radius=18,fill='#e8e4d6',outline='#d6d0bd',width=1)
         im=fit(Image.open(p),(420,388)); overview.paste(im,(x+(470-im.width)//2,y+16+388-im.height),im)
         draw.text((x+24,y+419),f'{slug[:2]}  {name}',font=font(27),fill='#243e35')
@@ -39,6 +43,8 @@ def main():
                 assert im.mode=='RGBA' and im.size==(512,512),(f,im.mode,im.size)
                 alpha=im.getchannel('A'); assert alpha.getextrema()[0]==0 and alpha.getextrema()[1]>=240,f
                 b=alpha.getbbox(); assert b and b[0]>0 and b[1]>0 and b[2]<512 and b[3]<512,(f,b)
+                grounded=alpha.point(lambda v: 255 if v>8 else 0).getbbox()
+                assert grounded and grounded[3]==472,(f,'feet line mismatch',grounded)
                 digest=hashlib.sha256(f.read_bytes()).hexdigest()
                 hashes.append(digest); all_hash.append(digest); files.append(f.relative_to(ROOT).as_posix()); frame_count+=1
             assert len(set(hashes))==4, f'{slug} {d} duplicated frames'
@@ -51,16 +57,16 @@ def main():
     for d in DIRS:
         for cycle in range(2):
             for n in range(1,5):
-                page=Image.new('RGB',(900,650),'#eeebdf'); dc=ImageDraw.Draw(page)
+                page=Image.new('RGB',(1200,650),'#eeebdf'); dc=ImageDraw.Draw(page)
                 dc.text((28,16),f'八方向移动  ·  {LABELS[d]}  {d}',font=font(27),fill='#243e35')
                 for i,(slug,name) in enumerate(ROSTER):
-                    x=(i%3)*300; y=65+(i//3)*285
+                    x=(i%4)*300; y=65+(i//4)*285
                     im=Image.open(find_frame(ROOT/slug,d,n)).convert('RGBA').resize((260,260),Image.Resampling.LANCZOS)
                     page.paste(im,(x+20,y),im)
                     dc.text((x+82,y+245),name,font=font(20),fill='#344e44')
                 review.append(page)
     review[0].save(ROOT/'movement-overview.gif',save_all=True,append_images=review[1:],duration=120,loop=0,optimize=False,disposal=2)
-    payload={'title':'五行奇谈 · 六位新伙伴','date':'2026-09-10','status':'image_assets_delivered','generator':'built-in image_gen','model_and_quality_forced':False,'characters':entries,'total_portraits':6,'total_unique_movement_frames':192,'direction_order':DIRS,'client_integration':'Not performed. Existing client expects eight frames and a single hardcoded role; consume these four-frame manifests explicitly.'}
+    payload={'title':'五行奇谈 · 八位新伙伴','date':'2026-09-10','status':'image_assets_delivered','generator':'built-in image_gen','model_and_quality_forced':False,'characters':entries,'total_portraits':len(ROSTER),'total_unique_movement_frames':len(ROSTER)*32,'direction_order':DIRS,'client_integration':'Not performed. Existing client expects eight frames and a single hardcoded role; consume these four-frame manifests explicitly.'}
     (ROOT/'manifest.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
-    print(json.dumps({'portraits':6,'movement_frames':192,'all_directional_frames_unique':True,'overview':str(ROOT/'roster-overview.jpg'),'animation':str(ROOT/'movement-overview.gif')},ensure_ascii=False))
+    print(json.dumps({'portraits':len(ROSTER),'movement_frames':len(ROSTER)*32,'all_directional_frames_unique':True,'overview':str(ROOT/'roster-overview.jpg'),'animation':str(ROOT/'movement-overview.gif')},ensure_ascii=False))
 if __name__=='__main__':main()
