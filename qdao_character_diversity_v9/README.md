@@ -40,3 +40,5 @@ python -B qdao_character_diversity_v9/build_overview.py
 ```powershell
 python -B qdao_character_diversity_v9/sync_prepared.py --check
 ```
+
+本次遗漏补齐的完成凭据见[补齐记录](followup_completion.json)，同时登记背包、活动两张缺失静态效果图的完成与过程图清理。
