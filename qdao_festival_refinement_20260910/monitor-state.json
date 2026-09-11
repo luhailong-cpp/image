@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-09-11T07:47:11.306073+00:00",
+  "updated_at_utc": "2026-09-11T08:00:31.905495+00:00",
   "phase": "waiting_for_prerequisites",
   "all_images_complete": false,
   "images_edited_by_this_task": 0,
@@ -11,7 +11,6 @@
   "generation_gate_open": false,
   "blocking_deliveries": {
     "ui_v10": "Latest validation.json is ready_for_visual_review: 155 changed_needs_visual_review and 3 allowed_unchanged. README already describes formal delivery, but its linked publication.json is absent. Do not infer publication from draft README wording. Final hash-bound visual acceptance and publication remain unverified.",
-    "characters_v9": "visual_qa.json passed for 22 roles. README describes delivery, but linked manifest.json, validation.json and compatibility_map.json were absent at inspection. Owner is finishing final checks; do not stage or commit its in-progress directories.",
     "new_characters_v11": "Roles 25 and 26 passed recorded numeric and visual QC. Role 23 requires targeted SW frame 4 gait repair; role 24 QC failed earlier; role 28 walking incomplete. Whole-package acceptance still pending.",
     "task_inventory_activity_pages": "01-quests.png exists; 02-inventory.png and 03-activities.png remain absent. Coarse task is active, latest snapshot still shows the previously interrupted turn.",
     "main_city_and_scenes": "HD main city remains 10/36 detailed tiles with final master/manifest/verification absent. Scene expansion still contains source references rather than finished scenes, with no courtyard delivery. Coarse task is active; latest snapshot still shows the previously interrupted turn.",
@@ -21,11 +20,35 @@
   "completed_evidence": {
     "exposure": "published; 1027 checked, 953 modified, 74 retained",
     "style_audit": "1471-file historical review completed",
-    "new_city": "1254 style previews remain available; newer HD production is tracked separately and is incomplete."
+    "new_city": "1254 style previews remain available; newer HD production is tracked separately and is incomplete.",
+    "characters_v9": {
+      "completion_file": "qdao_character_diversity_v9/completion.json",
+      "producer_completed_utc": "2026-09-11T07:57:22.500063+00:00",
+      "verified_utc": "2026-09-11T08:00:31.905495+00:00",
+      "status": "completed_and_verified",
+      "redesigned": 22,
+      "preserved_hero_identities": 2,
+      "verified_png_count": 24,
+      "canvas": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "completion_artifact_hashes_verified": 8,
+      "all_asset_and_visual_qa_hashes_match": true,
+      "inherited_exposure_records": 15,
+      "edge_cleanup_roles": [
+        "04",
+        "14"
+      ],
+      "process_files_removed_reported": 166,
+      "owner_reported_local_commit": "0ea5123f",
+      "scope": "v9 static characters only; v11 and other art remain separate"
+    }
   },
   "next_step": "Refresh task states and inventory after prerequisites finish, then begin source-based image refinement and validate dependent exports.",
   "last_monitor_trigger_utc": "2026-09-11T07:42:12.137Z",
-  "monitor_decision": "Continue the original hourly schedule without image edits or duplicate continuation messages. Production is progressing but the global gate remains closed; do not repeat the previous interruption notice.",
+  "monitor_decision": "Keep hourly monitoring for remaining art. v9 is completed; do not re-request its production. The full-library festival editing gate remains closed.",
   "thread_observations": [
     {
       "id": "01a08a19-8d1b-75c1-9e80-ee2fea9833b0",
@@ -63,7 +86,7 @@
       "turn_id": "01a08bf8-c9f5-7c71-9711-aa571aef3ea8"
     }
   ],
-  "last_observed_change": "v9 visual QA passed for 22 roles; final linked records still absent. UI reached ready_for_visual_review for 155 changed plus 3 allowed-retained resources; linked publication record still absent. Other incomplete deliveries unchanged.",
+  "last_observed_change": "v9 owner completion received and verified: 8 completion artifacts, 24 PNG contracts/hashes, 22 visual-QA hashes and 24 compatibility mappings. v9 removed from prerequisites still waiting.",
   "partial_progress": {
     "role_26": {
       "manifest": "qdao_chibi_roster_v11/26_osmanthus_healer/manifest.json",
@@ -125,19 +148,17 @@
       "complete": false
     },
     "characters_v9": {
-      "visual_qa_file": "qdao_character_diversity_v9/visual_qa.json",
-      "visual_qa_status": "passed",
-      "visually_reviewed_roles": 22,
-      "manifest_present_at_inspection": false,
-      "validation_present_at_inspection": false,
-      "compatibility_map_present_at_inspection": false,
-      "complete": false
+      "complete": true,
+      "completion_file": "qdao_character_diversity_v9/completion.json",
+      "status": "completed_and_verified",
+      "verified_png_count": 24,
+      "visual_qa_roles": 22
     }
   },
   "last_user_followup_utc": "2026-09-10T15:37:13Z",
   "continuation_requests": {
     "ui_v10": "accepted; new inProgress turn observed",
-    "characters_v9": "accepted; active; fresh turn not yet observed",
+    "characters_v9": "Owner confirmed completion; no further resume messages needed.",
     "new_characters_v11": "accepted; active; fresh turn not yet observed",
     "main_city": "send tool approval review timed out twice; subsequent snapshot independently confirmed a new inProgress turn"
   },
@@ -154,8 +175,8 @@
         "qdao_character_diversity_v9/",
         "q_daoist_character_pack_4096/"
       ],
-      "state": "in_progress",
-      "restriction": "Do not stage or commit these in-progress files before owner task completion. Owner handles validation, cleanup and its own local commit.",
+      "state": "owner_completed_and_handed_off",
+      "restriction": "Original in-progress staging restriction ended after owner completion. Preserve accepted assets and source hashes; this monitor does not stage or commit upstream work.",
       "v11_scope": "Separate roles 23-28; do not mix ownership."
     }
   },
