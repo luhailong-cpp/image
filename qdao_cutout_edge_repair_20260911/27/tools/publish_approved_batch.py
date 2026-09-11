@@ -133,9 +133,17 @@ def validate_sources(base):
   assert sha(source)==rec['sha256'] and sha(prompt)==rec['prompt_sha256']
   with Image.open(source) as im:assert list(im.size)==rec['native_size']
   assert read(base/'processing'/f'{key}.json')==rec
-  for reference in rec.get('reference_images',[]):
-   reference_path=safe(Path(reference['path']),ROOT)
-   assert sha(reference_path)==reference['sha256']
+  for node in nodes(rec):
+   for reference in node.get('reference_images',[]):
+    reference_path=artifact(reference['path']);assert sha(reference_path)==reference['sha256']
+    if reference.get('native_source'):
+     native=artifact(reference['native_source']);assert sha(native)==reference['native_sha256']
+     if reference.get('source_box'):
+      assert Image.open(native).crop(reference['source_box']).convert('RGB').tobytes()==Image.open(reference_path).convert('RGB').tobytes()
+    if reference.get('prompt_file'):assert sha(artifact(reference['prompt_file']))==reference['prompt_sha256']
+    if reference.get('extraction_record'):assert sha(artifact(reference['extraction_record']))==reference['extraction_record_sha256']
+    if isinstance(reference.get('evidence'),dict) and reference['evidence'].get('path'):
+     assert sha(artifact(reference['evidence']['path']))==reference['evidence']['sha256']
   if not assembled(rec):continue
   lineage=rec['generation_lineage'];assert [r['frame'] for r in lineage['frames']]==[1,2,3,4]
   if lineage.get('spec_file'):assert sha(artifact(lineage['spec_file']))==lineage['spec_sha256']
@@ -195,6 +203,42 @@ def prepare():
  for name in MEDIA:add(name,STAGE/name)
  capture(BASELINE);capture(APPROVAL);capture(Path(__file__))
  originals={};sources={};prompt_names={};history_files={};native_artifacts={};relocations={}
+ # Current reference paths must resolve in the release, including raw-cell references.
+ for key in ['portrait']+DIRS:
+  original=safe(Path(read(STAGE/'processing'/f'{key}.json')['path']),PACK/'sources')
+  final=str((TARGET/'sources'/original.name).resolve())
+  relocations[str(original)]=final;relocations[original.relative_to(PACK).as_posix()]=final
+ def archive_reference(value,expected,mapping,kind='image'):
+  original=safe(PACK/value,PACK);assert sha(original)==expected,'Reference/history input changed: '+str(value);capture(original)
+  existing=mapping.get(value,mapping.get(str(original),mapping.get(str(value).replace('\\','/'))))
+  if existing is not None:return existing
+  folder={'image':'sources/reference-originals','prompt':'prompts/reference-originals','record':'processing/generation-history/reference-records'}[kind]
+  dest=folder+'/'+expected[:12]+'-'+original.name;add(dest,original);final=str((TARGET/dest).resolve())
+  mapping[value]=final;mapping[str(original)]=final;mapping[original.relative_to(PACK).as_posix()]=final
+  return final
+ def archive_reference_chain(value,mapping):
+  if isinstance(value,list):return [archive_reference_chain(v,mapping) for v in value]
+  if not isinstance(value,dict):return value
+  value=copy.deepcopy(value)
+  if isinstance(value.get('reference_images'),list):
+   refs=[]
+   for ref in value['reference_images']:
+    ref=copy.deepcopy(ref)
+    for pathkey,hashkey,kind in [('path','sha256','image'),('native_source','native_sha256','image'),('prompt_file','prompt_sha256','prompt'),('extraction_record','extraction_record_sha256','record')]:
+     if not ref.get(pathkey):continue
+     # Some producer records provide an extraction path without its hash; freeze the actual file now.
+     if not ref.get(hashkey):ref[hashkey]=sha(safe(PACK/ref[pathkey],PACK))
+     ref[pathkey]=archive_reference(ref[pathkey],ref[hashkey],mapping,kind)
+    evidence=ref.get('evidence')
+    if isinstance(evidence,dict) and evidence.get('path'):
+     evidence['path']=archive_reference(evidence['path'],evidence['sha256'],mapping,'record')
+    refs.append(ref)
+   value['reference_images']=refs
+  origin=value.get('generation_origin')
+  if isinstance(origin,dict):
+   for pathkey,hashkey in [('record_file','record_sha256'),('reference_lineage_file','reference_lineage_sha256')]:
+    if origin.get(pathkey) and origin.get(hashkey):origin[pathkey]=archive_reference(origin[pathkey],origin[hashkey],mapping,'record')
+  return {k:archive_reference_chain(v,mapping) if k not in ['reference_images','generation_origin'] else v for k,v in value.items()}
  for key in ['portrait']+DIRS:
   rec_path=STAGE/'processing'/f'{key}.json';capture(rec_path);rec=read(rec_path)
   source=safe(Path(rec['path']),PACK/'sources');assert sha(source)==rec['sha256']
@@ -219,7 +263,7 @@ def prepare():
    new['assembled']=True;new['native_size_semantics']='assembled processing-input canvas, not one native generated image'
    lineage=copy.deepcopy(generation_record.get('generation_lineage',rec.get('generation_lineage')))
    assert isinstance(lineage,dict) and len(lineage['frames'])==4 and lineage['raw_artifacts'],'Assembled input requires exact per-frame native lineage'
-   local_map={}
+   local_map=copy.deepcopy(relocations)
    if lineage.get('spec_file'):
     spec=safe(PACK/lineage['spec_file'],PACK);assert sha(spec)==lineage['spec_sha256']
     dest='processing/generation-history/'+key+'-assembly-spec.json';add(dest,spec)
@@ -243,13 +287,11 @@ def prepare():
     with Image.open(raw) as raw_im:assert list(raw_im.size)==frame['raw_native_size']
     assert any(x['sha256']==frame['raw_sha256'] for x in lineage['raw_artifacts'])
     assert len(frame['source_box'])==len(frame['target_box'])==4
+   lineage=archive_reference_chain(lineage,local_map)
    new['generation_lineage']=remap_paths(lineage,local_map);new['source']='deterministic layout of separately generated native art cells'
   else:native_artifacts[rec['sha256']]={'path':'sources/'+expected_name,'sha256':rec['sha256'],'native_size':rec['native_size']}
   if generation_record.get('reference_images'):
-   new['reference_images']=[]
-   for reference in generation_record['reference_images']:
-    reference_path=safe(PACK/reference['path'],ROOT);assert sha(reference_path)==reference['sha256'];capture(reference_path)
-    new['reference_images'].append({**copy.deepcopy(reference),'path':str(reference_path)})
+   new['reference_images']=archive_reference_chain({'reference_images':generation_record['reference_images']},copy.deepcopy(relocations))['reference_images']
   new['visual_approval']={'status':'approved','record':'processing/final-visual-approval.json','sha256':approved_sha}
   sources[key]=new;doc('processing/'+key+'.json',new);history_files[generation.name]=generation
  for name,path in history_files.items():doc('processing/generation-history/'+name,{'original_record_path':str(path.resolve()),'original_sha256':sha(path),'record':read(path)})
