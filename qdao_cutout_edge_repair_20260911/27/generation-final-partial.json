@@ -1,0 +1,507 @@
+{
+  "schema": "qdao.generation-final.v1",
+  "status": "incomplete",
+  "created_utc": "2026-09-11T14:42:13.914675+00:00",
+  "complete": false,
+  "publisher_eligible": false,
+  "required_processing_inputs": 9,
+  "processing_input_count": 5,
+  "missing_processing_inputs": [
+    "SW",
+    "NW",
+    "NE",
+    "SE"
+  ],
+  "native_generation_count": 5,
+  "native_generation_count_semantics": "Unique accepted native inputs supplying the five mapped processing inputs. Unaccepted reference history and future assembled direction raw art are counted separately.",
+  "records": [
+    {
+      "id": "portrait",
+      "direction": null,
+      "source": "sources/portrait_raw.png",
+      "sha256": "4f0a6728e39e09211e383a361d225d6206d534f4020d9c94374736aa420194d5",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source_type": "native_imagegen_output",
+      "native_generation": true,
+      "assembled": false,
+      "prompt_file": "prompts/portrait-final-correction.txt",
+      "prompt_sha256": "6e1c7971dca7a91420987713007bebaf9eb96ff04a4d49175f25153babfba92e",
+      "reference_images": [
+        {
+          "path": "sources/portrait-proportion-intermediate.png",
+          "sha256": "677738deb229fb688e51098801b4d1eb43787f680291e10c439ea7105ccc18be",
+          "native_size": [
+            1254,
+            1254
+          ],
+          "role": "immediate_identity_reference_with_body_proportion_correction",
+          "transport": "latest conversation image, num_last_images_to_include=1",
+          "prompt_file": "portrait-v2.prompt.txt",
+          "prompt_sha256": "cbbb5938b4c65dca75819674f41eaf3e229b971599693842af1a8deca5ff4e1e",
+          "evidence": {
+            "path": "generation-reference-confirmation.json",
+            "sha256": "bf96840a0c39472c41ff09a62ca1c38ac12f724f346bbc4fc28afc54a1fd1565",
+            "type": "producer_direct_tool_call_confirmation"
+          }
+        }
+      ],
+      "raw_artifacts": [
+        {
+          "path": "sources/portrait_raw.png",
+          "sha256": "4f0a6728e39e09211e383a361d225d6206d534f4020d9c94374736aa420194d5",
+          "native_size": [
+            1254,
+            1254
+          ],
+          "native_mode": "RGB",
+          "source_type": "native_imagegen_output",
+          "prompt_file": "prompts/portrait-final-correction.txt",
+          "prompt_sha256": "6e1c7971dca7a91420987713007bebaf9eb96ff04a4d49175f25153babfba92e"
+        }
+      ],
+      "generator": "host built-in image_gen",
+      "model_quality_parameters": "not exposed by tool",
+      "quality_target": "highest visual quality",
+      "paid_API_called": false,
+      "generation_origin": {
+        "record_file": "generation-portrait.json",
+        "record_sha256": "a87d7d5cf298ae46f8d07d430fcec9a7dfec6bffa6ec2f6f7699fb8aaba10911",
+        "host_generated_path": null,
+        "builtin_origin": "exec-ce967fda-d2d5-4fbf-8413-5634da9c9f9c.png"
+      },
+      "processing_record": {
+        "path": "staged-v2/processing/portrait.json",
+        "sha256": "88c90449e73d7843fc060f8c858e8c6e806c4da0744aaf09f6489465c7b5ee4b",
+        "source_sha256": "4f0a6728e39e09211e383a361d225d6206d534f4020d9c94374736aa420194d5",
+        "visual_status": "passed_visual_review"
+      },
+      "reference_chain_status": "direct_reference_producer_confirmed_and_file_sha_verified",
+      "reference_transport": {
+        "mechanism": "num_last_images_to_include",
+        "value": 1,
+        "recorded_description": "Most recent visible identity image; num_last_images_to_include=1",
+        "binding_status": "producer_confirmed_exact_image",
+        "confirmation_record": {
+          "path": "generation-reference-confirmation.json",
+          "sha256": "bf96840a0c39472c41ff09a62ca1c38ac12f724f346bbc4fc28afc54a1fd1565"
+        }
+      }
+    },
+    {
+      "id": "S",
+      "direction": "S",
+      "source": "sources/walk_S_2x2.png",
+      "sha256": "5cd083849d5924abff50dbf75765d8e1a21f3cc0336566586c920962b6d39c0f",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source_type": "native_imagegen_output",
+      "native_generation": true,
+      "assembled": false,
+      "prompt_file": "prompts/walk_S_2x2.txt",
+      "prompt_sha256": "feb8188331d8c312c401cec0ae4818c16ed91200a04ddcfe7508d3b1b8b11095",
+      "reference_images": [
+        {
+          "path": "sources/portrait_raw.png",
+          "sha256": "4f0a6728e39e09211e383a361d225d6206d534f4020d9c94374736aa420194d5",
+          "native_size": [
+            1254,
+            1254
+          ],
+          "role": "identity_and_anatomical_scale",
+          "transport": "latest conversation image",
+          "evidence": {
+            "path": "generation-cardinals.json",
+            "sha256": "ecef3a6f864ad579f92dc823c34433142524b486b50ce88094224f1f6926d751",
+            "record_direction": "S",
+            "field": "reference"
+          }
+        }
+      ],
+      "raw_artifacts": [
+        {
+          "path": "sources/walk_S_2x2.png",
+          "sha256": "5cd083849d5924abff50dbf75765d8e1a21f3cc0336566586c920962b6d39c0f",
+          "native_size": [
+            1254,
+            1254
+          ],
+          "native_mode": "RGB",
+          "source_type": "native_imagegen_output",
+          "prompt_file": "prompts/walk_S_2x2.txt",
+          "prompt_sha256": "feb8188331d8c312c401cec0ae4818c16ed91200a04ddcfe7508d3b1b8b11095"
+        }
+      ],
+      "generator": "host built-in image_gen",
+      "model_quality_parameters": "not exposed by tool",
+      "quality_target": "highest visual quality",
+      "paid_API_called": false,
+      "generation_origin": {
+        "record_file": "generation-cardinals.json",
+        "record_sha256": "ecef3a6f864ad579f92dc823c34433142524b486b50ce88094224f1f6926d751",
+        "host_generated_path": "C:\\Users\\luyua\\.codex\\generated_images\\01a086ef-2e8c-73a2-bf70-7ac4b4bcde02\\exec-516fa53d-87bf-458a-b45b-926b9a0a82c6.png",
+        "builtin_origin": null
+      },
+      "processing_record": {
+        "path": "staged-v2/processing/S.json",
+        "sha256": "0307c60628366bf30ab86e0c5188e280212d31df451bdac9c475d1687e1e774c",
+        "source_sha256": "5cd083849d5924abff50dbf75765d8e1a21f3cc0336566586c920962b6d39c0f",
+        "visual_status": "passed_visual_review"
+      },
+      "reference_chain_status": "direct_reference_recorded_and_verified"
+    },
+    {
+      "id": "W",
+      "direction": "W",
+      "source": "sources/walk_W_2x2.png",
+      "sha256": "4ac1930ffd581c54eafd8341d413320815e4c8098eac4dc8c7cbf9c341bb0a14",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source_type": "native_imagegen_output",
+      "native_generation": true,
+      "assembled": false,
+      "prompt_file": "prompts/walk_W_2x2.txt",
+      "prompt_sha256": "9026dce086ee3aad40840a08c401a8e824e3293a95b5a988f2da06136605e9ca",
+      "reference_images": [
+        {
+          "path": "sources/portrait_raw.png",
+          "sha256": "4f0a6728e39e09211e383a361d225d6206d534f4020d9c94374736aa420194d5",
+          "native_size": [
+            1254,
+            1254
+          ],
+          "role": "identity_and_anatomical_scale",
+          "transport": "latest conversation image",
+          "evidence": {
+            "path": "generation-cardinals.json",
+            "sha256": "ecef3a6f864ad579f92dc823c34433142524b486b50ce88094224f1f6926d751",
+            "record_direction": "W",
+            "field": "reference"
+          }
+        }
+      ],
+      "raw_artifacts": [
+        {
+          "path": "sources/walk_W_2x2.png",
+          "sha256": "4ac1930ffd581c54eafd8341d413320815e4c8098eac4dc8c7cbf9c341bb0a14",
+          "native_size": [
+            1254,
+            1254
+          ],
+          "native_mode": "RGB",
+          "source_type": "native_imagegen_output",
+          "prompt_file": "prompts/walk_W_2x2.txt",
+          "prompt_sha256": "9026dce086ee3aad40840a08c401a8e824e3293a95b5a988f2da06136605e9ca"
+        }
+      ],
+      "generator": "host built-in image_gen",
+      "model_quality_parameters": "not exposed by tool",
+      "quality_target": "highest visual quality",
+      "paid_API_called": false,
+      "generation_origin": {
+        "record_file": "generation-cardinals.json",
+        "record_sha256": "ecef3a6f864ad579f92dc823c34433142524b486b50ce88094224f1f6926d751",
+        "host_generated_path": "C:\\Users\\luyua\\.codex\\generated_images\\01a086ef-2e8c-73a2-bf70-7ac4b4bcde02\\exec-61d48aaa-24bd-410a-a3a2-ae509cd96210.png",
+        "builtin_origin": null
+      },
+      "processing_record": {
+        "path": "staged-v2/processing/W.json",
+        "sha256": "23c9e224f46a3ff885c2291745b0625be1e0d9f5c56ba4eb512ca545868c5583",
+        "source_sha256": "4ac1930ffd581c54eafd8341d413320815e4c8098eac4dc8c7cbf9c341bb0a14",
+        "visual_status": "passed_visual_review"
+      },
+      "reference_chain_status": "direct_reference_recorded_and_verified"
+    },
+    {
+      "id": "E",
+      "direction": "E",
+      "source": "sources/walk_E_2x2.png",
+      "sha256": "53c16413a42b8c39d11efb3925ca7c7e6792fac903f6ef47625d1f0a4cbeaa80",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source_type": "native_imagegen_output",
+      "native_generation": true,
+      "assembled": false,
+      "prompt_file": "prompts/walk_E_2x2.txt",
+      "prompt_sha256": "15259db361f5820eaad388128f403c06bddd01aebee6259f0a1cf6b6113bf5e6",
+      "reference_images": [
+        {
+          "path": "sources/portrait_raw.png",
+          "sha256": "4f0a6728e39e09211e383a361d225d6206d534f4020d9c94374736aa420194d5",
+          "native_size": [
+            1254,
+            1254
+          ],
+          "role": "identity_and_anatomical_scale",
+          "transport": "latest conversation image",
+          "evidence": {
+            "path": "generation-cardinals.json",
+            "sha256": "ecef3a6f864ad579f92dc823c34433142524b486b50ce88094224f1f6926d751",
+            "record_direction": "E",
+            "field": "reference"
+          }
+        }
+      ],
+      "raw_artifacts": [
+        {
+          "path": "sources/walk_E_2x2.png",
+          "sha256": "53c16413a42b8c39d11efb3925ca7c7e6792fac903f6ef47625d1f0a4cbeaa80",
+          "native_size": [
+            1254,
+            1254
+          ],
+          "native_mode": "RGB",
+          "source_type": "native_imagegen_output",
+          "prompt_file": "prompts/walk_E_2x2.txt",
+          "prompt_sha256": "15259db361f5820eaad388128f403c06bddd01aebee6259f0a1cf6b6113bf5e6"
+        }
+      ],
+      "generator": "host built-in image_gen",
+      "model_quality_parameters": "not exposed by tool",
+      "quality_target": "highest visual quality",
+      "paid_API_called": false,
+      "generation_origin": {
+        "record_file": "generation-cardinals.json",
+        "record_sha256": "ecef3a6f864ad579f92dc823c34433142524b486b50ce88094224f1f6926d751",
+        "host_generated_path": "C:\\Users\\luyua\\.codex\\generated_images\\01a086ef-2e8c-73a2-bf70-7ac4b4bcde02\\exec-9155edae-ef4c-4b76-8a37-cf4a12896087.png",
+        "builtin_origin": null
+      },
+      "processing_record": {
+        "path": "staged-v2/processing/E.json",
+        "sha256": "55a9fda6a1a3eeed2f183a4f8fb4fa8c529fa5f2802ad714bcde9ac7918ef413",
+        "source_sha256": "53c16413a42b8c39d11efb3925ca7c7e6792fac903f6ef47625d1f0a4cbeaa80",
+        "visual_status": "passed_visual_review"
+      },
+      "reference_chain_status": "direct_reference_recorded_and_verified"
+    },
+    {
+      "id": "N",
+      "direction": "N",
+      "source": "sources/walk_N_2x2.png",
+      "sha256": "2979810733be2a49e351e9f312f5bfac81188de56188a8a6860de79b534b06ce",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source_type": "native_imagegen_output",
+      "native_generation": true,
+      "assembled": false,
+      "prompt_file": "prompts/walk_N_2x2.txt",
+      "prompt_sha256": "7be13200ac55eace3a5f862aee114a9b96b4c6e7bf9a8d8680fca0fe8a35e330",
+      "reference_images": [
+        {
+          "path": "sources/portrait_raw.png",
+          "sha256": "4f0a6728e39e09211e383a361d225d6206d534f4020d9c94374736aa420194d5",
+          "native_size": [
+            1254,
+            1254
+          ],
+          "role": "identity_and_anatomical_scale",
+          "transport": "latest conversation image",
+          "evidence": {
+            "path": "generation-cardinals.json",
+            "sha256": "ecef3a6f864ad579f92dc823c34433142524b486b50ce88094224f1f6926d751",
+            "record_direction": "N",
+            "field": "reference"
+          }
+        }
+      ],
+      "raw_artifacts": [
+        {
+          "path": "sources/walk_N_2x2.png",
+          "sha256": "2979810733be2a49e351e9f312f5bfac81188de56188a8a6860de79b534b06ce",
+          "native_size": [
+            1254,
+            1254
+          ],
+          "native_mode": "RGB",
+          "source_type": "native_imagegen_output",
+          "prompt_file": "prompts/walk_N_2x2.txt",
+          "prompt_sha256": "7be13200ac55eace3a5f862aee114a9b96b4c6e7bf9a8d8680fca0fe8a35e330"
+        }
+      ],
+      "generator": "host built-in image_gen",
+      "model_quality_parameters": "not exposed by tool",
+      "quality_target": "highest visual quality",
+      "paid_API_called": false,
+      "generation_origin": {
+        "record_file": "generation-cardinals.json",
+        "record_sha256": "ecef3a6f864ad579f92dc823c34433142524b486b50ce88094224f1f6926d751",
+        "host_generated_path": "C:\\Users\\luyua\\.codex\\generated_images\\01a086ef-2e8c-73a2-bf70-7ac4b4bcde02\\exec-cac8442b-04e5-4cdf-b425-54fa767b0ba0.png",
+        "builtin_origin": null
+      },
+      "processing_record": {
+        "path": "staged-v2/processing/N.json",
+        "sha256": "588f1fa8ae008cc36481206c00f06e49d15ad7532a8a37c738ffb823aaaaad72",
+        "source_sha256": "2979810733be2a49e351e9f312f5bfac81188de56188a8a6860de79b534b06ce",
+        "visual_status": "passed_visual_review"
+      },
+      "reference_chain_status": "direct_reference_recorded_and_verified"
+    }
+  ],
+  "raw_artifacts": [
+    {
+      "path": "sources/portrait_raw.png",
+      "sha256": "4f0a6728e39e09211e383a361d225d6206d534f4020d9c94374736aa420194d5",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source_type": "native_imagegen_output",
+      "prompt_file": "prompts/portrait-final-correction.txt",
+      "prompt_sha256": "6e1c7971dca7a91420987713007bebaf9eb96ff04a4d49175f25153babfba92e"
+    },
+    {
+      "path": "sources/walk_S_2x2.png",
+      "sha256": "5cd083849d5924abff50dbf75765d8e1a21f3cc0336566586c920962b6d39c0f",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source_type": "native_imagegen_output",
+      "prompt_file": "prompts/walk_S_2x2.txt",
+      "prompt_sha256": "feb8188331d8c312c401cec0ae4818c16ed91200a04ddcfe7508d3b1b8b11095"
+    },
+    {
+      "path": "sources/walk_W_2x2.png",
+      "sha256": "4ac1930ffd581c54eafd8341d413320815e4c8098eac4dc8c7cbf9c341bb0a14",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source_type": "native_imagegen_output",
+      "prompt_file": "prompts/walk_W_2x2.txt",
+      "prompt_sha256": "9026dce086ee3aad40840a08c401a8e824e3293a95b5a988f2da06136605e9ca"
+    },
+    {
+      "path": "sources/walk_E_2x2.png",
+      "sha256": "53c16413a42b8c39d11efb3925ca7c7e6792fac903f6ef47625d1f0a4cbeaa80",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source_type": "native_imagegen_output",
+      "prompt_file": "prompts/walk_E_2x2.txt",
+      "prompt_sha256": "15259db361f5820eaad388128f403c06bddd01aebee6259f0a1cf6b6113bf5e6"
+    },
+    {
+      "path": "sources/walk_N_2x2.png",
+      "sha256": "2979810733be2a49e351e9f312f5bfac81188de56188a8a6860de79b534b06ce",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source_type": "native_imagegen_output",
+      "prompt_file": "prompts/walk_N_2x2.txt",
+      "prompt_sha256": "7be13200ac55eace3a5f862aee114a9b96b4c6e7bf9a8d8680fca0fe8a35e330"
+    }
+  ],
+  "reference_chain": {
+    "edges": [
+      {
+        "from": "sources/portrait-proportion-intermediate.png",
+        "from_sha256": "677738deb229fb688e51098801b4d1eb43787f680291e10c439ea7105ccc18be",
+        "to": "sources/portrait_raw.png",
+        "to_sha256": "4f0a6728e39e09211e383a361d225d6206d534f4020d9c94374736aa420194d5",
+        "evidence": "generation-reference-confirmation.json",
+        "evidence_sha256": "bf96840a0c39472c41ff09a62ca1c38ac12f724f346bbc4fc28afc54a1fd1565",
+        "status": "producer_confirmed_and_file_sha_verified"
+      },
+      {
+        "from": "sources/portrait_raw.png",
+        "from_sha256": "4f0a6728e39e09211e383a361d225d6206d534f4020d9c94374736aa420194d5",
+        "to": "sources/walk_S_2x2.png",
+        "to_sha256": "5cd083849d5924abff50dbf75765d8e1a21f3cc0336566586c920962b6d39c0f",
+        "evidence": "generation-cardinals.json records[S].reference",
+        "status": "recorded_and_file_sha_verified"
+      },
+      {
+        "from": "sources/portrait_raw.png",
+        "from_sha256": "4f0a6728e39e09211e383a361d225d6206d534f4020d9c94374736aa420194d5",
+        "to": "sources/walk_W_2x2.png",
+        "to_sha256": "4ac1930ffd581c54eafd8341d413320815e4c8098eac4dc8c7cbf9c341bb0a14",
+        "evidence": "generation-cardinals.json records[W].reference",
+        "status": "recorded_and_file_sha_verified"
+      },
+      {
+        "from": "sources/portrait_raw.png",
+        "from_sha256": "4f0a6728e39e09211e383a361d225d6206d534f4020d9c94374736aa420194d5",
+        "to": "sources/walk_E_2x2.png",
+        "to_sha256": "53c16413a42b8c39d11efb3925ca7c7e6792fac903f6ef47625d1f0a4cbeaa80",
+        "evidence": "generation-cardinals.json records[E].reference",
+        "status": "recorded_and_file_sha_verified"
+      },
+      {
+        "from": "sources/portrait_raw.png",
+        "from_sha256": "4f0a6728e39e09211e383a361d225d6206d534f4020d9c94374736aa420194d5",
+        "to": "sources/walk_N_2x2.png",
+        "to_sha256": "2979810733be2a49e351e9f312f5bfac81188de56188a8a6860de79b534b06ce",
+        "evidence": "generation-cardinals.json records[N].reference",
+        "status": "recorded_and_file_sha_verified"
+      }
+    ],
+    "pending_confirmation": [],
+    "reference_artifacts": [
+      {
+        "path": "sources/portrait-proportion-intermediate.png",
+        "sha256": "677738deb229fb688e51098801b4d1eb43787f680291e10c439ea7105ccc18be",
+        "native_size": [
+          1254,
+          1254
+        ],
+        "prompt_file": "portrait-v2.prompt.txt",
+        "prompt_sha256": "cbbb5938b4c65dca75819674f41eaf3e229b971599693842af1a8deca5ff4e1e",
+        "builtin_origin": "exec-5235b8e6-b1ca-4e96-be44-810687948433.png"
+      }
+    ],
+    "upstream_history_limit": "Intermediate portrait continues the old ink-kite ranger identity according to producer history. No earlier path or hash is inferred where the existing record does not identify it."
+  },
+  "verified_input_sha256": {
+    "sources/portrait_raw.png": "4f0a6728e39e09211e383a361d225d6206d534f4020d9c94374736aa420194d5",
+    "prompts/portrait-final-correction.txt": "6e1c7971dca7a91420987713007bebaf9eb96ff04a4d49175f25153babfba92e",
+    "generation-portrait.json": "a87d7d5cf298ae46f8d07d430fcec9a7dfec6bffa6ec2f6f7699fb8aaba10911",
+    "staged-v2/processing/portrait.json": "88c90449e73d7843fc060f8c858e8c6e806c4da0744aaf09f6489465c7b5ee4b",
+    "sources/walk_S_2x2.png": "5cd083849d5924abff50dbf75765d8e1a21f3cc0336566586c920962b6d39c0f",
+    "prompts/walk_S_2x2.txt": "feb8188331d8c312c401cec0ae4818c16ed91200a04ddcfe7508d3b1b8b11095",
+    "generation-cardinals.json": "ecef3a6f864ad579f92dc823c34433142524b486b50ce88094224f1f6926d751",
+    "staged-v2/processing/S.json": "0307c60628366bf30ab86e0c5188e280212d31df451bdac9c475d1687e1e774c",
+    "sources/walk_W_2x2.png": "4ac1930ffd581c54eafd8341d413320815e4c8098eac4dc8c7cbf9c341bb0a14",
+    "prompts/walk_W_2x2.txt": "9026dce086ee3aad40840a08c401a8e824e3293a95b5a988f2da06136605e9ca",
+    "staged-v2/processing/W.json": "23c9e224f46a3ff885c2291745b0625be1e0d9f5c56ba4eb512ca545868c5583",
+    "sources/walk_E_2x2.png": "53c16413a42b8c39d11efb3925ca7c7e6792fac903f6ef47625d1f0a4cbeaa80",
+    "prompts/walk_E_2x2.txt": "15259db361f5820eaad388128f403c06bddd01aebee6259f0a1cf6b6113bf5e6",
+    "staged-v2/processing/E.json": "55a9fda6a1a3eeed2f183a4f8fb4fa8c529fa5f2802ad714bcde9ac7918ef413",
+    "sources/walk_N_2x2.png": "2979810733be2a49e351e9f312f5bfac81188de56188a8a6860de79b534b06ce",
+    "prompts/walk_N_2x2.txt": "7be13200ac55eace3a5f862aee114a9b96b4c6e7bf9a8d8680fca0fe8a35e330",
+    "staged-v2/processing/N.json": "588f1fa8ae008cc36481206c00f06e49d15ad7532a8a37c738ffb823aaaaad72",
+    "sources/portrait-proportion-intermediate.png": "677738deb229fb688e51098801b4d1eb43787f680291e10c439ea7105ccc18be",
+    "portrait-v2.prompt.txt": "cbbb5938b4c65dca75819674f41eaf3e229b971599693842af1a8deca5ff4e1e",
+    "generation-reference-confirmation.json": "bf96840a0c39472c41ff09a62ca1c38ac12f724f346bbc4fc28afc54a1fd1565"
+  },
+  "remaining_work": [
+    "Add accepted SW actual prompt/source mapping when producer supplies it.",
+    "Add NW/NE/SE actual raw_artifacts and per-frame assembly/reference lineage.",
+    "Verify all nine mappings against complete current processing records before writing generation-final.json."
+  ],
+  "production_written": false,
+  "publisher_invoked": false,
+  "updated_utc": "2026-09-11T14:43:33.339356+00:00"
+}
