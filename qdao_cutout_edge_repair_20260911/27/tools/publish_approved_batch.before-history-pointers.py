@@ -147,8 +147,6 @@ def validate_sources(base):
   assert sha(source)==rec['sha256'] and sha(prompt)==rec['prompt_sha256']
   with Image.open(source) as im:assert list(im.size)==rec['native_size']
   assert read(base/'processing'/f'{key}.json')==rec
-  for history_field in ['staging_processing_record','source_lineage_record']:
-   if rec.get(history_field):assert sha(artifact(rec[history_field]['path']))==rec[history_field]['sha256']
   for node in nodes(rec):
    for reference in node.get('reference_images',[]):
     reference_path=artifact(reference['path']);assert sha(reference_path)==reference['sha256']
@@ -311,16 +309,6 @@ def prepare():
   else:native_artifacts[rec['sha256']]={'path':'sources/'+expected_name,'sha256':rec['sha256'],'native_size':rec['native_size']}
   if generation_record.get('reference_images'):
    new['reference_images']=archive_reference_chain({'reference_images':generation_record['reference_images']},copy.deepcopy(relocations))['reference_images']
-  # Keep original stage review context verbatim, while current review pointers resolve in production.
-  staging_record='processing/generation-history/'+key+'-staging-processing.json'
-  add(staging_record,rec_path)
-  new['staging_processing_record']={'path':str((TARGET/staging_record).resolve()),'sha256':sha(rec_path),'semantics':'verbatim historical staging record; embedded stage paths retain original context'}
-  if isinstance(new.get('source_lineage_record'),dict):
-   lineage_record=new['source_lineage_record'];original_lineage=safe(PACK/lineage_record['path'],PACK)
-   assert sha(original_lineage)==lineage_record['sha256']
-   lineage_dest='processing/generation-history/'+key+'-source-lineage.json';add(lineage_dest,original_lineage)
-   new['source_lineage_record']={'path':str((TARGET/lineage_dest).resolve()),'sha256':sha(original_lineage),'semantics':'verbatim historical input-sidecar; current remapped lineage is embedded in this processing record'}
-  new['visual_review']={'status':'passed_visual_review','reviewer':approval['reviewer'],'record':'processing/final-visual-approval.json','sha256':approved_sha,'approved_utc':approval['approved_utc']}
   new['visual_approval']={'status':'approved','record':'processing/final-visual-approval.json','sha256':approved_sha}
   sources[key]=new;doc('processing/'+key+'.json',new);history_files[generation.name]=generation
  for name,path in history_files.items():doc('processing/generation-history/'+name,{'original_record_path':str(path.resolve()),'original_sha256':sha(path),'record':read(path)})
