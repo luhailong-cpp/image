@@ -17,9 +17,9 @@ ROOT = Path(__file__).resolve().parent
 TARGET = (2560, 1080)
 SCREENS = (
     ("01_login", "login", "image_gen", "source/01_login.prompt.txt"),
-    ("02_server_select", "server_selection", "image_gen", "source/02_server_select.prompt.txt"),
+    ("02_server_select", "server_selection", "v10_painted_components_native_label_composition", "../qdao_ui_style_recut_v10/tools/build_composites.mjs"),
     ("03_character_select", "character_selection", "image_gen", "source/03_character_select.prompt.txt"),
-    ("04_main_city_hud", "main_city_hud", "native_svg_composition", "hud/build.mjs"),
+    ("04_main_city_hud", "main_city_hud", "v10_painted_components_native_label_composition", "../qdao_ui_style_recut_v10/tools/build_composites.mjs"),
     ("05_battle_scene", "battle_background", "image_gen", "source/05_battle_scene.prompt.txt"),
     ("06_battle_entry_loading", "battle_entry_loading", "image_gen", "source/06_battle_entry_loading.prompt.txt"),
 )

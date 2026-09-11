@@ -52,6 +52,8 @@ def main():
     baseline = read(HERE / 'baseline.json')
     previous = {x['path']: x for x in baseline['assets']}
     inherited = {x['path']: x for x in read(HERE / 'inherited_refinements.json')['records']}
+    assert set(inherited) <= set(previous)
+    published = {x['path']: x for x in read(REPO / 'qdao_exposure_refinement_v8/processing.json')['records']}
     assets = []
     # Limit this revision to the original paths; later packs are independent.
     for path in sorted(REPO / row['path'] for row in baseline['assets']):
@@ -73,11 +75,21 @@ def main():
                'mode': 'RGBA', 'alpha_range': [0,255], 'subject_bounds': list(bbox), 'sha256': digest,
                'strong_chroma_candidates': candidates}
         original = previous[path.relative_to(REPO).as_posix()]
+        refinement = inherited.get(path.relative_to(REPO).as_posix())
+        if refinement:
+            source = published[refinement['path']]
+            assert refinement['status'] == source['status'] == 'published'
+            assert refinement['alpha_unchanged'] is True
+            assert digest == refinement['output_sha256'] == source['output_sha256']
+            assert refinement['original_sha256'] == source['original_sha256']
         if number:
             record_path = PACK / 'records' / f'{path.stem}.json'
             record = read(record_path)
             assert record['art_revision'] == 'v9-character-diversity', path.name
             assert digest == record['sha256'] and digest != original['sha256']
+            if refinement:
+                assert record['generation_export_sha256'] == refinement['original_sha256']
+                assert record['inherited_refinement'] == refinement
             assert (PACK / record['prompt']).is_file()
             assert record['model_and_quality_verified'] is False
             row.update({'age_direction': DESIGNS[number][1], 'face_direction': DESIGNS[number][2],

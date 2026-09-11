@@ -1,8 +1,9 @@
 {
   "file": "11_jade_fist_flat_top_boy_transparent_4096.png",
+  "art_revision": "v9-character-diversity",
   "generator": "built-in image_gen",
-  "generation_file": "exec-71bd2737-a27a-4b02-a3a9-25b9c724523d.png",
-  "raw_sha256": "c7b79bfd53bffb8f79ca05dc78d0fe6b1edf3e8a0e83117774a40827ceecae42",
+  "generation_file": "exec-bf0ad888-fb56-47a7-8fb7-72e8ea98f691.png",
+  "raw_sha256": "9e68aad93de5423c71a32621bbcd275f5e8a31ab6fba8480201a8ea0e0c99c39",
   "native_generation_size": [
     1254,
     1254
@@ -12,27 +13,36 @@
     4096
   ],
   "native_4096_generation": false,
-  "export_method": "skill chroma cleanup, fit/feet alignment, RGBA LANCZOS export",
+  "export_method": "skill alpha cleanup at full source resolution, feet alignment, LANCZOS compatibility export",
   "prompt": "prompts/11_jade_fist_flat_top_boy_transparent_4096.prompt.txt",
-  "reference_delivery": "in-memory board via conversation image",
-  "reference_baseline": "60134a6",
+  "reference_delivery": "New original character from text-only per-role design. No face template or existing franchise image used.",
+  "reference_baseline": "230e782aa9b6278c8f77133e59e47c4470b93a74",
+  "previous_sha256": "a7033f31f178c14d340e55b89388a8f596f23cf847caa01d7c8772615975c5f3",
+  "design_brief": "../qdao_character_diversity_v9/DESIGN_BRIEF.md",
+  "model_preference": "gpt-image-2",
+  "quality_preference": "high",
+  "model_parameter_exposed": false,
+  "quality_parameter_exposed": false,
+  "model_and_quality_verified": false,
+  "documented_model": "gpt-image-2 (project AGENTS built-in path)",
+  "parameter_note": "Project AGENTS documents built-in GPT Image 2. The callable tool has no model/quality switch; high is a quality goal, not a force-set per-call parameter.",
   "alpha_range": [
     0,
     255
   ],
   "subject_bounds": [
-    750,
-    240,
-    3343,
+    662,
+    241,
+    3431,
     3859
   ],
-  "sha256": "a7033f31f178c14d340e55b89388a8f596f23cf847caa01d7c8772615975c5f3",
+  "sha256": "2c8c62fa349994e6b7938838598bee8d3e51aa5637826beb7155350ec7bb32d3",
   "processor_qc": {
     "target": "asset",
     "mode": "single",
     "prompt": "",
     "role": "",
-    "input": "C:\\Users\\luyua\\.codex\\generated_images\\01a075d5-a62b-78c2-bb47-7243769210aa\\exec-71bd2737-a27a-4b02-a3a9-25b9c724523d.png",
+    "input": "C:\\Users\\luyua\\.codex\\generated_images\\01a08c29-6ffc-77f3-89f2-1d729b972bc5\\exec-bf0ad888-fb56-47a7-8fb7-72e8ea98f691.png",
     "threshold": 130,
     "edge_threshold": 170,
     "duration": 200,
@@ -69,42 +79,42 @@
         "selected_component_area": null,
         "selected_component_bbox": null,
         "crop_bbox": [
-          239,
-          100,
-          1008,
-          1175
+          219,
+          103,
+          1007,
+          1134
         ],
         "source_frame_size": [
           1246,
           1246
         ],
         "is_empty": false,
-        "subject_area": 502565,
-        "body_core_area": 476510,
-        "body_area_fraction": 0.30692759366087047,
+        "subject_area": 477664,
+        "body_core_area": 446739,
+        "body_area_fraction": 0.2877516238157932,
         "anchor_source": [
-          648.0,
-          1115.0
+          591.0,
+          1095.0
         ],
         "source_edge_touch": false,
         "output_edge_touch": false,
         "edge_touch": false,
         "output_size": [
-          789,
+          843,
           1103
         ],
         "paste_position": [
-          232,
+          205,
           76
         ],
         "paste_clamped": false,
         "aligned_bbox": [
-          232,
+          205,
           76,
-          1021,
+          1048,
           1179
         ],
-        "source_to_output_scale": 1.0265302325581396,
+        "source_to_output_scale": 1.0703394762366634,
         "bbox_scale_applied": true,
         "scale_strategy": "fit",
         "scale_changed": true
@@ -121,12 +131,12 @@
       "empty_count": 0,
       "edge_touch_count": 0,
       "paste_clamped_count": 0,
-      "body_scale_mean": 0.5540104634940305,
+      "body_scale_mean": 0.5364248538386278,
       "output_subject_height_mean": 1103.0,
       "body_scale_cv": 0.0,
       "anchor_x_std": 0.0,
       "anchor_y_std": 0.0,
-      "anchor_y_mean": 0.8948635634028892
+      "anchor_y_mean": 0.8788121990369181
     },
     "qc_config": {
       "strict_qc": true,
@@ -137,30 +147,15 @@
       "max_profile_scale_drift": null
     }
   },
+  "strong_chroma_cleanup": {
+    "predicate": "R>200 and G<100 and B>200 and A>0",
+    "removed_pixels": 1933
+  },
   "art_only_not_engine_integrated": true,
-  "additional_chroma_cleanup": {
-    "script": "clean_residual_chroma.py",
-    "key_rgb": [
-      255,
-      0,
-      255
-    ],
-    "rgb_euclidean_distance_max": 155,
-    "affected_nontransparent_pixels": 5813,
-    "method": "Set only residual pixels near the known magenta key to transparent black after RGBA resampling. No shape drawing, recoloring or geometric transformation.",
-    "sha256_before": "5304c2e43f46817245d2a0d162b304b5221eed3ed3a326d6713b4292b3e39ed2"
-  },
-  "prompt_sha256": "a73b93ec5ff083602bfad9843c2c9fd153b9b36bc9b0bb18686b9de164f09a0e",
-  "identity_reference": {
-    "path": "q_daoist_character_pack_4096/11_jade_fist_flat_top_boy_transparent_4096.png",
-    "baseline_commit": "60134a6",
-    "baseline_sha256": "acd2e924588882e0feaf8d2219a569f2f9ac33ac893362fa2d19efccd0cbea15"
-  },
-  "style_reference": "qdao_chibi_game_pack_v4/hero-transparent_1024.png",
-  "visual_review": {
-    "passed": true,
-    "reviewed_on_light_or_dark_background": true,
-    "features": "Short flat-top hair, two opaque pale-jade gauntlets, jade/ivory vest and two complete boots.",
-    "no_strong_magenta_opaque_pixels": true
+  "final_visual_review": {
+    "date": "2026-09-11",
+    "status": "passed",
+    "notes": "短直寸头单剃线、圆脸眯眼笑，矮壮桶形青白短衣，两只大玉护拳。",
+    "report": "../qdao_character_diversity_v9/visual_qa.json"
   }
 }

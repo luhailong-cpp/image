@@ -24,7 +24,7 @@
   "model_parameter_exposed": false,
   "quality_parameter_exposed": false,
   "model_and_quality_verified": false,
-  "parameter_note": "Built-in tool has no model or quality arguments; these preferences were not force-set or independently verified.",
+  "parameter_note": "Project AGENTS documents built-in GPT Image 2. The callable tool has no model/quality switch; high is a quality goal, not a force-set per-call parameter.",
   "alpha_range": [
     0,
     255
@@ -35,7 +35,7 @@
     3258,
     3859
   ],
-  "sha256": "cd426362899156ac60bea8e2e1ddbae7f0afa0f9346a355feedd06df1ca5dd14",
+  "sha256": "658fef330fb0c0c540347748c0a51c330abe04e62a941d6b0d94a734128d79c7",
   "processor_qc": {
     "target": "asset",
     "mode": "single",
@@ -150,5 +150,23 @@
     "predicate": "R>200 and G<100 and B>200 and A>0",
     "removed_pixels": 4166
   },
-  "art_only_not_engine_integrated": true
+  "art_only_not_engine_integrated": true,
+  "generation_export_sha256": "cd426362899156ac60bea8e2e1ddbae7f0afa0f9346a355feedd06df1ca5dd14",
+  "inherited_refinement": {
+    "path": "q_daoist_character_pack_4096/09_bamboo_archer_girl_transparent_4096.png",
+    "source_record": "qdao_exposure_refinement_v8/processing.json",
+    "original_sha256": "cd426362899156ac60bea8e2e1ddbae7f0afa0f9346a355feedd06df1ca5dd14",
+    "output_sha256": "658fef330fb0c0c540347748c0a51c330abe04e62a941d6b0d94a734128d79c7",
+    "preset": "character",
+    "status": "published",
+    "alpha_unchanged": true,
+    "reason": "Preserve skin, fur color and dark clothing; mild, fixed highlight rolloff across all frames"
+  },
+  "documented_model": "gpt-image-2 (project AGENTS built-in path)",
+  "final_visual_review": {
+    "date": "2026-09-11",
+    "status": "passed",
+    "notes": "深色长直辫与竹笠、晒肤雀斑，草绿短装绑腿，竹弓箭筒清楚。",
+    "report": "../qdao_character_diversity_v9/visual_qa.json"
+  }
 }
