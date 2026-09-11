@@ -28,6 +28,12 @@
 
 2026-09-08：[天墉城 6×6 主城地图](tianyong_city_6x6/README.md)已从客户端同步，包含 [6144×6144 完整母图](tianyong_city_6x6/Previews/tianyong_city_master_6144.png)、[2048 预览](tianyong_city_6x6/Previews/tianyong_city_master_preview_2048.png)、36 张正式切图、来源图与切图清单。此处归档的是现有客户端素材；同步来源和文件校验见包内记录。
 
+## 人物差异化：v9
+
+2026-09-11：01–22号职业人物完成原创道家Q版差异化重设计，全部使用直发、束发或辫发，通过脸型、年龄感、胖瘦体态、服装和法器区分。保留24个旧PNG路径与4096×4096透明画布；两张主角参考保留既定造型。此前已发布的曝光修正沿用并记录来源。
+
+[交付与人物总览](qdao_character_diversity_v9/README.md) · [验收](qdao_character_diversity_v9/validation.json) · [兼容映射](qdao_character_diversity_v9/compatibility_map.json)。本轮仅静态人物，v11新增人物及客户端接入见各自任务。
+
 ## 全库美术更新：v6
 
 按 `60134a6` 的369个视觉文件逐项遍历：124枚物件图标、50张旧切片、旧原子控件和12张选服画面／分层全部更新；22个职业人物与32帧八向动作重绘，旧道童路径统一为新版形象；六个缺失徽标、战斗入场与纯云层补齐，四只宠物另交付透明静态图。原路径和像素尺寸保持不变。
