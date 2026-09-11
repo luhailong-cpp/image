@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-09-11T09:53:30.336323+00:00",
+  "updated_at_utc": "2026-09-11T11:39:53.967055+00:00",
   "phase": "waiting_for_prerequisites",
   "all_images_complete": false,
   "images_edited_by_this_task": 0,
@@ -10,8 +10,8 @@
   "user_latest_request": "做完了吗？没做完继续。",
   "generation_gate_open": false,
   "blocking_deliveries": {
-    "new_characters_v11": "Roles 23/25/26 have passed producer QC; role 24 has an older failed QC dated 2026-09-10 08:05 UTC, and roles 27/28 lack final QC. No whole-package acceptance yet.",
-    "main_city_and_scenes": "20 named refined city tile PNGs exist out of 36; count is not final visual acceptance. The progress file still reports 10 and is stale. Final 6144 master, manifest and verification are absent. Five expanded scenes still have source references and a main-city prompt but no completed image delivery; courtyard remains absent."
+    "new_characters_v11": "Roles 23/25/26 have passed producer QC. Role 27 now has a manifest and passed numeric QC, but visual review is pending. Role 24 retains the older failed QC from 2026-09-10 08:05 UTC; role 28 lacks final QC. No whole-package acceptance yet.",
+    "main_city_and_scenes": "20 named refined city tile PNGs exist out of 36; count is not final visual acceptance. The progress file still reports 10 and is stale. Final 6144 master, manifest and verification remain absent. Five expanded scenes still have source references and a main-city prompt but no completed image delivery; courtyard remains absent."
   },
   "resume_other_task_question": "Superseded by the user instruction: if unfinished, continue. Continuation messages were accepted for UI v10 and character tasks v9/v11; UI and main city were observed in new in-progress turns. Avoid duplicate continuation messages.",
   "completed_evidence": {
@@ -112,40 +112,45 @@
     }
   },
   "next_step": "Check remaining main-city/scenes and v11 delivery hourly. Once their production and acceptance are complete, refresh the full inventory and refine all applicable source assets and dependent exports under the documented Daoist chibi festival direction.",
-  "last_monitor_trigger_utc": "2026-09-11T08:43:13.026Z",
-  "monitor_decision": "Continue existing hourly heartbeat; initial five-hour delay has already elapsed and must not be restarted. Upstream tasks are active; do not duplicate pending continuation requests or begin all-library edits before accepted delivery.",
+  "last_monitor_trigger_utc": "2026-09-11T11:36:46.108Z",
+  "monitor_decision": "Continue the existing hourly schedule. No accepted whole-package handoff yet, so preserve images and wait for next check. Do not repeat already accepted continuation requests or treat stale/interrupted task metadata as a new production failure. This intermediate numeric-QC progress needs no notification.",
   "thread_observations": [
     {
       "id": "01a08a19-8d1b-75c1-9e80-ee2fea9833b0",
-      "status": "active",
+      "status": "notLoaded",
       "latest_turn": "inProgress",
       "turn_id": "01a08f43-aa09-7d83-9234-f01d6e74f6ed",
       "art_delivery_complete": true
     },
     {
       "id": "01a08a28-6391-7100-a82e-f3a966e57349",
-      "status": "active",
+      "status": "notLoaded",
       "latest_turn": "interrupted",
       "turn_id": "01a08bfb-9bda-7822-a51d-48199711880b",
-      "cursor": "fa64b367-bc6c-4063-a8af-39731308f890:2",
-      "coarse_snapshot_unchanged": true
+      "cursor": "917065e2-9666-4b17-aa5d-3c3ce12b714a:1",
+      "coarse_snapshot_unchanged": false,
+      "cursor_reset": true,
+      "error": null
     },
     {
       "id": "01a08a2b-8ef8-7d41-be4e-8962e24735e1",
-      "status": "active",
+      "status": "notLoaded",
       "latest_turn": "interrupted",
       "cursor": "b2254c68-83c9-45b5-bdb1-85b51cc7db78:2",
-      "coarse_snapshot_unchanged": true
+      "coarse_snapshot_unchanged": true,
+      "latest_read_status": "tool_retrieval_failed",
+      "latest_turn_not_freshly_confirmed": true,
+      "production_status_basis": "File delivery and QC; task-read error is not a production error."
     },
     {
       "id": "01a075d4-5b1f-7e31-b44f-18e351fa544f",
-      "status": "active",
+      "status": "notLoaded",
       "latest_turn": "inProgress",
       "turn_id": "01a076a8-7b4e-7c81-84c8-d0fef9c8359a"
     },
     {
       "id": "01a0860b-36e6-7000-b128-67e7f4d73fa1",
-      "status": "active",
+      "status": "notLoaded",
       "latest_turn": "interrupted",
       "turn_id": "01a0872b-3f47-7eb2-9175-dfc27b869635",
       "recovery_message": "accepted after systemError",
@@ -156,13 +161,13 @@
     },
     {
       "id": "01a086ef-2e8c-73a2-bf70-7ac4b4bcde02",
-      "status": "idle",
+      "status": "notLoaded",
       "latest_turn": "interrupted",
       "turn_id": "01a08bf8-c9f5-7c71-9711-aa571aef3ea8",
       "art_delivery_complete": true
     }
   ],
-  "last_observed_change": "All three gameplay UI images and associated evidence now independently verified. Prior gameplay error resolved by actual completed files. Main city has 20 refined tile files, but final city/scenes and v11 whole-package acceptance remain pending.",
+  "last_observed_change": "Role 27 gained a manifest and passed numeric QC; visual review remains pending. Main city/scenes and remaining v11 acceptance are still incomplete. No new production error found. Task list now reports notLoaded; old interrupted turns are not completion evidence.",
   "partial_progress": {
     "role_26": {
       "manifest": "qdao_chibi_roster_v11/26_osmanthus_healer/manifest.json",
@@ -236,8 +241,13 @@
     },
     "role_27": {
       "complete": false,
+      "qc_file": "qdao_chibi_roster_v11/27_ink_kite_ranger/qc.json",
+      "qc_status": "passed_numeric_qc_pending_visual_review",
+      "qc_file_present": true,
+      "numeric_qc_passed": true,
       "final_qc_present": false,
-      "completion_scope": "Individual role and whole-package acceptance pending"
+      "visual_review_pending": true,
+      "completion_scope": "Individual-role numeric QC only; final visual review and whole-package acceptance pending"
     },
     "role_28": {
       "complete": false,
@@ -285,6 +295,18 @@
     "01a086f8-7613-7c43-844d-a17e5c8171c6": "active new inProgress turn; current messages empty, no verified new image-library output dependency; not an additional blocker solely for client work",
     "01a086eb-a80d-71e0-b4ec-eb95a90a8669": "active new inProgress turn; current messages empty, no verified new image-library output dependency; not an additional blocker solely for client work"
   },
-  "last_heartbeat_decision": "NOTIFY",
-  "last_check_kind": "user_followup"
+  "last_heartbeat_decision": "DONT_NOTIFY",
+  "last_check_kind": "heartbeat",
+  "last_monitor_findings": {
+    "checked_utc": "2026-09-11T11:39:53.967055+00:00",
+    "city_refined_files": 20,
+    "city_target_tiles": 36,
+    "city_final_delivery_present": false,
+    "expanded_scenes_complete": false,
+    "role_27_numeric_qc_passed": true,
+    "role_27_visual_review_pending": true,
+    "v11_whole_package_complete": false,
+    "new_production_errors": false,
+    "image_edit_gate_open": false
+  }
 }
