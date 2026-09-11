@@ -2,7 +2,7 @@
 
 历史诊断截图已按本轮清理要求删除，三个入口的布局数据仍保存在本包。
 
-本交付仅重做基线 `60134a6` 主城诊断截图右侧的 **战斗 / 观战 / 角色** 三个入口。使用 [v4 主城人物预览](../../qdao_chibi_game_pack_v4/preview-main-city_2560x1080.png)作为本次组合的背景来源，复用 [通用组件 primary_button_normal](../components/svg/primary_button_normal.svg)；v7 背景、人物和按钮均取自本轮新 AI 美术；三个入口的位置和独立文字层保留。组合步骤本身不再修改背景来源像素。
+本交付仅重做基线 `60134a6` 主城诊断截图右侧的 **战斗 / 观战 / 角色** 三个入口。使用 [v4 主城人物预览](../../qdao_chibi_game_pack_v4/preview-main-city_2560x1080.png)作为本次组合的背景来源，复用 [通用组件 primary_button_normal](../components/svg/primary_button_normal.svg)；当前按钮已更新为 v10 指定风格皮肤；背景与人物使用已有来源，三个入口的位置和独立文字层保留。组合步骤本身不再修改背景来源像素。
 
 查看 [分层网页预览](preview.html) 或 [完整画面 PNG](../source/04_main_city_hud.png)。画布均为 **2560 × 1080**。
 
@@ -15,7 +15,7 @@
 | `hud_labels.svg` / `hud_labels.png` | 独立中文标签层；SVG 以 `<text>` 保留文字 |
 | `placement.json` | 坐标、尺寸、字体、组件/背景 SHA-256 与验证结果 |
 | `../source/04_main_city_hud.png` | 原背景与 HUD 的合成预览；不是替换背景资产 |
-| `build.mjs` | 本地可复现构建脚本 |
+| [v10 构建流程](../../qdao_ui_style_recut_v10/README.md#确定性重建) | 当前暂存、核验与发布入口；旧 `build.mjs` 已阻止直写 |
 
 三个按钮左上坐标依次是 `(2160, 176)`、`(2160, 280)`、`(2160, 384)`；每个 **336 × 81.6** 逻辑像素，右边距 **64 px**，上下间距 **22.4 px**。使用原组件 `460 × 112` 的统一等比缩放，不拉伸边框、阴影或云纹。透明画布之外没有额外底色。
 
@@ -23,21 +23,9 @@
 
 ## 本地重建
 
-Node.js 22+，使用已经安装的 Sharp；脚本不下载依赖、不联网，也不调用图像生成 API。
+从仓库根按 [v10 确定性重建流程](../../qdao_ui_style_recut_v10/README.md#确定性重建)执行。当前合成入口为 `node qdao_ui_style_recut_v10/tools/build_composites.mjs`，需要已有 Node.js / Sharp 及已生成的暂存通用件；它输出到 v10 暂存区，通过核验后再发布。
 
-```sh
-node build.mjs --sharp "<已安装的 node_modules>/sharp"
-```
-
-本机 Windows 示例，在本目录执行：
-
-```powershell
-& 'C:/Users/luyua/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe' `
-  './build.mjs' `
-  --sharp 'C:/Users/luyua/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp'
-```
-
-其他电脑替换运行时与依赖路径，并提供支持中文的字体。组件目录、背景目录与本目录的相对位置应保持不变。重建只写本 `hud/` 目录和 `source/04_main_city_hud.png`，不会修改原背景或组件源文件。
+旧 `build.mjs` 已阻止直接写入，避免跳过当前来源匹配与验收。组合保持背景、人物和独立中文层，`hud_labels` 是本次明确保留的纯文字资源。
 
 ## 验证与接入边界
 

@@ -1,8 +1,8 @@
 # 五行奇谈 · 旧选服画面与高分辨透明分层
 
-本批在原路径重建了 **12 张旧选服素材**：本目录 5120 × 2160 与 10240 × 4320 各三张分层、根目录两张 5120 × 2160 透明整 UI，以及四张 2560 × 1080 不透明选服视觉稿。原文件名保留兼容；画面语义为选择服务器。v7 重绘包含这些旧路径；v5 标准画面由全库任务独立更新。
+本批在原路径重建了 **12 张旧选服素材**：本目录 5120 × 2160 与 10240 × 4320 各三张分层、根目录两张 5120 × 2160 透明整 UI，以及四张 2560 × 1080 不透明选服视觉稿。原文件名保留兼容；画面语义为选择服务器。当前框板和控件使用 v10 指定风格原画；保留既有场景、人物、文案与布局。
 
-[逐文件记录](manifest_native_q5.json) 保存原哈希、新哈希、尺寸、Alpha、来源与每个控件/文字的位置；[验证结果](validation_native_q5.json) 记录十二图与两组分层合成检查。原生构建入口为 [build_layers.mjs](native_q5/build_layers.mjs)。
+[逐文件记录](manifest_native_q5.json) 保存原哈希、新哈希、尺寸、Alpha、来源与每个控件/文字的位置；[验证结果](validation_native_q5.json) 记录十二图与两组分层合成检查。当前构建与发布入口见 [v10](../qdao_ui_style_recut_v10/README.md)，旧直接写入脚本已禁止执行。旧验证 JSON 为历史报告，当前核验以 v10 全量验证及组合视觉报告为准。
 
 ## 真正独立的层
 
@@ -26,10 +26,6 @@
 
 ## 重建
 
-需要 Node 22+ 和已安装的 Sharp。在仓库根目录执行：
+先按 [v10](../qdao_ui_style_recut_v10/README.md#确定性重建)重建暂存通用件，再运行 `node qdao_ui_style_recut_v10/tools/build_composites.mjs`；必要时传入已有 Sharp 路径。它在现有布局中匹配并替换控件图像，输出到 v10 暂存区，核验后由发布器写入原路径。
 
-```powershell
-node q_daoist_login_ui_uncropped_highres_final_layers/native_q5/build_layers.mjs --sharp '<已安装 node_modules>/sharp'
-```
-
-构建使用本库审计清单定位恰好 12 个旧文件，只覆盖这些交付和本目录的原生源/清单。本轮母图、裁切来源和 QC 总览保存在 v7/ui；每张旧/新哈希与实际原生尺寸单独记录。分层的效果、尺寸和 Alpha 已验证；未修改或接入未知客户端。
+旧 `native_q5/build_layers.mjs` 保留历史来源但已阻止直接写入。当前 [组合视觉报告](../qdao_ui_style_recut_v10/staged/attribute-composite-visual-qa.json)记录 12 张选服素材的尺寸、Alpha、中文排版和分层组合检查；完整发布情况见 v10。没有同步或运行客户端。

@@ -1,5 +1,7 @@
 # 五行奇谈：全库美术交付与接手说明
 
+2026-09-11 当前 UI 入口：[v10 统一风格重切](../qdao_ui_style_recut_v10/README.md)，含六组内置原画、158 个正式 PNG 合同、逐件映射、全量验证与正式发布记录。复现执行 v10 的暂存、核验、发布流程；旧构建入口已阻止写回历史皮肤。3 个纯文字层保留，其余 155 个换皮／重裁。本次未重新导入 Unity，旧引擎验收和属性 HTML 不代表 v10 当前版本。用户已明确授权此次 UI 文档、素材提交并 push；下文 v6 的“仅本地”是历史任务边界。
+
 记录日期：2026-09-06。素材仓库：`E:/work/image`。本轮起点是 `60134a6`；最终本地提交号用 `git log -1 --oneline` 查询。用户已将范围扩展为遍历目录，完成未更新的道家 Q 版素材、所有物件图标与切片，保持原尺寸，删除过程图并本地提交。
 
 ## 先看这几份记录
@@ -34,20 +36,20 @@
 
 玉绿、米白、暖金、桃木为主要配色。九宫格只用于清单允许伸缩的框板和控件，圆徽标／人物／文字整体等比缩放。
 
-“原大小不变”指原路径的像素画布；实际 AI 原生尺寸与放大导出分别记录。人物通常由1254方图透明处理后导出4096，图标来自4×4或4×3原生母表的独立格，动作由各方向2×2表提取；这些输出不冒称原生4K或每格600原生细节。原生 UI 从 SVG 直接光栅化。
+“原大小不变”指原路径的像素画布；实际 AI 原生尺寸与放大导出分别记录。人物通常由1254方图透明处理后导出4096，图标来自4×4或4×3原生母表的独立格，动作由各方向2×2表提取；这些输出不冒称原生4K或每格600原生细节。上述为 v6 来源说明。当前 UI v10 使用内置生成原画、透明裁片与内嵌 PNG 的 SVG 包装，真实原生尺寸见 v10 生成记录。
 
 ## 清理与复现
 
 旧五张物件源母图、旧图集 JPG 预览和两张诊断截图不再作为交付；本轮母表副本、切格副本、临时 GIF、`.work` 与生成缓存目录在验收后清理。正式图集、独立素材、完整提示词、处理脚本、JSON记录、被构建使用的来源和已确认参考图保留。无关的 `movement_diagnostics/move_20260905_082427.log` 原样保留。
 
-普通位图使用内置 `image_gen`，按 `imagegen`、`generate2dsprite`／`generate2dmap` 处理；已有原生 SVG UI 系统直接扩展。环境安装说明见 [AI_DESIGN_TOOLS_SETUP.md](AI_DESIGN_TOOLS_SETUP.md)。参考图传递或工具的 Windows ACL 问题是本次环境记录，不能把旧会话路径当成另一台机器的现成能力。
+普通位图使用内置 `image_gen`，按 `imagegen`、`generate2dsprite`／`generate2dmap` 处理；UI 图像按 v10 的指定风格原画与重切流程更新，原生文字和布局仍由客户端负责。环境安装说明见 [AI_DESIGN_TOOLS_SETUP.md](AI_DESIGN_TOOLS_SETUP.md)。参考图传递或工具的 Windows ACL 问题是本次环境记录，不能把旧会话路径当成另一台机器的现成能力。
 
 ```powershell
 python qdao_ui_redesign_v5/export_ui.py --check
 python qdao_asset_refresh_v6/icons/build_atlas.py --check
 python q_daoist_character_pack_4096/build_manifest.py
 python qdao_asset_refresh_v6/verify_assets.py
-node exact_qdao_slices/build_native_q5.mjs --check --sharp '<已安装 node_modules>/sharp'
+python qdao_ui_style_recut_v10/tools/validate_staged.py
 git diff --check
 ```
 
@@ -59,10 +61,10 @@ git diff --check
 
 实际接入时需先定位客户端工程，再完成页面排布与动态文字、选服状态／搜索／维护禁入、角色选择、按钮事件、动作播放、宠物挂载和场景切换。碰撞、导航、其他战斗动作或宠物动画需按真实运行需求制作；当前没有这些可替换的既有资源。不要把静态人物冒称动画或把素材截图当作引擎验收。
 
-`wire_qdao_v3_assets.py` 对目录关系有历史假设，未确认真实工程路径前不执行。此任务仅本地 Git 提交，未授权推送远端。
+`wire_qdao_v3_assets.py` 对目录关系有历史假设，未确认真实工程路径前不执行。v6 当时仅授权本地提交；当前 v10 UI 任务已获用户明确授权提交并推送，实际结果以提交记录和远端核对为准。
 
 ## 后续窗口可直接粘贴
 
 UI 制作／实现／重切还需先读 `qdao_ui_redesign_v5/UI_SPEC.md` 第 2 节；节庆方案和后续全库精修顺序读 `docs/QDAO_FESTIVAL_REFINEMENT.md`。下文 v6 交付为历史记录，当前状态以最新任务和验收为准。
 
-> 在 E:/work/image 继续五行奇谈项目。先读 docs/WUXING_QITAN_HANDOFF.md、qdao_asset_refresh_v6/README.md 和 validation.json，核对本地 Git 状态。全库旧美术已按原路径、原尺寸统一为新版道家 Q 风格，勿重复重做已验收素材。若开始客户端接入，先定位真正客户端工程；使用现有独立人物、宠物、32帧动作、124图标、39控件、切片与分层清单，按真实数据和页面流程实现并在引擎中验收。保留无关日志，不推送远端。
+> 在 E:/work/image 继续五行奇谈项目。先读 docs/WUXING_QITAN_HANDOFF.md、qdao_asset_refresh_v6/README.md 和 validation.json，核对本地 Git 状态。全库旧美术已按原路径、原尺寸统一为新版道家 Q 风格，勿重复重做已验收素材。若开始客户端接入，先定位真正客户端工程；使用现有独立人物、宠物、32帧动作、124图标、39控件、切片与分层清单，按真实数据和页面流程实现并在引擎中验收。保留无关日志。当前 UI 必须继续读 qdao_ui_style_recut_v10/README.md；此次 UI 提交和推送已获用户授权。

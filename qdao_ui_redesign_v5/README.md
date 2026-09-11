@@ -1,5 +1,7 @@
 # 五行奇谈 · UI 与场景重设计 v5
 
+2026-09-11：当前通用控件、旧选服分层、HUD 和属性切片的交付与重建入口为 [v10 统一重切](../qdao_ui_style_recut_v10/README.md)。以下保留 v5 场景和整屏稿历史说明；历史整屏或 HTML 预览未全部换皮，不代表当前页面已实现。
+
 日期：2026-09-06。游戏正式名称为 **五行奇谈**。本组重做登录、选服、选角、主城 HUD、森林石桥战斗背景和战斗入场过场，并提供 39 个通用 UI 控件。统一使用玉绿、米白、暖金，以及太极、葫芦、云纹装饰；人物沿用新版 Q 道童，登录与选角同行宠物统一为灵秀 Q 版九尾狐。
 
 本组交付为**美术视觉稿、界面规范和演示文案数据**。游戏名已正式确认；服务器、角色、等级及槽位数量仍是演示内容，尚未确认生产业务。本次未接入 Unity、FairyGUI、登录服务、游戏服务器或战斗系统。
@@ -13,7 +15,7 @@
 | 01 登录 | [01_login_2560x1080.png](01_login_2560x1080.png) | [来源图](source/01_login.png) · [提示词](source/01_login.prompt.txt) |
 | 02 选择服务器 | [02_server_select_2560x1080.png](02_server_select_2560x1080.png) | [来源图](source/02_server_select.png) · [提示词](source/02_server_select.prompt.txt) |
 | 03 选择角色 | [03_character_select_2560x1080.png](03_character_select_2560x1080.png) | [来源图](source/03_character_select.png) · [提示词](source/03_character_select.prompt.txt) |
-| 04 主城 HUD | [04_main_city_hud_2560x1080.png](04_main_city_hud_2560x1080.png) | [合成来源图](source/04_main_city_hud.png) · [原生 SVG 构建脚本](hud/build.mjs) |
+| 04 主城 HUD | [04_main_city_hud_2560x1080.png](04_main_city_hud_2560x1080.png) | [合成来源图](source/04_main_city_hud.png) · [当前重建流程](../qdao_ui_style_recut_v10/README.md#确定性重建) |
 | 05 战斗场景 | [05_battle_scene_2560x1080.png](05_battle_scene_2560x1080.png) | [来源图](source/05_battle_scene.png) · [提示词](source/05_battle_scene.prompt.txt) |
 | 06 战斗入场/加载过场 | [06_battle_entry_loading_2560x1080.png](06_battle_entry_loading_2560x1080.png) | [来源图](source/06_battle_entry_loading.png) · [提示词](source/06_battle_entry_loading.prompt.txt) |
 
@@ -45,7 +47,7 @@
 
 本轮共有六张标准视觉稿，以及 **39 个 SVG、39 个 PNG 通用控件**。控件源文件、三态与九宫格说明见 [通用控件文档](components/README.md)，目录索引见 [组件清单](components/manifest.json)。
 
-主城 HUD 使用本地原生 SVG 构建，不是 AI 生图，也没有 `source/04_main_city_hud.prompt.txt`。它复用 v4 场景预览并叠加按钮；[source/04_main_city_hud.png](source/04_main_city_hud.png) 是合成效果图。可直接交接的分层资源如下：
+主城 HUD 由代码组合现有场景、v10 新 AI 控件与独立文字，不单独调用生图生成整屏，也没有 `source/04_main_city_hud.prompt.txt`。它复用 v4 场景预览并叠加按钮；[source/04_main_city_hud.png](source/04_main_city_hud.png) 是合成效果图。可直接交接的分层资源如下：
 
 | 资源 | 使用方式 |
 |---|---|

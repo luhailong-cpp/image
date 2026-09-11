@@ -1,3 +1,9 @@
+// Historical builder is retained for provenance; current UI publication is owned by v10.
+{
+  console.error('Historical UI writes are disabled. From the repository root, follow qdao_ui_style_recut_v10/README.md: extract_art.py, build_common_legacy.py, build_attributes.py, build_composites.mjs, validate_staged.py, then publish_staged.py --apply.');
+  process.exit(process.argv.includes('--help') ? 0 : 1);
+}
+
 /** Original-path high-resolution server-selection layers; uses approved v4/v5 art. */
 import fs from 'node:fs/promises';
 import path from 'node:path';

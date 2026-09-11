@@ -1,6 +1,6 @@
-# 五行奇谈 · 通用 UI 控件 v7
+# 五行奇谈 · 通用 UI 控件 v10
 
-本套件重做仓库现有的通用 UI 形状，使用玉绿 `#176C5F` / `#438E78`、米白 `#FFF7DE`、暖金 `#C59645` 和桃木 `#795638`。双层金框、轻微厚度与阴影建立按钮层级，云纹只放在不遮文字的边缘。v7 以宿主内置 image_gen 新绘制的两张母图为美术来源；SVG 内嵌 PNG 保持便携，不依赖外部图片路径。母图原生均为 1254 × 1254，裁切与高分辨率导出不冒称原生高分辨率。详见 [v7 来源记录](../../qdao_gpt_image2_refresh_v7/ui/source-map.json)。
+当前 39 套 PNG／SVG 依据[指定风格与提示词](../UI_SPEC.md#2-统一视觉与控件层级)从 v10 内置生成原画重切，采用深玉绿、象牙米白、暖金与轻巧云纹，保留道家 Q 版及适量节庆。其他游戏图仅参考功能。[v10 来源与复现](../../qdao_ui_style_recut_v10/README.md)、[逐件映射](../../qdao_ui_style_recut_v10/source-map.common.json)记录实际原生尺寸和裁切，SVG 内嵌新 PNG。
 
 查看 [可视总览](overview.html)、[总览 PNG](overview.png)、[十枚徽标与小尺寸总览](badges_overview.png) 和 [资源清单](manifest.json)。总览中的中文只是检查用的独立文字，**39 个 SVG 和 39 个 PNG 控件均未烘焙动态文字**。
 
@@ -48,30 +48,10 @@
 
 本套件只覆盖上述控件，未实现引擎导入、运行时九宫格、鼠标/键盘交互或页面事件绑定。
 
-## 本地重建
+## 本地重建与验收
 
-需要 Python（Pillow、NumPy）及 Node.js 22 或更高版本，PNG 导出需要已经安装的 `sharp`。先在仓库根执行 `python qdao_gpt_image2_refresh_v7/ui/prepare_assets.py` 生成固定尺寸皮肤，再运行本构建器。本次使用 Sharp 0.35.4 / libvips 8.18.6；构建脚本不下载依赖、不读取凭证、不调用图片 API，并且只写入当前 `components/`。
+统一按 [v10 重建步骤](../../qdao_ui_style_recut_v10/README.md#确定性重建)执行。先提取保存的原画，再运行 `python qdao_ui_style_recut_v10/tools/build_common_legacy.py` 生成暂存控件；通过全量核验和视觉检查后，由 v10 发布器写入本目录。旧 `build.mjs` 已阻止生成历史 v7 皮肤，避免覆盖当前素材。
 
-```sh
-node build.mjs --sharp "<已安装的 node_modules>/sharp"
-```
+当前逐件信息以 `manifest.json`、v10 来源映射和 [全量验证](../../qdao_ui_style_recut_v10/validation.json)为准。旧 `validation.json`、`badge_validation.json` 和部分 SVG／HTML 总览可能是历史报告／预览，不能代替 v10 的哈希、透明边缘与九宫格检查。当前资源验收图统一从 v10 入口查看。
 
-Windows 本机的复现示例：
-
-```powershell
-& 'C:/Users/luyua/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe' `
-  './build.mjs' `
-  --sharp 'C:/Users/luyua/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp'
-```
-
-在其他电脑上替换上述运行时与包路径。若 Sharp 可以从本脚本解析，直接 `node build.mjs` 即可；脚本也会检查当前用户的 Codex bundled runtime。无 Sharp 时可执行 `node build.mjs --svg-only` 只重建 SVG / 清单 / 网页，清单会将 PNG 路径置空；已有 PNG 不会被删除或假称为本次重新导出。
-
-构建后 [validation.json](validation.json) 记录 39 张 PNG 的尺寸、RGBA 与 Alpha 范围。再用浏览器打开 `overview.html` 检查形状、边缘、标识和客户端叠字空间。本次另经 XML 解析确认 39 个源文件有效且没有 `<text>`、外链图片或脚本；透明 PNG 完整性、尺寸、状态对应关系和九宫格边界检查通过，并已实看总览核对勾记、锁形、边缘和图标。引擎内九宫格和交互尚未验收。
-
-## 十枚圆徽标补齐记录
-
-六枚新增徽标沿用原四枚的底盘几何、双金边、玉绿渐变与阴影；尺寸统一为 120 × 120，符号使用米白和暖金。先实看旧母图确认炼丹炉、竖剑、旋涡水纹、八向罗盘、桃果叶片与卷芯火焰，再以原生 SVG 重绘。桃灵沿用桃果语义，不新增人物脸或职业定义。完整制作指令与逐项旧资源映射见 [设计说明](badge_design_brief.md)；同一映射已写入清单的 `badge_replacements`。
-
-[徽标 SVG 总览](badges_overview.svg) 与 PNG 总览同时检查 120、48、32 px。已实看十枚同框及小尺寸行，六枚轮廓可区分；32 px 会减少炉身火纹、剑柄等内部细节，建议有操作含义的徽标采用 48 px 或更大并配原生标签。图标本身不提供运行时触控区域或交互。
-
-[补齐验证记录](badge_validation.json) 包含 39 个 SVG 的 XML 与禁嵌元素检查、39 个 PNG 的尺寸与 Alpha 检查、10 枚徽标的透明角落、SHA-256，以及与交接提交 `60134a6` 中原 33 枚输出的比较。原 33 个 PNG 内容未改变；原 SVG 在换行规范化后内容未改变。新徽标文件名固定为 `round_badge_furnace`、`round_badge_sword`、`round_badge_water`、`round_badge_compass`、`round_badge_peach_spirit` 和 `round_badge_flame`，各有同名 SVG 与 PNG。
+十枚徽标名称和语义保持原合同：太极、楼阁、莲花、山、炼丹炉、剑、水纹、罗盘、桃灵、火焰。v6 原生矢量补齐过程在 `badge_design_brief.md` 留档；当前徽标是 v10 新绘位图。圆形纹样保持比例，较小尺寸应配原生可读标签。未执行引擎导入或运行时交互验收。

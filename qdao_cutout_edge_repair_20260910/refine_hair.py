@@ -24,7 +24,7 @@ def refine(original):
     alpha = a[:,:,3]
     ys = np.flatnonzero((alpha>0).any(axis=1))
     cutoff = int(ys[0]+round((ys[-1]-ys[0])*.42))
-    near = np.asarray(Image.fromarray(((alpha<16)*255).astype('uint8')).filter(ImageFilter.MaxFilter(11)))>0
+    near = np.asarray(Image.fromarray(((alpha<16)*255).astype('uint8')).filter(ImageFilter.MaxFilter(17)))>0
     inner = np.asarray(Image.fromarray(((alpha<16)*255).astype('uint8')).filter(ImageFilter.MaxFilter(5)))==0
     # Magenta spill raises blue above the green-dominant brown hair. Existing
     # red tassels (well below cutoff), warm skin, and gold retain their colors.
@@ -32,7 +32,7 @@ def refine(original):
     mask[cutoff:]=False
     # Allow gold and skin as competing donors so a nearby ribbon/ear never
     # borrows a more distant hair color merely because hair exists nearby.
-    any_clean = (alpha>=240)&inner&(b<g-7)&(r-g<140)&(g>10)&(((g-b)>.7*(r-g))|(r>=170))
+    any_clean = (alpha>=240)&inner&(b<g-7)&(r-g<140)&(g>10)&((r>=g)|(g>=70))&(((g-b)>.7*(r-g))|((r>=170)&((g-b)>.3*(r-g))))
     hair_clean = any_clean&(r<170)&(g<120)&(r-g<72)&(r>=g)&((g-b)>.7*(r-g))
     changed=[]; unresolved=[]; nonhair=[]
     h,w=alpha.shape
@@ -56,7 +56,7 @@ def refine(original):
     assert np.array_equal(a[:,:,3],out[:,:,3])
     assert np.array_equal(a[cutoff:],out[cutoff:])
     actual=np.any(a[:,:,:3]!=out[:,:,:3],axis=2)
-    return Image.fromarray(out),dict(head_cutoff_y=cutoff,original_to_output_rgb_pixels=int(actual.sum()),hair_refinement_pixels=len(changed),unresolved=len(unresolved),competing_nonhair=len(nonhair),alpha_changed_pixels=0,body_changed_pixels=0,base_pixels=base_stats['changed_rgb_pixels'])
+    return Image.fromarray(out),dict(head_cutoff_y=cutoff,original_to_output_rgb_pixels=int(actual.sum()),hair_refinement_pixels=len(changed),unresolved=len(unresolved),unresolved_coordinates=unresolved,unresolved_alpha_max=max([int(alpha[y,x]) for x,y in unresolved] or [0]),competing_nonhair=len(nonhair),alpha_changed_pixels=0,body_changed_pixels=0,base_pixels=base_stats['changed_rgb_pixels'])
 
 def main(all_frames=False):
     records=[]; inputs=sorted((ROOT/'character_move_8dir').glob('*_frame_*.png')) if all_frames else [ROOT/'character_move_8dir'/f'{d}_frame_01.png' for d in ['east','south']]

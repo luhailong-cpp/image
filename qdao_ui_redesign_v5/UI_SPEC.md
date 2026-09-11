@@ -12,10 +12,10 @@
 |---|---|
 | `copy.zh-CN.json` | 中文文案、状态名、演示服务器与角色，以及演示选择项 |
 | `UI_SPEC.md` | 全项目 UI 风格、参考用途、可复用提示词、重切要求及布局／交互／状态规则 |
-| `source/*.prompt.txt` | 已生成图片的历史指令；以后出图先应用本文第 2 节当前提示词，再补页面需求；原生 SVG 主城 HUD 制作来源为代码 |
+| `source/*.prompt.txt` | 已生成图片的历史指令；以后出图先应用本文第 2 节当前提示词，再补页面需求；主城 HUD 由代码组合当前 v10 位图皮肤与独立文字 |
 | `manifest.json` | 实际来源图片、原生尺寸和标准导出记录 |
 | `export_ui.py` | 从来源图制作标准尺寸导出的本地逻辑 |
-| `components/` | 通用控件的矢量、透明导出、清单及独立重建说明 |
+| `components/` | 通用控件的 PNG、内嵌 PNG 的 SVG 包装、清单及重建说明 |
 | `hud/` | 主城按钮的原生 SVG、透明皮肤/标签、排布记录和本地构建脚本 |
 
 `demoData` 中的 ID 仅用于本演示内部引用，不是生产区服 ID 或角色 ID。服务器分组与推荐排序、账号身份、角色容量、职业体系、等级数值和宠物关系均未确认生产规则。三槽、八服及人物名称等演示数据可随业务确认替换。
@@ -139,7 +139,7 @@
 
 [04_main_city_hud_2560x1080.png](04_main_city_hud_2560x1080.png) 以 [v4 主城人物预览](../qdao_chibi_game_pack_v4/preview-main-city_2560x1080.png) 为固定背景，用原生 SVG 和通用控件重做既有“战斗”“观战”“角色”三个按钮，文案从 `pages.mainCityHud.actions` 读取。没有重新生成或改画背景与人物。沿用统一玉绿、米白、暖金的控件体系，装饰与点击区域分离。
 
-制作来源是 [hud/build.mjs](hud/build.mjs)，并非生图提示词。[HUD 说明](hud/README.md) 提供重建步骤，[placement.json](hud/placement.json) 记录实际位置。客户端优先使用 [无字透明皮肤](hud/hud_skin.png) 加原生文字；[完整透明 HUD](hud/hud_overlay.png) 已含标签，不能再重复叠字。
+当前来源是 [v10 原画与组合流程](../qdao_ui_style_recut_v10/README.md)，由新生图控件和独立文字组合；旧 `hud/build.mjs` 已禁止直写。[HUD 说明](hud/README.md) 提供重建步骤，[placement.json](hud/placement.json) 记录实际位置。客户端优先使用 [无字透明皮肤](hud/hud_skin.png) 加原生文字；[完整透明 HUD](hud/hud_overlay.png) 已含标签，不能再重复叠字。
 
 本轮只确定三个入口的名称与美术表达，不补写战斗匹配、观战列表、人物属性弹窗或网络协议。正常、选中与禁用的视觉规则沿用第 8 节；功能是否可用由后续客户端业务提供。点击这些入口的运行时效果尚未接入。
 

@@ -1,6 +1,8 @@
 {
-  "status": "trial_needs_visual_review",
-  "records": [
+  "status": "two_trial_frames_visually_accepted_not_published",
+  "reviewer": "edge_repair_review",
+  "production_modified": false,
+  "reviewed_records": [
     {
       "path": "character_move_8dir/east_frame_01.png",
       "output": "qdao_cutout_edge_repair_20260910/staged-v2/character_move_8dir/east_frame_01.png",
@@ -132,6 +134,17 @@
     }
   ],
   "evidence": [
-    "trial-v2-01.jpg"
-  ]
+    "qdao_cutout_edge_repair_20260910/trial-v2-01.jpg",
+    "docs/style-repair-20260911/hero-trial-detail-v2.jpg",
+    "docs/style-repair-20260911/hero-trial-fullframes.jpg"
+  ],
+  "conclusions": [
+    "V1 could replace magenta with red-tinted donors; not accepted for publication.",
+    "V2 removes continuous magenta and red hair outlines in light and dark composites without visible changes to the costume, yellow headband, face, and tassel.",
+    "Alpha and all pixels below the head cutoff are exactly unchanged. Existing 1254x1254 canvas and bottom anchor y=1179 preserved.",
+    "South trial has 19 unresolved pixels with alpha at most 8/255; these do not form a visible continuous fringe and were retained to preserve the exact alpha/silhouette.",
+    "The stricter brown donor logic is specific to these brown-haired hero frames. Do not apply to naturally purple fox fur or other pet palettes.",
+    "The same 32-frame batch still requires its own evidence review before publication."
+  ],
+  "key_donor_test": "G-B > 0.7*(R-G), R<170, G<120, R-G<72, alpha>=240 and outside the 2-pixel transparency dilation; compare nearest nonhair donor to avoid crossing into a ribbon or face."
 }

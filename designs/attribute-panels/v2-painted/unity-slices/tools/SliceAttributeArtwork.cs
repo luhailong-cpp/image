@@ -29,8 +29,14 @@ internal class CommandScript : IRunCommand
         public string artwork = "Exact source crops; text-free controls reconstructed only from clean pixels of the approved artwork. No AI regeneration.";
         public Entry[] sprites;
     }
+    // Historical crop recipe would overwrite both this repository and the client with pre-v10 skins.
+    static void RejectHistoricalRebuild()
+    {
+        throw new InvalidOperationException("Historical UI slicing is disabled. Rebuild and publish with qdao_ui_style_recut_v10/README.md, then import the current manifest into Unity.");
+    }
     public void Execute(ExecutionResult result)
     {
+        RejectHistoricalRebuild();
         report = result;
         if (EditorApplication.isPlayingOrWillChangePlaymode) throw new Exception("Run in edit mode.");
         Directory.CreateDirectory(Output + "png");

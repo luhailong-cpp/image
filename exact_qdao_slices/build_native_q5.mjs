@@ -1,3 +1,9 @@
+// Historical builder is retained for provenance; current UI publication is owned by v10.
+if (!process.argv.includes('--check')) {
+  console.error('Historical UI writes are disabled. From the repository root, follow qdao_ui_style_recut_v10/README.md: extract_art.py, build_common_legacy.py, build_attributes.py, build_composites.mjs, validate_staged.py, then publish_staged.py --apply.');
+  process.exit(process.argv.includes('--help') ? 0 : 1);
+}
+
 /** Rebuild legacy Q UI assets in place. Node >=22 and the existing Sharp runtime. */
 import fs from 'node:fs/promises';
 // Windows viewers can briefly hold a generated asset while it is refreshed.

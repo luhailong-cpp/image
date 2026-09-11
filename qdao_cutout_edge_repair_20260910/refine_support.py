@@ -24,6 +24,14 @@ def repair(im,kind):
             yy,xx=np.nonzero(clean[y0:y1,x0:x1]);yy+=y0;xx+=x0
             if len(xx):
                 k=np.argmin((xx-x)**2+(yy-y)**2);donor=a[yy[k],xx[k],:3];break
+        if donor is None:
+            # Fine isolated fur strands have no eroded core. Prefer a nearby
+            # opaque clean strand; never delete its alpha or move its contour.
+            loose=((b>r+10) if kind=='fox' else (~pink))&(alpha>=224)
+            radius=20;x0=max(0,x-radius);x1=min(w,x+radius+1);y0=max(0,y-radius);y1=min(h,y+radius+1)
+            yy,xx=np.nonzero(loose[y0:y1,x0:x1]);yy+=y0;xx+=x0
+            if len(xx):
+                k=np.argmin((xx-x)**2+(yy-y)**2);donor=a[yy[k],xx[k],:3]
         if donor is None:skipped.append([int(x),int(y)]);continue
         out[y,x,:3]=donor;changed.append([int(x),int(y)])
     assert np.array_equal(a[:,:,3],out[:,:,3])
