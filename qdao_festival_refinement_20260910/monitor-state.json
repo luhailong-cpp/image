@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-09-10T16:20:37.869595+00:00",
+  "updated_at_utc": "2026-09-11T07:02:33.986306+00:00",
   "phase": "waiting_for_prerequisites",
   "all_images_complete": false,
   "images_edited_by_this_task": 0,
@@ -10,52 +10,61 @@
   "user_latest_request": "continue working; asked whether the whole task is complete",
   "generation_gate_open": false,
   "blocking_deliveries": {
-    "ui_v10": "46 staged outputs passed recorded QA: 31 attribute slices and 15 server/HUD PNGs. Top-level 158-missing validation is stale, not a current unmade count. Whole-package formal release remains unverified.",
-    "characters_v9": "No final manifest/validation/visual QA; original task is notLoaded with previously observed interrupted latest turn",
-    "new_characters_v11": "Roles 25 and 26 passed recorded numeric and visual QC. Role 24 QC failed at an undetermined earlier time. Other roles and whole-package completion remain unverified.",
-    "task_inventory_activity_pages": "Latest brief names 01-quests.png, 02-inventory.png and 03-activities.png; all three were absent at this follow-up. Existing task is in progress."
+    "ui_v10": "Latest review covers all 158 actual outputs: 155 changed, 2 unchanged, 1 allowed retention, no missing. Review remains incomplete; 46 staged outputs passed recorded visual QA. Whole-package acceptance and formal release remain pending. Ignore stale top-level 158-missing count.",
+    "characters_v9": "Owner task explicitly confirmed resumption and is restoring/completing original straight-hair Daoist chibi roles 01-22. Wait for its final acceptance and completion report.",
+    "new_characters_v11": "Roles 25 and 26 passed recorded numeric and visual QC. Role 23 has 51 outputs and numeric contracts passed, but SW frame 4 gait needs one targeted repair. Role 24 QC failed at an undetermined earlier time; role 28 walking incomplete. No whole-package acceptance.",
+    "task_inventory_activity_pages": "01-quests.png exists. 02-inventory.png and 03-activities.png are still absent. Latest task turn is interrupted.",
+    "main_city_and_scenes": "New tianyong_festival_hd_20260910 progress records 10 of 36 detailed tiles; final 6144 master, manifest and verification not yet present. qdao_festival_scenes_20260910 currently holds four source-reference entries, not finished scenes; confirmed courtyard scope has no delivery yet. Latest map/scenes task turn interrupted.",
+    "style_repair": "Latest task is interrupted during two-frame edge-colour trial and staged UI checks; no final repair delivery verified."
   },
   "resume_other_task_question": "Superseded by the user instruction: if unfinished, continue. Continuation messages were accepted for UI v10 and character tasks v9/v11; UI and main city were observed in new in-progress turns. Avoid duplicate continuation messages.",
   "completed_evidence": {
     "exposure": "published; 1027 checked, 953 modified, 74 retained",
     "style_audit": "1471-file historical review completed",
-    "new_city": "1254x1254 style preview and references copied into image; not production map replacement"
+    "new_city": "1254 style previews remain available; newer HD production is tracked separately and is incomplete."
   },
   "next_step": "Refresh task states and inventory after prerequisites finish, then begin source-based image refinement and validate dependent exports.",
-  "last_monitor_trigger_utc": "2026-09-10T14:42:07.849Z",
-  "monitor_decision": "Keep the original hourly schedule. Do not duplicate continuation messages. Wait for actual complete production delivery before source-based festival refinement.",
+  "last_monitor_trigger_utc": "2026-09-11T06:56:41.488Z",
+  "monitor_decision": "Keep the original hourly schedule and preserve images while prerequisites remain incomplete. Do not duplicate previously accepted continuation messages. Notify once about newly confirmed interrupted prerequisite work after prior resume.",
   "thread_observations": [
     {
       "id": "01a08a19-8d1b-75c1-9e80-ee2fea9833b0",
-      "status": "active",
-      "latest_turn": "inProgress",
+      "status": "idle",
+      "latest_turn": "interrupted",
       "turn_id": "01a08bf9-1498-7602-8ec8-6083f5faccdc"
     },
     {
       "id": "01a08a28-6391-7100-a82e-f3a966e57349",
-      "status": "active",
-      "latest_turn": "inProgress",
+      "status": "notLoaded",
+      "latest_turn": "interrupted",
       "turn_id": "01a08bfb-9bda-7822-a51d-48199711880b"
     },
     {
       "id": "01a08a2b-8ef8-7d41-be4e-8962e24735e1",
-      "status": "active",
-      "latest_turn": "interrupted",
-      "continuation_message": "accepted"
+      "status": "notLoaded",
+      "latest_turn": "unverified",
+      "read_status": "tool error; files inspected; previously observed interrupted"
     },
     {
       "id": "01a075d4-5b1f-7e31-b44f-18e351fa544f",
       "status": "active",
-      "latest_turn": "interrupted",
-      "continuation_message": "accepted"
+      "latest_turn": "inProgress",
+      "turn_id": "01a076a8-7b4e-7c81-84c8-d0fef9c8359a"
     },
     {
       "id": "01a0860b-36e6-7000-b128-67e7f4d73fa1",
-      "status": "active",
-      "latest_turn": "inProgress"
+      "status": "notLoaded",
+      "latest_turn": "interrupted",
+      "turn_id": "01a0872b-3f47-7eb2-9175-dfc27b869635"
+    },
+    {
+      "id": "01a086ef-2e8c-73a2-bf70-7ac4b4bcde02",
+      "status": "notLoaded",
+      "latest_turn": "interrupted",
+      "turn_id": "01a08bf8-c9f5-7c71-9711-aa571aef3ea8"
     }
   ],
-  "last_observed_change": "Corrected stale UI counts using newer staged QA; role 25 now passed; user explicitly requested continuation and interrupted production tasks were sent continuation messages.",
+  "last_observed_change": "Newer HD-city production and scene-expansion roots found; HD city at 10/36. Role 23 has one targeted gait repair pending. UI, map/scenes, gameplay and style-repair latest turns are now interrupted after prior activity.",
   "partial_progress": {
     "role_26": {
       "manifest": "qdao_chibi_roster_v11/26_osmanthus_healer/manifest.json",
@@ -73,6 +82,47 @@
       "qc_status": "failed",
       "complete": false,
       "failure_timing": "undetermined; not evidence of a newly occurring failure"
+    },
+    "role_23": {
+      "status_file": "qdao_chibi_roster_v11/23_lantern_courier/STATUS.md",
+      "listed_file_count": 51,
+      "numeric_contracts": "passed",
+      "visual_status": "pending_one_targeted_repair",
+      "remaining": "SW frame 4 needs alternating raised leg",
+      "complete": false
+    },
+    "hd_city": {
+      "progress_file": "tianyong_festival_hd_20260910/qa/progress.json",
+      "detailed_tiles": 10,
+      "target_tiles": 36,
+      "final_master_size": [
+        6144,
+        6144
+      ],
+      "complete": false
+    },
+    "scene_expansion": {
+      "root": "qdao_festival_scenes_20260910",
+      "source_reference_entries": 4,
+      "finished_scene_delivery_verified": false,
+      "courtyard_delivery_verified": false
+    },
+    "gameplay_pages": {
+      "quests_image_exists": true,
+      "inventory_image_exists": false,
+      "activities_image_exists": false,
+      "complete": false
+    },
+    "ui_review": {
+      "path": "qdao_ui_style_recut_v10/review_validation_20260910.json",
+      "status": "incomplete",
+      "covered_outputs": 158,
+      "pixel_updated": 155,
+      "pixel_unchanged": 2,
+      "allowed_retained": 1,
+      "missing": 0,
+      "staged_visual_qa_passed": 46,
+      "complete": false
     }
   },
   "last_user_followup_utc": "2026-09-10T15:37:13Z",
@@ -81,5 +131,23 @@
     "characters_v9": "accepted; active; fresh turn not yet observed",
     "new_characters_v11": "accepted; active; fresh turn not yet observed",
     "main_city": "send tool approval review timed out twice; subsequent snapshot independently confirmed a new inProgress turn"
+  },
+  "last_notification": {
+    "trigger_utc": "2026-09-11T06:56:41.488Z",
+    "kind": "prerequisite_interruption_after_resume",
+    "message": "Some prerequisite image tasks have stopped again; HD city is 10/36, inventory and activity pages are missing, and whole-library festival editing has not started. Progress saved.",
+    "do_not_repeat_if_unchanged": true
+  },
+  "upstream_ownership": {
+    "characters_v9": {
+      "owner_thread": "01a075d4-5b1f-7e31-b44f-18e351fa544f",
+      "directories": [
+        "qdao_character_diversity_v9/",
+        "q_daoist_character_pack_4096/"
+      ],
+      "state": "in_progress",
+      "restriction": "Do not stage or commit these in-progress files before owner task completion. Owner handles validation, cleanup and its own local commit.",
+      "v11_scope": "Separate roles 23-28; do not mix ownership."
+    }
   }
 }
