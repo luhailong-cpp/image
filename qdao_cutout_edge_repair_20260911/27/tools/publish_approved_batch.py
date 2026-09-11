@@ -154,7 +154,7 @@ def prepare():
   text=f'Deterministic compatibility assembly of the new approved 512px RGBA frames; rows {", ".join(directions)}, four frames per row. This is not native generated raw art. See processing/sources.json for the eight native 2x2 inputs.\n'
   prose(f'prompts/{kind}_assembled.txt',text);prose(f'processing/{kind}-prompt-used.txt',text)
  doc('sources/assembly.json',assembly)
- doc('processing/portrait-pipeline-meta.json',sources['portrait']);add('processing/portrait-prompt-used.txt',Path(sources['portrait']['prompt_file']).with_name('unused') if False else find_prompt(sources['portrait']['sha256'])[0])
+ doc('processing/portrait-pipeline-meta.json',sources['portrait']);add('processing/portrait-prompt-used.txt',find_prompt(sources['portrait']['sha256'])[0])
  manifest=read(capture(STAGE/'manifest.json'));manifest['sources']=sources;manifest['status']='published_visual_and_numeric_verified'
  manifest['visual_approval']={'path':'processing/final-visual-approval.json','sha256':approved_sha}
  manifest['compatibility_assembly']=assembly;manifest['current_rebuild_workflow']='qdao_cutout_edge_repair_20260911/27/tools/process_new_batch.py -> repair-folder staging -> visual approval -> publish_approved_batch.py'
@@ -217,7 +217,7 @@ def publish():
   for name,s in plan['historical_unchanged'].items():assert sha(TARGET/name)==s,'Historical file changed: '+name
   for r in plan['files']:assert sha(TARGET/r['path'])==r['output_sha256']
   report.update(status='published_and_verified',completed_utc=now(),numeric_validation=numeric,
-   'visual_approval_sha256'=plan['approval_sha256'])
+   visual_approval_sha256=plan['approval_sha256'])
  except BaseException as e:
   report.update(status='stopped_due_to_error',error=str(e),stopped_utc=now());write(report_path,report);raise
  report['native_sources_and_prompts_verified']=9;report['historical_files_preserved']=len(plan['historical_unchanged']);report['client_accessed']=False;report['git_modified']=False
