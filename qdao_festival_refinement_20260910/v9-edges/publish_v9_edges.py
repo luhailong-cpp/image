@@ -38,7 +38,7 @@ def main():
  hero=next(r for r in stage if r['character_id']=='hero1024')
  assert sha(ROOT/hero['path'])==hero['output_sha256'];contract(ROOT/hero['before_path'],ROOT/hero['path'])
  for r in initial['files']:
-  if r['status']=='retain':assert sha(ROOT/r['path'])==r['sha256'],'Retained file changed: '+r['path']
+  if r['status']=='retained':assert sha(ROOT/r['path'])==r['sha256'],'Retained file changed: '+r['path']
  meta=[V9/'visual_qa.json',V9/'manifest.json',PACK/'manifest.json',V9/'compatibility_map.json',V9/'validation.json',V9/'completion.json',V9/'followup_completion.json',V9/'prepared_sync.json',V9/'roster_overview.png',V9/'build_manifest.py',V9/'build_overview.py',ROOT/'qdao_asset_refresh_v6/hero_compat_manifest.json',ROOT/'qdao_asset_refresh_v6/build_hero_compat.py',ROOT/'client_ui_refresh_20260908/assets_manifest.json']
  for p in meta:backup(p)
  prep_before=read(V9/'prepared_sync.json')
@@ -77,7 +77,7 @@ def main():
     backup(rp);rr=read(rp);assert rr['sha256']==r['source_sha256'];rr.update(sha256=digest,festival_edge_refinement=chain);dump(rp,rr)
    visual.append({**evidence,'sha256':digest,'current_status':'accepted_after_rgb_edge_refinement'})
   else:
-   ir=initial_sources[full];assert ir['status']=='retain' and digest==ir['sha256']
+   ir=initial_sources[full];assert ir['status']=='retained' and digest==ir['sha256']
    visual.append({'path':full,'character_id':ir.get('character_id'),'sha256':digest,'current_status':'retained_accepted','review':'qdao_festival_refinement_20260910/reviews/v9-pets-style-review.json','reason':ir.get('reason',ir.get('rationale','Retained after actual current style review; intentional colors protected.'))})
  m['current_visual_review']=pointer;m['festival_refinement']={'date_utc':now,'changed_sources':19,'preserved_sources':5,'style':'道家Q版；春节／元宵／中秋点缀适量，沿用已有法器、红绳、莲灯、月簪；直发和角色身份保留','report':'qdao_character_diversity_v9/festival_edge_refinement.json','historical_visual_qa_preserved':True}
  dump(HERE/'current-visual-review.json',{'status':'passed','reviewed_utc':now,'scope':'24 current static v9 formal sources, 19 RGB edge refined / 5 retained','historical_visual_qa':'qdao_character_diversity_v9/visual_qa.json','historical_visual_qa_rewritten':False,'records':visual})
@@ -112,7 +112,7 @@ def main():
   guard="def main():\n    current = Path(__file__).resolve().parents[1] / 'qdao_character_diversity_v9/festival_edge_refinement.json'\n    if current.exists():\n        import runpy\n        runpy.run_path(str(current.parent.parent / 'qdao_festival_refinement_20260910/v9-edges/verify_current.py'), run_name='__main__')\n        return\n"
   assert needle in txt;txt=txt.replace(needle,guard,1);p.write_text(txt,encoding='utf-8')
  report={'status':'published','completed_utc':now,'source_count':19,'prepared_count':17,'hero_aliases_outside_v9':7,'hero_fixed_canvas_1024':1,'changed_png_count':len(pub),'all_alpha_unchanged':True,'all_canvas_and_identity_preserved':True,'actual_client_written':False,'new_art_generation':False,'historical_visual_qa_unchanged_sha256':sha(V9/'visual_qa.json'),'review':'qdao_festival_refinement_20260910/v9-edges/current-visual-review.json','review_sha256':sha(HERE/'current-visual-review.json'),'publication':'qdao_festival_refinement_20260910/v9-edges/publication.json','method':'Local same-image RGB donor fitting at transparent boundary; current canvases and all Alpha bytes preserved. Protected original purple characters/pet fur retained.'}
- dump(HERE/'publication.json',{'status':'published','published_utc':now,'count':len(pub),'records':pub,'retained_files':[{'path':r['path'],'sha256':r['sha256']} for r in initial['files'] if r['status']=='retain'],'overview':{'path':rel(V9/'roster_overview.png'),'sha256':sha(V9/'roster_overview.png'),'method':'Existing deterministic roster composition from current 22 source portraits'}})
+ dump(HERE/'publication.json',{'status':'published','published_utc':now,'count':len(pub),'records':pub,'retained_files':[{'path':r['path'],'sha256':r['sha256']} for r in initial['files'] if r['status']=='retained'],'overview':{'path':rel(V9/'roster_overview.png'),'sha256':sha(V9/'roster_overview.png'),'method':'Existing deterministic roster composition from current 22 source portraits'}})
  report['publication_sha256']=sha(HERE/'publication.json');dump(V9/'festival_edge_refinement.json',report)
  valid=read(V9/'validation.json');valid['current_validation_utc']=now;valid['visual_review']='passed; current hashes match v9-edges/current-visual-review.json; visual_qa.json remains historical'
  valid['festival_edge_refinement']={'report':'qdao_character_diversity_v9/festival_edge_refinement.json','report_sha256':sha(V9/'festival_edge_refinement.json'),'all_current_hashes_match':True,'all_alpha_unchanged':True,'changed_source_count':19,'prepared_count':17}

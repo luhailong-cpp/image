@@ -1,0 +1,32 @@
+{
+  "status": "passed_static_check",
+  "checked_at_utc": "2026-09-12T08:58:13.591051+00:00",
+  "method": "Read-only AST inspection of entrypoint guards and presence of active current-manifest markers",
+  "checks": [
+    {
+      "path": "qdao_ui_redesign_v5/export_ui.py",
+      "passed": true,
+      "proof": "Guard is before any legacy export operations in the AST",
+      "sha256": "ed108411c62d6c2ee64a78e2966a2e744958af7137c1b3cc9e898bcfd96d7f42",
+      "backup": "before-builders/qdao_ui_redesign_v5/export_ui.py"
+    },
+    {
+      "path": "qdao_ui_redesign_v5/build_transition.py",
+      "passed": true,
+      "proof": "Guard is before any legacy export operations in the AST",
+      "sha256": "c0638ebcf4420dab70635c53bab573985b50a5e71ad9a1ced8134f7af72759f1",
+      "backup": "before-builders/qdao_ui_redesign_v5/build_transition.py"
+    },
+    {
+      "path": "qdao_chibi_game_pack_v4/build_pack.py",
+      "passed": true,
+      "proof": "Guard is before any legacy export operations in the AST",
+      "sha256": "0df40f6dd3a24177645ded2b216ef50f65b735a8391b6bd7c10532d462b87778",
+      "backup": "before-builders/qdao_chibi_game_pack_v4/build_pack.py"
+    }
+  ],
+  "full_export_runtime_test_executed": false,
+  "formal_images_written": 0,
+  "automatic_review_rejection": "Actual invocation of old full-export entrypoints was rejected because they could overwrite production images; the review recommended static read-only checking. No retry or indirect invocation was performed.",
+  "separate_readonly_check": "python qdao_ui_redesign_v5/export_ui.py --check passed all six screens after scene and server publication."
+}

@@ -55,3 +55,5 @@
 当前逐件信息以 `manifest.json`、v10 来源映射和 [全量验证](../../qdao_ui_style_recut_v10/validation.json)为准。旧 `validation.json`、`badge_validation.json` 和部分 SVG／HTML 总览可能是历史报告／预览，不能代替 v10 的哈希、透明边缘与九宫格检查。当前资源验收图统一从 v10 入口查看。
 
 十枚徽标名称和语义保持原合同：太极、楼阁、莲花、山、炼丹炉、剑、水纹、罗盘、桃灵、火焰。v6 原生矢量补齐过程在 `badge_design_brief.md` 留档；当前徽标是 v10 新绘位图。圆形纹样保持比例，较小尺寸应配原生可读标签。未执行引擎导入或运行时交互验收。
+
+2026-09-12：通用组件总览和十徽标总览的 PNG／SVG 已重新合成为当前 v10 皮肤，仍保留原尺寸、布局、标签和小尺寸检查位置。[本轮来源与验收](../../qdao_festival_refinement_20260910/component-overviews/publication.json)；39个正式控件像素未改。

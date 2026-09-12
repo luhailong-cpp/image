@@ -1,0 +1,1 @@
+const fs=require('fs');const path=require('path');const sharp=require('C:/Users/luyua/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');(async()=>{for(const name of ['overview','badges_overview']) await sharp(fs.readFileSync(path.join(__dirname,name+'.svg'))).png({compressionLevel:9}).toFile(path.join(__dirname,name+'.png'));})();

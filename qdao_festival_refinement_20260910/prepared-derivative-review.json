@@ -7689,5 +7689,33 @@
     "This review tests source-derived pixel consistency, not independent visual approval of every item or logo.",
     "Snapshots may be superseded by concurrently authorized hero RGB repair; pending_final_hero_source_refresh records require rebuilding after final source publication.",
     "Existing client statuses, failures and client hashes were only read as mapping context; no new client acceptance claimed."
-  ]
+  ],
+  "difference_summary": {
+    "update_candidates": 198,
+    "by_category": {
+      "legacy_ui": 23,
+      "ui_control": 53,
+      "item_library": 122
+    },
+    "by_method": {
+      "byte_copy": 70,
+      "proportional_height_then_horizontal_nine_slice": 1,
+      "manifest_nine_slice": 3,
+      "LANCZOS_resample": 124
+    },
+    "candidate_alpha_exact": 122,
+    "all_comparison_alpha_exact": 141
+  },
+  "ui_visual_comparison": {
+    "evidence": "prepared-ui-old-vs-current.jpg",
+    "sha256": "ae9e1af0c07e09652f824f3828a6cb911c748db7518e8b20dabc6bebf8cc3451",
+    "sample_count": 6,
+    "conclusion": "Old prepared skins visibly retain inflated gold-scroll shapes and bright marbled green; current v10 sources use slim warm-gold borders, dark jade and small red tassels. 76 UI candidates are actual older skins, not only PNG compression differences."
+  },
+  "followup_resolution_records": {
+    "scene_aliases": "scenes-sync/publication.json",
+    "server_screen": "scenes-sync/server/publication.json",
+    "hero": "scenes-sync/hero-prepared/publication.json",
+    "other_198": "Root task owns source-group publication after this snapshot; this report retains the original read-only findings."
+  }
 }
