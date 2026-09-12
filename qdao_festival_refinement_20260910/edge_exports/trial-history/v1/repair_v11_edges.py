@@ -6,7 +6,6 @@ from pathlib import Path
 from datetime import datetime,timezone
 from collections import Counter
 import argparse,hashlib,json,shutil,importlib.util
-from collections import deque
 import numpy as np
 from PIL import Image,ImageFilter,ImageDraw,ImageFont,ImageSequence
 PACK=Path(__file__).resolve().parent
@@ -54,39 +53,18 @@ def clean(im,slug):
         # The portrait/frame palette includes intentional lilac or pink below
         # the head. There only accept a strongly saturated key signature.
         strong=(dom>35)&(g<np.minimum(r,b)*.55)&(np.minimum(r,b)>45)
-        mask=(alpha>0)&((near&((head&(dom>10))|strong))|(head&strong))
-        hair_extension=np.zeros_like(mask)
-        if slug.startswith('29_'):
-            neutral_dark=(alpha>=128)&(np.max(a[:,:,:3],axis=2)<110)&(np.max(a[:,:,:3],axis=2).astype(int)-np.min(a[:,:,:3],axis=2).astype(int)<35)
-            # Limit dark donors to neutral-black components connected to the
-            # upper head; shaded pink sleeves and the lower garment are not seeds.
-            connected_dark=neutral_dark&head
-            queue=deque(zip(*np.nonzero(connected_dark)))
-            while queue:
-                cy,cx=queue.popleft()
-                for dy,dx in [(0,1),(0,-1),(1,0),(-1,0),(1,1),(1,-1),(-1,1),(-1,-1)]:
-                    ny,nx=cy+dy,cx+dx
-                    if 0<=ny<a.shape[0] and 0<=nx<a.shape[1] and neutral_dark[ny,nx] and not connected_dark[ny,nx]:
-                        connected_dark[ny,nx]=True;queue.append((ny,nx))
-            near_dark=np.asarray(Image.fromarray((connected_dark*255).astype(np.uint8)).filter(ImageFilter.MaxFilter(9)))>0
-            hair_extension=(alpha>0)&near&near_dark&(dom>10)&(np.arange(a.shape[0])[:,None]<(yy.min()+.62*(yy.max()-yy.min())))
-            mask|=hair_extension
+        mask=(alpha>0)&near&((head&(dom>10))|strong)
         # Intentional purple is permitted as a donor for purple cloth, but
         # not for the upper black-hair zone.
         donor=(alpha>=240)&inner&(~strong)
     else:
         cut=None;head=None
-        strong=(dom>40)&(r>100)&(b>100)
-        mask=(alpha>0)&(near|strong)&(dom>10)
+        mask=(alpha>0)&near&(dom>10)
         donor=(alpha>=240)&inner&(dom<5)
-    head_donor=donor&(dom<5)
-    hair_donor=(donor&connected_dark) if slug.startswith('29_') else donor
     h,w=alpha.shape;unresolved=[];distances=[];selected=int(mask.sum())
     for y,x in zip(*np.nonzero(mask)):
         available=donor
-        if protected and head[y,0]:available=head_donor
-        elif protected and slug.startswith('29_') and hair_extension[y,x]:
-            available=hair_donor
+        if protected and head[y,0]:available=donor&(dom<5)
         best=None
         for radius in [8,16,32]:
             x0=max(0,x-radius);x1=min(w,x+radius+1);y0=max(0,y-radius);y1=min(h,y+radius+1)
