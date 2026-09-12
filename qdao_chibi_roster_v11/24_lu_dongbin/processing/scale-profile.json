@@ -1,8 +1,55 @@
 {
-  "operation": "layout only: chroma cleanup, complete component bounding crops, one isotropic scale for each direction, per-frame foot translation",
-  "mirrored": false,
-  "synthetic": false,
-  "sources": {
+  "version": 2,
+  "strategy": "one isotropic scale shared across all four frames of each independently generated direction, then one global scale and per-frame foot translation",
+  "cell_size": [
+    512,
+    512
+  ],
+  "output_foot_px": [
+    256,
+    471
+  ],
+  "processor_preserve_fit_scale": 0.84,
+  "final_common_scale": 1.1864406779661016,
+  "native_sheet_sizes": {
+    "S": [
+      1254,
+      1254
+    ],
+    "W": [
+      1254,
+      1254
+    ],
+    "E": [
+      1254,
+      1254
+    ],
+    "N": [
+      1254,
+      1254
+    ],
+    "SW": [
+      1254,
+      1254
+    ],
+    "NW": [
+      1254,
+      1254
+    ],
+    "NE": [
+      1254,
+      1254
+    ],
+    "SE": [
+      1254,
+      1254
+    ]
+  },
+  "source_normalization": "same 512-square raw-cell normalization; isotropic, no independent frame fitting",
+  "mirrored_frames": false,
+  "synthetic_or_repeated_frames": false,
+  "expected_frames_per_direction": 4,
+  "directional_source_normalization": {
     "S": {
       "file": "sources/walk_S_2x2.png",
       "source": "built-in image_gen",
