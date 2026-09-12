@@ -7,6 +7,11 @@ ROOT=Path(__file__).resolve().parent
 REPO=ROOT.parent
 
 def main():
+    current = Path(__file__).resolve().parents[1] / 'qdao_character_diversity_v9/festival_edge_refinement.json'
+    if current.exists():
+        import runpy
+        runpy.run_path(str(current.parent.parent / 'qdao_festival_refinement_20260910/v9-edges/verify_current.py'), run_name='__main__')
+        return
     audit=json.loads((REPO/'docs/ART_ASSET_AUDIT.json').read_text(encoding='utf8'))
     source=REPO/'qdao_chibi_game_pack_v4/hero-transparent_1024.png'
     hero=Image.open(source).convert('RGBA')

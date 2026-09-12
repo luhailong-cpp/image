@@ -49,6 +49,11 @@ def write(path, data):
 
 
 def main():
+    current = Path(__file__).resolve().parents[1] / 'qdao_character_diversity_v9/festival_edge_refinement.json'
+    if current.exists():
+        import runpy
+        runpy.run_path(str(current.parent.parent / 'qdao_festival_refinement_20260910/v9-edges/verify_current.py'), run_name='__main__')
+        return
     baseline = read(HERE / 'baseline.json')
     previous = {x['path']: x for x in baseline['assets']}
     inherited = {x['path']: x for x in read(HERE / 'inherited_refinements.json')['records']}

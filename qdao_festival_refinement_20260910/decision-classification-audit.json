@@ -1,0 +1,465 @@
+{
+  "schema": "qdao.decision-classification-audit.v1",
+  "audited_at_utc": "2026-09-12T09:12:47.004084+00:00",
+  "status": "classification_corrections_found",
+  "scope": "Read-only metadata/reference audit; wrote only this JSON and companion Markdown. No image generation, pixel edits, 6000-image review or final image hash closure.",
+  "decisions_snapshot_utc": "2026-09-12T09:05:37.349459+00:00",
+  "decision_counts_at_read": {
+    "retain": 638,
+    "updated": 541,
+    "retain_record": 4456,
+    "retain_derived": 218,
+    "pending_repair": 43,
+    "retain_source_record": 97,
+    "pending_rebuild": 3,
+    "pending_final_source_record": 1,
+    "retain_evidence": 1,
+    "retain_input_record": 49
+  },
+  "script_sha256_at_close": "4ca74510deea220985ca11d73828c02518b58b08d0abd68112e7fb1bdd17a514",
+  "decisions_sha256_at_read": "7f421d8ecaeaed43af65a2af8df92b804565f6f8f9c111a42774eb1413af4e7a",
+  "findings": [
+    {
+      "id": "DCA-01",
+      "severity": "medium",
+      "status": "open",
+      "title": "Selected He Xiangu cell sources are misclassified as unselected history",
+      "rule": "build_decisions.py:36-38 + build_inventory.py directional_original_sources indexing",
+      "paths": [
+        {
+          "path": "qdao_chibi_roster_v11/29_he_xiangu/sources/walk_NE_correction1.png",
+          "authority": "qdao_chibi_roster_v11/29_he_xiangu/manifest.json",
+          "field": "directional_original_sources.NE.selected_frame_sources[3].file",
+          "kind": "selected_native_cell_source",
+          "cell_index": 3,
+          "current_decision": "retain_record",
+          "inventory_role": "source_review_pending"
+        },
+        {
+          "path": "qdao_chibi_roster_v11/29_he_xiangu/sources/walk_SE_correction2.png",
+          "authority": "qdao_chibi_roster_v11/29_he_xiangu/manifest.json",
+          "field": "directional_original_sources.SE.selected_frame_sources[3].file",
+          "kind": "selected_native_cell_source",
+          "cell_index": 3,
+          "current_decision": "retain_record",
+          "inventory_role": "source_review_pending"
+        }
+      ],
+      "impact": "The original pixels should remain unchanged, but these source cells feed NE04/SE04 and must stay in current provenance. A file omitted by the shallow index is not evidence that it was rejected.",
+      "recommendation": "Index directional_original_sources.*.selected_frame_sources[].file as accepted_source_art; set retain_source_record with the selected-cell field and current role. No new generation or source repaint needed."
+    },
+    {
+      "id": "DCA-02",
+      "severity": "medium",
+      "status": "open",
+      "title": "27 compatibility assemblies are current derivatives, not discarded source candidates",
+      "paths": [
+        {
+          "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/sources/cardinal_assembled.png",
+          "authority": "qdao_chibi_roster_v11/27_ink_kite_ranger/manifest.json",
+          "field": "compatibility_assembly.cardinal.path",
+          "kind": "current_compatibility_derivative",
+          "current_decision": "retain_record",
+          "inventory_role": "source_review_pending"
+        },
+        {
+          "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/sources/diagonal_assembled.png",
+          "authority": "qdao_chibi_roster_v11/27_ink_kite_ranger/manifest.json",
+          "field": "compatibility_assembly.diagonal.path",
+          "kind": "current_compatibility_derivative",
+          "current_decision": "retain_record",
+          "inventory_role": "source_review_pending"
+        }
+      ],
+      "evidence": "27 manifest.compatibility_assembly calls each a deterministic_assembly_of_approved_processed_frames, 2048x2048 compatibility 4x4 sheet, with source_records pointing to four processing directions.",
+      "impact": "These two compatibility sheets can become stale when approved processed-frame RGB changes. Current edge_exports/publication.json did not list them at read time; this audit does not infer their actual pixel freshness.",
+      "recommendation": "Index as accepted compatibility derivatives and retain_derived only after a source-frame consistency check; otherwise pending_rebuild. Never treat them as native paintings or repaint them."
+    },
+    {
+      "id": "DCA-03",
+      "severity": "medium",
+      "status": "open",
+      "title": "Current attribute browser exports inherit a historical-record classification",
+      "paths": [
+        {
+          "path": "designs/attribute-panels/v10-preview/01-character_2560x1080.png",
+          "decision": "retain_record",
+          "inventory_role": "evidence_do_not_repaint"
+        },
+        {
+          "path": "designs/attribute-panels/v10-preview/02-pet_2560x1080.png",
+          "decision": "retain_record",
+          "inventory_role": "evidence_do_not_repaint"
+        },
+        {
+          "path": "designs/attribute-panels/v10-preview/mobile-character.png",
+          "decision": "retain_record",
+          "inventory_role": "evidence_do_not_repaint"
+        },
+        {
+          "path": "designs/attribute-panels/v10-preview/mobile-pet.png",
+          "decision": "retain_record",
+          "inventory_role": "evidence_do_not_repaint"
+        }
+      ],
+      "authority": "designs/attribute-panels/v10-preview/README.md current entry; root README first paragraph; prepared-derivative-review.json attribute_exports.current",
+      "impact": "These four screenshots are active preview exports. They should not be painted, but permanent historical exclusion can hide a need to rerender them after a formal sprite/input update.",
+      "recommendation": "Use retain_evidence/current_preview_derivative with explicit source dependency and regeneration-if-changed policy. If source copies changed, require browser rerender plus current validation. v1/v2 old screenshots remain historical."
+    },
+    {
+      "id": "DCA-04",
+      "severity": "low",
+      "status": "open_semantic_correction",
+      "title": "All-v7 supersession reason is too broad for eight original icon source sheets",
+      "paths": [
+        {
+          "path": "qdao_gpt_image2_refresh_v7/icons/source/batch01.png",
+          "authority": "qdao_asset_refresh_v6/icons/records/batch01.json",
+          "field": "raw_generation_path",
+          "current_outputs_linked": 16,
+          "decision": "retain_record"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/icons/source/batch02.png",
+          "authority": "qdao_asset_refresh_v6/icons/records/batch02.json",
+          "field": "raw_generation_path",
+          "current_outputs_linked": 16,
+          "decision": "retain_record"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/icons/source/batch03.png",
+          "authority": "qdao_asset_refresh_v6/icons/records/batch03.json",
+          "field": "raw_generation_path",
+          "current_outputs_linked": 16,
+          "decision": "retain_record"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/icons/source/batch04.png",
+          "authority": "qdao_asset_refresh_v6/icons/records/batch04.json",
+          "field": "raw_generation_path",
+          "current_outputs_linked": 16,
+          "decision": "retain_record"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/icons/source/batch05.png",
+          "authority": "qdao_asset_refresh_v6/icons/records/batch05.json",
+          "field": "raw_generation_path",
+          "current_outputs_linked": 16,
+          "decision": "retain_record"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/icons/source/batch06.png",
+          "authority": "qdao_asset_refresh_v6/icons/records/batch06.json",
+          "field": "raw_generation_path",
+          "current_outputs_linked": 16,
+          "decision": "retain_record"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/icons/source/batch07.png",
+          "authority": "qdao_asset_refresh_v6/icons/records/batch07.json",
+          "field": "raw_generation_path",
+          "current_outputs_linked": 16,
+          "decision": "retain_record"
+        },
+        {
+          "path": "qdao_gpt_image2_refresh_v7/icons/source/batch08.png",
+          "authority": "qdao_asset_refresh_v6/icons/records/batch08.json",
+          "field": "raw_generation_path",
+          "current_outputs_linked": 12,
+          "decision": "retain_record"
+        }
+      ],
+      "current_outputs_linked": 124,
+      "impact": "The eight v7 source sheets remain the recorded native origins for all 124 current icon paths. v9/v10/festival did not replace their source identity. Original source evidence should still be preserved and not repainted.",
+      "recommendation": "Use retain_source_record/current native provenance for these eight sheets, or retain_record with an accurate still-used-origin reason. Do not promote all v7 derived UI files to current art. The v7 UI README explicitly archives those and its old component builder exits before writes."
+    },
+    {
+      "id": "DCA-05",
+      "severity": "medium",
+      "status": "corrected_in_script_during_audit",
+      "title": "Server and prepared hero publication paths were initially omitted",
+      "initial_problem": "publications pointed to nonexistent scenes-sync/server-publication.json and omitted scenes-sync/hero-prepared/publication.json.",
+      "correct_paths": [
+        "scenes-sync/server/publication.json",
+        "scenes-sync/hero-prepared/publication.json"
+      ],
+      "corrected_in_current_script": true,
+      "recommendation": "Rebuild decisions from corrected publication list; avoid closing missing records only by old v10 hashes."
+    }
+  ],
+  "positive_checks": [
+    {
+      "topic": "UI mother art",
+      "result": "All six qdao_ui_style_recut_v10/source/01-06*.png have explicit current visual retain decisions; none is removed by the historical rules.",
+      "evidence": "reviews/ui-items-old-hero-review.json + decisions current source rows"
+    },
+    {
+      "topic": "Current UI fallback derivatives",
+      "result": "112 v10 derived components/legacy PNG aliases are promoted to retain_derived only when exact bytes match their current reviewed formal control paths.",
+      "evidence": "build_decisions.py exact alias loop over contracts/current_files.json"
+    },
+    {
+      "topic": "Frozen v10 inputs",
+      "result": "49 visual files under contracts are correctly treated as immutable input records. README explicitly freezes geometry/old composite inputs and reviewed portraits; new scene/hero snapshots live in this task.",
+      "evidence": "qdao_ui_style_recut_v10/README.md:47,60"
+    },
+    {
+      "topic": "Selected v11 original and processing art",
+      "result": "The 94 already-indexed source/processing records are correctly retained as source records; RGB edge work belongs on current transparent outputs. The four exceptions above arise from missing nested/compatibility indexing.",
+      "evidence": "build_decisions.py accepted_source_art/accepted_processing_input override"
+    },
+    {
+      "topic": "Historical attribute v1/v2",
+      "result": "Old root whole-screen drafts, root assets and v2 static painted drafts are expressly historical in their README. No need to restyle those archived pages. Current 31 slices and v10 interactive preview are separate.",
+      "evidence": [
+        "designs/attribute-panels/README.md:3",
+        "designs/attribute-panels/v2-painted/README.md",
+        "designs/attribute-panels/v10-preview/README.md history section"
+      ]
+    },
+    {
+      "topic": "v7 UI and old scenes/professions",
+      "result": "Historical classification is supported for old v7 UI derivatives/native skins, superseded scene generations and earlier professions. Current UI is v10, scenes have separate accepted sources, and current profession publication is v9.",
+      "evidence": [
+        "qdao_gpt_image2_refresh_v7/ui/README.md history paragraph",
+        "qdao_ui_redesign_v5/components/build.mjs:1-5",
+        "qdao_festival_refinement_20260910/source-families.json"
+      ]
+    }
+  ],
+  "selected_v11_reference_audit": {
+    "unique_selected_or_compatibility_paths": 98,
+    "misclassified_or_absent": [
+      {
+        "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/sources/cardinal_assembled.png",
+        "authority": "qdao_chibi_roster_v11/27_ink_kite_ranger/manifest.json",
+        "field": "compatibility_assembly.cardinal.path",
+        "kind": "current_compatibility_derivative",
+        "current_decision": "retain_record",
+        "inventory_role": "source_review_pending"
+      },
+      {
+        "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/sources/diagonal_assembled.png",
+        "authority": "qdao_chibi_roster_v11/27_ink_kite_ranger/manifest.json",
+        "field": "compatibility_assembly.diagonal.path",
+        "kind": "current_compatibility_derivative",
+        "current_decision": "retain_record",
+        "inventory_role": "source_review_pending"
+      },
+      {
+        "path": "qdao_chibi_roster_v11/29_he_xiangu/sources/walk_NE_correction1.png",
+        "authority": "qdao_chibi_roster_v11/29_he_xiangu/manifest.json",
+        "field": "directional_original_sources.NE.selected_frame_sources[3].file",
+        "kind": "selected_native_cell_source",
+        "cell_index": 3,
+        "current_decision": "retain_record",
+        "inventory_role": "source_review_pending"
+      },
+      {
+        "path": "qdao_chibi_roster_v11/29_he_xiangu/sources/walk_SE_correction2.png",
+        "authority": "qdao_chibi_roster_v11/29_he_xiangu/manifest.json",
+        "field": "directional_original_sources.SE.selected_frame_sources[3].file",
+        "kind": "selected_native_cell_source",
+        "cell_index": 3,
+        "current_decision": "retain_record",
+        "inventory_role": "source_review_pending"
+      }
+    ],
+    "reference_only_example": {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/sources/reference-originals/91451b6dc4c5-walk_SW_2x2_rejected_attempt02.png",
+      "field": "sources.SW.reference_images[0].path",
+      "disposition": "Retain as generation reference. It is not selected frame art, though it remains current lineage evidence."
+    }
+  },
+  "other_lineage_note": {
+    "path": "qdao_gpt_image2_refresh_v7/characters/sources/hero.png",
+    "authority": "qdao_chibi_game_pack_v4/source/hero-processing.json.input",
+    "note": "Original v7 hero is still an ancestor of the retained identity; latest RGB repair is published through task input snapshots. Do not claim all v7 origins were replaced by v9; this does not imply repainting historical raw/processing images."
+  },
+  "constraints": [
+    "v9 and 28 repairs remain in progress; no final image hash or all-art completion conclusion was attempted.",
+    "No build_decisions.py, decisions.json, inventory or production files were changed by this audit.",
+    "A direct current-manifest reference proves role/selection, not current rendered pixel freshness; derivative consistency is a separate check."
+  ],
+  "compatibility_27_verification": {
+    "status": "passed",
+    "records": [
+      {
+        "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/sources/cardinal_assembled.png",
+        "decision": "retain_derived",
+        "size": [
+          2048,
+          2048
+        ],
+        "mode": "RGBA",
+        "expected_sha256": "6703d236a9fbf4da90cb3c533647b96335e73e0f588525b55fd99597b11816b6",
+        "manifest_declared_sha256": "6703d236a9fbf4da90cb3c533647b96335e73e0f588525b55fd99597b11816b6",
+        "file_hash_matches_manifest": true,
+        "exact_current_frame_rgba": true,
+        "row_order": [
+          "S",
+          "W",
+          "E",
+          "N"
+        ],
+        "sources": [
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/S/01.png",
+            "sha256": "1d78176660a68063f0cda4352ba25afe573db7e859707884cfe6c8c7043248b7"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/S/02.png",
+            "sha256": "b14ef0925ad1d6d4e864e44fbe680ff01617407e4fdb1cb41539f0f68269dad0"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/S/03.png",
+            "sha256": "ad57036b3b974d8218c58feeb49497d87db42c1fc79b0df4fe65e62628ec9160"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/S/04.png",
+            "sha256": "35f24f19da1684b9042398186c92919176c436d9ada5b72085cc87c5e9512918"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/W/01.png",
+            "sha256": "f89a3afa3851de2e6e257d977315a3167a051a752d121f8e2de698c0f38c8850"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/W/02.png",
+            "sha256": "149b7c1814685689d774f0a6b1333b312d3d91580f594cf11209e770a0c8cff1"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/W/03.png",
+            "sha256": "e202f0b22a70e534ce63a45a8a36f8b0df5fe8dd9b068a5aa1ce9b1b51f84ce4"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/W/04.png",
+            "sha256": "6728da3f1dc52bc34ea1d648c1b611cea545967d80d52b35cfed86d6c0267ed4"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/E/01.png",
+            "sha256": "6212d8aa1d7f9d178dec4609f0106d98b7c4588f0d24396865fa97c1b55ac048"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/E/02.png",
+            "sha256": "9f246eb5bb8a84a0517f1918f32f0e3a416be7e6d1a0536598afd4b2ea5a9b6c"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/E/03.png",
+            "sha256": "15abd8090594af015f47745d77f47f36c72a1310528aa881d601d5b556bf2fec"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/E/04.png",
+            "sha256": "00327050471eea862b97ee484883e7e9f7797c7b1be1956f58da0369c0b35e24"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/N/01.png",
+            "sha256": "f79c1c60e05734e9552b16fed1c61bbc90184dc5465038561dacc8b24f51be92"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/N/02.png",
+            "sha256": "4f3fe0f281e4d3630bdeb35c0a8811886f0f828b39a8aa0b58baae8aa3092692"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/N/03.png",
+            "sha256": "8ab37ba48b06b86194a5f11684771d33faf9d7b847497e268797cac83f9e00fb"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/N/04.png",
+            "sha256": "e12fa0dd3f5d6b53a4622e4465d24c988ad5f2cf7f730bdcb484faab21bedbb0"
+          }
+        ],
+        "authority": "qdao_chibi_roster_v11/27_ink_kite_ranger/manifest.json compatibility_assembly.cardinal",
+        "rule": "Direct 4x4 grid, 512 RGBA frames, row_order from manifest, chronological 01-04 columns; no resampling or recoloring."
+      },
+      {
+        "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/sources/diagonal_assembled.png",
+        "decision": "retain_derived",
+        "size": [
+          2048,
+          2048
+        ],
+        "mode": "RGBA",
+        "expected_sha256": "eb569f19f83fd141236740534f051be567c400d45d13b6e81399c0f7d2bb4983",
+        "manifest_declared_sha256": "eb569f19f83fd141236740534f051be567c400d45d13b6e81399c0f7d2bb4983",
+        "file_hash_matches_manifest": true,
+        "exact_current_frame_rgba": true,
+        "row_order": [
+          "SW",
+          "NW",
+          "NE",
+          "SE"
+        ],
+        "sources": [
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/SW/01.png",
+            "sha256": "bbd7af81f2eb0505971fd978f899155a84c8bff115f57244bda1be2c4373a89f"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/SW/02.png",
+            "sha256": "5ac7323bbd55007e5bd9bc5e46112a4793dd79df5e13818a56e37f7ff378e8ae"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/SW/03.png",
+            "sha256": "fc26a34d4b40f56eb377c72521a18bdfc7d39e0f722b5c6002311576e12fdd5f"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/SW/04.png",
+            "sha256": "96a37d2c55a0b3d418c2b62f32c0d21629d44485080e762a332acec67a8a1652"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/NW/01.png",
+            "sha256": "d0ceba2cf8d3ef5d1988f1a18b27ad84bf7baaeab3a678aea689710964bb11eb"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/NW/02.png",
+            "sha256": "94fc3edaf43663d95d4ef2964d0f224f49e31fddd40f0dc112e90fbd9a831f6d"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/NW/03.png",
+            "sha256": "686293b45997618e62612ea09714ce13783e42af6a64f9a433707c83b531ff69"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/NW/04.png",
+            "sha256": "d99ffcb497b8334b27f8126b448e471b10eb6a9f1e4a1f165fe2879a00e005f3"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/NE/01.png",
+            "sha256": "ec9a47198487253ac8239a5e7f0ac94d0efc062ff56c724fd032f1123417a85b"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/NE/02.png",
+            "sha256": "4d10a39cddcabf47a74675fd061589a72fe88ee1ca349c30887bd5ad8036fcec"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/NE/03.png",
+            "sha256": "189d604766254353973744399612bf08ba741bcbb03b40daa9d3be0aac98c753"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/NE/04.png",
+            "sha256": "868eb105712472ca0047e49040bd1f2f7f4690b7b0e6741f7a11f12581119842"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/SE/01.png",
+            "sha256": "287afe4244f7182b04fd5113244726fbff33ba09448e08ae1c0af97acef4af73"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/SE/02.png",
+            "sha256": "f6356066118ba6e3900771363dfa536aaa60b3681420ab0cfdaf79b4940bf8eb"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/SE/03.png",
+            "sha256": "6031751c82171e69bd24bf5e6ca0507187c0582d7a0d9739a902ec87ff8d9a44"
+          },
+          {
+            "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/walk/SE/04.png",
+            "sha256": "42117ca8a26e93c2b5c215645573b1ebb285df01600d59ba567e83571a98c452"
+          }
+        ],
+        "authority": "qdao_chibi_roster_v11/27_ink_kite_ranger/manifest.json compatibility_assembly.diagonal",
+        "rule": "Direct 4x4 grid, 512 RGBA frames, row_order from manifest, chronological 01-04 columns; no resampling or recoloring."
+      }
+    ],
+    "files_read": 34,
+    "other_characters_final_media_checked": false
+  }
+}
