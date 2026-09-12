@@ -24,6 +24,18 @@ for direction in ['S','W','E','N','SW','NW','NE','SE']:
   if c['touches_edge']: raise ValueError(f'{direction} source silhouette touches native image edge')
   box=sp.pad_bbox(c['bbox'],2,raw.width,raw.height)
   boxes.append(box);frames.append(clean.crop(box))
+ selected=[{'file':path.relative_to(char).as_posix(),'cell_index':i,'sha256':rp.sha(path)} for i in range(4)]
+ if direction in ('NE','SE'):
+  correction=char/'sources'/('walk_NE_correction1.png' if direction=='NE' else 'walk_SE_correction2.png')
+  cr=Image.open(correction).convert('RGBA');cc=sp.remove_bg_magenta(cr.copy())
+  cp=sp.connected_components(cc,min_area=500)
+  if len(cp)!=4: raise ValueError('NE correction must contain four complete components')
+  cp.sort(key=lambda c:(int(((c['bbox'][1]+c['bbox'][3])/2)>cr.height/2),c['bbox'][0]))
+  chosen=cp[3]
+  if chosen['touches_edge']: raise ValueError('NE corrected frame4 touches edge')
+  replacement_box=sp.pad_bbox(chosen['bbox'],2,cr.width,cr.height)
+  frames[3]=cc.crop(replacement_box)
+  selected[3]={'file':correction.relative_to(char).as_posix(),'cell_index':3,'sha256':rp.sha(correction),'component_box':replacement_box,'native_size':list(cr.size),'prompt_file':'prompts/'+correction.stem+'.txt'}
  heights=[rp.bounds(f)[3]-rp.bounds(f)[1] for f in frames]
  common=420/max(heights)
  aligned=[]
@@ -31,6 +43,10 @@ for direction in ['S','W','E','N','SW','NW','NE','SE']:
   p,info=rp.normalized_frame(f,common); aligned.append(p)
  out[direction]=aligned
  record['sources'][direction]={'file':path.relative_to(char).as_posix(),'source':'built-in image_gen','sha256':rp.sha(path),'native_size':list(raw.size),'layout':'2x2 reading order TL TR BL BR','component_boxes':boxes,'same_scale_all_four_frames':common,'native_subject_heights':heights}
+ record['sources'][direction]['selected_frame_sources']=selected
+ record['sources'][direction]['generation_prompt']='prompts/walk_'+direction+'_2x2.txt'
+ corrprompt=char/'prompts'/('walk_'+direction+'_correction1.txt')
+ if corrprompt.exists(): record['sources'][direction]['correction_prompt']=corrprompt.relative_to(char).as_posix()
  print(direction,heights,common)
 for kind,dirs in rp.ROWS.items():
  final=rp.compose([f for d in dirs for f in out[d]],4)
