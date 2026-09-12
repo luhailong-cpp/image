@@ -34,3 +34,6 @@ python qdao_exposure_refinement_v8/tools/capture_latest.py
 后续新图或再次重绘应先用capture_latest记录新原图，再经merge_latest、stage、复合重建、验收与publish流程处理；不要对现有修正版直接二次调色。源图及派生图均已覆盖，但旧生成脚本中另行绘制的文字/底色与历史哈希记录仍属于各原交付版本，不能把历史生成哈希当成当前文件哈希。
 
 本轮只修改E:/work/image素材库及其中prepared准备副本，未写实际客户端、未提交或推送Git。检查期间的其他任务修改和文档保留。samples/里的AI登录精修稿是前一轮方向示例，它改变过部分绘画细节，因此未用作本轮正式替换。
+## 2026-09-12 存储清理
+
+`review/rebuilt/` 中35张字节完全重复的中间PNG已按[去重映射](../docs/STORAGE_DUPLICATES_20260912.json)清除。每张图的同字节副本、全部JSON、backups与staged均保留。旧重建报告中的这些图片路径是历史记录；查看时使用映射的 `keep_path`，恢复原路径时先核对SHA-256，再从该副本复制。当前前后对比页与正式／暂存验收输入不受影响。清理和后续托管建议见[存储说明](../docs/STORAGE_GUIDE.md)。
