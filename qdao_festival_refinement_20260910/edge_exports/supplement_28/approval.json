@@ -1,0 +1,68 @@
+{
+  "schema": "qdao.festival.edge-supplement.v1",
+  "status": "approved",
+  "approved_utc": "2026-09-12T09:09:26.014421+00:00",
+  "reviewer": "check_cleanup_impact",
+  "scope": "Only 28 portrait lower-left black hair tips; 166 RGB pixels in [351,420,410,432], no alpha or body changes",
+  "path": "qdao_chibi_roster_v11/28_moon_rabbit_artificer/portrait.png",
+  "previous_sha256": "f25f4dab407f3260e291fc72cbb522d298542e0f2ba3402a96b77ced87478f3a",
+  "sha256": "141a740688dfdf9aaa0c344d5ec2ecc26b76bbfc2652755f7c15eea15b72070f",
+  "trial_sha256": "65a4c0fddf618d2f2266b63ba23e8877bd39c62f6f9b36e55633b86a7501024a",
+  "processor_sha256": "321af5629b76f159a4288833f2c100bb4ee8a25fe7e81169de113f492290cf9b",
+  "mask_sha256": "73a0bd428a1360fbe48f963908b07c79ea46510348cdf7fc595e3a9b8a689716",
+  "stats": {
+    "changed_rgb_pixels": 166,
+    "alpha_changed_pixels": 0,
+    "alpha0_rgba_changed_pixels": 0,
+    "unselected_rgba_changed_pixels": 0,
+    "source_cloth_sample_454_425_retained": true,
+    "all_pixels_y_ge_451_identical": true,
+    "unresolved": [],
+    "max_donor_distance": 11.40175425099138,
+    "mean_donor_distance": 4.683299056957867,
+    "alpha_sha256": "1f9d1ff2b9c748a2de61c7db3096f519938095fe28e5c7c84f0dc2b20c60cd36",
+    "changed_bbox": [
+      351,
+      420,
+      410,
+      432
+    ]
+  },
+  "visual_review": {
+    "performed": true,
+    "method": "Pillow alpha_composite at native resolution on #172c26 and #f2eddf, no source resizing; 2x/4x nearest-neighbor enlarged composites used to locate hair versus lilac shoulder. Native before/after crop and full portrait inspected.",
+    "finding": "Small remaining red-violet hair-tip run is removed; black hair contours, lilac shoulders/collar, skin, red ties and toolbox retained.",
+    "evidence": [
+      {
+        "path": "trial.png",
+        "sha256": "2352ac47221e6d3e09fc3ab30e828e1b67db862a3cdbbf78c7872b63e506272c"
+      },
+      {
+        "path": "festival-edge-portrait-supplement.jpg",
+        "sha256": "ee0304adea4a6de969b46b319938c46f3253632e7eac3abb6b7eef561b8c0a85"
+      }
+    ]
+  },
+  "29_SW01_recheck": {
+    "path": "qdao_chibi_roster_v11/29_he_xiangu/walk/SW/01.png",
+    "sha256": "d18243629320e1b2e1e18e6cbb6413c95e443782295d835f8fa1f5407caa7a40",
+    "decision": "retain",
+    "method": "Actual native Pillow alpha composites on dark and light backgrounds plus 2x nearest-neighbor cropped composite compared against immutable before.",
+    "finding": "No separate white/green leaked dots confirmed in correct alpha composite. Pale contours follow original white cuff/shoe designs and skin highlights. Alpha-zero hidden RGB is excluded by correct composition.",
+    "alpha_zero_pixels": 206022,
+    "alpha_zero_nonzero_hidden_rgb": 337,
+    "alpha1_to31_pixels": 3288,
+    "alpha_unchanged": true,
+    "hidden_rgba_unchanged": true
+  },
+  "original_batch_approval": {
+    "path": "../visual-approval.json",
+    "sha256": "660e0bffb0607d4682f2f82e0fea2ea80768f10de120e42abc5e61af0d090d2d",
+    "attribution": "Original reviewed 303 export revision retained as history; current 28 portrait has this additional approval."
+  },
+  "limits": [
+    "No alpha changes or engine/runtime test.",
+    "No claim of universal zero purple; lilac clothing is protected.",
+    "Supplement is not a new AI generation or pose."
+  ]
+}

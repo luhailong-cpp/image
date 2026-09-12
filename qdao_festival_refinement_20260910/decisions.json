@@ -1,21 +1,21 @@
 {
   "schema": "qdao.festival.decisions.v1",
-  "updated_utc": "2026-09-12T08:50:51.592953+00:00",
+  "updated_utc": "2026-09-12T09:05:37.349459+00:00",
   "all_images_complete": false,
   "inventory_count": 6047,
   "decision_counts": {
     "retain": 638,
-    "updated": 523,
-    "retain_record": 4440,
-    "retain_derived": 208,
+    "updated": 541,
+    "retain_record": 4456,
+    "retain_derived": 218,
+    "pending_repair": 43,
+    "retain_source_record": 97,
     "pending_rebuild": 3,
-    "pending_repair": 36,
-    "pending": 55,
-    "retain_source_record": 94,
+    "pending_final_source_record": 1,
     "retain_evidence": 1,
     "retain_input_record": 49
   },
-  "pending_count": 94,
+  "pending_count": 47,
   "files": [
     {
       "path": "character_move_8dir/east_frame_01.png",
@@ -452,9 +452,10 @@
       "path": "client_ui_refresh_20260908/prepared/UI/Ugui/Native/screen_art_headband.png",
       "family": "client_exports",
       "inventory_role": "asset_review_pending",
-      "decision": "pending_rebuild",
-      "reason": "Identified source-derived gap; close only after current publication.",
-      "evidence": "prepared-derivative-review.json"
+      "decision": "updated",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "scenes-sync/server/publication.json",
+      "expected_sha256": "938bdd7ff2cd2ca71ffe395b031f48e97f251709c51e7922faae6d9cccaefdd8"
     },
     {
       "path": "client_ui_refresh_20260908/prepared/UI/Ugui/Native/search_box.png",
@@ -712,9 +713,10 @@
       "path": "client_ui_refresh_20260908/prepared/UI/Ugui/RefreshV8/hero.png",
       "family": "client_exports",
       "inventory_role": "asset_review_pending",
-      "decision": "pending_rebuild",
-      "reason": "Identified source-derived gap; close only after current publication.",
-      "evidence": "prepared-derivative-review.json"
+      "decision": "updated",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "scenes-sync/hero-prepared/publication.json",
+      "expected_sha256": "de0c3e6d71d7c3dbbfed313e7971b2b8220e27d3e79aafa617b225d3e322706d"
     },
     {
       "path": "client_ui_refresh_20260908/prepared/UI/Ugui/RefreshV8/list_row_disabled.png",
@@ -2729,17 +2731,19 @@
       "path": "designs/attribute-panels/mobile-character.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_record",
+      "reason": "旧根目录 HTML 的手机浏览器截图，README 指定新版 v10-preview 为当前入口。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "b5e471b05476c52931bead6a806b70efc808c9a685ee25337bf644c9a43a9539"
     },
     {
       "path": "designs/attribute-panels/mobile-pet.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_record",
+      "reason": "旧根目录 HTML 的手机浏览器截图，README 指定新版 v10-preview 为当前入口。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "755dd2153358de43e97be0741c659c60703449ac144d41141f356993c7e6580a"
     },
     {
       "path": "designs/attribute-panels/v10-preview/01-character_2560x1080.png",
@@ -2761,89 +2765,100 @@
       "path": "designs/attribute-panels/v10-preview/assets/button_primary.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 网页无字控件副本，与 asset-manifest 及正式属性 Sprite 完全同字节；正式来源已单独审查，副本保持同步即可。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "e9e5ada2210d1f57741a3955b7166002c0a41142a92a40f089125678c1c5a24e"
     },
     {
       "path": "designs/attribute-panels/v10-preview/assets/button_scheme.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 网页无字控件副本，与 asset-manifest 及正式属性 Sprite 完全同字节；正式来源已单独审查，副本保持同步即可。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "451990db93a0bba54cf0dc7856196c215ba8cc348672b00bf107a464505f5a32"
     },
     {
       "path": "designs/attribute-panels/v10-preview/assets/button_secondary.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 网页无字控件副本，与 asset-manifest 及正式属性 Sprite 完全同字节；正式来源已单独审查，副本保持同步即可。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "96fe5fe53fb30def6e5ee8931179911cfd6a21be1d092359f69d5941cb2999f5"
     },
     {
       "path": "designs/attribute-panels/v10-preview/assets/close_button.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 网页无字控件副本，与 asset-manifest 及正式属性 Sprite 完全同字节；正式来源已单独审查，副本保持同步即可。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "7194b5d71bf37d999e16f28b5ed7da55ecd9d674b438254ea134a9283b498339"
     },
     {
       "path": "designs/attribute-panels/v10-preview/assets/close_tassel.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 网页无字控件副本，与 asset-manifest 及正式属性 Sprite 完全同字节；正式来源已单独审查，副本保持同步即可。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "20abbf34762758034e2c87749111a3c06dedf74d013cadc7aa997502517776a5"
     },
     {
       "path": "designs/attribute-panels/v10-preview/assets/divider.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 网页无字控件副本，与 asset-manifest 及正式属性 Sprite 完全同字节；正式来源已单独审查，副本保持同步即可。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "628ddbfc48a51b5c7e0375ad4fd25d734e559c051c5b69b41963fc9c3a40bbe3"
     },
     {
       "path": "designs/attribute-panels/v10-preview/assets/dropdown_arrow.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 网页无字控件副本，与 asset-manifest 及正式属性 Sprite 完全同字节；正式来源已单独审查，副本保持同步即可。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "3e7782d11939e08db08a68ac58e750394ba59f5dc97b74779b8cfc82b239172e"
     },
     {
       "path": "designs/attribute-panels/v10-preview/assets/notice_icon.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 网页无字控件副本，与 asset-manifest 及正式属性 Sprite 完全同字节；正式来源已单独审查，副本保持同步即可。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "cbf6754ffe44bbbbf2c6fc31e27153e22b07debcd9072ac55188ed388aff510b"
     },
     {
       "path": "designs/attribute-panels/v10-preview/assets/pet_card_normal.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 网页无字控件副本，与 asset-manifest 及正式属性 Sprite 完全同字节；正式来源已单独审查，副本保持同步即可。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "ad58f542cacdea60ef0e9bbae2d40819c7fa39a8a4ebedc1fc46d8d675ee27fa"
     },
     {
       "path": "designs/attribute-panels/v10-preview/assets/pet_card_selected.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 网页无字控件副本，与 asset-manifest 及正式属性 Sprite 完全同字节；正式来源已单独审查，副本保持同步即可。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "f8ad6f7d944af4f7c5b5c8daeb2d62ec45f977e579656fee7759d99f7b793260"
     },
     {
       "path": "designs/attribute-panels/v10-preview/assets/portrait_frame.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 网页无字控件副本，与 asset-manifest 及正式属性 Sprite 完全同字节；正式来源已单独审查，副本保持同步即可。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "fab13d1b2dd5bef7260209fc22fcbd15c9e5a835b83d359ed0d3b5b9d5a0e4a0"
     },
     {
       "path": "designs/attribute-panels/v10-preview/assets/portrait_fuxiaohu.png",
@@ -2885,57 +2900,64 @@
       "path": "designs/attribute-panels/v10-preview/assets/slider_thumb.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 网页无字控件副本，与 asset-manifest 及正式属性 Sprite 完全同字节；正式来源已单独审查，副本保持同步即可。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "9cab35f55f601663f5f0020600e5815b81de09e303262ddda4be2571207d2aef"
     },
     {
       "path": "designs/attribute-panels/v10-preview/assets/stat_field.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 网页无字控件副本，与 asset-manifest 及正式属性 Sprite 完全同字节；正式来源已单独审查，副本保持同步即可。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "c175e6e627776393cb7371df797ebe88bdfa0916769829269089ee22ac9b8c46"
     },
     {
       "path": "designs/attribute-panels/v10-preview/assets/step_minus.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 网页无字控件副本，与 asset-manifest 及正式属性 Sprite 完全同字节；正式来源已单独审查，副本保持同步即可。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "e788695456c8d65c590bf0b35fbfc027b7baaccb4e42ae39983fb72e529feaa6"
     },
     {
       "path": "designs/attribute-panels/v10-preview/assets/step_plus.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 网页无字控件副本，与 asset-manifest 及正式属性 Sprite 完全同字节；正式来源已单独审查，副本保持同步即可。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "cc5a01c6224ab1d2c5b29e448ccd8a18d4fd30d431dd068c279d598f2237e71f"
     },
     {
       "path": "designs/attribute-panels/v10-preview/assets/tab_horizontal.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 网页无字控件副本，与 asset-manifest 及正式属性 Sprite 完全同字节；正式来源已单独审查，副本保持同步即可。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "c5dda5483942a74e0a831f853b9ee5c10ffe46c778960b188fb909617a6aaa65"
     },
     {
       "path": "designs/attribute-panels/v10-preview/assets/title_plate.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 网页无字控件副本，与 asset-manifest 及正式属性 Sprite 完全同字节；正式来源已单独审查，副本保持同步即可。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "b9a01536ef28813328ea538341925106c0b7fe84fe910af49e9b93abef8c96a8"
     },
     {
       "path": "designs/attribute-panels/v10-preview/assets/window_frame.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 网页无字控件副本，与 asset-manifest 及正式属性 Sprite 完全同字节；正式来源已单独审查，副本保持同步即可。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "7aba0f0d6834a5f70eeb29c4308d57f171594e3e9894921569fdd6a602720663"
     },
     {
       "path": "designs/attribute-panels/v10-preview/mobile-character.png",
@@ -3327,17 +3349,19 @@
       "path": "designs/attribute-panels/v2-painted/unity-slices/sources/character.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "source_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_record",
+      "reason": "旧 v2 整屏烘焙属性稿切片来源；当前 31 Sprite manifest 已改用 v10 六组原画，保留旧源追溯，不恢复旧文字与皮肤。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "e64a817c55b59cf5cc47533428f2e560c64a83f3577067a6fb5969244baf3d6b"
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/sources/pet.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "source_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_record",
+      "reason": "旧 v2 整屏烘焙属性稿切片来源；当前 31 Sprite manifest 已改用 v10 六组原画，保留旧源追溯，不恢复旧文字与皮肤。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "b30b4117b18f3e3550e222068b610b1914d5195b8c4e54ab6f70c764813ca91d"
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/sprite-overview.png",
@@ -3352,89 +3376,100 @@
       "path": "designs/attribute-panels/v2-painted/unity-slices/unity-review-v10/01-character-normal_1920x1080.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_record",
+      "reason": "真实 Unity UGUI 属性面板离线样例数据截图，哈希匹配 v10 引擎验收；保留原始证据，不绘画编辑截图，不扩展为在线服务器通过。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "d2b88c164ef54814229ec0b15ea81348efcfab961451eaa8d70da877b799d9c8"
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/unity-review-v10/01-character-normal_2560x1080.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_record",
+      "reason": "真实 Unity UGUI 属性面板离线样例数据截图，哈希匹配 v10 引擎验收；保留原始证据，不绘画编辑截图，不扩展为在线服务器通过。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "c9d8836d3427cfd909b95ec4608eae1a757703600a9b230cf1664439e3cc7e7a"
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/unity-review-v10/02-character-eight-rows-bottom_1920x1080.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_record",
+      "reason": "真实 Unity UGUI 属性面板离线样例数据截图，哈希匹配 v10 引擎验收；保留原始证据，不绘画编辑截图，不扩展为在线服务器通过。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "5766dca099f37d10c84ffb3ea5b17173714f117f2366295ea6e72333b01a3bae"
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/unity-review-v10/02-character-eight-rows-bottom_2560x1080.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_record",
+      "reason": "真实 Unity UGUI 属性面板离线样例数据截图，哈希匹配 v10 引擎验收；保留原始证据，不绘画编辑截图，不扩展为在线服务器通过。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "0700891a39683f4f4866c91aac688e3ae369155cf005aa2214c6b4610815595f"
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/unity-review-v10/03-pets-normal_1920x1080.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_record",
+      "reason": "真实 Unity UGUI 属性面板离线样例数据截图，哈希匹配 v10 引擎验收；保留原始证据，不绘画编辑截图，不扩展为在线服务器通过。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "bebd76ccb710458a8d7863a506466d0168d115d1f0879edb42104c07dab1162a"
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/unity-review-v10/03-pets-normal_2560x1080.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_record",
+      "reason": "真实 Unity UGUI 属性面板离线样例数据截图，哈希匹配 v10 引擎验收；保留原始证据，不绘画编辑截图，不扩展为在线服务器通过。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "cbb0ad1a895ad0cd67e774d73d2b7988d9daf3387268ef809356eca21b27dbca"
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/unity-review-v10/04-pets-empty_1920x1080.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_record",
+      "reason": "真实 Unity UGUI 属性面板离线样例数据截图，哈希匹配 v10 引擎验收；保留原始证据，不绘画编辑截图，不扩展为在线服务器通过。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "c2981b494e09d81863e2ba7d9e9bdaece0b48c215de559e0cd6627db6d1a7ec3"
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/unity-review-v10/04-pets-empty_2560x1080.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_record",
+      "reason": "真实 Unity UGUI 属性面板离线样例数据截图，哈希匹配 v10 引擎验收；保留原始证据，不绘画编辑截图，不扩展为在线服务器通过。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "5527c7056a257d7411eb3ef15739d2a1c26be7b68a44fc3fc48b5223a2abcce4"
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/unity-review-v10/05-pets-ten-bottom_1920x1080.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_record",
+      "reason": "真实 Unity UGUI 属性面板离线样例数据截图，哈希匹配 v10 引擎验收；保留原始证据，不绘画编辑截图，不扩展为在线服务器通过。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "48e0ec5794bffac4db05ca171c69a7be2615e7174279a68559a9054d1cb5c7cd"
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/unity-review-v10/05-pets-ten-bottom_2560x1080.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_record",
+      "reason": "真实 Unity UGUI 属性面板离线样例数据截图，哈希匹配 v10 引擎验收；保留原始证据，不绘画编辑截图，不扩展为在线服务器通过。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "29a48205e1b6dc8d213e3cf1777df636a90584abd57ba28d9056fa1afd178ee3"
     },
     {
       "path": "designs/attribute-panels/v2-painted/unity-slices/unity-sprite-preview.png",
       "family": "attributes_and_new_pages",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_record",
+      "reason": "2026-09-09 旧 Unity 版本截图，README 和 v10 引擎报告明确标为历史。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "edf35511b070e5376f671e3c7a1b4019837013aa9a6ecf5b8126d08c92d67130"
     },
     {
       "path": "designs/gameplay-ui/01-quests.png",
@@ -14903,9 +14938,10 @@
       "path": "q_daoist_character_highest_transparent_4096_fixed.png",
       "family": "characters",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "pending_repair",
+      "reason": "七个根目录 4096 文件是同字节主角别名；v9 代理确认属于其九路径传播链，等待最终去边发布，不提前保留结案。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "1c513e4d050358cdae5079ccb110ac3ec37cc086d48308d58affbab26c27ce16"
     },
     {
       "path": "q_daoist_character_pack_4096/00_reference_topright_boy_transparent_4096.png",
@@ -15127,27 +15163,28 @@
       "path": "q_daoist_hero_chibi_headband_v3.png",
       "family": "characters",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_source_record",
+      "reason": "当前 RGB 路径已为圆脸金发带道童形象参考；本次实看玉绿米白衣装、太极葫芦、短流苏及大头短身符合定调，不能只按 v3 名字误判未更新旧稿。它是参考母图，不是当前 v9 透明导出同步目标。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "a4eff845e0e7aedf4949fa341bae9331247b85e0d2baeea209bae24329b9a420"
     },
     {
       "path": "q_daoist_login_clear_2560x1080.png",
       "family": "scene_illustrations",
       "inventory_role": "accepted_derived_export",
-      "decision": "retain_derived",
-      "reason": "Current published v10 companion/source export remains exact; parent PNGs and mother art were reviewed in this pass. Preserve current UI geometry and optional labels.",
-      "evidence": "../qdao_ui_style_recut_v10/publication.json",
-      "expected_sha256": "89bf9b4c3c2725afe6202b61ce15a7c70657920bf3acb8fbfef4a94ccec9b667"
+      "decision": "updated",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "scenes-sync/server/publication.json",
+      "expected_sha256": "938bdd7ff2cd2ca71ffe395b031f48e97f251709c51e7922faae6d9cccaefdd8"
     },
     {
       "path": "q_daoist_login_clear_lidazui_headband_2560x1080.png",
       "family": "scene_illustrations",
       "inventory_role": "accepted_derived_export",
-      "decision": "retain_derived",
-      "reason": "Current published v10 companion/source export remains exact; parent PNGs and mother art were reviewed in this pass. Preserve current UI geometry and optional labels.",
-      "evidence": "../qdao_ui_style_recut_v10/publication.json",
-      "expected_sha256": "89bf9b4c3c2725afe6202b61ce15a7c70657920bf3acb8fbfef4a94ccec9b667"
+      "decision": "updated",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "scenes-sync/server/publication.json",
+      "expected_sha256": "938bdd7ff2cd2ca71ffe395b031f48e97f251709c51e7922faae6d9cccaefdd8"
     },
     {
       "path": "q_daoist_login_ui_10240_redraw_clear_final_layers/q_daoist_login_buttons_redrawn_atomic/ai_qstyle_badges_sheet_chroma.png",
@@ -16692,19 +16729,19 @@
       "path": "q_daoist_login_ui_lidazui_headband_v2_5120x2160.png",
       "family": "ui_and_legacy_slices",
       "inventory_role": "accepted_derived_export",
-      "decision": "retain_derived",
-      "reason": "Current published v10 companion/source export remains exact; parent PNGs and mother art were reviewed in this pass. Preserve current UI geometry and optional labels.",
-      "evidence": "../qdao_ui_style_recut_v10/publication.json",
-      "expected_sha256": "03e54c1b48911f4e08bb1d63fa51b24a9138b89c4fc4669e8fcdfb4367751ada"
+      "decision": "updated",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "scenes-sync/server/publication.json",
+      "expected_sha256": "a5ab6068db3a8d46d86aeeb5c6608a6dfa27a0cd778aa532f9398c42cb47b4b7"
     },
     {
       "path": "q_daoist_login_ui_redrawn_transparent_5120x2160.png",
       "family": "ui_and_legacy_slices",
       "inventory_role": "accepted_derived_export",
-      "decision": "retain_derived",
-      "reason": "Current published v10 companion/source export remains exact; parent PNGs and mother art were reviewed in this pass. Preserve current UI geometry and optional labels.",
-      "evidence": "../qdao_ui_style_recut_v10/publication.json",
-      "expected_sha256": "03e54c1b48911f4e08bb1d63fa51b24a9138b89c4fc4669e8fcdfb4367751ada"
+      "decision": "updated",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "scenes-sync/server/publication.json",
+      "expected_sha256": "a5ab6068db3a8d46d86aeeb5c6608a6dfa27a0cd778aa532f9398c42cb47b4b7"
     },
     {
       "path": "q_daoist_login_ui_uncropped_highres_final_layers/native_q5/base.svg",
@@ -16737,27 +16774,27 @@
       "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_background_ui_uncropped_final_10240x4320.png",
       "family": "ui_and_legacy_slices",
       "inventory_role": "accepted_derived_export",
-      "decision": "retain_derived",
-      "reason": "Current published v10 companion/source export remains exact; parent PNGs and mother art were reviewed in this pass. Preserve current UI geometry and optional labels.",
-      "evidence": "../qdao_ui_style_recut_v10/publication.json",
-      "expected_sha256": "1b88ba7011ed978e75c9a3d95ac9918d5d551f76c160a69dcaa0e2c3bad537d8"
+      "decision": "updated",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "scenes-sync/server/publication.json",
+      "expected_sha256": "fbf71bfc3ec5818a9b60a0ef737245011431f1d77aa617f7fe01b2f59a728c1c"
     },
     {
       "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_background_ui_uncropped_final_5120x2160.png",
       "family": "ui_and_legacy_slices",
       "inventory_role": "accepted_derived_export",
-      "decision": "retain_derived",
-      "reason": "Current published v10 companion/source export remains exact; parent PNGs and mother art were reviewed in this pass. Preserve current UI geometry and optional labels.",
-      "evidence": "../qdao_ui_style_recut_v10/publication.json",
-      "expected_sha256": "ddbb7afb3c861ec9c875b60e6be81ebe6200363d82e7ec5fd00757ef4ddbc690"
+      "decision": "updated",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "scenes-sync/server/publication.json",
+      "expected_sha256": "8b69ce1697b7d2859c753909810e9f36e5477a7aef1492da9728d95683197d9d"
     },
     {
       "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_buttons_uncropped_final_10240x4320.png",
       "family": "ui_and_legacy_slices",
       "inventory_role": "accepted_derived_export",
       "decision": "retain_derived",
-      "reason": "Current published v10 companion/source export remains exact; parent PNGs and mother art were reviewed in this pass. Preserve current UI geometry and optional labels.",
-      "evidence": "../qdao_ui_style_recut_v10/publication.json",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "scenes-sync/server/publication.json",
       "expected_sha256": "a6f4b93c1d46d8bd73aef1162cad746fa109de5550e63fe9a6085c948b746941"
     },
     {
@@ -16765,27 +16802,27 @@
       "family": "ui_and_legacy_slices",
       "inventory_role": "accepted_derived_export",
       "decision": "retain_derived",
-      "reason": "Current published v10 companion/source export remains exact; parent PNGs and mother art were reviewed in this pass. Preserve current UI geometry and optional labels.",
-      "evidence": "../qdao_ui_style_recut_v10/publication.json",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "scenes-sync/server/publication.json",
       "expected_sha256": "0fe9f830a73c7724e7b62b3685f6122c8ae251876ee6af3a97fa4ff2ab8b4b5a"
     },
     {
       "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_ui_uncropped_final_recomposed_10240x4320.png",
       "family": "ui_and_legacy_slices",
       "inventory_role": "accepted_derived_export",
-      "decision": "retain_derived",
-      "reason": "Current published v10 companion/source export remains exact; parent PNGs and mother art were reviewed in this pass. Preserve current UI geometry and optional labels.",
-      "evidence": "../qdao_ui_style_recut_v10/publication.json",
-      "expected_sha256": "458cd3737568f8f5d1f31d188ce5ce382edb184fd973fc52499104db172d34c3"
+      "decision": "updated",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "scenes-sync/server/publication.json",
+      "expected_sha256": "c7c4c68d32c2d9761aacc8b9265bd529d4eea58f4b5d1e2121e9adbe6a7f4123"
     },
     {
       "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_ui_uncropped_final_recomposed_5120x2160.png",
       "family": "ui_and_legacy_slices",
       "inventory_role": "accepted_derived_export",
-      "decision": "retain_derived",
-      "reason": "Current published v10 companion/source export remains exact; parent PNGs and mother art were reviewed in this pass. Preserve current UI geometry and optional labels.",
-      "evidence": "../qdao_ui_style_recut_v10/publication.json",
-      "expected_sha256": "03e54c1b48911f4e08bb1d63fa51b24a9138b89c4fc4669e8fcdfb4367751ada"
+      "decision": "updated",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "scenes-sync/server/publication.json",
+      "expected_sha256": "a5ab6068db3a8d46d86aeeb5c6608a6dfa27a0cd778aa532f9398c42cb47b4b7"
     },
     {
       "path": "q_daoist_scene_bg_2560x1080.png",
@@ -16800,49 +16837,55 @@
       "path": "q_lidazui_hair_daoist_variant_a_4096.png",
       "family": "scene_illustrations",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "pending_repair",
+      "reason": "七个根目录 4096 文件是同字节主角别名；v9 代理确认属于其九路径传播链，等待最终去边发布，不提前保留结案。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "1c513e4d050358cdae5079ccb110ac3ec37cc086d48308d58affbab26c27ce16"
     },
     {
       "path": "q_lidazui_hair_daoist_variant_a_headband_4096.png",
       "family": "scene_illustrations",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "pending_repair",
+      "reason": "七个根目录 4096 文件是同字节主角别名；v9 代理确认属于其九路径传播链，等待最终去边发布，不提前保留结案。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "1c513e4d050358cdae5079ccb110ac3ec37cc086d48308d58affbab26c27ce16"
     },
     {
       "path": "q_lidazui_hair_daoist_variant_b_4096.png",
       "family": "scene_illustrations",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "pending_repair",
+      "reason": "七个根目录 4096 文件是同字节主角别名；v9 代理确认属于其九路径传播链，等待最终去边发布，不提前保留结案。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "1c513e4d050358cdae5079ccb110ac3ec37cc086d48308d58affbab26c27ce16"
     },
     {
       "path": "q_lidazui_hair_daoist_variant_b_headband_4096.png",
       "family": "scene_illustrations",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "pending_repair",
+      "reason": "七个根目录 4096 文件是同字节主角别名；v9 代理确认属于其九路径传播链，等待最终去边发布，不提前保留结案。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "1c513e4d050358cdae5079ccb110ac3ec37cc086d48308d58affbab26c27ce16"
     },
     {
       "path": "q_lidazui_hair_daoist_variant_c_4096.png",
       "family": "scene_illustrations",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "pending_repair",
+      "reason": "七个根目录 4096 文件是同字节主角别名；v9 代理确认属于其九路径传播链，等待最终去边发布，不提前保留结案。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "1c513e4d050358cdae5079ccb110ac3ec37cc086d48308d58affbab26c27ce16"
     },
     {
       "path": "q_lidazui_hair_daoist_variant_c_headband_4096.png",
       "family": "scene_illustrations",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "pending_repair",
+      "reason": "七个根目录 4096 文件是同字节主角别名；v9 代理确认属于其九路径传播链，等待最终去边发布，不提前保留结案。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "1c513e4d050358cdae5079ccb110ac3ec37cc086d48308d58affbab26c27ce16"
     },
     {
       "path": "qdao_battle_arena_forest_bridge_2560x1080_v1.png",
@@ -16866,9 +16909,10 @@
       "path": "qdao_battle_entry_clouds_fg_2560x1080_v2.png",
       "family": "scene_illustrations",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "本次实看为米白浅玉绿暖金纯云气，无旧道童或狐；源/标准/兼容副本匹配 transition_manifest。源中央仅 123 个 Alpha=1 量化微点，既有导出已清除，标准中央 Alpha 全为 0；保留功能前景及原生真实 Alpha，不增加遮挡式节庆装饰。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "9b446c077f321d95f8dd762976563e0ad9a03567e3ae43cc66f4f85a40dcfa67"
     },
     {
       "path": "qdao_battle_entry_loading_2560x1080_v2.png",
@@ -16892,9 +16936,10 @@
       "path": "qdao_chibi_game_pack_v4/hero-transparent_1024.png",
       "family": "scene_illustrations",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "pending_final_source_record",
+      "reason": "有效的场景独立透明主角；v9 代理确认已发布当前 1024 导出，正交场景传播，等待所有者最终发布记录合入 ledger；本只读审查不提前结案活动主角链。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "de0c3e6d71d7c3dbbfed313e7971b2b8220e27d3e79aafa617b225d3e322706d"
     },
     {
       "path": "qdao_chibi_game_pack_v4/main-city_2560x1080.png",
@@ -16918,9 +16963,10 @@
       "path": "qdao_chibi_game_pack_v4/source/hero-matte.png",
       "family": "scene_illustrations",
       "inventory_role": "source_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_source_record",
+      "reason": "build_pack.py 明确读取的洋红底人物创作输入，本次实看与当前道童同源；洋红底是生产处理输入，保留原母图和历史参数，不将透明导出 RGB 修复反写原画。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "22e29f4c8c139426142896357a8f8c6e19692525c6ef60c6de4ce433b0c10c38"
     },
     {
       "path": "qdao_chibi_pets_v1/01_hu_tuan_tuan-transparent_1254.png",
@@ -21908,17 +21954,19 @@
       "path": "qdao_chibi_roster_v11/movement-overview.gif",
       "family": "character_movement",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "pending_rebuild",
+      "reason": "303 项去边已同步过此总览及整包，但追加原尺寸复查发现 28 肖像发底微量暗紫残色，补充修复后需再次同步总览与包，不沿用旧哈希结案。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "7650f1877244a229d96a149990e59abf3ee74637fd17607a65a9d8cc3d73246c"
     },
     {
       "path": "qdao_chibi_roster_v11/roster-overview.jpg",
       "family": "character_movement",
       "inventory_role": "accepted_preview_derivative",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "pending_rebuild",
+      "reason": "303 项去边已同步过此总览及整包，但追加原尺寸复查发现 28 肖像发底微量暗紫残色，补充修复后需再次同步总览与包，不沿用旧哈希结案。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "316afb7914cb9d482e4ba650357951088c257dcf69b4dff1cc2df71fea46508a"
     },
     {
       "path": "qdao_cutout_edge_repair_20260910/backups/hero-20260911T073448Z/0f93bbe3175fcd6bfda29801.png",
@@ -42957,10 +43005,10 @@
       "path": "qdao_ui_redesign_v5/02_server_select_2560x1080.png",
       "family": "scene_illustrations",
       "inventory_role": "asset_review_pending",
-      "decision": "retain_derived",
-      "reason": "Current published v10 companion/source export remains exact; parent PNGs and mother art were reviewed in this pass. Preserve current UI geometry and optional labels.",
-      "evidence": "../qdao_ui_style_recut_v10/publication.json",
-      "expected_sha256": "89bf9b4c3c2725afe6202b61ce15a7c70657920bf3acb8fbfef4a94ccec9b667"
+      "decision": "updated",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "scenes-sync/server/publication.json",
+      "expected_sha256": "938bdd7ff2cd2ca71ffe395b031f48e97f251709c51e7922faae6d9cccaefdd8"
     },
     {
       "path": "qdao_ui_redesign_v5/03_character_select_2560x1080.png",
@@ -42993,9 +43041,10 @@
       "path": "qdao_ui_redesign_v5/06_battle_entry_clouds_fg_2560x1080.png",
       "family": "scene_illustrations",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "本次实看为米白浅玉绿暖金纯云气，无旧道童或狐；源/标准/兼容副本匹配 transition_manifest。源中央仅 123 个 Alpha=1 量化微点，既有导出已清除，标准中央 Alpha 全为 0；保留功能前景及原生真实 Alpha，不增加遮挡式节庆装饰。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "9b446c077f321d95f8dd762976563e0ad9a03567e3ae43cc66f4f85a40dcfa67"
     },
     {
       "path": "qdao_ui_redesign_v5/06_battle_entry_loading_2560x1080.png",
@@ -43010,33 +43059,37 @@
       "path": "qdao_ui_redesign_v5/components/badges_overview.png",
       "family": "ui_and_legacy_slices",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "updated",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "component-overviews/publication.json",
+      "expected_sha256": "aaf0301c2e544823eab5933917209efe05767fdac4c9568ab5305fa02508d9ed"
     },
     {
       "path": "qdao_ui_redesign_v5/components/badges_overview.svg",
       "family": "ui_and_legacy_slices",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "updated",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "component-overviews/publication.json",
+      "expected_sha256": "5d5a0c7b27b0affceef45356ab1509a168b77135040b6f42185e9c4cad407b95"
     },
     {
       "path": "qdao_ui_redesign_v5/components/overview.png",
       "family": "ui_and_legacy_slices",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "updated",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "component-overviews/publication.json",
+      "expected_sha256": "089b0287b9d5e2359ece9bd7137be0ff1336d6376ab9a30cddd8e94d14f7d1ce"
     },
     {
       "path": "qdao_ui_redesign_v5/components/overview.svg",
       "family": "ui_and_legacy_slices",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "updated",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "component-overviews/publication.json",
+      "expected_sha256": "2af29862aeaf9ad4f7391451de005611dfa1c3cfba60d75ef1a25a636299b545"
     },
     {
       "path": "qdao_ui_redesign_v5/components/png/check.png",
@@ -43824,10 +43877,10 @@
       "path": "qdao_ui_redesign_v5/source/02_server_select.png",
       "family": "scene_illustrations",
       "inventory_role": "source_review_pending",
-      "decision": "retain_derived",
-      "reason": "Current published v10 companion/source export remains exact; parent PNGs and mother art were reviewed in this pass. Preserve current UI geometry and optional labels.",
-      "evidence": "../qdao_ui_style_recut_v10/publication.json",
-      "expected_sha256": "89bf9b4c3c2725afe6202b61ce15a7c70657920bf3acb8fbfef4a94ccec9b667"
+      "decision": "updated",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "scenes-sync/server/publication.json",
+      "expected_sha256": "938bdd7ff2cd2ca71ffe395b031f48e97f251709c51e7922faae6d9cccaefdd8"
     },
     {
       "path": "qdao_ui_redesign_v5/source/03_character_select.png",
@@ -43859,9 +43912,10 @@
       "path": "qdao_ui_redesign_v5/source/06_battle_entry_clouds_fg.png",
       "family": "scene_illustrations",
       "inventory_role": "source_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_source_record",
+      "reason": "本次实看为米白浅玉绿暖金纯云气，无旧道童或狐；源/标准/兼容副本匹配 transition_manifest。源中央仅 123 个 Alpha=1 量化微点，既有导出已清除，标准中央 Alpha 全为 0；保留功能前景及原生真实 Alpha，不增加遮挡式节庆装饰。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "49419e905e359a3b2f2de5b39a9a0bec53040d954500ca27fb23f0e101650366"
     },
     {
       "path": "qdao_ui_redesign_v5/source/06_battle_entry_loading.png",
@@ -44789,9 +44843,10 @@
       "path": "qdao_ui_style_recut_v10/derived/common-review.png",
       "family": "ui_and_legacy_slices",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_record",
+      "reason": "v10 控件离线拼表检查图，本次实看深玉绿、象牙纸面、细金边和功能徽标与当前控件一致；作为审查拼图保留，棋盘底不属于游戏图，不能当作新母图或独立运行时控件。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "68ef8c3b8245af452de853a86eda322c585c63c61df066ff77bd18723c30c1c4"
     },
     {
       "path": "qdao_ui_style_recut_v10/derived/components/check.png",
@@ -45148,9 +45203,10 @@
       "path": "qdao_ui_style_recut_v10/derived/divider.png",
       "family": "ui_and_legacy_slices",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 原画裁片的小部件；已只读复算 fit_art(divider,142,35,pad=2) 与 fit_art(status_red,32,32,pad=2)，当前 RGBA 逐像素相等；实看云纹分隔、红底减号清晰，保持功能语义。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "49d6c71a73f16276d350815b6d53b6b1656f2ea861b677fc6c8479577592743e"
     },
     {
       "path": "qdao_ui_style_recut_v10/derived/legacy/ai_qstyle_badges_sheet_chroma.png",
@@ -45813,9 +45869,10 @@
       "path": "qdao_ui_style_recut_v10/derived/status_red.png",
       "family": "ui_and_legacy_slices",
       "inventory_role": "asset_review_pending",
-      "decision": "pending",
-      "reason": "Still requires source/use/derivative decision.",
-      "evidence": null
+      "decision": "retain_derived",
+      "reason": "当前 v10 原画裁片的小部件；已只读复算 fit_art(divider,142,35,pad=2) 与 fit_art(status_red,32,32,pad=2)，当前 RGBA 逐像素相等；实看云纹分隔、红底减号清晰，保持功能语义。",
+      "evidence": "remaining-misc-review.json",
+      "expected_sha256": "1865cc7fef4f486ad4ae3c7ff638a5e70a02bc021653675fc8042b6abf004fe2"
     },
     {
       "path": "qdao_ui_style_recut_v10/source/01-plates.png",
@@ -49703,19 +49760,19 @@
       "path": "ugui_qdao_headband_2560x1080.png",
       "family": "scene_illustrations",
       "inventory_role": "accepted_derived_export",
-      "decision": "retain_derived",
-      "reason": "Current published v10 companion/source export remains exact; parent PNGs and mother art were reviewed in this pass. Preserve current UI geometry and optional labels.",
-      "evidence": "../qdao_ui_style_recut_v10/publication.json",
-      "expected_sha256": "89bf9b4c3c2725afe6202b61ce15a7c70657920bf3acb8fbfef4a94ccec9b667"
+      "decision": "updated",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "scenes-sync/server/publication.json",
+      "expected_sha256": "938bdd7ff2cd2ca71ffe395b031f48e97f251709c51e7922faae6d9cccaefdd8"
     },
     {
       "path": "ugui_qdao_headband_native_2560x1080.png",
       "family": "scene_illustrations",
       "inventory_role": "accepted_derived_export",
-      "decision": "retain_derived",
-      "reason": "Current published v10 companion/source export remains exact; parent PNGs and mother art were reviewed in this pass. Preserve current UI geometry and optional labels.",
-      "evidence": "../qdao_ui_style_recut_v10/publication.json",
-      "expected_sha256": "89bf9b4c3c2725afe6202b61ce15a7c70657920bf3acb8fbfef4a94ccec9b667"
+      "decision": "updated",
+      "reason": "Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.",
+      "evidence": "scenes-sync/server/publication.json",
+      "expected_sha256": "938bdd7ff2cd2ca71ffe395b031f48e97f251709c51e7922faae6d9cccaefdd8"
     }
   ],
   "note": "Per-file ledger distinguishes retained historical records from current approved art. Pending entries remain open; count alone never completes the task."

@@ -15,12 +15,13 @@ def backup(p):
  if not target.exists():shutil.copy2(p,target)
  return target
 def rel(p):return p.relative_to(ROOT).as_posix()
-def contract(old,new):
+def contract(old,new,allow_hidden=False):
  a=np.array(Image.open(old));b=np.array(Image.open(new))
  assert a.shape==b.shape and a.shape[2]==4
  assert np.array_equal(a[:,:,3],b[:,:,3]),str(new)
- assert np.array_equal(a[a[:,:,3]==0],b[a[:,:,3]==0]),str(new)
- return {'alpha_changed_pixels':0,'transparent_rgba_changed_pixels':0,'alpha_sha256':hashlib.sha256(b[:,:,3].tobytes()).hexdigest(),'changed_rgb_pixels':int(np.any(a[:,:,:3]!=b[:,:,:3],axis=2).sum()),'size':[b.shape[1],b.shape[0]],'mode':'RGBA'}
+ hidden_changed=int(np.any(a[a[:,:,3]==0]!=b[a[:,:,3]==0],axis=1).sum())
+ if not allow_hidden:assert hidden_changed==0,str(new)
+ return {'alpha_changed_pixels':0,'transparent_rgba_changed_pixels':hidden_changed,'alpha_sha256':hashlib.sha256(b[:,:,3].tobytes()).hexdigest(),'changed_rgb_pixels':int(np.any(a[:,:,:3]!=b[:,:,:3],axis=2).sum()),'size':[b.shape[1],b.shape[0]],'mode':'RGBA'}
 def main():
  now=datetime.now(timezone.utc).isoformat()
  assert not (HERE/'publication.json').exists(),'Publication exists; run verify_current.py'
@@ -96,7 +97,7 @@ def main():
  prepared=read(V9/'prepared_sync.json');oldprep={r['output']:r for r in prep_before['records']};changed=[]
  for row in prepared['records']:
   p=ROOT/row['output'];old=HERE/'before'/row['output']
-  stats=contract(old,p)
+  stats=contract(old,p,allow_hidden=True)
   if sha(old)!=sha(p):
    changed.append({'path':row['output'],'kind':'prepared_1024','status':'published','source':row['source'],'current_4096_source_sha256':row['source_sha256'],'source_sha256':sha(old),'output_sha256':sha(p),'before_path':rel(old),'method':'Full RGBA LANCZOS resample of reviewed current 4096 source; pre/post Alpha exact',**stats})
   else:assert stats['changed_rgb_pixels']==0

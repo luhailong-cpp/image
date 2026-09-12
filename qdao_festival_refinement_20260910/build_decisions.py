@@ -38,7 +38,7 @@ for r in inv['records']:
   d='retain_record';reason='Original production/source candidate not selected by current final manifest index. Current accepted source cells and final directions are tracked separately; preserve generation evidence.'
  ledger[p]={'path':p,'family':r['family'],'inventory_role':role,'decision':d,'reason':reason,'evidence':'inventory.json classification/source-families.json' if d!='pending' else None}
 # Actual visual reviews, with required repairs kept open until publication.
-for file in ['reviews/ui-items-old-hero-review.json','reviews/v11-style-review.json','reviews/v9-pets-style-review.json']:
+for file in ['reviews/ui-items-old-hero-review.json','reviews/v11-style-review.json','reviews/v9-pets-style-review.json','remaining-misc-review.json']:
  j=read('qdao_festival_refinement_20260910/'+file)
  for r in j.get('files',[]):
   status=r.get('status','');d=r.get('decision') or ('retain' if status in ['retained','rebuild_support_retained'] else 'pending_repair')
@@ -88,14 +88,20 @@ plan=read('qdao_festival_refinement_20260910/legacy-scene-sync-plan.json')
 for r in plan.get('protected_original_sources',[]):setrow(r['path'],'retain_record',r['reason'],'legacy-scene-sync-plan.json')
 for r in plan.get('classification_corrections_for_next_inventory',[]):
  if r.get('correct_role')=='functional_uniform_alpha_overlay_preserve':setrow(r['path'],'retain','Functional black alpha178 runtime dim mask; preserve every pixel. It is not review evidence.','legacy-scene-sync-plan.json',sha(ROOT/r['path']))
+# Current overview artifacts are part of the rebuilt v11 package, not historical QA.
+edgefinal=read('qdao_festival_refinement_20260910/edge_exports/final-verification.json')
+if edgefinal.get('status')=='passed':
+ for r in edgefinal.get('artifacts',[]):
+  if r.get('path') in ['qdao_chibi_roster_v11/roster-overview.jpg','qdao_chibi_roster_v11/movement-overview.gif']:
+   setrow(r['path'],'updated','Rebuilt package preview from current repaired frames/portraits, verified in final ZIP.','edge_exports/final-verification.json',r.get('sha256'))
 # Published records override earlier pending or old review hashes. Exact publications only.
-publications=['prelogin/publication.json','prepared-sync/publication.json','scenes-sync/publication.json','scenes-sync/server-publication.json','edge_exports/publication.json','v9-edges/publication.json']
+publications=['prelogin/publication.json','prepared-sync/publication.json','scenes-sync/publication.json','scenes-sync/server/publication.json','scenes-sync/hero-prepared/publication.json','component-overviews/publication.json','edge_exports/publication.json','v9-edges/publication.json']
 for file in publications:
  j=read('qdao_festival_refinement_20260910/'+file)
  if 'published' not in j.get('status',''):continue
  for r in j.get('files',[]):
   p=r.get('path') or r.get('target');expected=r.get('after_sha256') or r.get('sha256') or r.get('published_sha256')
-  if p and expected:setrow(p,'updated','Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.',file,expected)
+  if p and expected:setrow(p,'retain_derived' if r.get('before_sha256')==expected else 'updated','Current authorized refinement or synchronized derivative published and validated; see per-file provenance and backup.',file,expected)
 rows=list(ledger.values());counts=Counter(r['decision'] for r in rows);pending=[r for r in rows if r['decision'].startswith('pending')]
 result={'schema':'qdao.festival.decisions.v1','updated_utc':datetime.now(timezone.utc).isoformat(),'all_images_complete':False,'inventory_count':len(rows),'decision_counts':dict(counts),'pending_count':len(pending),'files':rows,'note':'Per-file ledger distinguishes retained historical records from current approved art. Pending entries remain open; count alone never completes the task.'}
 (B/'decisions.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

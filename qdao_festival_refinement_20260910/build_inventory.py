@@ -32,6 +32,8 @@ def family(path):
 def fallback_role(path):
     p = path.lower()
     parts = p.split('/')
+    if p in ('qdao_battle_dim_overlay_2560x1080_v1.png', 'client_ui_refresh_20260908/prepared/UI/Ugui/Battle/Overlays/qdao_battle_dim_overlay_2560x1080_v1.png'):
+        return 'functional_uniform_alpha_overlay_preserve'
     if any(x in parts for x in ('.work', 'backups', 'staged', 'samples', 'contacts', 'thumbs', '__pycache__', 'rejected', 'history')) or p.startswith(('docs/style-audit-', 'qdao_exposure_refinement_v8/review/rebuilt/', 'qdao_chibi_roster_v11/24_crane_hermit/')):
         return 'supporting_history_or_work'
     if p.startswith('designs/attribute-panels/v10-preview/') or '/qa/' in p or 'screenshot' in p or '/processing/' in p or any(x in Path(p).stem for x in ('contact', 'visual-review', 'gif-decoded', 'before_after', 'layout-review', 'overlay')):

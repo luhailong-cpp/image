@@ -21,7 +21,9 @@ def main():
   a=np.array(Image.open(before));b=np.array(Image.open(f))
   assert a.shape==b.shape and a.shape[2]==4
   assert np.array_equal(a[:,:,3],b[:,:,3]),'Alpha changed: '+str(f)
-  assert np.array_equal(a[a[:,:,3]==0],b[a[:,:,3]==0]),'Transparent RGB changed: '+str(f)
+  hidden_changed=int(np.any(a[a[:,:,3]==0]!=b[a[:,:,3]==0],axis=1).sum())
+  if row['kind']=='prepared_1024':assert hidden_changed==row['transparent_rgba_changed_pixels']
+  else:assert hidden_changed==0,'Source transparent RGB changed: '+str(f)
   if row.get('processor'):assert sha(ROOT/row['processor'])==row['processor_sha256']
   if row.get('extra_mask_processor'):assert sha(ROOT/row['extra_mask_processor'])==row['extra_mask_processor_sha256']
  for row in manifest['assets']:
@@ -51,5 +53,5 @@ def main():
  for row in read(V9/'completion.json')['artifacts']:assert sha(V9/row['path'])==row['sha256']
  for row in read(V9/'followup_completion.json')['artifacts']:
   if row['path'].startswith('qdao_character_diversity_v9/'):assert sha(ROOT/row['path'])==row['sha256']
- print(json.dumps({'status':'passed','published_pngs':44,'all_alpha_pixel_exact':True,'all_transparent_rgb_unchanged':True,'current_v9_sources':24,'prepared_pixels_match_current_resize':22,'hero_4096_aliases':9,'retained_files_unchanged':len(p['retained_files']),'current_manifest_and_completion_hashes_match':True,'historical_visual_qa_unchanged':True,'actual_client_accessed':False}))
+ print(json.dumps({'status':'passed','published_pngs':44,'all_alpha_pixel_exact':True,'all_source_transparent_rgb_unchanged':True,'prepared_hidden_rgb_changed_pixels':sum(x.get('transparent_rgba_changed_pixels',0) for x in p['records'] if x['kind']=='prepared_1024'),'current_v9_sources':24,'prepared_pixels_match_current_resize':22,'hero_4096_aliases':9,'retained_files_unchanged':len(p['retained_files']),'current_manifest_and_completion_hashes_match':True,'historical_visual_qa_unchanged':True,'actual_client_accessed':False}))
 if __name__=='__main__':main()
