@@ -1,0 +1,3202 @@
+{
+  "schema": "qdao.festival.v9-pets-style-review.v1",
+  "reviewed_utc": "2026-09-12T08:22:02.750579+00:00",
+  "reviewer": "audit_v11_festival_style",
+  "status": "review_complete_with_localized_static_edge_repairs_required",
+  "scope": "Current v9 24 static portraits,22 prepared1024 derivatives, four canonical transparent pets and their current formal copies/crops/rebuild-support copies. No v11 edits.",
+  "summary": {
+    "v9_authoritative_static": 24,
+    "v9_prepared_copies": 22,
+    "canonical_pets": 4,
+    "pet_formal_copies_and_crops": 16,
+    "current_pet_rebuild_support": 8,
+    "total_current_files_reviewed": 74,
+    "formal_media": 66,
+    "formal_media_needs_edit": 36,
+    "formal_media_retained": 30,
+    "rebuild_support_retained": 8,
+    "source_static_needs_edge_edit": 19,
+    "prepared_static_needs_reexport": 17,
+    "historical_files_excluded": 24,
+    "hash_or_copy_errors": 0,
+    "images_modified": 0
+  },
+  "method": {
+    "visual": "Directly displayed all23 unique v9 portrait pictures plus the byte-identical second canonical-hero path; also the existing22-person overview, all4 full pets and4 current pet portrait crops. Additional in-memory native hair crops for05/07 on neutral dark background protect intended purple design.",
+    "mechanical": "Verified current v9 and pet manifest hashes;22 prepared outputs checked against current source LANCZOS resize by pixel comparison;8 full-pet copies and12 corresponding portrait copies checked for byte equality. RGBA alpha hashes recorded per current file.",
+    "limits": "Read-only review and two review-file writes only. No images generated, transformed on disk, repaired, published or integrated into a client. Color counters support localized review and are not blanket masks. Exposure is visually assessed, not a claim of new tonal processing."
+  },
+  "style_policy": "整体道家Q版；春节/元宵/中秋只按适用素材少量点缀。全部角色设计保留。直发可束髻或编辫。身份、肤色、体态、职业色系和现有曝光保持。",
+  "color_exceptions": {
+    "05": "银紫直发、紫袖、琴体与流苏属于确认的设计；局部髪色检查支持保留，不按强品红总数全图清除。",
+    "07": "靛紫短发、紫色刃饰是角色本色；保留现有月影配色，不把非零色阈值计数当成必须全图去紫。",
+    "14": "紫眼、紫兔眼、手套与细饰位于此前保护区域，当前白发/毛边干净；保留现有已局部清理结果。",
+    "ling_yue": "白毛内部淡紫蓝阴影属于狐毛设定，应保护；尾尖与狐吻完整。"
+  },
+  "characters": [
+    {
+      "id": "00",
+      "name": "金发带Q道童",
+      "path": "q_daoist_character_pack_4096/00_reference_topright_boy_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "金色发带、短直棕发、大头圆脸、玉绿米白服装、太极葫芦与红穗，主体身份清楚。",
+      "festival_and_retention_reason": "既定道童与红穗已满足道家及春节点缀；保留暖金、米白层次，不追加装饰。",
+      "edge_action": "既定道童与红穗已满足道家及春节点缀；保留暖金、米白层次，不追加装饰。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 8075,
+        "strong_magenta_alpha_ge_128": 3890,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "01",
+      "name": "霜刃女冠",
+      "path": "q_daoist_character_pack_4096/01_ice_sword_girl_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "黑色齐下巴直发、窄脸冰蓝眼、蓝白袍、雪花簪与冰剑，冷系女冠身份独立。",
+      "festival_and_retention_reason": "玉珠细穗和浅金小扣已足够；保留冰雪职业，不为节庆强加红袍或灯笼。",
+      "edge_action": "玉珠细穗和浅金小扣已足够；保留冰雪职业，不为节庆强加红袍或灯笼。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 12131,
+        "strong_magenta_alpha_ge_128": 8710,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "02",
+      "name": "赤符小顽童",
+      "path": "q_daoist_character_pack_4096/02_fire_talisman_boy_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "红棕直发双束髻、雀斑缺牙笑、大头短肢、朱红短衣，手执符纸和铃。",
+      "festival_and_retention_reason": "红结与铃穗自然喜庆，春节气息充足；不用追加金饰盖住符箓。",
+      "edge_action": "红结与铃穗自然喜庆，春节气息充足；不用追加金饰盖住符箓。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 10261,
+        "strong_magenta_alpha_ge_128": 5694,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "03",
+      "name": "莲灯医姑",
+      "path": "q_daoist_character_pack_4096/03_lotus_healer_girl_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "黑白直发低髻、丰润中年笑脸、藕粉米白宽袍，莲灯与药瓶清楚。",
+      "festival_and_retention_reason": "莲灯、花扣和小穗已有温柔元宵气息，保留粉玉米白与药姑身份。",
+      "edge_action": "莲灯、花扣和小穗已有温柔元宵气息，保留粉玉米白与药姑身份。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 6536,
+        "strong_magenta_alpha_ge_128": 3904,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "04",
+      "name": "镇岳护法",
+      "path": "q_daoist_character_pack_4096/04_mountain_guardian_boy_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "黑直发高髻、方脸短须、宽肩厚身、暖金玉绿护甲、太极扣、山杖圆盾。",
+      "festival_and_retention_reason": "玉珠与短穗在甲胄间点缀，职业暖金已充分，不额外增加红金挂件。",
+      "edge_action": "玉珠与短穗在甲胄间点缀，职业暖金已充分，不额外增加红金挂件。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 4092,
+        "strong_magenta_alpha_ge_128": 2286,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "05",
+      "name": "紫微琴师",
+      "path": "q_daoist_character_pack_4096/05_celestial_musician_girl_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "retained",
+      "observation": "银紫直发粗辫、窄脸长眼、紫灰米白大袖、长弦琴和紫色玉穗，成年琴师形象。",
+      "festival_and_retention_reason": "保留本来的紫色头发、眼睛、衣袖和琴穗，清雅节庆装饰以现有流苏表达，不强加红色。",
+      "edge_action": "保留本来的紫色头发、眼睛、衣袖和琴穗，清雅节庆装饰以现有流苏表达，不强加红色。 色阈值命中包含本来紫色头发/眼睛/衣服或饰物；目视结合局部检查后保留，不因计数非零做全局去紫。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 37625,
+        "strong_magenta_alpha_ge_128": 29737,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": true
+      }
+    },
+    {
+      "id": "06",
+      "name": "白眉雷师",
+      "path": "q_daoist_character_pack_4096/06_thunder_caster_boy_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "白直发与直须、白眉圆鼻、高黑雷冠、靛蓝金边袍，雷令和符册。",
+      "festival_and_retention_reason": "腰间一枚红结穗已足够呼应春节；白须细节和靛袍层次清楚，保持年长雷师。",
+      "edge_action": "腰间一枚红结穗已足够呼应春节；白须细节和靛袍层次清楚，保持年长雷师。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 4092,
+        "strong_magenta_alpha_ge_128": 1860,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "07",
+      "name": "玄月夜行女",
+      "path": "q_daoist_character_pack_4096/07_moon_shadow_assassin_girl_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "retained",
+      "observation": "深靛紫短直发、棱角脸、黑蓝短装、双弯月刃，低重心敏捷身形。",
+      "festival_and_retention_reason": "月牙发饰、双月刃与玉珠短穗已有月意，保留原本靛紫头发和紫色器物细节，不全图去紫。",
+      "edge_action": "月牙发饰、双月刃与玉珠短穗已有月意，保留原本靛紫头发和紫色器物细节，不全图去紫。 色阈值命中包含本来紫色头发/眼睛/衣服或饰物；目视结合局部检查后保留，不因计数非零做全局去紫。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 12747,
+        "strong_magenta_alpha_ge_128": 7185,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": true
+      }
+    },
+    {
+      "id": "08",
+      "name": "圆肚丹师",
+      "path": "q_daoist_character_pack_4096/08_alchemy_prodigy_boy_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "高发际小直髻、眼镜小须、圆腹橘米袍，抱太极丹炉并背木药柜。",
+      "festival_and_retention_reason": "玉环、橙穗和柔和暖金已温暖喜庆；圆腹和丹炉是身份重点，不堆叠灯笼。",
+      "edge_action": "玉环、橙穗和柔和暖金已温暖喜庆；圆腹和丹炉是身份重点，不堆叠灯笼。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 8025,
+        "strong_magenta_alpha_ge_128": 4535,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "09",
+      "name": "竹间弓手",
+      "path": "q_daoist_character_pack_4096/09_bamboo_archer_girl_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "深绿直发长辫、竹笠、晒肤雀斑、竹弓箭筒、草绿短衣。",
+      "festival_and_retention_reason": "竹木、玉环和绿色细穗形成清雅野外角色；不要求每个职业都有红灯笼。",
+      "edge_action": "竹木、玉环和绿色细穗形成清雅野外角色；不要求每个职业都有红灯笼。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 21323,
+        "strong_magenta_alpha_ge_128": 11107,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "10",
+      "name": "赤缨枪将",
+      "path": "q_daoist_character_pack_4096/10_crimson_spear_girl_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "retained",
+      "observation": "紧直黑高马尾、浓眉方圆脸、红黑短甲、完整红缨长枪。",
+      "festival_and_retention_reason": "发绳与枪缨已经自然承接春节红色，保留现有深红比例，不再加饰。",
+      "edge_action": "发绳与枪缨已经自然承接春节红色，保留现有深红比例，不再加饰。 实看未见需要修正的连续异色透明边。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 0,
+        "strong_magenta_alpha_ge_128": 0,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "11",
+      "name": "玉拳少年",
+      "path": "q_daoist_character_pack_4096/11_jade_fist_flat_top_boy_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "短直寸头剃线、圆脸眯眼笑、矮壮体态、青白短衣、大玉护拳。",
+      "festival_and_retention_reason": "腰间红结和太极符穗清楚，玉绿米白与一点红已恰当。",
+      "edge_action": "腰间红结和太极符穗清楚，玉绿米白与一点红已恰当。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 12826,
+        "strong_magenta_alpha_ge_128": 8687,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "12",
+      "name": "铁刃老客",
+      "path": "q_daoist_character_pack_4096/12_iron_saber_flat_top_boy_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "黑头巾与灰直发、瘦长老脸短直须、蓝灰补丁袍、草鞋与肩扛铁刀。",
+      "festival_and_retention_reason": "旧布、红棕腰绳和刀柄短穗保持游历身份，避免改成全新红金节礼服。",
+      "edge_action": "旧布、红棕腰绳和刀柄短穗保持游历身份，避免改成全新红金节礼服。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 17724,
+        "strong_magenta_alpha_ge_128": 11363,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "13",
+      "name": "风行短发女",
+      "path": "q_daoist_character_pack_4096/13_short_hair_wind_blade_girl_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "栗红层次短直发、虎牙笑、玉绿三角短斗篷、米白灯笼裤与风刃。",
+      "festival_and_retention_reason": "玉珠和绿色短穗已有装饰节奏，保持风刃职业的清灵色彩。",
+      "edge_action": "玉珠和绿色短穗已有装饰节奏，保持风刃职业的清灵色彩。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 15699,
+        "strong_magenta_alpha_ge_128": 9831,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "14",
+      "name": "雪团小女冠",
+      "path": "q_daoist_character_pack_4096/14_short_hair_snow_summoner_girl_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "retained",
+      "observation": "银白直发低双束髻、紫色困倦眼、白绒圆斗篷、紫手套与怀中白兔。",
+      "festival_and_retention_reason": "玉兔、玉扣和蓝穗已足够作中秋联想；紫眼、紫服和兔眼属于正文设计，不能按色阈值删除。",
+      "edge_action": "玉兔、玉扣和蓝穗已足够作中秋联想；紫眼、紫服和兔眼属于正文设计，不能按色阈值删除。 色阈值命中包含本来紫色头发/眼睛/衣服或饰物；目视结合局部检查后保留，不因计数非零做全局去紫。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 3606,
+        "strong_magenta_alpha_ge_128": 1727,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": true
+      }
+    },
+    {
+      "id": "15",
+      "name": "沧浪水士",
+      "path": "q_daoist_character_pack_4096/15_water_dragon_scholar_boy_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "中分直黑长发、小玉冠、长脸柳叶眼、青蓝米白袍与水纹扇。",
+      "festival_and_retention_reason": "圆玉环和蓝穗、云水纹表达清雅团圆装饰；不加花灯遮扇或改水士色系。",
+      "edge_action": "圆玉环和蓝穗、云水纹表达清雅团圆装饰；不加花灯遮扇或改水士色系。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 12534,
+        "strong_magenta_alpha_ge_128": 7657,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "16",
+      "name": "金铃舞姬",
+      "path": "q_daoist_character_pack_4096/16_golden_bell_dancer_girl_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "蜜肤弯眼笑、黑直发双粗辫、暖金灯笼裤、双铃与玉珠。",
+      "festival_and_retention_reason": "金铃舞与短穗已经有春节元宵庆典感，服装明暗仍可辨，保留现有程度。",
+      "edge_action": "金铃舞与短穗已经有春节元宵庆典感，服装明暗仍可辨，保留现有程度。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 21834,
+        "strong_magenta_alpha_ge_128": 13673,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "17",
+      "name": "墨篆先生",
+      "path": "q_daoist_character_pack_4096/17_ghost_script_calligrapher_boy_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "直白发长直须、高黑冠与圆墨镜、瘦窄老书生、墨袍笔卷。",
+      "festival_and_retention_reason": "太极玉坠与绿色细穗已作克制点缀，保持书画墨色和老者个性。",
+      "edge_action": "太极玉坠与绿色细穗已作克制点缀，保持书画墨色和老者个性。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 6970,
+        "strong_magenta_alpha_ge_128": 3324,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "18",
+      "name": "沙海道姑",
+      "path": "q_daoist_character_pack_4096/18_desert_sun_monk_girl_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "retained",
+      "observation": "深棕肤、黑直发盘辫、沙色头巾、赭石蓝袍、日轮杖。",
+      "festival_and_retention_reason": "腰间玉扣金穗足够，保留日轮与沙海身份，不把日轮强改月轮或同款玉绿衣。",
+      "edge_action": "腰间玉扣金穗足够，保留日轮与沙海身份，不把日轮强改月轮或同款玉绿衣。 实看未见需要修正的连续异色透明边。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 0,
+        "strong_magenta_alpha_ge_128": 0,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "19",
+      "name": "山野御灵童",
+      "path": "q_daoist_character_pack_4096/19_spirit_beast_tamer_boy_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "短直黑发与叶饰、棕肤机灵脸、草编短披肩、竹笛、小兽铃牌。",
+      "festival_and_retention_reason": "小铃和玉珠、植物叶饰与暖棕编绳已有自然迎春感，不增加遮挡动物牌的挂件。",
+      "edge_action": "小铃和玉珠、植物叶饰与暖棕编绳已有自然迎春感，不增加遮挡动物牌的挂件。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 10425,
+        "strong_magenta_alpha_ge_128": 5956,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "20",
+      "name": "星盘女掌门",
+      "path": "q_daoist_character_pack_4096/20_star_formation_master_girl_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "黑直发盘髻、沉静窄眼、午夜蓝宽袍、银月簪、罗盘和三面星旗。",
+      "festival_and_retention_reason": "月牙、星纹和细穗已充分呼应中秋；保留术士深色主体，不加额外发光月盘。",
+      "edge_action": "月牙、星纹和细穗已充分呼应中秋；保留术士深色主体，不加额外发光月盘。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 10397,
+        "strong_magenta_alpha_ge_128": 5937,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "21",
+      "name": "胖灶道长",
+      "path": "q_daoist_character_pack_4096/21_lidazui_hair_cook_boy_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "黑直短发厨巾、宽圆中年笑脸与八字胡、大头短身圆腹、铁锅锅铲、红围裙。",
+      "festival_and_retention_reason": "红围裙、腰间玉葫芦和小穗已有年节炊事气氛，维持朴实暖色和职业器物。",
+      "edge_action": "红围裙、腰间玉葫芦和小穗已有年节炊事气氛，维持朴实暖色和职业器物。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 13780,
+        "strong_magenta_alpha_ge_128": 8313,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "22",
+      "name": "茶肆小刀客",
+      "path": "q_daoist_character_pack_4096/22_lidazui_hair_waiter_saber_boy_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "齐整直黑锅盖发、窄下巴挑眉、茶褐短褂、灰绿围腰，茶盘一壶两杯与短刀。",
+      "festival_and_retention_reason": "腰间玉牌、刀穗与茶肆暖木色已经温和合适，保留服务生兼刀客身份。",
+      "edge_action": "腰间玉牌、刀穗与茶肆暖木色已经温和合适，保留服务生兼刀客身份。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 11197,
+        "strong_magenta_alpha_ge_128": 6906,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "id": "00",
+      "name": "金发带Q道童",
+      "path": "q_daoist_character_pack_4096/q_daoist_topright_character_full_uncropped_transparent_4096.png",
+      "design_status": "retain_design",
+      "image_status": "needs_edit",
+      "observation": "金色发带、短直棕发、大头圆脸、玉绿米白服装、太极葫芦与红穗，主体身份清楚。",
+      "festival_and_retention_reason": "既定道童与红穗已满足道家及春节点缀；保留暖金、米白层次，不追加装饰。",
+      "edge_action": "既定道童与红穗已满足道家及春节点缀；保留暖金、米白层次，不追加装饰。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "native_pixel_diagnostic": {
+        "strong_magenta_alpha_ge_32": 8075,
+        "strong_magenta_alpha_ge_128": 3890,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    }
+  ],
+  "pets": [
+    {
+      "id": "ling_yue",
+      "name": "灵玥",
+      "design_status": "retain_design",
+      "image_status": "retained",
+      "observation": "九个展开的长尾尖、白色淡紫蓝毛、细狐吻、金眼和金玉项圈清楚，尾毛细节与阴影仍可辨。",
+      "reason": "金玉小坠和月白配色已适合清雅仙宠；保留原来的淡紫蓝毛影，不按品红阈值清除。独立/游戏内宠物可用，但登录前界面仍禁九尾狐。",
+      "files": [
+        "qdao_ui_redesign_v5/pet/ling_yue_nine_tailed_fox-transparent_1254.png",
+        "designs/attribute-panels/assets/lingyue.png",
+        "client_ui_refresh_20260908/prepared/UI/Ugui/RefreshV8/companion_fox.png",
+        "designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+        "designs/attribute-panels/v10-preview/assets/portrait_lingyue.png",
+        "qdao_ui_style_recut_v10/contracts/reviewed-portraits/portrait_lingyue.png",
+        "qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png"
+      ],
+      "evidence": [
+        {
+          "path": "qdao_ui_redesign_v5/pet/ling_yue_nine_tailed_fox-transparent_1254.png",
+          "sha256": "eb55d459871737d1c49ff49097d1c7612cf60a35095c60bfca0198e425c04b11",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+          "sha256": "f0506e1ea727f492ab9b316ada94794d96fa7a78031861a7c2639868778172ae",
+          "kind": "visually_reviewed"
+        }
+      ]
+    },
+    {
+      "id": "hu_tuan_tuan",
+      "name": "葫团团",
+      "design_status": "retain_design",
+      "image_status": "retained",
+      "observation": "圆头大眼白狐、金发带、玉绿领巾与尾尖、抱太极金葫芦，白毛不泛白成片。",
+      "reason": "葫芦与红穗已充分连接道家及春节，不添额外节庆头饰。",
+      "files": [
+        "qdao_chibi_pets_v1/01_hu_tuan_tuan-transparent_1254.png",
+        "designs/attribute-panels/assets/hutuantuan.png",
+        "client_ui_refresh_20260908/prepared/UI/Ugui/RefreshV8/companion_hu_tuan_tuan.png",
+        "designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+        "designs/attribute-panels/v10-preview/assets/portrait_hutuantuan.png",
+        "qdao_ui_style_recut_v10/contracts/reviewed-portraits/portrait_hutuantuan.png",
+        "qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png"
+      ],
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/01_hu_tuan_tuan-transparent_1254.png",
+          "sha256": "8c309927e2a38ba0dabdb7ba24f4e383059335a2d7e5cc6ecb57b61ceaa9ef99",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+          "sha256": "dd62e68f9ebce2bf9c53c2008a1322dfcb016f7fd82e41bff7be323646323c81",
+          "kind": "visually_reviewed"
+        }
+      ]
+    },
+    {
+      "id": "fu_xiao_hu",
+      "name": "符小虎",
+      "design_status": "retain_design",
+      "image_status": "retained",
+      "observation": "圆头杏金虎崽、条纹、额符、玉绿披领、太极铃和举爪姿势明确。",
+      "reason": "符箓和小暖金铃已有温暖吉祥感，保持虎纹和原有护符，不换成月兔符号。",
+      "files": [
+        "qdao_chibi_pets_v1/02_fu_xiao_hu-transparent_1254.png",
+        "designs/attribute-panels/assets/fuxiaohu.png",
+        "client_ui_refresh_20260908/prepared/UI/Ugui/RefreshV8/companion_fu_xiao_hu.png",
+        "designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+        "designs/attribute-panels/v10-preview/assets/portrait_fuxiaohu.png",
+        "qdao_ui_style_recut_v10/contracts/reviewed-portraits/portrait_fuxiaohu.png",
+        "qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png"
+      ],
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/02_fu_xiao_hu-transparent_1254.png",
+          "sha256": "3a1bf4308670d5287ca713361e28c52377a79da9b41d636bd178747a3a2b84b0",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+          "sha256": "e20c92128ec0ab1156c61ed0344fa386f1ab0a9f714eb2612585d03caeb6b9df",
+          "kind": "visually_reviewed"
+        }
+      ]
+    },
+    {
+      "id": "yun_jiu_jiu",
+      "name": "云啾啾",
+      "design_status": "retain_design",
+      "image_status": "retained",
+      "observation": "圆眼仙鹤、白羽红冠、玉绿翼尖、太极铃与云垫，羽片和云纹层次可见。",
+      "reason": "红冠是本体特征，云垫和金玉饰物已经适量；不为节庆给鸟羽或云团涂红。",
+      "files": [
+        "qdao_chibi_pets_v1/03_yun_jiu_jiu-transparent_1254.png",
+        "designs/attribute-panels/assets/yunjiujiu.png",
+        "client_ui_refresh_20260908/prepared/UI/Ugui/RefreshV8/companion_yun_jiu_jiu.png",
+        "designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+        "designs/attribute-panels/v10-preview/assets/portrait_yunjiujiu.png",
+        "qdao_ui_style_recut_v10/contracts/reviewed-portraits/portrait_yunjiujiu.png",
+        "qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png"
+      ],
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/03_yun_jiu_jiu-transparent_1254.png",
+          "sha256": "7bb35de3e74535801f640f4489d41639ba84c65d680e82a0cd4397f832fa003f",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+          "sha256": "5fa824d73f866a24475dd28cc849261fcdcdf0cc966784e1fbd9824fc2028d86",
+          "kind": "visually_reviewed"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "q_daoist_character_pack_4096/00_reference_topright_boy_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/00_reference_topright_boy_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "既定道童与红穗已满足道家及春节点缀；保留暖金、米白层次，不追加装饰。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "1c513e4d050358cdae5079ccb110ac3ec37cc086d48308d58affbab26c27ce16",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "76d7f1172da329259272ca9c6789588347d04c3bf2978b93669c3987564c2b3a",
+      "expected_manifest_sha256": "1c513e4d050358cdae5079ccb110ac3ec37cc086d48308d58affbab26c27ce16",
+      "manifest_hash_match": true,
+      "character_id": "00",
+      "name": "金发带Q道童",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/00_reference_topright_boy_transparent_4096.png",
+          "sha256": "1c513e4d050358cdae5079ccb110ac3ec37cc086d48308d58affbab26c27ce16",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 8075,
+        "strong_magenta_alpha_ge_128": 3890,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/01_ice_sword_girl_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/01_ice_sword_girl_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "玉珠细穗和浅金小扣已足够；保留冰雪职业，不为节庆强加红袍或灯笼。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "b1e91ea1827da53f3e1f7128634c4dfb1ad663eaadeaa5241e87b960f12bd35f",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "d39ab3550a9c9f039fe2712100a984da1292a648e47fd7fd9e63688295f2a257",
+      "expected_manifest_sha256": "b1e91ea1827da53f3e1f7128634c4dfb1ad663eaadeaa5241e87b960f12bd35f",
+      "manifest_hash_match": true,
+      "character_id": "01",
+      "name": "霜刃女冠",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/01_ice_sword_girl_transparent_4096.png",
+          "sha256": "b1e91ea1827da53f3e1f7128634c4dfb1ad663eaadeaa5241e87b960f12bd35f",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 12131,
+        "strong_magenta_alpha_ge_128": 8710,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/02_fire_talisman_boy_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/02_fire_talisman_boy_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "红结与铃穗自然喜庆，春节气息充足；不用追加金饰盖住符箓。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "026a8cae213f2d091f1a7d346f0f21d4c4fd43621d43d2f9cbc8230ab8f1be82",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "334c792946f57c9975daaf343e1798ddb2ab7d074b232a4eb2dc19c4052832e4",
+      "expected_manifest_sha256": "026a8cae213f2d091f1a7d346f0f21d4c4fd43621d43d2f9cbc8230ab8f1be82",
+      "manifest_hash_match": true,
+      "character_id": "02",
+      "name": "赤符小顽童",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/02_fire_talisman_boy_transparent_4096.png",
+          "sha256": "026a8cae213f2d091f1a7d346f0f21d4c4fd43621d43d2f9cbc8230ab8f1be82",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 10261,
+        "strong_magenta_alpha_ge_128": 5694,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/03_lotus_healer_girl_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/03_lotus_healer_girl_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "莲灯、花扣和小穗已有温柔元宵气息，保留粉玉米白与药姑身份。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "150285134e3a692c08715cd61c532f0371a7ae8676d8de8d2b16af7443848632",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "913f726743a9910056b8625375ec6413e90cf83487a3bd63e3d3e0034f5acd01",
+      "expected_manifest_sha256": "150285134e3a692c08715cd61c532f0371a7ae8676d8de8d2b16af7443848632",
+      "manifest_hash_match": true,
+      "character_id": "03",
+      "name": "莲灯医姑",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/03_lotus_healer_girl_transparent_4096.png",
+          "sha256": "150285134e3a692c08715cd61c532f0371a7ae8676d8de8d2b16af7443848632",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 6536,
+        "strong_magenta_alpha_ge_128": 3904,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/04_mountain_guardian_boy_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/04_mountain_guardian_boy_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "玉珠与短穗在甲胄间点缀，职业暖金已充分，不额外增加红金挂件。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "b3d1cff0879971867e91595b25cbea82209d8e70b2914b235bf0718fa536ec1b",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "56384aac9715ee93b84f37aef448da50fe5ac41a28683e45d6baecd640077996",
+      "expected_manifest_sha256": "b3d1cff0879971867e91595b25cbea82209d8e70b2914b235bf0718fa536ec1b",
+      "manifest_hash_match": true,
+      "character_id": "04",
+      "name": "镇岳护法",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/04_mountain_guardian_boy_transparent_4096.png",
+          "sha256": "b3d1cff0879971867e91595b25cbea82209d8e70b2914b235bf0718fa536ec1b",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 4092,
+        "strong_magenta_alpha_ge_128": 2286,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/05_celestial_musician_girl_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/05_celestial_musician_girl_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "retained",
+      "reason": "保留本来的紫色头发、眼睛、衣袖和琴穗，清雅节庆装饰以现有流苏表达，不强加红色。 色阈值命中包含本来紫色头发/眼睛/衣服或饰物；目视结合局部检查后保留，不因计数非零做全局去紫。",
+      "sha256": "a5e690326d5903ed40da1d89c3ec8a3f42239739ad9c4a2e6ba17647921fb5b3",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "bb3baca25a5377e604752174582e1a35bb3a13412af6cf6a56910cc0baf599b5",
+      "expected_manifest_sha256": "a5e690326d5903ed40da1d89c3ec8a3f42239739ad9c4a2e6ba17647921fb5b3",
+      "manifest_hash_match": true,
+      "character_id": "05",
+      "name": "紫微琴师",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/05_celestial_musician_girl_transparent_4096.png",
+          "sha256": "a5e690326d5903ed40da1d89c3ec8a3f42239739ad9c4a2e6ba17647921fb5b3",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 37625,
+        "strong_magenta_alpha_ge_128": 29737,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": true
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/06_thunder_caster_boy_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/06_thunder_caster_boy_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "腰间一枚红结穗已足够呼应春节；白须细节和靛袍层次清楚，保持年长雷师。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "159de9b086fc63df6f24c8b4f3ebb85ccd82993856840426c96bccb73f9074b9",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "c48a6ae297eaf46da320db8600fc6633eaf215bf4eb56f9b2209785d24dacf8c",
+      "expected_manifest_sha256": "159de9b086fc63df6f24c8b4f3ebb85ccd82993856840426c96bccb73f9074b9",
+      "manifest_hash_match": true,
+      "character_id": "06",
+      "name": "白眉雷师",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/06_thunder_caster_boy_transparent_4096.png",
+          "sha256": "159de9b086fc63df6f24c8b4f3ebb85ccd82993856840426c96bccb73f9074b9",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 4092,
+        "strong_magenta_alpha_ge_128": 1860,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/07_moon_shadow_assassin_girl_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/07_moon_shadow_assassin_girl_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "retained",
+      "reason": "月牙发饰、双月刃与玉珠短穗已有月意，保留原本靛紫头发和紫色器物细节，不全图去紫。 色阈值命中包含本来紫色头发/眼睛/衣服或饰物；目视结合局部检查后保留，不因计数非零做全局去紫。",
+      "sha256": "afc0b72931ef119f60e4c75fe4f4501c6ca1d3823ad9155ec39d35cd3eb9646c",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "728514fa0fc96bd576a3907b1320d322988742fd812392f57aee6b06543d5e9c",
+      "expected_manifest_sha256": "afc0b72931ef119f60e4c75fe4f4501c6ca1d3823ad9155ec39d35cd3eb9646c",
+      "manifest_hash_match": true,
+      "character_id": "07",
+      "name": "玄月夜行女",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/07_moon_shadow_assassin_girl_transparent_4096.png",
+          "sha256": "afc0b72931ef119f60e4c75fe4f4501c6ca1d3823ad9155ec39d35cd3eb9646c",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 12747,
+        "strong_magenta_alpha_ge_128": 7185,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": true
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/08_alchemy_prodigy_boy_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/08_alchemy_prodigy_boy_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "玉环、橙穗和柔和暖金已温暖喜庆；圆腹和丹炉是身份重点，不堆叠灯笼。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "2eab336db800b8ea343efca3af909bb06c45617cec48418bff03f0bc98c3ea63",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "59c3893cc1ec0ed1fa88c38e3b2e2ab19f06157fb5da1dee2f63909fc0ac0071",
+      "expected_manifest_sha256": "2eab336db800b8ea343efca3af909bb06c45617cec48418bff03f0bc98c3ea63",
+      "manifest_hash_match": true,
+      "character_id": "08",
+      "name": "圆肚丹师",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/08_alchemy_prodigy_boy_transparent_4096.png",
+          "sha256": "2eab336db800b8ea343efca3af909bb06c45617cec48418bff03f0bc98c3ea63",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 8025,
+        "strong_magenta_alpha_ge_128": 4535,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/09_bamboo_archer_girl_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/09_bamboo_archer_girl_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "竹木、玉环和绿色细穗形成清雅野外角色；不要求每个职业都有红灯笼。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "658fef330fb0c0c540347748c0a51c330abe04e62a941d6b0d94a734128d79c7",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "384707702a55b620917358bd80a5c42ede9e8ed773078e35b143d51e11af43e2",
+      "expected_manifest_sha256": "658fef330fb0c0c540347748c0a51c330abe04e62a941d6b0d94a734128d79c7",
+      "manifest_hash_match": true,
+      "character_id": "09",
+      "name": "竹间弓手",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/09_bamboo_archer_girl_transparent_4096.png",
+          "sha256": "658fef330fb0c0c540347748c0a51c330abe04e62a941d6b0d94a734128d79c7",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 21323,
+        "strong_magenta_alpha_ge_128": 11107,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/10_crimson_spear_girl_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/10_crimson_spear_girl_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "retained",
+      "reason": "发绳与枪缨已经自然承接春节红色，保留现有深红比例，不再加饰。 实看未见需要修正的连续异色透明边。",
+      "sha256": "6ed2d57de7118980cd62d2a4038c7912bc879a9cc71dea47573fd13529979cb5",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "6983c92a6f5de69bed464918ce70357038a06ac1492ff01e160251bf17be604e",
+      "expected_manifest_sha256": "6ed2d57de7118980cd62d2a4038c7912bc879a9cc71dea47573fd13529979cb5",
+      "manifest_hash_match": true,
+      "character_id": "10",
+      "name": "赤缨枪将",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/10_crimson_spear_girl_transparent_4096.png",
+          "sha256": "6ed2d57de7118980cd62d2a4038c7912bc879a9cc71dea47573fd13529979cb5",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 0,
+        "strong_magenta_alpha_ge_128": 0,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/11_jade_fist_flat_top_boy_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/11_jade_fist_flat_top_boy_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "腰间红结和太极符穗清楚，玉绿米白与一点红已恰当。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "2c8c62fa349994e6b7938838598bee8d3e51aa5637826beb7155350ec7bb32d3",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "7cabe042950c4773c76e15d4d4a8b465345af35fdeaaf8d115cf8d271174b8b4",
+      "expected_manifest_sha256": "2c8c62fa349994e6b7938838598bee8d3e51aa5637826beb7155350ec7bb32d3",
+      "manifest_hash_match": true,
+      "character_id": "11",
+      "name": "玉拳少年",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/11_jade_fist_flat_top_boy_transparent_4096.png",
+          "sha256": "2c8c62fa349994e6b7938838598bee8d3e51aa5637826beb7155350ec7bb32d3",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 12826,
+        "strong_magenta_alpha_ge_128": 8687,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/12_iron_saber_flat_top_boy_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/12_iron_saber_flat_top_boy_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "旧布、红棕腰绳和刀柄短穗保持游历身份，避免改成全新红金节礼服。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "71d840e016b421ad032a870c24ddf46b9e1bc5279a0811a0d7c675c9641ec237",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "7c24266f4d8b0ffa704b5c900cadd1e8e41df66e7282da3d7076773170f7b966",
+      "expected_manifest_sha256": "71d840e016b421ad032a870c24ddf46b9e1bc5279a0811a0d7c675c9641ec237",
+      "manifest_hash_match": true,
+      "character_id": "12",
+      "name": "铁刃老客",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/12_iron_saber_flat_top_boy_transparent_4096.png",
+          "sha256": "71d840e016b421ad032a870c24ddf46b9e1bc5279a0811a0d7c675c9641ec237",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 17724,
+        "strong_magenta_alpha_ge_128": 11363,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/13_short_hair_wind_blade_girl_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/13_short_hair_wind_blade_girl_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "玉珠和绿色短穗已有装饰节奏，保持风刃职业的清灵色彩。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "a0f7a83e53297fd2007148e7aa918f642c9fcc4523f2a77a76a5c66bab5f487f",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "f589e6ad9aeff2deb6959eb420bed076e5a9da0ff36b123c0b61384f813e4e1b",
+      "expected_manifest_sha256": "a0f7a83e53297fd2007148e7aa918f642c9fcc4523f2a77a76a5c66bab5f487f",
+      "manifest_hash_match": true,
+      "character_id": "13",
+      "name": "风行短发女",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/13_short_hair_wind_blade_girl_transparent_4096.png",
+          "sha256": "a0f7a83e53297fd2007148e7aa918f642c9fcc4523f2a77a76a5c66bab5f487f",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 15699,
+        "strong_magenta_alpha_ge_128": 9831,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/14_short_hair_snow_summoner_girl_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/14_short_hair_snow_summoner_girl_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "retained",
+      "reason": "玉兔、玉扣和蓝穗已足够作中秋联想；紫眼、紫服和兔眼属于正文设计，不能按色阈值删除。 色阈值命中包含本来紫色头发/眼睛/衣服或饰物；目视结合局部检查后保留，不因计数非零做全局去紫。",
+      "sha256": "87b21c6165486c4b8d8603ce38976d9f36c2a9ef3894f9e349810e469d3fba0a",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "d4f3d0ad76c396910dc002a5f7864134f2c08426f4e7c774066c16f2e1faab69",
+      "expected_manifest_sha256": "87b21c6165486c4b8d8603ce38976d9f36c2a9ef3894f9e349810e469d3fba0a",
+      "manifest_hash_match": true,
+      "character_id": "14",
+      "name": "雪团小女冠",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/14_short_hair_snow_summoner_girl_transparent_4096.png",
+          "sha256": "87b21c6165486c4b8d8603ce38976d9f36c2a9ef3894f9e349810e469d3fba0a",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 3606,
+        "strong_magenta_alpha_ge_128": 1727,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": true
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/15_water_dragon_scholar_boy_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/15_water_dragon_scholar_boy_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "圆玉环和蓝穗、云水纹表达清雅团圆装饰；不加花灯遮扇或改水士色系。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "96797f775e1c0c2c1264f729cee80697d17a9c1933d39148d70b7c4aedb2478a",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "b8061a302c291d9fbed8b35992741f6dfafddcd12a17b1bc3c78e0b20b9b0eab",
+      "expected_manifest_sha256": "96797f775e1c0c2c1264f729cee80697d17a9c1933d39148d70b7c4aedb2478a",
+      "manifest_hash_match": true,
+      "character_id": "15",
+      "name": "沧浪水士",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/15_water_dragon_scholar_boy_transparent_4096.png",
+          "sha256": "96797f775e1c0c2c1264f729cee80697d17a9c1933d39148d70b7c4aedb2478a",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 12534,
+        "strong_magenta_alpha_ge_128": 7657,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/16_golden_bell_dancer_girl_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/16_golden_bell_dancer_girl_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "金铃舞与短穗已经有春节元宵庆典感，服装明暗仍可辨，保留现有程度。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "3eab1f5a4d47597b9f006b2d649dfedf8c27d2141d8c0caaf28698ae7e987797",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "fdf80767b30c6afd47bc15e2c2a6b76e7818d6ce78b08761a603760e37abc1e9",
+      "expected_manifest_sha256": "3eab1f5a4d47597b9f006b2d649dfedf8c27d2141d8c0caaf28698ae7e987797",
+      "manifest_hash_match": true,
+      "character_id": "16",
+      "name": "金铃舞姬",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/16_golden_bell_dancer_girl_transparent_4096.png",
+          "sha256": "3eab1f5a4d47597b9f006b2d649dfedf8c27d2141d8c0caaf28698ae7e987797",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 21834,
+        "strong_magenta_alpha_ge_128": 13673,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/17_ghost_script_calligrapher_boy_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/17_ghost_script_calligrapher_boy_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "太极玉坠与绿色细穗已作克制点缀，保持书画墨色和老者个性。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "f0757abbdbd85b0b7203c5b8b2a4493b7893be272941ab3520081757cbc55d48",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "cb3f4ac67ba6e98b8c8be373812d09a93873e7486bf523617edd6f9004655865",
+      "expected_manifest_sha256": "f0757abbdbd85b0b7203c5b8b2a4493b7893be272941ab3520081757cbc55d48",
+      "manifest_hash_match": true,
+      "character_id": "17",
+      "name": "墨篆先生",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/17_ghost_script_calligrapher_boy_transparent_4096.png",
+          "sha256": "f0757abbdbd85b0b7203c5b8b2a4493b7893be272941ab3520081757cbc55d48",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 6970,
+        "strong_magenta_alpha_ge_128": 3324,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/18_desert_sun_monk_girl_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/18_desert_sun_monk_girl_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "retained",
+      "reason": "腰间玉扣金穗足够，保留日轮与沙海身份，不把日轮强改月轮或同款玉绿衣。 实看未见需要修正的连续异色透明边。",
+      "sha256": "d3739bd75a2b3b5a24e8fd8a2ada2f3538d6d4a22f34106288d1a0206d979f1d",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "25da7f5ef74f6c550ef2b2a468f5082bfd5ad21287c9ca9f74ea261cf60c1a67",
+      "expected_manifest_sha256": "d3739bd75a2b3b5a24e8fd8a2ada2f3538d6d4a22f34106288d1a0206d979f1d",
+      "manifest_hash_match": true,
+      "character_id": "18",
+      "name": "沙海道姑",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/18_desert_sun_monk_girl_transparent_4096.png",
+          "sha256": "d3739bd75a2b3b5a24e8fd8a2ada2f3538d6d4a22f34106288d1a0206d979f1d",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 0,
+        "strong_magenta_alpha_ge_128": 0,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/19_spirit_beast_tamer_boy_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/19_spirit_beast_tamer_boy_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "小铃和玉珠、植物叶饰与暖棕编绳已有自然迎春感，不增加遮挡动物牌的挂件。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "57dcd2b9a82250d0ef7cbacdfbd7f666a698c21ea899ad25b9b6d23f1605d838",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "ea034cd257d48b9b43c71fbb259339b667ff3f827ea6497ec4c3831348aa5eeb",
+      "expected_manifest_sha256": "57dcd2b9a82250d0ef7cbacdfbd7f666a698c21ea899ad25b9b6d23f1605d838",
+      "manifest_hash_match": true,
+      "character_id": "19",
+      "name": "山野御灵童",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/19_spirit_beast_tamer_boy_transparent_4096.png",
+          "sha256": "57dcd2b9a82250d0ef7cbacdfbd7f666a698c21ea899ad25b9b6d23f1605d838",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 10425,
+        "strong_magenta_alpha_ge_128": 5956,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/20_star_formation_master_girl_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/20_star_formation_master_girl_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "月牙、星纹和细穗已充分呼应中秋；保留术士深色主体，不加额外发光月盘。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "9a9b911319513f9c9b73ed4f39ddebbbecbf6ce6a928b0cf72f21f11bfef37fa",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "424e96e7766585fbe405befe6e64612224b8b53f868da2dbe2b5a1fd11beb1ac",
+      "expected_manifest_sha256": "9a9b911319513f9c9b73ed4f39ddebbbecbf6ce6a928b0cf72f21f11bfef37fa",
+      "manifest_hash_match": true,
+      "character_id": "20",
+      "name": "星盘女掌门",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/20_star_formation_master_girl_transparent_4096.png",
+          "sha256": "9a9b911319513f9c9b73ed4f39ddebbbecbf6ce6a928b0cf72f21f11bfef37fa",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 10397,
+        "strong_magenta_alpha_ge_128": 5937,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/21_lidazui_hair_cook_boy_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/21_lidazui_hair_cook_boy_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "红围裙、腰间玉葫芦和小穗已有年节炊事气氛，维持朴实暖色和职业器物。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "c39675361594697758c7568dac5e48db494f7b2a13e479b05036491cdb08dccf",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "4bd64fbada2543cbf877dd1017ce4fc3c5dd9626ce62accdbd07b3853c5ed1b4",
+      "expected_manifest_sha256": "c39675361594697758c7568dac5e48db494f7b2a13e479b05036491cdb08dccf",
+      "manifest_hash_match": true,
+      "character_id": "21",
+      "name": "胖灶道长",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/21_lidazui_hair_cook_boy_transparent_4096.png",
+          "sha256": "c39675361594697758c7568dac5e48db494f7b2a13e479b05036491cdb08dccf",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 13780,
+        "strong_magenta_alpha_ge_128": 8313,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/22_lidazui_hair_waiter_saber_boy_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/22_lidazui_hair_waiter_saber_boy_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "腰间玉牌、刀穗与茶肆暖木色已经温和合适，保留服务生兼刀客身份。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "c64555f52d76e303262722d00aa2ffa40ee6875e262477e8211d9711353fba3b",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "7a5d79e10211f01265d03a3012d3648a1e46cff5dc9344e3206f04e9d32c567a",
+      "expected_manifest_sha256": "c64555f52d76e303262722d00aa2ffa40ee6875e262477e8211d9711353fba3b",
+      "manifest_hash_match": true,
+      "character_id": "22",
+      "name": "茶肆小刀客",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/22_lidazui_hair_waiter_saber_boy_transparent_4096.png",
+          "sha256": "c64555f52d76e303262722d00aa2ffa40ee6875e262477e8211d9711353fba3b",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 11197,
+        "strong_magenta_alpha_ge_128": 6906,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "q_daoist_character_pack_4096/q_daoist_topright_character_full_uncropped_transparent_4096.png",
+      "absolute_path": "E:/work/image/q_daoist_character_pack_4096/q_daoist_topright_character_full_uncropped_transparent_4096.png",
+      "kind": "v9_authoritative_static",
+      "status": "needs_edit",
+      "reason": "既定道童与红穗已满足道家及春节点缀；保留暖金、米白层次，不追加装饰。 另有明确异于主体配色的紫红外缘，须只修局部边缘RGB，保留alpha、服装纹理、曝光和既定造型。",
+      "sha256": "1c513e4d050358cdae5079ccb110ac3ec37cc086d48308d58affbab26c27ce16",
+      "size": [
+        4096,
+        4096
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "76d7f1172da329259272ca9c6789588347d04c3bf2978b93669c3987564c2b3a",
+      "expected_manifest_sha256": "1c513e4d050358cdae5079ccb110ac3ec37cc086d48308d58affbab26c27ce16",
+      "manifest_hash_match": true,
+      "character_id": "00",
+      "name": "金发带Q道童",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/q_daoist_topright_character_full_uncropped_transparent_4096.png",
+          "sha256": "1c513e4d050358cdae5079ccb110ac3ec37cc086d48308d58affbab26c27ce16",
+          "kind": "byte_identical_to_directly_viewed_canonical_hero"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "edge_diagnostic": {
+        "strong_magenta_alpha_ge_32": 8075,
+        "strong_magenta_alpha_ge_128": 3890,
+        "method": "Direct read of current RGBA pixels earlier in this same review: R>G+40 and B>G+40 and R/B>100. Counts are diagnostic only, not a universal automatic failure rule.",
+        "intentional_color_exception": false
+      }
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/01_ice_sword_girl_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/01_ice_sword_girl_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "needs_edit",
+      "reason": "当前4096权威人物的1024导入准备副本。权威源的透明边需修，完成后按原LANCZOS规则重导。",
+      "sha256": "eb08c8725a81afb04589ea6c285a9581f6f53ec2f7608c995b923e993bb43ebe",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "2d64c7d1313a57ea01ff1b5e6a71120677a72df462411743b1d8944a3a156a88",
+      "source": "q_daoist_character_pack_4096/01_ice_sword_girl_transparent_4096.png",
+      "character_id": "01",
+      "name": "霜刃女冠",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/01_ice_sword_girl_transparent_4096.png",
+          "sha256": "b1e91ea1827da53f3e1f7128634c4dfb1ad663eaadeaa5241e87b960f12bd35f",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "eb08c8725a81afb04589ea6c285a9581f6f53ec2f7608c995b923e993bb43ebe",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/02_fire_talisman_boy_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/02_fire_talisman_boy_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "needs_edit",
+      "reason": "当前4096权威人物的1024导入准备副本。权威源的透明边需修，完成后按原LANCZOS规则重导。",
+      "sha256": "e4acd732e65b65382f3c76d531d3eefa8983bbbdbd8384f44dd561ecd3283d9e",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "7b604a6922b1b5221aefc7ab2ca3cc6795f223cb457bdd4336d42675a7d2cc3c",
+      "source": "q_daoist_character_pack_4096/02_fire_talisman_boy_transparent_4096.png",
+      "character_id": "02",
+      "name": "赤符小顽童",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/02_fire_talisman_boy_transparent_4096.png",
+          "sha256": "026a8cae213f2d091f1a7d346f0f21d4c4fd43621d43d2f9cbc8230ab8f1be82",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "e4acd732e65b65382f3c76d531d3eefa8983bbbdbd8384f44dd561ecd3283d9e",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/03_lotus_healer_girl_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/03_lotus_healer_girl_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "needs_edit",
+      "reason": "当前4096权威人物的1024导入准备副本。权威源的透明边需修，完成后按原LANCZOS规则重导。",
+      "sha256": "5e2df0bde5d2f4cf88c7d0b69481e4be0d5f9fcb3c45f6b4ae54027c2c513ba6",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "740b911c75774fb71321a360cb3e6bafa52b8d3981b44ff21919bb103a07de4a",
+      "source": "q_daoist_character_pack_4096/03_lotus_healer_girl_transparent_4096.png",
+      "character_id": "03",
+      "name": "莲灯医姑",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/03_lotus_healer_girl_transparent_4096.png",
+          "sha256": "150285134e3a692c08715cd61c532f0371a7ae8676d8de8d2b16af7443848632",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "5e2df0bde5d2f4cf88c7d0b69481e4be0d5f9fcb3c45f6b4ae54027c2c513ba6",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/04_mountain_guardian_boy_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/04_mountain_guardian_boy_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "needs_edit",
+      "reason": "当前4096权威人物的1024导入准备副本。权威源的透明边需修，完成后按原LANCZOS规则重导。",
+      "sha256": "9938187e1869dd74a462f1d2b0c9f2432b2ff92ecf140c87a992b7d852a9ca99",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "b207de3deb39ce039789c378c45cc54a215c37417c7b30b6ad75bc2de5d64def",
+      "source": "q_daoist_character_pack_4096/04_mountain_guardian_boy_transparent_4096.png",
+      "character_id": "04",
+      "name": "镇岳护法",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/04_mountain_guardian_boy_transparent_4096.png",
+          "sha256": "b3d1cff0879971867e91595b25cbea82209d8e70b2914b235bf0718fa536ec1b",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "9938187e1869dd74a462f1d2b0c9f2432b2ff92ecf140c87a992b7d852a9ca99",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/05_celestial_musician_girl_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/05_celestial_musician_girl_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "retained",
+      "reason": "当前4096权威人物的1024导入准备副本。逐像素核对降采样来源一致，沿用源人物的风格保留理由。",
+      "sha256": "95c7a5d5f4ac02b4b024c9cce9a1197c637b91dfd1fa3c8b5d99a666d9c48d16",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "8575037e4a7990728a4681e450580cd9cbd6d0d7c98050ad93ff7411b226b512",
+      "source": "q_daoist_character_pack_4096/05_celestial_musician_girl_transparent_4096.png",
+      "character_id": "05",
+      "name": "紫微琴师",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/05_celestial_musician_girl_transparent_4096.png",
+          "sha256": "a5e690326d5903ed40da1d89c3ec8a3f42239739ad9c4a2e6ba17647921fb5b3",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "95c7a5d5f4ac02b4b024c9cce9a1197c637b91dfd1fa3c8b5d99a666d9c48d16",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/06_thunder_caster_boy_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/06_thunder_caster_boy_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "needs_edit",
+      "reason": "当前4096权威人物的1024导入准备副本。权威源的透明边需修，完成后按原LANCZOS规则重导。",
+      "sha256": "285baadd2dba6727a27745cb5a87c11c5528f4e7f821a483ec5303bbde116a7d",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "5e36532268a1ba2a76d8928d3cb21414a1d6adc59f3b411ed28249f6d074bfa3",
+      "source": "q_daoist_character_pack_4096/06_thunder_caster_boy_transparent_4096.png",
+      "character_id": "06",
+      "name": "白眉雷师",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/06_thunder_caster_boy_transparent_4096.png",
+          "sha256": "159de9b086fc63df6f24c8b4f3ebb85ccd82993856840426c96bccb73f9074b9",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "285baadd2dba6727a27745cb5a87c11c5528f4e7f821a483ec5303bbde116a7d",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/07_moon_shadow_assassin_girl_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/07_moon_shadow_assassin_girl_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "retained",
+      "reason": "当前4096权威人物的1024导入准备副本。逐像素核对降采样来源一致，沿用源人物的风格保留理由。",
+      "sha256": "801e06fcee8843aa8e4c79367bbdc9c9b1a1f4edcc3157b09407f0bacc5f28be",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "d338b49eb66208dba8a9066d06eb4f4ece0c1c47b366b1b6f44abaf97032c092",
+      "source": "q_daoist_character_pack_4096/07_moon_shadow_assassin_girl_transparent_4096.png",
+      "character_id": "07",
+      "name": "玄月夜行女",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/07_moon_shadow_assassin_girl_transparent_4096.png",
+          "sha256": "afc0b72931ef119f60e4c75fe4f4501c6ca1d3823ad9155ec39d35cd3eb9646c",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "801e06fcee8843aa8e4c79367bbdc9c9b1a1f4edcc3157b09407f0bacc5f28be",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/08_alchemy_prodigy_boy_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/08_alchemy_prodigy_boy_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "needs_edit",
+      "reason": "当前4096权威人物的1024导入准备副本。权威源的透明边需修，完成后按原LANCZOS规则重导。",
+      "sha256": "6245da36de5bed148ad28f5eee81bbe24f17ab17c8583584b6f944f9fc0e4e8d",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "726ad6311e60b3ec509d09cc450bed7d462c07b7e1aa5567475eeaf082ff5188",
+      "source": "q_daoist_character_pack_4096/08_alchemy_prodigy_boy_transparent_4096.png",
+      "character_id": "08",
+      "name": "圆肚丹师",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/08_alchemy_prodigy_boy_transparent_4096.png",
+          "sha256": "2eab336db800b8ea343efca3af909bb06c45617cec48418bff03f0bc98c3ea63",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "6245da36de5bed148ad28f5eee81bbe24f17ab17c8583584b6f944f9fc0e4e8d",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/09_bamboo_archer_girl_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/09_bamboo_archer_girl_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "needs_edit",
+      "reason": "当前4096权威人物的1024导入准备副本。权威源的透明边需修，完成后按原LANCZOS规则重导。",
+      "sha256": "ad25a83c45150b3d040251a644378420d03f972cf5adcbe7b9cb3ad633e42bd2",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "e699f47ded28156990c73926859474261754435526447a395f2c03c51308a3b7",
+      "source": "q_daoist_character_pack_4096/09_bamboo_archer_girl_transparent_4096.png",
+      "character_id": "09",
+      "name": "竹间弓手",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/09_bamboo_archer_girl_transparent_4096.png",
+          "sha256": "658fef330fb0c0c540347748c0a51c330abe04e62a941d6b0d94a734128d79c7",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "ad25a83c45150b3d040251a644378420d03f972cf5adcbe7b9cb3ad633e42bd2",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/10_crimson_spear_girl_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/10_crimson_spear_girl_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "retained",
+      "reason": "当前4096权威人物的1024导入准备副本。逐像素核对降采样来源一致，沿用源人物的风格保留理由。",
+      "sha256": "6f331097d95f539dccc66e348d1543d8063a446008f458915a0df9f7d1d54b6d",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "fe2870075340f93f32a070ab25d8ae5c8175289afe3db82d42659f5b2d9d1fb6",
+      "source": "q_daoist_character_pack_4096/10_crimson_spear_girl_transparent_4096.png",
+      "character_id": "10",
+      "name": "赤缨枪将",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/10_crimson_spear_girl_transparent_4096.png",
+          "sha256": "6ed2d57de7118980cd62d2a4038c7912bc879a9cc71dea47573fd13529979cb5",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "6f331097d95f539dccc66e348d1543d8063a446008f458915a0df9f7d1d54b6d",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/11_jade_fist_flat_top_boy_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/11_jade_fist_flat_top_boy_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "needs_edit",
+      "reason": "当前4096权威人物的1024导入准备副本。权威源的透明边需修，完成后按原LANCZOS规则重导。",
+      "sha256": "b9e7d36f573bad05727cbdbc57617df81f181b5a01c82e5518b19eae9e2a53bc",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "5888a8dca2af5e6a3e4bdb05f8cb357563eef106c3d0c81a477e2219b4c81c8d",
+      "source": "q_daoist_character_pack_4096/11_jade_fist_flat_top_boy_transparent_4096.png",
+      "character_id": "11",
+      "name": "玉拳少年",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/11_jade_fist_flat_top_boy_transparent_4096.png",
+          "sha256": "2c8c62fa349994e6b7938838598bee8d3e51aa5637826beb7155350ec7bb32d3",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "b9e7d36f573bad05727cbdbc57617df81f181b5a01c82e5518b19eae9e2a53bc",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/12_iron_saber_flat_top_boy_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/12_iron_saber_flat_top_boy_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "needs_edit",
+      "reason": "当前4096权威人物的1024导入准备副本。权威源的透明边需修，完成后按原LANCZOS规则重导。",
+      "sha256": "ab091a03db54b18e0b433b73957e82426c35477bb66a704c10446d3781fffc87",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "b2c4fd24abb4d4fc7c839ade858e1aada8a1fbd0b507b7b6f9daf12ad7a2b528",
+      "source": "q_daoist_character_pack_4096/12_iron_saber_flat_top_boy_transparent_4096.png",
+      "character_id": "12",
+      "name": "铁刃老客",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/12_iron_saber_flat_top_boy_transparent_4096.png",
+          "sha256": "71d840e016b421ad032a870c24ddf46b9e1bc5279a0811a0d7c675c9641ec237",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "ab091a03db54b18e0b433b73957e82426c35477bb66a704c10446d3781fffc87",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/13_short_hair_wind_blade_girl_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/13_short_hair_wind_blade_girl_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "needs_edit",
+      "reason": "当前4096权威人物的1024导入准备副本。权威源的透明边需修，完成后按原LANCZOS规则重导。",
+      "sha256": "73d5c59da07b0894e263c69f9384b45490eb4364cc6bc94a1579ea468db17baa",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "2bc272525635a2569c7c44059dca6775896a310adcc6a975387add667bf629af",
+      "source": "q_daoist_character_pack_4096/13_short_hair_wind_blade_girl_transparent_4096.png",
+      "character_id": "13",
+      "name": "风行短发女",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/13_short_hair_wind_blade_girl_transparent_4096.png",
+          "sha256": "a0f7a83e53297fd2007148e7aa918f642c9fcc4523f2a77a76a5c66bab5f487f",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "73d5c59da07b0894e263c69f9384b45490eb4364cc6bc94a1579ea468db17baa",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/14_short_hair_snow_summoner_girl_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/14_short_hair_snow_summoner_girl_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "retained",
+      "reason": "当前4096权威人物的1024导入准备副本。逐像素核对降采样来源一致，沿用源人物的风格保留理由。",
+      "sha256": "316d2e89f2de5244667cb72084431235417c53ba0d085725d8e7f238ac6ffc7f",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "295800ef94f25bbae1a680a80125d81b6304c98eaa14efd5ee492e43fd3a5cfe",
+      "source": "q_daoist_character_pack_4096/14_short_hair_snow_summoner_girl_transparent_4096.png",
+      "character_id": "14",
+      "name": "雪团小女冠",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/14_short_hair_snow_summoner_girl_transparent_4096.png",
+          "sha256": "87b21c6165486c4b8d8603ce38976d9f36c2a9ef3894f9e349810e469d3fba0a",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "316d2e89f2de5244667cb72084431235417c53ba0d085725d8e7f238ac6ffc7f",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/15_water_dragon_scholar_boy_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/15_water_dragon_scholar_boy_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "needs_edit",
+      "reason": "当前4096权威人物的1024导入准备副本。权威源的透明边需修，完成后按原LANCZOS规则重导。",
+      "sha256": "44823b53fa0a42023d2a45ea76fb1d2dc46670c9cae7d35a0cb5c55df949c54b",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "acdb4c42537c966aaa1119fe09e3f60cf166c2827aa2b55ce2c3cd4097d0fa4e",
+      "source": "q_daoist_character_pack_4096/15_water_dragon_scholar_boy_transparent_4096.png",
+      "character_id": "15",
+      "name": "沧浪水士",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/15_water_dragon_scholar_boy_transparent_4096.png",
+          "sha256": "96797f775e1c0c2c1264f729cee80697d17a9c1933d39148d70b7c4aedb2478a",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "44823b53fa0a42023d2a45ea76fb1d2dc46670c9cae7d35a0cb5c55df949c54b",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/16_golden_bell_dancer_girl_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/16_golden_bell_dancer_girl_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "needs_edit",
+      "reason": "当前4096权威人物的1024导入准备副本。权威源的透明边需修，完成后按原LANCZOS规则重导。",
+      "sha256": "606bc56871e8f22994e4db3042980bdb44dc6540f6db946091f6d3564a4f5bcc",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "c744e353e3ab03b839b63e1a6c04b2b5453e740d993300406d2c10b5909e0351",
+      "source": "q_daoist_character_pack_4096/16_golden_bell_dancer_girl_transparent_4096.png",
+      "character_id": "16",
+      "name": "金铃舞姬",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/16_golden_bell_dancer_girl_transparent_4096.png",
+          "sha256": "3eab1f5a4d47597b9f006b2d649dfedf8c27d2141d8c0caaf28698ae7e987797",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "606bc56871e8f22994e4db3042980bdb44dc6540f6db946091f6d3564a4f5bcc",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/17_ghost_script_calligrapher_boy_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/17_ghost_script_calligrapher_boy_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "needs_edit",
+      "reason": "当前4096权威人物的1024导入准备副本。权威源的透明边需修，完成后按原LANCZOS规则重导。",
+      "sha256": "f075c22278529b173e1660dc2e90569f2026a9077eb8744db274834f7689435a",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "5c8ce69b92540fb332e5739cdfe508b03c639329cd518eb75b7273924fe3f62a",
+      "source": "q_daoist_character_pack_4096/17_ghost_script_calligrapher_boy_transparent_4096.png",
+      "character_id": "17",
+      "name": "墨篆先生",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/17_ghost_script_calligrapher_boy_transparent_4096.png",
+          "sha256": "f0757abbdbd85b0b7203c5b8b2a4493b7893be272941ab3520081757cbc55d48",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "f075c22278529b173e1660dc2e90569f2026a9077eb8744db274834f7689435a",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/18_desert_sun_monk_girl_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/18_desert_sun_monk_girl_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "retained",
+      "reason": "当前4096权威人物的1024导入准备副本。逐像素核对降采样来源一致，沿用源人物的风格保留理由。",
+      "sha256": "e53f4abe0cefa5ecc7d914ebd121c33c134c76593c43e8dba4158e129cce58be",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "a0f3755a4f0751b95406068b78162e9a3dd053d56866aeee57390174396b9217",
+      "source": "q_daoist_character_pack_4096/18_desert_sun_monk_girl_transparent_4096.png",
+      "character_id": "18",
+      "name": "沙海道姑",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/18_desert_sun_monk_girl_transparent_4096.png",
+          "sha256": "d3739bd75a2b3b5a24e8fd8a2ada2f3538d6d4a22f34106288d1a0206d979f1d",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "e53f4abe0cefa5ecc7d914ebd121c33c134c76593c43e8dba4158e129cce58be",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/19_spirit_beast_tamer_boy_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/19_spirit_beast_tamer_boy_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "needs_edit",
+      "reason": "当前4096权威人物的1024导入准备副本。权威源的透明边需修，完成后按原LANCZOS规则重导。",
+      "sha256": "adb26002c684cf204dffbb82ebdf9731e2410bffb4a3124bc9fd7daedbe636c4",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "2c7a74fd4722498f1cef19f83b13bcdd4219bc8e0fef5f252bd1bd68bb4e6c3e",
+      "source": "q_daoist_character_pack_4096/19_spirit_beast_tamer_boy_transparent_4096.png",
+      "character_id": "19",
+      "name": "山野御灵童",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/19_spirit_beast_tamer_boy_transparent_4096.png",
+          "sha256": "57dcd2b9a82250d0ef7cbacdfbd7f666a698c21ea899ad25b9b6d23f1605d838",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "adb26002c684cf204dffbb82ebdf9731e2410bffb4a3124bc9fd7daedbe636c4",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/20_star_formation_master_girl_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/20_star_formation_master_girl_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "needs_edit",
+      "reason": "当前4096权威人物的1024导入准备副本。权威源的透明边需修，完成后按原LANCZOS规则重导。",
+      "sha256": "b55c20e653127a163991e6c044b692082f70d8c7199eb2dda7a5fc2cae447205",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "e66c6606d57ce232a694d75e3bfbbbbad8fce55b0c8342b0ae473ae8fcd06b3f",
+      "source": "q_daoist_character_pack_4096/20_star_formation_master_girl_transparent_4096.png",
+      "character_id": "20",
+      "name": "星盘女掌门",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/20_star_formation_master_girl_transparent_4096.png",
+          "sha256": "9a9b911319513f9c9b73ed4f39ddebbbecbf6ce6a928b0cf72f21f11bfef37fa",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "b55c20e653127a163991e6c044b692082f70d8c7199eb2dda7a5fc2cae447205",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/21_lidazui_hair_cook_boy_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/21_lidazui_hair_cook_boy_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "needs_edit",
+      "reason": "当前4096权威人物的1024导入准备副本。权威源的透明边需修，完成后按原LANCZOS规则重导。",
+      "sha256": "9a9ab3e802ecbb41e5459103c79367ebcf185a3db9c326130564f60ac51a85b1",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "4fc07233f40c4b352b481f1181747d62d91e9d635613c99ffe19bd9de1567403",
+      "source": "q_daoist_character_pack_4096/21_lidazui_hair_cook_boy_transparent_4096.png",
+      "character_id": "21",
+      "name": "胖灶道长",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/21_lidazui_hair_cook_boy_transparent_4096.png",
+          "sha256": "c39675361594697758c7568dac5e48db494f7b2a13e479b05036491cdb08dccf",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "9a9ab3e802ecbb41e5459103c79367ebcf185a3db9c326130564f60ac51a85b1",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/22_lidazui_hair_waiter_saber_boy_v3.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/qdao_v3/characters/22_lidazui_hair_waiter_saber_boy_v3.png",
+      "kind": "v9_prepared_1024",
+      "status": "needs_edit",
+      "reason": "当前4096权威人物的1024导入准备副本。权威源的透明边需修，完成后按原LANCZOS规则重导。",
+      "sha256": "15410e9b251e98927194f7b7f5f4cf619f49e74432dbca0d2b4d4e380b2ad6ee",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "781c52900d58922e7e1eca226e93ffacb7675316245d4f60e2acc65e878e145a",
+      "source": "q_daoist_character_pack_4096/22_lidazui_hair_waiter_saber_boy_transparent_4096.png",
+      "character_id": "22",
+      "name": "茶肆小刀客",
+      "evidence": [
+        {
+          "path": "q_daoist_character_pack_4096/22_lidazui_hair_waiter_saber_boy_transparent_4096.png",
+          "sha256": "c64555f52d76e303262722d00aa2ffa40ee6875e262477e8211d9711353fba3b",
+          "kind": "direct_portrait_view"
+        },
+        {
+          "path": "qdao_character_diversity_v9/roster_overview.png",
+          "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+          "kind": "existing_group_overview"
+        }
+      ],
+      "expected_sync_sha256": "15410e9b251e98927194f7b7f5f4cf619f49e74432dbca0d2b4d4e380b2ad6ee",
+      "sync_hash_match": true,
+      "pixel_exact_to_current_source_resize": true,
+      "pixel_comparison_method": "Compare all RGBA bytes; do not use alpha-only bounding box on an RGBA difference image."
+    },
+    {
+      "path": "qdao_ui_redesign_v5/pet/ling_yue_nine_tailed_fox-transparent_1254.png",
+      "absolute_path": "E:/work/image/qdao_ui_redesign_v5/pet/ling_yue_nine_tailed_fox-transparent_1254.png",
+      "kind": "pet_authoritative_static",
+      "status": "retained",
+      "reason": "金玉小坠和月白配色已适合清雅仙宠；保留原来的淡紫蓝毛影，不按品红阈值清除。独立/游戏内宠物可用，但登录前界面仍禁九尾狐。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "eb55d459871737d1c49ff49097d1c7612cf60a35095c60bfca0198e425c04b11",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "ce8b63bed727af1a8a620d185765629515e33ea2de0c68aedd8eb6b2cb570009",
+      "pet_id": "ling_yue",
+      "name": "灵玥",
+      "evidence": [
+        {
+          "path": "qdao_ui_redesign_v5/pet/ling_yue_nine_tailed_fox-transparent_1254.png",
+          "sha256": "eb55d459871737d1c49ff49097d1c7612cf60a35095c60bfca0198e425c04b11",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+          "sha256": "f0506e1ea727f492ab9b316ada94794d96fa7a78031861a7c2639868778172ae",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "expected_manifest_sha256": "eb55d459871737d1c49ff49097d1c7612cf60a35095c60bfca0198e425c04b11",
+      "manifest_hash_match": true
+    },
+    {
+      "path": "designs/attribute-panels/assets/lingyue.png",
+      "absolute_path": "E:/work/image/designs/attribute-panels/assets/lingyue.png",
+      "kind": "pet_exact_copy",
+      "status": "retained",
+      "reason": "金玉小坠和月白配色已适合清雅仙宠；保留原来的淡紫蓝毛影，不按品红阈值清除。独立/游戏内宠物可用，但登录前界面仍禁九尾狐。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "eb55d459871737d1c49ff49097d1c7612cf60a35095c60bfca0198e425c04b11",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "ce8b63bed727af1a8a620d185765629515e33ea2de0c68aedd8eb6b2cb570009",
+      "source": "qdao_ui_redesign_v5/pet/ling_yue_nine_tailed_fox-transparent_1254.png",
+      "pet_id": "ling_yue",
+      "name": "灵玥",
+      "evidence": [
+        {
+          "path": "qdao_ui_redesign_v5/pet/ling_yue_nine_tailed_fox-transparent_1254.png",
+          "sha256": "eb55d459871737d1c49ff49097d1c7612cf60a35095c60bfca0198e425c04b11",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+          "sha256": "f0506e1ea727f492ab9b316ada94794d96fa7a78031861a7c2639868778172ae",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/Ugui/RefreshV8/companion_fox.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/Ugui/RefreshV8/companion_fox.png",
+      "kind": "pet_prepared_exact_copy",
+      "status": "retained",
+      "reason": "金玉小坠和月白配色已适合清雅仙宠；保留原来的淡紫蓝毛影，不按品红阈值清除。独立/游戏内宠物可用，但登录前界面仍禁九尾狐。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "eb55d459871737d1c49ff49097d1c7612cf60a35095c60bfca0198e425c04b11",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "ce8b63bed727af1a8a620d185765629515e33ea2de0c68aedd8eb6b2cb570009",
+      "source": "qdao_ui_redesign_v5/pet/ling_yue_nine_tailed_fox-transparent_1254.png",
+      "pet_id": "ling_yue",
+      "name": "灵玥",
+      "evidence": [
+        {
+          "path": "qdao_ui_redesign_v5/pet/ling_yue_nine_tailed_fox-transparent_1254.png",
+          "sha256": "eb55d459871737d1c49ff49097d1c7612cf60a35095c60bfca0198e425c04b11",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+          "sha256": "f0506e1ea727f492ab9b316ada94794d96fa7a78031861a7c2639868778172ae",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+      "absolute_path": "E:/work/image/designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+      "kind": "pet_formal_portrait_crop",
+      "status": "retained",
+      "reason": "金玉小坠和月白配色已适合清雅仙宠；保留原来的淡紫蓝毛影，不按品红阈值清除。独立/游戏内宠物可用，但登录前界面仍禁九尾狐。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。 裁掉躯干/尾端是既定头像合同，不把头像裁切误报为全身图缺肢。",
+      "sha256": "f0506e1ea727f492ab9b316ada94794d96fa7a78031861a7c2639868778172ae",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "abf6a9141e29ab6add90468b8c1c39d89694520f7462b0d3300d6327008e7edb",
+      "source": "qdao_ui_redesign_v5/pet/ling_yue_nine_tailed_fox-transparent_1254.png",
+      "pet_id": "ling_yue",
+      "name": "灵玥",
+      "evidence": [
+        {
+          "path": "qdao_ui_redesign_v5/pet/ling_yue_nine_tailed_fox-transparent_1254.png",
+          "sha256": "eb55d459871737d1c49ff49097d1c7612cf60a35095c60bfca0198e425c04b11",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+          "sha256": "f0506e1ea727f492ab9b316ada94794d96fa7a78031861a7c2639868778172ae",
+          "kind": "visually_reviewed"
+        }
+      ]
+    },
+    {
+      "path": "designs/attribute-panels/v10-preview/assets/portrait_lingyue.png",
+      "absolute_path": "E:/work/image/designs/attribute-panels/v10-preview/assets/portrait_lingyue.png",
+      "kind": "pet_browser_preview_asset",
+      "status": "retained",
+      "reason": "金玉小坠和月白配色已适合清雅仙宠；保留原来的淡紫蓝毛影，不按品红阈值清除。独立/游戏内宠物可用，但登录前界面仍禁九尾狐。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "f0506e1ea727f492ab9b316ada94794d96fa7a78031861a7c2639868778172ae",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "abf6a9141e29ab6add90468b8c1c39d89694520f7462b0d3300d6327008e7edb",
+      "source": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+      "pet_id": "ling_yue",
+      "name": "灵玥",
+      "evidence": [
+        {
+          "path": "qdao_ui_redesign_v5/pet/ling_yue_nine_tailed_fox-transparent_1254.png",
+          "sha256": "eb55d459871737d1c49ff49097d1c7612cf60a35095c60bfca0198e425c04b11",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+          "sha256": "f0506e1ea727f492ab9b316ada94794d96fa7a78031861a7c2639868778172ae",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "qdao_ui_style_recut_v10/contracts/reviewed-portraits/portrait_lingyue.png",
+      "absolute_path": "E:/work/image/qdao_ui_style_recut_v10/contracts/reviewed-portraits/portrait_lingyue.png",
+      "kind": "current_rebuild_support",
+      "status": "retained",
+      "reason": "金玉小坠和月白配色已适合清雅仙宠；保留原来的淡紫蓝毛影，不按品红阈值清除。独立/游戏内宠物可用，但登录前界面仍禁九尾狐。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "f0506e1ea727f492ab9b316ada94794d96fa7a78031861a7c2639868778172ae",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "abf6a9141e29ab6add90468b8c1c39d89694520f7462b0d3300d6327008e7edb",
+      "source": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+      "pet_id": "ling_yue",
+      "name": "灵玥",
+      "evidence": [
+        {
+          "path": "qdao_ui_redesign_v5/pet/ling_yue_nine_tailed_fox-transparent_1254.png",
+          "sha256": "eb55d459871737d1c49ff49097d1c7612cf60a35095c60bfca0198e425c04b11",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+          "sha256": "f0506e1ea727f492ab9b316ada94794d96fa7a78031861a7c2639868778172ae",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+      "absolute_path": "E:/work/image/qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+      "kind": "current_rebuild_support",
+      "status": "retained",
+      "reason": "金玉小坠和月白配色已适合清雅仙宠；保留原来的淡紫蓝毛影，不按品红阈值清除。独立/游戏内宠物可用，但登录前界面仍禁九尾狐。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "f0506e1ea727f492ab9b316ada94794d96fa7a78031861a7c2639868778172ae",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "abf6a9141e29ab6add90468b8c1c39d89694520f7462b0d3300d6327008e7edb",
+      "source": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+      "pet_id": "ling_yue",
+      "name": "灵玥",
+      "evidence": [
+        {
+          "path": "qdao_ui_redesign_v5/pet/ling_yue_nine_tailed_fox-transparent_1254.png",
+          "sha256": "eb55d459871737d1c49ff49097d1c7612cf60a35095c60bfca0198e425c04b11",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+          "sha256": "f0506e1ea727f492ab9b316ada94794d96fa7a78031861a7c2639868778172ae",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "qdao_chibi_pets_v1/01_hu_tuan_tuan-transparent_1254.png",
+      "absolute_path": "E:/work/image/qdao_chibi_pets_v1/01_hu_tuan_tuan-transparent_1254.png",
+      "kind": "pet_authoritative_static",
+      "status": "retained",
+      "reason": "葫芦与红穗已充分连接道家及春节，不添额外节庆头饰。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "8c309927e2a38ba0dabdb7ba24f4e383059335a2d7e5cc6ecb57b61ceaa9ef99",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "02e17c89ee99270c2f362dddaf7fd6370061944ff2414a2563a0108c905d0a2c",
+      "pet_id": "hu_tuan_tuan",
+      "name": "葫团团",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/01_hu_tuan_tuan-transparent_1254.png",
+          "sha256": "8c309927e2a38ba0dabdb7ba24f4e383059335a2d7e5cc6ecb57b61ceaa9ef99",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+          "sha256": "dd62e68f9ebce2bf9c53c2008a1322dfcb016f7fd82e41bff7be323646323c81",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "expected_manifest_sha256": "8c309927e2a38ba0dabdb7ba24f4e383059335a2d7e5cc6ecb57b61ceaa9ef99",
+      "manifest_hash_match": true
+    },
+    {
+      "path": "designs/attribute-panels/assets/hutuantuan.png",
+      "absolute_path": "E:/work/image/designs/attribute-panels/assets/hutuantuan.png",
+      "kind": "pet_exact_copy",
+      "status": "retained",
+      "reason": "葫芦与红穗已充分连接道家及春节，不添额外节庆头饰。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "8c309927e2a38ba0dabdb7ba24f4e383059335a2d7e5cc6ecb57b61ceaa9ef99",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "02e17c89ee99270c2f362dddaf7fd6370061944ff2414a2563a0108c905d0a2c",
+      "source": "qdao_chibi_pets_v1/01_hu_tuan_tuan-transparent_1254.png",
+      "pet_id": "hu_tuan_tuan",
+      "name": "葫团团",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/01_hu_tuan_tuan-transparent_1254.png",
+          "sha256": "8c309927e2a38ba0dabdb7ba24f4e383059335a2d7e5cc6ecb57b61ceaa9ef99",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+          "sha256": "dd62e68f9ebce2bf9c53c2008a1322dfcb016f7fd82e41bff7be323646323c81",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/Ugui/RefreshV8/companion_hu_tuan_tuan.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/Ugui/RefreshV8/companion_hu_tuan_tuan.png",
+      "kind": "pet_prepared_exact_copy",
+      "status": "retained",
+      "reason": "葫芦与红穗已充分连接道家及春节，不添额外节庆头饰。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "8c309927e2a38ba0dabdb7ba24f4e383059335a2d7e5cc6ecb57b61ceaa9ef99",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "02e17c89ee99270c2f362dddaf7fd6370061944ff2414a2563a0108c905d0a2c",
+      "source": "qdao_chibi_pets_v1/01_hu_tuan_tuan-transparent_1254.png",
+      "pet_id": "hu_tuan_tuan",
+      "name": "葫团团",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/01_hu_tuan_tuan-transparent_1254.png",
+          "sha256": "8c309927e2a38ba0dabdb7ba24f4e383059335a2d7e5cc6ecb57b61ceaa9ef99",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+          "sha256": "dd62e68f9ebce2bf9c53c2008a1322dfcb016f7fd82e41bff7be323646323c81",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+      "absolute_path": "E:/work/image/designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+      "kind": "pet_formal_portrait_crop",
+      "status": "retained",
+      "reason": "葫芦与红穗已充分连接道家及春节，不添额外节庆头饰。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。 裁掉躯干/尾端是既定头像合同，不把头像裁切误报为全身图缺肢。",
+      "sha256": "dd62e68f9ebce2bf9c53c2008a1322dfcb016f7fd82e41bff7be323646323c81",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "1eaf3e7862bc1abcf43a70e52b86e05b4c1343290baea0431aa4520539c3feba",
+      "source": "qdao_chibi_pets_v1/01_hu_tuan_tuan-transparent_1254.png",
+      "pet_id": "hu_tuan_tuan",
+      "name": "葫团团",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/01_hu_tuan_tuan-transparent_1254.png",
+          "sha256": "8c309927e2a38ba0dabdb7ba24f4e383059335a2d7e5cc6ecb57b61ceaa9ef99",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+          "sha256": "dd62e68f9ebce2bf9c53c2008a1322dfcb016f7fd82e41bff7be323646323c81",
+          "kind": "visually_reviewed"
+        }
+      ]
+    },
+    {
+      "path": "designs/attribute-panels/v10-preview/assets/portrait_hutuantuan.png",
+      "absolute_path": "E:/work/image/designs/attribute-panels/v10-preview/assets/portrait_hutuantuan.png",
+      "kind": "pet_browser_preview_asset",
+      "status": "retained",
+      "reason": "葫芦与红穗已充分连接道家及春节，不添额外节庆头饰。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "dd62e68f9ebce2bf9c53c2008a1322dfcb016f7fd82e41bff7be323646323c81",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "1eaf3e7862bc1abcf43a70e52b86e05b4c1343290baea0431aa4520539c3feba",
+      "source": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+      "pet_id": "hu_tuan_tuan",
+      "name": "葫团团",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/01_hu_tuan_tuan-transparent_1254.png",
+          "sha256": "8c309927e2a38ba0dabdb7ba24f4e383059335a2d7e5cc6ecb57b61ceaa9ef99",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+          "sha256": "dd62e68f9ebce2bf9c53c2008a1322dfcb016f7fd82e41bff7be323646323c81",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "qdao_ui_style_recut_v10/contracts/reviewed-portraits/portrait_hutuantuan.png",
+      "absolute_path": "E:/work/image/qdao_ui_style_recut_v10/contracts/reviewed-portraits/portrait_hutuantuan.png",
+      "kind": "current_rebuild_support",
+      "status": "retained",
+      "reason": "葫芦与红穗已充分连接道家及春节，不添额外节庆头饰。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "dd62e68f9ebce2bf9c53c2008a1322dfcb016f7fd82e41bff7be323646323c81",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "1eaf3e7862bc1abcf43a70e52b86e05b4c1343290baea0431aa4520539c3feba",
+      "source": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+      "pet_id": "hu_tuan_tuan",
+      "name": "葫团团",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/01_hu_tuan_tuan-transparent_1254.png",
+          "sha256": "8c309927e2a38ba0dabdb7ba24f4e383059335a2d7e5cc6ecb57b61ceaa9ef99",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+          "sha256": "dd62e68f9ebce2bf9c53c2008a1322dfcb016f7fd82e41bff7be323646323c81",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+      "absolute_path": "E:/work/image/qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+      "kind": "current_rebuild_support",
+      "status": "retained",
+      "reason": "葫芦与红穗已充分连接道家及春节，不添额外节庆头饰。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "dd62e68f9ebce2bf9c53c2008a1322dfcb016f7fd82e41bff7be323646323c81",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "1eaf3e7862bc1abcf43a70e52b86e05b4c1343290baea0431aa4520539c3feba",
+      "source": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+      "pet_id": "hu_tuan_tuan",
+      "name": "葫团团",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/01_hu_tuan_tuan-transparent_1254.png",
+          "sha256": "8c309927e2a38ba0dabdb7ba24f4e383059335a2d7e5cc6ecb57b61ceaa9ef99",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+          "sha256": "dd62e68f9ebce2bf9c53c2008a1322dfcb016f7fd82e41bff7be323646323c81",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "qdao_chibi_pets_v1/02_fu_xiao_hu-transparent_1254.png",
+      "absolute_path": "E:/work/image/qdao_chibi_pets_v1/02_fu_xiao_hu-transparent_1254.png",
+      "kind": "pet_authoritative_static",
+      "status": "retained",
+      "reason": "符箓和小暖金铃已有温暖吉祥感，保持虎纹和原有护符，不换成月兔符号。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "3a1bf4308670d5287ca713361e28c52377a79da9b41d636bd178747a3a2b84b0",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "00a13fc20c412999809bc69b734d728654bfa2a3a4678464297972dfdfa53178",
+      "pet_id": "fu_xiao_hu",
+      "name": "符小虎",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/02_fu_xiao_hu-transparent_1254.png",
+          "sha256": "3a1bf4308670d5287ca713361e28c52377a79da9b41d636bd178747a3a2b84b0",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+          "sha256": "e20c92128ec0ab1156c61ed0344fa386f1ab0a9f714eb2612585d03caeb6b9df",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "expected_manifest_sha256": "3a1bf4308670d5287ca713361e28c52377a79da9b41d636bd178747a3a2b84b0",
+      "manifest_hash_match": true
+    },
+    {
+      "path": "designs/attribute-panels/assets/fuxiaohu.png",
+      "absolute_path": "E:/work/image/designs/attribute-panels/assets/fuxiaohu.png",
+      "kind": "pet_exact_copy",
+      "status": "retained",
+      "reason": "符箓和小暖金铃已有温暖吉祥感，保持虎纹和原有护符，不换成月兔符号。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "3a1bf4308670d5287ca713361e28c52377a79da9b41d636bd178747a3a2b84b0",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "00a13fc20c412999809bc69b734d728654bfa2a3a4678464297972dfdfa53178",
+      "source": "qdao_chibi_pets_v1/02_fu_xiao_hu-transparent_1254.png",
+      "pet_id": "fu_xiao_hu",
+      "name": "符小虎",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/02_fu_xiao_hu-transparent_1254.png",
+          "sha256": "3a1bf4308670d5287ca713361e28c52377a79da9b41d636bd178747a3a2b84b0",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+          "sha256": "e20c92128ec0ab1156c61ed0344fa386f1ab0a9f714eb2612585d03caeb6b9df",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/Ugui/RefreshV8/companion_fu_xiao_hu.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/Ugui/RefreshV8/companion_fu_xiao_hu.png",
+      "kind": "pet_prepared_exact_copy",
+      "status": "retained",
+      "reason": "符箓和小暖金铃已有温暖吉祥感，保持虎纹和原有护符，不换成月兔符号。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "3a1bf4308670d5287ca713361e28c52377a79da9b41d636bd178747a3a2b84b0",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "00a13fc20c412999809bc69b734d728654bfa2a3a4678464297972dfdfa53178",
+      "source": "qdao_chibi_pets_v1/02_fu_xiao_hu-transparent_1254.png",
+      "pet_id": "fu_xiao_hu",
+      "name": "符小虎",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/02_fu_xiao_hu-transparent_1254.png",
+          "sha256": "3a1bf4308670d5287ca713361e28c52377a79da9b41d636bd178747a3a2b84b0",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+          "sha256": "e20c92128ec0ab1156c61ed0344fa386f1ab0a9f714eb2612585d03caeb6b9df",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+      "absolute_path": "E:/work/image/designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+      "kind": "pet_formal_portrait_crop",
+      "status": "retained",
+      "reason": "符箓和小暖金铃已有温暖吉祥感，保持虎纹和原有护符，不换成月兔符号。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。 裁掉躯干/尾端是既定头像合同，不把头像裁切误报为全身图缺肢。",
+      "sha256": "e20c92128ec0ab1156c61ed0344fa386f1ab0a9f714eb2612585d03caeb6b9df",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "e652ab8a6a513d1f5ed763146eb35ce0e13dc6b5db1e3a5dac87f8fbdb54f674",
+      "source": "qdao_chibi_pets_v1/02_fu_xiao_hu-transparent_1254.png",
+      "pet_id": "fu_xiao_hu",
+      "name": "符小虎",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/02_fu_xiao_hu-transparent_1254.png",
+          "sha256": "3a1bf4308670d5287ca713361e28c52377a79da9b41d636bd178747a3a2b84b0",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+          "sha256": "e20c92128ec0ab1156c61ed0344fa386f1ab0a9f714eb2612585d03caeb6b9df",
+          "kind": "visually_reviewed"
+        }
+      ]
+    },
+    {
+      "path": "designs/attribute-panels/v10-preview/assets/portrait_fuxiaohu.png",
+      "absolute_path": "E:/work/image/designs/attribute-panels/v10-preview/assets/portrait_fuxiaohu.png",
+      "kind": "pet_browser_preview_asset",
+      "status": "retained",
+      "reason": "符箓和小暖金铃已有温暖吉祥感，保持虎纹和原有护符，不换成月兔符号。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "e20c92128ec0ab1156c61ed0344fa386f1ab0a9f714eb2612585d03caeb6b9df",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "e652ab8a6a513d1f5ed763146eb35ce0e13dc6b5db1e3a5dac87f8fbdb54f674",
+      "source": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+      "pet_id": "fu_xiao_hu",
+      "name": "符小虎",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/02_fu_xiao_hu-transparent_1254.png",
+          "sha256": "3a1bf4308670d5287ca713361e28c52377a79da9b41d636bd178747a3a2b84b0",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+          "sha256": "e20c92128ec0ab1156c61ed0344fa386f1ab0a9f714eb2612585d03caeb6b9df",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "qdao_ui_style_recut_v10/contracts/reviewed-portraits/portrait_fuxiaohu.png",
+      "absolute_path": "E:/work/image/qdao_ui_style_recut_v10/contracts/reviewed-portraits/portrait_fuxiaohu.png",
+      "kind": "current_rebuild_support",
+      "status": "retained",
+      "reason": "符箓和小暖金铃已有温暖吉祥感，保持虎纹和原有护符，不换成月兔符号。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "e20c92128ec0ab1156c61ed0344fa386f1ab0a9f714eb2612585d03caeb6b9df",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "e652ab8a6a513d1f5ed763146eb35ce0e13dc6b5db1e3a5dac87f8fbdb54f674",
+      "source": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+      "pet_id": "fu_xiao_hu",
+      "name": "符小虎",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/02_fu_xiao_hu-transparent_1254.png",
+          "sha256": "3a1bf4308670d5287ca713361e28c52377a79da9b41d636bd178747a3a2b84b0",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+          "sha256": "e20c92128ec0ab1156c61ed0344fa386f1ab0a9f714eb2612585d03caeb6b9df",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+      "absolute_path": "E:/work/image/qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+      "kind": "current_rebuild_support",
+      "status": "retained",
+      "reason": "符箓和小暖金铃已有温暖吉祥感，保持虎纹和原有护符，不换成月兔符号。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "e20c92128ec0ab1156c61ed0344fa386f1ab0a9f714eb2612585d03caeb6b9df",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "e652ab8a6a513d1f5ed763146eb35ce0e13dc6b5db1e3a5dac87f8fbdb54f674",
+      "source": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+      "pet_id": "fu_xiao_hu",
+      "name": "符小虎",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/02_fu_xiao_hu-transparent_1254.png",
+          "sha256": "3a1bf4308670d5287ca713361e28c52377a79da9b41d636bd178747a3a2b84b0",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+          "sha256": "e20c92128ec0ab1156c61ed0344fa386f1ab0a9f714eb2612585d03caeb6b9df",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "qdao_chibi_pets_v1/03_yun_jiu_jiu-transparent_1254.png",
+      "absolute_path": "E:/work/image/qdao_chibi_pets_v1/03_yun_jiu_jiu-transparent_1254.png",
+      "kind": "pet_authoritative_static",
+      "status": "retained",
+      "reason": "红冠是本体特征，云垫和金玉饰物已经适量；不为节庆给鸟羽或云团涂红。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "7bb35de3e74535801f640f4489d41639ba84c65d680e82a0cd4397f832fa003f",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "b99ba3f4b8ddc881b36f49757a01e2641a13b18ff6d7766b7e45996ffd217ba9",
+      "pet_id": "yun_jiu_jiu",
+      "name": "云啾啾",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/03_yun_jiu_jiu-transparent_1254.png",
+          "sha256": "7bb35de3e74535801f640f4489d41639ba84c65d680e82a0cd4397f832fa003f",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+          "sha256": "5fa824d73f866a24475dd28cc849261fcdcdf0cc966784e1fbd9824fc2028d86",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "expected_manifest_sha256": "7bb35de3e74535801f640f4489d41639ba84c65d680e82a0cd4397f832fa003f",
+      "manifest_hash_match": true
+    },
+    {
+      "path": "designs/attribute-panels/assets/yunjiujiu.png",
+      "absolute_path": "E:/work/image/designs/attribute-panels/assets/yunjiujiu.png",
+      "kind": "pet_exact_copy",
+      "status": "retained",
+      "reason": "红冠是本体特征，云垫和金玉饰物已经适量；不为节庆给鸟羽或云团涂红。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "7bb35de3e74535801f640f4489d41639ba84c65d680e82a0cd4397f832fa003f",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "b99ba3f4b8ddc881b36f49757a01e2641a13b18ff6d7766b7e45996ffd217ba9",
+      "source": "qdao_chibi_pets_v1/03_yun_jiu_jiu-transparent_1254.png",
+      "pet_id": "yun_jiu_jiu",
+      "name": "云啾啾",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/03_yun_jiu_jiu-transparent_1254.png",
+          "sha256": "7bb35de3e74535801f640f4489d41639ba84c65d680e82a0cd4397f832fa003f",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+          "sha256": "5fa824d73f866a24475dd28cc849261fcdcdf0cc966784e1fbd9824fc2028d86",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/Ugui/RefreshV8/companion_yun_jiu_jiu.png",
+      "absolute_path": "E:/work/image/client_ui_refresh_20260908/prepared/UI/Ugui/RefreshV8/companion_yun_jiu_jiu.png",
+      "kind": "pet_prepared_exact_copy",
+      "status": "retained",
+      "reason": "红冠是本体特征，云垫和金玉饰物已经适量；不为节庆给鸟羽或云团涂红。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "7bb35de3e74535801f640f4489d41639ba84c65d680e82a0cd4397f832fa003f",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "b99ba3f4b8ddc881b36f49757a01e2641a13b18ff6d7766b7e45996ffd217ba9",
+      "source": "qdao_chibi_pets_v1/03_yun_jiu_jiu-transparent_1254.png",
+      "pet_id": "yun_jiu_jiu",
+      "name": "云啾啾",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/03_yun_jiu_jiu-transparent_1254.png",
+          "sha256": "7bb35de3e74535801f640f4489d41639ba84c65d680e82a0cd4397f832fa003f",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+          "sha256": "5fa824d73f866a24475dd28cc849261fcdcdf0cc966784e1fbd9824fc2028d86",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+      "absolute_path": "E:/work/image/designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+      "kind": "pet_formal_portrait_crop",
+      "status": "retained",
+      "reason": "红冠是本体特征，云垫和金玉饰物已经适量；不为节庆给鸟羽或云团涂红。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。 裁掉躯干/尾端是既定头像合同，不把头像裁切误报为全身图缺肢。",
+      "sha256": "5fa824d73f866a24475dd28cc849261fcdcdf0cc966784e1fbd9824fc2028d86",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "9d7bd2244017456697357af77bbe7cb9896ef49f323e080e0b00d68c7a95fa3a",
+      "source": "qdao_chibi_pets_v1/03_yun_jiu_jiu-transparent_1254.png",
+      "pet_id": "yun_jiu_jiu",
+      "name": "云啾啾",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/03_yun_jiu_jiu-transparent_1254.png",
+          "sha256": "7bb35de3e74535801f640f4489d41639ba84c65d680e82a0cd4397f832fa003f",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+          "sha256": "5fa824d73f866a24475dd28cc849261fcdcdf0cc966784e1fbd9824fc2028d86",
+          "kind": "visually_reviewed"
+        }
+      ]
+    },
+    {
+      "path": "designs/attribute-panels/v10-preview/assets/portrait_yunjiujiu.png",
+      "absolute_path": "E:/work/image/designs/attribute-panels/v10-preview/assets/portrait_yunjiujiu.png",
+      "kind": "pet_browser_preview_asset",
+      "status": "retained",
+      "reason": "红冠是本体特征，云垫和金玉饰物已经适量；不为节庆给鸟羽或云团涂红。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "5fa824d73f866a24475dd28cc849261fcdcdf0cc966784e1fbd9824fc2028d86",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "9d7bd2244017456697357af77bbe7cb9896ef49f323e080e0b00d68c7a95fa3a",
+      "source": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+      "pet_id": "yun_jiu_jiu",
+      "name": "云啾啾",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/03_yun_jiu_jiu-transparent_1254.png",
+          "sha256": "7bb35de3e74535801f640f4489d41639ba84c65d680e82a0cd4397f832fa003f",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+          "sha256": "5fa824d73f866a24475dd28cc849261fcdcdf0cc966784e1fbd9824fc2028d86",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "qdao_ui_style_recut_v10/contracts/reviewed-portraits/portrait_yunjiujiu.png",
+      "absolute_path": "E:/work/image/qdao_ui_style_recut_v10/contracts/reviewed-portraits/portrait_yunjiujiu.png",
+      "kind": "current_rebuild_support",
+      "status": "retained",
+      "reason": "红冠是本体特征，云垫和金玉饰物已经适量；不为节庆给鸟羽或云团涂红。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "5fa824d73f866a24475dd28cc849261fcdcdf0cc966784e1fbd9824fc2028d86",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "9d7bd2244017456697357af77bbe7cb9896ef49f323e080e0b00d68c7a95fa3a",
+      "source": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+      "pet_id": "yun_jiu_jiu",
+      "name": "云啾啾",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/03_yun_jiu_jiu-transparent_1254.png",
+          "sha256": "7bb35de3e74535801f640f4489d41639ba84c65d680e82a0cd4397f832fa003f",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+          "sha256": "5fa824d73f866a24475dd28cc849261fcdcdf0cc966784e1fbd9824fc2028d86",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    },
+    {
+      "path": "qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+      "absolute_path": "E:/work/image/qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+      "kind": "current_rebuild_support",
+      "status": "retained",
+      "reason": "红冠是本体特征，云垫和金玉饰物已经适量；不为节庆给鸟羽或云团涂红。 实看完整宠物与头像裁片，未见新的连续异色透明边或需追加装饰的理由。",
+      "sha256": "5fa824d73f866a24475dd28cc849261fcdcdf0cc966784e1fbd9824fc2028d86",
+      "size": [
+        160,
+        160
+      ],
+      "mode": "RGBA",
+      "images_modified_by_review": false,
+      "alpha_sha256": "9d7bd2244017456697357af77bbe7cb9896ef49f323e080e0b00d68c7a95fa3a",
+      "source": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+      "pet_id": "yun_jiu_jiu",
+      "name": "云啾啾",
+      "evidence": [
+        {
+          "path": "qdao_chibi_pets_v1/03_yun_jiu_jiu-transparent_1254.png",
+          "sha256": "7bb35de3e74535801f640f4489d41639ba84c65d680e82a0cd4397f832fa003f",
+          "kind": "visually_reviewed"
+        },
+        {
+          "path": "designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+          "sha256": "5fa824d73f866a24475dd28cc849261fcdcdf0cc966784e1fbd9824fc2028d86",
+          "kind": "visually_reviewed"
+        }
+      ],
+      "same_bytes_as_bound_source": true
+    }
+  ],
+  "additional_derived_outputs": [
+    {
+      "path": "qdao_character_diversity_v9/roster_overview.png",
+      "sha256": "dd16660d408ab17e0706c54ba334bf4756dbe224cc84b41318af7ab6d2938576",
+      "status": "needs_rebuild_after_source_repairs",
+      "reason": "这是当前静态人物交付总览的确定性派生图；待源PNG局部边缘修好后运行既有总览构建器刷新，不把它当引擎截图，也不手工改证据冒充验收。"
+    }
+  ],
+  "excluded_history_and_reference": [
+    {
+      "path": "qdao_ui_redesign_v5/pet/ling_yue_nine_tailed_fox.png",
+      "sha256": "e92bd1e836de2763f4851b222634e4229c6a2f4db4a2dee02e5c954975fd92d2",
+      "classification": "historical_concept_reference",
+      "status": "excluded_do_not_edit",
+      "reason": "早期带底概念参考，当前正式透明宠物另有权威输出；保留历史参考，不用更新图冒充原始记录。"
+    },
+    {
+      "path": "qdao_chibi_pets_v1/01_hu_tuan_tuan.png",
+      "sha256": "8258dc53e74ea83b534c6cf6900b9214890651aa5abf96387cf7eb43f1d4c615",
+      "classification": "historical_concept_reference",
+      "status": "excluded_do_not_edit",
+      "reason": "早期带底概念参考，当前正式透明宠物另有权威输出；保留历史参考，不用更新图冒充原始记录。"
+    },
+    {
+      "path": "qdao_chibi_pets_v1/02_fu_xiao_hu.png",
+      "sha256": "635b3b3c871debed0f53b9252690041eb72d8ca374374b5c0b20cb44237671b9",
+      "classification": "historical_concept_reference",
+      "status": "excluded_do_not_edit",
+      "reason": "早期带底概念参考，当前正式透明宠物另有权威输出；保留历史参考，不用更新图冒充原始记录。"
+    },
+    {
+      "path": "qdao_chibi_pets_v1/03_yun_jiu_jiu.png",
+      "sha256": "6b50adca267727e75637b8f55c0acc18764af64ee470096632b20a32621f9c58",
+      "classification": "historical_concept_reference",
+      "status": "excluded_do_not_edit",
+      "reason": "早期带底概念参考，当前正式透明宠物另有权威输出；保留历史参考，不用更新图冒充原始记录。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/qdao_chibi_pets_v1/01_hu_tuan_tuan-transparent_1254.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/qdao_chibi_pets_v1/02_fu_xiao_hu-transparent_1254.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/qdao_chibi_pets_v1/03_yun_jiu_jiu-transparent_1254.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/client_ui_refresh_20260908/prepared/UI/Ugui/RefreshV8/companion_fox.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/client_ui_refresh_20260908/prepared/UI/Ugui/RefreshV8/companion_fu_xiao_hu.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/client_ui_refresh_20260908/prepared/UI/Ugui/RefreshV8/companion_hu_tuan_tuan.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/client_ui_refresh_20260908/prepared/UI/Ugui/RefreshV8/companion_yun_jiu_jiu.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/designs/attribute-panels/assets/fuxiaohu.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/designs/attribute-panels/assets/hutuantuan.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/designs/attribute-panels/assets/lingyue.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/designs/attribute-panels/assets/yunjiujiu.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/qdao_ui_redesign_v5/pet/ling_yue_nine_tailed_fox-transparent_1254.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/png/portrait_fuxiaohu.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/png/portrait_hutuantuan.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/png/portrait_lingyue.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    },
+    {
+      "path": "qdao_cutout_edge_repair_20260910/delivery/qdao_ui_style_recut_v10/staged/designs/attribute-panels/v2-painted/unity-slices/png/portrait_yunjiujiu.png",
+      "classification": "previous_edge_delivery_snapshot",
+      "status": "excluded_do_not_edit",
+      "reason": "此前修复的交付快照/回退证据；本轮审查当前正式源与有效副本，不改写这份历史输出。"
+    }
+  ],
+  "errors": [],
+  "next_step": "只处理19份正式4096静态图（其中两张主角为同图别名）的已确认局部异色透明边，并重导17份相应1024副本及当前人物总览；保持Alpha/画布/身份/曝光。05、07、10、14、18和四宠及其副本保留，未经额外具体视觉证据不得对它们执行全局去色。"
+}

@@ -80,7 +80,7 @@ def clean(im,slug):
         mask=(alpha>0)&(near|strong)&(dom>10)
         donor=(alpha>=240)&inner&(dom<5)
     head_donor=donor&(dom<5)
-    hair_donor=(donor&connected_dark) if slug.startswith('29_') else donor
+    hair_donor=(donor&connected_dark&(dom<5)) if slug.startswith('29_') else donor
     h,w=alpha.shape;unresolved=[];distances=[];selected=int(mask.sum())
     for y,x in zip(*np.nonzero(mask)):
         available=donor
@@ -124,10 +124,13 @@ def evidence(rows,tag):
         dest=outdir/f'{start//4+1:02}.jpg';page.save(dest,quality=97);paths.append({'path':local(dest),'sha256':sha(dest)})
     return paths
 
-def stage(trial):
+def stage(trial,only=None):
     snapshot();review=load(REVIEW); rows=[]
+    if only and not trial and (PACK/'stage.json').exists():
+        rows=[r for r in load(PACK/'stage.json')['files'] if not r['slug'].startswith(only)]
     flagged={r['path'] for r in review['files'] if r['status']=='needs_edit'}
     for slug in SLUGS:
+        if only and not slug.startswith(only):continue
         base=ROSTER/slug
         candidates=[base/'portrait.png']+[base/'walk'/d/f'{i:02d}.png' for d in DIRS for i in range(1,5)]
         if trial:candidates=[base/'portrait.png',base/'walk/S/01.png']
@@ -150,6 +153,6 @@ def stage(trial):
     print(json.dumps(d['summary']),flush=True)
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--trial',action='store_true');p.add_argument('--stage',action='store_true');a=p.parse_args()
-    if a.trial or a.stage:stage(a.trial)
+    p=argparse.ArgumentParser();p.add_argument('--trial',action='store_true');p.add_argument('--stage',action='store_true');p.add_argument('--only');a=p.parse_args()
+    if a.trial or a.stage:stage(a.trial,a.only)
     else:p.print_help()
