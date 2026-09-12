@@ -80,7 +80,6 @@ def build(deploy):
             meta_hash = digest(meta)
             before[str(meta)] = meta_hash
             guid = re.search(r"^guid: (\S+)$", meta.read_text(encoding="utf-8-sig"), re.M).group(1)
-            old_hash = digest(target)
             if deploy:
                 shutil.copyfile(output, target)
             assert digest(meta) == meta_hash, f"Metadata changed: {meta}"
@@ -103,13 +102,14 @@ def build(deploy):
 
 def make_previews():
     entries = [(entry["id"], ROOT / (entry["id"] + "_2560x1080.png")) for entry in source_entries()]
-    sheet = Image.new("RGB", (1440, 5 * 332), "#eee8d7")
+    sheet = Image.new("RGB", (1440, 3 * 332), "#eee8d7")
     draw = ImageDraw.Draw(sheet)
     for i, (name, path) in enumerate(entries):
+        col, row = i % 2, i // 2
         with Image.open(path) as scene:
-            scene.thumbnail((1400, 295))
-            sheet.paste(scene, ((1440-scene.width)//2, i*332))
-        draw.text((20, i*332+305), name + " / 2560 x 1080 / equal scale", fill="#27443a")
+            scene.thumbnail((700, 295))
+            sheet.paste(scene, (col*720 + (720-scene.width)//2, row*332))
+        draw.text((col*720+10, row*332+305), name + " / 2560 x 1080 / equal scale", fill="#27443a")
     sheet.save(ROOT / "runtime-contact.jpg", quality=91)
     code = (CLIENT / "Assets/Scripts/UI/Ugui/Battle/BattleStage.cs").read_text(encoding="utf-8-sig")
     groups = re.findall(r"private static readonly SlotEntry\[\] (\w+)\s*=\s*\{(.*?)\};", code, re.S)
