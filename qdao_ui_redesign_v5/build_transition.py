@@ -18,7 +18,16 @@ def metadata(path):
             result.update(alpha_range=list(a.getextrema()),transparent_pixels=hist[0],opaque_pixels=hist[255])
         return result
 
+
+def guard_superseded_full_export():
+    manifest_path=ROOT/'manifest.json'
+    if manifest_path.exists():
+        current=json.loads(manifest_path.read_text(encoding='utf-8-sig'))
+        if current.get('festival_scene_sync') or current.get('prelogin_refinement'):
+            raise RuntimeError('Legacy whole export is superseded: historical source/05 and source/06 must not overwrite current festival scenes or regenerate preserved clouds. Verify current files with: python qdao_ui_redesign_v5/export_ui.py --check. Reproduce accepted scene outputs only inside the task folder with: python qdao_festival_refinement_20260910/scenes-sync/build_scene_sync.py reproduce. See qdao_festival_refinement_20260910/scenes-sync/README.md for current source and server composition records.')
+
 def export_transition():
+    guard_superseded_full_export()
     src=ROOT/'source/06_battle_entry_clouds_fg.png'
     dst=ROOT/'06_battle_entry_clouds_fg_2560x1080.png'
     with Image.open(src) as original:

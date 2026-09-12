@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-09-12T08:29:54.496165+00:00",
+  "updated_at_utc": "2026-09-12T08:52:26.205968+00:00",
   "phase": "refinement_in_progress",
   "all_images_complete": false,
-  "images_edited_by_this_task": 4,
+  "images_edited_by_this_task": 523,
   "style": "Daoist chibi as the overall style; subtle Spring Festival, Lantern Festival and Mid-Autumn accents",
   "automation_id": "automation",
   "monitor_interval_hours": 1,
@@ -275,7 +275,7 @@
       "errors": []
     }
   },
-  "next_step": "Continue v11 and v9 edge repair publications, new scene alias sync, then current UI/item/old-hero visual review and complete per-file source/alias/history decisions. No renewed prerequisite wait.",
+  "next_step": "Finish v9 edge refinement and all confirmed aliases, recompose server chain from final hero, merge remaining-misc review, refresh inventory and verify current per-file final hashes.",
   "last_monitor_trigger_utc": "2026-09-12T07:42:32.243Z",
   "monitor_decision": "All relevant picture production and package acceptance verified. Proceed with authorized full-library refinement, not prerequisite polling. Keep current hourly continuation for remaining batches. Client map integration is a separate ongoing code/resource-copy task, not an additional image-generation blocker.",
   "thread_observations": [
@@ -908,18 +908,36 @@
   "refinement": {
     "status": "editing_and_publishing_batches",
     "all_images_complete": false,
-    "images_edited": 4,
-    "files_decided": 4,
-    "active_batch": "prelogin_published; character_edges_and_scene_aliases_in_progress; ui_items_audit",
-    "note": "01/03 pre-login native sources and 2560 exports published after visual and protected-pixel checks; remaining families continue in parallel.",
+    "images_edited": 523,
+    "files_decided": 5953,
+    "active_batch": "v9_static_edges_and_server_derivatives; final_misc_source_audit",
+    "note": "Current primary media publication totals 4 pre-login,303 v11,198 prepared UI/items,18 scenes. New evidence images/package wrappers counted separately. v9 and server chain still in progress.",
     "completed_batches": {
       "prelogin": {
         "record": "prelogin/publication.json",
         "source_images": 2,
         "derived_images": 2,
         "status": "published"
+      },
+      "v11_edges": {
+        "record": "edge_exports/final-verification.json",
+        "status": "published_and_verified",
+        "media_changed": 303,
+        "media_retained": 105
+      },
+      "prepared_ui_items": {
+        "record": "prepared-sync/publication.json",
+        "status": "published",
+        "media_changed": 198
+      },
+      "scene_aliases": {
+        "record": "scenes-sync/publication.json",
+        "status": "published_and_verified",
+        "media_changed": 18
       }
-    }
+    },
+    "decision_ledger": "decisions.json",
+    "pending_decisions_at_snapshot": 94
   },
   "cleanup_dependency": {
     "task_id": "01a0947a-48fd-7863-9882-d4fc6f16d5b8",

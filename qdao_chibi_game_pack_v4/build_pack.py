@@ -29,6 +29,9 @@ def inspect_png(path):
         return item
 
 def main():
+    current_path=PACK/'manifest.json'
+    if current_path.exists() and json.loads(current_path.read_text(encoding='utf-8-sig')).get('festival_scene_sync'):
+        raise RuntimeError('Legacy v4 rebuild is superseded; it would overwrite the corrected hero and accepted city. Verify with: python qdao_festival_refinement_20260910/scenes-sync/build_scene_sync.py verify. Reproduce task-local accepted outputs with the same script reproduce action; see scenes-sync/README.md.')
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--processor', type=Path,
         default=Path.home() / '.agents/skills/generate2dsprite/scripts/generate2dsprite.py')

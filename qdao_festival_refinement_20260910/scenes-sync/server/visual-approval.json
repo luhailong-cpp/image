@@ -1,0 +1,96 @@
+{
+  "status": "passed",
+  "reviewed_at_utc": "2026-09-12T08:54:58.939250+00:00",
+  "reviewer": "Codex scene synchronization subagent",
+  "files": [
+    {
+      "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_background_ui_uncropped_final_5120x2160.png",
+      "sha256": "8b69ce1697b7d2859c753909810e9f36e5477a7aef1492da9728d95683197d9d",
+      "visual_status": "passed"
+    },
+    {
+      "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_buttons_uncropped_final_5120x2160.png",
+      "sha256": "0fe9f830a73c7724e7b62b3685f6122c8ae251876ee6af3a97fa4ff2ab8b4b5a",
+      "visual_status": "passed"
+    },
+    {
+      "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_ui_uncropped_final_recomposed_5120x2160.png",
+      "sha256": "a5ab6068db3a8d46d86aeeb5c6608a6dfa27a0cd778aa532f9398c42cb47b4b7",
+      "visual_status": "passed"
+    },
+    {
+      "path": "q_daoist_login_ui_lidazui_headband_v2_5120x2160.png",
+      "sha256": "a5ab6068db3a8d46d86aeeb5c6608a6dfa27a0cd778aa532f9398c42cb47b4b7",
+      "visual_status": "passed"
+    },
+    {
+      "path": "q_daoist_login_ui_redrawn_transparent_5120x2160.png",
+      "sha256": "a5ab6068db3a8d46d86aeeb5c6608a6dfa27a0cd778aa532f9398c42cb47b4b7",
+      "visual_status": "passed"
+    },
+    {
+      "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_background_ui_uncropped_final_10240x4320.png",
+      "sha256": "fbf71bfc3ec5818a9b60a0ef737245011431f1d77aa617f7fe01b2f59a728c1c",
+      "visual_status": "passed"
+    },
+    {
+      "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_buttons_uncropped_final_10240x4320.png",
+      "sha256": "a6f4b93c1d46d8bd73aef1162cad746fa109de5550e63fe9a6085c948b746941",
+      "visual_status": "passed"
+    },
+    {
+      "path": "q_daoist_login_ui_uncropped_highres_final_layers/q_daoist_login_ui_uncropped_final_recomposed_10240x4320.png",
+      "sha256": "c7c4c68d32c2d9761aacc8b9265bd529d4eea58f4b5d1e2121e9adbe6a7f4123",
+      "visual_status": "passed"
+    },
+    {
+      "path": "q_daoist_login_clear_2560x1080.png",
+      "sha256": "938bdd7ff2cd2ca71ffe395b031f48e97f251709c51e7922faae6d9cccaefdd8",
+      "visual_status": "passed"
+    },
+    {
+      "path": "q_daoist_login_clear_lidazui_headband_2560x1080.png",
+      "sha256": "938bdd7ff2cd2ca71ffe395b031f48e97f251709c51e7922faae6d9cccaefdd8",
+      "visual_status": "passed"
+    },
+    {
+      "path": "ugui_qdao_headband_2560x1080.png",
+      "sha256": "938bdd7ff2cd2ca71ffe395b031f48e97f251709c51e7922faae6d9cccaefdd8",
+      "visual_status": "passed"
+    },
+    {
+      "path": "ugui_qdao_headband_native_2560x1080.png",
+      "sha256": "938bdd7ff2cd2ca71ffe395b031f48e97f251709c51e7922faae6d9cccaefdd8",
+      "visual_status": "passed"
+    },
+    {
+      "path": "qdao_ui_redesign_v5/source/02_server_select.png",
+      "sha256": "938bdd7ff2cd2ca71ffe395b031f48e97f251709c51e7922faae6d9cccaefdd8",
+      "visual_status": "passed"
+    },
+    {
+      "path": "qdao_ui_redesign_v5/02_server_select_2560x1080.png",
+      "sha256": "938bdd7ff2cd2ca71ffe395b031f48e97f251709c51e7922faae6d9cccaefdd8",
+      "visual_status": "passed"
+    },
+    {
+      "path": "client_ui_refresh_20260908/prepared/UI/Ugui/Native/screen_art_headband.png",
+      "sha256": "938bdd7ff2cd2ca71ffe395b031f48e97f251709c51e7922faae6d9cccaefdd8",
+      "visual_status": "passed"
+    }
+  ],
+  "evidence": {
+    "hero-native-detail.png": "11b6de926acae23b756564bfddb32fadda8248c6242ca1acfb7d6740b4118cd5",
+    "server-before-after.jpg": "f67b7a25c673a90d9a2a3a28b1037933db63c073c11ab9c907992cdc83b33d15"
+  },
+  "observations": [
+    "Compared current server full-screen before/after and final native hero crop. Same no-fox background, veil, text, control layout, hierarchy and fixed hero rectangle retained.",
+    "New hero retains complete headband, hand, gourd and boots; fine RGB fringe correction introduces no visible clipping or detached edge.",
+    "All 8 RGBA output alpha channels and pixels outside the hero rectangle match the current composition numerically; the 2 control layers remain byte-identical.",
+    "Previously stale prepared screen_art_headband is synchronized to current v10 composition plus corrected hero; it is not claimed pixel-identical outside the hero to its older stale UI file."
+  ],
+  "limits": [
+    "Screen and layer visual art only. No client import, Unity or online function validation.",
+    "Aliases covered by exact repeated output bytes and numerical canvas/alpha checks; full size 10240 layers retain the same SVG geometry and unchanged alpha."
+  ]
+}

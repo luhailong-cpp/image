@@ -11,7 +11,7 @@ import json
 import shutil
 from pathlib import Path
 from PIL import Image, ImageOps
-from build_transition import export_transition, check_transition
+from build_transition import export_transition, check_transition, guard_superseded_full_export
 
 ROOT = Path(__file__).resolve().parent
 TARGET = (2560, 1080)
@@ -35,6 +35,7 @@ def inspect(path: Path) -> dict:
                 "mode": im.mode, "bytes": path.stat().st_size, "sha256": digest(path)}
 
 def export() -> dict:
+    guard_superseded_full_export()
     records = []
     for stem, role, method, recipe in SCREENS:
         src = ROOT / "source" / f"{stem}.png"

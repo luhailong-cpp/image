@@ -250,7 +250,31 @@ def verify():
     write(RUN/'publication-journal.json',{'status':'complete','completed_at_utc':now(),'image_files':18})
     print(json.dumps({'status':pub['status'],'image_files':18,'protected_files':len(before['protected']),'errors':errors},ensure_ascii=True))
 
+
+def reproduce():
+    """Rebuild only task-local output from accepted snapshots; never overwrite formal paths."""
+    pub=read(RUN/'publication.json');index=read(RUN/'current-inputs.json');plan,_=stages()
+    for x in index['files']:
+        if sha(RUN/x['snapshot'])!=x['sha256']:raise RuntimeError('Snapshot changed: '+x['path'])
+    base=RUN/'reproduced'
+    for g in plan['copy_groups']:
+        for t in g['targets']:
+            dst=safe(base,t['path']);dst.parent.mkdir(parents=True,exist_ok=True)
+            shutil.copy2(RUN/'current-inputs'/g['copy_source']['path'],dst)
+    actor=read(RUN/'current-inputs'/PLACEMENTS)['actors'][0]
+    hero=Image.open(RUN/'current-inputs'/HERO).convert('RGBA').resize(tuple(actor['display_size']),Image.Resampling.LANCZOS)
+    city=Image.open(base/'qdao_chibi_game_pack_v4/main-city_2560x1080.png').convert('RGBA')
+    city.alpha_composite(hero,tuple(actor['top_left']));city.convert('RGB').save(base/PREVIEW)
+    target=base/HUD_SOURCE;target.parent.mkdir(parents=True,exist_ok=True)
+    subprocess.run([str(NODE),str(RUN/'compose_hud.mjs'),str(SHARP),str(base/PREVIEW),str(RUN/'current-inputs'/HUD/'hud_overlay.png'),str(target)],check=True)
+    shutil.copy2(target,base/HUD_EXPORT)
+    files=[{'path':x['path'],'sha256':sha(base/x['path']),'expected_sha256':x['after_sha256']} for x in pub['files']]
+    errors=[x['path'] for x in files if x['sha256']!=x['expected_sha256']]
+    write(RUN/'reproduction-verification.json',{'status':'passed' if not errors else 'failed','checked_at_utc':now(),'files':files,'formal_images_modified':0,'client_written':False,'errors':errors})
+    if errors:raise RuntimeError(str(errors))
+    print(json.dumps({'status':'reproduced_exactly','files':len(files),'formal_images_modified':0}))
+
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('action',choices=['stage','publish','verify'])
+    parser=argparse.ArgumentParser();parser.add_argument('action',choices=['stage','publish','verify','reproduce'])
     action=parser.parse_args().action
     globals()[action]()
