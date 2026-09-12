@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-09-11T19:55:02.187533+00:00",
+  "updated_at_utc": "2026-09-12T05:48:12.131290+00:00",
   "phase": "waiting_for_prerequisites",
   "all_images_complete": false,
   "images_edited_by_this_task": 0,
@@ -10,8 +10,8 @@
   "user_latest_request": "做完了吗，没做完帮我继续继续",
   "generation_gate_open": false,
   "blocking_deliveries": {
-    "new_characters_v11": "Current eight-role roster remains incomplete. 23/25/26 have producer QC passed; 27 now has producer visual and numeric acceptance plus monitor verification of 51 output hashes and image contracts. Young Lu Dongbin has only four cardinal raw sheets; 28 has two assembled sheets without final QC; He Xiangu and Han Xiangzi corrections/final exports remain pending. Whole-package manifest and validation absent. Retired crane hermit excluded.",
-    "main_city_and_scenes": "City 6144 master, preview, 36 official tiles, manifest and mechanical verification exist; monitor verified 38 file hashes and dimensions. Independent visual acceptance remains pending. Main-city-wide and forest-bridge native images exist, but no accepted expanded-scene pack. Login and battle-entry images missing; no independent courtyard delivery is verified, and old scene inventory aliases courtyard to main-city-wide."
+    "new_characters_v11": "Current eight-role roster remains incomplete. Roles 23/25/26 have producer QC passed and 27 is accepted with 51 output hashes independently verified. Young Lu Dongbin now has all eight raw direction sheets but final exports/manifest/QC are absent. Roles 28/29/30 and whole-package acceptance remain incomplete. Retired crane hermit excluded.",
+    "main_city_and_scenes": "City master/preview/36 official tiles and mechanical verification exist; independent visual acceptance still absent. Expanded scenes have main-city-wide, forest-bridge and battle-entry native images; battle-entry has producer visual approval and matching metadata hash. Login lacks image; separate courtyard mapping/delivery unverified. No accepted final scene package."
   },
   "resume_other_task_question": "Superseded by the user instruction: if unfinished, continue. Continuation messages were accepted for UI v10 and character tasks v9/v11; UI and main city were observed in new in-progress turns. Avoid duplicate continuation messages.",
   "completed_evidence": {
@@ -153,8 +153,8 @@
     }
   },
   "next_step": "Check city visual acceptance, all expanded scenes and the current eight-role v11 package hourly. After all are complete, refresh the full inventory and refine applicable source assets and dependent exports under the documented Daoist chibi festival style.",
-  "last_monitor_trigger_utc": "2026-09-11T18:41:47.222Z",
-  "monitor_decision": "Continue the existing hourly schedule while upstream production and acceptance remain incomplete. Do not restart the initial five-hour delay. Keep full-library image editing gated until all relevant image deliveries are accepted.",
+  "last_monitor_trigger_utc": "2026-09-12T05:44:00.521Z",
+  "monitor_decision": "Keep the existing hourly schedule. Remaining producer tasks are currently notLoaded and final art acceptance remains incomplete; this status is not completion or evidence of a new failure. Do not interrupt or send duplicate continuation messages. Keep full-library image edits gated until all relevant deliveries are accepted.",
   "thread_observations": [
     {
       "id": "01a08a19-8d1b-75c1-9e80-ee2fea9833b0",
@@ -165,28 +165,28 @@
       "cursor": "6abc3caa-56e6-4558-ae77-095c2667ac89:2",
       "error": null,
       "observed_utc": "2026-09-11T15:47:06.441476+00:00",
-      "coarse_status_checked_utc": "2026-09-11T19:55:02.187533+00:00"
+      "coarse_status_checked_utc": "2026-09-12T05:48:12.131290+00:00"
     },
     {
       "id": "01a08a28-6391-7100-a82e-f3a966e57349",
-      "status": "active",
-      "latest_turn": "started_no_completion_seen",
-      "turn_id": "01a0904a-48c6-7923-828c-0027af600f7e",
-      "cursor": "917065e2-9666-4b17-aa5d-3c3ce12b714a:2",
+      "status": "notLoaded",
+      "latest_turn": "latest_local_start_seen_current_execution_unconfirmed",
+      "turn_id": "01a090ac-8d1b-71a0-942a-1a8100ede862",
+      "cursor": "45f27582-90bd-455b-b3cb-b1c3048a2b2a:1",
       "coarse_snapshot_unchanged": true,
-      "cursor_reset": false,
+      "cursor_reset": true,
       "error": null,
       "observed_utc": "2026-09-11T11:50:16.616024+00:00",
-      "state_note": "Direct local task log confirms a newer task_started event absent from the stale compact app snapshot.",
+      "state_note": "Current app status notLoaded; compact turn history remains stale. No new terminal error confirmed.",
       "fresh_turn_observed": true,
-      "turn_started_utc": "2026-09-11T11:46:22.601Z",
-      "last_verified_artifact_modified_utc": "2026-09-11T19:45:02Z",
-      "coarse_status_checked_utc": "2026-09-11T19:55:02.187533+00:00"
+      "turn_started_utc": "2026-09-11T13:33:42.614Z",
+      "last_verified_artifact_modified_utc": "2026-09-11T19:57:07Z",
+      "coarse_status_checked_utc": "2026-09-12T05:48:12.131290+00:00"
     },
     {
       "id": "01a08a2b-8ef8-7d41-be4e-8962e24735e1",
-      "status": "active",
-      "latest_turn": "started_no_completion_seen",
+      "status": "notLoaded",
+      "latest_turn": "current_execution_unconfirmed",
       "cursor": "fb7c69fc-18ba-4f71-b9cb-d41ec8a86504:2",
       "coarse_snapshot_unchanged": true,
       "latest_read_status": "tool_retrieval_failed",
@@ -195,23 +195,23 @@
       "turn_id": "01a0904a-2dc9-7881-874b-0c59592712f0",
       "error": null,
       "observed_utc": "2026-09-11T11:50:16.616024+00:00",
-      "state_note": "Direct local task log and newly saved Lu Dongbin portrait confirm real continuation beyond the stale app snapshot.",
+      "state_note": "Current app status notLoaded; final delivery incomplete. Latest source file is newer than the stale compact history.",
       "fresh_turn_observed": true,
       "turn_started_utc": "2026-09-11T11:46:15.678Z",
       "latest_local_event_utc": "2026-09-11T12:07:58.993Z",
-      "coarse_status_checked_utc": "2026-09-11T19:55:02.187533+00:00",
-      "last_verified_artifact_modified_utc": "2026-09-11T19:38:37Z"
+      "coarse_status_checked_utc": "2026-09-12T05:48:12.131290+00:00",
+      "last_verified_artifact_modified_utc": "2026-09-11T20:01:35Z"
     },
     {
       "id": "01a075d4-5b1f-7e31-b44f-18e351fa544f",
       "status": "notLoaded",
       "latest_turn": "inProgress",
       "turn_id": "01a076a8-7b4e-7c81-84c8-d0fef9c8359a",
-      "coarse_status_checked_utc": "2026-09-11T19:55:02.187533+00:00"
+      "coarse_status_checked_utc": "2026-09-12T05:48:12.131290+00:00"
     },
     {
       "id": "01a0860b-36e6-7000-b128-67e7f4d73fa1",
-      "status": "idle",
+      "status": "notLoaded",
       "latest_turn": "inProgress",
       "turn_id": "01a0872b-3f47-7eb2-9175-dfc27b869635",
       "recovery_message": "accepted after systemError",
@@ -221,7 +221,7 @@
       "completion_evidence": "Current image and evidence hashes verified; stale turn status does not override file delivery.",
       "error": null,
       "observed_utc": "2026-09-11T11:50:16.616024+00:00",
-      "coarse_status_checked_utc": "2026-09-11T19:55:02.187533+00:00"
+      "coarse_status_checked_utc": "2026-09-12T05:48:12.131290+00:00"
     },
     {
       "id": "01a086ef-2e8c-73a2-bf70-7ac4b4bcde02",
@@ -232,7 +232,7 @@
       "cursor": "88b979eb-3a88-4df9-a1ba-27731699f3d3:1",
       "error": null,
       "observed_utc": "2026-09-11T11:50:16.616024+00:00",
-      "coarse_status_checked_utc": "2026-09-11T19:55:02.187533+00:00"
+      "coarse_status_checked_utc": "2026-09-12T05:48:12.131290+00:00"
     },
     {
       "id": "01a086eb-a80d-71e0-b4ec-eb95a90a8669",
@@ -242,7 +242,7 @@
       "turn_id": "01a09049-c50e-77c2-9db1-6835aba46a70",
       "error": null,
       "observed_utc": "2026-09-11T11:50:16.616024+00:00",
-      "coarse_status_checked_utc": "2026-09-11T19:55:02.187533+00:00"
+      "coarse_status_checked_utc": "2026-09-12T05:48:12.131290+00:00"
     },
     {
       "id": "01a086f8-7613-7c43-844d-a17e5c8171c6",
@@ -252,10 +252,10 @@
       "turn_id": "01a0904a-1531-7aa3-bc64-62cc5a0e0854",
       "error": null,
       "observed_utc": "2026-09-11T11:50:16.616024+00:00",
-      "coarse_status_checked_utc": "2026-09-11T19:55:02.187533+00:00"
+      "coarse_status_checked_utc": "2026-09-12T05:48:12.131290+00:00"
     }
   ],
-  "last_observed_change": "City assembly and mechanical file delivery verified; role 27 producer visual/numeric approval and 51 outputs verified. Two expanded-scene native images observed; main-city-wide is an older file newly found, not newly generated this cycle. Role 28 assembled sheets exist. Remaining full deliveries still incomplete.",
+  "last_observed_change": "Newly observed battle-entry native image with producer visual checks and matching hash; young Lu Dongbin raw directions now complete. Last source image update was 2026-09-11T20:01:35Z, not during this heartbeat. Main city visual and final character/scenes package acceptance remain pending.",
   "partial_progress": {
     "role_26": {
       "manifest": "qdao_chibi_roster_v11/26_osmanthus_healer/manifest.json",
@@ -286,8 +286,16 @@
         "N"
       ],
       "raw_cardinal_direction_count": 4,
-      "raw_diagonal_directions": [],
-      "latest_raw_image_utc": "2026-09-11T17:50:21Z"
+      "raw_diagonal_directions": [
+        "SW",
+        "NW",
+        "NE",
+        "SE"
+      ],
+      "latest_raw_image_utc": "2026-09-11T20:01:35Z",
+      "raw_direction_count": 8,
+      "all_eight_direction_raw_sheets_present": true,
+      "final_exports_complete": false
     },
     "role_23": {
       "complete": true,
@@ -354,14 +362,33 @@
           "native_metadata": "qdao_festival_scenes_20260910/battle_forest_bridge/native-metadata.json",
           "final_acceptance_present": false,
           "requested_larger_dimensions_are_not_actual_native_output": true
+        },
+        "battle_entry": {
+          "path": "qdao_festival_scenes_20260910/battle_entry/scene-native.png",
+          "size": [
+            1932,
+            814
+          ],
+          "mode": "RGB",
+          "modified_utc": "2026-09-11T19:53:16.099956+00:00",
+          "native_metadata": "qdao_festival_scenes_20260910/battle_entry/native-metadata.json",
+          "sha256": "3c4e9ef9c79d841f998362a52f32b7eeff71124611fb421afb2a21d366e2b9ce",
+          "producer_visual_review_completed": true,
+          "metadata_hash_matches_current_image": true,
+          "monitor_png_decode_and_dimensions_verified": true,
+          "monitor_independent_visual_review": false,
+          "final_pack_acceptance_present": false,
+          "formal_production_assets_modified": false,
+          "upscaled": false,
+          "newly_observed_this_cycle": true
         }
       },
       "missing_scene_images": [
-        "login_landscape",
-        "battle_entry"
+        "login_landscape"
       ],
       "courtyard_scope_note": "scene-inventory.json aliases main_city_wide as 主城横版 and 道观庭院背景; this is not verified independent courtyard delivery. Preserve user-confirmed five-scene coverage and verify final mapping.",
-      "all_expanded_scenes_complete": false
+      "all_expanded_scenes_complete": false,
+      "native_image_count_observed": 3
     },
     "gameplay_pages": {
       "quests_image_exists": true,
@@ -532,9 +559,9 @@
     }
   },
   "last_heartbeat_decision": "DONT_NOTIFY",
-  "last_check_kind": "direct_user_followup",
+  "last_check_kind": "heartbeat",
   "last_monitor_findings": {
-    "checked_utc": "2026-09-11T19:55:02.187533+00:00",
+    "checked_utc": "2026-09-12T05:48:12.131290+00:00",
     "city_refined_files": 36,
     "city_target_tiles": 36,
     "city_final_delivery_present": true,
@@ -560,19 +587,29 @@
     "role_28_new_corrected_raws_present": true,
     "city_final_visual_acceptance": false,
     "city_file_hashes_verified": 38,
-    "expanded_scene_native_images_observed": 2,
+    "expanded_scene_native_images_observed": 3,
     "role_27_final_acceptance": true,
     "role_27_output_hashes_verified": 51,
-    "role_28_assembled_sheets_present": true
+    "role_28_assembled_sheets_present": true,
+    "battle_entry_native_png_hash_verified": true,
+    "lu_dongbin_all_eight_raw_directions_present": true
   },
   "last_monitor_metadata_check": {
-    "trigger_utc": "2026-09-11T18:41:47.222Z",
-    "documents_unchanged_on_read": true,
-    "pending_task_compact_snapshots_changed": false,
-    "city_progress_json_confirmed_stale": true,
-    "note": "Compact app turn metadata remains stale; current artifact evidence and separate read-only audit establish progress. Both remaining producer tasks are active; no duplicate continuation sent.",
-    "checked_utc": "2026-09-11T19:55:02.187533+00:00",
-    "check_kind": "direct_user_followup"
+    "trigger_utc": "2026-09-12T05:44:00.521Z",
+    "checked_utc": "2026-09-12T05:48:12.131290+00:00",
+    "check_kind": "heartbeat",
+    "required_documents_read": true,
+    "required_document_sha256": {
+      "README.md": "27c0c9c9908270f116e82276fe3339cabd1d885a493bde0ce3d142b4b9b95df2",
+      "docs/WUXING_QITAN_HANDOFF.md": "e5622ad3c2cae0f6fb91aedcd5ef29422b23903148b4ffd979861fea02c0acf4",
+      "docs/QDAO_ART_DIRECTION.md": "cce477d25bea8a133a450fe647bb01b315e4d3918de2a510feb8c293991a36c8",
+      "docs/QDAO_FESTIVAL_REFINEMENT.md": "7a5784007e62edd30dc9b025a16e3dd29309be701cbf5dc83e828bddf9e0e928"
+    },
+    "pending_tasks_current_coarse_status": "notLoaded",
+    "compact_snapshot_cursor_reset": true,
+    "compact_turn_metadata_still_stale": true,
+    "local_task_tail_checked": true,
+    "note": "City compact snapshot still refers to old interrupted turn, while local history shows later starts. Older usage errors were followed by another start and later art output; no newly verified terminal error. v11 task-read retrieval failed, not an image-generation failure. No messages sent to producer tasks."
   },
   "retired_sources": {
     "24_crane_hermit": {
@@ -606,22 +643,22 @@
     "note": "Do not use the old six-role brief or retired crane-hermit QC as the current delivery scope."
   },
   "last_monitor_result": {
-    "trigger_utc": "2026-09-11T18:41:47.222Z",
+    "trigger_utc": "2026-09-12T05:44:00.521Z",
     "change_since_previous_image_delivery_check": true,
     "city_observed_file_count_increase": 5,
     "city_raw_count": 36,
     "city_final_delivery_complete": false,
     "latest_city_image_utc": "2026-09-11T17:57:49Z",
-    "latest_character_raw_image_utc": "2026-09-11T18:18:02Z",
+    "latest_character_raw_image_utc": "2026-09-11T20:01:35Z",
     "new_character_images_since_previous_cycle": true,
     "new_terminal_production_failure": false,
     "remaining_final_deliveries_complete": false,
     "finalization_script_note": "A finalization script exists in v11, but scripts are not delivered manifests or acceptance records.",
-    "checked_utc": "2026-09-11T19:55:02.187533+00:00",
+    "checked_utc": "2026-09-12T05:48:12.131290+00:00",
     "city_assembled_delivery_present": true,
     "city_visual_acceptance_pending": true,
     "role_27_complete": true,
-    "expanded_scene_native_count": 2
+    "expanded_scene_native_count": 3
   },
   "usage_failure_followup": {
     "checked_utc": "2026-09-11T13:44:54.620004+00:00",
