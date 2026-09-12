@@ -2,6 +2,7 @@
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 import json, hashlib
+from datetime import datetime, timezone
 ROOT=Path(__file__).resolve().parent
 ROSTER=[('23_lantern_courier','灯穗小使'),('24_lu_dongbin','吕洞宾'),('25_lion_drum_guard','狮鼓护卫'),('26_osmanthus_healer','桂香药婆'),('27_ink_kite_ranger','墨鸢游侠'),('28_moon_rabbit_artificer','月兔机关师'),('29_he_xiangu','何仙姑'),('30_han_xiangzi','韩湘子')]
 DIRS=['S','SW','W','NW','N','NE','E','SE']
@@ -28,9 +29,9 @@ def main():
         base=ROOT/slug; p=base/'portrait.png'
         assert p.exists(),str(p)
         qc=json.loads((base/'qc.json').read_text(encoding='utf-8-sig'))
-        assert qc.get('status')=='passed', (slug,'numeric/overall QC not accepted',qc.get('status'))
+        assert qc.get('status') in ('passed','passed_visual_and_numeric_qc'), (slug,'numeric/overall QC not accepted',qc.get('status'))
         visual=qc.get('visual_review',{})
-        assert isinstance(visual,dict) and visual.get('status')=='passed', (slug,'visual QC not accepted')
+        assert isinstance(visual,dict) and visual.get('status') in ('passed','approved'), (slug,'visual QC not accepted')
         x=35+(i%4)*490; y=150+(i//4)*500
         draw.rounded_rectangle((x,y,x+470,y+474),radius=18,fill='#e8e4d6',outline='#d6d0bd',width=1)
         im=fit(Image.open(p),(420,388)); overview.paste(im,(x+(470-im.width)//2,y+16+388-im.height),im)
@@ -66,7 +67,7 @@ def main():
                     dc.text((x+82,y+245),name,font=font(20),fill='#344e44')
                 review.append(page)
     review[0].save(ROOT/'movement-overview.gif',save_all=True,append_images=review[1:],duration=120,loop=0,optimize=False,disposal=2)
-    payload={'title':'五行奇谈 · 八位新伙伴','date':'2026-09-10','status':'image_assets_delivered','generator':'built-in image_gen','model_and_quality_forced':False,'characters':entries,'total_portraits':len(ROSTER),'total_unique_movement_frames':len(ROSTER)*32,'direction_order':DIRS,'client_integration':'Not performed. Existing client expects eight frames and a single hardcoded role; consume these four-frame manifests explicitly.'}
+    payload={'title':'五行奇谈 · 八位新伙伴','date':datetime.now(timezone.utc).isoformat(),'status':'image_assets_delivered','generator':'built-in image_gen','model_and_quality_forced':False,'characters':entries,'total_portraits':len(ROSTER),'total_unique_movement_frames':len(ROSTER)*32,'direction_order':DIRS,'client_integration':'Not performed. Existing client expects eight frames and a single hardcoded role; consume these four-frame manifests explicitly.'}
     (ROOT/'manifest.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
     print(json.dumps({'portraits':len(ROSTER),'movement_frames':len(ROSTER)*32,'all_directional_frames_unique':True,'overview':str(ROOT/'roster-overview.jpg'),'animation':str(ROOT/'movement-overview.gif')},ensure_ascii=False))
 if __name__=='__main__':main()

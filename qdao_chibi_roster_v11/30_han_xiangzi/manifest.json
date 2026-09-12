@@ -1,0 +1,715 @@
+{
+  "version": 2,
+  "character_id": "30_han_xiangzi",
+  "generated_at_utc": "2026-09-12T06:48:21.002352+00:00",
+  "art_source": "built-in image_gen",
+  "portrait": "portrait.png",
+  "portrait_size": [
+    1024,
+    1024
+  ],
+  "walk": {
+    "directions": [
+      "S",
+      "SW",
+      "W",
+      "NW",
+      "N",
+      "NE",
+      "E",
+      "SE"
+    ],
+    "frames_per_direction": 4,
+    "cell": [
+      512,
+      512
+    ],
+    "strip_size": [
+      2048,
+      512
+    ],
+    "frame_duration_ms": 120,
+    "fps": 8.333333333333334,
+    "feet_px_from_top_left": [
+      256,
+      471
+    ],
+    "row_order_cardinal": [
+      "S",
+      "W",
+      "E",
+      "N"
+    ],
+    "row_order_diagonal": [
+      "SW",
+      "NW",
+      "NE",
+      "SE"
+    ],
+    "frame_pattern": "walk/{direction}/{01,02,03,04}.png",
+    "strip_pattern": "walk/{direction}/strip.png",
+    "gif_pattern": "walk/{direction}/walk.gif"
+  },
+  "qc": "qc.json",
+  "client_integration": "not performed; these are authentic 4-frame image assets",
+  "sources": {
+    "portrait": {
+      "path": "E:\\work\\image\\qdao_chibi_roster_v11\\30_han_xiangzi\\sources\\portrait.png",
+      "sha256": "fcf296bbac68e817e9daaf8f00b070d86ac0eff8b050d8f993c0947890682fc1",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "native_mode": "RGB",
+      "source": "built-in image_gen",
+      "prompt_file": "E:\\work\\image\\qdao_chibi_roster_v11\\30_han_xiangzi\\prompts\\portrait.txt",
+      "prompt_sha256": "4cf58ff55150fa3fa61caded1904404a88ce9c48bf8a44118ec448391169be67"
+    },
+    "cardinal": {
+      "path": "E:\\work\\image\\qdao_chibi_roster_v11\\30_han_xiangzi\\sources\\cardinal_assembled.png",
+      "sha256": "c6666b66bc2c7fd6406166263cd07aa1e3bdce50a0632707a9356c805e225865",
+      "native_mode": "RGBA",
+      "source": "deterministic layout assembled from built-in image_gen 2x2 directional sheets",
+      "unused_outer_remainder_px": [
+        0,
+        0
+      ],
+      "prompt_file": "E:\\work\\image\\qdao_chibi_roster_v11\\30_han_xiangzi\\prompts\\cardinal_assembled.txt",
+      "prompt_sha256": "5e993e0b3bbeeb7a90a567aa19cdfa57f86ea77d2d6db28171806e8bae1eb3a5",
+      "original_sources": "sources/assembly.json",
+      "assembled_canvas_size": [
+        2048,
+        2048
+      ]
+    },
+    "diagonal": {
+      "path": "E:\\work\\image\\qdao_chibi_roster_v11\\30_han_xiangzi\\sources\\diagonal_assembled.png",
+      "sha256": "d38bba6289fefef61426a77869df4179152113ad6db88066e90713311f733fcc",
+      "native_mode": "RGBA",
+      "source": "deterministic layout assembled from built-in image_gen 2x2 directional sheets",
+      "unused_outer_remainder_px": [
+        0,
+        0
+      ],
+      "prompt_file": "E:\\work\\image\\qdao_chibi_roster_v11\\30_han_xiangzi\\prompts\\diagonal_assembled.txt",
+      "prompt_sha256": "63b7bb7d27524b660f2e7c83dc37a62d9f0bd7cc8295bcfad34785206628910e",
+      "original_sources": "sources/assembly.json",
+      "assembled_canvas_size": [
+        2048,
+        2048
+      ]
+    }
+  },
+  "processing": "processing/scale-profile.json",
+  "files": [
+    {
+      "path": "portrait.png",
+      "sha256": "50ca931b2b4ac6e1c4e5f5b087ed1c6cf03a27e19b8648fa0fe09b7b63b70a64",
+      "bytes": 628553
+    },
+    {
+      "path": "walk-cardinal.png",
+      "sha256": "529a9846168f88e66ad9884f2f36e96c5280fc79e4c4b8ecb470056ce320b1f2",
+      "bytes": 2386265
+    },
+    {
+      "path": "walk-diagonal.png",
+      "sha256": "b5653d8e14ab35982926903e96fcbf7f569a60b16f8c24418cba7abc6b36dc31",
+      "bytes": 2543599
+    },
+    {
+      "path": "walk/S/01.png",
+      "sha256": "5e550576b3fd5b50eb06d7a5356d6fedba040de1b8fc51d4f6c25eb217a49f26",
+      "bytes": 145914
+    },
+    {
+      "path": "walk/S/02.png",
+      "sha256": "64db8074d1f3f86d3a1dc2a4937303f66a1eb3aa08b6972626fc80fe7425a6e7",
+      "bytes": 143977
+    },
+    {
+      "path": "walk/S/03.png",
+      "sha256": "e523f650cc22f4cb9f54dd743add6a6b2483cd617e1cc52199dbf45c919efcc7",
+      "bytes": 144396
+    },
+    {
+      "path": "walk/S/04.png",
+      "sha256": "732ffcbb9c87bda9fb9d1a73f9f2c800bbe96752b2fcedf32b3b21845d144ec7",
+      "bytes": 143639
+    },
+    {
+      "path": "walk/S/strip.png",
+      "sha256": "0eb65d158a1adcb5433783815f034a5c0f6e7961d53ce41bf9d48d5eb6ea705d",
+      "bytes": 572662
+    },
+    {
+      "path": "walk/S/walk.gif",
+      "sha256": "b61d7b5ca43bfc58c3147c3a08e76102f576b81bf9d615e2c2a2fa49fc1dd407",
+      "bytes": 177433
+    },
+    {
+      "path": "walk/SW/01.png",
+      "sha256": "e7454d2499587ed4773348259aaba61793716d95972ae7d40fae24c6d0629065",
+      "bytes": 168265
+    },
+    {
+      "path": "walk/SW/02.png",
+      "sha256": "7bd491b113f460d687406b0976abb43ae422a2cffd0df89ca3bc7a60a30aa9b9",
+      "bytes": 164111
+    },
+    {
+      "path": "walk/SW/03.png",
+      "sha256": "0d530884fcafc9367225d46c0e6efdf5bf2380024777a1a7587c2fc89019a550",
+      "bytes": 165878
+    },
+    {
+      "path": "walk/SW/04.png",
+      "sha256": "b9abe00ee0292831b6a05efe411facba5c3cdb8c0ae803b7f5d0eaf4e1b5ac22",
+      "bytes": 161311
+    },
+    {
+      "path": "walk/SW/strip.png",
+      "sha256": "21568b114028cde7b02d648b8ea1f385067836eae223193292f20a66dd0733a8",
+      "bytes": 654074
+    },
+    {
+      "path": "walk/SW/walk.gif",
+      "sha256": "f40d1e3cfa99008d1705f7c0c0e5e1f3f471dd8395eb45153af1d58a82df9137",
+      "bytes": 197517
+    },
+    {
+      "path": "walk/W/01.png",
+      "sha256": "d3328db6e156ceb8043a6223572117098d00d05335169ff147f9b36d5483174b",
+      "bytes": 161562
+    },
+    {
+      "path": "walk/W/02.png",
+      "sha256": "4847315534611258265a8e64c5927d87b6c7c243e467686a7eb7cb7b8f496b4a",
+      "bytes": 157778
+    },
+    {
+      "path": "walk/W/03.png",
+      "sha256": "489e5839b5d8943b3a9292f9a6e8f05716139a910f92cfe190e7da55b25ff04c",
+      "bytes": 161901
+    },
+    {
+      "path": "walk/W/04.png",
+      "sha256": "9a3bc0dbe79dbd4550ee97bb6c7898914d2c20a4daf68af44922cfa7cd6e36e2",
+      "bytes": 152139
+    },
+    {
+      "path": "walk/W/strip.png",
+      "sha256": "af7539316d0cfddb6b778f4b3b4f1135b23fcaf70e0b3346fa5dd1f50f50314a",
+      "bytes": 628457
+    },
+    {
+      "path": "walk/W/walk.gif",
+      "sha256": "e004f3937f4e3ef3d03c6dc1a161d18f2e7b3eaa0b07d5e601e46c04f22bd54a",
+      "bytes": 193467
+    },
+    {
+      "path": "walk/NW/01.png",
+      "sha256": "2341d096af671cde241735f254ee832127c28bb974cd957af5eaf3b7519214e8",
+      "bytes": 157603
+    },
+    {
+      "path": "walk/NW/02.png",
+      "sha256": "b30a8edcf5ca86c7f71acad0547fc788533ebbdf648d2d1da8e7e3f3c70efc57",
+      "bytes": 152952
+    },
+    {
+      "path": "walk/NW/03.png",
+      "sha256": "44501d481bb13be8f31efe1f5e6dd84b87c6aa79eab0d702f9eeab07e4e05d8c",
+      "bytes": 156226
+    },
+    {
+      "path": "walk/NW/04.png",
+      "sha256": "81f5e6348a00a11cf0b08e558fe2cb92ff872e84f46dea0b284f7ddd6d149619",
+      "bytes": 149909
+    },
+    {
+      "path": "walk/NW/strip.png",
+      "sha256": "88fa50ac32e93e48a39a7cc6d98b966ecb625c2fc3f4f6fcfb5b4fff3c443098",
+      "bytes": 610010
+    },
+    {
+      "path": "walk/NW/walk.gif",
+      "sha256": "be0aff2ca217584f3e1e7602cf0fc82458204e8e5025b230b93965a487af3abf",
+      "bytes": 193809
+    },
+    {
+      "path": "walk/N/01.png",
+      "sha256": "b4eeb7c27ab034262dbf994680aadf65cfdc6a6017abd484210f52bcea8f3d42",
+      "bytes": 136217
+    },
+    {
+      "path": "walk/N/02.png",
+      "sha256": "1da3f91c4ceda44a7c72dd832a137052fdd956d21fd1ef9e32ecd9ce7517f0ec",
+      "bytes": 134777
+    },
+    {
+      "path": "walk/N/03.png",
+      "sha256": "3dd42717459333b4b9ff86a8acca94819779d8e10b66f586ebb9a636617dacaa",
+      "bytes": 136334
+    },
+    {
+      "path": "walk/N/04.png",
+      "sha256": "32b5628bfd824a5b803466f6ca8513baae1bb665ed7371f77b893cb8e127f896",
+      "bytes": 134839
+    },
+    {
+      "path": "walk/N/strip.png",
+      "sha256": "e273833e9fb96194cb33cf3bb91cfe1a81d44b03556029c54dae1c79214a311c",
+      "bytes": 534942
+    },
+    {
+      "path": "walk/N/walk.gif",
+      "sha256": "15a6ac4d2e2674c9c73d4c0075bb085c53d5fc1c9ce24c564b2e7a326eb9c9c2",
+      "bytes": 178742
+    },
+    {
+      "path": "walk/NE/01.png",
+      "sha256": "9a141ca772ce498ae5ec5fdaffab3c2bdc9a8eb226714e56a23a880e96a573f5",
+      "bytes": 162889
+    },
+    {
+      "path": "walk/NE/02.png",
+      "sha256": "265cd66934cf05dc33128692d449c0a4ac3a75e90d2b92fea12961d2525151eb",
+      "bytes": 161222
+    },
+    {
+      "path": "walk/NE/03.png",
+      "sha256": "a0fb73c641a55538de635cf011d2edf98cfbc2595fc19677728aba355cb719ef",
+      "bytes": 160688
+    },
+    {
+      "path": "walk/NE/04.png",
+      "sha256": "c09683ccc62a0b40338434229e3f51489b4694e7c74d347168b2722ba3039829",
+      "bytes": 157659
+    },
+    {
+      "path": "walk/NE/strip.png",
+      "sha256": "5fc94c3c4b2614797f8da904572841719a834b71bd4ad7aa8f05ac73ec984ffe",
+      "bytes": 635737
+    },
+    {
+      "path": "walk/NE/walk.gif",
+      "sha256": "8450efb95fe500c8448ec92dce9df7acc6fccc2a78c2553d0c96c3fb9256366b",
+      "bytes": 199552
+    },
+    {
+      "path": "walk/E/01.png",
+      "sha256": "1fb30f478bb0735b6caf638b53f131efe841a8b97878879f36d69fdc8b6f7e46",
+      "bytes": 169382
+    },
+    {
+      "path": "walk/E/02.png",
+      "sha256": "41759795416c1196070c768008a65ad45bc5ef8355bc507764feaf8e65da9562",
+      "bytes": 163136
+    },
+    {
+      "path": "walk/E/03.png",
+      "sha256": "67fb7100cb8ee1b0b171b4926f67a39e7f7b29a719577d67c174b03aa432f2f2",
+      "bytes": 166614
+    },
+    {
+      "path": "walk/E/04.png",
+      "sha256": "e8fd7ce45c09b923e02ad022cab6fa8d0480b312df48d105227f41b4971d3c35",
+      "bytes": 158602
+    },
+    {
+      "path": "walk/E/strip.png",
+      "sha256": "18da97e5570ba2b6f4cff7e8aadfea9ece63dba647c2075d68dc2d0c72ec77e0",
+      "bytes": 651465
+    },
+    {
+      "path": "walk/E/walk.gif",
+      "sha256": "e9b76d311aea1b9c6e429da5db2d7d4ec8bd33c0862364a0eb4e32d05c937811",
+      "bytes": 207531
+    },
+    {
+      "path": "walk/SE/01.png",
+      "sha256": "ac1e33592e242b173267f13e510c0fd95e8debc9168a3761035ab4a5055dac53",
+      "bytes": 164458
+    },
+    {
+      "path": "walk/SE/02.png",
+      "sha256": "d17d53ace246308d38f469605dc267b769c200421325503fa621be1d1d6651f2",
+      "bytes": 161651
+    },
+    {
+      "path": "walk/SE/03.png",
+      "sha256": "fe0b4a71617c9d6654abcee7d1e09693a493d13bcd184beaf6d077051618e943",
+      "bytes": 163108
+    },
+    {
+      "path": "walk/SE/04.png",
+      "sha256": "6efbeaa1a84a500c20add9044d138fa2236b1f9374ba51a744ee8216301cf147",
+      "bytes": 162448
+    },
+    {
+      "path": "walk/SE/strip.png",
+      "sha256": "f3308ea6369965f04471864006520444749bbb58afc635d972c05935ae308b47",
+      "bytes": 645154
+    },
+    {
+      "path": "walk/SE/walk.gif",
+      "sha256": "55d3b4d7fdf54543063b6904e5fcd48291bcef1d3f240ef91d7a87751ba1309f",
+      "bytes": 199513
+    }
+  ],
+  "directional_original_sources": {
+    "S": {
+      "file": "sources/walk_S_2x2.png",
+      "source": "built-in image_gen",
+      "sha256": "04806f10f150104effa34c7d5170e5b2576fa04682316f4489afbdfe2134fff0",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "layout": "2x2 reading order TL TR BL BR",
+      "component_boxes": [
+        [
+          197,
+          20,
+          490,
+          616
+        ],
+        [
+          729,
+          20,
+          1024,
+          616
+        ],
+        [
+          197,
+          631,
+          490,
+          1221
+        ],
+        [
+          730,
+          631,
+          1024,
+          1212
+        ]
+      ],
+      "same_scale_all_four_frames": 0.7094594594594594,
+      "native_subject_heights": [
+        592,
+        592,
+        586,
+        577
+      ]
+    },
+    "W": {
+      "file": "sources/walk_W_2x2.png",
+      "source": "built-in image_gen",
+      "sha256": "6cc0be84078a9f43faf54534aaf73f0a2cc114a4a7eddeec04521d67f23eb41d",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "layout": "2x2 reading order TL TR BL BR",
+      "component_boxes": [
+        [
+          202,
+          23,
+          525,
+          602
+        ],
+        [
+          739,
+          23,
+          1061,
+          606
+        ],
+        [
+          201,
+          633,
+          523,
+          1202
+        ],
+        [
+          740,
+          633,
+          1062,
+          1206
+        ]
+      ],
+      "same_scale_all_four_frames": 0.7253886010362695,
+      "native_subject_heights": [
+        575,
+        579,
+        565,
+        569
+      ]
+    },
+    "E": {
+      "file": "sources/walk_E_2x2.png",
+      "source": "built-in image_gen",
+      "sha256": "5377ef60100d3bf694e86227e89e1bb202682d671f4e5b90e37ec81ef5bf8210",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "layout": "2x2 reading order TL TR BL BR",
+      "component_boxes": [
+        [
+          152,
+          31,
+          507,
+          607
+        ],
+        [
+          707,
+          31,
+          1064,
+          611
+        ],
+        [
+          150,
+          632,
+          503,
+          1204
+        ],
+        [
+          707,
+          634,
+          1054,
+          1209
+        ]
+      ],
+      "same_scale_all_four_frames": 0.7291666666666666,
+      "native_subject_heights": [
+        572,
+        576,
+        568,
+        571
+      ]
+    },
+    "N": {
+      "file": "sources/walk_N_2x2.png",
+      "source": "built-in image_gen",
+      "sha256": "507405e5b657520888f178cdf2b35d680507ff2c5d5c14018e65690251cb2f25",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "layout": "2x2 reading order TL TR BL BR",
+      "component_boxes": [
+        [
+          237,
+          21,
+          485,
+          604
+        ],
+        [
+          768,
+          21,
+          1010,
+          601
+        ],
+        [
+          242,
+          631,
+          486,
+          1215
+        ],
+        [
+          768,
+          632,
+          1010,
+          1212
+        ]
+      ],
+      "same_scale_all_four_frames": 0.7241379310344828,
+      "native_subject_heights": [
+        579,
+        576,
+        580,
+        576
+      ]
+    },
+    "SW": {
+      "file": "sources/walk_SW_2x2.png",
+      "source": "built-in image_gen",
+      "sha256": "61dd90be1e5ecef49da0512a4d86d8b7ea5de50944ec675f1b24d6c4c3582da1",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "layout": "2x2 reading order TL TR BL BR",
+      "component_boxes": [
+        [
+          182,
+          16,
+          516,
+          606
+        ],
+        [
+          735,
+          18,
+          1070,
+          606
+        ],
+        [
+          180,
+          626,
+          515,
+          1208
+        ],
+        [
+          735,
+          627,
+          1071,
+          1210
+        ]
+      ],
+      "same_scale_all_four_frames": 0.7167235494880546,
+      "native_subject_heights": [
+        586,
+        584,
+        578,
+        579
+      ]
+    },
+    "NW": {
+      "file": "sources/walk_NW_2x2.png",
+      "source": "built-in image_gen",
+      "sha256": "13b052930412c4eba7b5e9632403ade456d0262da8e34b3a5f80ba999d7a1403",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "layout": "2x2 reading order TL TR BL BR",
+      "component_boxes": [
+        [
+          187,
+          27,
+          530,
+          610
+        ],
+        [
+          758,
+          25,
+          1087,
+          610
+        ],
+        [
+          186,
+          638,
+          532,
+          1223
+        ],
+        [
+          757,
+          638,
+          1089,
+          1223
+        ]
+      ],
+      "same_scale_all_four_frames": 0.7228915662650602,
+      "native_subject_heights": [
+        579,
+        581,
+        581,
+        581
+      ]
+    },
+    "NE": {
+      "file": "sources/walk_NE_2x2.png",
+      "source": "built-in image_gen",
+      "sha256": "b5280324a6ec80b8df1c93c4d5b9e987ebc196a40d0c79125f0c50a6f8a41508",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "layout": "2x2 reading order TL TR BL BR",
+      "component_boxes": [
+        [
+          169,
+          17,
+          519,
+          609
+        ],
+        [
+          734,
+          19,
+          1083,
+          609
+        ],
+        [
+          183,
+          632,
+          524,
+          1210
+        ],
+        [
+          743,
+          632,
+          1081,
+          1215
+        ]
+      ],
+      "same_scale_all_four_frames": 0.7142857142857143,
+      "native_subject_heights": [
+        588,
+        586,
+        574,
+        579
+      ]
+    },
+    "SE": {
+      "file": "sources/walk_SE_2x2.png",
+      "source": "built-in image_gen",
+      "sha256": "864606349230087f04e92461a56a2bc96a7c1d02c37ccc64b777c6f968b4fbea",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "layout": "2x2 reading order TL TR BL BR",
+      "component_boxes": [
+        [
+          198,
+          24,
+          521,
+          605
+        ],
+        [
+          738,
+          23,
+          1055,
+          606
+        ],
+        [
+          196,
+          632,
+          515,
+          1210
+        ],
+        [
+          739,
+          631,
+          1059,
+          1211
+        ]
+      ],
+      "same_scale_all_four_frames": 0.7253886010362695,
+      "native_subject_heights": [
+        577,
+        579,
+        574,
+        576
+      ]
+    }
+  },
+  "source_resolution_note": "The 2048x2048 sheets are deterministic assembled layouts. Actual built-in ImageGen source native sizes are recorded per direction below. Output 512x512 frames are resampled exports, not a claim of 512 native art detail.",
+  "layout_provenance": "sources/assembly.json",
+  "direction_reclassification": null,
+  "processing_note": "Each independently generated direction uses one common isotropic scale for all four poses to match the shared body height, then the common processor uses one global scale and per-frame foot translation. No per-frame independent scaling, mirroring, rotation, repeated or synthesized animation.",
+  "final_edge_cleanup": "processing/edge-cleanup.json",
+  "visual_review": "processing/visual-review.json",
+  "artifact_validation": "processing/artifact-validation.json",
+  "tool_capability_note": "Artwork from built-in image_gen; its exposed schema has no model or quality parameters, so an explicit high setting was not asserted."
+}

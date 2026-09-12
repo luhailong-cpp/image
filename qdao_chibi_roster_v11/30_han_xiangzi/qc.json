@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "status": "passed_numeric_qc_pending_visual_review",
+  "status": "passed",
   "errors": [],
   "directions": {
     "S": {
@@ -182,9 +182,37 @@
       471
     ]
   },
-  "visual_review": "required: verify character identity, direction, gait, complete limbs, and key edges",
+  "visual_review": {
+    "status": "passed",
+    "reviewed_at_utc": "2026-09-12T06:56:29.122968+00:00",
+    "reviewer": "Codex visual review",
+    "method": "Viewed final 1024 RGBA portrait on a neutral background, both 16-frame PNG contacts, and all 32 frames decoded from the final eight GIF files on a dark background. GIF frame count/timing/transparency separately verified from file data.",
+    "evidence": [
+      "processing/visual-review-1.jpg",
+      "processing/visual-review-2.jpg",
+      "processing/gif-decoded-review.jpg",
+      "processing/artifact-validation.json"
+    ],
+    "identity": "Young beardless Q-style Han Xiangzi; black straight half-up hair, sky-blue ribbon, sky-blue/cloud-pattern robe, ivory lapels, navy trousers, hip flute and gold/jade charm remain recognizable.",
+    "gait": "Each direction contains four separately painted walk poses with extended and bent/passing leg phases plus small hand, robe and hair changes. Compact Q proportions keep some opposing stride silhouettes close; no interpolation or copied static fillers were introduced.",
+    "direction_review": {
+      "S": "front facing",
+      "SW": "front-left; left-pointing nose, visible crossed chest lapel, leftward feet; corrected original rejected version",
+      "W": "left profile",
+      "NW": "rear-left three-quarter",
+      "N": "back facing",
+      "NE": "rear-right three-quarter",
+      "E": "right profile",
+      "SE": "front-right three-quarter"
+    },
+    "completeness": "All silhouettes, hair ribbons, hands, feet and attached flute visible inside margins; no output edge touch or cropped body part.",
+    "edge_cleanup": "Visible magenta/purple background spill removed by deterministic RGB neighbor sampling; alpha/geometry unchanged.",
+    "preview_note": "GIF uses palette quantization and binary transparency; PNG is the full RGBA production source."
+  },
   "shared_final_scale": 1.1864406779661016,
   "pre_max_subject_height": 354,
   "requested_max_subject_height": 420,
-  "cross_direction_mean_height_ratio": 1.010228640192539
+  "cross_direction_mean_height_ratio": 1.010228640192539,
+  "artifact_validation": "processing/artifact-validation.json",
+  "final_edge_cleanup": "processing/edge-cleanup.json"
 }
