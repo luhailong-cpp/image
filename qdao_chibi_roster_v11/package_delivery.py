@@ -17,7 +17,7 @@ for row in r['characters']:
         d=role/folder
         if d.exists():
             for p in d.rglob('*'):
-                if p.is_file() and (p.suffix in ['.json','.txt','.md'] or p.name=='visual-review.jpg'): paths.add(p)
+                if p.is_file() and (p.suffix in ['.json','.txt','.md'] or p.name=='visual-review.jpg' or (p.name.startswith('festival-edge-') and p.suffix=='.jpg')): paths.add(p)
 assert all('24_crane_hermit' not in p.parts for p in paths)
 out=ROOT/'qdao-roster-v11-final.zip'
 with ZipFile(out,'w') as z:
