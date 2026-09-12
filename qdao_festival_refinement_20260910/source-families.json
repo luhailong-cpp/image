@@ -1,48 +1,71 @@
 {
-  "schema_version": 1,
-  "stage": "candidate_source_mapping",
-  "requires_recheck_at_start": true,
+  "schema_version": 2,
+  "stage": "accepted_source_mapping_for_visual_review",
+  "requires_recheck_at_start": false,
   "families": [
     {
       "id": "world_map",
       "sources": [
+        "tianyong_festival_hd_20260910/manifest.json",
+        "tianyong_festival_hd_20260910/verification.json",
+        "tianyong_festival_hd_20260910/qa/visual-review.json",
         "tianyong_city_6x6/tile_manifest.json",
         "tianyong_city_6x6/sync_manifest.json"
       ],
-      "new_style_candidate": "tianyong_festival_stylematch_20260910/manifest.json",
-      "candidate_status": "1254x1254 visual preview; not a published production tilemap",
-      "contract": "6144x6144 master; 6x6 tiles of 1024x1024; preserve tile names, row/column origin and seams",
+      "candidate_status": "Superseded: 1254 style previews remain historical references; accepted HD production is current.",
+      "contract": "Preserve 6144 master and 6x6 1024 tile contract. Layout guides are not final art; all source edits propagate through assembly and visual seam review.",
       "dependency_threads": [
         "01a08a28-6391-7100-a82e-f3a966e57349"
-      ]
+      ],
+      "status": "accepted_hd_art_and_visual_review",
+      "authoritative_art": "36 native refined/city_r??_c??.png patches",
+      "derivatives": "6144 master, 2048 preview and 36 1024 tiles; rebuild from refined patches preserving seams and names"
     },
     {
       "id": "scene_illustrations",
       "sources": [
+        "qdao_festival_scenes_20260910/manifest.json",
         "qdao_ui_redesign_v5/manifest.json",
         "qdao_ui_redesign_v5/transition_manifest.json",
         "qdao_chibi_game_pack_v4/manifest.json",
-        "qdao_chibi_game_pack_v4/placements.json"
+        "qdao_chibi_game_pack_v4/placements.json",
+        "qdao_festival_scenes_20260910/runtime/runtime-manifest.json",
+        "qdao_festival_scenes_20260910/runtime/runtime-validation.json"
       ],
-      "contract": "Preserve standard 2560x1080 exports, cloud alpha, source/export mapping and gameplay whitespace",
+      "contract": "Keep accepted native sizes: main city/courtyard 2048x768, login/forest 1931x814, battle entry 1932x814. Preserve scene layout and whitespace. Legacy 2560x1080 adaptation is a separate export contract; do not stretch native art or imply native upscaling.",
       "dependency_threads": [
         "01a08a19-8d1b-75c1-9e80-ee2fea9833b0",
         "01a075d4-5b1f-7e31-b44f-18e351fa544f"
-      ]
+      ],
+      "status": "five_uses_four_unique_native_scenes_accepted",
+      "authoritative_art": "main_city_wide/login_landscape/battle_forest_bridge/battle_entry scene-native.png",
+      "derivatives": "five final/*.png role files; main_city_wide and sanctuary_courtyard share one accepted source",
+      "runtime_derivatives": {
+        "count": 5,
+        "size": [
+          2560,
+          1080
+        ],
+        "source": "accepted final scene art",
+        "method": "sourceCropBox and uniform LANCZOS resampling from runtime-manifest",
+        "boundary": "image repository derivatives; client engine acceptance separate; ground/slot overlays are evidence, not art"
+      }
     },
     {
       "id": "ui_and_legacy_slices",
       "sources": [
+        "qdao_ui_style_recut_v10/publication.json",
         "qdao_ui_style_recut_v10/contracts/current_files.json",
         "qdao_ui_style_recut_v10/contracts/components.json",
         "qdao_ui_style_recut_v10/contracts/legacy.json",
         "qdao_ui_style_recut_v10/contracts/layers.json"
       ],
-      "contract": "39 components, 73 legacy slices, 12 server-select outputs, 3 HUD outputs; preserve alpha, canvas, states, nine-slice borders, atlas names and coordinates; update paired SVG",
+      "contract": "158 current PNG contracts: 39 components, 73 legacy slices, 31 attribute slices, 12 server-select outputs and 3 HUD outputs; preserve alpha, canvas, states, nine-slice borders, atlas names/coordinates and paired SVG dependencies.",
       "dependency_threads": [
         "01a08a19-8d1b-75c1-9e80-ee2fea9833b0",
         "01a086ef-2e8c-73a2-bf70-7ac4b4bcde02"
-      ]
+      ],
+      "status": "published_and_verified"
     },
     {
       "id": "attributes_and_new_pages",
@@ -51,12 +74,18 @@
         "designs/attribute-panels/v2-painted/unity-slices/manifest.json",
         "qdao_ui_style_recut_v10/contracts/attributes.json",
         "designs/gameplay-ui/README.md",
-        "designs/gameplay-ui/manifest.json"
+        "designs/gameplay-ui/manifest.json",
+        "designs/attribute-panels/v10-preview/asset-manifest.json",
+        "designs/attribute-panels/v10-preview/delivery-verification.json",
+        "designs/attribute-panels/v10-preview/validation.json"
       ],
       "gameplay_static_delivery": {
         "status": "three_static_images_completed",
         "count": 3,
-        "native_size": [1931, 814],
+        "native_size": [
+          1931,
+          814
+        ],
         "mode": "RGB",
         "scope": "Quest, inventory and activities static UI art; local gallery only; no client feature integration"
       },
@@ -64,7 +93,13 @@
       "dependency_threads": [
         "01a0860b-36e6-7000-b128-67e7f4d73fa1",
         "01a08a19-8d1b-75c1-9e80-ee2fea9833b0"
-      ]
+      ],
+      "preview_derivatives": {
+        "copies": 22,
+        "authority": "designs/attribute-panels/v10-preview/asset-manifest.json",
+        "rule": "Copy formal sprite sources when changed; rerender browser and screenshots. Evidence images must not be painted."
+      },
+      "status": "attribute_sprites_preview_and_three_static_pages_accepted"
     },
     {
       "id": "characters",
@@ -86,7 +121,10 @@
       "prepared_derivatives": {
         "status": "passed",
         "count": 22,
-        "size": [1024, 1024],
+        "size": [
+          1024,
+          1024
+        ],
         "mode": "RGBA",
         "record": "qdao_character_diversity_v9/prepared_sync.json",
         "verification": "Existing repository-local prepared portrait paths preserved; pixels match LANCZOS-resampled current v9 source art",
@@ -104,12 +142,30 @@
       "sources": [
         "character_move_8dir/manifest.json",
         "qdao_chibi_roster_v11/DESIGN_BRIEF.md",
-        "qdao_chibi_roster_v11/PROCESSING.md"
+        "qdao_chibi_roster_v11/PROCESSING.md",
+        "qdao_chibi_roster_v11/manifest.json",
+        "qdao_chibi_roster_v11/validation.json",
+        "qdao_chibi_roster_v11/download.json"
       ],
-      "contract": "Old set retains 32 frames at 1254 canvas and existing anchor. New six-character set uses 8x4 real frames, 512 canvas, foot point (256,471), 2048x512 strips. Keep separate interfaces. GIF is preview only",
+      "contract": "Old movement set retains its 32-frame 1254 canvas contract separately. Current v11 has eight roles, 8x4 real frames per role, 512 RGBA frames, foot point (256,471), 2048x512 strips and four-frame 120ms GIFs; 1024 portraits and 2048 direction sheets. Total 8 portraits, 256 movement frames and 408 formal media. Preserve source-to-frame lineage and synchronized outputs; assembled inputs are not native paintings.",
       "dependency_threads": [
         "01a08a2b-8ef8-7d41-be4e-8962e24735e1"
-      ]
+      ],
+      "status": "eight_current_roles_individually_accepted_and_package_delivered",
+      "active_roles": [
+        "23_lantern_courier",
+        "24_lu_dongbin",
+        "25_lion_drum_guard",
+        "26_osmanthus_healer",
+        "27_ink_kite_ranger",
+        "28_moon_rabbit_artificer",
+        "29_he_xiangu",
+        "30_han_xiangzi"
+      ],
+      "excluded_roles": [
+        "24_crane_hermit"
+      ],
+      "formal_media_count": 408
     },
     {
       "id": "pets",
@@ -121,7 +177,8 @@
       "contract": "Synchronize transparent static art, portraits and composites; preserve nine-tail and fur-color identity; never remove intentional purple fur during matte cleanup",
       "dependency_threads": [
         "01a08a19-8d1b-75c1-9e80-ee2fea9833b0"
-      ]
+      ],
+      "prelogin_constraint": "Standalone pet identity remains; do not reintroduce the removed nine-tailed fox into pre-login UI through old composite references."
     },
     {
       "id": "items_and_atlases",
@@ -136,5 +193,19 @@
       ]
     }
   ],
-  "missing_referenced_sources": []
+  "missing_referenced_sources": [],
+  "updated_at_utc": "2026-09-12T07:55:05.002776+00:00",
+  "images_modified": 0,
+  "visual_refinement_complete": false,
+  "cleanup_provenance": {
+    "checked_by": "parent cleanup audit",
+    "deleted_images_total": 293,
+    "work_images_previously_absent_from_inventory": 258,
+    "deleted_inventory_intermediate_duplicates": 35,
+    "unique_keep_paths": 32,
+    "aliases_record": "docs/STORAGE_DUPLICATES_20260912.json",
+    "duplicates_record_sha256": "ebf78d77785fb6e204a9e249b2c557651386adbbf160e48212fe93434a042971",
+    "cleanup_record_sha256": "507d64f9cc37deea6bf7b6f9d372b6cd96c9ee9aa814ebac9ff8fe81331be168",
+    "scope": "Deletion removed redundant work/history; parent verified 35 aliases to 32 retained originals by hash/bytes. This subtask does not repeat that audit."
+  }
 }
