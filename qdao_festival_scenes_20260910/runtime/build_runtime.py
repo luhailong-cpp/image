@@ -38,7 +38,7 @@ NOTES = {
     "01_main_city_wide": "Center plaza, stairs and central temple retained; only outer scenery is cropped. Static fallback only; this is not the walkable 6144 map.",
     "02_login_landscape": "Clean background: native title, character and buttons are rendered independently by the client. Less than one source pixel cropped on each horizontal edge.",
     "03_sanctuary_courtyard": "Same painting as main_city_wide. Center plaza remains the role-selection standing area; no baked character or UI.",
-    "04_battle_forest_bridge": "Both platforms and bridge retained. Existing BattleStage feet already disagree with the old platform ground; this art update preserves that composition and does not change battle formation rules.",
+    "04_battle_forest_bridge": "Both platforms and bridge retained. BattleStage visual feet and all pet shadows are now calibrated to independently traced stone interiors; protocol slots and assignment rules remain unchanged.",
     "05_battle_entry": "Illustration only, with boy and fox. Both characters retained completely; no baked loading or progress UI. Must be used for entrance, never as the live battle background.",
 }
 
@@ -111,16 +111,6 @@ def make_previews():
             sheet.paste(scene, (col*720 + (720-scene.width)//2, row*332))
         draw.text((col*720+10, row*332+305), name + " / 2560 x 1080 / equal scale", fill="#27443a")
     sheet.save(ROOT / "runtime-contact.jpg", quality=91)
-    code = (CLIENT / "Assets/Scripts/UI/Ugui/Battle/BattleStage.cs").read_text(encoding="utf-8-sig")
-    groups = re.findall(r"private static readonly SlotEntry\[\] (\w+)\s*=\s*\{(.*?)\};", code, re.S)
-    with Image.open(ROOT / "04_battle_forest_bridge_2560x1080.png") as scene:
-        preview = scene.resize((1280, 540), Image.Resampling.LANCZOS)
-    draw = ImageDraw.Draw(preview)
-    for name, body in groups:
-        for x,y in re.findall(r"new SlotEntry\(([0-9.]+)f?,\s*([0-9.]+)f?,", body):
-            x,y = float(x)/2,float(y)/2
-            draw.ellipse((x-5,y-5,x+5,y+5), fill="#f5303c" if "Enemy" in name else "#1634ff")
-    preview.save(ROOT / "battle-existing-stage-overlay.jpg", quality=93)
 
 def check():
     record = json.loads((ROOT / "runtime-manifest.json").read_text(encoding="utf-8"))
@@ -139,7 +129,7 @@ def check():
             checks.append({"check": target["resourcePath"] + " retained meta and GUID", "passed": digest(meta) == target["metaSha256"]})
     checks.append({"check": "shared main city and sanctuary painting remain byte-identical", "passed": digest(ROOT / "01_main_city_wide_2560x1080.png") == digest(ROOT / "03_sanctuary_courtyard_2560x1080.png")})
     result = {"status": "passed" if all(c["passed"] for c in checks) else "failed", "checks": checks,
-              "limits": ["Unity import and engine screenshot validation are separate.", "BattleStage ground alignment mismatch exists in both old and new background composition; existing stage rules are unchanged."]}
+              "limits": ["Unity import and engine screenshot validation are separate.", "BattleStage visual placement is separately checked by verify_battle_stage.py; Unity screenshots and NUnit execution remain separate."]}
     (ROOT / "runtime-validation.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"status": result["status"], "passed": sum(c["passed"] for c in checks), "total": len(checks)}))
     assert result["status"] == "passed"
