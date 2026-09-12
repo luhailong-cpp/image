@@ -12,16 +12,23 @@
     "provenance": "../qdao_gpt_image2_refresh_v7/README.md"
   },
   "scene_export": {
-    "source": "../qdao_gpt_image2_refresh_v7/scenes/main-city.raw.png",
+    "source": "../qdao_festival_scenes_20260910/main_city_wide/scene-native.png",
     "source_size": [
-      1930,
-      815
+      2048,
+      768
     ],
     "output_size": [
       2560,
       1080
     ],
-    "method": "LANCZOS proportional center cover",
+    "method": "Exact accepted runtime copy after recorded proportional crop/LANCZOS adaptation",
+    "runtime_source": "../qdao_festival_scenes_20260910/runtime/01_main_city_wide_2560x1080.png",
+    "source_crop_box_xyxy": [
+      113.77777777777783,
+      0.0,
+      1934.2222222222222,
+      768.0
+    ],
     "resampled": true,
     "new_native_resolution": false
   },
@@ -33,7 +40,8 @@
         1080
       ],
       "mode": "RGB",
-      "sha256": "aafb529f3e4474c812d3ddac28a82651f69f35f68c8161f7a514e21e8cacee14"
+      "sha256": "55b777f5b463f9f53fb72d5b9006708fa6f9870a629edc874a6fc6b28536f495",
+      "bytes": 5214970
     },
     {
       "path": "hero-transparent_1024.png",
@@ -71,7 +79,8 @@
         1080
       ],
       "mode": "RGB",
-      "sha256": "388d866a9312c3852aa3d97dcccd48671eb06ebeb8023c0a1d925b2169548fa6"
+      "sha256": "1e21eda0c31b7a3cdda1f9cdd33e67c3db611d4753a907ff57eecfe1d6a9578e",
+      "bytes": 5227335
     }
   ],
   "validation": {
@@ -85,5 +94,26 @@
   "animation_frames": 0,
   "engine_integration": false,
   "updated": "2026-09-07",
-  "refresh": "GPT Image 2 v7"
+  "refresh": "GPT Image 2 v7",
+  "scene_export_history": [
+    {
+      "source": "../qdao_gpt_image2_refresh_v7/scenes/main-city.raw.png",
+      "source_size": [
+        1930,
+        815
+      ],
+      "output_size": [
+        2560,
+        1080
+      ],
+      "method": "LANCZOS proportional center cover",
+      "resampled": true,
+      "new_native_resolution": false
+    }
+  ],
+  "festival_scene_sync": {
+    "record": "../qdao_festival_refinement_20260910/scenes-sync/publication.json",
+    "scope": "Background and actor preview only; hero and placement unchanged",
+    "client_written": false
+  }
 }
