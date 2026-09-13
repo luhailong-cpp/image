@@ -47,11 +47,22 @@ def bounds(image, threshold=8):
     return [int(xx.min()), int(yy.min()), int(xx.max()) + 1, int(yy.max()) + 1]
 
 
-def foot_anchor(image):
+def body_ground_anchor(image):
+    """Horizontal upper-body axis plus ground height, independent of support foot.
+
+    The eight approved chibi identities have a large stable head. Its upper
+    42% silhouette provides a translation-covariant axis; using the lowest
+    foot pixels instead moves the whole sprite when the support leg changes.
+    This never changes pose pixels or applies individual-frame scaling.
+    """
     yy, xx = np.nonzero(np.asarray(image.getchannel("A")) > 8)
     if not len(xx):
         raise ValueError("empty frame")
-    return float(np.median(xx[yy >= np.percentile(yy, 90)])), int(yy.max())
+    head_end = int(yy.min() + (yy.max() - yy.min()) * 0.42)
+    head_x = xx[yy < head_end]
+    if not len(head_x):
+        raise ValueError("missing upper-body axis")
+    return float(np.median(head_x)), int(yy.max())
 
 
 def load_processor(path):
@@ -157,22 +168,26 @@ def run_sheet(raw, kind, work, processor_path=DEFAULT_PROCESSOR, padding=2, prom
     return frames, meta, source, errors
 
 
-def normalize(image, scale):
+def normalize(image, scale, despill_edges=False):
     box = image.getbbox()
     if box is None:
         raise ValueError("empty preprocessed frame")
     crop = image.crop(box)
     scaled = crop.resize((max(1, round(crop.width * scale)), max(1, round(crop.height * scale))), Image.Resampling.LANCZOS)
-    ax, ay = foot_anchor(scaled)
+    ax, ay = body_ground_anchor(scaled)
     px, py = round(FOOT[0] - ax), FOOT[1] - ay
     if px < 1 or py < 1 or px + scaled.width >= CELL or py + scaled.height >= CELL:
         raise ValueError(f"shared scale would clip/touch output edge: {px, py, *scaled.size}")
     result = Image.new("RGBA", (CELL, CELL))
     result.paste(scaled, (px, py))
+    cleanup = None
+    if despill_edges:
+        from edge_despill import despill
+        result, cleanup = despill(result)
     return result, {"source_crop_bbox": list(box), "shared_scale": scale, "paste_xy": [px, py],
                     "resized_crop_size": list(scaled.size), "bbox_alpha_gt_8": bounds(result),
-                    "foot_anchor_px": list(foot_anchor(result)), "output_edge_touch": False, "paste_clamped": False,
-                    "rgba_sha256": hashlib.sha256(result.tobytes()).hexdigest()}
+                    "body_ground_anchor_px": list(body_ground_anchor(result)), "alignment_version": 2, "output_edge_touch": False, "paste_clamped": False,
+                    "rgba_sha256": hashlib.sha256(result.tobytes()).hexdigest(), "edge_despill": cleanup}
 
 
 def prepare_portrait(args, root):
@@ -225,6 +240,7 @@ def main():
     parser.add_argument("--processor", type=Path, default=DEFAULT_PROCESSOR)
     parser.add_argument("--target-height", type=int, default=420)
     parser.add_argument("--component-padding", type=int, choices=range(9), default=2)
+    parser.add_argument("--despill-magenta-edge", action="store_true", help="Remove verified magenta contamination only within 2px of alpha boundary; preserve alpha, geometry, green and protected red.")
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
     root = args.character_dir.resolve()
@@ -237,7 +253,7 @@ def main():
     qc = {"version": VERSION, "status": "processing", "errors": [], "visual_review": "required",
           "gates": {"body_scale_cv_max": 0.08, "source_anchor_y_std_max": 0.05,
                     "cross_direction_mean_height_ratio_max": 1.10, "idle_walk_height_drift_max": 0.08,
-                    "foot_target_px": list(FOOT), "unique_frames_per_direction": 8}}
+                    "foot_target_px": list(FOOT), "unique_frames_per_direction": 8, "horizontal_body_axis_deviation_max_px": 0.5}}
     sources, pre_walk, pre_idle, directions_qc = {}, {}, {}, {}
     try:
         for kind in (*SHEETS, "idle"):
@@ -258,16 +274,16 @@ def main():
         scale = args.target_height / max_height
         for frame in all_pre:
             crop = frame.crop(frame.getbbox())
-            ax, ay = foot_anchor(crop)
+            ax, ay = body_ground_anchor(crop)
             scale = min(scale, (FOOT[0] - 4) / max(ax, 1), (CELL - FOOT[0] - 4) / max(crop.width - ax, 1),
                         (FOOT[1] - 4) / max(ay, 1), (CELL - FOOT[1] - 4) / max(crop.height - ay, 1))
         output_walk, output_idle, records = {}, {}, {"walk": {}, "idle": {}}
         means = []
         for direction in DIRECTIONS:
-            pairs = [normalize(f, scale) for f in pre_walk[direction]]
+            pairs = [normalize(f, scale, args.despill_magenta_edge) for f in pre_walk[direction]]
             output_walk[direction] = [p[0] for p in pairs]
             records["walk"][direction] = [p[1] for p in pairs]
-            output_idle[direction], records["idle"][direction] = normalize(pre_idle[direction], scale)
+            output_idle[direction], records["idle"][direction] = normalize(pre_idle[direction], scale, args.despill_magenta_edge)
             heights = [r["bbox_alpha_gt_8"][3] - r["bbox_alpha_gt_8"][1] for r in records["walk"][direction]]
             mean = float(np.mean(heights))
             means.append(mean)
@@ -276,6 +292,12 @@ def main():
             idle_drift = abs((ib[3] - ib[1]) / mean - 1)
             directions_qc[direction].update(unique_frames=unique, output_subject_heights=heights,
                                             output_subject_height_mean=mean, idle_walk_height_drift=idle_drift)
+            axis_x = [body_ground_anchor(f)[0] for f in [*output_walk[direction], output_idle[direction]]]
+            axis_deviation = max(abs(x - FOOT[0]) for x in axis_x)
+            directions_qc[direction].update(horizontal_body_axes_px=axis_x,
+                                            horizontal_body_axis_max_deviation_px=axis_deviation)
+            if axis_deviation > 0.5:
+                qc["errors"].append(f"{direction}: horizontal body axis drift {axis_deviation:.3f} > .5px")
             if unique != 8:
                 qc["errors"].append(f"{direction}: only {unique}/8 distinct RGBA frames; cannot invent intermediates")
             if idle_drift > 0.08:
@@ -296,7 +318,10 @@ def main():
                    "strategy": "same normalized raw-cell scale for all 72 poses, then one common final scale; translation only per pose",
                    "source_to_output_scale_by_sheet": {kind: CELL / max(source["native_cell_size"]) * .84 * scale for kind, source in sources.items()},
                    "native_sheet_sizes": {k: s["native_size"] for k, s in sources.items()},
-                   "per_frame_scale_normalization": False, "mirrored_frames": False, "synthetic_or_repeated_frames": False})
+                   "per_frame_scale_normalization": False, "mirrored_frames": False, "synthetic_or_repeated_frames": False,
+                   "edge_despill": "boundary_2px_preserve_alpha_and_red" if args.despill_magenta_edge else None,
+                   "alignment_version": 2, "horizontal_axis": "median alpha>8 in upper 42% of silhouette",
+                   "vertical_axis": "lowest alpha>8 ground pixel"})
         compose([f for d in DIRECTIONS for f in output_walk[d]], 8).save(work / "walk-review.png")
         compose([output_idle[d] for d in DIRECTIONS], 4).save(work / "idle-review.png")
         if qc["errors"]:
@@ -318,6 +343,9 @@ def main():
         paths += [root / "walk" / d / name for d in DIRECTIONS for name in [*(f"{i:02d}.png" for i in range(1, 9)), "strip.png", "walk.gif"]]
         write_json(root / "manifest.json", {"version": VERSION, "character_id": root.name,
                    "generated_at_utc": datetime.now(timezone.utc).isoformat(), "art_source": "built-in image_gen",
+                   "alignment": {"version": 2, "horizontal": "upper_body_alpha_median_42_percent",
+                                 "vertical": "lowest_alpha_gt_8", "root_px": list(FOOT)},
+                   "edge_despill": {"enabled": bool(args.despill_magenta_edge), "radius_px": 2, "alpha_unchanged": True, "geometry_unchanged": True, "red_protected": True, "implementation_sha256": sha(Path(__file__).with_name("edge_despill.py"))} if args.despill_magenta_edge else None,
                    "portrait": "portrait.png", "portrait_size": [1024, 1024],
                    "portrait_mode": portrait_source["mode"], "portrait_source": portrait_source,
                    "portrait_v11_sha256": portrait_source["baseline_v11_sha256"],

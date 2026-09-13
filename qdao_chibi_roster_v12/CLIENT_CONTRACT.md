@@ -13,3 +13,5 @@
 客户端目录、世界动画器和战斗外观加载已实现版本选择与完整性回退；测试已适配混用，尚待 Unity 执行。当前未发布 V12 图片，只有样板完整通过视觉验收后才能启用。
 
 静态编译：配套 Unity 6000.6 Roslyn 已编译通过角色生产代码和 Tianyong/Battle/PlayMode 三个测试程序集（0错误），输出位于 E:/work/tmp/qdao-v12-csharp-check。完整工程另有并行 CityTravelUiRoot 的4个缺失地图API错误；此次隔离检查未编译该文件及其 CityTravelWindowTests，也未修改它们。尚未启动 Unity 或执行运行时测试，不能据静态编译声明游戏验收完成。
+
+- 对齐版本2：512画布的根点(256,471)由上身水平轴和脚底高度定义，横向不再追随每帧支撑脚的脚掌中心。最终图像仅整帧平移，Sprite pivot仍用居中X/既定脚底Y；manifest alignment.version=2与独立验证必须通过后发布。详见README与alignment-validation/regression.json。

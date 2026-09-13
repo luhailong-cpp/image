@@ -8,13 +8,13 @@ from PIL import Image
 sys.path.insert(0,str(Path(__file__).resolve().parent.parent))
 from process_roster import DIRECTIONS, DEFAULT_PROCESSOR, load_processor, compose, sha, write_json
 root=Path(__file__).resolve().parent
-record={'operation':'RGB chroma-spill replacement from nearest existing non-magenta opaque subject pixel','reason':'Han Xiangzi has blue/white/navy cloth, black hair and gold/jade accents; purple/magenta is backdrop spill','geometry_and_alpha_unchanged':True,'files':{}}
+record={'operation':'RGB chroma-spill replacement from nearest existing non-magenta opaque subject pixel','reason':'Han Xiangzi has blue/white/navy cloth, black hair and gold/jade accents; purple/magenta is backdrop spill','geometry_and_alpha_unchanged':True,'chroma_predicate':'r > g+8 and b > g+8 and min(r,b) > 6 and alpha > 0','files':{}}
 paths=[root/'walk'/d/f'{i:02d}.png' for d in DIRECTIONS for i in range(1,9)]+[root/'idle'/f'{d}.png' for d in DIRECTIONS]
 offsets=sorted([(dx*dx+dy*dy,dy,dx) for dy in range(-12,13) for dx in range(-12,13) if dx or dy])
 for path in paths:
     a=np.array(Image.open(path).convert('RGBA')); before=a.copy()
     r,g,b=a[:,:,:3].astype(int).transpose(2,0,1)
-    bad=(r>g+20)&(b>g+20)&(np.minimum(r,b)>45)&(a[:,:,3]>0)
+    bad=(r>g+8)&(b>g+8)&(np.minimum(r,b)>6)&(a[:,:,3]>0)
     valid=(~bad)&(a[:,:,3]>=128)
     ys,xs=np.where(bad); pending=np.ones(len(ys),dtype=bool)
     for _,dy,dx in offsets:

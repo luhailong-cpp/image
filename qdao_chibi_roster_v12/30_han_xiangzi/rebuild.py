@@ -18,7 +18,7 @@ def pair(item):
     kind,(first,second)=item
     run(common/'assemble_raw.py','--kind',kind,'--first',root/f'phase-transposed/walk-{first}.png','--second',root/f'phase-transposed/walk-{second}.png','--first-rows','2','--first-cols','4','--second-rows','2','--second-cols','4','--output',root/f'source/{kind}.png')
 with ThreadPoolExecutor(max_workers=4) as pool:list(pool.map(pair,pairs.items()))
-args=['--character-dir',root,'--component-padding','1']
+args=['--character-dir',root,'--component-padding','0']
 for kind in pairs:args+=['--'+kind.replace('_','-'),root/f'source/{kind}.png']
 args+=['--idle',root/'source/idle.png']
 run(common/'process_roster.py',*args)

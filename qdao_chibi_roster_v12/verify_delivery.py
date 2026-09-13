@@ -29,6 +29,10 @@ def verify_character(root, require_visual=True):
         raise ValueError("Expected eight genuine frames at 60 ms each")
     if set(manifest["walk"]["directions"]) != set(DIRECTIONS) or not manifest["idle"]["dedicated_neutral_pose"]:
         raise ValueError("Expected all eight directions and independent neutral idle poses")
+    alignment = manifest.get("alignment", {})
+    if alignment != {"version": 2, "horizontal": "upper_body_alpha_median_42_percent",
+                     "vertical": "lowest_alpha_gt_8", "root_px": [256, 471]}:
+        raise ValueError("Expected body-axis alignment v2; legacy support-foot X alignment can jitter")
     expected = {"portrait.png"}
     expected.update(f"idle/{d}.png" for d in DIRECTIONS)
     expected.update(f"walk/{d}/{i:02d}.png" for d in DIRECTIONS for i in range(1, 9))
@@ -61,10 +65,15 @@ def verify_character(root, require_visual=True):
             if size != (512, 512):
                 continue
             yy, xx = np.nonzero(rgba[:, :, 3] > 8)
-            ax = float(np.median(xx[yy >= np.percentile(yy, 90)]))
+            # Independently recompute horizontal body axis; do not reuse the processor helper.
+            upper_limit = int(yy.min() + (yy.max() - yy.min()) * 0.42)
+            axis_pixels = xx[yy < upper_limit]
+            if not len(axis_pixels):
+                raise ValueError(f"Missing upper-body axis: {relative}")
+            ax = float(np.median(axis_pixels))
             ay = int(yy.max())
             if ay != 471 or abs(ax - 256) > 0.5:
-                raise ValueError(f"Wrong feet anchor {ax, ay}: {relative}")
+                raise ValueError(f"Wrong body-axis/ground anchor {ax, ay}: {relative}")
             alpha = rgba[:, :, 3]
             if any(np.any(edge) for edge in (alpha[0], alpha[-1], alpha[:, 0], alpha[:, -1])):
                 raise ValueError(f"Output touches cell edge: {relative}")
@@ -108,7 +117,7 @@ def verify_character(root, require_visual=True):
             "verified_at_utc": datetime.now(timezone.utc).isoformat(), "movement_frames": 64,
             "neutral_idle_frames": 8, "portraits": 1, "media_files": 89, "unique_frames": unique_count,
             "manifest_sha256": sha(root / "manifest.json"), "qc_sha256": sha(root / "qc.json"),
-            "foot_anchors": anchors, "artifacts": artifacts}
+            "alignment_version": 2, "body_ground_anchors": anchors, "artifacts": artifacts}
 
 
 def main():

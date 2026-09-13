@@ -5,7 +5,16 @@ from PIL import Image
 root=Path(__file__).resolve().parent
 source=root/'source'
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
-fixes={2:{0:('fix-phase02-N.png',None,1,1)},4:{1:('fix-diagonal-poses.png',0,2,2)},5:{1:('fix-diagonal-poses.png',1,2,2)},6:{1:('fix-diagonal-poses.png',2,2,2)},7:{1:('fix-phase07-directions.png',1,4,2),5:('fix-phase07-directions.png',5,4,2)},8:{0:('fix-phase08-N.png',None,1,1),7:('fix-diagonal-poses.png',3,2,2)}}
+fixes={
+ 1:{5:('fix-phase01-SW.png',None,1,1),7:('fix-phase01-NW-arm.png',None,1,1)},
+ 2:{0:('fix-phase02-N.png',None,1,1),1:('fix-phase02-NE.png',None,1,1),2:('fix-phase02-E.png',None,1,1),5:('fix-phase02-SW.png',None,1,1)},
+ 3:{2:('fix-phase03-E.png',None,1,1)},
+ 4:{2:('fix-phase04-E.png',None,1,1),1:('fix-arms.png',0,3,2),5:('fix-arms.png',3,3,2),3:('fix-phase04-SE.png',None,1,1),7:('fix-phase04-NW.png',None,1,1)},
+ 5:{1:('fix-arms.png',1,3,2)},
+ 6:{1:('fix-arms.png',2,3,2),5:('fix-arms.png',4,3,2),3:('fix-phase06-SE.png',None,1,1),7:('fix-phase06-NW.png',None,1,1)},
+ 7:{1:('fix-phase07-directions.png',1,4,2),5:('fix-phase07-directions.png',5,4,2),7:('fix-phase07-NW.png',None,1,1)},
+ 8:{0:('fix-phase08-N.png',None,1,1),1:('fix-phase08-NE-clear.png',None,1,1),2:('fix-phase08-E.png',None,1,1),5:('fix-phase08-SW.png',None,1,1),7:('fix-arms.png',5,3,2)}
+}
 for phase,replacements in fixes.items():
     output=source/f'phase{phase:02d}-turnaround.png'
     original=source/f'phase{phase:02d}-turnaround-original.png'

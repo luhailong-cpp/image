@@ -1,1 +1,1 @@
-道家 Q 版服装基准候选已生成；八方向八帧与站立未完成，未接入。
+V12素材完成：64张真实八方向走路、8张独立站立、新版道家布衣portrait，89媒体。process与独立verify通过，body-axis alignment v2。owner和root全部实际帧及肖像视觉验收通过；root另放大复核NE/NW 02与06确认近远裤腿遮挡互换。qc与visual-review.json已封存passed，游戏发布由根任务执行。rebuild.ps1可复现来源处理，重建后需重新核对视觉记录。
