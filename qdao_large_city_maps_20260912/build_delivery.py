@@ -1,4 +1,9 @@
 from pathlib import Path
+
+# This historical art packager must not overwrite the verified runtime delivery.
+if (Path(__file__).resolve().parent / 'runtime' / 'integration-delivery.json').exists():
+    raise SystemExit('Integrated map delivery already exists. Historical art packaging stopped before writing files; see README.md and runtime/integration-delivery.json.')
+
 from PIL import Image, ImageDraw, ImageFont
 import json,hashlib
 root=Path(r'E:\work\image\qdao_large_city_maps_20260912')
