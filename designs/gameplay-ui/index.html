@@ -21,8 +21,7 @@
     img{display:block;max-width:100%;max-height:calc(100vh - 105px);max-height:calc(100svh - 105px);width:auto;height:auto;object-fit:contain;box-shadow:0 8px 25px #0b251b33}
     .image-error{max-width:30em;margin:24px auto;color:var(--paper)}
     [hidden]{display:none!important}
-    @media(max-width:600px){header{gap:10px;padding:12px}.gallery-title{width:100%;text-align:center;margin:0}button,a{padding:8px 16px}nav{flex:1;justify-content:center}main{padding:8px}img{max-height:none}}
-    @media(max-width:360px){header{column-gap:8px}button,a{padding:8px 12px}}
+    @media(max-width:600px){header{gap:10px;padding:12px}.gallery-title{width:100%;text-align:center;margin:0}button,a{padding:8px 16px}nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));flex:0 0 100%;width:100%;min-width:0}nav button{min-width:0;padding:8px;white-space:nowrap}main{padding:8px}img{max-height:none}}
   </style>
 </head>
 <body>
@@ -32,7 +31,9 @@
       <button type="button" data-view="quests" aria-pressed="true">任务</button>
       <button type="button" data-view="inventory" aria-pressed="false">背包</button>
       <button type="button" data-view="activities" aria-pressed="false">活动</button>
+      <button type="button" data-view="guild" aria-pressed="false">帮会</button>
     </nav>
+    <a id="guildInteractive" href="../guild-ui-v2/" hidden>进入帮会交互版</a>
     <a id="download" href="01-quests.png" download="01-quests.png" aria-label="下载任务界面原图">保存原图</a>
   </header>
   <main aria-label="静态 UI 效果图预览">
@@ -47,7 +48,8 @@
       const entries = {
         quests: { file: '01-quests.png', label: '任务' },
         inventory: { file: '02-inventory.png', label: '背包' },
-        activities: { file: '03-activities.png', label: '活动' }
+        activities: { file: '03-activities.png', label: '活动' },
+        guild: { file: '04-guild.png', label: '帮会' }
       };
       const artwork = document.getElementById('artwork');
       const download = document.getElementById('download');
@@ -58,6 +60,7 @@
       function show(view) {
         if (!Object.prototype.hasOwnProperty.call(entries, view)) view = 'quests';
         const entry = entries[view];
+        document.getElementById("guildInteractive").hidden = view !== "guild";
         imageError.hidden = true;
         artwork.src = entry.file;
         artwork.alt = '五行奇谈' + entry.label + '界面静态效果图';
