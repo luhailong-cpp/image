@@ -212,6 +212,68 @@ MAPS['donghai']['blocked'] += [('west riverbank lower house',(331,565)),('west r
 MAPS['penglai']['blocked'] += [('harbor water beside stone pier',(1035,814))]
 obstacle('donghai','northwest large house',poly('northwest large house',(399,227),(430,205),(461,198),(484,225),(488,255),(471,289),(425,294),(396,270)))
 route('donghai','northwest village crossroad',28,(520,185),(483,185),(442,182),(402,180),(369,175),(340,178),(320,197),(317,233),(306,274),(308,307),(292,349))
+# Final native-resolution floor review, 2026-09-13. These polygons open broad
+# visible pavement; each shared day/festival stall, crate and rack remains solid.
+MAPS['penglai']['allow'].append(poly('harbor broad stone market floor',
+ (815,794),(848,770),(883,752),(908,740),(950,722),(977,695),(1003,680),
+ (1035,682),(1062,694),(1080,704),(1080,719),(1055,737),(1020,756),
+ (994,772),(976,797),(979,819),(971,834),(948,849),(922,867),
+ (893,885),(855,906),(827,910),(812,890)))
+obstacle('penglai','harbor upper awning',poly('harbor upper awning',
+ (897,688),(932,676),(961,693),(975,717),(966,734),(928,750),(896,733)))
+obstacle('penglai','harbor western stall',poly('harbor western stall',
+ (838,738),(868,721),(901,740),(905,767),(879,794),(848,786),(832,764)))
+obstacle('penglai','harbor middle blue stall',poly('harbor middle blue stall',
+ (925,769),(949,753),(976,748),(989,771),(989,793),(966,814),(938,805),(920,789)))
+obstacle('penglai','harbor red stall',poly('harbor red stall',
+ (867,801),(889,781),(916,799),(931,821),(919,842),(893,853),(864,835)))
+obstacle('penglai','harbor lower west stall',poly('harbor lower west stall',
+ (790,800),(818,783),(852,798),(858,825),(840,847),(804,856),(787,835)))
+obstacle('penglai','harbor north cargo',poly('harbor north cargo',
+ (973,723),(1008,711),(1025,727),(1025,743),(990,763),(970,752)))
+obstacle('penglai','harbor middle cargo',poly('harbor middle cargo',
+ (931,818),(950,805),(966,816),(966,838),(937,855),(921,841)))
+obstacle('penglai','harbor south cargo',poly('harbor south cargo',
+ (875,857),(896,842),(915,853),(915,876),(882,891),(870,879)))
+obstacle('penglai','harbor southwest bollard',circle('harbor southwest bollard',831,880,14))
+obstacle('penglai','harbor south bollard',circle('harbor south bollard',866,894,13))
+# The southern harbor court remains intentionally disconnected: its passage
+# between the awning/stall silhouettes does not fit a complete safe 2 m cell.
+MAPS['penglai']['blocked'] += [('harbor middle blue stall',(958,785)),('harbor red stall',(897,824)),('harbor north cargo',(999,737)),('harbor south cargo',(891,867))]
+
+MAPS['lanxian']['allow'].append(poly('central plaza broad paved perimeter',
+ (478,435),(529,405),(565,389),(686,389),(736,408),(774,433),
+ (795,472),(799,531),(789,578),(771,624),(747,659),(721,684),
+ (681,707),(571,707),(538,678),(510,646),(491,611),(479,569),(471,525),(474,482)))
+# Keep the large decorative planters and the roof/vegetation at the perimeter
+# excluded rather than treating every light pixel as pavement.
+MAPS['lanxian']['landmarks'] += [('plaza northwest open pavement',(531,481)),('plaza southeast open pavement',(716,641))]
+
+obstacle('donghai','eastern fishing racks',None)
+obstacle('donghai','western drying rack',poly('western drying rack',
+ (716,642),(748,632),(801,630),(812,662),(799,683),(751,694),(709,673)))
+obstacle('donghai','eastern drying rack',poly('eastern drying rack',
+ (832,627),(869,621),(917,615),(929,640),(928,661),(902,676),(880,691),(827,685)))
+obstacle('donghai','racks southern storage and roofs',poly('racks southern storage and roofs',
+ (700,680),(756,675),(806,681),(842,685),(881,681),(910,674),(950,668),
+ (955,715),(865,744),(739,744),(695,711)))
+MAPS['donghai']['allow'].append(poly('drying-rack northern paved forecourt',
+ (668,624),(707,625),(753,620),(785,618),(815,618),(844,607),
+ (875,601),(899,606),(923,606),(948,611),(959,635),(936,641),
+ (904,638),(863,640),(819,644),(778,647),(735,650),(682,650)))
+# The inner drying-rack court remains excluded where the complete safe cell
+# cannot pass between the building/rack silhouettes. Do not bridge the obstacle.
+MAPS['donghai']['blocked'] += [('western drying rack',(768,657)),('eastern drying rack',(879,651))]
+
+MAPS['penglai']['allow'].append(poly('harbor actual descending staircase',
+ (939,648),(965,648),(983,661),(1006,676),(1024,690),(1012,710),
+ (992,703),(977,686),(961,675),(939,669)))
+MAPS['penglai']['landmarks']=[(n,((1033,711) if n=='harbor market approach' else p)) for n,p in MAPS['penglai']['landmarks']]
+obstacle('donghai','south plaza stall',poly('south plaza stall',
+ (677,555),(717,550),(753,560),(778,587),(765,611),(738,624),(710,625),(681,611)))
+obstacle('donghai','east plaza temple',poly('east plaza temple',
+ (798,534),(841,516),(879,530),(905,564),(893,588),(871,603),(845,617),(809,604),(790,576)))
+
 def sha_bytes(b):return hashlib.sha256(b).hexdigest()
 def world_to_pixel(w):return ((w[0]-50)*SIZE/300,(300-w[2])*SIZE/300)
 def pixel_to_world(p):return [round(50+p[0]*300/SIZE,6),0,round(300-p[1]*300/SIZE,6)]
