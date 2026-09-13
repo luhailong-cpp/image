@@ -1,15 +1,17 @@
-# 决策分类独立审计
+# Decision classification audit
 
-发现 4 类需要更正的分类/理由，另 1 个发布入口漏项已由根任务在审计期间修正。此审计只核对来源和用途，不对仍在修补的 v9／28 做最终图片哈希结案。
+只读检查完成；仅更新本审计 JSON / MD，未修改图片、生产元数据、inventory 或 decisions。未替 v9 / 28 补修作最终哈希结案。
 
-|项|发现与处置|
-|---|---|
-|DCA-01|何仙姑 walk_NE_correction1.png、walk_SE_correction2.png 被称为未选候选，实际上当前 manifest 的 NE/SE selected_frame_sources[3] 选中了它们。补索引并保留为现行原生来源记录。|
-|DCA-02|27 的 cardinal_assembled.png、diagonal_assembled.png 是 compatibility_assembly 指定的当前 4×4 兼容派生。应随已处理帧校验/重建，不能归未选原图。未在当前 edge_exports 发布记录中看到这两项，本审计不判断实际像素是否过期。|
-|DCA-03|v10-preview 的桌面／手机四截图是当前展示导出，不能沿用历史排除理由。保留为 current preview evidence；输入变化则重新浏览器渲染，不直接修截图。v1/v2 旧稿的历史保留合法。|
-|DCA-04|v7 icons/source/batch01–08 仍由现行批次记录映射全部 124 件物件。保留原图合理，但“都已被 v9/v10/festival 取代”的理由不准确，宜标现行原生来源证据。v7 UI 的历史归档有 README 与旧 builder 退出保护支持。|
-|DCA-05|先前缺失/拼错选服与 prepared hero publication 入口；关闭审计时脚本已改用正确两条路径。随后重建 ledger 即可。|
+`decision-classification-audit.json` 的 `corrections` 数组包含 19 个唯一精确路径，均带 `path`、`decision`、`reason`、当前 `sha256` / `expected_sha256`、权威文件及字段，可供根任务合并：
 
-通过的部分：6 张 v10 母图明确作为当前视觉来源保留；112 张当前 v10 fallback 派生由字节等同性进入 retain_derived；49 张冻结 contracts 输入按 README 保持；已索引的 94 张 v11 来源／加工输入使用 retain_source_record 合理；属性 v1/v2 历史页面有明确文档依据。
+- 2 张何仙姑 NE04 / SE04 实际选用的原画细胞源 → `retain_source_record`，与 manifest 声明哈希一致。
+- 2 张 27 号兼容组装 → `retain_derived`。2048×2048 RGBA 与当前 32 张 512 帧按 manifest 方向顺序逐像素拼接完全一致；自身文件哈希也与 manifest 一致，不需重建。
+- 8 张 v7 icons/source 原始图板 → `retain_source_record`，仍是现行 124 图标的记录来源。当前文件哈希与旧 records 的 raw_sha256 均不同：本报告保留两者并明确旧字段不能用作当前绑定，不改原始记录，也不据此断言图片失效。
+- 4 张当前属性 v10 浏览器截图 → `retain_current_evidence`，保留当前证据身份，输入变化后重新渲染，不能绘改截图。
+- 3 张韩湘子当前 QC 明确引用的检查图 → `retain_current_evidence`。QC 以路径关联，没有逐检查图哈希；本报告仅捕获当前字节哈希，不补造生产者视觉验收。
 
-精确路径、manifest 字段、规则和逐项建议见 [JSON](decision-classification-audit.json)。只写本审计两份报告，未修改分类脚本、库存、图片或交接文档。
+27 号 `compatibility_27_verification` 保存全部 32 个帧路径及哈希、两组行顺序和完整像素结果。旧 visual approval 中 8 条 review_evidence 路径在本检出中缺失，已单列为旧证据可移植性限制；不把它描述为当前 51 媒体失败，也不猜测替换成其他联系图。
+
+正确保留的历史范围包括：v7 已归档 UI、v10 冻结 contracts 输入、属性旧 v1 / v2 预览，以及当前 QC 明确列入 historical_visual_review 的旧检查图。6 张 v10 母件、112 项已证实一致的派生和 94 项已被正确索引的 v11 来源未发现同类误排。
+
+发布清单漏读路径已由根任务在脚本中修正；本审计不代运行最终账本或刷新全库哈希。

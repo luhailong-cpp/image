@@ -32,7 +32,7 @@ def family(path):
 def fallback_role(path):
     p = path.lower()
     parts = p.split('/')
-    if p in ('qdao_battle_dim_overlay_2560x1080_v1.png', 'client_ui_refresh_20260908/prepared/UI/Ugui/Battle/Overlays/qdao_battle_dim_overlay_2560x1080_v1.png'):
+    if p in ('qdao_battle_dim_overlay_2560x1080_v1.png', 'client_ui_refresh_20260908/prepared/ui/ugui/battle/overlays/qdao_battle_dim_overlay_2560x1080_v1.png'):
         return 'functional_uniform_alpha_overlay_preserve'
     if any(x in parts for x in ('.work', 'backups', 'staged', 'samples', 'contacts', 'thumbs', '__pycache__', 'rejected', 'history')) or p.startswith(('docs/style-audit-', 'qdao_exposure_refinement_v8/review/rebuilt/', 'qdao_chibi_roster_v11/24_crane_hermit/')):
         return 'supporting_history_or_work'
@@ -117,6 +117,10 @@ def build_delivery_index():
         register(e['file'], base, 'accepted_preview_derivative', doc, e.get('sha256'), source=e.get('source'), note='Copy from formal sprite source, then rerender browser evidence.')
     doc = 'designs/gameplay-ui/manifest.json'
     for e in document(doc).get('records', []): register(e['path'], str(Path(doc).parent), 'accepted_source_art', doc, e.get('sha256'))
+    audit_doc = 'qdao_festival_refinement_20260910/decision-classification-audit.json'
+    for e in read_json(audit_doc).get('corrections', []):
+        role = {'retain_source_record':'accepted_source_art', 'retain_derived':'accepted_processing_input', 'retain_current_preview_evidence':'current_preview_evidence', 'retain_current_evidence':'current_acceptance_evidence'}.get(e['decision'])
+        if role: register(e['path'], '', role, audit_doc, e.get('sha256'), note=e['reason'])
     return index, documents, issues, roster
 
 def main():

@@ -1,7 +1,7 @@
 {
   "schema": "qdao.decision-classification-audit.v1",
   "audited_at_utc": "2026-09-12T09:12:47.004084+00:00",
-  "status": "classification_corrections_found",
+  "status": "audit_complete_corrections_ready_for_parent_merge",
   "scope": "Read-only metadata/reference audit; wrote only this JSON and companion Markdown. No image generation, pixel edits, 6000-image review or final image hash closure.",
   "decisions_snapshot_utc": "2026-09-12T09:05:37.349459+00:00",
   "decision_counts_at_read": {
@@ -72,8 +72,9 @@
         }
       ],
       "evidence": "27 manifest.compatibility_assembly calls each a deterministic_assembly_of_approved_processed_frames, 2048x2048 compatibility 4x4 sheet, with source_records pointing to four processing directions.",
-      "impact": "These two compatibility sheets can become stale when approved processed-frame RGB changes. Current edge_exports/publication.json did not list them at read time; this audit does not infer their actual pixel freshness.",
-      "recommendation": "Index as accepted compatibility derivatives and retain_derived only after a source-frame consistency check; otherwise pending_rebuild. Never treat them as native paintings or repaint them."
+      "impact": "Classification-only error: both compatibility sheets have now passed exact full RGBA assembly comparison against all 32 current frames and their manifest hashes match.",
+      "recommendation": "Apply the two retain_derived corrections. No rebuild or repaint required.",
+      "verification": "compatibility_27_verification"
     },
     {
       "id": "DCA-03",
@@ -104,7 +105,7 @@
       ],
       "authority": "designs/attribute-panels/v10-preview/README.md current entry; root README first paragraph; prepared-derivative-review.json attribute_exports.current",
       "impact": "These four screenshots are active preview exports. They should not be painted, but permanent historical exclusion can hide a need to rerender them after a formal sprite/input update.",
-      "recommendation": "Use retain_evidence/current_preview_derivative with explicit source dependency and regeneration-if-changed policy. If source copies changed, require browser rerender plus current validation. v1/v2 old screenshots remain historical."
+      "recommendation": "Apply four retain_current_evidence corrections; preserve current browser exports, rerender when their page or sprite inputs change. Old v1/v2 previews remain historical."
     },
     {
       "id": "DCA-04",
@@ -171,7 +172,8 @@
       ],
       "current_outputs_linked": 124,
       "impact": "The eight v7 source sheets remain the recorded native origins for all 124 current icon paths. v9/v10/festival did not replace their source identity. Original source evidence should still be preserved and not repainted.",
-      "recommendation": "Use retain_source_record/current native provenance for these eight sheets, or retain_record with an accurate still-used-origin reason. Do not promote all v7 derived UI files to current art. The v7 UI README explicitly archives those and its old component builder exits before writes."
+      "recommendation": "Use retain_source_record/current native provenance for these eight sheets, or retain_record with an accurate still-used-origin reason. Do not promote all v7 derived UI files to current art. The v7 UI README explicitly archives those and its old component builder exits before writes.",
+      "current_hash_binding_limit": "All eight current native-source files differ from raw_sha256 in the old generation records. Actual and declared hashes are included in corrections; do not treat raw_sha256 as current verification."
     },
     {
       "id": "DCA-05",
@@ -461,5 +463,363 @@
     ],
     "files_read": 34,
     "other_characters_final_media_checked": false
-  }
+  },
+  "corrections": [
+    {
+      "path": "qdao_chibi_roster_v11/29_he_xiangu/sources/walk_NE_correction1.png",
+      "decision": "retain_source_record",
+      "reason": "Current selected native source cell NE04; omitted by shallow source indexing, not an unselected historical candidate.",
+      "sha256": "159e9ae485ee42441555db4519dac25f6669fa47c18b4f18bbb3715b988085af",
+      "expected_sha256": "159e9ae485ee42441555db4519dac25f6669fa47c18b4f18bbb3715b988085af",
+      "authority": "qdao_chibi_roster_v11/29_he_xiangu/manifest.json",
+      "authority_field": "directional_original_sources.NE.selected_frame_sources[3]",
+      "inventory_role": "accepted_source_art",
+      "cell_index": 3,
+      "authority_declared_sha256": "159e9ae485ee42441555db4519dac25f6669fa47c18b4f18bbb3715b988085af",
+      "hash_matches_authority": true
+    },
+    {
+      "path": "qdao_chibi_roster_v11/29_he_xiangu/sources/walk_SE_correction2.png",
+      "decision": "retain_source_record",
+      "reason": "Current selected native source cell SE04; omitted by shallow source indexing, not an unselected historical candidate.",
+      "sha256": "eab37bda39feec67d6817634e0d47ef6f0590aecb1334d05791ba464d426c4df",
+      "expected_sha256": "eab37bda39feec67d6817634e0d47ef6f0590aecb1334d05791ba464d426c4df",
+      "authority": "qdao_chibi_roster_v11/29_he_xiangu/manifest.json",
+      "authority_field": "directional_original_sources.SE.selected_frame_sources[3]",
+      "inventory_role": "accepted_source_art",
+      "cell_index": 3,
+      "authority_declared_sha256": "eab37bda39feec67d6817634e0d47ef6f0590aecb1334d05791ba464d426c4df",
+      "hash_matches_authority": true
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/sources/cardinal_assembled.png",
+      "decision": "retain_derived",
+      "reason": "Current 2048x2048 compatibility sheet exactly equals a direct RGBA assembly of current 512x512 frames in manifest row order; current file hash also matches manifest. No rebuild required.",
+      "sha256": "6703d236a9fbf4da90cb3c533647b96335e73e0f588525b55fd99597b11816b6",
+      "expected_sha256": "6703d236a9fbf4da90cb3c533647b96335e73e0f588525b55fd99597b11816b6",
+      "authority": "qdao_chibi_roster_v11/27_ink_kite_ranger/manifest.json",
+      "authority_field": "compatibility_assembly.cardinal",
+      "inventory_role": "accepted_compatibility_derivative",
+      "exact_current_frame_rgba": true,
+      "source_contract_evidence": "compatibility_27_verification.records",
+      "row_order": [
+        "S",
+        "W",
+        "E",
+        "N"
+      ],
+      "authority_declared_sha256": "6703d236a9fbf4da90cb3c533647b96335e73e0f588525b55fd99597b11816b6",
+      "hash_matches_authority": true
+    },
+    {
+      "path": "qdao_chibi_roster_v11/27_ink_kite_ranger/sources/diagonal_assembled.png",
+      "decision": "retain_derived",
+      "reason": "Current 2048x2048 compatibility sheet exactly equals a direct RGBA assembly of current 512x512 frames in manifest row order; current file hash also matches manifest. No rebuild required.",
+      "sha256": "eb569f19f83fd141236740534f051be567c400d45d13b6e81399c0f7d2bb4983",
+      "expected_sha256": "eb569f19f83fd141236740534f051be567c400d45d13b6e81399c0f7d2bb4983",
+      "authority": "qdao_chibi_roster_v11/27_ink_kite_ranger/manifest.json",
+      "authority_field": "compatibility_assembly.diagonal",
+      "inventory_role": "accepted_compatibility_derivative",
+      "exact_current_frame_rgba": true,
+      "source_contract_evidence": "compatibility_27_verification.records",
+      "row_order": [
+        "SW",
+        "NW",
+        "NE",
+        "SE"
+      ],
+      "authority_declared_sha256": "eb569f19f83fd141236740534f051be567c400d45d13b6e81399c0f7d2bb4983",
+      "hash_matches_authority": true
+    },
+    {
+      "path": "qdao_gpt_image2_refresh_v7/icons/source/batch01.png",
+      "decision": "retain_source_record",
+      "reason": "This source path remains the native origin recorded for current icon outputs; the blanket all-v7-superseded reason is inaccurate. Preserve source pixels and provenance. The original raw_sha256 differs from the present file and is historical, not a current binding.",
+      "sha256": "32a74902e8a72d1617629040636e5d795871d5fe1e3720741c4d96b4d127b83e",
+      "expected_sha256": "32a74902e8a72d1617629040636e5d795871d5fe1e3720741c4d96b4d127b83e",
+      "authority": "qdao_asset_refresh_v6/icons/records/batch01.json",
+      "authority_field": "raw_generation_path; outputs",
+      "inventory_role": "accepted_source_art",
+      "current_outputs_linked": 16,
+      "hash_binding_limit": "Expected hash is the actual current file captured in this audit. The record raw_sha256 is the original generation hash and must not be overwritten or described as matching current bytes.",
+      "authority_declared_sha256": "86d7c1ae436e90e95661d6f88f7615c0b41102ee5ffd8a553a9021c04ad8971a",
+      "hash_matches_authority": false
+    },
+    {
+      "path": "qdao_gpt_image2_refresh_v7/icons/source/batch02.png",
+      "decision": "retain_source_record",
+      "reason": "This source path remains the native origin recorded for current icon outputs; the blanket all-v7-superseded reason is inaccurate. Preserve source pixels and provenance. The original raw_sha256 differs from the present file and is historical, not a current binding.",
+      "sha256": "40bebb06462378bebc414b51f7e6acb81d108a6e5c89e2f08e38c7d6b47cfcd5",
+      "expected_sha256": "40bebb06462378bebc414b51f7e6acb81d108a6e5c89e2f08e38c7d6b47cfcd5",
+      "authority": "qdao_asset_refresh_v6/icons/records/batch02.json",
+      "authority_field": "raw_generation_path; outputs",
+      "inventory_role": "accepted_source_art",
+      "current_outputs_linked": 16,
+      "hash_binding_limit": "Expected hash is the actual current file captured in this audit. The record raw_sha256 is the original generation hash and must not be overwritten or described as matching current bytes.",
+      "authority_declared_sha256": "2d96e8d81bb3ab34b126a65653bea2fde333fd248d4d104650833355b076afca",
+      "hash_matches_authority": false
+    },
+    {
+      "path": "qdao_gpt_image2_refresh_v7/icons/source/batch03.png",
+      "decision": "retain_source_record",
+      "reason": "This source path remains the native origin recorded for current icon outputs; the blanket all-v7-superseded reason is inaccurate. Preserve source pixels and provenance. The original raw_sha256 differs from the present file and is historical, not a current binding.",
+      "sha256": "0da17c8cd2085865565371ca0d78c184ff35c1ac3244d56db2bbd0c195de7298",
+      "expected_sha256": "0da17c8cd2085865565371ca0d78c184ff35c1ac3244d56db2bbd0c195de7298",
+      "authority": "qdao_asset_refresh_v6/icons/records/batch03.json",
+      "authority_field": "raw_generation_path; outputs",
+      "inventory_role": "accepted_source_art",
+      "current_outputs_linked": 16,
+      "hash_binding_limit": "Expected hash is the actual current file captured in this audit. The record raw_sha256 is the original generation hash and must not be overwritten or described as matching current bytes.",
+      "authority_declared_sha256": "9e91f9fbface4f84aa085d5237d6d04b5fef765fdecd626f42867fa8b5194b95",
+      "hash_matches_authority": false
+    },
+    {
+      "path": "qdao_gpt_image2_refresh_v7/icons/source/batch04.png",
+      "decision": "retain_source_record",
+      "reason": "This source path remains the native origin recorded for current icon outputs; the blanket all-v7-superseded reason is inaccurate. Preserve source pixels and provenance. The original raw_sha256 differs from the present file and is historical, not a current binding.",
+      "sha256": "753b6851e0cbc643c19ed46590c45307690a481ae38dc8fcbaa4763917cf1534",
+      "expected_sha256": "753b6851e0cbc643c19ed46590c45307690a481ae38dc8fcbaa4763917cf1534",
+      "authority": "qdao_asset_refresh_v6/icons/records/batch04.json",
+      "authority_field": "raw_generation_path; outputs",
+      "inventory_role": "accepted_source_art",
+      "current_outputs_linked": 16,
+      "hash_binding_limit": "Expected hash is the actual current file captured in this audit. The record raw_sha256 is the original generation hash and must not be overwritten or described as matching current bytes.",
+      "authority_declared_sha256": "99b9356e9c88f480f7d4e7c7b68bb667e2982edbedc19e1c1a15dfe26a70f08b",
+      "hash_matches_authority": false
+    },
+    {
+      "path": "qdao_gpt_image2_refresh_v7/icons/source/batch05.png",
+      "decision": "retain_source_record",
+      "reason": "This source path remains the native origin recorded for current icon outputs; the blanket all-v7-superseded reason is inaccurate. Preserve source pixels and provenance. The original raw_sha256 differs from the present file and is historical, not a current binding.",
+      "sha256": "2198086dd03b1358a8b654b8efc08d0a38a831be6b6a7eeb430c4521614bd542",
+      "expected_sha256": "2198086dd03b1358a8b654b8efc08d0a38a831be6b6a7eeb430c4521614bd542",
+      "authority": "qdao_asset_refresh_v6/icons/records/batch05.json",
+      "authority_field": "raw_generation_path; outputs",
+      "inventory_role": "accepted_source_art",
+      "current_outputs_linked": 16,
+      "hash_binding_limit": "Expected hash is the actual current file captured in this audit. The record raw_sha256 is the original generation hash and must not be overwritten or described as matching current bytes.",
+      "authority_declared_sha256": "a9c35cbd61b9841bd709069eafa7709ebdf720df88b30c185a52c138f5404564",
+      "hash_matches_authority": false
+    },
+    {
+      "path": "qdao_gpt_image2_refresh_v7/icons/source/batch06.png",
+      "decision": "retain_source_record",
+      "reason": "This source path remains the native origin recorded for current icon outputs; the blanket all-v7-superseded reason is inaccurate. Preserve source pixels and provenance. The original raw_sha256 differs from the present file and is historical, not a current binding.",
+      "sha256": "3f312922159707bddc5fa6dd37734e536d3214f8241d7ec12ce8565b57889210",
+      "expected_sha256": "3f312922159707bddc5fa6dd37734e536d3214f8241d7ec12ce8565b57889210",
+      "authority": "qdao_asset_refresh_v6/icons/records/batch06.json",
+      "authority_field": "raw_generation_path; outputs",
+      "inventory_role": "accepted_source_art",
+      "current_outputs_linked": 16,
+      "hash_binding_limit": "Expected hash is the actual current file captured in this audit. The record raw_sha256 is the original generation hash and must not be overwritten or described as matching current bytes.",
+      "authority_declared_sha256": "21446daa055ff21fd39638d877f25cbbf2b4ad041f3e070feecf761ae832cd09",
+      "hash_matches_authority": false
+    },
+    {
+      "path": "qdao_gpt_image2_refresh_v7/icons/source/batch07.png",
+      "decision": "retain_source_record",
+      "reason": "This source path remains the native origin recorded for current icon outputs; the blanket all-v7-superseded reason is inaccurate. Preserve source pixels and provenance. The original raw_sha256 differs from the present file and is historical, not a current binding.",
+      "sha256": "43176cb65898c966b4d523f9a8dfbf84b8ea9110e0f58fb410790fafb18e7dff",
+      "expected_sha256": "43176cb65898c966b4d523f9a8dfbf84b8ea9110e0f58fb410790fafb18e7dff",
+      "authority": "qdao_asset_refresh_v6/icons/records/batch07.json",
+      "authority_field": "raw_generation_path; outputs",
+      "inventory_role": "accepted_source_art",
+      "current_outputs_linked": 16,
+      "hash_binding_limit": "Expected hash is the actual current file captured in this audit. The record raw_sha256 is the original generation hash and must not be overwritten or described as matching current bytes.",
+      "authority_declared_sha256": "fa6e6c677df006ef1d57643190ce454cd77850b58a16c4823c4cd1c9c2de164e",
+      "hash_matches_authority": false
+    },
+    {
+      "path": "qdao_gpt_image2_refresh_v7/icons/source/batch08.png",
+      "decision": "retain_source_record",
+      "reason": "This source path remains the native origin recorded for current icon outputs; the blanket all-v7-superseded reason is inaccurate. Preserve source pixels and provenance. The original raw_sha256 differs from the present file and is historical, not a current binding.",
+      "sha256": "2ca8c6833a5d41a34f64eabf60f31cef85df18a4e1a15528d7ba7f249650f552",
+      "expected_sha256": "2ca8c6833a5d41a34f64eabf60f31cef85df18a4e1a15528d7ba7f249650f552",
+      "authority": "qdao_asset_refresh_v6/icons/records/batch08.json",
+      "authority_field": "raw_generation_path; outputs",
+      "inventory_role": "accepted_source_art",
+      "current_outputs_linked": 12,
+      "hash_binding_limit": "Expected hash is the actual current file captured in this audit. The record raw_sha256 is the original generation hash and must not be overwritten or described as matching current bytes.",
+      "authority_declared_sha256": "708db691d9aa84814781118df73cc6e07dcc73dac05daf267c9a3db9f773481e",
+      "hash_matches_authority": false
+    },
+    {
+      "path": "designs/attribute-panels/v10-preview/01-character_2560x1080.png",
+      "decision": "retain_current_evidence",
+      "reason": "Current browser capture for the active attribute preview. Preserve as present evidence; rerender and revalidate if current page or sprite dependencies change. Do not paint the capture or classify it as superseded history.",
+      "sha256": "548d606a60d07aa951cc868cdd7e75430dec091162cffc46259105af81e26f03",
+      "expected_sha256": "548d606a60d07aa951cc868cdd7e75430dec091162cffc46259105af81e26f03",
+      "authority": "designs/attribute-panels/v10-preview/delivery-verification.json",
+      "authority_field": "screenshots.01-character_2560x1080.png",
+      "inventory_role": "current_preview_evidence",
+      "size": [
+        2560,
+        1080
+      ],
+      "mode": "RGB",
+      "authority_declared_sha256": "548d606a60d07aa951cc868cdd7e75430dec091162cffc46259105af81e26f03",
+      "hash_matches_authority": true
+    },
+    {
+      "path": "designs/attribute-panels/v10-preview/02-pet_2560x1080.png",
+      "decision": "retain_current_evidence",
+      "reason": "Current browser capture for the active attribute preview. Preserve as present evidence; rerender and revalidate if current page or sprite dependencies change. Do not paint the capture or classify it as superseded history.",
+      "sha256": "112d073f5e40774632676082a043d0f5eb947d7244e17a5e1d72ec0f0f65446e",
+      "expected_sha256": "112d073f5e40774632676082a043d0f5eb947d7244e17a5e1d72ec0f0f65446e",
+      "authority": "designs/attribute-panels/v10-preview/delivery-verification.json",
+      "authority_field": "screenshots.02-pet_2560x1080.png",
+      "inventory_role": "current_preview_evidence",
+      "size": [
+        2560,
+        1080
+      ],
+      "mode": "RGB",
+      "authority_declared_sha256": "112d073f5e40774632676082a043d0f5eb947d7244e17a5e1d72ec0f0f65446e",
+      "hash_matches_authority": true
+    },
+    {
+      "path": "designs/attribute-panels/v10-preview/mobile-character.png",
+      "decision": "retain_current_evidence",
+      "reason": "Current browser capture for the active attribute preview. Preserve as present evidence; rerender and revalidate if current page or sprite dependencies change. Do not paint the capture or classify it as superseded history.",
+      "sha256": "f7b440be133d1f1b64abb77c42dbdf585e08324b160ff1355c2143dce45ff79d",
+      "expected_sha256": "f7b440be133d1f1b64abb77c42dbdf585e08324b160ff1355c2143dce45ff79d",
+      "authority": "designs/attribute-panels/v10-preview/delivery-verification.json",
+      "authority_field": "screenshots.mobile-character.png",
+      "inventory_role": "current_preview_evidence",
+      "size": [
+        624,
+        2213
+      ],
+      "mode": "RGB",
+      "authority_declared_sha256": "f7b440be133d1f1b64abb77c42dbdf585e08324b160ff1355c2143dce45ff79d",
+      "hash_matches_authority": true
+    },
+    {
+      "path": "designs/attribute-panels/v10-preview/mobile-pet.png",
+      "decision": "retain_current_evidence",
+      "reason": "Current browser capture for the active attribute preview. Preserve as present evidence; rerender and revalidate if current page or sprite dependencies change. Do not paint the capture or classify it as superseded history.",
+      "sha256": "6df4129bb4866ab4a4bd045e5e865032d67cf710189bc22cb9403b670d35472e",
+      "expected_sha256": "6df4129bb4866ab4a4bd045e5e865032d67cf710189bc22cb9403b670d35472e",
+      "authority": "designs/attribute-panels/v10-preview/delivery-verification.json",
+      "authority_field": "screenshots.mobile-pet.png",
+      "inventory_role": "current_preview_evidence",
+      "size": [
+        624,
+        2982
+      ],
+      "mode": "RGB",
+      "authority_declared_sha256": "6df4129bb4866ab4a4bd045e5e865032d67cf710189bc22cb9403b670d35472e",
+      "hash_matches_authority": true
+    },
+    {
+      "path": "qdao_chibi_roster_v11/30_han_xiangzi/processing/visual-review-1.jpg",
+      "decision": "retain_current_evidence",
+      "reason": "Current passed QC explicitly cites this review image. Generic historical-evidence wording is incorrect. Preserve this current evidence with the QC reference.",
+      "sha256": "fcb1a1af067592746d4297be2bbc1ad6f49ce2ebcb6e4ede9c2f675b1fd7ceee",
+      "expected_sha256": "fcb1a1af067592746d4297be2bbc1ad6f49ce2ebcb6e4ede9c2f675b1fd7ceee",
+      "authority": "qdao_chibi_roster_v11/30_han_xiangzi/qc.json",
+      "authority_field": "visual_review.evidence",
+      "inventory_role": "current_visual_evidence",
+      "producer_visual_status": "passed",
+      "hash_binding_limit": "Current file hash captured in this audit; QC binds the evidence by path, not by an evidence-specific hash."
+    },
+    {
+      "path": "qdao_chibi_roster_v11/30_han_xiangzi/processing/visual-review-2.jpg",
+      "decision": "retain_current_evidence",
+      "reason": "Current passed QC explicitly cites this review image. Generic historical-evidence wording is incorrect. Preserve this current evidence with the QC reference.",
+      "sha256": "20b41fa93ce4cc76e1537dec8fb194058a9b0aebcdd0260742b1822f3e7ba968",
+      "expected_sha256": "20b41fa93ce4cc76e1537dec8fb194058a9b0aebcdd0260742b1822f3e7ba968",
+      "authority": "qdao_chibi_roster_v11/30_han_xiangzi/qc.json",
+      "authority_field": "visual_review.evidence",
+      "inventory_role": "current_visual_evidence",
+      "producer_visual_status": "passed",
+      "hash_binding_limit": "Current file hash captured in this audit; QC binds the evidence by path, not by an evidence-specific hash."
+    },
+    {
+      "path": "qdao_chibi_roster_v11/30_han_xiangzi/processing/gif-decoded-review.jpg",
+      "decision": "retain_current_evidence",
+      "reason": "Current passed QC explicitly cites this review image. Generic historical-evidence wording is incorrect. Preserve this current evidence with the QC reference.",
+      "sha256": "7f46ddacc7461d265c0cdf3517efab69211ce7db897e2bdd85abf45821360658",
+      "expected_sha256": "7f46ddacc7461d265c0cdf3517efab69211ce7db897e2bdd85abf45821360658",
+      "authority": "qdao_chibi_roster_v11/30_han_xiangzi/qc.json",
+      "authority_field": "visual_review.evidence",
+      "inventory_role": "current_visual_evidence",
+      "producer_visual_status": "passed",
+      "hash_binding_limit": "Current file hash captured in this audit; QC binds the evidence by path, not by an evidence-specific hash."
+    }
+  ],
+  "correction_counts": {
+    "retain_source_record": 10,
+    "retain_derived": 2,
+    "retain_current_evidence": 7
+  },
+  "corrections_written_at_utc": "2026-09-12T09:21:45.993558+00:00",
+  "authority_hash_differences": [
+    {
+      "path": "qdao_gpt_image2_refresh_v7/icons/source/batch01.png",
+      "current_sha256": "32a74902e8a72d1617629040636e5d795871d5fe1e3720741c4d96b4d127b83e",
+      "authority_declared_sha256": "86d7c1ae436e90e95661d6f88f7615c0b41102ee5ffd8a553a9021c04ad8971a"
+    },
+    {
+      "path": "qdao_gpt_image2_refresh_v7/icons/source/batch02.png",
+      "current_sha256": "40bebb06462378bebc414b51f7e6acb81d108a6e5c89e2f08e38c7d6b47cfcd5",
+      "authority_declared_sha256": "2d96e8d81bb3ab34b126a65653bea2fde333fd248d4d104650833355b076afca"
+    },
+    {
+      "path": "qdao_gpt_image2_refresh_v7/icons/source/batch03.png",
+      "current_sha256": "0da17c8cd2085865565371ca0d78c184ff35c1ac3244d56db2bbd0c195de7298",
+      "authority_declared_sha256": "9e91f9fbface4f84aa085d5237d6d04b5fef765fdecd626f42867fa8b5194b95"
+    },
+    {
+      "path": "qdao_gpt_image2_refresh_v7/icons/source/batch04.png",
+      "current_sha256": "753b6851e0cbc643c19ed46590c45307690a481ae38dc8fcbaa4763917cf1534",
+      "authority_declared_sha256": "99b9356e9c88f480f7d4e7c7b68bb667e2982edbedc19e1c1a15dfe26a70f08b"
+    },
+    {
+      "path": "qdao_gpt_image2_refresh_v7/icons/source/batch05.png",
+      "current_sha256": "2198086dd03b1358a8b654b8efc08d0a38a831be6b6a7eeb430c4521614bd542",
+      "authority_declared_sha256": "a9c35cbd61b9841bd709069eafa7709ebdf720df88b30c185a52c138f5404564"
+    },
+    {
+      "path": "qdao_gpt_image2_refresh_v7/icons/source/batch06.png",
+      "current_sha256": "3f312922159707bddc5fa6dd37734e536d3214f8241d7ec12ce8565b57889210",
+      "authority_declared_sha256": "21446daa055ff21fd39638d877f25cbbf2b4ad041f3e070feecf761ae832cd09"
+    },
+    {
+      "path": "qdao_gpt_image2_refresh_v7/icons/source/batch07.png",
+      "current_sha256": "43176cb65898c966b4d523f9a8dfbf84b8ea9110e0f58fb410790fafb18e7dff",
+      "authority_declared_sha256": "fa6e6c677df006ef1d57643190ce454cd77850b58a16c4823c4cd1c9c2de164e"
+    },
+    {
+      "path": "qdao_gpt_image2_refresh_v7/icons/source/batch08.png",
+      "current_sha256": "2ca8c6833a5d41a34f64eabf60f31cef85df18a4e1a15528d7ba7f249650f552",
+      "authority_declared_sha256": "708db691d9aa84814781118df73cc6e07dcc73dac05daf267c9a3db9f773481e"
+    }
+  ],
+  "qc_classification_audit": {
+    "current_evidence_corrections": [
+      "qdao_chibi_roster_v11/30_han_xiangzi/processing/visual-review-1.jpg",
+      "qdao_chibi_roster_v11/30_han_xiangzi/processing/visual-review-2.jpg",
+      "qdao_chibi_roster_v11/30_han_xiangzi/processing/gif-decoded-review.jpg"
+    ],
+    "qc30_authority_sha256": "45a09eabee65e25f91e0c17dd20b7521b129045c2f4fd9b45e1352fbf3134eb3",
+    "qc30_visual_status": "passed",
+    "binding_limit": "QC30 references evidence paths but does not hash each review evidence image. No new visual pass is asserted by this classification audit.",
+    "historical_evidence_not_promoted": "23/24/25/29 current QC points to festival-edge-approval and separately retains original QC as historical_visual_review; old visual-review.jpg is not promoted merely by its filename.",
+    "27_old_approval_path_limit": {
+      "authority": "qdao_chibi_roster_v11/27_ink_kite_ranger/processing/final-visual-approval.json",
+      "missing_review_evidence": [
+        "processing/cardinals-full-overview.jpg",
+        "processing/SW-full-legs-review.jpg",
+        "processing/SE-full-native-review.jpg",
+        "processing/NW-full-native-review.jpg",
+        "processing/NE-full-native-review.jpg",
+        "processing/final-cardinal-root-review.jpg",
+        "processing/final-diagonal-root-review.jpg",
+        "../final-overview.jpg"
+      ],
+      "meaning": "Older approval review-evidence paths are absent from this checkout. This is an evidence portability limitation, not failure of the 51 current media or the two exact compatibility assemblies. Do not substitute an unrelated existing contact image."
+    }
+  },
+  "production_files_modified": false
 }

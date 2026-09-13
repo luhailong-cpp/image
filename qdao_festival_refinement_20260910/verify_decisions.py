@@ -2,12 +2,19 @@
 from pathlib import Path
 from datetime import datetime,timezone
 from collections import Counter
-import json,hashlib,xml.etree.ElementTree as ET
+import json,hashlib,subprocess,xml.etree.ElementTree as ET
 from PIL import Image
 B=Path(__file__).resolve().parent;ROOT=B.parent
 read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
 ledger=read(B/'decisions.json');inv={r['path']:r for r in read(B/'inventory.json')['records']}
 errors=[];rows=[];checked_current=0;historical=0
+visual_ext={'.png','.jpg','.jpeg','.gif','.webp','.bmp','.tif','.tiff','.svg'}
+listed=subprocess.run(['rg','--files','--hidden','-g','!.git/**','-g','!node_modules/**','-g','!**/node_modules/**','-g','!.agents/**','-g','!.codex/**','-g','!qdao_festival_refinement_20260910/**'],cwd=ROOT,check=True,capture_output=True,encoding='utf-8').stdout.splitlines()
+current={p.replace('\\','/') for p in listed if Path(p).suffix.lower() in visual_ext}
+for p in sorted(current-set(inv)):errors.append({'path':p,'error':'new_visual_not_yet_inventoried'})
+for p in sorted(set(inv)-current):errors.append({'path':p,'error':'inventoried_visual_no_longer_listed'})
+metadata=read(B/'inventory.json')
+if metadata['errors'] or metadata['mapping_issues']:errors.append({'path':'inventory.json','error':'inventory_header_or_current_mapping_error'})
 for e in ledger['files']:
  p=ROOT/e['path'];row={'path':e['path'],'decision':e['decision']}
  if e['decision'].startswith('pending'):errors.append({'path':e['path'],'error':'undecided_or_unpublished'});continue
@@ -32,6 +39,7 @@ for e in ledger['files']:
      baseline=inv.get(e['path'],{})
      if baseline.get('size') and row['size']!=baseline['size']:errors.append({'path':e['path'],'error':'canvas_changed'})
      if baseline.get('mode') and row['mode']!=baseline['mode']:errors.append({'path':e['path'],'error':'mode_changed'})
+     if baseline.get('frames') and row['frames']!=baseline['frames']:errors.append({'path':e['path'],'error':'frame_count_changed'})
    row['verification']='current file hash/integrity/canvas checked'
   except Exception as ex:errors.append({'path':e['path'],'error':str(ex)})
  rows.append(row)
