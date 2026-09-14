@@ -1,0 +1,53 @@
+{
+  "status": "source_art_visual_pass_pending_parent_assembly_and_full_cycle_qc",
+  "reviewer": "han_w_nw",
+  "scope": "only W01/NW01 local anatomical head proportion repair",
+  "visually_reviewed": [
+    "original native reference and same-direction idle/walk03",
+    "final generated raw at1254",
+    "before-after-native.png, all cells443 without bbox normalization",
+    "final-dark-background.png",
+    "qc-despill4-dark.png"
+  ],
+  "identity": "same young Han Xiangzi, black layered bob/topknot, plain blue ribbon, blue-white cross-collar cloth robe, left-hip bamboo flute; no dreamy effects",
+  "anatomy": "rear three-quarter upper-left view; small left ear, mostly hidden face; screen-left near arm down/back, far arm hidden forward; screen-left forward/planted leg and screen-right trailing sole retained",
+  "scale_assessment": {
+    "head_matches_normal_reference": true,
+    "head_width_difference_from_idle_fraction": 0.01764705882352935,
+    "whole_body_not_bbox_fitted": true,
+    "native_cell_size": [
+      443,
+      443
+    ],
+    "note": "hair-width metric only screens; visible face/hair volume and crown-to-nape height were also compared"
+  },
+  "body_translation_diagnostic": {
+    "best_whole_body_translation_original_to_candidate_xy": [
+      0,
+      0
+    ],
+    "lower_body_silhouette_iou": 0.98854393401306,
+    "roi_note": "binary non-magenta, y>=230; diagnostic only, no pixels moved"
+  },
+  "source_edge_touch": [],
+  "output_edge_touch": [],
+  "paste_clamped": [],
+  "transparent_qc_scale": 1.0,
+  "edge_assessment": {
+    "key_only_magenta_fringe_seen": true,
+    "existing_radius4_reference12_despill_visually_clears_visible_fringe": true,
+    "alpha_unchanged": true,
+    "remaining_predicate_pixels_outside_band": 15,
+    "note": "despill outputs are QC previews only; final-raw/cell preserve the true generated artwork and should enter parent shared pipeline"
+  },
+  "assembly_input_files": [
+    "final-raw.png",
+    "final-cell.png"
+  ],
+  "do_not_import": [
+    "qc-processing/walk-1.png: QA-only centered frame",
+    "qc-despill4.png: QA-only raw-coordinate key/despill"
+  ],
+  "production_modified": false,
+  "full_eight_frame_cycle_validated_here": false
+}

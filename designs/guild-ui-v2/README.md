@@ -1,5 +1,9 @@
 # 五行奇谈 · 帮会 UI 续作
 
+2026-09-14 原生客户端更新：已通过 **Unity 官方 relay MCP** 导入全部 27 张设计切图（保留原 9 个 GUID，新增 18 张），补齐居中标题、横向页签、红穗和原生总览指标。独立 Unity 验证 **28/28 通过**，生成 20 张双分辨率截图，使用与正式工程相同的帮会代码和素材。主城「帮会 [G]」打开；未开放业务和线上验证边界保持不变。
+
+[最新接入记录](official-mcp-client-20260914.json) · [本次 Unity 总览](qa/unity-mcp-20260914/01-overview_2560x1080.png) · [本次成员页](qa/unity-mcp-20260914/02-members_1920x1080.png) · [27 张切图索引](qa/unity-mcp-20260914/sprite-contact-sheet.jpg)。下文保留 9 月 13 日网页与首次客户端交付说明。
+
 2026-09-13。将原来的帮会总览静态图补为独立文字、手绘皮肤和可操作页面。原图保留在 [source/guild-overview.png](source/guild-overview.png)，仅作为视觉参考；本界面没有把文字烘焙进整屏图片。
 
 [打开完整交互预览](http://127.0.0.1:4345/guild-ui-v2/) · [本地入口](index.html) · [资源合同](ASSET_HANDOFF.md)

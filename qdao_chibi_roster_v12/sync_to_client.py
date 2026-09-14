@@ -30,7 +30,7 @@ def meta_for(path, project, template):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--source", type=Path, default=Path(__file__).resolve().parent)
+    parser.add_argument("--source-root", "--source", dest="source", type=Path, default=Path(__file__).resolve().parent)
     parser.add_argument("--project", type=Path, default=Path("E:/work/mmorpg-client"))
     parser.add_argument("--character", choices=APPROVED, action="append", required=True)
     parser.add_argument("--plan-only", action="store_true", help="Verify complete source and show a plan without changing game files.")
@@ -40,11 +40,12 @@ def main():
     if not (project / "ProjectSettings/ProjectVersion.txt").is_file():
         raise ValueError(f"Not a Unity project: {project}")
     characters = list(dict.fromkeys(args.character))
-    plan, approvals = [], {}
+    plan, approvals, alignments = [], {}, {}
     # Finish the entire requested source validation before any client write.
     for character in characters:
         folder = source / character
         result = verify_character(folder, require_visual=True)
+        alignments[character] = result["alignment_version"]
         recorded = json.loads((folder / "validation.json").read_text(encoding="utf-8"))
         if recorded.get("status") != "passed" or recorded.get("manifest_sha256") != result["manifest_sha256"] or recorded.get("qc_sha256") != result["qc_sha256"]:
             raise ValueError(f"Run verify_delivery.py after the last visual review: {character}")
@@ -80,6 +81,9 @@ def main():
         # Runtime reads this only after all the complete character's PNGs match.
         value = {"version": 12, "characterId": character, "frameCount": 8, "frameDurationMs": 60,
                  "dedicatedIdle": True, "contactFrame": 0, "status": "passed", "visualReview": "passed", **approvals[character]}
+        if alignments[character] == 3:
+            # Omit for v2 so existing activation JSON and verify-only remain exact.
+            value["alignmentVersion"] = 3
         metadata = project / RESOURCE / character / "appearance.json"
         if args.verify_only:
             if json.loads(metadata.read_text(encoding="utf-8")) != value:

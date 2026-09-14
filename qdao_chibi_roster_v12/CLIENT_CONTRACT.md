@@ -1,6 +1,6 @@
 # 游戏升级契约（当前接入状态与后续门禁）
 
-2026-09-13 当前状态：用户已明确指出道家造型、走路方向与姿势、脸型与大小三项均不符合预期。后续批量制作与发布暂停，目前仅制作吕洞宾自然走路样板，待用户复核后再决定是否扩展。内部数值/视觉记录或运行测试通过，不等于用户美术验收通过；25狮鼓护卫虽内部标记passed，仍未接入，也未获得本轮风格认可。
+2026-09-14 当前状态：用户要求继续修正。年轻吕洞宾的新道家Q版已完成64张步行、8张独立站立及同身份肖像，按对齐v3接入游戏；候选源包为 `candidate-stable-body/24_lu_dongbin`。实际81张PNG及启用记录逐文件核对一致。独立Unity副本的127/127 EditMode、8/8 PlayMode通过，证据见客户端 `Docs/ArtEvidence/v12-natural-lu/summary.json`；原编辑器中的未保存场景保持原状。何仙姑、韩湘子正按具体原画问题修正，其余角色尚未全部完成。内部检查通过不等于用户已认可整批美术。
 
 游戏当前实际接入V12的仅有24吕洞宾、26桂香药婆、29何仙姑、30韩湘子；23灯穗小使、25狮鼓护卫、27墨鸢游侠、28月兔机关师仍使用同ID的V11。已接入的四位也在本次造型、步态和比例复核范围内，不能把已接入状态表述为用户已认可。
 
@@ -23,3 +23,12 @@
 当前停步修复定向运行记录：`E:/work/mmorpg-client/Docs/ArtEvidence/v12-stop-fix/playmode.xml`为8/8 PlayMode Passed、0失败（2026-09-13 15:04:04–15:04:12 UTC），包含`V12_StoppingAtDifferentPhases_ShowsDirectionIdleOnTheNextFrame`，验证停步下一帧显示该方向独立idle。这个8/8结果不代表本次重跑了历史121项EditMode，也不能替代用户的道家风格、走路自然度和脸型大小验收。
 
 - 对齐版本2：512画布的根点(256,471)由上身水平轴和脚底高度定义，横向不再追随每帧支撑脚的脚掌中心。最终图像仅整帧平移，Sprite pivot仍用居中X/既定脚底Y；manifest alignment.version=2与独立验证必须通过后发布。详见README与alignment-validation/regression.json。
+
+
+## 2026-09-14：吕洞宾稳定定位与完整接入
+
+对齐v3以同方向独立idle确定固定头部ROI和头顶Y；所有72帧共用一个scale，每帧只整数平移。世界根点仍为(256,471)，但步行时不同远近脚可围绕根点变化，不再把最低鞋像素强行锁死。独立验收按源RGBA重构平移结果，拒绝错位、裁断、改像素及错误参考元数据。旧角色v2仍按原规则验证。
+
+本次修正了SE06腿部遮挡和摆臂、NE头型，以及S/N/E/SE独立站立比例。追加边缘清理显式使用4px边缘及12px颜色参考；全部72帧alpha、G通道、位置和受保护红色不变。默认去色仍2px/6px，旧默认输出54次真实帧比较逐像素一致；细发梢中无可靠参考的像素未强行改色。
+
+最终源：`E:/work/image/qdao_chibi_roster_v12/candidate-stable-body/24_lu_dongbin`。81PNG已接入，alignmentVersion=3；导入前资源留存在 `Docs/ArtEvidence/v12-natural-lu/before-import/`。新运行结果是独立副本127/127 EditMode和8/8 PlayMode，副本81PNG、启用记录及357个C#文件在启动前与正式项目一致。真实城市图为 `Docs/ArtEvidence/v12-natural-lu/tianyong-24_lu_dongbin.png`。这些是离线游戏测试，不是整批8位角色的美术完成声明。

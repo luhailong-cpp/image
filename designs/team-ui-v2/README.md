@@ -1,5 +1,7 @@
 # 五行奇谈 · 组队 UI 重做 v2
 
+2026-09-14：[Unity 官方 MCP 专用切图与客户端接入](unity-slices/README.md)。14 张原稿切片、透明边缘和九宫格已导入组队专用资源目录；本轮验收记录位于 unity-slices/qa。
+
 2026-09-13。按用户要求改善组队界面清晰度，保留队伍成员与申请列表，删除“已同意”栏目。
 
 - [实际客户端截图 · 2560](client-preview-2560.png) · [1920](client-preview-1920.png) · [四人申请列表](client-preview-compact-1920.png)。
