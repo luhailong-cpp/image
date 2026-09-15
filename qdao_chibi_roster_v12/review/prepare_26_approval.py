@@ -1,0 +1,9 @@
+from pathlib import Path
+p=Path(r'E:\work\image\qdao_chibi_roster_v12\review\approve_lion_guard_20260914.py');t=p.read_text(encoding='utf-8-sig')
+t=t.replace('25_lion_drum_guard','26_osmanthus_healer').replace('25-lion-guard','26-healer').replace('25_lion_guard_natural_fixes','26_healer_natural_fixes').replace('5d90d5b04eea74bf5f780e221fc5cfb8e1de313faac344e9258a4e9b45a7b840','7533eebc4aa49229611f3a4d61b467dcef6744fc31c16ba6c18bcabce75576e2')
+t=t.replace('Distinct short-haired sturdy lion drum guard identity, red and ivory cloth costume, dark trousers, wraps and boots; no magical light or fantasy armor.','Distinct smiling elderly female herbalist identity, straw hat, gray low bun with yellow flowers, dark blue and ivory cloth tunic, dark loose trousers, black cloth shoes, wicker herb basket and waist gourds; no magical light or fantasy armor.')
+t=t.replace('10 authored lower pre-contact poses remove the prior high-knee march; strong guard strides and modest rear heel lift retained as character motion.','30 authored lower-leg corrections across8 directions remove high precontact knees and exaggerated rear hooks. Preserved contacts and low passing poses retain the original small herbalist stride and appropriate back-view foot depth.')
+t=t.replace('3 idle head shapes rebuilt to match same-direction walks; source changes limited to13 whole cells and cycle rotation.','All8 idle and34 original walk source cells plus portrait preserved. N/NE/S/SW/W/NW cycles rotate05..08,01..04; E/SE stay original order. Root reviewed all8 final nine-cell boards: hat/face proportions, alternating legs, arm opposition and basket attachment remain consistent.')
+t=t.replace('25 visually approved','26 visually approved')
+out=p.with_name('approve_healer_20260914.py');out.write_text(t,encoding='utf-8')
+

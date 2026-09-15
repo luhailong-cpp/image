@@ -1,5 +1,7 @@
 # 五行奇谈 · 仙笺邮件 UI
 
+2026-09-14 续作：[群组、世界频道与谣言已补齐](../social-ui-v1/README.md)，三页效果图与交互预览可直接打开。
+
 2026-09-14。按项目指定的道家 Q 版风格制作，活动图片、邮件正文与附件奖励均纳入布局。
 
 - [活动邮件效果图](01-mail-event.png)：内置 image_gen 生成，原生 1931×814，未插值放大。
@@ -52,4 +54,3 @@ python -m http.server 4351 --bind 127.0.0.1 --directory designs
 | 手机收件箱与详情 | [收件箱](screenshots/08-mobile-inbox.png) · [活动详情](screenshots/09-mobile-event.png) |
 
 这些是本地网页设计预览的实际截图，与 Unity 或在线服务验收无关。
-

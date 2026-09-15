@@ -5,7 +5,7 @@ P=Path(__file__).resolve().parent;ROOT=P.parents[1]
 OUT=ROOT/'candidate-natural-body'/'29_he_xiangu';SRC=OUT/'source'
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def write(p,o):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(o,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-parser=argparse.ArgumentParser();parser.add_argument('--partial',action='store_true');parser.add_argument('--process',action='store_true');args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument('--partial',action='store_true');parser.add_argument('--process',action='store_true');parser.add_argument('--idle-only',action='store_true');args=parser.parse_args()
 plans={
 'S':{'keys':'keys-raw.png','evens':'inbetweens-arm-fixed-raw.png'},
 'E':{'sheet':'walk-final-raw.png'},
@@ -25,6 +25,8 @@ def cell(src,cols,rows,index):
  return norm.crop(box),info
 paths={};allrecords={};missing=[]
 for d,plan in plans.items():
+ if args.idle_only:
+  dest=SRC/f'walk-{d}-raw.png';data=json.loads(dest.with_suffix('.assembly.json').read_text());assert sha(dest)==data['output_sha256'];paths[d]=dest;allrecords[d]=data['sources'];continue
  required=[P/'directions'/d/name for k,name in plan.items() if k in ('keys','evens','sheet')]
  if any(not p.exists() for p in required):missing.append(d);continue
  im=Image.new('RGBA',(2508,1254),(255,0,255,255));records=[]
@@ -46,13 +48,19 @@ if missing:
  if not args.partial:raise SystemExit(2)
  raise SystemExit(0)
 for kind,dirs in {'s_e':['S','E'],'n_w':['N','W'],'ne_sw':['NE','SW'],'nw_se':['NW','SE']}.items():
+ if args.idle_only:continue
  subprocess.run([sys.executable,str(ROOT/'assemble_raw.py'),'--kind',kind,'--first',str(paths[dirs[0]]),'--second',str(paths[dirs[1]]),'--first-rows','2','--first-cols','4','--second-rows','2','--second-cols','4','--output',str(SRC/(kind+'-raw.png'))],check=True)
 idle=Image.new('RGBA',(2508,1254),(255,0,255,255));records=[]
+overrides=json.loads((P/'idle-overrides.json').read_text()) if (P/'idle-overrides.json').exists() else {}
 for i,d in enumerate(['N','NE','E','SE','S','SW','W','NW']):
- p=P/'directions'/d/'idle-source-cell.png';pose,record=cell(p,1,1,0);idle.paste(pose,(i%4*627,i//4*627));record.update(direction=d);records.append(record)
+ if d in overrides:
+  o=overrides[d];p=Path(o['path']);pose,record=cell(p,o['cols'],o['rows'],o['index']);record['revision']='independently redrawn neutral idle matched to same-direction walk03 head size'
+ else:
+  p=P/'directions'/d/'idle-source-cell.png';pose,record=cell(p,1,1,0)
+ idle.paste(pose,(i%4*627,i//4*627));record.update(direction=d);records.append(record)
 dest=SRC/'idle-raw.png';idle.save(dest);write(dest.with_suffix('.assembly.json'),{'output_sha256':sha(dest),'output_grid':[4,2],'sources':records,'upstream_idle_extraction':json.loads((P/'idle-source-extraction.json').read_text()),'synthetic_poses':False,'mirrored':False})
 if args.process:
- cmd=[sys.executable,'-X','utf8',str(ROOT/'process_roster.py'),'--character-dir',str(OUT),'--alignment-version','3','--common-scale','1.0','--portrait-raw',str(P/'master-raw.png')]
+ cmd=[sys.executable,'-X','utf8',str(ROOT/'process_roster.py'),'--character-dir',str(OUT),'--alignment-version','3','--common-scale','1.0','--portrait-raw',str(P/'master-raw.png'),'--despill-magenta-edge','--despill-radius','4']
  for kind in ['s_e','n_w','ne_sw','nw_se','idle']:cmd+=['--'+kind.replace('_','-'),str(SRC/(kind+'-raw.png'))]
  print('Processing complete source set',flush=True);subprocess.run(cmd,check=True)
 print('Assembled 64 authored walk and8 independent idle source cells.')
