@@ -14,9 +14,9 @@
 <header>
 <h1>人物素材对照</h1>
 <p>五行奇谈 · 道家 Q 版人物</p>
-<div class="notice">你已指出<strong>道家风格、走路方向与姿势、脸型与比例</strong>都有问题。吕洞宾、狮鼓护卫、灯穗小使完整八方向修正已接入游戏项目；其他角色仍逐项修正，候选图不代表整批完成。</div>
+<div class="notice">灯穗小使、吕洞宾、狮鼓护卫、桂香药婆、月兔机关师、何仙姑、韩湘子已完成本轮道家 Q 版与自然步态修正并接入游戏项目。墨鸢游侠仍在收尾。</div>
 <p><a href="sample.html">查看新画的吕洞宾自然走路 8 帧样板 →</a></p>
-<p class="deployment">当前游戏 23、24、25、26、29、30 接入 V12；其中本轮自然步态修正已完成灯穗小使、吕洞宾、狮鼓护卫。</p>
+<p class="deployment">已完成 7 / 8 位：每人八方向、每方向 8 张行走帧，另有独立站立图。新批次游戏运行验证仍在进行。</p>
 </header>
 <div class="toolbar">
 <label for="character">角色 <select id="character"></select></label>
@@ -64,7 +64,7 @@ const roles=[
 {id:'25_lion_drum_guard',name:'狮鼓护卫',exported:true,integrated:true},
 {id:'26_osmanthus_healer',name:'桂香药婆',exported:true,integrated:true},
 {id:'27_ink_kite_ranger',name:'墨鸢游侠',exported:false,integrated:false},
-{id:'28_moon_rabbit_artificer',name:'月兔机关师',exported:false,integrated:false},
+{id:'28_moon_rabbit_artificer',name:'月兔机关师',exported:true,integrated:true},
 {id:'29_he_xiangu',name:'何仙姑',exported:true,integrated:true},
 {id:'30_han_xiangzi',name:'韩湘子',exported:true,integrated:true}
 ];
@@ -117,9 +117,9 @@ function selectRole(){
  const number=role.id.slice(0,2),newPortrait=role.exported?'portrait.png':'portrait-preview.png';
  setPortrait('portrait-old',oldBase()+'portrait.png',number+' '+role.name+' 旧版肖像');
  setPortrait('portrait-new',newBase()+newPortrait,number+' '+role.name+(role.exported?' 新版导出肖像':' 新版肖像候选'));
- $('role-status').textContent=role.exported?(role.integrated?'已导出；游戏当前使用V12，造型仍待本次核对。':'已导出候选；游戏当前仍使用V11。'):'只有肖像候选；新版动作未导出，游戏仍使用V11。';
+ $('role-status').textContent=role.exported?(role.integrated?'本轮修正已完成，游戏素材已接入 V12。':'已导出候选；游戏当前仍使用V11。'):'只有肖像候选；新版动作未导出，游戏仍使用V11。';
  $('portrait-new-label').textContent=role.exported?'新版 V12':'新版肖像候选';
- $('portrait-new-status').textContent=role.exported?'现有导出，待本次核对':'候选，未作为成品发布';
+ $('portrait-new-status').textContent=role.exported?'本轮修正已完成':'候选，未作为成品发布';
  $('role-hint').textContent=number==='23'?'默认核对灯穗小使：请留意头部大小是否跳动，以及收腿和抬膝是否连贯。':'观察同一人物的脸型、头身大小、脚步衔接与器物位置。';
  selectMotion();
 }

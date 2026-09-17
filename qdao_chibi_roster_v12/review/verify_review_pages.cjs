@@ -1,5 +1,10 @@
 const {chromium}=require('C:/Users/luyua/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const fs=require('fs');const assert=require('assert');
+const previewSources=JSON.parse(fs.readFileSync('E:/work/image/qdao_chibi_roster_v12/review/site/preview-source-verification.json','utf8'));
+const expectedPublished=new Set(previewSources.characters.map(c=>c.character_id));
+const expectedPending=new Set(previewSources.pending);
+const expectedExported=Number(process.env.QDAO_EXPECTED_EXPORTED||expectedPublished.size);
+assert.equal(expectedPublished.size,expectedExported,'Published preview count does not match requested QA scope');
 (async()=>{
 const out='E:/work/image/qdao_chibi_roster_v12/review/browser-qc';fs.mkdirSync(out,{recursive:true});let browser;
 const report={status:'running',pages:{},errors:[]};
@@ -12,10 +17,11 @@ page.on('response',r=>{if(r.status()>=400&&!r.url().endsWith('/favicon.ico'))rep
 await page.goto('http://127.0.0.1:8871/index.html');
 await page.locator('#play:not([disabled])').waitFor();
 const names=await page.locator('#character option').evaluateAll(es=>es.map(e=>e.value));assert.equal(names.length,8);
-let directions=0;
+let directions=0,disabled=0;
 for(const name of names){
  await page.locator('#character').selectOption(name);
- if(/^2[78]_/.test(name)){await page.locator('#candidate').waitFor({state:'visible'});assert(await page.locator('#play').isDisabled());continue;}
+ if(expectedPending.has(name)){await page.locator('#candidate').waitFor({state:'visible'});assert(await page.locator('#play').isDisabled());disabled++;continue;}
+ assert(expectedPublished.has(name),'Role missing from verified preview source list: '+name);
  for(const dr of ['S','SW','W','NW','N','NE','E','SE']){
   await page.locator('[data-direction="'+dr+'"]').click();
   await page.locator('#play:not([disabled])').waitFor();
@@ -23,6 +29,7 @@ for(const name of names){
   directions++;
  }
 }
+assert.equal(directions,expectedExported*8);assert.equal(disabled,8-expectedExported);
 await page.locator('#character').selectOption('24_lu_dongbin');await page.locator('#play:not([disabled])').waitFor();
 await page.locator('#timeline button').nth(7).click();await page.locator('#next').click();assert((await page.locator('#new-caption').textContent()).includes('第 1 / 8'));
 await page.locator('#play').click();const seen=new Set();
@@ -30,7 +37,7 @@ for(let i=0;i<6;i++){await page.waitForTimeout(90);seen.add(await page.locator('
 assert(seen.size>1,'index animation stalled');
 await page.evaluate(()=>{epoch=performance.now()+80;playing=true;});await page.waitForTimeout(180);assert(report.errors.length===0,'index future epoch boundary failed');
 await page.screenshot({path:out+'/index-fixed-desktop.png',fullPage:true});
-report.pages.index={roles:names.length,exportedDirectionPairs:directions,candidatesDisabled:2,realAnimationAdvances:seen.size>1,futureEpochBoundary:true};
+report.pages.index={roles:names.length,exportedDirectionPairs:directions,candidatesDisabled:disabled,realAnimationAdvances:seen.size>1,futureEpochBoundary:true};
 
 await page.goto('http://127.0.0.1:8871/sample.html');
 const expectedDirections=['S','SW','W','NW','N','NE','E','SE'];

@@ -48,3 +48,8 @@ source/assemble_28_candidate.py 从原 direction-sources.json 的真实原格重
 - 最终人工初审已查看 portrait、idle 八向、每向 01/05 与 NW 全八帧。NW 接触、后抬、经过、前伸的支撑腿均反相，近侧摆臂与腿相反；脸型/短发/兔簪/布衣/木箱身份保持，无新增梦幻效果。
 
 详细数值在 processing/candidate-audit.json；独立验证输出在 verification-pending.json。审查图在 processing/candidate-review（contacts-1.png、contacts-2.png、NW-canonical-eight-plus-idle.png、portrait-and-idle-eight.png）；NW-idle-transition.gif 提供站立/步行切换审查。全部正式游戏资源保持原样，尚未 seal 或发布。根任务仍需独立复核最终动态循环及游戏中转向后，再决定正式接入。
+
+
+## 2026-09-16 最终复核更新
+
+上文为重绘前历史交接。新增22格真实低抬脚步态，42格行走、8格站立和头像输出逐字节保留。根任务已检查全部8方向最终联系图，包括NW02/06原有后脚透视与摆臂；最终视觉审核通过。数值与来源记录见 review/28_low_walk_fixes；后续导入和运行结果见 client-integration.json。
