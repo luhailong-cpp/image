@@ -6,11 +6,11 @@
 
 本项目的模型、质量与调用方式以根目录 [AGENTS.md](../AGENTS.md) 为准。复制项目时保留该文件；通过 Git 迁移时需将新增规则提交并同步到新电脑，再从该项目开启 Codex 任务。
 
-2026-09-16 绘图规则统一升级为 GPT Image 2.5 Sunburst，正式模型 ID 为 `gpt-image-2.5-sunburst`。[OpenAI 模型说明](https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst)与[生图参数说明](https://developers.openai.com/api/docs/guides/image-generation)确认其支持 `max` 质量。仍优先使用宿主内置 `image_gen`；新电脑已有内置生图时，无需为这条路径安装本文件列出的整套工具或配置 OpenAI API 密钥。内置接口未开放模型或质量参数时，如实记录宿主实际返回的信息，不将目标模型或目标质量写成已强制生效。
+2026-09-07 核对的 [OpenAI 官方内置生图说明](https://learn.chatgpt.com/docs/image-generation) 指明内置生图使用 `gpt-image-2`，计入 Codex 用量。新电脑若已提供内置生图，无需为这条路径安装本文件列出的整套工具或配置 OpenAI API 密钥。内置接口未开放质量参数时，不能承诺已强制设置某个质量档位。
 
-用户要求：直接使用内置生图，目标 GPT Image 2.5 Sunburst、最高质量，不将单独 API 配置作为出图前置条件。接口开放参数时显式选择 `model=gpt-image-2.5-sunburst`、`quality=max`；未开放时分别记录“最高质量目标”与实际可验证参数。若本地参考路径遇到 Windows ACL 读取故障，排查参考图输入方式，优先使用工具支持的对话图片输入；文件读取故障与账号／密钥配置分开诊断。
+2026-09-10 用户重申：直接使用内置 GPT Image 2，以最高质量为目标，不将单独 API 配置作为出图前置条件。内置接口当前未提供 model／quality 参数，因此“最高质量目标”与“已显式设置 quality=high”分别记录。若本地参考路径遇到 Windows ACL 读取故障，排查参考图输入方式，优先使用工具支持的对话图片输入；文件读取故障与账号／密钥配置分开诊断。
 
-API/CLI 仅作为用户明确选择的备用路径，显式使用 `--model gpt-image-2.5-sunburst --quality max`，需要在新电脑准备相应工具与账号凭证，并单独按 API 计费。项目文件不会自动安装用户目录工具或转移凭证；换电脑后先确认实际可用能力。仅修改规则不代表已完成真实生图验证。
+API/CLI 仅作为用户明确选择的备用路径，需要在新电脑准备相应工具与账号凭证，并单独按 API 计费。项目文件不会自动安装用户目录工具或转移凭证；换电脑后先确认实际可用能力。仅修改规则不代表已完成真实生图验证。
 
 给接手 Codex 的任务可以直接写成：
 
@@ -110,8 +110,6 @@ GPT CLI 会安装 `openai`、`python-dotenv` 等依赖；原验证的 `openai` �
 已有 Bun 可直接用绝对路径。缺少时可按 [Bun 官方安装说明](https://bun.sh/docs/installation)安装对应平台的 `1.4.2`，或使用 `npm install --global bun@1.4.2`。核验 `bun --version`。本机原安装使用独立 `bin/bun.exe`；其他用户无需复制该 Windows 可执行文件。
 
 ## 4. 安装 Skills 并迁移本机修正
-
-固定来源用于复现原安装，不代表当前模型默认值。重新安装或更新后，按根目录 [AGENTS.md](../AGENTS.md) 将 `imagegen`、`gpt-image`、`baoyu-image-gen` 中的有效规则、CLI 默认值、帮助文本与可复用示例统一为 GPT Image 2.5 Sunburst（`gpt-image-2.5-sunburst`），最高质量使用 `max`；同步质量参数校验与透明背景支持。核对项目／用户扩展配置、环境变量中的绘图模型覆盖项。保留来源仓库 URL、历史素材真实模型记录及用户显式选择的其他提供商配置；第三方模型别名以该服务实际支持为准。先运行离线帮助、参数解析与 dry-run 验证，再用于已授权的生成任务。
 
 先读取当前环境提供的 `$skill-installer` 说明，定位其官方 `scripts/install-skill-from-github.py`。上面的默认路径不存在时，以当前技能目录为准；不要依赖另一台电脑的缓存路径。通过帮助命令确认支持 `--repo --path --ref --dest`。
 
