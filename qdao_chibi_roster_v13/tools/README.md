@@ -32,3 +32,5 @@ Complete rectangular cells are retained. The normalization factor is `512 / max(
 Do not mark a review passed based only on these numeric tools. Pose anatomy, alternating support, costume and accessory consistency, 15→16→01 continuity and normal/zoomed playback require visual inspection. Do not publish appearance metadata until complete verification and runtime validation have passed.
 
 Publication is deliberately separate: see [PUBLISH.md](PUBLISH.md) and `publish.py`. The default invocation is read-only; staged isolated tests and formal publication require explicit destinations and `--execute`. No publication has been performed.
+
+Final internal visual approval uses `approve.py --review-input <fresh-review.json>` (dry run) and requires an explicit `--execute` to seal complete, actually reviewed art. It archives old metadata, fixes final manifest/QC statuses, binds visual approval to those final hashes, and runs independent verification. See PUBLISH.md for the review input schema.
