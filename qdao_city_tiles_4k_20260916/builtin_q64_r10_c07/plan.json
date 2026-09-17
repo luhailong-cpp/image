@@ -1,0 +1,938 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-09-17T04:26:27.925327-04:00",
+  "status": "builtin_native_generation_in_progress",
+  "route": "builtin_image_gen",
+  "userSelectedModel": "GPT Image 2.0 (host builtin)",
+  "requestedQuality": "highest available host quality",
+  "backendSelectorAvailable": false,
+  "backendModelVerified": false,
+  "actualModel": null,
+  "generationStarted": true,
+  "wholeCityPixels": [
+    65536,
+    65536
+  ],
+  "wholeCityGrid": {
+    "rows": 16,
+    "columns": 16
+  },
+  "deliveryTilePixels": [
+    4096,
+    4096
+  ],
+  "tilesPerMapVariant": 256,
+  "mapVariants": 7,
+  "totalPlannedDeliveryTiles": 1792,
+  "worldRect": {
+    "x": 50,
+    "z": 0,
+    "width": 300,
+    "height": 300
+  },
+  "sampleTile": {
+    "row": 10,
+    "column": 7,
+    "worldRect": {
+      "x": 162.5,
+      "z": 112.5,
+      "width": 18.75,
+      "height": 18.75
+    }
+  },
+  "samplePixelRectInWholeCity": [
+    24576,
+    36864,
+    28672,
+    40960
+  ],
+  "artDirection": "More Q/chibi: rounded full shapes, bright clean color, plump foliage and roof tiles, clear silhouettes, restrained clean surfaces; avoid realistic cracks, grit and sharpening noise",
+  "layoutSource": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\output\\tianyong_plaza_4k_candidate_v3b.png",
+  "layoutSourceSha256": "21a40f32316a0d77e411510b71d8dc80a4ace8c4b0e4605291ee060b1aeccf98",
+  "sampleSourceCrop": [
+    512,
+    2816,
+    1280,
+    3584
+  ],
+  "sampleSourceCropPixels": [
+    768,
+    768
+  ],
+  "extendedLayoutSourceBox": [
+    490.4375,
+    2794.4375,
+    1301.5625,
+    3605.5625
+  ],
+  "styleLayoutReference": "style-layout-reference.png",
+  "styleLayoutReferencePixels": [
+    1254,
+    1254
+  ],
+  "styleLayoutReferenceRole": "Resampled old-image layout only, not final generated art. Used to request one coherent Q-style mother reference.",
+  "styleReference": "style-reference.png",
+  "styleReferenceRole": "Generated unified Q mother reference; covers complete4326 canvas including outer115 context. Layout/style reference only; resampled guide pixels must never enter final generated art.",
+  "guidePreparation": {
+    "status": "ready_unified_style_reference",
+    "canvasPixels": [
+      4326,
+      4326
+    ],
+    "method": "Resample the entire generated style reference once to a 4326-square layout canvas; take exact integer fullCanvasBox crops from that single canvas for all16 guides. This keeps overlapping guide pixels identical.",
+    "hashPolicy": "Unified style reference fixed; hashes now recorded for all16 exact guides. Each native record must match the guide actually used.",
+    "guideCount": 16,
+    "sharedOverlapChecks": 24,
+    "allSharedOverlapPixelsIdentical": true,
+    "referenceResampling": "One full-frame1254-to4326 bicubic resize for layout-only guide canvas, then16 integer crops. Final native art is not resized."
+  },
+  "nativeGrid": {
+    "rows": 4,
+    "columns": 4
+  },
+  "rows": 4,
+  "columns": 4,
+  "core": 1024,
+  "halo": 115,
+  "nativeTarget": [
+    1254,
+    1254
+  ],
+  "adjacentOverlap": 230,
+  "assembledBeforeOuterCrop": [
+    4326,
+    4326
+  ],
+  "finalCropBox": [
+    115,
+    115,
+    4211,
+    4211
+  ],
+  "linearDetailDensityIncreaseOverFirst4kSample": 5.333333333333333,
+  "sourceRole": "Layout/style reference only; no reference pixels enter final generated art. Every final patch is newly generated native art.",
+  "runtimePublished": false,
+  "patches": [
+    {
+      "id": "r01_c01",
+      "row": 0,
+      "column": 0,
+      "guide": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_r10_c07\\guides\\r01_c01.layout-only.png",
+      "guideOnly": true,
+      "guideStatus": "ready_unified_style_reference",
+      "fullCanvasBox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "deliveryCoreBox": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "coreBoxInNative": [
+        115,
+        115,
+        1139,
+        1139
+      ],
+      "styleReferenceNormalizedBox": [
+        0.0,
+        0.0,
+        0.289875173370319,
+        0.289875173370319
+      ],
+      "sourceBox": [
+        490.4375,
+        2794.4375,
+        725.5625,
+        3029.5625
+      ],
+      "referenceResampling": "Only a layout/style guide may be resampled. Final native art must remain original 1254-square returned pixels.",
+      "nativeTarget": [
+        1254,
+        1254
+      ],
+      "core": 1024,
+      "halo": 115,
+      "overlap": 230,
+      "promptFile": "prompts/r01_c01.prompt.txt",
+      "outputFile": "native/r01_c01.png",
+      "guideSha256": "9025a67f8bafe9fb52c3fe6bdb2290e65b75f87a4285664789ccca2385ee0b60",
+      "guideStyleReference": "style-reference.png",
+      "guideStyleReferenceSha256": "a4321bc976e56c06bb241652561e295e6281cdbe3ae6695604b9ae3909896855"
+    },
+    {
+      "id": "r01_c02",
+      "row": 0,
+      "column": 1,
+      "guide": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_r10_c07\\guides\\r01_c02.layout-only.png",
+      "guideOnly": true,
+      "guideStatus": "ready_unified_style_reference",
+      "fullCanvasBox": [
+        1024,
+        0,
+        2278,
+        1254
+      ],
+      "deliveryCoreBox": [
+        1024,
+        0,
+        2048,
+        1024
+      ],
+      "coreBoxInNative": [
+        115,
+        115,
+        1139,
+        1139
+      ],
+      "styleReferenceNormalizedBox": [
+        0.236708275543227,
+        0.0,
+        0.526583448913546,
+        0.289875173370319
+      ],
+      "sourceBox": [
+        682.4375,
+        2794.4375,
+        917.5625,
+        3029.5625
+      ],
+      "referenceResampling": "Only a layout/style guide may be resampled. Final native art must remain original 1254-square returned pixels.",
+      "nativeTarget": [
+        1254,
+        1254
+      ],
+      "core": 1024,
+      "halo": 115,
+      "overlap": 230,
+      "promptFile": "prompts/r01_c02.prompt.txt",
+      "outputFile": "native/r01_c02.png",
+      "guideSha256": "10b168d00590d3a31b8bbbefaa54167528d9213ad59904e9f4394632425c5274",
+      "guideStyleReference": "style-reference.png",
+      "guideStyleReferenceSha256": "a4321bc976e56c06bb241652561e295e6281cdbe3ae6695604b9ae3909896855"
+    },
+    {
+      "id": "r01_c03",
+      "row": 0,
+      "column": 2,
+      "guide": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_r10_c07\\guides\\r01_c03.layout-only.png",
+      "guideOnly": true,
+      "guideStatus": "ready_unified_style_reference",
+      "fullCanvasBox": [
+        2048,
+        0,
+        3302,
+        1254
+      ],
+      "deliveryCoreBox": [
+        2048,
+        0,
+        3072,
+        1024
+      ],
+      "coreBoxInNative": [
+        115,
+        115,
+        1139,
+        1139
+      ],
+      "styleReferenceNormalizedBox": [
+        0.473416551086454,
+        0.0,
+        0.763291724456773,
+        0.289875173370319
+      ],
+      "sourceBox": [
+        874.4375,
+        2794.4375,
+        1109.5625,
+        3029.5625
+      ],
+      "referenceResampling": "Only a layout/style guide may be resampled. Final native art must remain original 1254-square returned pixels.",
+      "nativeTarget": [
+        1254,
+        1254
+      ],
+      "core": 1024,
+      "halo": 115,
+      "overlap": 230,
+      "promptFile": "prompts/r01_c03.prompt.txt",
+      "outputFile": "native/r01_c03.png",
+      "guideSha256": "ba395217e4853bf1982cfbbe714fab8fe482c96e08781b5832a41b6373605f20",
+      "guideStyleReference": "style-reference.png",
+      "guideStyleReferenceSha256": "a4321bc976e56c06bb241652561e295e6281cdbe3ae6695604b9ae3909896855"
+    },
+    {
+      "id": "r01_c04",
+      "row": 0,
+      "column": 3,
+      "guide": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_r10_c07\\guides\\r01_c04.layout-only.png",
+      "guideOnly": true,
+      "guideStatus": "ready_unified_style_reference",
+      "fullCanvasBox": [
+        3072,
+        0,
+        4326,
+        1254
+      ],
+      "deliveryCoreBox": [
+        3072,
+        0,
+        4096,
+        1024
+      ],
+      "coreBoxInNative": [
+        115,
+        115,
+        1139,
+        1139
+      ],
+      "styleReferenceNormalizedBox": [
+        0.710124826629681,
+        0.0,
+        1.0,
+        0.289875173370319
+      ],
+      "sourceBox": [
+        1066.4375,
+        2794.4375,
+        1301.5625,
+        3029.5625
+      ],
+      "referenceResampling": "Only a layout/style guide may be resampled. Final native art must remain original 1254-square returned pixels.",
+      "nativeTarget": [
+        1254,
+        1254
+      ],
+      "core": 1024,
+      "halo": 115,
+      "overlap": 230,
+      "promptFile": "prompts/r01_c04.prompt.txt",
+      "outputFile": "native/r01_c04.png",
+      "guideSha256": "ce66f35f13d2652d65d427ac78a46761a5b002705ce22b47210a506acf3188ec",
+      "guideStyleReference": "style-reference.png",
+      "guideStyleReferenceSha256": "a4321bc976e56c06bb241652561e295e6281cdbe3ae6695604b9ae3909896855"
+    },
+    {
+      "id": "r02_c01",
+      "row": 1,
+      "column": 0,
+      "guide": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_r10_c07\\guides\\r02_c01.layout-only.png",
+      "guideOnly": true,
+      "guideStatus": "ready_unified_style_reference",
+      "fullCanvasBox": [
+        0,
+        1024,
+        1254,
+        2278
+      ],
+      "deliveryCoreBox": [
+        0,
+        1024,
+        1024,
+        2048
+      ],
+      "coreBoxInNative": [
+        115,
+        115,
+        1139,
+        1139
+      ],
+      "styleReferenceNormalizedBox": [
+        0.0,
+        0.236708275543227,
+        0.289875173370319,
+        0.526583448913546
+      ],
+      "sourceBox": [
+        490.4375,
+        2986.4375,
+        725.5625,
+        3221.5625
+      ],
+      "referenceResampling": "Only a layout/style guide may be resampled. Final native art must remain original 1254-square returned pixels.",
+      "nativeTarget": [
+        1254,
+        1254
+      ],
+      "core": 1024,
+      "halo": 115,
+      "overlap": 230,
+      "promptFile": "prompts/r02_c01.prompt.txt",
+      "outputFile": "native/r02_c01.png",
+      "guideSha256": "6b9b69c5c4e3612d749ee4b7d84f705cf12e320e270b339e7e88478f3ab3c84e",
+      "guideStyleReference": "style-reference.png",
+      "guideStyleReferenceSha256": "a4321bc976e56c06bb241652561e295e6281cdbe3ae6695604b9ae3909896855"
+    },
+    {
+      "id": "r02_c02",
+      "row": 1,
+      "column": 1,
+      "guide": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_r10_c07\\guides\\r02_c02.layout-only.png",
+      "guideOnly": true,
+      "guideStatus": "ready_unified_style_reference",
+      "fullCanvasBox": [
+        1024,
+        1024,
+        2278,
+        2278
+      ],
+      "deliveryCoreBox": [
+        1024,
+        1024,
+        2048,
+        2048
+      ],
+      "coreBoxInNative": [
+        115,
+        115,
+        1139,
+        1139
+      ],
+      "styleReferenceNormalizedBox": [
+        0.236708275543227,
+        0.236708275543227,
+        0.526583448913546,
+        0.526583448913546
+      ],
+      "sourceBox": [
+        682.4375,
+        2986.4375,
+        917.5625,
+        3221.5625
+      ],
+      "referenceResampling": "Only a layout/style guide may be resampled. Final native art must remain original 1254-square returned pixels.",
+      "nativeTarget": [
+        1254,
+        1254
+      ],
+      "core": 1024,
+      "halo": 115,
+      "overlap": 230,
+      "promptFile": "prompts/r02_c02.prompt.txt",
+      "outputFile": "native/r02_c02.png",
+      "guideSha256": "8bffbc32172429580fcdad82ffbc46d6266e6437990cb41e3f5715044740d810",
+      "guideStyleReference": "style-reference.png",
+      "guideStyleReferenceSha256": "a4321bc976e56c06bb241652561e295e6281cdbe3ae6695604b9ae3909896855"
+    },
+    {
+      "id": "r02_c03",
+      "row": 1,
+      "column": 2,
+      "guide": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_r10_c07\\guides\\r02_c03.layout-only.png",
+      "guideOnly": true,
+      "guideStatus": "ready_unified_style_reference",
+      "fullCanvasBox": [
+        2048,
+        1024,
+        3302,
+        2278
+      ],
+      "deliveryCoreBox": [
+        2048,
+        1024,
+        3072,
+        2048
+      ],
+      "coreBoxInNative": [
+        115,
+        115,
+        1139,
+        1139
+      ],
+      "styleReferenceNormalizedBox": [
+        0.473416551086454,
+        0.236708275543227,
+        0.763291724456773,
+        0.526583448913546
+      ],
+      "sourceBox": [
+        874.4375,
+        2986.4375,
+        1109.5625,
+        3221.5625
+      ],
+      "referenceResampling": "Only a layout/style guide may be resampled. Final native art must remain original 1254-square returned pixels.",
+      "nativeTarget": [
+        1254,
+        1254
+      ],
+      "core": 1024,
+      "halo": 115,
+      "overlap": 230,
+      "promptFile": "prompts/r02_c03.prompt.txt",
+      "outputFile": "native/r02_c03.png",
+      "guideSha256": "4ddbae2e0b90ed7ffb099ebda331bcda65cb9a3e9c9a698da3d5b0ab9296ba9c",
+      "guideStyleReference": "style-reference.png",
+      "guideStyleReferenceSha256": "a4321bc976e56c06bb241652561e295e6281cdbe3ae6695604b9ae3909896855"
+    },
+    {
+      "id": "r02_c04",
+      "row": 1,
+      "column": 3,
+      "guide": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_r10_c07\\guides\\r02_c04.layout-only.png",
+      "guideOnly": true,
+      "guideStatus": "ready_unified_style_reference",
+      "fullCanvasBox": [
+        3072,
+        1024,
+        4326,
+        2278
+      ],
+      "deliveryCoreBox": [
+        3072,
+        1024,
+        4096,
+        2048
+      ],
+      "coreBoxInNative": [
+        115,
+        115,
+        1139,
+        1139
+      ],
+      "styleReferenceNormalizedBox": [
+        0.710124826629681,
+        0.236708275543227,
+        1.0,
+        0.526583448913546
+      ],
+      "sourceBox": [
+        1066.4375,
+        2986.4375,
+        1301.5625,
+        3221.5625
+      ],
+      "referenceResampling": "Only a layout/style guide may be resampled. Final native art must remain original 1254-square returned pixels.",
+      "nativeTarget": [
+        1254,
+        1254
+      ],
+      "core": 1024,
+      "halo": 115,
+      "overlap": 230,
+      "promptFile": "prompts/r02_c04.prompt.txt",
+      "outputFile": "native/r02_c04.png",
+      "guideSha256": "1e5c7a714b002948ee00455584d9877d9156aad246b22898b96db587f4e7690d",
+      "guideStyleReference": "style-reference.png",
+      "guideStyleReferenceSha256": "a4321bc976e56c06bb241652561e295e6281cdbe3ae6695604b9ae3909896855"
+    },
+    {
+      "id": "r03_c01",
+      "row": 2,
+      "column": 0,
+      "guide": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_r10_c07\\guides\\r03_c01.layout-only.png",
+      "guideOnly": true,
+      "guideStatus": "ready_unified_style_reference",
+      "fullCanvasBox": [
+        0,
+        2048,
+        1254,
+        3302
+      ],
+      "deliveryCoreBox": [
+        0,
+        2048,
+        1024,
+        3072
+      ],
+      "coreBoxInNative": [
+        115,
+        115,
+        1139,
+        1139
+      ],
+      "styleReferenceNormalizedBox": [
+        0.0,
+        0.473416551086454,
+        0.289875173370319,
+        0.763291724456773
+      ],
+      "sourceBox": [
+        490.4375,
+        3178.4375,
+        725.5625,
+        3413.5625
+      ],
+      "referenceResampling": "Only a layout/style guide may be resampled. Final native art must remain original 1254-square returned pixels.",
+      "nativeTarget": [
+        1254,
+        1254
+      ],
+      "core": 1024,
+      "halo": 115,
+      "overlap": 230,
+      "promptFile": "prompts/r03_c01.prompt.txt",
+      "outputFile": "native/r03_c01.png",
+      "guideSha256": "4603fc10d9fd0aa2616e28162c3d4e4b91f2a1593e541fd6a5ab634a53e7b6bc",
+      "guideStyleReference": "style-reference.png",
+      "guideStyleReferenceSha256": "a4321bc976e56c06bb241652561e295e6281cdbe3ae6695604b9ae3909896855"
+    },
+    {
+      "id": "r03_c02",
+      "row": 2,
+      "column": 1,
+      "guide": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_r10_c07\\guides\\r03_c02.layout-only.png",
+      "guideOnly": true,
+      "guideStatus": "ready_unified_style_reference",
+      "fullCanvasBox": [
+        1024,
+        2048,
+        2278,
+        3302
+      ],
+      "deliveryCoreBox": [
+        1024,
+        2048,
+        2048,
+        3072
+      ],
+      "coreBoxInNative": [
+        115,
+        115,
+        1139,
+        1139
+      ],
+      "styleReferenceNormalizedBox": [
+        0.236708275543227,
+        0.473416551086454,
+        0.526583448913546,
+        0.763291724456773
+      ],
+      "sourceBox": [
+        682.4375,
+        3178.4375,
+        917.5625,
+        3413.5625
+      ],
+      "referenceResampling": "Only a layout/style guide may be resampled. Final native art must remain original 1254-square returned pixels.",
+      "nativeTarget": [
+        1254,
+        1254
+      ],
+      "core": 1024,
+      "halo": 115,
+      "overlap": 230,
+      "promptFile": "prompts/r03_c02.prompt.txt",
+      "outputFile": "native/r03_c02.png",
+      "guideSha256": "467fde1a81c3706602c9e809c8cd7ed1c34bd2a2de910c32cacd573b024420ef",
+      "guideStyleReference": "style-reference.png",
+      "guideStyleReferenceSha256": "a4321bc976e56c06bb241652561e295e6281cdbe3ae6695604b9ae3909896855"
+    },
+    {
+      "id": "r03_c03",
+      "row": 2,
+      "column": 2,
+      "guide": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_r10_c07\\guides\\r03_c03.layout-only.png",
+      "guideOnly": true,
+      "guideStatus": "ready_unified_style_reference",
+      "fullCanvasBox": [
+        2048,
+        2048,
+        3302,
+        3302
+      ],
+      "deliveryCoreBox": [
+        2048,
+        2048,
+        3072,
+        3072
+      ],
+      "coreBoxInNative": [
+        115,
+        115,
+        1139,
+        1139
+      ],
+      "styleReferenceNormalizedBox": [
+        0.473416551086454,
+        0.473416551086454,
+        0.763291724456773,
+        0.763291724456773
+      ],
+      "sourceBox": [
+        874.4375,
+        3178.4375,
+        1109.5625,
+        3413.5625
+      ],
+      "referenceResampling": "Only a layout/style guide may be resampled. Final native art must remain original 1254-square returned pixels.",
+      "nativeTarget": [
+        1254,
+        1254
+      ],
+      "core": 1024,
+      "halo": 115,
+      "overlap": 230,
+      "promptFile": "prompts/r03_c03.prompt.txt",
+      "outputFile": "native/r03_c03.png",
+      "guideSha256": "eae5e5a11529df264766596da1c11cbfaf9afa377dc0c50175f97a9c0cf7fc2a",
+      "guideStyleReference": "style-reference.png",
+      "guideStyleReferenceSha256": "a4321bc976e56c06bb241652561e295e6281cdbe3ae6695604b9ae3909896855"
+    },
+    {
+      "id": "r03_c04",
+      "row": 2,
+      "column": 3,
+      "guide": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_r10_c07\\guides\\r03_c04.layout-only.png",
+      "guideOnly": true,
+      "guideStatus": "ready_unified_style_reference",
+      "fullCanvasBox": [
+        3072,
+        2048,
+        4326,
+        3302
+      ],
+      "deliveryCoreBox": [
+        3072,
+        2048,
+        4096,
+        3072
+      ],
+      "coreBoxInNative": [
+        115,
+        115,
+        1139,
+        1139
+      ],
+      "styleReferenceNormalizedBox": [
+        0.710124826629681,
+        0.473416551086454,
+        1.0,
+        0.763291724456773
+      ],
+      "sourceBox": [
+        1066.4375,
+        3178.4375,
+        1301.5625,
+        3413.5625
+      ],
+      "referenceResampling": "Only a layout/style guide may be resampled. Final native art must remain original 1254-square returned pixels.",
+      "nativeTarget": [
+        1254,
+        1254
+      ],
+      "core": 1024,
+      "halo": 115,
+      "overlap": 230,
+      "promptFile": "prompts/r03_c04.prompt.txt",
+      "outputFile": "native/r03_c04.png",
+      "guideSha256": "b27d358e2d1a7457f9222e5a0ba88b763565ab4bd951b3138c44b00f47759cbd",
+      "guideStyleReference": "style-reference.png",
+      "guideStyleReferenceSha256": "a4321bc976e56c06bb241652561e295e6281cdbe3ae6695604b9ae3909896855"
+    },
+    {
+      "id": "r04_c01",
+      "row": 3,
+      "column": 0,
+      "guide": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_r10_c07\\guides\\r04_c01.layout-only.png",
+      "guideOnly": true,
+      "guideStatus": "ready_unified_style_reference",
+      "fullCanvasBox": [
+        0,
+        3072,
+        1254,
+        4326
+      ],
+      "deliveryCoreBox": [
+        0,
+        3072,
+        1024,
+        4096
+      ],
+      "coreBoxInNative": [
+        115,
+        115,
+        1139,
+        1139
+      ],
+      "styleReferenceNormalizedBox": [
+        0.0,
+        0.710124826629681,
+        0.289875173370319,
+        1.0
+      ],
+      "sourceBox": [
+        490.4375,
+        3370.4375,
+        725.5625,
+        3605.5625
+      ],
+      "referenceResampling": "Only a layout/style guide may be resampled. Final native art must remain original 1254-square returned pixels.",
+      "nativeTarget": [
+        1254,
+        1254
+      ],
+      "core": 1024,
+      "halo": 115,
+      "overlap": 230,
+      "promptFile": "prompts/r04_c01.prompt.txt",
+      "outputFile": "native/r04_c01.png",
+      "guideSha256": "58e1813e4f2169ce9daa15627585f39c5fe75389b1aa88dbca5f9737241743fd",
+      "guideStyleReference": "style-reference.png",
+      "guideStyleReferenceSha256": "a4321bc976e56c06bb241652561e295e6281cdbe3ae6695604b9ae3909896855"
+    },
+    {
+      "id": "r04_c02",
+      "row": 3,
+      "column": 1,
+      "guide": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_r10_c07\\guides\\r04_c02.layout-only.png",
+      "guideOnly": true,
+      "guideStatus": "ready_unified_style_reference",
+      "fullCanvasBox": [
+        1024,
+        3072,
+        2278,
+        4326
+      ],
+      "deliveryCoreBox": [
+        1024,
+        3072,
+        2048,
+        4096
+      ],
+      "coreBoxInNative": [
+        115,
+        115,
+        1139,
+        1139
+      ],
+      "styleReferenceNormalizedBox": [
+        0.236708275543227,
+        0.710124826629681,
+        0.526583448913546,
+        1.0
+      ],
+      "sourceBox": [
+        682.4375,
+        3370.4375,
+        917.5625,
+        3605.5625
+      ],
+      "referenceResampling": "Only a layout/style guide may be resampled. Final native art must remain original 1254-square returned pixels.",
+      "nativeTarget": [
+        1254,
+        1254
+      ],
+      "core": 1024,
+      "halo": 115,
+      "overlap": 230,
+      "promptFile": "prompts/r04_c02.prompt.txt",
+      "outputFile": "native/r04_c02.png",
+      "guideSha256": "c90bee89b54bdd0b95422b443909d2fd8e9159e7b9b81301b4f49530c9f6c765",
+      "guideStyleReference": "style-reference.png",
+      "guideStyleReferenceSha256": "a4321bc976e56c06bb241652561e295e6281cdbe3ae6695604b9ae3909896855"
+    },
+    {
+      "id": "r04_c03",
+      "row": 3,
+      "column": 2,
+      "guide": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_r10_c07\\guides\\r04_c03.layout-only.png",
+      "guideOnly": true,
+      "guideStatus": "ready_unified_style_reference",
+      "fullCanvasBox": [
+        2048,
+        3072,
+        3302,
+        4326
+      ],
+      "deliveryCoreBox": [
+        2048,
+        3072,
+        3072,
+        4096
+      ],
+      "coreBoxInNative": [
+        115,
+        115,
+        1139,
+        1139
+      ],
+      "styleReferenceNormalizedBox": [
+        0.473416551086454,
+        0.710124826629681,
+        0.763291724456773,
+        1.0
+      ],
+      "sourceBox": [
+        874.4375,
+        3370.4375,
+        1109.5625,
+        3605.5625
+      ],
+      "referenceResampling": "Only a layout/style guide may be resampled. Final native art must remain original 1254-square returned pixels.",
+      "nativeTarget": [
+        1254,
+        1254
+      ],
+      "core": 1024,
+      "halo": 115,
+      "overlap": 230,
+      "promptFile": "prompts/r04_c03.prompt.txt",
+      "outputFile": "native/r04_c03.png",
+      "guideSha256": "64e89267a09bc91850169f695fa6c208a5bc19973068c5db92cbf1831f8de586",
+      "guideStyleReference": "style-reference.png",
+      "guideStyleReferenceSha256": "a4321bc976e56c06bb241652561e295e6281cdbe3ae6695604b9ae3909896855"
+    },
+    {
+      "id": "r04_c04",
+      "row": 3,
+      "column": 3,
+      "guide": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_r10_c07\\guides\\r04_c04.layout-only.png",
+      "guideOnly": true,
+      "guideStatus": "ready_unified_style_reference",
+      "fullCanvasBox": [
+        3072,
+        3072,
+        4326,
+        4326
+      ],
+      "deliveryCoreBox": [
+        3072,
+        3072,
+        4096,
+        4096
+      ],
+      "coreBoxInNative": [
+        115,
+        115,
+        1139,
+        1139
+      ],
+      "styleReferenceNormalizedBox": [
+        0.710124826629681,
+        0.710124826629681,
+        1.0,
+        1.0
+      ],
+      "sourceBox": [
+        1066.4375,
+        3370.4375,
+        1301.5625,
+        3605.5625
+      ],
+      "referenceResampling": "Only a layout/style guide may be resampled. Final native art must remain original 1254-square returned pixels.",
+      "nativeTarget": [
+        1254,
+        1254
+      ],
+      "core": 1024,
+      "halo": 115,
+      "overlap": 230,
+      "promptFile": "prompts/r04_c04.prompt.txt",
+      "outputFile": "native/r04_c04.png",
+      "guideSha256": "d414e5d2ed0bc7126057eabc887c7889a8a84a1b0edcaffdfda6815667c9b7fa",
+      "guideStyleReference": "style-reference.png",
+      "guideStyleReferenceSha256": "a4321bc976e56c06bb241652561e295e6281cdbe3ae6695604b9ae3909896855"
+    }
+  ],
+  "styleReferenceSha256": "a4321bc976e56c06bb241652561e295e6281cdbe3ae6695604b9ae3909896855",
+  "styleReferencePixels": [
+    1254,
+    1254
+  ]
+}

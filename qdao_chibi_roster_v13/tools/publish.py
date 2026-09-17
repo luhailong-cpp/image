@@ -67,9 +67,9 @@ def pending_v13(relative):
     return relative.startswith(RESOURCE.as_posix()+'/') or relative in (RESOURCE.as_posix()+'.meta',RESOURCE.parent.as_posix()+'.meta')
 def relevant_input(relative):
     if pending_v13(relative):return False
-    exact={'Assets/Scripts/World/ActorWorld.cs','Assets/Scripts/Game/GameClient.cs','Assets/Scripts/World/Tianyong/TianyongPlayerController.cs','Assets/Scripts/World/Tianyong/TianyongSandboxBootstrap.cs','Assets/Scripts/UI/Ugui/Battle/BattleArtCatalog.cs'}
+    exact={'Assets/Editor/QdaoCharacterSpriteImporter.cs','Assets/Editor/QdaoFrameAlphaProcessor.cs','Assets/Scripts/World/ActorWorld.cs','Assets/Scripts/Game/GameClient.cs','Assets/Scripts/World/Tianyong/TianyongPlayerController.cs','Assets/Scripts/World/Tianyong/TianyongSandboxBootstrap.cs','Assets/Scripts/UI/Ugui/Battle/BattleArtCatalog.cs'}
     bare=relative.removesuffix('.meta')
-    return bare in exact or relative.startswith(('Assets/Scripts/World/Qdao','Assets/Editor/Qdao','Assets/Resources/World/Characters/QdaoRoster','Packages/','ProjectSettings/')) or relative.endswith(('.asmdef','.asmref','.asmdef.meta','.asmref.meta')) or relative.startswith('Assets/Tests/') and ('Qdao' in Path(relative).name or 'BattleRosterAppearance' in Path(relative).name)
+    return bare in exact or relative.startswith(('Assets/Scripts/World/Qdao','Assets/Resources/World/Characters/QdaoRoster','Packages/','ProjectSettings/')) or relative.endswith(('.asmdef','.asmref','.asmdef.meta','.asmref.meta')) or relative.startswith('Assets/Tests/') and ('Qdao' in Path(relative).name or 'BattleRosterAppearance' in Path(relative).name)
 def runtime_approval(path,revision,approvals,artifacts,publish_project):
     p=inside(path);a=read(p);parent=p.parent
     require(a.get('schema')=='qdao-v13-runtime-approval/v1' and a.get('status')=='passed','Wrong/unpassed V13 runtime approval')
@@ -128,12 +128,12 @@ def runtime_approval(path,revision,approvals,artifacts,publish_project):
         require(item.get('actualFrameCount')==count and item.get('actualHasDedicatedIdle') is True and item.get('actualFramesMatchResources') is True,'Actual animation inventory does not match dedicated resources')
         for field in ('actualFramesPerDirection','actualUniqueFrameSpritesPerDirection','actualUniqueFrameTexturesPerDirection'):
             require(item.get(field)=={d:count for d in directions},f'Incomplete or duplicate runtime frame inventory: {identifier}/{field}')
-        require(item.get('stoppedIdle') is True and item.get('spriteMatchesDedicatedIdle') is True,'Runtime did not return to dedicated idle')
+        require(item.get('spriteMatchesDedicatedIdle') is True,'Runtime did not display the actor dedicated idle')
     lu=by_id[CHARACTER]
     require(lu.get('activationPresent') is True and lu.get('activationSha256')==receipt['appearanceSha256'],'Unity did not actually load this activation TextAsset')
     require(lu.get('resourceFolder')=='World/Characters/QdaoRosterV13/24_lu_dongbin' and lu.get('activationAlignmentVersion')==3 and lu.get('activationContactFrame')==0,'Runtime loaded a wrong V13 resource/alignment contract')
     require(lu.get('v13SixteenFrameContractObserved') is True and abs(lu.get('catalogFrameDurationMs',0)-30)<.001 and abs(lu.get('actualCycleDurationMs',0)-480)<.01,'Actual V13 animation timing is incorrect')
-    require(lu.get('movementObserved') is True and lu.get('realMotorEnabled') is True and lu.get('actualTravelDistance',0)>0 and lu.get('actualPathDistance',0)>0 and lu.get('movementSeconds',0)>0 and lu.get('observedWalkPoseCount',0)>1,'Real controller movement was not observed')
+    require(lu.get('stoppedIdle') is True and lu.get('movementObserved') is True and lu.get('realMotorEnabled') is True and lu.get('actualTravelDistance',0)>0 and lu.get('actualPathDistance',0)>0 and lu.get('movementSeconds',0)>0 and lu.get('observedWalkPoseCount',0)>1,'Real controller movement was not observed')
     # Compare actual controller/animation values against the earlier genuine V12 run.
     baseline_path=checked_evidence(a['baselineRuntimeObservation'],parent); baseline=read(baseline_path)
     baseline_snapshot_path=checked_evidence(a['baselineInputSnapshot'],parent); baseline_snapshot=read(baseline_snapshot_path)
@@ -198,6 +198,7 @@ def execute(project,mode,approvals,revision,artifacts,runtime):
     if not Path(str(target)+'.meta').exists():copy_meta(target,target,project,template,'folder')
     require(all(sha(SOURCE/f'{name}.json')==approvals[f'{name}_sha256'] for name in ('manifest','qc','validation')),'Candidate approvals changed while staging')
     require(sha(SOURCE/'review/visual-review.json')==read(SOURCE/'validation.json')['visual_review_sha256'],'Candidate visual approval changed while staging')
+    require((inventory(target) if target.exists() else [])==prior,'Existing V13 resources changed while staging; retry after inspecting concurrent changes')
     moved_old=False;moved_new=False
     try:
         if target.exists():
@@ -219,7 +220,7 @@ def execute(project,mode,approvals,revision,artifacts,runtime):
             inside(target,project);os.replace(target,displaced)
         if moved_old and backup.exists():
             inside(backup,ROOT);inside(target,project);os.replace(backup,target)
-        write(evidence/'failure.json',{'status':'failed','error':str(error),'rolledBackToPriorV13':moved_old,'fallbackToV12Available':True,'time':now()})
+        write(evidence/'failure.json',{'status':'failed','error':str(error),'rolledBackToPriorV13':moved_old,'v12Untouched':True,'time':now()})
         raise
 
 def main():

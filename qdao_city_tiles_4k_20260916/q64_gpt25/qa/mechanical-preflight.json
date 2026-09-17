@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-09-17T08:03:06.258080+00:00",
+  "status": "mechanical_preflight_passed_NOT_actual_art",
+  "actualArtGeneratedByPreflight": false,
+  "apiCalled": false,
+  "nativeGenerated": false,
+  "runtimePublished": false,
+  "script": {
+    "file": "assemble.py",
+    "sha256": "30c753e7723cdf83a1600cc2ef145296675c30356333b5e3ecc1a777cb1d7337"
+  },
+  "plan": {
+    "file": "plan.json",
+    "sha256": "7d003afc12ebf5c88629d973c3f4862d97163e25c426c4d0c8d19b58a4e488f5"
+  },
+  "seamHelper": {
+    "file": "E:\\work\\image\\tianyong_festival_hd_20260910\\seam_helpers.py",
+    "sha256": "3c9fb69c334985b77a51b254b59b5945bec893e746bda0ff71b0d41dca167a48",
+    "function": "_minimum_vertical_seam"
+  },
+  "fixture": {
+    "type": "synthetic_coordinate_pixels_only",
+    "nativePatches": 4,
+    "nativePixels": [
+      2160,
+      2160
+    ],
+    "assembledPixels": [
+      4208,
+      4208
+    ],
+    "cropBox": [
+      56,
+      56,
+      4152,
+      4152
+    ],
+    "outputPixels": [
+      4096,
+      4096
+    ],
+    "allAssembledPixelsMatchGlobalCoordinates": true,
+    "allFinalPixelsMatchExactCrop": true,
+    "pngRoundtripExact": true,
+    "roundtripPngSha256": "56f99f90933ea735d2608b5f1a5e56358b511c9e3c278051605fc87bd1260724",
+    "temporaryFilesRemoved": true,
+    "savedSyntheticArtwork": false,
+    "checkpoints": {
+      "topLeft": {
+        "deliveryXY": [
+          0,
+          0
+        ],
+        "fullCanvasXY": [
+          56,
+          56
+        ],
+        "RGB": [
+          56,
+          56,
+          0
+        ]
+      },
+      "topRight": {
+        "deliveryXY": [
+          4095,
+          0
+        ],
+        "fullCanvasXY": [
+          4151,
+          56
+        ],
+        "RGB": [
+          55,
+          56,
+          16
+        ]
+      },
+      "bottomLeft": {
+        "deliveryXY": [
+          0,
+          4095
+        ],
+        "fullCanvasXY": [
+          56,
+          4151
+        ],
+        "RGB": [
+          56,
+          55,
+          240
+        ]
+      },
+      "bottomRight": {
+        "deliveryXY": [
+          4095,
+          4095
+        ],
+        "fullCanvasXY": [
+          4151,
+          4151
+        ],
+        "RGB": [
+          55,
+          55,
+          0
+        ]
+      },
+      "fourWayJoin": {
+        "deliveryXY": [
+          2048,
+          2048
+        ],
+        "fullCanvasXY": [
+          2104,
+          2104
+        ],
+        "RGB": [
+          56,
+          56,
+          128
+        ]
+      }
+    }
+  },
+  "integerBlend": {
+    "all256EqualValuesAtAll256WeightsExact": true,
+    "blackWhiteRampExact": true
+  },
+  "seamMetrics": [
+    {
+      "label": "row_1_horizontal",
+      "overlapPixels": 112,
+      "seamLength": 2160,
+      "seamMin": 55,
+      "seamMax": 55,
+      "meanAbsoluteInputDifference": 0.0,
+      "p95AbsoluteInputDifference": 0.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row_2_horizontal",
+      "overlapPixels": 112,
+      "seamLength": 2160,
+      "seamMin": 55,
+      "seamMax": 55,
+      "meanAbsoluteInputDifference": 0.0,
+      "p95AbsoluteInputDifference": 0.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "vertical",
+      "overlapPixels": 112,
+      "seamLength": 4208,
+      "seamMin": 55,
+      "seamMax": 55,
+      "meanAbsoluteInputDifference": 0.0,
+      "p95AbsoluteInputDifference": 0.0,
+      "identicalInputPixelsPreserved": true
+    }
+  ],
+  "realGenerationEvidence": {
+    "missingFiles": [
+      "native/r01_c01.png",
+      "native/r01_c01.record.json",
+      "native/r01_c02.png",
+      "native/r01_c02.record.json",
+      "native/r02_c01.png",
+      "native/r02_c01.record.json",
+      "native/r02_c02.png",
+      "native/r02_c02.record.json"
+    ],
+    "failClosedTest": "passed",
+    "refusal": "Generation evidence incomplete; refusing art output. Missing: native/r01_c01.png, native/r01_c01.record.json, native/r01_c02.png, native/r01_c02.record.json, native/r02_c01.png, native/r02_c01.record.json, native/r02_c02.png, native/r02_c02.record.json"
+  },
+  "productionArtPresent": false,
+  "limitations": "Synthetic verification proves crop, orientation and arithmetic only. It does not verify real generated detail, backend identity, style or visual seam continuity."
+}

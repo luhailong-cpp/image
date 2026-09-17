@@ -1,59 +1,74 @@
 {
-  "schemaVersion": 1,
-  "status": "first_4k_sample_ready_for_review",
-  "route": "builtin_image_gen",
-  "scope": "Tianyong festival central-plaza first 4K tile candidate only",
-  "cityKey": "tianyong",
-  "variant": "festival",
-  "targetCandidatePixels": [
-    4096,
-    4096
-  ],
-  "observedNativePixels": [
-    1254,
-    1254
-  ],
-  "composition": "4x4 native patches, 1024 core, 115 context per side, 230 neighbour overlap",
-  "singleNative4K": false,
+  "schemaVersion": 2,
+  "status": "Q64_builtin_Q_style_first_tile_native_generation_in_progress",
+  "updatedAtUtc": "2026-09-17T08:31:02.7720821Z",
+  "scope": "All four main cities / seven map appearances; built-in Q64 first 4K tile in preparation, no completed current delivery tile",
+  "latestUserRequirements": {
+    "wholeCityPixels": [
+      65536,
+      65536
+    ],
+    "tilePixels": [
+      4096,
+      4096
+    ],
+    "style": "more Q/chibi, rounded full bright clean shapes",
+    "model": "Built-in GPT Image 2.0 route, user-selected; host-managed backend",
+    "quality": "highest available through builtin; no explicit selector"
+  },
+  "activePlan": "builtin_q64_r10_c07/plan.json",
+  "executionPackage": null,
+  "requestedRoute": "builtin_image_gen",
+  "requestedModel": "Built-in GPT Image 2.0 (user-selected route label, not an explicit model ID)",
+  "requestedQuality": "highest available through builtin",
+  "actualRoute": "builtin_image_gen",
+  "actualModel": null,
   "backendModelVerified": false,
-  "backendModel": null,
-  "exposedModelSelector": false,
-  "exposedSizeSelector": false,
-  "exposedQualitySelector": false,
-  "progressEvidence": "Use current files and individual provenance records in builtin_4x4/native/; no static success count is asserted here.",
-  "planFile": "E:/work/image/qdao_city_tiles_4k_20260916/builtin_4x4/plan.json",
-  "nativeDirectory": "E:/work/image/qdao_city_tiles_4k_20260916/builtin_4x4/native",
-  "promptsDirectory": "E:/work/image/qdao_city_tiles_4k_20260916/builtin_4x4/prompts",
-  "legacyApiPlanExecuted": false,
+  "currentRequirementGenerationStarted": true,
   "waitingForApiAuthorization": false,
+  "apiAuthorizationQuestionPending": false,
+  "apiCredentialsConfigured": null,
+  "completedCurrentDeliveryTiles": 0,
+  "plannedDeliveryTilesPerMapVariant": 256,
+  "plannedMapVariants": 7,
+  "plannedTotalDeliveryTiles": 1792,
   "allSevenMapVariantsComplete": false,
   "runtimePublished": false,
-  "acceptance": "Candidate only; pending complete seam, visual, navigation, foreground and runtime acceptance.",
-  "updatedAtUtc": "2026-09-17T07:30:14.943627+00:00",
-  "nativeSourceCount": 16,
-  "firstCandidatePixels": [
-    4096,
-    4096
-  ],
-  "candidateFile": "builtin_4x4/output/tianyong_plaza_4k_candidate_v3b.png",
-  "assemblyFile": "builtin_4x4/output/assembly.json",
-  "productionCatalog": "production_catalog.json",
-  "artAcceptancePassed": false,
-  "knownReviewIssue": "Full-city neighbouring 4K edges, foreground, camera close-up and device memory remain unverified.",
-  "candidateSha256": "21a40f32316a0d77e411510b71d8dc80a4ace8c4b0e4605291ee060b1aeccf98",
-  "candidatePixels": [
-    4096,
-    4096
-  ],
-  "candidatePreview": "builtin_4x4/qa/v3b_overview_1024.png",
-  "nativeBasePatchCount": 16,
-  "nativeFullspanRepairCount": 2,
-  "latestAssemblyFile": "builtin_4x4/output/south_stairs_v3b_assembly.json",
-  "sampleGeometryReview": "South staircase discontinuity repaired; local reviewed joints continuous. Not a whole-city or in-game approval.",
   "clientValidation": {
     "editModePassed": 21,
     "editModeFailed": 0,
     "runtimeSourceCompileErrors": 0,
     "evidence": "E:/work/mmorpg-client/Docs/VerificationEvidence/city-tiles4k-atomic-20260917/summary.json"
+  },
+  "builtinModelAudit": "q64_gpt25/qa/builtin_model_audit.json",
+  "observedBuiltinCreationSoftwareAgentVersion": "2.0",
+  "historicalSample": {
+    "role": "Historical geometry/technical sample; user rejected clarity and requested more Q/chibi. Not a Q64 or GPT Image 2.5 deliverable.",
+    "route": "builtin_image_gen",
+    "candidateFile": "builtin_4x4/output/tianyong_plaza_4k_candidate_v3b.png",
+    "candidateSha256": "21a40f32316a0d77e411510b71d8dc80a4ace8c4b0e4605291ee060b1aeccf98",
+    "pixels": [
+      4096,
+      4096
+    ],
+    "planFile": "E:/work/image/qdao_city_tiles_4k_20260916/builtin_4x4/plan.json",
+    "nativeSourceCount": 16,
+    "latestAssemblyFile": "builtin_4x4/output/south_stairs_v3b_assembly.json",
+    "artAcceptancePassed": false
+  },
+  "lastCliAttempt": "q64_gpt25/qa/cli-preflight-missing-key.json",
+  "currentBlocker": null,
+  "activeRoute": "builtin_image_gen",
+  "activeWorkingDirectory": "builtin_q64_r10_c07",
+  "requiresApiKey": false,
+  "separateBilledApiAllowedThisRun": false,
+  "strictGptImage25RequirementActive": false,
+  "historicalApiPackage": {
+    "path": "q64_gpt25/执行包.md",
+    "status": "superseded_by_user_builtin_route_choice",
+    "generationStarted": false,
+    "previousBlocker": "OPENAI_API_KEY not set",
+    "blockerAppliesToCurrentRoute": false,
+    "historicalAuthorizationSuperseded": true
   }
 }
