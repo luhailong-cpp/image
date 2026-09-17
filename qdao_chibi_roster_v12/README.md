@@ -1,8 +1,16 @@
 # V12 八方向八帧人物动作
 
-2026-09-16 当前状态：八位道家 Q 版角色的造型与自然步态修正已完成并接入游戏素材。吕洞宾、何仙姑、韩湘子保留各自身份和器物，八人使用不同服装与轮廓。每人 64 张真实行走、8 张独立站立和 1 张肖像，含 8 张行走条带共 81 张 PNG，全部按对齐 v3 发布。站点与已发布素材逐文件 SHA 核对一致。新批次的游戏运行验证仍在进行，既有失败记录保留。内部检查通过不等于用户已认可整批美术。
+2026-09-17 03:28 UTC 完成状态：八位道家 Q 版角色的造型、自然步态和游戏素材接入已完成。每人 64 张真实行走、8 张独立站立、1 张肖像及 8 张行走条带，每人 81 张、八人共 648 张 PNG；全部按对齐 v3 发布，预览与游戏逐文件 SHA 一致。独立 Unity 副本的 127/127 EditMode、8/8 PlayMode 通过，八人主城外观已逐一视审。测试结论对应 03:18 UTC 保存的代码与资源快照；内部验收不代表用户已经认可美术。
 
-游戏当前实际接入 V12 的有 灯穗小使、吕洞宾、狮鼓护卫、桂香药婆、墨鸢游侠、月兔机关师、何仙姑、韩湘子。八人均已完成素材接入。
+八位角色为灯穗小使、年轻吕洞宾、狮鼓护卫、桂香药婆、墨鸢游侠、月兔机关师、何仙姑、韩湘子，均已启用 V12。吕洞宾、何仙姑、韩湘子保留各自八仙身份与器物，造型按道家 Q 版制作。
+
+## 本轮八人交付与验证（2026-09-17 UTC）
+
+- 最终美术源：`candidate-stable-body/<角色ID>`；何仙姑使用 `candidate-natural-body/29_he_xiangu`，为素色道袍与长裤版本。原始生成图、来源记录和此前版本保留。
+- 运行证据：[summary.json](../../mmorpg-client/Docs/ArtEvidence/v12-stable-roster/eight-natural-current-code-20260916-retry/summary.json)。394 个 C#、648 张 PNG 与 8 个启用文件在启动前逐一匹配。运行期间其他任务修改了 6 个社交/地图相关 C#，因此结论针对该保存快照。原打开 Unity 场景未操作。
+- 首轮同一检查因测试超时未完成；只为原有测试增加 `[Timeout(600000)]`，断言未改。重试的 127 项 EditMode 与 8 项 PlayMode 均通过，历史失败记录保留。
+- [预览源校验](review/site/preview-source-verification.json)与[浏览器验收](review/browser-qc/review-pages-result.json)通过：8 人 × 8 方向共 64 组，没有禁用角色；逐帧、循环、独立站立、半速、390px 移动端均可用。一次图片请求失败后重新选择同方向的恢复检查也通过。
+- [八人新版总览](review/site/roster-final.jpg)、[新旧肖像对照](review/site/portrait-comparison.jpg)、[本地交互预览](http://127.0.0.1:8871/)。恢复本地服务可运行 `python review/serve_final_preview.py`，只提供 `review/site` 目录。
 
 本目录保留V11与上一版V12素材。后续角色按已核实的问题逐项修正并完成整套检查，不按旧内部passed记录直接批量发布。
 
@@ -36,7 +44,7 @@ python -X utf8 -B E:/work/image/qdao_chibi_roster_v12/process_roster.py --charac
 
 完整 72 姿势共用一个最终缩放系数，每帧只可平移。每方向体态面积平方根 CV≤0.08、源脚底位置标准差≤0.05、跨方向平均高度比例≤1.10，同方向站立与走路平均高度差≤8%，无源裁切、输出触边、贴图钳位、空帧或精确重复帧。数值通过仍需检查脸部身份、八方向朝向、八个不同实际步态、脚/手/法器完整性、环接和透明边缘，才可将 qc.json 改为 passed / visual_review: passed。
 
-运行时契约与证据范围见 CLIENT_CONTRACT.md。处理工具和运行时代码已有实现，当前资源版本及暂停状态以上述说明为准。
+运行时契约与证据范围见 CLIENT_CONTRACT.md。处理工具和运行时代码已有实现，当前资源版本和运行范围以上述完成记录为准。
 
 优先逐方向生成和验收真实八步。单方向默认 2列×4行，也可显式使用 4列×2行；每张均为逐行 01→08：
 
@@ -78,7 +86,7 @@ python -X utf8 -B E:/work/image/qdao_chibi_roster_v12/assemble_phases.py --phase
 
 历史运行范围：`E:/work/mmorpg-client/Docs/ArtEvidence/v12-three-immortals`中的121/121 EditMode、7/7 PlayMode属于24/29/30三位V12时期，当时26仍为V11。`v12-four-approved`中的121/121 EditMode、7/7 PlayMode属于随后24/26/29/30四位V12的定向回归（2026-09-13 14:13–14:16 UTC）。两组均为历史离线运行证据，不是停步修复后的新一轮全量测试，也不能代替美术验收。
 
-当前停步修复证据：`E:/work/mmorpg-client/Docs/ArtEvidence/v12-stop-fix/playmode.xml`记录2026-09-13 15:04:04–15:04:12 UTC，8/8 PlayMode Passed、0失败，包含`V12_StoppingAtDifferentPhases_ShowsDirectionIdleOnTheNextFrame`。该项验证不同步态相位停下后，下一帧切到对应方向独立站姿；运行行为通过不能证明道家风格、自然步态、脸型或大小符合用户要求。新吕洞宾已完成本轮修正与接入；其余角色按最新用户继续指令逐项推进。
+历史停步修复证据：`E:/work/mmorpg-client/Docs/ArtEvidence/v12-stop-fix/playmode.xml`记录2026-09-13 15:04:04–15:04:12 UTC，8/8 PlayMode Passed、0失败，包含`V12_StoppingAtDifferentPhases_ShowsDirectionIdleOnTheNextFrame`。该项验证不同步态相位停下后，下一帧切到对应方向独立站姿；运行行为通过不能证明道家风格、自然步态、脸型或大小符合用户要求。这是早期停步修复记录；本轮八人完整结果见开头。
 
 `--despill-magenta-edge`为可选的确定性边缘去底色：仅alpha>8主体距离alpha<=8区域2px内的明显洋红污染，按附近可靠实体颜色减少R/B；alpha、G、几何和红色流苏保持原值。默认关闭，避免给没有该问题的角色增加处理。24已使用并逐帧证明72张透明形状完全不变，证据在24/processing/despill-validation.json；原始生成图不改。
 

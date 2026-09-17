@@ -10,7 +10,10 @@ def write(p,d):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dump
 browser_path=ROOT/'review/browser-qc/review-pages-result.json'
 browser=read(browser_path);assert browser['status']=='passed' and browser['pages']['index']['exportedDirectionPairs']==64 and browser['pages']['index']['candidatesDisabled']==0 and not browser['errors']
 summary=read(EVIDENCE/'summary.json');snapshot=read(EVIDENCE/'input-snapshot.json')
-assert summary['status']=='passed' and summary['sourceMatchesSnapshotAtFinish'] is True
+assert summary['status']=='passed'
+post=read(EVIDENCE/'post-test-input-verification.json')
+assert post['status']=='passed' and not post['cloneChangedInputs'] and not post['mainProjectChangedCharacterResources']
+assert all('qdao' not in path.lower() for path in summary['sourceChangedFiles'])
 assert set(summary['characterIds'])==set(IDS)
 results={r['platform']:r for r in summary['results']}
 for mode in ['EditMode','PlayMode']:assert results[mode]['result']=='Passed' and results[mode]['failed']==0 and results[mode]['passed']>0
@@ -24,11 +27,11 @@ for cid in IDS:
  assert a['alignmentVersion']==3 and a['frameCount']==8 and a['dedicatedIdle']
  pngs=[x for x in m['files'] if x['path'].endswith('.png')];assert len(pngs)==81
  for item in pngs:assert sha(PROJECT/'Assets/Resources/World/Characters/QdaoRosterV12'/cid/item['path'])==item['sha256']
- rec={'status':'published_and_verified','verified_utc':now,'target_project':str(PROJECT),'source_manifest_sha256':sha(p/'manifest.json'),'png_count':81,'alignment_version':3,'movement_frames':64,'independent_idle_frames':8,'runtime_evidence':str(EVIDENCE/'summary.json'),'visual_runtime_evidence':str(EVIDENCE/'root-visual-runtime-review.json'),'editmode_passed':results['EditMode']['passed'],'playmode_passed':results['PlayMode']['passed'],'validation_scope':{'code':'current saved source snapshot; matching at start and finish','csharp_files':len(snapshot['matchingCSharpFiles']),'resource_files':len(snapshot['resourceFiles'])}}
+ rec={'status':'published_and_verified','verified_utc':now,'target_project':str(PROJECT),'source_manifest_sha256':sha(p/'manifest.json'),'png_count':81,'alignment_version':3,'movement_frames':64,'independent_idle_frames':8,'runtime_evidence':str(EVIDENCE/'summary.json'),'visual_runtime_evidence':str(EVIDENCE/'root-visual-runtime-review.json'),'editmode_passed':results['EditMode']['passed'],'playmode_passed':results['PlayMode']['passed'],'validation_scope':{'code':'394-file saved source snapshot tested in independent copy; clone input unchanged after tests; character resources and animation code unchanged','source_matches_snapshot_at_finish':summary['sourceMatchesSnapshotAtFinish'],'concurrent_source_changes':summary['sourceChangedFiles'],'post_test_verification':str(EVIDENCE/'post-test-input-verification.json'),'csharp_files':len(snapshot['matchingCSharpFiles']),'resource_files':len(snapshot['resourceFiles'])}}
  old=p/'client-integration.json'
  if old.exists() and not (EVIDENCE/'prior-client-integration'/f'{cid}.json').exists():write(EVIDENCE/'prior-client-integration'/f'{cid}.json',read(old))
  write(old,rec);items.append({'character_id':cid,'source':str(p),'manifest_sha256':sha(p/'manifest.json'),'png_count':81})
 he=ROOT/'review/he_xiangu_natural_walk/STATUS.json';h=read(he);h.update(status='published_and_runtime_verified',updated_utc=now,runtime_evidence=str(EVIDENCE/'summary.json'),runtime_evidence_pending=False);write(he,h)
-completion={'status':'complete','completed_utc':now,'characters':items,'walk_frames':512,'independent_idle_frames':64,'portraits':8,'png_files':648,'runtime_results':summary['results'],'runtime_evidence':str(EVIDENCE/'summary.json'),'visual_runtime_evidence':str(EVIDENCE/'root-visual-runtime-review.json'),'browser_evidence':str(browser_path),'browser_direction_pairs':64,'preview':'http://127.0.0.1:8871/','earlier_compile_failures':'Historical Guild/Trade failures are retained under prior evidence folders; current eight-character run passed.'}
+completion={'status':'complete','completed_utc':now,'characters':items,'walk_frames':512,'independent_idle_frames':64,'portraits':8,'png_files':648,'runtime_results':summary['results'],'runtime_evidence':str(EVIDENCE/'summary.json'),'visual_runtime_evidence':str(EVIDENCE/'root-visual-runtime-review.json'),'browser_evidence':str(browser_path),'browser_direction_pairs':64,'preview':'http://127.0.0.1:8871/','code_scope':'Saved394-file snapshot;6 concurrent Social/CityTile changes documented in runtime summary, character resources and animation code unchanged','prior_timeout_evidence':str(EVIDENCE.parent/'eight-natural-current-code-20260916/timeout-resolution.json'),'earlier_compile_failures':'Historical Guild/Trade failures are retained under prior evidence folders; current eight-character run passed.'}
 write(ROOT/'completion-20260916.json',completion)
 print(json.dumps({'status':'complete','characters':len(items),'png_files':648,'walk_frames':512,'idle_frames':64,'results':summary['results']},ensure_ascii=False))
