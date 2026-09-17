@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-09-17T03:19:57.87977-04:00",
+  "status": "candidate_pending_visual_QA_not_published",
+  "published": false,
+  "base": {
+    "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\output\\tianyong_plaza_4k_candidate.png",
+    "sha256": "d004bfa2513b8aaaa00ce907f761c3d25954fd9d379124cffae14d594aa5b4df",
+    "version": "original_v1"
+  },
+  "script": {
+    "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\output\\compose_south_stairs_v3a.py",
+    "sha256": "d2b4651f6de72a355a734d6d79f47db93dc7974b3afbd9982a97d9e72eec1f2b"
+  },
+  "seamHelper": {
+    "file": "E:\\work\\image\\tianyong_festival_hd_20260910\\seam_helpers.py",
+    "sha256": "3c9fb69c334985b77a51b254b59b5945bec893e746bda0ff71b0d41dca167a48",
+    "function": "_minimum_vertical_seam"
+  },
+  "plan": {
+    "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\repairs\\south_stairs_fullspan\\plan.json",
+    "sha256": "77a69bdbbc5cc6bae91bef882ef42b0ac3fa2dde64d90019d430f99dafa2c7fb",
+    "sourceUnion": [
+      909,
+      2842,
+      3187,
+      4096
+    ],
+    "actualCompositeRect": [
+      909,
+      3260,
+      3187,
+      4096
+    ],
+    "joinedSourceCrop": [
+      0,
+      418,
+      2278,
+      1254
+    ]
+  },
+  "nativeSources": [
+    {
+      "side": "left",
+      "nativeFile": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\repairs\\south_stairs_fullspan\\left.png",
+      "nativeSha256": "75f62a27af7e92f9591ca433922666ad9c029d229b88756f40ba9493842dd24e",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "recordFile": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\repairs\\south_stairs_fullspan\\left.record.json",
+      "recordSha256": "ac42c32e987e84606ca58508b0d2962119424f9ee32a0bf4110c65888f07c467",
+      "promptFile": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\repairs\\south_stairs_fullspan\\left.prompt.txt",
+      "promptSha256": "f1deb858e4a5fd465e578ea20ff03e138aa974aeb81adf5967bd98e64bdda399",
+      "guideFile": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\repairs\\south_stairs_fullspan\\left.layout-only.png",
+      "guideSha256": "5054a3f706420d1b9e4e130a1dcf75e9b1ba9b810d4f9a6b2770944732e909fe",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0ad4d-500d-7c83-87fa-a0a2b62155fe\\exec-8eea62d7-daf8-4874-a2c8-f6e3fdc390da.png",
+      "sourceOutputSha256": "75f62a27af7e92f9591ca433922666ad9c029d229b88756f40ba9493842dd24e",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "crop": [
+        909,
+        2842,
+        2163,
+        4096
+      ],
+      "generatedBytesPreserved": true
+    },
+    {
+      "side": "right",
+      "nativeFile": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\repairs\\south_stairs_fullspan\\right.png",
+      "nativeSha256": "0a38b6ae7093456208508a842f2cc551f85072b0be76d4962f107cb60c1f8ae2",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "recordFile": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\repairs\\south_stairs_fullspan\\right.record.json",
+      "recordSha256": "4b02e76ef1b8ef27567b5c648d5945f0261f06010115039a3df1e72f38fe5ec3",
+      "promptFile": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\repairs\\south_stairs_fullspan\\right.prompt.txt",
+      "promptSha256": "5e9e319f040232e11b26149807fedcba7808a81ac76471f5d88686d45be2f706",
+      "guideFile": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\repairs\\south_stairs_fullspan\\right.layout-only.png",
+      "guideSha256": "b468c31d3da9df07c0e8b12b352e3383e57d59affc9cd836b097f0bc62e6eae7",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0ad4d-500d-7c83-87fa-a0a2b62155fe\\exec-29cb53ca-c976-4a0d-8694-7584a5631721.png",
+      "sourceOutputSha256": "0a38b6ae7093456208508a842f2cc551f85072b0be76d4962f107cb60c1f8ae2",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "crop": [
+        1933,
+        2842,
+        3187,
+        4096
+      ],
+      "generatedBytesPreserved": true
+    }
+  ],
+  "composition": {
+    "method": "native left/right minimum-error hard seam, then four hard border seams into original candidate",
+    "internalOverlapPixels": 230,
+    "joinedNativeSize": [
+      2278,
+      1254
+    ],
+    "joinedSourceCrop": [
+      0,
+      418,
+      2278,
+      1254
+    ],
+    "croppedNativeSize": [
+      2278,
+      836
+    ],
+    "actualCompositeRect": [
+      909,
+      3260,
+      3187,
+      4096
+    ],
+    "borderSearchBandPixels": 96,
+    "featherPixels": 0,
+    "sourceResampling": false,
+    "sourceStretching": false,
+    "blur": false,
+    "colorMatching": false,
+    "sharpening": false,
+    "guidePixelsCompositedIntoFinal": false,
+    "outsideUnionPixelsPreserved": true,
+    "allPixelsAboveY3260MatchOriginal": true,
+    "outputPixelsAreUnmodifiedSourceSamples": true,
+    "selectedRepairPixelCount": 1567645,
+    "seams": {
+      "internal_overlap_x": {
+        "min": 19,
+        "max": 160,
+        "mean": 84.6323763955343
+      },
+      "left_x": {
+        "min": 8,
+        "max": 87,
+        "mean": 44.8433014354067
+      },
+      "right_x": {
+        "min": 2190,
+        "max": 2262,
+        "mean": 2226.407894736842
+      },
+      "top_y": {
+        "min": 12,
+        "max": 87,
+        "mean": 64.99868305531167
+      },
+      "bottom_y": {
+        "min": 748,
+        "max": 823,
+        "mean": 783.5539947322212
+      }
+    }
+  },
+  "finalArtUpscaled": false,
+  "output": {
+    "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\output\\tianyong_plaza_4k_candidate_v3a.png",
+    "width": 4096,
+    "height": 4096,
+    "sha256": "47fb768c3a2c7f756a5ebf707470552f1f02520863aef39c446bc8c0891240df"
+  },
+  "qa": [
+    {
+      "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\qa\\v3a_cropped_native_join_2278x836.png",
+      "kind": "native_join_no_resize",
+      "size": [
+        2278,
+        836
+      ],
+      "sourceCrop": [
+        0,
+        418,
+        2278,
+        1254
+      ],
+      "sha256": "edebdd6ba3d7ae18ee9c026bd4727ef168b8fbba6c105a07f44047305d9bb4b6"
+    },
+    {
+      "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\qa\\v3a_overview_1024.png",
+      "kind": "downsampled_preview_only",
+      "size": [
+        1024,
+        1024
+      ],
+      "sha256": "95e444a6881bb8e25e8150ccffe03af78e05b77b78f8804fce0d7736cf9e10fb"
+    },
+    {
+      "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\qa\\v3a_south_stairs_left_seam_100pct.png",
+      "kind": "native_pixel_crop",
+      "crop": [
+        459,
+        3196,
+        1359,
+        4096
+      ],
+      "size": [
+        900,
+        900
+      ],
+      "resized": false,
+      "sha256": "812e4688f4fb1d59014bef0fe3fe404e985559fd4bd8ebb95a2594fef0914721"
+    },
+    {
+      "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\qa\\v3a_south_stairs_right_seam_100pct.png",
+      "kind": "native_pixel_crop",
+      "crop": [
+        2737,
+        3196,
+        3637,
+        4096
+      ],
+      "size": [
+        900,
+        900
+      ],
+      "resized": false,
+      "sha256": "7674cf11695ef731bd2a2f7e15d17b96e75ae69a48acb5898dba22fe4c2b7490"
+    },
+    {
+      "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\qa\\v3a_south_stairs_internal_seam_100pct.png",
+      "kind": "native_pixel_crop",
+      "crop": [
+        1598,
+        3196,
+        2498,
+        4096
+      ],
+      "size": [
+        900,
+        900
+      ],
+      "resized": false,
+      "sha256": "e2f4a4b43652a1e497b619d2cdb5dea41fc618411dde4549a46be9d08c29683a"
+    },
+    {
+      "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\qa\\v3a_south_stairs_top_seam_100pct.png",
+      "kind": "native_pixel_crop",
+      "crop": [
+        1598,
+        2810,
+        2498,
+        3710
+      ],
+      "size": [
+        900,
+        900
+      ],
+      "resized": false,
+      "sha256": "56ad08778d11cf68d35c6f8984dfea35e788f0ef9c8447c739fb2fff3804fb31"
+    },
+    {
+      "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\qa\\v3a_south_stairs_fullwidth_100pct.png",
+      "kind": "native_pixel_crop",
+      "crop": [
+        650,
+        2842,
+        3450,
+        4096
+      ],
+      "size": [
+        2800,
+        1254
+      ],
+      "resized": false,
+      "sha256": "e70adb44b98e5cc6219220f96192153b8e8c845ceabd73537e57035a6e1d098c"
+    },
+    {
+      "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_4x4\\qa\\v3a_south_stairs_fullwidth_overview_1400.png",
+      "kind": "downsampled_preview_only",
+      "sourceCrop": [
+        650,
+        2842,
+        3450,
+        4096
+      ],
+      "size": [
+        1400,
+        627
+      ],
+      "sha256": "fab963a059cebd77f8d5de70a71ff729a6170f7a565a9228f93eeb4ae30c2cb6"
+    }
+  ],
+  "visualQa": {
+    "status": "local_review_completed_independent_full_candidate_review_pending",
+    "localReview": "Viewed full-width overview, native-pixel top seam and native-pixel step center. Stair tread continuity is retained from v3, while original ornaments and upper paving remain unchanged. Prefer v3a as the more localized candidate.",
+    "remainingConcern": "A darker narrow horizontal stone-joint transition is visible just above the staircase near full-image y3335; independent review should assess the paving transition. This is not full-candidate acceptance.",
+    "reviewedEvidence": [
+      "qa/v3a_south_stairs_fullwidth_overview_1400.png",
+      "qa/v3a_south_stairs_top_seam_100pct.png",
+      "qa/v3a_south_stairs_internal_seam_100pct.png"
+    ],
+    "reviewedAtUtc": "2026-09-17T07:21:32.2819171Z"
+  }
+}
