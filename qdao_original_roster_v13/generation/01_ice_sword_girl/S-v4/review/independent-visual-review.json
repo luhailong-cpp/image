@@ -1,0 +1,61 @@
+{
+  "status": "not_accepted_as_continuous_16_frame_cycle",
+  "scope": "Independent visual review of the actual S-v4 source, row-major cells1..16; not an import or numeric acceptance.",
+  "source_sha256": "60fe44540954319def36fe34f679d4d0a7f854d2dc6bc2f9ae3cb629ae3d3a74",
+  "source_grid": [
+    4,
+    4
+  ],
+  "finding": "No reliable complete16-phase reorder is recommended. The source contains multiple contact-like redraws and support-side jumps, with insufficient clearly distinct passing/weight-transfer intermediates to certify a continuous16-frame loop.",
+  "specific_observations": [
+    {
+      "cells": [
+        1,
+        9,
+        16
+      ],
+      "finding": "All retain anatomical RIGHT/viewer-left front contact; cell9 does not provide the required opposite contact."
+    },
+    {
+      "cells": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "finding": "Support/front leg alternates right-left-right-left within four successive cells rather than progressing through one half step."
+    },
+    {
+      "cells": [
+        4,
+        8,
+        10,
+        11,
+        12,
+        15
+      ],
+      "finding": "Several left-front contact-like variations exist, but appearance/pixel differences are not proof of sequential motion phases."
+    },
+    {
+      "cells": [
+        3
+      ],
+      "finding": "This is the clearest near-parallel-feet transition. A similarly clear complementary crossing/transfer sequence is not evident for the other half-cycle."
+    },
+    {
+      "cells": [
+        15,
+        16,
+        1
+      ],
+      "finding": "The original seam jumps from left-front contact directly to right-front contact; reorder alone does not establish missing weight-transfer transitions."
+    }
+  ],
+  "recommended_next_step": "Use the accepted four-key source as final1/5/9/13; genuinely generate quarter/half/three-quarter interval poses as separate2x2 sheets, then inspect all16 in order and the seam.",
+  "source_art_changed": false,
+  "imported": false,
+  "evidence": {
+    "path": "review/independent-legs-contact.jpg",
+    "sha256": "9337471a928b637badd077c09937d31419953b925efd6d4a6ae784f9c3eef2fa"
+  }
+}

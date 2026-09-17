@@ -22,6 +22,8 @@
 
 旧首块已核对 PNG 尺寸、原生来源与 SHA256，并检查重点接缝。南阶错位修复是局部视觉结论，不代表全城邻块、前景、最近景或设备性能已通过。客户端的视野加相邻一圈加载、隐藏候选准备及齐备后同帧换景已实现；最新隔离 EditMode 21/21 通过，307 个运行时代码文件编译无错误，详见[客户端验证](E:/work/mmorpg-client/Docs/VerificationEvidence/city-tiles4k-atomic-20260917/summary.json)。
 
+
+计费说明：不是 GPT Image 2.5 这个版本必然另收费用；此前提到的是改走独立 API。内置生图计入现有套餐额度，额度用尽后可能使用另购 credits；本轮只走内置入口，没有调用独立 API。依据：[Codex/ChatGPT 额度说明](https://learn.chatgpt.com/docs/pricing)、[ChatGPT 与 API 独立计费说明](https://help.openai.com/en/articles/9039756-managing-billing-settings-on-chatgpt-web-and-platform)。
 ## 统一需求话术
 
 所有主城地图按用户最新选择使用内置 GPT Image 2.0 路线和最高可用画质，按更 Q 版、圆润饱满、明亮干净的方向逐区域重绘；每套整城为 65536×65536，按 16×16 切成 256 张 4096×4096 图块。旧图仅作布局参考，不能直接放大；高清依靠真实清楚的轮廓、结构和雕刻层次，减少写实裂纹、颗粒与脏污，道路、台阶、建筑与水岸必须连续。客户端按当前视野加载并预载周边图块，切换外观时等目标图块齐备再整体切换。切图 MD 只记录切图和美术规则，客户端实现、型号与每轮制作进度分别记录。
