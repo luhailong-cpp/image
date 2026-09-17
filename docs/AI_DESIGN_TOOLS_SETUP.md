@@ -8,9 +8,9 @@
 
 2026-09-16 绘图规则统一升级为 GPT Image 2.5 Sunburst，正式模型 ID 为 `gpt-image-2.5-sunburst`。[OpenAI 模型说明](https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst)与[生图参数说明](https://developers.openai.com/api/docs/guides/image-generation)确认其支持 `max` 质量。仍优先使用宿主内置 `image_gen`；新电脑已有内置生图时，无需为这条路径安装本文件列出的整套工具或配置 OpenAI API 密钥。内置接口未开放模型或质量参数时，如实记录宿主实际返回的信息，不将目标模型或目标质量写成已强制生效。
 
-用户要求：直接使用内置生图，目标 GPT Image 2.5 Sunburst、最高质量，不将单独 API 配置作为出图前置条件。接口开放参数时显式选择 `model=gpt-image-2.5-sunburst`、`quality=max`；未开放时分别记录“最高质量目标”与实际可验证参数。若本地参考路径遇到 Windows ACL 读取故障，排查参考图输入方式，优先使用工具支持的对话图片输入；文件读取故障与账号／密钥配置分开诊断。
+用户最新要求：遵守 [最新模型策略](IMAGE_MODEL_POLICY.md)，每个新生图任务核对最新正式 GPT Image，选择当前可用的最高能力型号与最高质量。上面的 Sunburst/max 是已验证基线；可调用选择器必须显式设置本次确认的参数，不能把基线永久当作最新版。内置工具未提供选择器时，提示词不能强制后端；官方或运行时明确仍旧时，该路径不能满足最新版要求。参考图 Windows ACL 故障优先修复输入通道，与 API 密钥配置分开诊断。
 
-API/CLI 仅作为用户明确选择的备用路径，显式使用 `--model gpt-image-2.5-sunburst --quality max`，需要在新电脑准备相应工具与账号凭证，并单独按 API 计费。项目文件不会自动安装用户目录工具或转移凭证；换电脑后先确认实际可用能力。仅修改规则不代表已完成真实生图验证。
+API/CLI 仅作为用户明确选择的备用路径，显式传入本次核对的真实 `--model` 与最高 `--quality`，覆盖本地默认；当前基线为 `--model gpt-image-2.5-sunburst --quality max`。API 单独计费，仍须授权。项目文件不转移凭证或自动安装用户目录工具；规则升级不代表已完成真实生图验证。
 
 给接手 Codex 的任务可以直接写成：
 
@@ -111,7 +111,7 @@ GPT CLI 会安装 `openai`、`python-dotenv` 等依赖；原验证的 `openai` �
 
 ## 4. 安装 Skills 并迁移本机修正
 
-固定来源用于复现原安装，不代表当前模型默认值。重新安装或更新后，按根目录 [AGENTS.md](../AGENTS.md) 将 `imagegen`、`gpt-image`、`baoyu-image-gen` 中的有效规则、CLI 默认值、帮助文本与可复用示例统一为 GPT Image 2.5 Sunburst（`gpt-image-2.5-sunburst`），最高质量使用 `max`；同步质量参数校验与透明背景支持。核对项目／用户扩展配置、环境变量中的绘图模型覆盖项。保留来源仓库 URL、历史素材真实模型记录及用户显式选择的其他提供商配置；第三方模型别名以该服务实际支持为准。先运行离线帮助、参数解析与 dry-run 验证，再用于已授权的生成任务。
+固定来源用于复现原安装。重新安装或更新后，按根目录 [AGENTS.md](../AGENTS.md)与[最新模型策略](IMAGE_MODEL_POLICY.md)核对官方当前型号和工具能力，更新 `imagegen`、`gpt-image`、`baoyu-image-gen` 的最近验证基线、CLI 默认、帮助与可复用示例，并校验质量、尺寸和透明背景支持。新任务继续显式选择本次核对的型号与质量，覆盖可能滞后的 EXTEND／环境变量／本地默认；用户本次显式选择优先。保留真实来源 URL、历史图片模型记录及其他提供商设置；第三方服务使用实际支持的部署名。先完成离线参数验证，再执行已授权生成。
 
 先读取当前环境提供的 `$skill-installer` 说明，定位其官方 `scripts/install-skill-from-github.py`。上面的默认路径不存在时，以当前技能目录为准；不要依赖另一台电脑的缓存路径。通过帮助命令确认支持 `--repo --path --ref --dest`。
 
