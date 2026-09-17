@@ -14,14 +14,15 @@
 <header>
 <h1>人物素材对照</h1>
 <p>五行奇谈 · 道家 Q 版人物</p>
-<div class="notice">灯穗小使、吕洞宾、狮鼓护卫、桂香药婆、月兔机关师、何仙姑、韩湘子已完成本轮道家 Q 版与自然步态修正并接入游戏项目。墨鸢游侠仍在收尾。</div>
+<div class="notice">八位道家 Q 版角色的造型与自然步态修正已完成并接入游戏素材。吕洞宾、何仙姑、韩湘子保留各自身份和器物，八人使用不同服装与轮廓。</div>
 <p><a href="sample.html">查看新画的吕洞宾自然走路 8 帧样板 →</a></p>
-<p class="deployment">已完成 7 / 8 位：每人八方向、每方向 8 张行走帧，另有独立站立图。新批次游戏运行验证仍在进行。</p>
+<p class="deployment">已完成 8 / 8 位：每人八方向、每方向 8 张行走帧，另有独立站立图。新批次游戏运行验证仍在进行。</p>
 </header>
 <div class="toolbar">
 <label for="character">角色 <select id="character"></select></label>
 <p id="role-status" class="status" role="status"></p>
-<a href="portrait-comparison.jpg" target="_blank" rel="noopener">查看八人肖像总览</a>
+<a href="roster-final.jpg" target="_blank" rel="noopener">查看八人新版总览</a>
+<a href="portrait-comparison.jpg" target="_blank" rel="noopener">查看新旧肖像对照</a>
 </div>
 <section class="portraits" aria-labelledby="portrait-title">
 <div class="section-head"><h2 id="portrait-title">肖像并排</h2><p>两侧使用相同显示尺寸，保留原图留白。</p></div>
@@ -63,7 +64,7 @@ const roles=[
 {id:'24_lu_dongbin',name:'吕洞宾',exported:true,integrated:true},
 {id:'25_lion_drum_guard',name:'狮鼓护卫',exported:true,integrated:true},
 {id:'26_osmanthus_healer',name:'桂香药婆',exported:true,integrated:true},
-{id:'27_ink_kite_ranger',name:'墨鸢游侠',exported:false,integrated:false},
+{id:'27_ink_kite_ranger',name:'墨鸢游侠',exported:true,integrated:true},
 {id:'28_moon_rabbit_artificer',name:'月兔机关师',exported:true,integrated:true},
 {id:'29_he_xiangu',name:'何仙姑',exported:true,integrated:true},
 {id:'30_han_xiangzi',name:'韩湘子',exported:true,integrated:true}
@@ -75,7 +76,7 @@ let role=roles[0],direction='S',tick=0,ready=false,playing=false,shouldPlay=!mat
 function oldBase(){return 'assets/v11/'+role.id+'/';}
 function newBase(){return 'assets/v12/'+role.id+'/';}
 function loadImage(url){
- if(!imageCache.has(url)) imageCache.set(url,new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>{if(im.naturalWidth!==512||im.naturalHeight!==512)reject(new Error(url+'：不是512×512帧，已停止显示。'));else resolve(im);};im.onerror=()=>reject(new Error('无法读取：'+url));im.src=url;}));
+ if(!imageCache.has(url)) imageCache.set(url,new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>{if(im.naturalWidth!==512||im.naturalHeight!==512)reject(new Error(url+'：不是512×512帧，已停止显示。'));else resolve(im);};im.onerror=()=>{imageCache.delete(url);reject(new Error('无法读取：'+url));};im.src=url;}));
  return imageCache.get(url);
 }
 function setPortrait(id,url,alt){

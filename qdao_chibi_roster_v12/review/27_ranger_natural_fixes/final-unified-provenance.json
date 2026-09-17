@@ -1,5 +1,5 @@
 {
-  "status": "candidate_pending_processing_and_root_visual_review",
+  "status": "numeric_and_independent_verify_passed_pending_root_visual_review",
   "direction_sources": {
     "N": {
       "source": "E:\\work\\image\\qdao_chibi_roster_v12\\review\\27_ranger_natural_fixes\\six-direction-gait\\N\\final-sheet.png",
@@ -60,8 +60,8 @@
     },
     "S": {
       "source": "E:\\work\\image\\qdao_chibi_roster_v12\\review\\27_ranger_natural_fixes\\six-direction-gait\\S\\final-sheet.png",
-      "sha256": "8c45799a4a49004bd31b2d96e14703d36465c54503f0f36019443c1ee4b01d39",
-      "assembly_sha256": "b1b6841415464ea7450bc930db7670406de7a1fee7d5894f7949670903cfed83",
+      "sha256": "e325501149aa621ffb69015ed7f3b2cddfcbc055d23c90c9a3c9a5dfa73a0ec8",
+      "assembly_sha256": "677467eeb7bcea10f12af2ba55d0bab2694b8c9d2fabe0213e7014ba0d188fe0",
       "phase01": "RIGHT contact",
       "phase05": "LEFT contact",
       "order": [
@@ -75,7 +75,9 @@
         8
       ],
       "rotation": 0,
-      "no_mirroring": true
+      "no_mirroring": true,
+      "alpha_noise_cleanup_maximum_removed_alpha": 3,
+      "original_rgb_and_alpha_gt3_unchanged": true
     },
     "SW": {
       "source": "E:\\work\\image\\qdao_chibi_roster_v12\\review\\27_ranger_natural_fixes\\six-direction-gait\\SW\\final-sheet.png",
@@ -230,5 +232,24 @@
   "component_padding": 0,
   "despill_radius": 4,
   "no_warp_or_bbox_fit": true,
-  "published": false
+  "published": false,
+  "candidate_manifest_sha256": "ff24d843c121ea51ad76ffe24d48d2b3e44be082359aae62a4b81e4ac28aba2f",
+  "S_alpha_noise_cleanup": [
+    {
+      "phase": 4,
+      "maximum_removed_alpha": 3,
+      "pixels_cleared": 4876,
+      "rgb_unchanged": true,
+      "alpha_gt3_unchanged": true,
+      "reason": "faint generated background alpha 1-3 linked to sheet edges; all actual subject alpha>8 is inset >=2px"
+    },
+    {
+      "phase": 8,
+      "maximum_removed_alpha": 3,
+      "pixels_cleared": 5456,
+      "rgb_unchanged": true,
+      "alpha_gt3_unchanged": true,
+      "reason": "faint generated background alpha 1-3 linked to sheet edges; all actual subject alpha>8 is inset >=2px"
+    }
+  ]
 }

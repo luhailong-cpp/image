@@ -6,13 +6,14 @@ const expectedPending=new Set(previewSources.pending);
 const expectedExported=Number(process.env.QDAO_EXPECTED_EXPORTED||expectedPublished.size);
 assert.equal(expectedPublished.size,expectedExported,'Published preview count does not match requested QA scope');
 (async()=>{
-const out='E:/work/image/qdao_chibi_roster_v12/review/browser-qc';fs.mkdirSync(out,{recursive:true});let browser;
+const out='E:/work/image/qdao_chibi_roster_v12/review/browser-qc';fs.mkdirSync(out,{recursive:true});let browser,page;
 const report={status:'running',pages:{},errors:[]};
 try{
 browser=await chromium.launch({channel:'msedge',headless:true});
-const page=await browser.newPage({viewport:{width:1280,height:1050}});
+page=await browser.newPage({viewport:{width:1280,height:1050}});
 page.setDefaultTimeout(20000);
 page.on('pageerror',e=>report.errors.push(e.message));
+page.on('requestfailed',r=>report.errors.push('REQUEST FAILED '+r.url()+' '+JSON.stringify(r.failure())));
 page.on('response',r=>{if(r.status()>=400&&!r.url().endsWith('/favicon.ico'))report.errors.push(r.status()+' '+r.url());});
 await page.goto('http://127.0.0.1:8871/index.html');
 await page.locator('#play:not([disabled])').waitFor();
@@ -23,6 +24,7 @@ for(const name of names){
  if(expectedPending.has(name)){await page.locator('#candidate').waitFor({state:'visible'});assert(await page.locator('#play').isDisabled());disabled++;continue;}
  assert(expectedPublished.has(name),'Role missing from verified preview source list: '+name);
  for(const dr of ['S','SW','W','NW','N','NE','E','SE']){
+  report.progress={role:name,direction:dr};
   await page.locator('[data-direction="'+dr+'"]').click();
   await page.locator('#play:not([disabled])').waitFor();
   assert.equal(await page.locator('#load-error').isVisible(),false);
@@ -101,7 +103,7 @@ assert.equal(await page.locator('#error').isVisible(),false);
 
 report.pages.sample={directions:sampleDirections,actions:['walk','idle'],loadedPNGCount:144,sourceChecks,independentIdleIsDifferentFromPausedWalk:true,frame08AndBothWrapDirections:true,seekingPausesWalk:true,actualAnimationAdvances:sampleSeen.size>1,futureEpochBoundary:true,halfSpeed:true,backgroundToggle:true,guideToggle:true,reducedMotionStartsPaused:true,mobileWidth:390,noHorizontalOverflow:true};
 assert.deepEqual(report.errors,[]);report.status='passed';
-}catch(e){report.status='failed';report.failure=String(e);throw e;}
+}catch(e){report.status='failed';report.failure=String(e);if(page)report.pageState=await page.evaluate(()=>({url:location.href,character:document.getElementById('character')?.value,ready:typeof ready==='undefined'?null:ready,playing:typeof playing==='undefined'?null:playing,direction:typeof direction==='undefined'?null:direction,requestVersion:typeof requestVersion==='undefined'?null:requestVersion,loading:document.getElementById('loading')?.textContent,loadError:document.getElementById('load-error')?.textContent,imageSources:typeof imageCache==='undefined'?[]:[...imageCache.keys()].slice(-16)})).catch(()=>null);throw e;}
 finally{fs.writeFileSync(out+'/review-pages-result.json',JSON.stringify(report,null,2));if(browser)await browser.close();}
 console.log(JSON.stringify(report));
 })().catch(e=>{console.error(e);process.exitCode=1;});
