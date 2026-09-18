@@ -1,5 +1,0 @@
-from pathlib import Path
-import json,hashlib,datetime
-root=Path(r'E:\work\image\qdao_chibi_roster_v12\candidate-stable-body\24_lu_dongbin');client=Path(r'E:\work\mmorpg-client');p=client/'Assets/Resources/World/Characters/QdaoRosterV12/24_lu_dongbin/appearance.json';approval=json.loads(p.read_text());m=root/'manifest.json';assert approval['manifest_sha256']==hashlib.sha256(m.read_bytes()).hexdigest()
-(root/'client-integration.json').write_text(json.dumps({'status':'published_and_verified','verified_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'target_project':str(client),'source_manifest_sha256':approval['manifest_sha256'],'approval_path':str(p),'png_count':81,'alignment_version':3,'runtime_evidence':str(client/'Docs/ArtEvidence/v12-natural-lu/summary.json'),'editmode_passed':127,'playmode_passed':8,'note':'manifest is immutable generation-time evidence; publication status is recorded here and in the client import log'},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-print('Recorded publication against immutable generation manifest')

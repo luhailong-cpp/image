@@ -1,5 +1,0 @@
-from pathlib import Path
-p=Path(r'E:\work\image\qdao_chibi_roster_v12\review\build_ranger_diagnostics.py');t=p.read_text(encoding='utf-8-sig').replace('from PIL import Image,ImageDraw','from PIL import Image,ImageDraw\nimport json,hashlib').replace("for d in ['N','NE','E','SE','S','SW','W','NW']:","transforms=json.loads((c/'processing/frame-transforms.json').read_text())\nfor d in ['N','NE','E','SE','S','SW','W','NW']:")
-t=t.replace("im=Image.open(p/f).convert('RGBA');board.alpha_composite(im.resize((256,256)),(i%3*256,i//3*280+24));draw.text((i%3*256+8,i//3*280+6),d+' '+f,fill='#243d35')","im=Image.open(p/f).convert('RGBA');tr=transforms['idle'][d] if i==0 else transforms['walk'][d][i-1];assert list(im.size)==tr['resized_crop_size'];canvas=Image.new('RGBA',(512,512));canvas.paste(im,tuple(tr['translation_px']));assert hashlib.sha256(canvas.tobytes()).hexdigest()==tr['rgba_sha256'];board.alpha_composite(canvas.resize((256,256)),(i%3*256,i//3*280+24));draw.text((i%3*256+8,i//3*280+6),d+' '+f,fill='#243d35')")
-p.write_text(t,encoding='utf-8')
-

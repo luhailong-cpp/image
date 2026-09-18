@@ -1,9 +1,0 @@
-from pathlib import Path
-p=Path(r'E:\work\image\qdao_chibi_roster_v12\review\approve_lion_guard_20260914.py');t=p.read_text(encoding='utf-8-sig')
-t=t.replace('25_lion_drum_guard','30_han_xiangzi').replace('25-lion-guard','30-han-xiangzi').replace('25_lion_guard_natural_fixes/phase-plan.json','han_xiangzi_natural_gait_fixes/review/phase-mapping-right-first.json').replace('lu_natural_west','lu_natural_north').replace('5d90d5b04eea74bf5f780e221fc5cfb8e1de313faac344e9258a4e9b45a7b840','c625eb54989646761d4150ffe6ab6bb572ae7fbbaf1ea1c375ebee304a17ed62')
-t=t.replace('Distinct short-haired sturdy lion drum guard identity, red and ivory cloth costume, dark trousers, wraps and boots; no magical light or fantasy armor.','Distinct young Han Xiangzi identity, black small bun and blue cloth ribbon, blue and ivory cross-collar tunic, dark cloth trousers, white wraps and blue cloth shoes, one bamboo flute secured at anatomicalLEFT waist. No magical light or fantasy armor.')
-t=t.replace('10 authored lower pre-contact poses remove the prior high-knee march; strong guard strides and modest rear heel lift retained as character motion.','32 authored leg corrections lower exaggerated precontacts and high rear heel curls across all8 directions; original contact stride lengths and appropriate rear-view depth retained.')
-t=t.replace('3 idle head shapes rebuilt to match same-direction walks; source changes limited to13 whole cells and cycle rotation.','Six earlier authored head corrections preserved; original portrait,8idle and32other walk source cells retained. All8 direction cycles rotated together05..08,01..04 to canonicalRIGHT first. Root reviewed all8 nine-cell final boards; after explicit4px edge cleanup72/72 alpha,G,geometry and protected reds are verified unchanged, with N/SE final edge spot checks.')
-t=t.replace('25 visually approved','30 visually approved')
-out=p.with_name('approve_han_20260914.py');out.write_text(t,encoding='utf-8')
-
