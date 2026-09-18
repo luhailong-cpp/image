@@ -1,0 +1,49 @@
+# Unity/client HD integration handoff — 2026-09-18
+
+## Completed 512 fallback integration
+
+Original03 Lotus Healer V13 is formally published. The sealed 00–03 sources were not reprocessed. `E:/work/image/qdao_original_roster_v13/runtime-validation/accepted-originals-run3` contains real Edit329/329, Play21/21, actual offline city movement/screenshots, publication dry-run/execute and independent old-resource protection audit. Exact 148 added03 authored files match the tested input; prior2666 protected character files have zero changes/removals/additions. This is the original512 fallback, not HD completion. `character_move_8dir` is documentary-linked to original00, not a24th identity.
+
+## Implemented formal client files
+
+Owned by unity_integration:
+
+- `Assets/Scripts/World/QdaoCharacterCatalog.cs`
+- `Assets/Scripts/World/QdaoOriginalHdResourceIndex.cs` plus Unity-generated `.meta`
+- `Assets/Editor/QdaoOriginalHdResourceIndexBuilder.cs` plus `.meta`
+- `Assets/Editor/QdaoCharacterSpriteImporter.cs`
+- `Assets/Tests/EditMode/Tianyong/QdaoOriginalAppearanceTests.cs` (fixture limits legacy metadata to V13)
+- `Assets/Tests/EditMode/Tianyong/QdaoOriginalHdAppearanceTests.cs` plus `.meta`
+- `Assets/Tests/PlayMode/QdaoRosterSandboxPlayModeTests.cs` (sequential HD observation and actual camera telemetry)
+
+Ownership update: parent transferred Animator, BattleArtCatalog, BattleUnitView, BattleFx afterimage ownership, cache helpers and all relevant tests to unity_integration. The complete 16 C# +16 meta source-copy manifest is recorded in runtime-validation/hd-client-contract-run2/source-copy.json; formal and isolated code match.
+
+The exact metadata contract is `HD_CONTRACT_PROPOSAL.md`. RuntimeAppearance exposes IsHd, FrameWidth/Height, PortraitWidth/Height, PixelsPerUnit and Pivot. OriginalV14 uses1024/104 with unchanged worldsize, speed and cadence; complete approved HD preferred, same-ID V13 fallback. A failed currently selected HD revision is rejected across consumers until import refresh/new revision; an old actor failure cannot poison a newer accepted revision.
+
+The137-row index has no Texture2D/Object references. Editor checks actual GUID/path/stat/header; builder hashes everyPNG and binds manifest/activation/validation. Import, delete, move and index changes invalidate selections; deleting the derived index regenerates it from complete approved sources. Build preprocessing rechecks allHD resources. Successful inventory checks are memoized by revision. Unity LazyLoadReference.isBroken was rejected because official docs say it may load the asset.
+
+Derived-index script GUID is07a716ef6e779ac47b621f394f91bcb9, identical formal/isolated. Prefer publishing140 authored files and let formal Unity rebuild the index with its PNG GUIDs. Never copy isolated runtime-index.asset alone without corresponding PNG metas. Bind all new scripts and metas in the V14 publisher, not only the old12 C# paths.
+
+## Actual verification
+
+`E:/work/image/qdao_original_roster_v13/runtime-validation/hd-contract-preparation-run1` preserves a real compile failure (unsupported NUnit Is.AnyOf). Corrected to Is.EqualTo(13).Or.EqualTo(14).
+
+`hd-contract-preparation-run2` passed real Unity Edit348/348, HD-contract cases19, failed/skipped0, process exit0. XML UTC08:13:25–08:16:15. Input25,967 files SHA da32960ef50453b4ea56c9297e9046a92b3c99f87da0afb9f46ab984cdf01406. XML SHA d2400febdc7ef654b652025d7ddcae1144781cbcfd14cd4037a163bfee4c6e96. Seven copied source hashes match saved input and current isolated files. `result-review.json` SHA7391d71ac95f293685c3dcab98cc22e58db3e6d71b90de3ba5212fb156abceba.
+
+Run2 contains old Animator/Battle, only existing512 Original00–03, noHDcandidate and noPlay execution. It does not validate HD gameplay, cache residency or artwork. Formal post-Run2 changes not yet tested: old-actor/new-HD-revision race fix +1test, moving V14 importer invalidation to correct condition, actual normal/nearest camera telemetry, saving measured movement poses before later eviction.
+
+## Combined client implementation and current verification
+
+The full cache implementation is complete in formal and isolated code. QdaoHdResources owns only active direction leases (16 walk+1 idle), reference-counts textures across revisions, and releases inactive sets. The animator has one rendering direction and at most one independent inspection direction. BattleUnitView, pooled/direct afterimages and temporary StripAnim handles retain displayed sprites safely. Pending idle selection retains the old displayed sprite until all Images are assigned. A rejected HD revision propagates to actors and live battle units; old actors cannot reject a newer revision. No HD strip or full137-texture catalog preload is required.
+
+The sandbox observes all8 directions sequentially via EnsureDirectionFrames/ReleaseObservedDirection, keeps visible sprite/facing unchanged, records actual dimensions/PPU/idle and maximum residency, and freezes movement poses before eviction. Fourteen new PlayMode cases exercise the real loader with isolated in-memory1024 fixtures, including all23 identities,8directions,30ms cadence, partial load failures, atomic same-ID512 fallback, shared revision textures, actual BattleUnitView/AfterimagePool ownership and pending image swaps. These fixtures never enter Resources or Available.
+
+Combined `hd-client-contract-run1` preserved a real compile failure CS0576: the new test Vector3 alias conflicted with a global protocol type. Exit1, no tests executed, no Play launch. Only the test alias was corrected to UnityVector3. No runtime source was changed for this correction. `hd-client-contract-run2` is currently capturing a new full Edit input; actual Edit and Play results are pending. Do not treat preparation348/348 as verification of this later cache code.
+
+Next: complete independent run2 Edit/Play and input/source bindings, retaining all failures. Actual staged resources remain Original00–03 at512 and HD Available0. A full approved137PNG set still needs separate staging and real-HD gameplay/artwork acceptance. Run3 inputs and sealed artwork remain untouched.
+
+For clarity evidence, the formal sandbox now saves actual normal camera projection and HD nearest-zoom screenshots (1920x1080), requested/actual ortho, projected frame pixels, texture scaling and clipping. Existing camera focuses feet: zoom5 projects a full frame to~1063px and can crop the top. This is recorded honestly; no gameplay camera behavior was changed. Actual V13 normal03 content-height estimate is~164px at1080,218px at1440 with zoom27; output512 does not imply512screen pixels.
+
+A temporary image-directory visibility interruption occurred around08:18–08:21UTC while another python process ran. Directories reappeared and the exact Run2 snapshot/XML plus Run3 audit were verified. No isolated inputs were changed in response, and no recovery was fabricated. The coordinator was notified.
+
+Current operation: combined run2 full input capture is active; no Unity process is active during capture. Update this status after actual execution.

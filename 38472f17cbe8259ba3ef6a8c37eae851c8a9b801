@@ -1,0 +1,18 @@
+# Accepted Original 01 — actual Unity run2
+
+This run adds the frozen `01_ice_sword_girl` to the existing isolated project `E:/work/tmp/qdao-original-live-candidate-20260917`. Already accepted00 and02 remain present and are exercised again. Original03 was explicitly excluded before snapshot capture and belongs to a later run.
+
+- EditMode **329/329 passed**, 0 failed/skipped; 2026-09-17 15:14:03–15:15:53 UTC (`editmode.xml`).
+- PlayMode **21/21 passed**, 0 failed/skipped; 15:23:43–15:24:03 UTC (`playmode.xml`).
+- Actual schema2 `testedOriginalCount=3`, `selectedAppearanceCount=11`, completed behavior assertions. This is a fresh run with the new01 assets, not acceptance borrowed from run1.
+- All three Originals actually loaded 8 directions ×16 unique separate512px textures, version13, 30ms/frame, cycle480.00003ms. Manifest and activation bytes match the sealed candidates.
+- Each Original completed a northward real CharacterController route, 4.800003 world units in about0.533333s, with16 observed poses and movement speed9. Each stopped on the dedicated idle within2 stationary frames. The separate animator test exercised all eight directions; real navigation was one northward route per character.
+- The actual V12 controller baseline remains version12/8frames, speed9, cycle480.00003ms and4.32000017 world units. The new16-frame cadence preserves speed and cycle distance. Actual missing-resource/identity/version/fallback tests passed.
+
+The Edit snapshot has25,495 files. Compared with run1 post-state, precisely148 new01 resources were added; no existing file changed or disappeared. Unity then generated159 new01 `.meta` files, producing the25,654-file Play snapshot with SHA `22085d15234754ae4d1197243163ddf589b761fbaea24d206b1e738f9018229a`. `bind_inputs.py` checked444 actual staged resources and12 current character-related source files against this snapshot and the formal source. Observer and launch records bind the exact input snapshot.
+
+`post-playmode.json` independently hashes all25,654 files: **0 added, 0 removed, 0 changed**, SHA `f5209a1098d7bfb79166c868b061b30aba7ff470aaa211fd4bf7249bf0b2879f`. Input capture checks symlinks, junctions, hardlinks and file stability; the exact tool is archived as `capture-inputs.py`.
+
+The actual `city-captures/tianyong-01_ice_sword_girl.png` was viewed and shows the expected hair, blue sword/outfit, identity label, clean transparency and ground placement. The screenshot facesN and is captured before her measured route. This is the real **offline Tianyong sandbox** and real motor, not online-login validation. Raw reports/logs/XML/snapshots are preserved unchanged; `runtime-result-review.json` records inspected values and the screenshot SHA. Processor/verifier/publisher/vendor bytes at runtime completion are archived in `processing-tools-at-runtime`.
+
+Formal publication **completed**: `publish-dry-run.json` first returned ready, then `publish-execute.json` added exactly `01_ice_sword_girl` to `E:/work/mmorpg-client/Assets/Resources/World/Characters/QdaoOriginalRosterV13`. Independent `formal-publication-audit.json` matched all148 files to the actual tested input, and all2,518 prior character files (including00/02 and V12) were unchanged. The formal execute used the newer verifier with optional recorded chroma thresholds and fully reconstructed all136 old100/150 records; its result matched the sealed validation. Tool bytes before the optional feature and at execute launch are archived separately. The real Unity run was in the isolated project; these tested resource bytes were then published into the formal project.

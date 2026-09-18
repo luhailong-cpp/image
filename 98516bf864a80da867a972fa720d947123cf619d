@@ -1,0 +1,117 @@
+{
+  "appearance": "lanxian_spring",
+  "reviewedAtUtc": "2026-09-17T15:21:52.506516+00:00",
+  "selectedVersion": "pair-v6",
+  "selectedPair": "builtin_q64_production/lanxian_spring/pair_r08_c06_c07/output/pair-v6.png",
+  "selectedPairSha256": "27dee3991b955c248235d0330dee4dd25dfeabb568f9bad6c84a80281c5b3510",
+  "scope": "Local two-tile candidate: r08_c06 and r08_c07. Inspected listed exact-pixel crops plus overview; not an exhaustive full-city or runtime review.",
+  "formalAcceptance": false,
+  "wholeCityAccepted": false,
+  "nearestGameplayCameraAccepted": false,
+  "externalNeighborSeamsAccepted": false,
+  "crossAppearancePixelGeometryAccepted": false,
+  "status": "all_six_full_internal_seam_bands_reviewed_targeted_top_gaps_repaired",
+  "sourceRoute": "builtin_image_gen",
+  "requestedModel": "GPT Image 2.0 highest available through builtin route",
+  "backendModelVerified": false,
+  "sourceResampling": "subpixel alignment only; native dimensions retained; local color matching",
+  "registrationLimits": "Flow bounded to 8 pixels independently in X and Y at selected patch edges. Exact flow and RGB correction fields saved. Interior native pixels and zero-mask context asserted unchanged. No final-image upscaling.",
+  "reviewedEvidence": [
+    {
+      "file": "builtin_q64_production/lanxian_spring/pair_r08_c06_c07/qa/pair-v5-overview.jpg",
+      "kind": "overview_only",
+      "pixels": [
+        1600,
+        800
+      ]
+    },
+    {
+      "files": "builtin_q64_production/lanxian_spring/r08_c07/qa/seam_x{1024,2048,3072}_y{1024,2048,3072}_100pct.png",
+      "kind": "nine initial internal intersections, each viewed at original 900 pixels; targeted failures subsequently repaired"
+    },
+    {
+      "files": "builtin_q64_production/lanxian_spring/pair_r08_c06_c07/qa/boundary-v1-{0,1,2,3,4}_100pct.png",
+      "kind": "five initial cross-4K boundary crops, each original 900 pixels"
+    },
+    {
+      "file": "builtin_q64_production/lanxian_spring/pair_r08_c06_c07/qa/curve-return-v4-full_100pct.png",
+      "rectInPairXYXY": [
+        6838,
+        300,
+        8192,
+        1744
+      ],
+      "kind": "final curve patch with all in-image return margins, original pixels"
+    },
+    {
+      "files": "builtin_q64_production/lanxian_spring/pair_r08_c06_c07/qa/boundary-full-v3-{0,1}_100pct.png",
+      "kind": "top and middle 1254-pixel boundary crops viewed; same artwork retained outside later strip repair"
+    },
+    {
+      "file": "builtin_q64_production/lanxian_spring/pair_r08_c06_c07/qa/strip-return-v5-full_100pct.png",
+      "rectInPairXYXY": [
+        3250,
+        1880,
+        4704,
+        2700
+      ],
+      "kind": "final exact-pixel strip repair with 100-pixel margins"
+    }
+  ],
+  "resolvedFindings": [
+    "Existing r08_c06 paving dead ends repaired with original native patches and recorded small registration; spring duplicate roof joint repaired.",
+    "r08_c07 curved paving broken joints and the internal right return step replaced by a native patch extending to the current right tile edge; final original-pixel crop showed continuous grooves.",
+    "The v3/v4 hard horizontal cutoff at pair y2278 was actually observed on final checking and rejected. A new 1254 native repair was cropped to its central 1254x620 pavement band and registered into [3350,1980,4604,2600]; v5 original-size review shows continuous diagonal grooves across that location. Roof, leaves and red ornament below this band remain from v4.",
+    "Full-length seam inspection found a truncated curved-curb joint at c07 approximately (3000,250), repaired with a new native crop; day also had a short separated groove at (2140,195). The exact-pixel v6 context was viewed after compositing and those gaps are now continuous."
+  ],
+  "residualObservations": [
+    {
+      "priority": "P3",
+      "area": "older r08_c06 painted paving versus new r08_c07 clean paving",
+      "observation": "Painterly grain and bevel width vary locally; not a uniform material-texture pass."
+    },
+    {
+      "priority": "P3",
+      "area": "selected grout intersections in final curve crop",
+      "observation": "Small local bevel/dark-groove width variations remain, with no observed repeat of the previously located large dead ends in this inspected crop."
+    },
+    {
+      "priority": "P3",
+      "area": "r08_c07 around x1024,y2048",
+      "observation": "Tree/planter ground shadow has faceted color transitions; silhouette stays connected in the viewed crop."
+    },
+    {
+      "priority": "P3",
+      "area": "c07 near x1535,y3100 and isolated bevel transitions",
+      "observation": "Small bevel-width notches remain; full-band inspection showed connected grooves, not missing sections."
+    }
+  ],
+  "limitations": [
+    "Adjacent r08_c08 and all top/bottom/left outer neighbors are unmade or unreviewed in this batch; the 115-pixel outer halo is working context, not accepted delivery art.",
+    "Day/spring new tree planter and roads use the common footprint; existing c06 architecture/roof ornaments and paving microgeometry differ between appearances. No pixel-aligned interchangeable-layer or navigation approval.",
+    "Nearest gameplay-camera view, collisions, streaming integration and client publication were not tested here.",
+    "4096 dimensions and byte-identity checks are mechanical evidence, not formal art acceptance."
+  ],
+  "fullInternalSeamCoverage": {
+    "boundaries": [
+      "x1024",
+      "x2048",
+      "x3072",
+      "y1024",
+      "y2048",
+      "y3072"
+    ],
+    "eachLength": 4096,
+    "bandWidth": 294,
+    "originalPixelSegmentsPerBoundary": 4,
+    "all24SegmentsViewed": true,
+    "evidenceManifest": "builtin_q64_production/lanxian_spring/pair_r08_c06_c07/qa/full-seams-c07/manifest.json",
+    "postRepairEvidence": "builtin_q64_production/lanxian_spring/pair_r08_c06_c07/qa/fullseam-top-v6-context_100pct.png",
+    "postRepairRectInPairXYXY": [
+      6036,
+      0,
+      7490,
+      650
+    ]
+  }
+}

@@ -1,0 +1,838 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-09-17T11:07:20.545984+00:00",
+  "status": "candidate_pending_visual_QA_not_published",
+  "published": false,
+  "scope": "One more-Q/chibi lanxian_spring r08_c06 4096-square candidate at 65536-square whole-city density, covering 18.75x18.75 world units, from 16 native1254 patches; not a complete city map.",
+  "backendModelVerified": false,
+  "backendModel": null,
+  "userSelectedModel": "GPT Image 2.0 (host builtin)",
+  "modelEvidenceNote": "User selected the builtin route. No backend model selector is exposed; do not claim a model from the prompt.",
+  "plan": {
+    "file": "plan.json",
+    "sha256": "9c30faec536d6f7440563952760849c5e621f15851ad3c931b7d235314e14848"
+  },
+  "wholeCityPixels": [
+    65536,
+    65536
+  ],
+  "wholeCityGrid": {
+    "rows": 16,
+    "columns": 16
+  },
+  "worldRect": {
+    "x": 50,
+    "z": 0,
+    "width": 300,
+    "height": 300
+  },
+  "sampleTile": {
+    "id": "r08_c06",
+    "row": 8,
+    "column": 6,
+    "worldRect": {
+      "x": 143.75,
+      "z": 150.0,
+      "width": 18.75,
+      "height": 18.75
+    }
+  },
+  "samplePixelRectInWholeCity": [
+    20480,
+    28672,
+    24576,
+    32768
+  ],
+  "script": {
+    "file": "assemble_builtin.py",
+    "sha256": "82ba75858ec37fb820ad14523b23a4e65c19671ef7d0d1ccbd68a10b49955948"
+  },
+  "seamHelper": {
+    "file": "E:\\work\\image\\tianyong_festival_hd_20260910\\seam_helpers.py",
+    "sha256": "3c9fb69c334985b77a51b254b59b5945bec893e746bda0ff71b0d41dca167a48",
+    "importedFunction": "_minimum_vertical_seam"
+  },
+  "grid": {
+    "rows": 4,
+    "columns": 4,
+    "order": "row-major",
+    "origin": "top-left"
+  },
+  "corePixels": 1024,
+  "nativePatchPixels": 1254,
+  "contextPerSide": 115,
+  "adjacentOverlap": 230,
+  "assembledBeforeOuterCrop": [
+    4326,
+    4326
+  ],
+  "outerCropPerSide": 115,
+  "composition": {
+    "method": "existing minimum-error seam; horizontal row strips then vertical strip joins",
+    "featherRadiusPixels": 2.0,
+    "blendArithmetic": "uint32 weighted sum; (left*(255-alpha)+right*alpha+127)//255",
+    "identicalInputPixelsPreserved": true,
+    "colorMatching": false,
+    "globalBlur": false,
+    "sharpening": false,
+    "guidePixelsCompositedIntoFinal": false,
+    "sourceResampling": false
+  },
+  "finalArtUpscaled": false,
+  "nativeSources": [
+    {
+      "id": "r01_c01",
+      "row": 1,
+      "column": 1,
+      "nativeFile": "native/r01_c01.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "386621bcc1a4be7d389c92abc16405e58e9b3f96ae976fe5565a7d229a0ba9c3",
+      "recordFile": "native/r01_c01.record.json",
+      "recordSha256": "e40b7c8bb424e705ab4fc7350c006e172579891ee1dad98e4a0b8761fd6e0c8e",
+      "promptFile": "prompts/r01_c01.prompt.txt",
+      "promptSha256": "12d6708967993f5b079c2e0ff5d17032881ff9fb135f3d5988f0d4ed5e14f913",
+      "guideFile": "guides/r01_c01.layout-only.png",
+      "guideSha256": "55c4913db944712006a70f481eca2c21326cb11cd302d3e1d0f29094a2c9f5ab",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0ad50-c24b-73d3-b871-420d3a9a9b6a\\exec-f493b502-4aec-4711-a887-0c26c01581c3.png",
+      "sourceOutputSha256": "386621bcc1a4be7d389c92abc16405e58e9b3f96ae976fe5565a7d229a0ba9c3",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "r01_c02",
+      "row": 1,
+      "column": 2,
+      "nativeFile": "native/r01_c02.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "14a7cd1dfc5f7ed933e626c307ab4dc0c81010152d4aad681ccd7f576a181045",
+      "recordFile": "native/r01_c02.record.json",
+      "recordSha256": "a11428251fc8346e064b857788fac0c6e2d8bb67e1428c5a1665c08406117bee",
+      "promptFile": "prompts/r01_c02.prompt.txt",
+      "promptSha256": "a6535900467516d69700c9bb13b56388350746b40bef38cccab375f202c3c678",
+      "guideFile": "guides/r01_c02.layout-only.png",
+      "guideSha256": "b1733ad344c941c7836accba371d32e3adc5ef61d0eeffb8ab3035698540675c",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0ad50-c24b-73d3-b871-420d3a9a9b6a\\exec-0d240b24-18b1-4073-a5ee-d5da6f8eb90c.png",
+      "sourceOutputSha256": "14a7cd1dfc5f7ed933e626c307ab4dc0c81010152d4aad681ccd7f576a181045",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "r01_c03",
+      "row": 1,
+      "column": 3,
+      "nativeFile": "native/r01_c03.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "d8fa0e9a7c7afd491946bd90744c5f8e072e5757def7438c39eb0904e46c8e4e",
+      "recordFile": "native/r01_c03.record.json",
+      "recordSha256": "9e335710406a4c78bfeb03d0cd05ac5a1d07d76ee4887c430b9b503b79799d63",
+      "promptFile": "prompts/r01_c03.prompt.txt",
+      "promptSha256": "c62709da9add6e298eb47ab1ea370c9ba11658e1a17bffb24c3282a9bfc2b72e",
+      "guideFile": "guides/r01_c03.layout-only.png",
+      "guideSha256": "b3ef2d55cc3f4ae879e685c007ba38779c028ab43f67faaf242ad043baefdd1e",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0ad50-c24b-73d3-b871-420d3a9a9b6a\\exec-1d58996c-b323-4e39-aaec-45a9d6beeeba.png",
+      "sourceOutputSha256": "d8fa0e9a7c7afd491946bd90744c5f8e072e5757def7438c39eb0904e46c8e4e",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "r01_c04",
+      "row": 1,
+      "column": 4,
+      "nativeFile": "native/r01_c04.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "a582abbe96dcc687a065cb8a2c468813642c58e0c6724c8bc5f4b7afd5678f65",
+      "recordFile": "native/r01_c04.record.json",
+      "recordSha256": "1b99eb371c3759dc43ac7f555ccfde6a4a8205f67b35060766711a77675306a7",
+      "promptFile": "prompts/r01_c04.prompt.txt",
+      "promptSha256": "686d5f74f32264a072078b7bc7e4ed34227149cd6925100b3dbc9e44506e4bb0",
+      "guideFile": "guides/r01_c04.layout-only.png",
+      "guideSha256": "8c161abb53dc7bc13c4585698211ff696ef4eeed17cc5945200c0c67571b3812",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0ad50-c24b-73d3-b871-420d3a9a9b6a\\exec-b7afac23-f262-4303-b99b-b9d3ee83835b.png",
+      "sourceOutputSha256": "a582abbe96dcc687a065cb8a2c468813642c58e0c6724c8bc5f4b7afd5678f65",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "r02_c01",
+      "row": 2,
+      "column": 1,
+      "nativeFile": "native/r02_c01.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "d0de370bb0dfac328db03d281f9b4d1edfb310f4421aedadc4d62b289ce5ec0f",
+      "recordFile": "native/r02_c01.record.json",
+      "recordSha256": "ab152d49ad5bce70e5761a6516e01b362389feb68e5a8624cf39503e457b6fcb",
+      "promptFile": "prompts/r02_c01.prompt.txt",
+      "promptSha256": "ccdbd5af2863a64ffa604a799a3d219f735a8bf3cd0f55c940555aa9b9e88040",
+      "guideFile": "guides/r02_c01.layout-only.png",
+      "guideSha256": "9ed5c1ce7b026ae941c865e81c5ac9f8d99e4e944a038d77e791e78d09314f7d",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0ad50-c24b-73d3-b871-420d3a9a9b6a\\exec-d73c7fb6-2aa6-4926-808b-148f28cddc51.png",
+      "sourceOutputSha256": "d0de370bb0dfac328db03d281f9b4d1edfb310f4421aedadc4d62b289ce5ec0f",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "r02_c02",
+      "row": 2,
+      "column": 2,
+      "nativeFile": "native/r02_c02.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "6ec3feda38213e7fdbceb5ab366caae3274ffa4b11d8d6ac71604d209e873197",
+      "recordFile": "native/r02_c02.record.json",
+      "recordSha256": "bdabbb42bacdf03b7b3c5e419fec9f424aab47dbc40b8984ad4e655685863853",
+      "promptFile": "prompts/r02_c02.prompt.txt",
+      "promptSha256": "44f18a319c7fa3ff6a6dffea49ab2c9b807f3ed4ee3de9fdbf10d8d0a4bdd184",
+      "guideFile": "guides/r02_c02.layout-only.png",
+      "guideSha256": "af1097633d67e45cc7906f6a98986cc890f4235f2ceb1eca0311da9c223c9f1f",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0ad50-c24b-73d3-b871-420d3a9a9b6a\\exec-73c215d0-9f24-41dd-b634-1d22255cf89d.png",
+      "sourceOutputSha256": "6ec3feda38213e7fdbceb5ab366caae3274ffa4b11d8d6ac71604d209e873197",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "r02_c03",
+      "row": 2,
+      "column": 3,
+      "nativeFile": "native/r02_c03.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "69b4683deb89d1890ccc5ee956321c0bea191231d363b16665b75898131e2932",
+      "recordFile": "native/r02_c03.record.json",
+      "recordSha256": "13999ec6f38c41c1571020ba823d724750911008d0876bdfb52f5735e13a7093",
+      "promptFile": "prompts/r02_c03.prompt.txt",
+      "promptSha256": "f07181cd62571eff08adfb3484d81fafe9ed8c4540451683a254e5ef76a3ede9",
+      "guideFile": "guides/r02_c03.layout-only.png",
+      "guideSha256": "0a3171bd98fd572de7425f8e129b030ff0e08933ca05c33789f0b8f83da4ba45",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0ad50-c24b-73d3-b871-420d3a9a9b6a\\exec-0f51e0e6-678d-4fa5-a580-ed8061a66d2d.png",
+      "sourceOutputSha256": "69b4683deb89d1890ccc5ee956321c0bea191231d363b16665b75898131e2932",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "r02_c04",
+      "row": 2,
+      "column": 4,
+      "nativeFile": "native/r02_c04.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "05a13290ae62b01980f387b96a178bc62550bf9542376c855894c1e4dfcca724",
+      "recordFile": "native/r02_c04.record.json",
+      "recordSha256": "561ad1a1805a306292565d5aa647477872f80b070fd615145d9a2aee6373c4de",
+      "promptFile": "prompts/r02_c04.prompt.txt",
+      "promptSha256": "9836d4c3de4f5813c444dbc873f3601078ef907e983e1b71d078160667ddc30e",
+      "guideFile": "guides/r02_c04.layout-only.png",
+      "guideSha256": "2abbd890d51a656799c3d79b5a16b6bf667ef8d672b372252c2c53280920ab7b",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0ad50-c24b-73d3-b871-420d3a9a9b6a\\exec-f8aa611c-b909-445c-8d17-fcd963d33359.png",
+      "sourceOutputSha256": "05a13290ae62b01980f387b96a178bc62550bf9542376c855894c1e4dfcca724",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "r03_c01",
+      "row": 3,
+      "column": 1,
+      "nativeFile": "native/r03_c01.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "724158c2263536546b1e83a7c91c46d3c79c5df2326024f6e8e62d8e0abb71b5",
+      "recordFile": "native/r03_c01.record.json",
+      "recordSha256": "949d687c44f758ccefb6f539cc0c4180de718401d8c4129e188aac7c854e5639",
+      "promptFile": "prompts/r03_c01.prompt.txt",
+      "promptSha256": "9bad1438e93e825795010209456f83ecd249b2acc58719d64e94fa7b152e48d6",
+      "guideFile": "guides/r03_c01.layout-only.png",
+      "guideSha256": "0e5ceda9dfae26aea44d30be2050764f6508170cd792d63c4cfe7378100dfb24",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0ad4d-500d-7c83-87fa-a0a2b62155fe\\exec-593bd255-416b-4e6a-a3fc-d8aba2ca41e5.png",
+      "sourceOutputSha256": "724158c2263536546b1e83a7c91c46d3c79c5df2326024f6e8e62d8e0abb71b5",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "r03_c02",
+      "row": 3,
+      "column": 2,
+      "nativeFile": "native/r03_c02.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "e6c7d13a202d795f2e1f6df1878df0ae6e498e061b51efd6663404f3e0ee4452",
+      "recordFile": "native/r03_c02.record.json",
+      "recordSha256": "bacbb94cfd36ff9eb459a39020509b45455208af96b18b9decb6ef25d70804c5",
+      "promptFile": "prompts/r03_c02.prompt.txt",
+      "promptSha256": "51850baf222ce3aa56655cc2eb0a99264be3e0772f3b509fdb63e76adce25426",
+      "guideFile": "guides/r03_c02.layout-only.png",
+      "guideSha256": "1b588d33a28ba5a9ba04c9e7a5f456fbe1ac4b5ae66880002f493a7486fc1646",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0ad4d-500d-7c83-87fa-a0a2b62155fe\\exec-130b4f64-2b37-4b41-8b7c-f32c537ce1ca.png",
+      "sourceOutputSha256": "e6c7d13a202d795f2e1f6df1878df0ae6e498e061b51efd6663404f3e0ee4452",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "r03_c03",
+      "row": 3,
+      "column": 3,
+      "nativeFile": "native/r03_c03.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "5f6b4e9c1dfe56204e17bd77f5c93b1ebcb54405ac908e116b58d8fee5677a98",
+      "recordFile": "native/r03_c03.record.json",
+      "recordSha256": "3dc5f17ee6314b9168a0b06977b71de36d2d9b05a49bbe1fd2a92ec85c8c2ed8",
+      "promptFile": "prompts/r03_c03.prompt.txt",
+      "promptSha256": "24da9b493130138c783b84fe889fdf60a2223d5baaef6a49b52e5c5230dcb6b6",
+      "guideFile": "guides/r03_c03.layout-only.png",
+      "guideSha256": "6d0e540a0ce6ae8352e8beb3f1336eb1783a78849d03b161c8cf30195b94d6b7",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0ad4d-500d-7c83-87fa-a0a2b62155fe\\exec-408eb091-d299-408d-a02c-3dcae3b46b53.png",
+      "sourceOutputSha256": "5f6b4e9c1dfe56204e17bd77f5c93b1ebcb54405ac908e116b58d8fee5677a98",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "r03_c04",
+      "row": 3,
+      "column": 4,
+      "nativeFile": "native/r03_c04.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "15c1b1a3607295f79ab86b10a801137ca8f62b6d831eca712e96467f813b01e5",
+      "recordFile": "native/r03_c04.record.json",
+      "recordSha256": "bd5139debbc1baeef043b20b932deb390955d0cca5737656b6ecfd592dc7c449",
+      "promptFile": "prompts/r03_c04.prompt.txt",
+      "promptSha256": "ad4ce9091ea1157655601a5e0183f576a11a3da3be0fbb21cc9288a4e48b5836",
+      "guideFile": "guides/r03_c04.layout-only.png",
+      "guideSha256": "8fdd1b7bb6c3702d68051b3b097142938ad1e9b5b5cfa8c97c342b3fc8a98ce1",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0ad4d-500d-7c83-87fa-a0a2b62155fe\\exec-e19201dc-309b-43ac-ab4e-c50924c373e5.png",
+      "sourceOutputSha256": "15c1b1a3607295f79ab86b10a801137ca8f62b6d831eca712e96467f813b01e5",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "r04_c01",
+      "row": 4,
+      "column": 1,
+      "nativeFile": "native/r04_c01.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "9e61b9057ee6f2bffc6de594d7d21557dd8875700caa83cfa50c7b23fe452fa4",
+      "recordFile": "native/r04_c01.record.json",
+      "recordSha256": "f19cdcf97c5fdd5a8dc755d3edda0d9db05b2baf2d09a65b043076dc25928128",
+      "promptFile": "prompts/r04_c01.prompt.txt",
+      "promptSha256": "c3403a6defe3c8f43c04a3c5d1bbe5110868f8b9df14c74e7a008df3314ae7f3",
+      "guideFile": "guides/r04_c01.layout-only.png",
+      "guideSha256": "22af3dacefbb3ec197feb1d7e41eab09b150ade60071e4cd64a09525c0b7d680",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0ad4d-500d-7c83-87fa-a0a2b62155fe\\exec-0a85c48c-3d26-4fc1-b20f-e9e2c75945ca.png",
+      "sourceOutputSha256": "9e61b9057ee6f2bffc6de594d7d21557dd8875700caa83cfa50c7b23fe452fa4",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "r04_c02",
+      "row": 4,
+      "column": 2,
+      "nativeFile": "native/r04_c02.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "fcecd079815372265cf7cf22c489468894152bcd2808fc76625f3c90a77efc42",
+      "recordFile": "native/r04_c02.record.json",
+      "recordSha256": "bc64232a0a3e0e0fd8b4ed3359364277fa2aa0619544e345a07100401cfa672f",
+      "promptFile": "prompts/r04_c02.prompt.txt",
+      "promptSha256": "2ac9d75f57942e6fd4ebd46345f3ffa63761ba9c2748df5a42c3c4b250bcb7b3",
+      "guideFile": "guides/r04_c02.layout-only.png",
+      "guideSha256": "91db03e42de5d83209869ff69c3fb28566f895d5ca70d4c90d16edfa57f4764a",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0ad4d-500d-7c83-87fa-a0a2b62155fe\\exec-11e9c2f5-ee54-4adb-99fb-4ae05b8844cd.png",
+      "sourceOutputSha256": "fcecd079815372265cf7cf22c489468894152bcd2808fc76625f3c90a77efc42",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "r04_c03",
+      "row": 4,
+      "column": 3,
+      "nativeFile": "native/r04_c03.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "595096ccfb20f175c9b07695f6d6af696feb8b5f25233ae9aa9e2e0b52064691",
+      "recordFile": "native/r04_c03.record.json",
+      "recordSha256": "d4c06d574ecdb325abd53723827abd50822b1f5153293668239a3791a4be1653",
+      "promptFile": "prompts/r04_c03.prompt.txt",
+      "promptSha256": "49ca6d341571e0acde065021dc6a7044b074a76a18f1d02c9e3eb30114f4ad5c",
+      "guideFile": "guides/r04_c03.layout-only.png",
+      "guideSha256": "545e8c7cc1ce79f5e7c1317e536dc2a32143e21b2450666ce99a5a25968e0a45",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0ad4d-500d-7c83-87fa-a0a2b62155fe\\exec-b0ccba06-565d-4569-b6e5-142eab6d5a54.png",
+      "sourceOutputSha256": "595096ccfb20f175c9b07695f6d6af696feb8b5f25233ae9aa9e2e0b52064691",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "r04_c04",
+      "row": 4,
+      "column": 4,
+      "nativeFile": "native/r04_c04.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "2d0aae58bb13734f9ba361a10772eb75ccd1806e1c869a9ac3961f5896a63dd6",
+      "recordFile": "native/r04_c04.record.json",
+      "recordSha256": "e5349b06d2003d59e342018f1515f5c83c2de1fde10d9e7412727c41cf8ee3ce",
+      "promptFile": "prompts/r04_c04.prompt.txt",
+      "promptSha256": "373650b210cd89d682e59cf9b99b6165594df9f8da9ab8e13100f464647d0763",
+      "guideFile": "guides/r04_c04.layout-only.png",
+      "guideSha256": "82111e047bcc0dc2a8bfa069c4a3fbb3f684ed1697eb96220b5242af87779c15",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0ad4d-500d-7c83-87fa-a0a2b62155fe\\exec-5c6e7280-19ce-4e6a-9232-b2a4dd742da5.png",
+      "sourceOutputSha256": "2d0aae58bb13734f9ba361a10772eb75ccd1806e1c869a9ac3961f5896a63dd6",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true
+    }
+  ],
+  "seamMetrics": [
+    {
+      "label": "row01_join_c01_c02",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 70,
+      "seamMax": 206,
+      "seamMean": 143.98883572567783,
+      "beforeBlendMeanAbsoluteDifference": 26.74399486859441,
+      "beforeBlendP95AbsoluteDifference": 104.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row01_join_c02_c03",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 107,
+      "seamMax": 209,
+      "seamMean": 161.4090909090909,
+      "beforeBlendMeanAbsoluteDifference": 9.179270970575319,
+      "beforeBlendP95AbsoluteDifference": 35.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row01_join_c03_c04",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 19,
+      "seamMax": 185,
+      "seamMean": 88.15629984051037,
+      "beforeBlendMeanAbsoluteDifference": 13.659154473799783,
+      "beforeBlendP95AbsoluteDifference": 54.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row02_join_c01_c02",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 58,
+      "seamMax": 210,
+      "seamMean": 152.2017543859649,
+      "beforeBlendMeanAbsoluteDifference": 8.200127129417748,
+      "beforeBlendP95AbsoluteDifference": 22.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row02_join_c02_c03",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 19,
+      "seamMax": 202,
+      "seamMean": 87.82057416267942,
+      "beforeBlendMeanAbsoluteDifference": 7.322461456671983,
+      "beforeBlendP95AbsoluteDifference": 23.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row02_join_c03_c04",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 102,
+      "seamMax": 198,
+      "seamMean": 149.17543859649123,
+      "beforeBlendMeanAbsoluteDifference": 6.971368143679356,
+      "beforeBlendP95AbsoluteDifference": 21.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row03_join_c01_c02",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 94,
+      "seamMax": 210,
+      "seamMean": 150.75438596491227,
+      "beforeBlendMeanAbsoluteDifference": 9.810267434066061,
+      "beforeBlendP95AbsoluteDifference": 28.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row03_join_c02_c03",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 19,
+      "seamMax": 210,
+      "seamMean": 130.04465709728868,
+      "beforeBlendMeanAbsoluteDifference": 11.36094584286804,
+      "beforeBlendP95AbsoluteDifference": 31.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row03_join_c03_c04",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 45,
+      "seamMax": 183,
+      "seamMean": 124.88277511961722,
+      "beforeBlendMeanAbsoluteDifference": 7.273005801724337,
+      "beforeBlendP95AbsoluteDifference": 21.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row04_join_c01_c02",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 111,
+      "seamMax": 190,
+      "seamMean": 155.74561403508773,
+      "beforeBlendMeanAbsoluteDifference": 8.387310172664863,
+      "beforeBlendP95AbsoluteDifference": 23.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row04_join_c02_c03",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 109,
+      "seamMax": 210,
+      "seamMean": 171.91786283891548,
+      "beforeBlendMeanAbsoluteDifference": 10.0581489956776,
+      "beforeBlendP95AbsoluteDifference": 26.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row04_join_c03_c04",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 42,
+      "seamMax": 198,
+      "seamMean": 122.16108452950559,
+      "beforeBlendMeanAbsoluteDifference": 7.434916672445277,
+      "beforeBlendP95AbsoluteDifference": 22.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "vertical_join_r01_r02",
+      "overlapPixels": 230,
+      "seamLength": 4326,
+      "seamMin": 19,
+      "seamMax": 191,
+      "seamMean": 87.72977346278317,
+      "beforeBlendMeanAbsoluteDifference": 19.669356837993394,
+      "beforeBlendP95AbsoluteDifference": 82.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "vertical_join_r02_r03",
+      "overlapPixels": 230,
+      "seamLength": 4326,
+      "seamMin": 19,
+      "seamMax": 207,
+      "seamMean": 120.69486823855756,
+      "beforeBlendMeanAbsoluteDifference": 9.597527253479132,
+      "beforeBlendP95AbsoluteDifference": 31.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "vertical_join_r03_r04",
+      "overlapPixels": 230,
+      "seamLength": 4326,
+      "seamMin": 20,
+      "seamMax": 204,
+      "seamMean": 135.05617198335645,
+      "beforeBlendMeanAbsoluteDifference": 7.289544848472666,
+      "beforeBlendP95AbsoluteDifference": 23.0,
+      "identicalInputPixelsPreserved": true
+    }
+  ],
+  "extendedContext": {
+    "file": "output/extended-context.png",
+    "pixels": [
+      4326,
+      4326
+    ],
+    "sha256": "5265dd94a70bd70047cd45b62181732667bbbc7c3dd5d49106746f20f720dcd4"
+  },
+  "externalAdjacent4kSeamsAccepted": false,
+  "output": {
+    "file": "output/lanxian_spring_r08_c06_q64_4k_candidate.png",
+    "width": 4096,
+    "height": 4096,
+    "mode": "RGB",
+    "format": "PNG",
+    "sha256": "7aafbf58fb54ab850ae2a908107876c98ff74a047e8ea0f1898075c3bbfd9f3c"
+  },
+  "qa": [
+    {
+      "file": "qa/overview_1024.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "kind": "downsampled-preview-only",
+      "sha256": "e5e57653d7fcb4842d605bdf64f674fd97e355d2d5a0c4b4552e8732ccb98b4d"
+    },
+    {
+      "file": "qa/detail_upper_left_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        350,
+        300,
+        1250,
+        1200
+      ],
+      "resized": false,
+      "sha256": "c04c9a334bce279c1ad089be2564b6fd62199faaee761719ec42cefd771ed19f"
+    },
+    {
+      "file": "qa/detail_lower_left_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        500,
+        2800,
+        1400,
+        3700
+      ],
+      "resized": false,
+      "sha256": "ba27faf4dca9a56414c0b16e7d0e5074c4e7f9c345e3512bf165bab09dae4d10"
+    },
+    {
+      "file": "qa/detail_lower_right_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        2800,
+        2800,
+        3700,
+        3700
+      ],
+      "resized": false,
+      "sha256": "4d6991291a6132cd732015d4a6814e0cb9e6a1d9ec81ff0fa59d71a49303216f"
+    },
+    {
+      "file": "qa/seam_x1024_y1024_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        574,
+        574,
+        1474,
+        1474
+      ],
+      "resized": false,
+      "sha256": "f5d382491e587b54b563dae6fc909e305ca4964a8b83513011c2f76396c0575c"
+    },
+    {
+      "file": "qa/seam_x2048_y1024_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        1598,
+        574,
+        2498,
+        1474
+      ],
+      "resized": false,
+      "sha256": "dc2f3170a3144a352c0565a1b75a99c75ca4dcd3b5d4190dcba693843e6b3190"
+    },
+    {
+      "file": "qa/seam_x3072_y1024_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        2622,
+        574,
+        3522,
+        1474
+      ],
+      "resized": false,
+      "sha256": "eb94e28bfa63d2932fc781554f0e1f59fc5e1bcdd3b43fd0e704c9d5411b913c"
+    },
+    {
+      "file": "qa/seam_x1024_y2048_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        574,
+        1598,
+        1474,
+        2498
+      ],
+      "resized": false,
+      "sha256": "db0993a6f10ec37208190c1451f17ba4489444f48f370106714072ad215c940a"
+    },
+    {
+      "file": "qa/seam_x2048_y2048_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        1598,
+        1598,
+        2498,
+        2498
+      ],
+      "resized": false,
+      "sha256": "706865aa201010dd58d739d5bc8a035c61dadeedd418b6cc11b273ed3276048e"
+    },
+    {
+      "file": "qa/seam_x3072_y2048_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        2622,
+        1598,
+        3522,
+        2498
+      ],
+      "resized": false,
+      "sha256": "1e35aadaaf16dce40e299b7f1c5bd3056e42ab95d16ffd6a84e7fd619022e0dd"
+    },
+    {
+      "file": "qa/seam_x1024_y3072_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        574,
+        2622,
+        1474,
+        3522
+      ],
+      "resized": false,
+      "sha256": "dedaf11a90e13e7fa8d979a995bef296facf3f78195bace50f35e68195420b67"
+    },
+    {
+      "file": "qa/seam_x2048_y3072_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        1598,
+        2622,
+        2498,
+        3522
+      ],
+      "resized": false,
+      "sha256": "f28e48d8d35b7f29372d26ca76790dbc79f67adcb01366aa6015550bd4ca4728"
+    },
+    {
+      "file": "qa/seam_x3072_y3072_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        2622,
+        2622,
+        3522,
+        3522
+      ],
+      "resized": false,
+      "sha256": "5efbec918b815b581855f51a89168fab9f325b8f2e254a83b6f9bbc80b5fa979"
+    }
+  ],
+  "visualQa": {
+    "status": "pending",
+    "note": "Numeric seam differences are diagnostic only; Q-style consistency, tree/garden/railing geometry, stairs and all seam intersections require visual review."
+  },
+  "runtimeIntegration": false,
+  "mechanicalValidation": {
+    "passed": true,
+    "nativeSources": 16,
+    "outputSize": [
+      4096,
+      4096
+    ],
+    "qaFiles": 13,
+    "status": "candidate_pending_visual_QA_not_published"
+  }
+}

@@ -1,0 +1,28 @@
+# Original roster V14 HD — close-up upgrade
+User decision (2026-09-18): “拉近看也清楚：提高原生细节与动画帧分辨率”.
+This supersedes the old 512-pixel deliverable for final completion. V13 remains an independent fallback; a V13 completion is not V14 HD completion.
+
+## Fixed artwork and runtime contract
+- Same original inventory IDs 00–22 and source commit 9adcf9291e4a867601868889a5965f3cd48630ba.
+- Native input cell must have both dimensions >=1024, be an unchanged whole native generated cell, and never be a resized copy presented as native.
+- Built-in image_gen only for new art; requested GPT Image2 per existing user authorization, actual backend unverified. No separately billed API authorized.
+- Delivered walk and idle PNGs:1024×1024 RGBA. Eight directions,16 distinct real walk poses each;8 independently drawn idles.30ms/480ms.
+- One fixed whole-cell common_scale per character. Preserve V13 common_scale when initially adopting its genuine high-resolution sources:00–03/06 0.88,04/05 0.84. No per-frame bbox scaling, mirroring, interpolation or copied poses.
+- Alignment v2 scaled:upper-body42%alpha median x512;lowest alpha>8 y942;integer translation. Alpha noise cleanup <=8 only; standard chroma100/150,05 purple-preserve50/75.
+- Sprite pixelsPerUnit104, normalized feet pivot(0.5,0.08), actor scale/speed unchanged.
+- 137 runtime PNGs=128walk+8idle+portrait; original4096 portrait whole-image downsample to1024 as before.
+- Eight 16384×1024 review strips may be built outside runtime inventory (review/strips); they are not required Resources textures.
+- Manifest version14, frame_size_px1024, native_cell_min_px1024, pixels_per_unit104; alignment root[512,942]; files lists137runtime PNGs only.
+- Availability must not eagerly load137textures across all23characters. Load and cache needed animation directions with bounded lifetime; validate full inventories at build/publish and reject incomplete/stale candidates. V14 preferred only after complete proof; fallback is same identityV13, never another character.
+- Only approved, full source-reconstructed, actually inspected images can be staged, tested in real Unity and published. New HD Unity input snapshots and source binding required.
+- Native-size limitation: current single-figure pilot returned1254×1254 despite request2048.1024delivery approximately matches current1080p closest-camera fullframe1063px (1.038x); not a claim of pixel-perfect4K closest-camera presentation.
+
+## Independent locations
+Root:E:/work/image/qdao_original_roster_v14_hd
+Runtime:Assets/Resources/World/Characters/QdaoOriginalRosterV14/<original-id>
+V13 frozen materials and evidence must not be overwritten.
+Pilot originals remain under V13/generation-hd-pilot with exact receipts, then may be imported immutably by V14.
+
+## Status
+Contract/pilot development. No complete HD character is accepted or published yet.
+

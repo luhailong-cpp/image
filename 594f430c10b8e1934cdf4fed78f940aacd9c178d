@@ -1,0 +1,146 @@
+# client_v13 交接 — 用户要求换窗口继续
+
+本窗口已停止新生图、长验收和工程写入。仅完成此交接文件。不要把 prompt 文件、已启动调用或未完成验证计为已完成。
+
+## 范围与固定合同
+
+- root 负责整体；asset_pipeline 独占隔离 Unity 验证、正式发布。本代理最近只负责06素材，03已完成并交接。
+- 原角色00–22身份来自提交9adcf9291e4a867601868889a5965f3cd48630ba，不能挂到 Lu 等其他角色ID。
+- 用户已授权内置生图；后续型号与最高画质遵守[统一设置](../config/image-generation.json)及[执行策略](../docs/IMAGE_MODEL_POLICY.md)。receipt 保留实际可得的后端证据。
+- 每个新姿势必须真实 image_gen 绘制。脚本仅抠图、去溢色、完整源格统一缩放、整数平移及忠实预览。禁止复制源格充帧、插值、镜像、局部形变造姿势。
+- 每方向16帧，30ms/帧，周期480ms；8独立idle，原始肖像。完整交付145PNG=128walk+8idle+8strip+portrait。
+- common_scale 固定0.88。真实对齐版本v2：上半身alpha中位轴256，最低alpha>8脚线471。不能冒称 Lu 的严格v3。
+- 续接先读 E:/work/image/AGENTS.md、C:/Users/luyua/.agents/skills/generate2dsprite/SKILL.md、E:/work/image/qdao_original_roster_v13/tools/README.md。
+- root 新增可选 --chroma-profile purple-preserve，记录阈值50/75；默认仍100/150。06不能自动切换，不能改共享pipeline。
+- 本会话 Windows ACL 问题：普通exec/view_image失败，exec_command 使用 require_escalated 和准确理由可正常操作。已有用户授权不必重新询问。
+
+## 03_lotus_healer_girl — 素材完整封存
+
+目录：E:/work/image/qdao_original_roster_v13/candidate/03_lotus_healer_girl
+
+manifest/QC/validation/visual-review 全部passed；145PNG逐项重核正确；136真实来源重建，0synthetic。已实际检查八向正常/放大截图、01/09承重、15/16/01接缝；浏览器实际播放观察八向均经历1–16、30ms步进及480ms回环。
+
+最终SHA256：
+- manifest.json：a22f6256ecb15cc4d39dd9dc5272895aca4e875b354f7ac5aa88390a18ceb5e4
+- qc.json：2b0486e01b42c2412653167f19dcd137b8f9902f55f6a5151dc3fd7f24aac7cc
+- validation.json：738934da3334a240d86667a99b0223ad105a05cace58eef86b1138234b0ef8a2
+- review/visual-review.json：3035ce79c36c40d2afdc3c3c1fef2db5322f88f582b484bf16a48c5fa6440f43
+- review/fresh-review-input-v2.json：014f6467e600c257002aedc4606524859f051cd72f231dc84203ec3a3757ed12
+
+审计重点：第一次 review/fresh-review-input.json 永久WITHDRAWN。root 发现SW07–11前鞋尖朝右下，随后真实 image_gen 修SW07–12朝左下，保留近远腿遮挡；重新查看正常300px与放大SW06–13后才通过。不可复用撤回记录。
+
+有效证据：
+- review/browser-final-candidate-v2/
+- review/approval-history/20260917T151643-505b9f1d/ （归档本次有效输入，归档文件名fresh-review-input.json）
+- review/approve-execution-v2.log （退出0）
+- review/sealed-handoff.json
+publisher 根据 review_input_sha256 匹配归档输入，支持本次v2，不会误用撤回文件。
+
+本代理完成03只读stage预检：
+E:/work/image/qdao_original_roster_v13/runtime-validation/accepted-originals-run3/stage03-dry-run.json
+结果ready_dry_run、blocked[]、writesPerformed=false；未执行--execute。
+appearanceSHA：
+3ca7f44bbf467cc10c64c750e270f705f8dbf04834ee56287ee1fd14077e5af8
+目标：E:/work/tmp/qdao-original-live-candidate-20260917。
+asset_pipeline 已明确接手 Run3 真stage、新快照、Unity与正式发布；它在01 Run2发布及保护审计结束后操作。03运行/发布最新状态请看其交接，本文不擅自宣称已完成。不要改冻结Run2或和asset_pipeline并写工程。
+
+## 06_thunder_caster_boy — 当前未完成
+
+库存中文名：雷法少年。
+原4096：
+E:/work/image/qdao_original_roster_v13/baseline/q_daoist_character_pack_4096/06_thunder_caster_boy_transparent_4096.png
+SHA256：abdfbe1fdc243ea6360a5d588f9ff1294fa2f0d43876d8b63aa452ec4889cd31，与原提交一致。
+形象：棕发大琥珀眼、短高马尾/黄丝带、额头阴阳夹、金白道袍、海军蓝灯笼裤及金边靴/白绑腿、阴阳腰扣与青玉珠。解剖RIGHT手持法杖、LEFT手持符牌；S正面杖在画面左，N背面杖在画面右。
+
+本代理专属目录：
+- E:/work/image/qdao_original_roster_v13/generation/06_thunder_caster_boy
+- E:/work/image/qdao_original_roster_v13/references/06_thunder_caster_boy
+- E:/work/image/qdao_original_roster_v13/candidate/06_thunder_caster_boy
+
+当前实际只有17交付PNG：原肖像1 + idle8 + S行走8。
+- S已存在：01、02、05、06、09、10、13、14。
+- S尚缺：03、04、07、08、11、12、15、16。
+- N/NE/E/SE/SW/W/NW 行走各0帧。
+- 没有完整16帧strip，没有整角色verify/浏览器行走验收/视觉批准/stage/发布。
+
+已导入真实源格映射（索引从0开始，按行读取）：
+|批次|原始网格|源格→输出|
+|---|---|---|
+|idle-eight-v1|2×4|0–7→N,NE,E,SE,S,SW,W,NW|
+|S-keys-v3|2×2|0,1,2,3→01,05,09,13|
+|S-quarter-v1|2×2|0,1,2,3→02,06,10,14|
+
+事实来源：candidate/06_thunder_caster_boy/processing/frame-sources.json。
+当前16个源记录均default100/150、common_scale0.88。
+已实看：8idle灰蓝底抠图，深蓝裤靴没有明显透明缺口；方向、左右持物符合。证据review/idle-contact.jpg及idle-preliminary-inspection.json只是初审，不能当最终批准。
+S01/09相反落脚与05/13相反抬膝源图已看过；quarter四张保留腿身份。整S尚未完成，CV、idle/walk尺寸差和接缝尚待完整验证。
+
+## 06 已保存与未返回内容
+
+所有已返回批次均已保存精确 *-prompt.txt、未修改实际 *-raw.png、真实 *-tool-result.json；receipt含output_hint、原生路径、raw/prompt SHA。不要仅凭generation目录有文件认为该批已导入。
+
+|批次|raw SHA256|实际状态|
+|---|---|---|
+|idle-eight-v1|7f7c8a10b441fe84253458870d1be9dd667618b392efa2655639239ee80658dd|8idle已导入|
+|S-keys-v1|dcafe23159619453a2299576292b1a0116d6ca0162d91adbc213fc88ee8e5a2b|S/01源格边缘触碰被拒；下排发梢越界，没有交付帧来自它|
+|S-keys-v2|1cccc118dc7bb786e7eaa3dd36e4a7eeb275544b0d3be0b43b5ed20edf95d563|真实工具修布局却缩到约83%格高，过小；视觉退稿未导入|
+|S-keys-v3|652779c2982d0e576935beb2f53525dfcca17e4026623be16e962990997875f3|真实工具恢复匹配高度并通过边缘门禁；4锚点已导入|
+|S-quarter-v1|92fd28335de9ea407c0f28ffb3ff48c30dc56d1ade3faf6ec3d663d6315ff131|4过渡已导入；透明源噪声由记录化alpha清理处理|
+
+下一份精确prompt已保存：
+generation/06_thunder_caster_boy/S-half-v1-prompt.txt
+要求基于quarter源生成03、07、11、15。
+对应 image_gen 调用在用户要求交接时ABORTED，没有返回图片、路径或output_hint；无 S-half-v1-raw.png/receipt，未导入。不要算作完成。
+本次文件系统检查发现原生生成目录最新仍是已保存quarter的exec-421f93ea-14e0-40da-aa50-b9b0679ecb53.png，没有后续half源。functions store 在中断恢复后已不可用；以后以文件为准。
+
+原生输出目录（保留，不移动删除）：
+C:/Users/luyua/.codex/generated_images/01a0ae2f-7ea2-79b0-98f9-3921a36bebcb
+- idle：exec-004bef2b-5c99-4657-9d5f-8c1979c041dc.png
+- keys1：exec-16729342-321a-49d7-b90a-60fd1e59cd8a.png
+- keys2：exec-2abaf14d-bc27-46c7-a217-379d3474e0eb.png
+- keys3：exec-e50fa760-9620-4a96-8c75-dcb56a8ffe39.png
+- quarter：exec-421f93ea-14e0-40da-aa50-b9b0679ecb53.png
+
+## 下一窗口精确续接步骤
+
+1. 先检查文件/源记录，然后查看 S-quarter-v1-raw.png。
+2. 用utf-8-sig读取 S-half-v1-prompt.txt，把精确文本传内置image_gen，引用刚显示quarter图（num_last_images_to_include=1）。不要改用脚本画图。如果local路径ACL失败，可提权Python读取并base64显示，再引用最近图。
+3. 收到真实结果后，用06专属 save_generation.py 保存原图和receipt。此脚本读JSONstdin，所需字段：batch_name、tool、output_hint、original_generated_path、num_last_images_to_include、model_requested、actual_model、source_references、visual_review、initial_inspection。matching prompt必须先存在；它添加raw/prompt SHA。所有工具结果必须真实，不可伪造。
+4. 看过真实源格且合格后，才运行：
+~~~powershell
+python -B E:/work/image/qdao_original_roster_v13/tools/pipeline.py import-walk --character 06_thunder_caster_boy --direction S --source E:/work/image/qdao_original_roster_v13/generation/06_thunder_caster_boy/S-half-v1-raw.png --prompt E:/work/image/qdao_original_roster_v13/generation/06_thunder_caster_boy/S-half-v1-prompt.txt --receipt E:/work/image/qdao_original_roster_v13/generation/06_thunder_caster_boy/S-half-v1-tool-result.json --batch-id S-half-v1 --rows 2 --cols 2 --output-frames 3,7,11,15 --common-scale 0.88
+~~~
+5. 再真实绘制2×2的04、08、12、16；当前没有该批prompt或图片。保存后同样导入，映射 --output-frames 4,8,12,16。
+6. S有16真实帧后：
+~~~powershell
+python -B E:/work/image/qdao_original_roster_v13/tools/verify.py --character 06_thunder_caster_boy --direction S
+python -B E:/work/image/qdao_original_roster_v13/tools/prepare_references.py --character 06_thunder_caster_boy --direction S --frames 1,5,9,13 --name reviewed-keys
+~~~
+7. 继续其他七向。references/06_thunder_caster_boy/{方向}-idle-source-cell.png 是真实完整源格归一512，没有乘0.88，可避免二次缩小。动作高度需匹配idle，不能每帧补偿缩放。keys-v1/v2退稿保留。
+8. 支持原生1×1、1×2、2×1、2×2、2×4、4×4；小网格必须explicit output-frames。source-cell-indices选择真实原格，禁止重排裁片伪造网格或掩盖边界裁切。
+9. 满145PNG后全verify、真实浏览器1倍正常/放大、01/09承重、脚尖方向及15/16/01接缝逐向检查；保存具体笔记和真实证据SHA，完成后才approve。可只读参考03脚本，复制到06专属路径，不可改已封存03。
+10. sealed06交asset_pipeline进入新同候选Unity验证与受控发布。本代理没有同时写游戏工程的权限边界。
+
+预览服务曾由root维护于 http://127.0.0.1:8874/；先确认当前存在，不要杀另一个窗口的服务。
+Node：
+C:/Users/luyua/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe
+Playwright：
+C:/Users/luyua/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright
+提权exec里chromium.launch({channel:'msedge',headless:true})可用。
+页面真实控件#character/#direction/#speed/#large，window.previewDebug.getState()/setPhase用于真实捕获。旧03报告不能充06证据。
+
+## 活动进程与停止状态
+
+交接时只读Win32_Process查询：没有python/node命令行包含03_lotus_healer_girl或06_thunder_caster_boy。本代理没有仍需等待的进程或session。
+- 03第一次approve session21040已精确停止、退出1；review withdrawn。
+- 03成功approve session68563退出0。
+- 03stage dry-run session36980退出0。
+- 06idle session3186退出0。
+- 06keys3 session85764退出0。
+- 06quarter导入在首调用内退出0。
+- 06S-half image_gen调用aborted，没有返回结果、活动cell/session ID。
+
+asset_pipeline可能另有Unity/staging进程不在上述精确查询范围，不能据此认定整个工程空闲。请看其交接，不得终止用户Unity或其他任务。用户打开的Unity从未被本代理触碰。
+本文件保存后，本旧窗口停止写入，不再生成或验收。
+
+Handoff UTC: 2026-09-18T04:24:37.202341+00:00

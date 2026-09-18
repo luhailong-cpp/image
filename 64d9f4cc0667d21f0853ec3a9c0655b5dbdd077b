@@ -1,0 +1,74 @@
+{
+  "appearance": "lanxian_day",
+  "reviewedAtUtc": "2026-09-17T15:21:52.506516+00:00",
+  "selectedVersion": "pair-v4",
+  "selectedPair": "builtin_q64_production/lanxian_day/pair_r08_c06_c07/output/pair-v4.png",
+  "selectedPairSha256": "857baf4485e8988fdea8c8ef6360448db355e2c429b949fae32ebb98c2844166",
+  "scope": "Local two-tile candidate: r08_c06 and r08_c07. Inspected listed exact-pixel crops plus overview; not an exhaustive full-city or runtime review.",
+  "formalAcceptance": false,
+  "wholeCityAccepted": false,
+  "nearestGameplayCameraAccepted": false,
+  "externalNeighborSeamsAccepted": false,
+  "crossAppearancePixelGeometryAccepted": false,
+  "status": "local_candidate_reviewed_known_targeted_P2_defects_repaired",
+  "sourceRoute": "builtin_image_gen",
+  "requestedModel": "GPT Image 2.0 highest available through builtin route",
+  "backendModelVerified": false,
+  "sourceResampling": "subpixel alignment only; native dimensions retained; local color matching",
+  "registrationLimits": "Flow bounded to 8 pixels independently in X and Y at selected patch edges. Exact flow and RGB correction fields saved. Interior native pixels and zero-mask context asserted unchanged. No final-image upscaling.",
+  "reviewedEvidence": [
+    {
+      "file": "builtin_q64_production/lanxian_day/pair_r08_c06_c07/qa/pair-v4-overview.jpg",
+      "kind": "overview_only",
+      "pixels": [
+        1600,
+        800
+      ]
+    },
+    {
+      "files": "builtin_q64_production/lanxian_day/r08_c07/qa/seam_x{1024,2048,3072}_y{1024,2048,3072}_100pct.png",
+      "kind": "nine initial internal intersections, each viewed at original 900 pixels; targeted failures subsequently repaired"
+    },
+    {
+      "files": "builtin_q64_production/lanxian_day/pair_r08_c06_c07/qa/boundary-v1-{0,1,2,3,4}_100pct.png",
+      "kind": "five initial cross-4K boundary crops, each original 900 pixels"
+    },
+    {
+      "file": "builtin_q64_production/lanxian_day/pair_r08_c06_c07/qa/curve-return-v4-full_100pct.png",
+      "rectInPairXYXY": [
+        6838,
+        300,
+        8192,
+        1744
+      ],
+      "kind": "final curve patch with all in-image return margins, original pixels"
+    },
+    {
+      "files": "builtin_q64_production/lanxian_day/pair_r08_c06_c07/qa/boundary_{1,2,3}-after_100pct.png",
+      "kind": "three full native-sized boundary repair areas viewed; same boundary art retained in v4"
+    }
+  ],
+  "resolvedFindings": [
+    "Existing r08_c06 paving dead ends repaired with original native patches and recorded small registration; spring duplicate roof joint repaired.",
+    "r08_c07 curved paving broken joints and the internal right return step replaced by a native patch extending to the current right tile edge; final original-pixel crop showed continuous grooves.",
+    "Half-cut lower hanging red lantern at pair approximately x4200,y3700 restored as one complete hanging ornament with its cord and tassel; original-size repair inspection performed."
+  ],
+  "residualObservations": [
+    {
+      "priority": "P3",
+      "area": "older r08_c06 painted paving versus new r08_c07 clean paving",
+      "observation": "Painterly grain and bevel width vary locally; not a uniform material-texture pass."
+    },
+    {
+      "priority": "P3",
+      "area": "selected grout intersections in final curve crop",
+      "observation": "Small local bevel/dark-groove width variations remain, with no observed repeat of the previously located large dead ends in this inspected crop."
+    }
+  ],
+  "limitations": [
+    "Adjacent r08_c08 and all top/bottom/left outer neighbors are unmade or unreviewed in this batch; the 115-pixel outer halo is working context, not accepted delivery art.",
+    "Day/spring new tree planter and roads use the common footprint; existing c06 architecture/roof ornaments and paving microgeometry differ between appearances. No pixel-aligned interchangeable-layer or navigation approval.",
+    "Nearest gameplay-camera view, collisions, streaming integration and client publication were not tested here.",
+    "4096 dimensions and byte-identity checks are mechanical evidence, not formal art acceptance."
+  ]
+}
