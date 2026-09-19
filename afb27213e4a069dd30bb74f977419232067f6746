@@ -1,0 +1,32 @@
+from pathlib import Path
+from PIL import Image
+from datetime import datetime,timezone
+import json,hashlib,numpy as np
+PROD=Path('E:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production');ROOT=PROD.parent;batch=PROD/'donghai_batch_r08_c08_c10';audit=batch/'resume_audit_20260918';day=PROD/'donghai_day/r08_c08_c09_c10_joint/output_v3';lantern=PROD/'donghai_lantern/r08_c10'
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+rel=lambda p:Path(p).relative_to(ROOT).as_posix()
+now=datetime.now(timezone.utc).isoformat()
+assembly=json.loads((day/'assembly.json').read_text());source=Path(assembly['source']['path']);assert sha(source)==assembly['source']['sha256']
+original=np.array(Image.open(source).convert('RGB'));current=np.array(Image.open(day/'extended-context-triple.png').convert('RGB'));mask=np.zeros(original.shape[:2],dtype=np.uint8)
+for r in assembly['registeredRepairs']:
+ assert sha(r['record'])==r['recordSha256']
+ for a in r['artifacts']:assert sha(a['path'])==a['sha256']
+ artifact=next(a for a in r['artifacts'] if a['path'].endswith('_mask.png'));x0,y0,x1,y1=r['boxXYXY'];mask[y0:y1,x0:x1]|=np.array(Image.open(artifact['path']))
+assert np.array_equal(original[mask==0],current[mask==0])
+review=dict(status='local_candidate_visual_pass_not_runtime_accepted',reviewedAtUtc=now,selectedJointVersion=str(day),accepted=False,runtimePublished=False,wholeCityComplete=False,scope='Only Donghai day r08 c08,c09,c10; one new unique c10 coordinate',mechanicalAudit=dict(file=str(audit/'mechanical-audit.json'),sha256=sha(audit/'mechanical-audit.json')),fullInternalSeams=dict(tile='r08_c10',verticalX=[9216,10240,11264],horizontalY=[1024,2048,3072],fullLengthPixels=4096,allSixReviewed=True),crossDeliveryBoundaries=dict(x=[4096,8192],fullLengthPixels=4096,allReviewed=True),junctions=dict(x=[8192,9216,10240,11264],y=[1024,2048,3072],count=12,allReviewed=True),repairReconnect=dict(ids=['fish_left','fish_right'],full1254ViewsReviewed=True,allFourEdgesReviewed=True,zeroMaskPixelsIndependentlyVerifiedUnchanged=True,mechanicalRegistration='Existing max8px limited edge registration retained with fields; no new resampling'),viewing=dict(pixelResizing=False,sourcePngRetained=True,displayOnlyEncoding='JPEG96 from exact PNG; no geometric resampling',viewManifest=str(audit/'mechanical-audit.json')),findings=['Both full neighbor boundaries show continuous paving, canopy edges, fish tray and timber outlines.','Six complete c10 internal seams and all12 junctions show no observed geometry break.','Two existing fish-anatomy repairs reconnect continuously across all patch edges; no detached old tail remains.','Purple curled forms in left tray are stylized octopus tentacles, not additional fish eyes.'],remaining=['Full-city north, south and east neighbors do not yet exist; their seams are unreviewed.','Festival c10 lacks5 native patches and has no candidate assembly or joined QA.','Day/festival exact geometry parity and navigation/foreground occlusion require engine verification.','Nearest camera, across-tile movement, device memory and formal acceptance remain pending.'])
+reviewfile=audit/'visual-review.json';reviewfile.write_text(json.dumps(review,ensure_ascii=False,indent=2),encoding='utf8')
+candidates=[]
+for c in (8,9,10):
+ p=day/f'r08_c{c:02d}.png';candidates.append(dict(appearance='donghai_day',displayName='东海渔村·日景',tile=f'r08_c{c:02d}',file=rel(p),sha256=sha(p),assembly=rel(day/'assembly.json'),qa=rel(reviewfile),finalPixelRectXYWH=[(c-1)*4096,7*4096,4096,4096],worldRect=dict(x=50+(c-1)*18.75,z=150,width=18.75,height=18.75),accepted=False,runtimePublished=False))
+repairs=[rel(PROD/f'donghai_day/r08_c08_c09_c10_joint/repairs_v1/{id}/native.record.json') for id in ('fish_left','fish_right')]
+ledger=dict(createdAtUtc=now,candidates=candidates,repairRecords=repairs,phase='Donghai day c10 reviewed; lantern c10 11of16 blocked by builtin local-reference sandbox failure',formallyAcceptedTiles=0,wholeCitiesCompleted=0,newUniqueCandidateCoordinates=1,incrementalExtraNativeSources=2)
+ledgerfile=batch/'day-v3-ledger-update-20260918.json';ledgerfile.write_text(json.dumps(ledger,ensure_ascii=False,indent=2),encoding='utf8')
+plan=json.loads((lantern/'plan.json').read_text());pending=[]
+for id in ['r03_c04','r04_c01','r04_c02','r04_c03','r04_c04']:
+ p=next(p for p in plan['patches'] if p['id']==id);g=Path(p['submittedReference']);pr=lantern/'prompts'/f'{id}.prompt.txt';raw=lantern/'guides'/f'{id}.day-geometry-source.png'
+ assert not (lantern/'native'/f'{id}.png').exists()
+ pending.append(dict(id=id,promptPath=str(pr),promptSha256=sha(pr),referencePath=str(g),referenceSha256=sha(g),nativeTarget=[1254,1254],alreadyPreparedWithNeighborStrips=raw.exists(),requiredBeforeGeneration='Do not prepare again; preserve current reference.' if raw.exists() else 'Run prepare_lantern_patch.py once after previous neighbor is generated and recorded; it versions day source and updates actual native context.',actualToolReferenceParameter='referenced_image_paths',nativeOutputExists=False))
+err="unable to read referenced image: fs sandbox helper failed with status exit code: 1: windows sandbox failed: helper_unknown_error: apply deny-read ACLs"
+q=dict(createdAtUtc=now,status='blocked_on_builtin_local_reference_input',appearance='donghai_lantern',tile='r08_c10',completedNativeCount=11,missingNativeCount=5,pending=pending,failedCall=dict(id='r03_c04',tool='image_gen.imagegen',referenced_image_paths=[str(lantern/'guides/r03_c04.input-preview.jpg')],promptPath=str(lantern/'prompts/r03_c04.prompt.txt'),promptSha256=sha(lantern/'prompts/r03_c04.prompt.txt'),error=err,returnedImage=False),route='builtin_only',backendModel='host-managed/unverified',requestedProduct='ChatGPT Images2.5',modelSelectorAvailable=False,qualitySelectorAvailable=False,apiFallbackAuthorized=False,afterGeneration=['Record each returned rawPNG immediately with exact inputs and hashes; verify1254square and opaque.','Finish16/16 then assemble single candidate, inspect all6 internal full seams.','Join with lantern selected old c08/c09 joined_pair_v3, inspect full boundary and all junctions.','Repair defects and review all4 reconnect edges before ledger; retain every raw and failed version.'])
+(audit/'pending-lantern-queue.json').write_text(json.dumps(q,ensure_ascii=False,indent=2),encoding='utf8')
+print(json.dumps(dict(ledger=str(ledgerfile),candidates=3,newUniqueCoordinates=1,newExtraNativeSources=2,zeroMaskVerified=True,pendingQueue=str(audit/'pending-lantern-queue.json')),ensure_ascii=False))
