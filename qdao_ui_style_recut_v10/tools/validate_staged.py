@@ -3,6 +3,7 @@ from pathlib import Path
 import argparse, base64, hashlib, json, re
 from collections import Counter
 from inventory_contracts import PACK, REPO, inspect_png
+from staged_copies import resolve_read
 
 TEXT_EXCEPTIONS = {
     "designs/attribute-panels/v2-painted/unity-slices/png/title_character.png": "Approved standalone static calligraphy; the surrounding UI skin is replaced.",
@@ -17,6 +18,9 @@ def safe(root, relative):
     full=(root/relative).resolve()
     if not full.is_relative_to(root.resolve()): raise ValueError("Unsafe path: "+str(relative))
     return full
+def staged_read(root, relative):
+    # Keep write destinations separate from hash-checked read fallback.
+    return resolve_read(safe(root, relative))
 def check_manifests(staged):
     errors=[]
     specs=[
@@ -27,7 +31,7 @@ def check_manifests(staged):
     checked=0
     for contract,rel,array,key,fields in specs:
         before=read(PACK/"contracts"/contract)[array]
-        after=read(safe(staged,rel))[array]
+        after=read(staged_read(staged,rel))[array]
         old={a[key]:a for a in before}; new={a[key]:a for a in after}
         if len(new)!=len(after) or set(old)!=set(new): errors.append(rel+": asset keys changed")
         for ident, expected in old.items():
@@ -36,12 +40,12 @@ def check_manifests(staged):
                 if expected.get(field)!=actual.get(field): errors.append(f"{ident}: {field} changed")
             if array=="assets" and ident in new:
                 prefix=Path(rel).parent if contract=="components.json" else Path()
-                png=safe(staged,prefix/actual["png"]); svg=safe(staged,prefix/actual["svg"])
+                png=staged_read(staged,prefix/actual["png"]); svg=staged_read(staged,prefix/actual["svg"])
                 uris=re.findall(r"data:image/png;base64,([A-Za-z0-9+/=]+)",svg.read_text(encoding="utf-8"))
                 if len(uris)!=1 or base64.b64decode(uris[0])!=png.read_bytes(): errors.append(str(svg)+": PNG wrapper mismatch")
                 if actual.get("png_sha256")!=sha(png) or actual.get("svg_sha256")!=sha(svg): errors.append(str(png)+": manifest hash mismatch")
             elif ident in new:
-                png=safe(staged,Path(rel).parent/"png"/(ident+".png"))
+                png=staged_read(staged,Path(rel).parent/"png"/(ident+".png"))
                 if actual.get("sha256")!=sha(png): errors.append(str(png)+": manifest hash mismatch")
             checked+=1
     return {"asset_records_checked":checked,"png_svg_pairs_checked":112,"errors":errors}
@@ -55,7 +59,7 @@ def main():
     if not staged.is_relative_to(PACK.resolve()) or not output.is_relative_to(PACK.resolve()): parser.error("Paths must stay inside v10")
     rows=[]
     for old in read(PACK/"contracts/current_files.json")["files"]:
-        candidate=safe(staged,old["path"]); row={"path":old["path"],"family":old["family"],"problems":[]}
+        candidate=staged_read(staged,old["path"]); row={"path":old["path"],"family":old["family"],"problems":[]}
         if not candidate.is_file(): row["status"]="missing"
         else:
             try:

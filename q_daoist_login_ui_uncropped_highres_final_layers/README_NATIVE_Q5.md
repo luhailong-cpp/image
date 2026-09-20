@@ -2,7 +2,7 @@
 
 本批在原路径重建了 **12 张旧选服素材**：本目录 5120 × 2160 与 10240 × 4320 各三张分层、根目录两张 5120 × 2160 透明整 UI，以及四张 2560 × 1080 不透明选服视觉稿。原文件名保留兼容；画面语义为选择服务器。当前框板和控件使用 v10 指定风格原画；保留既有场景、人物、文案与布局。
 
-[逐文件记录](manifest_native_q5.json) 保存原哈希、新哈希、尺寸、Alpha、来源与每个控件/文字的位置；[验证结果](validation_native_q5.json) 记录十二图与两组分层合成检查。当前构建与发布入口见 [v10](../qdao_ui_style_recut_v10/README.md)，旧直接写入脚本已禁止执行。旧验证 JSON 为历史报告，当前核验以 v10 全量验证及组合视觉报告为准。
+[逐文件记录](manifest_native_q5.json) 保存原哈希、新哈希、尺寸、Alpha、来源与每个控件/文字的位置；[验证结果](validation_native_q5.json) 记录十二图与两组分层合成检查。当前选服来源见 [节庆重建器](../qdao_festival_refinement_20260910/scenes-sync/server/compose_server.mjs)、[冻结输入](../qdao_festival_refinement_20260910/scenes-sync/server/plan.json)与[发布记录](../qdao_festival_refinement_20260910/scenes-sync/server/publication.json)。旧直接写入脚本已禁止执行；v10 和本目录旧验证 JSON 是历史报告。
 
 ## 真正独立的层
 
@@ -26,6 +26,10 @@
 
 ## 重建
 
-先按 [v10](../qdao_ui_style_recut_v10/README.md#确定性重建)重建暂存通用件，再运行 `node qdao_ui_style_recut_v10/tools/build_composites.mjs`；必要时传入已有 Sharp 路径。它在现有布局中匹配并替换控件图像，输出到 v10 暂存区，核验后由发布器写入原路径。
+本轮六张正式 PNG 均保留，已清理其同字节暂存副本，恢复时优先按 [清理记录](../docs/ui-cleanup-20260920/README.md)运行 `staged_copies.py`，不重新渲染或发布。需要重新渲染时，先核对节庆 `server/plan.json` 的全部冻结输入、`before/` 备份与当前来源哈希，再使用该目录的 `compose_server.mjs`；它会写暂存、QA 和校验记录，不是只读检查。旧 v10 合成器读取旧冻结人物/场景，不能无条件运行其 publish 来恢复现行图。
 
-旧 `native_q5/build_layers.mjs` 保留历史来源但已阻止直接写入。当前 [组合视觉报告](../qdao_ui_style_recut_v10/staged/attribute-composite-visual-qa.json)记录 12 张选服素材的尺寸、Alpha、中文排版和分层组合检查；完整发布情况见 v10。没有同步或运行客户端。
+旧 `native_q5/build_layers.mjs` 保留历史来源但已阻止直接写入。历史 [组合视觉报告](../qdao_ui_style_recut_v10/staged/attribute-composite-visual-qa.json)记录 12 张选服素材的尺寸、Alpha、中文排版和分层组合检查；首次发布情况见 v10；当前选服以节庆发布记录为准。没有同步或运行客户端。
+
+## 2026-09-20 清理结论
+
+客户端静态引用检查未发现本高清目录的直接引用，当前选服使用 `UI/Ugui/RefreshV8/` 独立控件。但本目录的布局 SVG、清单及正式 PNG 仍受素材构建和交付校验合同约束，因此不整目录删除。已删除节庆暂存六张 PNG，以及 v10 暂存两张同字节按钮层和三个同字节 SVG；四张不同内容的旧 v10 暂存图及回滚输入保留。详见 [逐项依据与恢复](../docs/ui-cleanup-20260920/README.md)。

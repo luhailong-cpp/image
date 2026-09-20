@@ -46,6 +46,10 @@
 
 ## 确定性重建
 
+2026-09-20 暂存去重：[逐项清单与恢复](../docs/ui-cleanup-20260920/README.md)。本包 51 个同字节 PNG/SVG 暂存副本已移除，验证和发布载荷读取会先核验正式保留来源的 SHA-256；需要实体文件时运行 `python qdao_ui_style_recut_v10/tools/staged_copies.py --restore`。该工具默认只读，拒绝变动来源和不同目标。精确忽略规则避免恢复副本再次入库。
+
+以下为历史 v10 构建链。当前选服人物/场景来源已转到 `qdao_festival_refinement_20260910/scenes-sync/server/plan.json` 与同目录 `compose_server.mjs`；不要无条件执行本节的全量发布来恢复现行选服。当前正式文件和四张不同版本的旧暂存图均保留。
+
 在仓库根目录运行，需要现有 Python（Pillow、NumPy）及 Node.js / Sharp。脚本使用已保存原画进行裁切、透明清理和控件适配，不重新请求图片服务。不得重新运行库存盘点覆盖 `contracts/current_files.json` 的历史基线。
 
 ```powershell

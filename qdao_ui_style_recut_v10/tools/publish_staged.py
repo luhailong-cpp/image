@@ -3,7 +3,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 import argparse, hashlib, json, os, subprocess
 from PIL import Image
-from validate_staged import PACK, REPO, read, sha, safe
+from validate_staged import PACK, REPO, read, sha, safe, staged_read
 
 STAGE=PACK/"staged"
 ATTR="designs/attribute-panels/v2-painted/unity-slices"
@@ -60,20 +60,20 @@ def check_evidence():
     expected={r["path"] for r in read(PACK/"contracts/current_files.json")["files"] if r["family"] in ["components","legacy"]}
     require({r["path"] for r in common["files"]}==expected,"Common QA coverage mismatch")
     for r in common["files"]:
-        verify(safe(STAGE,r["path"]),r["sha256"]);verify(safe(STAGE,r["svg"]),r["svg_sha256"])
+        verify(staged_read(STAGE,r["path"]),r["sha256"]);verify(staged_read(STAGE,r["svg"]),r["svg_sha256"])
     supplement=read(STAGE/"visual-qa-supplement.json")
     require(supplement["status"]=="passed_for_staged_art_delivery","Portrait supplement not passed")
     expected_other={r["path"] for r in read(PACK/"contracts/current_files.json")["files"] if r["family"] not in ["components","legacy"]}
     require({r["path"] for r in supplement["files"]}==expected_other,"Attribute/composite QA coverage mismatch")
     for key in ["baseReport","portraitRepairReport","currentSourceMap","currentManifest","currentFileValidation","historicalFileValidation"]:
         r=supplement[key];verify(safe(REPO,r["path"]),r["sha256"])
-    for r in supplement["files"]:verify(safe(STAGE,r["path"]),r["sha256"])
+    for r in supplement["files"]:verify(staged_read(STAGE,r["path"]),r["sha256"])
     for r in supplement["reviewImages"]+supplement["historicalReviewImages"]:verify(safe(REPO,r["path"]),r["sha256"])
     verify(STAGE/"composite_build_report.json",other["composites"]["buildReportSha256"])
     attrs=read(PACK/"source-map.attributes.json")
-    for r in attrs["outputs"]:verify(safe(STAGE,r["path"]),r["outputSha256"])
+    for r in attrs["outputs"]:verify(staged_read(STAGE,r["path"]),r["outputSha256"])
     composites=read(STAGE/"composite_build_report.json")
-    for r in composites["files"]:verify(safe(STAGE,r["path"]),r["sha256"])
+    for r in composites["files"]:verify(staged_read(STAGE,r["path"]),r["sha256"])
     for r in composites["scene_sources"]:
         frozen=safe(PACK/"contracts/composite-inputs",r["path"])
         verify(frozen if frozen.exists() else safe(REPO,r["path"]),r["sha256"])
@@ -83,7 +83,7 @@ def check_evidence():
     return validation,common
 
 def payload(relative):
-    return safe(STAGE,relative).read_bytes()
+    return staged_read(STAGE,relative).read_bytes()
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
@@ -117,7 +117,7 @@ def main():
             before=baseline[rel]["sha256"];rev="09f32b1b"
             oid=git("rev-parse",rev+":"+rel).stdout.decode().strip()
         entries.append({"path":rel,"kind":"contract_png" if rel in baseline else "supporting_asset",
-            "staged_sha256":sha(safe(STAGE,rel)),"published_sha256":digest,"current_sha256_at_plan":oldsha,"previous_sha256":before,
+            "staged_sha256":sha(staged_read(STAGE,rel)),"published_sha256":digest,"current_sha256_at_plan":oldsha,"previous_sha256":before,
             "previous_git_oid":oid,"previous_revision":rev,"changed":before!=digest,"already_current":oldsha==digest})
         contents[rel]=raw
     evidence={p.relative_to(PACK).as_posix():sha(p) for p in [PACK/"validation.json",STAGE/"common-legacy-visual-qa.json",STAGE/"attribute-composite-visual-qa.json",STAGE/"visual-qa-supplement.json"]}
