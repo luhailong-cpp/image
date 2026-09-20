@@ -1,5 +1,11 @@
 # 五行奇谈客户端素材接入 · 2026-09-08
 
+## 2026-09-20 存储精简
+
+已移除222张可精确恢复的prepared副本及14张旧QA图，释放129.33 MiB。原图、已有脚本与清单、17张尚未确认恢复来源的人物准备图保留。运行需要prepared文件的旧流程前，先执行 `python -X utf8 -B client_ui_refresh_20260908/restore_prepared.py --restore`；该入口只恢复本美术仓库中的缺失副本。旧QA图按Git记录恢复。
+
+[清理、恢复与客户端不变核对](cleanup-20260920.md) · [逐文件清单](cleanup-20260920.json)。
+
 ## 2026-09-11 人物准备副本更新
 
 22 张 `prepared/UI/qdao_v3/characters/` 职业人物现已更新为 v9 原创直发道家 Q 版，保留原文件名和 1024×1024 RGBA 尺寸。[逐图同步与验证记录](../qdao_character_diversity_v9/prepared_sync.json)已通过当前母图像素、透明与哈希检查。只读复核入口为 `python -B qdao_character_diversity_v9/sync_prepared.py --check`。
