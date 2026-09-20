@@ -6,17 +6,19 @@ from PIL import Image
 root=Path(__file__).resolve().parents[1]; repo=root.parent
 p=root/"generation-status.json"
 d=json.loads(p.read_text(encoding="utf-8-sig"));records=[]
+prior={(r.get("file"),r.get("sha256")):r for r in d.get("successful_generations",[])}
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 for f in sorted((root/"source").glob("0[1-6]-*.png")):
     with Image.open(f) as im:size=list(im.size)
     prompt=f.with_suffix(".prompt.txt")
-    records.append({"file":f.relative_to(root).as_posix(),"prompt":prompt.relative_to(root).as_posix(),"native_size":size,
+    previous=prior.get((f.relative_to(root).as_posix(),sha(f)),{})
+    records.append({**previous,"file":f.relative_to(root).as_posix(),"prompt":prompt.relative_to(root).as_posix(),"native_size":size,
         "tool":"image_gen","reference_original":"docs/references/ui-style-20260910.png",
         "reference_transport":"in-memory conversation JPEG; num_last_images_to_include=1",
-        "model_basis":"official built-in documentation: gpt-image-2","model_parameter_exposed":False,
-        "quality_parameter_exposed":False,"sha256":sha(f),"prompt_sha256":sha(prompt)})
+        "model_basis":previous.get("model_basis","unknown; no model evidence for these source bytes"),"model_parameter_exposed":previous.get("model_parameter_exposed"),
+        "quality_parameter_exposed":previous.get("quality_parameter_exposed"),"sha256":sha(f),"prompt_sha256":sha(prompt)})
 d.update(active_route="builtin_image_gen",generated_images=len(records),successful_generations=records,
-    quality_target="highest visual quality; current tool exposes no quality parameter",updated_at_utc=datetime.now(timezone.utc).isoformat())
+    quality_target="For future generation read ../config/image-generation.json and ../docs/IMAGE_MODEL_POLICY.md; existing source evidence is preserved",updated_at_utc=datetime.now(timezone.utc).isoformat())
 publication=root/"publication.json"
 published=False
 if publication.exists():

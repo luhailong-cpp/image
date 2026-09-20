@@ -17,12 +17,28 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def source_generation_metadata(receipt):
+    data = json.loads(receipt.read_text(encoding='utf-8-sig')) if receipt else {}
+    request = data.get('request')
+    request = request if isinstance(request, dict) else {}
+    requested_model = next((data[key] for key in ('model_requested', 'requested_model', 'requestedModel') if data.get(key)), request.get('model', 'unknown'))
+    requested_quality = next((data[key] for key in ('quality_requested', 'requested_quality', 'requestedQuality') if data.get(key)), request.get('quality', 'unknown'))
+    return {'model_preference': requested_model, 'quality_preference': requested_quality,
+            'documented_model': data.get('model_actual', data.get('actual_model', 'unknown')),
+            'generation_receipt': {'path': str(receipt.resolve()), 'sha256': digest(receipt)} if receipt else None,
+            'current_preference_config': '../config/image-generation.json',
+            'model_policy': '../docs/IMAGE_MODEL_POLICY.md',
+            'parameter_note': 'Source requests come only from the generation receipt; unknown values are not filled from current preferences. Model and quality selectors remain host-managed unless the receipt records otherwise.'}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--raw', type=Path, required=True)
     parser.add_argument('--id', required=True, help='Existing portrait filename stem')
     parser.add_argument('--reference-note', required=True)
+    parser.add_argument('--receipt', type=Path, help='Original generation receipt; omitted model/quality evidence stays unknown')
     args = parser.parse_args()
+    generation_metadata = source_generation_metadata(args.receipt)
     assert args.id.replace('_', '').isalnum() and 1 <= int(args.id[:2]) <= 22
     prompt = PACK / 'prompts' / f'{args.id}.prompt.txt'
     assert prompt.is_file()
@@ -64,11 +80,9 @@ def main():
               'prompt': prompt.relative_to(PACK).as_posix(),
               'reference_delivery': args.reference_note, 'reference_baseline': baseline['baseline_commit'],
               'previous_sha256': previous['sha256'], 'design_brief': '../qdao_character_diversity_v9/DESIGN_BRIEF.md',
-              'model_preference': 'gpt-image-2', 'quality_preference': 'high',
+              **generation_metadata,
               'model_parameter_exposed': False, 'quality_parameter_exposed': False,
               'model_and_quality_verified': False,
-              'documented_model': 'gpt-image-2 (project AGENTS built-in path)',
-              'parameter_note': 'The project documents built-in GPT Image 2. This callable tool exposes no model or quality arguments; high is a quality goal, not a force-set per-call parameter.',
               'alpha_range': [0, 255], 'subject_bounds': list(bbox), 'sha256': digest(output),
               'processor_qc': json.loads((work / 'pipeline-meta.json').read_text(encoding='utf8')),
               'strong_chroma_cleanup': {'predicate': 'R>200 and G<100 and B>200 and A>0', 'removed_pixels': removed},

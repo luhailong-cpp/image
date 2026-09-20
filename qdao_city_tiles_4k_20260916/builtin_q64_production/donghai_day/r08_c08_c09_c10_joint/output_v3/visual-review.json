@@ -1,0 +1,50 @@
+{
+  "status": "local_candidate_visual_pass_not_runtime_accepted",
+  "accepted": false,
+  "reviewedAtUtc": "2026-09-18T05:36:59.102242+00:00",
+  "selectedJointVersion": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\donghai_day\\r08_c08_c09_c10_joint\\output_v3",
+  "scope": "Local c08,c09,c10 day candidate only, not whole city",
+  "fullInternalSeams": {
+    "initialSource": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\donghai_day\\r08_c10\\qa\\fullseams_v1\\manifest.json",
+    "allSixFull4096Viewed": true,
+    "modifiedSeamsReviewed": [
+      "v10240_full_native.png",
+      "h3072_c10_full_native.png"
+    ],
+    "unmodifiedSeamsRetainPriorVisualReview": true
+  },
+  "crossC09C10Full4096Reviewed": true,
+  "junctions": {
+    "count": 12,
+    "coordinatesX": [
+      8192,
+      9216,
+      10240,
+      11264
+    ],
+    "coordinatesY": [
+      1024,
+      2048,
+      3072
+    ],
+    "nativePixelViewing": true
+  },
+  "repairReconnect": {
+    "full1254Views": [
+      "fish_left_reconnected.png",
+      "fish_right_reconnected.png"
+    ],
+    "allEdgesReviewed": true,
+    "zeroMaskPixelsUnchanged": true
+  },
+  "findings": [
+    "Native fish repair removes duplicated body eyes and ambiguous head-tail transition.",
+    "v2 ROI mask excluded old tail footprint; v3 widens mask and no detached old tail remains.",
+    "Full left tray context identifies purple forms as stylized octopus tentacles; preserved rather than incorrectly treating as fish.",
+    "Stored red lantern gold band, yellow cloth, timber poles and paving contours continuous across reviewed seams."
+  ],
+  "remaining": [
+    "North/south/east neighboring tiles absent; future full-city seams not assessed.",
+    "Runtime integration, collision and full-city acceptance remain pending."
+  ]
+}

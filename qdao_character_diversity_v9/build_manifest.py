@@ -135,7 +135,7 @@ def main():
                 'common_size':[4096,4096], 'style':'original diverse Daoist Q cast; no curly hair',
                 'native_size_policy':'4096 is compatibility export; actual native sizes recorded per image',
                 'asset_root':'q_daoist_character_pack_4096',
-                'model_quality_policy':'Project AGENTS documents the built-in GPT Image 2 path. The tool exposes no model or quality switch; high quality is the goal, not a force-set per-call parameter.',
+                'model_quality_policy':'For new generation read ../config/image-generation.json and ../docs/IMAGE_MODEL_POLICY.md. Existing artwork keeps its per-image source records; current preferences do not establish historical model or quality.',
                 'status':'static_art_only', 'engine_integration':False, 'assets':assets}
     write(PACK / 'manifest.json', manifest)
     write(HERE / 'manifest.json', manifest)
@@ -162,7 +162,7 @@ def main():
        '2026-09-11完成根据“人物太相似”的反馈重设计01–22职业人物。全部保留原文件名和4096×4096真RGBA画布；两张金发带主角参考造型保持，沿用此前已验收的曝光修正。角色通过脸型、年龄感、直发发型、胖瘦体态、衣袍轮廓和姿态区分。', '',
        '全部不用卷发；直发可剪短、束起、盘髻或编辫。可借鉴传统仙侠群像的洒脱、清灵、英气和灵动气质，具体脸型、头饰、服装、配色和法器为本项目重新设计，不采用既有角色的成套标志性组合。', '',
        '[角色清单](manifest.json) · [设计说明](../qdao_character_diversity_v9/DESIGN_BRIEF.md) · [验证](../qdao_character_diversity_v9/validation.json) · [视觉验收](../qdao_character_diversity_v9/visual_qa.json)', '',
-       '完整人工提示词在prompts/，逐图生成和透明处理记录在records/。实际原生尺寸单独记录；4096为原路径兼容导出，不冒称原生4K。按AGENTS使用宿主内置GPT Image 2路径；工具不开放模型/质量参数开关，high是质量目标，未宣称逐次强制设置。过程母图和处理副本不保留为交付。', '',
+       '完整人工提示词在prompts/，逐图生成和透明处理记录在records/。实际原生尺寸单独记录；4096为原路径兼容导出，不冒称原生4K。后续生图按[统一模型配置](../config/image-generation.json)与[模型策略](../docs/IMAGE_MODEL_POLICY.md)执行，优先内置工具；既有图片的实际请求、型号与画质以逐图原始记录为准，不能用当前设置回填历史。过程母图和处理副本不保留为交付。', '',
        '旧英文文件名中的boy/girl仅作为历史资源ID；实际年龄与造型以本表和当前图片为准。', '',
        '|角色|年龄感|脸型、头发|轮廓|成品|','|---|---|---|---|---|']
     for row in assets:

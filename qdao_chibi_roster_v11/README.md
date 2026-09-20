@@ -2,7 +2,7 @@
 
 状态：已完成。八人全部通过角色视觉验收及整包独立文件验收；共256张独立移动帧、408份正式媒体，结果见 [validation.json](validation.json)。
 
-[人物总览](roster-overview.jpg) · [八方向移动预览](movement-overview.gif) · [完整素材下载包](qdao-roster-v11-final.zip) · [总清单](manifest.json)
+[人物总览](roster-overview.jpg) · [八方向移动预览](movement-overview.gif) · [旧 ZIP 已清理，素材目录保留](../docs/IMAGE_DIRECTORY_CLEANUP_20260919.md) · [总清单](manifest.json)
 
 用户要求的年轻Q版吕洞宾替代旧老头，并加入何仙姑、韩湘子。正式名单为灯穗小使、吕洞宾、狮鼓护卫、桂香药婆、墨鸢游侠、月兔机关师、何仙姑、韩湘子。
 

@@ -1,5 +1,7 @@
 # V13 本次模型能力核对
 
+> 2026-09-18 更正：本页保留当时核对与用户答复。官方发布公告已宣布新版开放；旧帮助页产生的内置模型阻塞已撤销。后续读取[统一设置](../../config/image-generation.json)并遵循[执行策略](../../docs/IMAGE_MODEL_POLICY.md)，不把本页旧型号结论作为当前默认。
+
 核对日期：2026-09-17。状态：用户已明确允许本次使用内置 GPT Image 2；后续角色基线已转向用户指定9adcf929提交原角色。
 
 - 官方模型目录：https://developers.openai.com/api/docs/models

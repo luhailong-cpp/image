@@ -1,5 +1,7 @@
 # GPT Image 2 全库重绘：基线盘点
 
+> 本页保留原批次盘点；后续补做的型号与最高画质读取[统一设置](../config/image-generation.json)和[执行策略](../docs/IMAGE_MODEL_POLICY.md)，不沿用原批次型号默认。
+
 本清单从 Git HEAD blob（不是并行修改中的工作区）冻结当前 Git 跟踪的全部视觉资产，包括历史设定图、源图、SVG、PNG、切片、原子控件和图集。所有项目均纳入 v7；没有沿用 v6 的已确认素材豁免。用户无关的 `unity-download-resume/` 未读取或修改。
 
 - 跟踪视觉文件：**470**。

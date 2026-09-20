@@ -37,3 +37,7 @@ python qdao_exposure_refinement_v8/tools/capture_latest.py
 ## 2026-09-12 存储清理
 
 `review/rebuilt/` 中35张字节完全重复的中间PNG已按[去重映射](../docs/STORAGE_DUPLICATES_20260912.json)清除。每张图的同字节副本、全部JSON、backups与staged均保留。旧重建报告中的这些图片路径是历史记录；查看时使用映射的 `keep_path`，恢复原路径时先核对SHA-256，再从该副本复制。当前前后对比页与正式／暂存验收输入不受影响。清理和后续托管建议见[存储说明](../docs/STORAGE_GUIDE.md)。
+
+## 2026-09-19 追加过程文件清理
+
+移除7张已完成诊断／缩放的中间PNG、旧失败报告，以及重建时会重新生成的任务映射和渲染报告。原图、backups、staged、已完成事务和最终验收记录继续保留。历史记录中被删路径的恢复信息见[追加清理记录](../docs/CLEANUP_FOLLOWUP_20260919.md)；正常重建会重新生成所需中间输出。

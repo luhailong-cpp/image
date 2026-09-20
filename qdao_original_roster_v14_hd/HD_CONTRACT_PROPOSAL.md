@@ -1,0 +1,105 @@
+# Original V14 HD runtime contract — 2026-09-18
+
+Agreed target: genuine >=1024-pixel native source cells, delivered 1024×1024 RGBA. Existing Original V13 stays byte-for-byte as same-ID fallback. A pilot is not a complete/Available character.
+
+## Exact resources and metadata
+
+Runtime family: `Assets/Resources/World/Characters/QdaoOriginalRosterV14/<original-id>/`.
+
+140 authored runtime files: 128 `walk/<DIR>/01.png`–`16.png`, 8 `idle/<DIR>.png`, `portrait.png` (all 1024 square), and `manifest.json`, `validation.json`, `appearance.json`. Review strips stay outside Resources; a 16384-wide strip is not a runtime requirement. The editor additionally derives an `runtime-index.asset` and normal Unity `.meta` files; these are implementation artifacts, not generated poses or extra authored image requirements.
+
+Manifest required fields (other provenance/visual fields remain as strict as V13):
+```json
+{
+  "version": 14,
+  "character_id": "03_lotus_healer_girl",
+  "status": "passed",
+  "visual_review": "passed",
+  "frame_size": [1024, 1024],
+  "portrait_size": [1024, 1024],
+  "frame_count": 16,
+  "frame_duration_ms": 30,
+  "cycle_duration_ms": 480,
+  "dedicated_idle": true,
+  "contact_frame": 0,
+  "alignment": {"alignment_version": 2, "root_px": [512, 942]},
+  "runtime_geometry": {
+    "reference_frame_size": 512,
+    "pixels_per_unit": 104,
+    "pivot": [0.5, 0.08]
+  }
+}
+```
+`files` binds all 137 runtime PNG paths/SHA and sizes in the publisher contract. Every 136 walk/idle output must be independently reconstructed from its genuine saved cell; native cell width and height must both be >=1024. This is checked by the artwork verifier/publisher, not asserted from output size. Original portrait remains a whole-image downsample of the restored original 4096 image.
+
+Activation `appearance.json`:
+```json
+{
+  "version": 14,
+  "characterId": "03_lotus_healer_girl",
+  "frameCount": 16,
+  "frameDurationMs": 30,
+  "cycleDurationMs": 480,
+  "alignmentVersion": 2,
+  "dedicatedIdle": true,
+  "contactFrame": 0,
+  "frameWidth": 1024,
+  "frameHeight": 1024,
+  "portraitWidth": 1024,
+  "portraitHeight": 1024,
+  "pixelsPerUnit": 104,
+  "pivotX": 0.5,
+  "pivotY": 0.08,
+  "status": "passed",
+  "visualReview": "passed",
+  "manifest_sha256": "<64 lowercase hex>",
+  "qc_sha256": "<64 lowercase hex>",
+  "validation_sha256": "<64 lowercase hex>",
+  "sourceCommit": "9adcf9291e4a867601868889a5965f3cd48630ba",
+  "sourceFamily": "original-00-22"
+}
+```
+
+## Geometry, version and fallback
+
+World frame height is unchanged: `1024 / 104 == 512 / 52`. Renderer normalized pivot stays exactly `(0.5, 0.08)`, billboard scale stays 1. Root pixel alignment doubles to `[512,942]`. Existing normalized pivot differs by a fraction from exact `1-471/512`; do not silently recalibrate it while upgrading texture resolution. Speed9, 16×30ms, 480ms and existing cycle world distance remain unchanged.
+
+New contract is Original-only V14; Lu's separate V13 v3 contract is unchanged. Resolve strict complete OriginalV14 first, then strict complete same-ID OriginalV13, then no new appearance (retain actor / same-ID battle baseline). Never borrow another identity. Any missing/wrong-size texture at actual load falls back atomically to the entire V13 appearance, not a mixed HD/512 frame set. Retry after imports; a temporarily missing HD frame must not pin V13 forever.
+
+`Appearance` will expose `FrameWidth`, `FrameHeight`, `PortraitWidth`, `PortraitHeight`, `PixelsPerUnit`, `Pivot` and HD identification; cache key includes version, geometry, approval hashes and resource revision.
+
+## Runtime inventory and memory
+
+A derived small ScriptableObject index binds manifest SHA, required resource paths, dimensions and Unity asset GUIDs, without Texture2D object references. Available-list checks use the sealed index and exact recorded dimensions; Editor checks GUID/path/existence and PNG headers without loading texture pixels. Build preparation performs actual file/SHA inventory checks before packaging. The editor creates/rebuilds/removes the index on import/delete and rechecks manifest and activation binding. `LazyLoadReference.isBroken` is deliberately not used: Unity documents that it can load the referenced object. See https://docs.unity3d.com/cn/6000.0/ScriptReference/LazyLoadReference_1-isBroken.html . Actual selected direction frames are size-checked after loading. Index is not artwork approval, does not make a partial pilot available, and is invalid if metadata/source inventory changes.
+
+1024 uncompressed RGBA costs4MiB/texture. Eager136-frame load is544MiB/person or12.2GiB/23 people, so HD animator must load/cache only bounded active direction sets (16walk+idle=68MiB/direction/person), release inactive sets, and bound battle caches by active usage. Catalog must not eagerly call Resources.Load137×23. No strip is loaded for HD.
+
+## Acceptance
+
+Preserve old V13 tests. Add strict V14 dimensions/metadata/manifest binding, each missing PNG, malformed geometry, stale-index/import retry and same-ID fallback tests. Runtime tests must observe actual HD1024 textures, eight directions, all16 distinct poses per direction,30ms/480ms, unchanged bounds/pivot/world size/controller speed, dedicated idle and fallbacks. Also verify Available does not load every roster texture and repeatedly switching identities/directions keeps inactive caches bounded without unloading sprites still used by an actor. Run new code in a new independent-run input snapshot; never rewrite Run3 inputs.
+
+## Derived index publication and evidence binding
+
+The new ScriptableObject script and its `.meta` must match between isolated and formal projects. The actual Unity-generated script GUID is `07a716ef6e779ac47b621f394f91bcb9`. Bind the new index runtime script, editor builder, their `.meta`, and the new/changed tests in each HD code-input review; the old V13 publisher's twelve C# paths do not cover the new HD implementation.
+
+Prefer publishing the 140 authored files and allowing the formal Editor builder to derive its own `runtime-index.asset` from the formal PNG GUIDs and exact approved bytes. Do not copy an isolated derived index alone: it names the isolated PNG `.meta` GUIDs. Copying a derived index verbatim would also require the corresponding verified image `.meta` files and script GUID, with no GUID collision. A freshly staged first EditMode import may generate index/meta; the following saved PlayMode input must contain and bind those actual generated resources.
+
+Any HD direction inventory in runtime reports must be described as sequentially loaded and checked. It must not claim all eight direction sets remain resident. Movement pose names/counts must be recorded before cache eviction can destroy temporary Sprite references. Observe width, height, PPU, normalized pivot, world frame height, renderer scale, resident direction count and the separate real-motor route. Keep schema and V13 fields backward compatible; `v14HdContractObserved` is separate from `v13SixteenFrameContractObserved`.
+
+## Implemented HD lease API
+
+`QdaoHdResources` loads exactly16walk+1idle for a requested direction. Its shared cache contains only entries with live leases; there is no inactive texture cache. Texture ownership is reference-counted across appearance revisions so retiring an older revision cannot unload a reused Texture2D still referenced by a newer active one.
+
+`QdaoBoySpriteAnimator.EnsureDirectionFrames(int)` loads one observation direction without changing actor facing or current rendered Sprite; repeated inspection replaces that observation lease. `ReleaseObservedDirection()` releases it. `ResidentHdDirections` is at most2 per actor (current+observation), normally1. Initial loads and turns replace the renderer before releasing the old lease. Actual missing/wrong-size HD directions trigger complete same-ID V13 fallback, preserving the existing visual when no accepted fallback exists.
+
+Battle HD loaders return `StripAnim : IDisposable`. Callers keep the lease while using frames, or bind the displayed Sprite to `QdaoHdSpriteLeaseOwner` before disposing the temporary StripAnim. The actual BattleUnitView and both pooled/direct afterimage paths do this. Image ownership lasts through hidden/re-enabled views and ends on replacement/destruction; pooled ghost images clear their Sprite and lease when returned. HD strips are never inserted in the old unbounded strip dictionary. ResetCaches does not invalidate leases of displayed Images. `LoadPlayerIdle` HD callers must supply a lifetime owner; other callers can use the lease-returning APIs.
+
+New client input binding paths include QdaoHdResources.cs, QdaoHdSpriteLeaseOwner.cs, BattleUnitView.cs, BattleFx.cs, QdaoHdResourceLifetimePlayModeTests.cs and their .meta where present, plus the earlier Catalog/index/editor/observer files. Synthetic HD test textures remain in memory only and do not register appearances or count as visual acceptance.
+
+Pending image handoff: `PrepareSprite` retains a newly selected HD Sprite while leaving the prior Image lease live. After assigning every consuming Image, `BindSprite` promotes the new lease and releases prior/pending leases. Clear Image.sprite before owner.Clear/Destroy. A rejected appearance revision blocks new leases and notifies live actor/battle owners to resolve whole same-ID fallback; an existing snapshot ghost may keep its lease until its short fade finishes.
+
+## Final runtime publication evidence
+
+Actual camera views now include imageSha256 and configuredZoomMin/configuredZoomDefault. The V14 publisher verifies decoded1920x1080 PNG bytes, exactSHA, actualzoom/projection/feet/clipping, and a post-runtime --runtime-visual-review record bound to report,input andbothview hashes. Cropped nearest views must be reviewed honestly; normal view must contain the full frame. See tools/RUNTIME_REVIEW_FORMAT.md. Full20HD Edit/14HD Play cases including parameters, complete launch filters, exit0 completion/logs and exact140authored inventory are enforced. Camera configuration andcontrol inputs add6 read-only bindings beyond40C#/meta.
+
+Current tools were validated in hd-publication-gates-run1:Edit349/349,Play35/35,15 publisher tests,46bindings,all25,973inputs unchanged. HD Available remains0. Existing complete characters stay intact; this infrastructure is for authorized remaining work with the required confirmed model, not blanket remaking of the23-ID family.

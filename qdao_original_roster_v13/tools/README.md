@@ -1,6 +1,6 @@
 # Original Q roster V13: deterministic processing
 
-No tool here draws new poses or interpolates old poses. Save each genuine built-in image_gen result and its exact prompt. The user selected GPT Image 2; processing records that requested model but does not invent backend-model confirmation.
+No tool here draws new poses or interpolates old poses. Save each genuine built-in image_gen result and its exact prompt. For new generation, resolve the requested product/model and quality from [shared settings](../../config/image-generation.json) under the [image policy](../../docs/IMAGE_MODEL_POLICY.md). Preserve actual backend evidence separately; existing receipts remain unchanged.
 
 ## First direction
 
@@ -45,3 +45,11 @@ A direction may alternatively use two genuine2×4 sheets: `--rows 2 --cols 4 --s
 Four-anchor workflow: import a real2×2 key-pose sheet with `--rows 2 --cols 2 --output-frames 1,5,9,13`. Import three separately generated2×2 interval sheets with maps `2,6,10,14`, `3,7,11,15`, and `4,8,12,16`. Each source cell maps to exactly one final pose; reuse is rejected before committing, and independent verification reconstructs the declared mapping. Reordering genuine drawings does not by itself prove natural gait.
 
 Final approval is separate: `python tools/approve.py --character ID --review-input fresh-review.json` is read-only by default; `--execute` seals only a complete145-PNG character with generation receipts and fresh visual evidence. The input requires `reviewed_input_manifest_sha256`, `reviewed_input_qc_sha256`, exact `reviewed_artifacts`, all eight `reviewed_directions`, nonempty `notes_by_direction`, actual evidence path/SHA entries, and the four inspection flags listed above. It archives prior metadata, sets manifest/QC/source visual states to passed, binds the final visual record to final manifest/QC hashes, and independently writes validation. Manifest does not reference validation, so there is no hash cycle. This has not been executed for an incomplete character and does not publish game assets.
+
+Transparent original RGBA may contain alpha1-8 noise. Imports now record alpha_cleanup_threshold=8 and set only those original alpha samples to0 before chroma cleanup; opaque sources retain threshold0. The original raw and unmodified cell stage are preserved. Any foreground remaining at the original cell edge is still rejected. Independent verification reproduces this exact recorded operation; older records remain threshold0. Explicit `import-idle --idle-order N,NE,W,SE,S,SW,E,NW` can correct a generator's actual direction ordering without mirroring or redrawing pixels; each output retains its true source cell and direction map.
+
+A genuinely generated single-frame image can use `import-walk --rows 1 --cols 1 --output-frames 4`; the explicit final frame is mandatory. A multi-cell original can import only verified cells using, for example, `--rows 2 --cols 2 --source-cell-indices 0,3 --output-frames 1,13`. Source indices are zero-based row-major and refer to complete original cells. The recorded `output_frame_map` always has one entry per native cell; unselected cells are null. `selected_source_cell_indices` identifies the selected cells. No crop changes, per-frame scale exceptions, source reuse or synthetic poses are permitted; independent verification reconstructs the exact mapping.
+
+A genuinely generated wide 1-row x 2-column pair may use `import-walk --rows 1 --cols 2 --output-frames 8,12`. Both are complete original source cells and explicit final-frame assignments are mandatory; scale, source reuse checks and independent reconstruction remain unchanged. No source image may be repacked to disguise a different native grid.
+
+The same genuine-pair contract also supports a native vertical 2-row x 1-column sheet with `--rows 2 --cols 1 --output-frames A,B`. Explicit unique final-frame assignments, whole-cell scale and full-source reconstruction are required, exactly as for1x2.

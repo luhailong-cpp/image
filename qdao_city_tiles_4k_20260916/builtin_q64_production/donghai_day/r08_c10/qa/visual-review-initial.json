@@ -1,0 +1,45 @@
+{
+  "status": "needs_targeted_native_repairs",
+  "reviewedAtUtc": "2026-09-18T05:14:33.342077+00:00",
+  "nativeSources": 16,
+  "wholeCityComplete": false,
+  "runtimeAccepted": false,
+  "internalFullSeamsReviewed": [
+    "h1024",
+    "h2048",
+    "h3072",
+    "v1024",
+    "v2048",
+    "v3072"
+  ],
+  "fullSeamLengthEach": 4096,
+  "panels": 24,
+  "display": "Lossless PNG, native pixel panels, no resize",
+  "findings": [
+    {
+      "id": "fish_anatomy_left",
+      "region": "left fish tray, c09-c10 neighborhood and c10 x0..750 y2300..3200",
+      "detail": "Reference inherited repeated eyes and ambiguous heads/tails; retained native redraw still reproduces ambiguity. Repair in joint canvas before lantern geometry guides."
+    },
+    {
+      "id": "fish_seam_right",
+      "region": "c10 x1800..2450 y2300..3000 across v2048",
+      "detail": "Purple fish from independently regenerated patches change body/tail interpretation and texture across seam; needs joint native repair."
+    },
+    {
+      "id": "lantern_trim_review",
+      "region": "h2048 second panel",
+      "detail": "New gold band appears on stored lantern; include localized cleanup if band truncates at cross seam."
+    }
+  ],
+  "otherObservations": [
+    "Cloth, stone footing, wood edges, banner and all six seam lengths inspected. No major road/structure shift observed. Minor brush/leaf shading changes remain observations until joint repair QA."
+  ],
+  "next": [
+    "Join selected c08/c09 and new c10",
+    "Inspect full c09/c10 boundary",
+    "Native repair fish anatomy and reconnect all repair ROI edges",
+    "Review revised full seams and 9 intersections",
+    "Then derive lantern guides from final geometry"
+  ]
+}

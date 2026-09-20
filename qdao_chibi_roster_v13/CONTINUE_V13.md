@@ -2,7 +2,7 @@
 
 这是未完成任务的接续记录。原要求位于 `E:/work/image/qdao_chibi_roster_v12/NEXT_TASK_LU_16_FRAMES.md`，本任务0/64新增绘制，未正式启用V13。不要重复初始化覆盖已保存成果。
 
-1. 首先读取用户在当前对话对绘图入口的最新答复。待答选择：本次允许内置GPT Image 2；或明确授权2.5 Sunburst API最高质量、单独计费。项目模型政策要求明确选择，原生工具无model/quality参数，提示词不能切换后端。若未答，不能假设批准；原模型核对在planning目录。
+1. 后续绘图先读[统一设置](../config/image-generation.json)与[执行策略](../docs/IMAGE_MODEL_POLICY.md)。用户已授权内置生图，2026-09-18 已核对官方新版开放公告；原 planning 中因旧帮助页产生的模型待确认项已撤销，不继续阻塞内置绘图。API 单独计费授权不变；角色基线和此目录是否继续使用仍按当前任务指示。
 2. 同时确认补充道童的基线选择：用户点名的 `character_move_8dir` 为4帧大头短身版，游戏已有不同身形的8帧版。详见extra-character-baseline-audit.md和comparison。两者不能混用；当前游戏周期约615.38ms，16帧保持步频需要约38.46ms而非30ms；指定4帧版补至16需96新帧。
 3. 已冻结吕洞宾V12的64张walk到奇数位置，8idle与portrait逐字节保留；48张A/B/idle参考板准备好，提示方案在planning/lu-inbetween-prompts.md。先看S/E参考，授权后生成真正过渡动作，保存实际工具响应、原图、提示词与来源SHA。不得复制/变形旧图冒作新动作。
 4. 按tools/README.md的batch格式导入，整格统一归一化、透明清理和整数平移。先完成S/E各16帧并以正常/放大播放审查；针对问题重绘。合格后完成其余6向。奇数旧图、肖像、idle均不改变。

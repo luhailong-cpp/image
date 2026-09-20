@@ -1,0 +1,48 @@
+{
+  "createdAtUtc": "2026-09-18T10:09:16.321499+00:00",
+  "status": "not_passed_pending_native_repairs_and_curved_rail_return",
+  "reviewedAtNativePixelScale": true,
+  "reviewedFiles": [
+    {
+      "path": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\upperpair_r09_c07_c08_row10_c07_c10_20260918\\qa_partial_v2\\internal_curved_rails_native.jpg",
+      "sha256": "c3413bdb8647ac55829a2ef0661e706741e1f1e895e63a5ac6455d97a5f6296c"
+    },
+    {
+      "path": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\upperpair_r09_c07_c08_row10_c07_c10_20260918\\qa_partial_v2\\internal_curved_rails_reconnected.jpg",
+      "sha256": "0cb282291f961e277f02f6ef18142020db0fb0ea2ad89e3eb3fb5f2cb51e3421"
+    },
+    {
+      "path": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\upperpair_r09_c07_c08_row10_c07_c10_20260918\\qa_partial_v2\\internal_upper_trim_native.jpg",
+      "sha256": "a1e90c94851fbbef6e8ada00f771883703ca4af16ea1ffbcb107a5e09c38688e"
+    },
+    {
+      "path": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\upperpair_r09_c07_c08_row10_c07_c10_20260918\\qa_partial_v2\\internal_upper_trim_reconnected.jpg",
+      "sha256": "e90f8ba84eac2f48d2ab03a2a7f2f83549765fb9ea534fdcf47a88e42b4ad31e"
+    }
+  ],
+  "patchReviews": [
+    {
+      "id": "internal_upper_trim",
+      "result": "local_roi_and_all_four_returns_reviewed",
+      "note": "Cream rim and gold edging are continuous in the inspected 1254-square reconnection crop; no claim on full tile acceptance."
+    },
+    {
+      "id": "internal_curved_rails",
+      "result": "return_needs_further_work",
+      "note": "Central step is improved, but the right return introduces small ripples in the lower edge of the upper rail around crop x850-950/y520-670. Native source is retained; do not mark this reconnection accepted.",
+      "plannedNextStep": "Re-evaluate ROI/registration; if continuity cannot be preserved with allowed small mechanical alignment, use a targeted native return redraw."
+    }
+  ],
+  "pendingNativeRepairIds": [
+    "left_boundary_carving",
+    "bottom_boundary_paving_1",
+    "bottom_boundary_paving_2"
+  ],
+  "outsideMaskPixelsUnchangedVerified": true,
+  "exactRejoinVerified": true,
+  "wholeTileInternalSeamsRecheckAfterFinalRepairsRequired": true,
+  "fullCrossTileSeamsAndJunctionRecheckAfterFinalRepairsRequired": true,
+  "newCandidateRegistered": false,
+  "runtimePublished": false,
+  "formalAcceptedTiles": 0
+}

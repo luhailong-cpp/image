@@ -22,7 +22,7 @@
 
 ## 给接手的 Codex
 
-绘图模型与质量偏好见根目录 [AGENTS.md](AGENTS.md)及[最新模型策略](docs/IMAGE_MODEL_POLICY.md)：每个新生图任务先核对最新正式 GPT Image，选择可用的最高能力型号与最高质量。内置 `image_gen` 优先；实际后端能否切换按工具选择器和运行时证据确认。换电脑时同步规则，并核实新环境的工具与账号能力。
+绘图型号与最高画质统一读取 [config/image-generation.json](config/image-generation.json)，以后升级只改这一处；[执行策略](docs/IMAGE_MODEL_POLICY.md)说明每任务核对、内置优先及实际参数记录。根目录 [AGENTS.md](AGENTS.md)与各技能引用同一设置。换电脑时同步配置，并迁移已适配的本机工具和路径登记。
 
 **开新窗口继续制作时，先阅读 [五行奇谈后续交接](docs/WUXING_QITAN_HANDOFF.md)**，其中列出最终交付、验收记录与客户端后续步骤。
 

@@ -48,7 +48,7 @@
 
 旧五张物件源母图、旧图集 JPG 预览和两张诊断截图不再作为交付；本轮母表副本、切格副本、临时 GIF、`.work` 与生成缓存目录在验收后清理。正式图集、独立素材、完整提示词、处理脚本、JSON记录、被构建使用的来源和已确认参考图保留。无关的 `movement_diagnostics/move_20260905_082427.log` 原样保留。
 
-普通位图使用内置 `image_gen`，按 `imagegen`、`generate2dsprite`／`generate2dmap` 处理；UI 图像按 v10 的指定风格原画与重切流程更新，原生文字和布局仍由客户端负责。环境安装说明见 [AI_DESIGN_TOOLS_SETUP.md](AI_DESIGN_TOOLS_SETUP.md)。参考图传递或工具的 Windows ACL 问题是本次环境记录，不能把旧会话路径当成另一台机器的现成能力。
+普通位图先读取 [统一图像设置](../config/image-generation.json)与[执行策略](IMAGE_MODEL_POLICY.md)，使用内置 `image_gen`，按 `imagegen`、`generate2dsprite`／`generate2dmap` 处理；UI 图像按 v10 的指定风格原画与重切流程更新，原生文字和布局仍由客户端负责。环境安装说明见 [AI_DESIGN_TOOLS_SETUP.md](AI_DESIGN_TOOLS_SETUP.md)。参考图传递或工具的 Windows ACL 问题是本次环境记录，不能把旧会话路径当成另一台机器的现成能力。
 
 ```powershell
 python qdao_ui_redesign_v5/export_ui.py --check

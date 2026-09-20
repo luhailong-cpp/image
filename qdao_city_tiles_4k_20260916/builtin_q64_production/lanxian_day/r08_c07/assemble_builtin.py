@@ -1,0 +1,378 @@
+#!/usr/bin/env python3
+"""Mechanical Q64 lanxian_day r08_c07 4x4 native-patch assembly. No generation or source resizing."""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import importlib.util
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+
+import numpy as np
+from PIL import Image, ImageFilter
+
+ROOT = Path(__file__).resolve().parent
+HELPERS = Path("E:/work/image/tianyong_festival_hd_20260910/seam_helpers.py")
+GRID = 4
+CORE = 1024
+HALO = 115
+OVERLAP = 2 * HALO
+PATCH = CORE + OVERLAP
+ASSEMBLED = GRID * CORE + 2 * HALO
+FINAL = GRID * CORE
+OUTPUT = ROOT / "output"
+QA = ROOT / "qa"
+ART = OUTPUT / "lanxian_day_r08_c07_q64_4k_candidate.png"
+MANIFEST = OUTPUT / "assembly.json"
+
+
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def read_json(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8-sig"))
+
+
+def relative(path: Path) -> str:
+    return path.resolve().relative_to(ROOT).as_posix()
+
+
+def load_seam_helper():
+    spec = importlib.util.spec_from_file_location("city_existing_seam_helpers", HELPERS)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"Cannot import seam helper: {HELPERS}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module._minimum_vertical_seam
+
+
+def recorded_size(record: dict) -> list[int]:
+    for width, height in (
+        ("nativeWidth", "nativeHeight"),
+        ("actualWidth", "actualHeight"),
+        ("width", "height"),
+    ):
+        if width in record and height in record:
+            return [int(record[width]), int(record[height])]
+    if "actualNativePixels" in record:
+        return [int(value) for value in record["actualNativePixels"]]
+    raise ValueError("Missing actual native pixel dimensions in record")
+
+
+def recorded_hash(record: dict, keys: tuple[str, ...]) -> str:
+    for key in keys:
+        value = record.get(key)
+        if isinstance(value, str) and len(value) == 64:
+            return value.lower()
+    raise ValueError(f"Missing recorded SHA-256: {keys}")
+
+
+def assert_recorded_path(record: dict, keys: tuple[str, ...], expected: Path) -> None:
+    for key in keys:
+        if key not in record:
+            continue
+        value = Path(record[key])
+        actual = value.resolve() if value.is_absolute() else (ROOT / value).resolve()
+        if actual != expected.resolve():
+            raise ValueError(f"{key} points to {actual}, expected {expected}")
+
+
+def load_sources() -> tuple[list[list[np.ndarray]], list[dict]]:
+    rows: list[list[np.ndarray]] = []
+    entries: list[dict] = []
+    for row in range(1, GRID + 1):
+        native_row = []
+        for column in range(1, GRID + 1):
+            tile_id = f"r{row:02d}_c{column:02d}"
+            native = ROOT / "native" / f"{tile_id}.png"
+            record_path = ROOT / "native" / f"{tile_id}.record.json"
+            prompt = ROOT / "prompts" / f"{tile_id}.prompt.txt"
+            guide = ROOT / "guides" / f"{tile_id}.layout-only.png"
+            for path in (native, record_path, prompt, guide):
+                if not path.is_file():
+                    raise ValueError(f"Missing required source: {path}")
+            record = read_json(record_path)
+            if record.get("id", record.get("tileId")) != tile_id:
+                raise ValueError(f"Record identity mismatch: {record_path}")
+            if record.get("route") not in ("builtin", "builtin_image_gen"):
+                raise ValueError(f"Unexpected generation route: {record_path}")
+            if record.get("backendModelVerified") is not False:
+                raise ValueError(f"Unexpected verified model claim: {record_path}")
+            if recorded_size(record) != [PATCH, PATCH]:
+                raise ValueError(f"Recorded native size mismatch: {record_path}")
+            if record.get("finalArtUpscaled") is True or record.get("resizedAfterGeneration") is True:
+                raise ValueError(f"Upscaled or resized native record: {record_path}")
+            if not prompt.read_text(encoding="utf-8-sig").strip():
+                raise ValueError(f"Empty prompt: {prompt}")
+            assert_recorded_path(record, ("outputPath", "outputFile"), native)
+            assert_recorded_path(record, ("promptPath", "promptFile"), prompt)
+            assert_recorded_path(record, ("guidePath", "referenceFile"), guide)
+            hashes = {"native": sha256(native), "prompt": sha256(prompt), "guide": sha256(guide)}
+            expected = {
+                "native": recorded_hash(record, ("outputSha256",)),
+                "prompt": recorded_hash(record, ("promptSha256",)),
+                "guide": recorded_hash(record, ("guideSha256", "referenceSha256")),
+            }
+            if hashes != expected:
+                raise ValueError(f"Recorded source hash mismatch for {tile_id}: {hashes} != {expected}")
+            source_output = Path(record["sourceOutputPath"])
+            if not source_output.is_file() or sha256(source_output) != hashes["native"]:
+                raise ValueError(f"Generated-source byte identity failed: {tile_id}")
+            if "sourceOutputSha256" in record and record["sourceOutputSha256"].lower() != hashes["native"]:
+                raise ValueError(f"Recorded original-output hash mismatch: {tile_id}")
+            with Image.open(guide) as guide_image:
+                if guide_image.size != (PATCH, PATCH):
+                    raise ValueError(f"Guide dimensions invalid: {guide}")
+            with Image.open(native) as image:
+                image.load()
+                if image.format != "PNG" or image.size != (PATCH, PATCH):
+                    raise ValueError(f"Expected native {PATCH} square PNG: {native}")
+                if image.mode not in ("RGB", "RGBA"):
+                    raise ValueError(f"Unexpected native mode {image.mode}: {native}")
+                if image.mode == "RGBA" and image.getextrema()[3] != (255, 255):
+                    raise ValueError(f"Non-opaque ground patch: {native}")
+                pixels = np.asarray(image.convert("RGB")).copy()
+            native_row.append(pixels)
+            entries.append({
+                "id": tile_id,
+                "row": row,
+                "column": column,
+                "nativeFile": relative(native),
+                "nativeSize": [PATCH, PATCH],
+                "nativeSha256": hashes["native"],
+                "recordFile": relative(record_path),
+                "recordSha256": sha256(record_path),
+                "promptFile": relative(prompt),
+                "promptSha256": hashes["prompt"],
+                "guideFile": relative(guide),
+                "guideSha256": hashes["guide"],
+                "sourceOutputPath": str(source_output),
+                "sourceOutputSha256": hashes["native"],
+                "route": record["route"],
+                "backendModelVerified": False,
+                "sourceBytesPreserved": True,
+            })
+        rows.append(native_row)
+    return rows, entries
+
+
+def blend_exact(left: np.ndarray, right: np.ndarray, alpha: np.ndarray) -> np.ndarray:
+    """Round 8-bit integer alpha blend; identical samples always stay identical."""
+    weight = alpha.astype(np.uint32)[..., None]
+    numerator = left.astype(np.uint32) * (255 - weight) + right.astype(np.uint32) * weight
+    result = ((numerator + 127) // 255).astype(np.uint8)
+    identical = np.all(left == right, axis=2)
+    if not np.array_equal(result[identical], left[identical]):
+        raise AssertionError("Identical overlap pixels were modified by blending")
+    return result
+
+
+def append_patch(base: np.ndarray, patch: np.ndarray, seam_fn, label: str) -> tuple[np.ndarray, dict]:
+    if base.shape[0] != patch.shape[0] or min(base.shape[1], patch.shape[1]) < OVERLAP:
+        raise ValueError(f"Invalid overlap geometry: {label}")
+    left = base[:, -OVERLAP:]
+    right = patch[:, :OVERLAP]
+    seam = seam_fn(left, right)
+    columns = np.arange(OVERLAP, dtype=np.int32)[None, :]
+    binary_mask = np.uint8(columns >= seam[:, None]) * 255
+    feather = Image.fromarray(binary_mask).filter(ImageFilter.GaussianBlur(radius=2.0))
+    blended = blend_exact(left, right, np.asarray(feather, dtype=np.uint8))
+    result = np.concatenate((base[:, :-OVERLAP], blended, patch[:, OVERLAP:]), axis=1)
+    difference = np.abs(left.astype(np.int16) - right.astype(np.int16))
+    metric = {
+        "label": label,
+        "overlapPixels": OVERLAP,
+        "seamLength": len(seam),
+        "seamMin": int(seam.min()),
+        "seamMax": int(seam.max()),
+        "seamMean": float(seam.mean()),
+        "beforeBlendMeanAbsoluteDifference": float(difference.mean()),
+        "beforeBlendP95AbsoluteDifference": float(np.percentile(difference, 95)),
+        "identicalInputPixelsPreserved": True,
+    }
+    return result, metric
+
+
+def save_png(image: Image.Image, path: Path) -> None:
+    temporary = path.with_name(path.stem + ".writing.png")
+    image.save(temporary, format="PNG", optimize=True)
+    temporary.replace(path)
+
+
+def write_qa(image: Image.Image) -> list[dict]:
+    items: list[dict] = []
+    preview = image.resize((1024, 1024), Image.Resampling.LANCZOS)
+    preview_path = QA / "overview_1024.png"
+    save_png(preview, preview_path)
+    items.append({"file": relative(preview_path), "size": [1024, 1024],
+                  "kind": "downsampled-preview-only", "sha256": sha256(preview_path)})
+    crops = {
+        "detail_upper_left_100pct": (350, 300, 1250, 1200),
+        "detail_lower_left_100pct": (500, 2800, 1400, 3700),
+        "detail_lower_right_100pct": (2800, 2800, 3700, 3700),
+    }
+    for row in range(1, GRID):
+        for column in range(1, GRID):
+            cx, cy = column * CORE, row * CORE
+            crops[f"seam_x{cx}_y{cy}_100pct"] = (cx-450, cy-450, cx+450, cy+450)
+    for name, rect in crops.items():
+        path = QA / f"{name}.png"
+        crop = image.crop(rect)
+        if crop.size != (900, 900):
+            raise AssertionError("QA crop must retain exactly 900x900 native pixels")
+        save_png(crop, path)
+        items.append({"file": relative(path), "size": [900, 900],
+                      "kind": "native-pixel-crop", "crop": list(rect), "resized": False,
+                      "sha256": sha256(path)})
+    return items
+
+
+def validate_saved(manifest: dict, entries: list[dict]) -> dict:
+    extended = ROOT / manifest["extendedContext"]["file"]
+    if sha256(extended) != manifest["extendedContext"]["sha256"]:
+        raise ValueError("Extended-context hash differs")
+    with Image.open(extended) as ext, Image.open(ART) as art:
+        if ext.size != (4326, 4326) or not np.array_equal(np.asarray(ext.crop((115,115,4211,4211))), np.asarray(art)):
+            raise ValueError("Extended-context crop differs from candidate")
+    if manifest["plan"]["sha256"] != sha256(ROOT / "plan.json"):
+        raise ValueError("Q64 plan changed since assembly")
+    if manifest["nativeSources"] != entries:
+        raise ValueError("Current source provenance differs from saved assembly")
+    if manifest["script"]["sha256"] != sha256(Path(__file__)):
+        raise ValueError("Assembly script changed since candidate was built")
+    if manifest["seamHelper"]["sha256"] != sha256(HELPERS):
+        raise ValueError("Seam helper changed since candidate was built")
+    if sha256(ART) != manifest["output"]["sha256"]:
+        raise ValueError("Candidate hash differs from assembly")
+    with Image.open(ART) as candidate:
+        candidate.load()
+        if candidate.format != "PNG" or candidate.size != (FINAL, FINAL) or candidate.mode != "RGB":
+            raise ValueError("Final candidate image contract failed")
+        for entry in manifest["qa"]:
+            path = ROOT / entry["file"]
+            if sha256(path) != entry["sha256"]:
+                raise ValueError(f"QA artifact hash differs: {path}")
+            with Image.open(path) as sample:
+                sample.load()
+                expected = (candidate.crop(entry["crop"]) if entry["kind"] == "native-pixel-crop"
+                            else candidate.resize((1024, 1024), Image.Resampling.LANCZOS))
+                if sample.size != tuple(entry["size"]) or not np.array_equal(np.asarray(sample), np.asarray(expected)):
+                    raise ValueError(f"QA pixel mismatch: {path}")
+    return {"passed": True, "nativeSources": len(entries), "outputSize": [FINAL, FINAL],
+            "qaFiles": len(manifest["qa"]), "status": "candidate_pending_visual_QA_not_published"}
+
+
+def assemble() -> dict:
+    plan = read_json(ROOT / "plan.json")
+    if plan.get("nativeGrid") != {"rows": GRID, "columns": GRID} or plan.get("core") != CORE or plan.get("halo") != HALO:
+        raise ValueError("Q64 plan native geometry changed")
+    if plan.get("deliveryTilePixels") != [FINAL, FINAL] or plan.get("assembledBeforeOuterCrop") != [ASSEMBLED, ASSEMBLED]:
+        raise ValueError("Q64 plan delivery dimensions changed")
+    if plan.get("guidePreparation", {}).get("status") != "ready_unified_style_reference":
+        raise ValueError("Unified Q-style reference and guides are not ready; refusing assembly")
+    rows, entries = load_sources()
+    seam_fn = load_seam_helper()
+    # All 256 sample values at all 256 alpha values verify exact identity preservation.
+    samples = np.broadcast_to(np.arange(256, dtype=np.uint8)[:, None, None], (256, 256, 3)).copy()
+    weights = np.broadcast_to(np.arange(256, dtype=np.uint8)[None, :], (256, 256))
+    if not np.array_equal(blend_exact(samples, samples, weights), samples):
+        raise AssertionError("Integer-blend identity self-check failed")
+    metrics = []
+    strips = []
+    for row, native_row in enumerate(rows, 1):
+        strip = native_row[0]
+        for column, patch in enumerate(native_row[1:], 2):
+            strip, metric = append_patch(strip, patch, seam_fn, f"row{row:02d}_join_c{column-1:02d}_c{column:02d}")
+            metrics.append(metric)
+        if strip.shape != (PATCH, ASSEMBLED, 3):
+            raise AssertionError(f"Unexpected row-strip dimensions: {strip.shape}")
+        strips.append(strip)
+    combined = np.transpose(strips[0], (1, 0, 2))
+    for row, strip in enumerate(strips[1:], 2):
+        combined, metric = append_patch(combined, np.transpose(strip, (1, 0, 2)), seam_fn,
+                                        f"vertical_join_r{row-1:02d}_r{row:02d}")
+        metrics.append(metric)
+    combined = np.transpose(combined, (1, 0, 2))
+    if combined.shape != (ASSEMBLED, ASSEMBLED, 3):
+        raise AssertionError(f"Unexpected assembled dimensions: {combined.shape}")
+    final_pixels = combined[HALO:HALO+FINAL, HALO:HALO+FINAL].copy()
+    image = Image.fromarray(final_pixels)
+    OUTPUT.mkdir(parents=True, exist_ok=True)
+    QA.mkdir(parents=True, exist_ok=True)
+    save_png(image, ART)
+    save_png(Image.fromarray(combined), OUTPUT / "extended-context.png")
+    qa_items = write_qa(image)
+    manifest = {
+        "schemaVersion": 1,
+        "createdAtUtc": datetime.now(timezone.utc).isoformat(),
+        "status": "candidate_pending_visual_QA_not_published",
+        "published": False,
+        "scope": "One more-Q/chibi lanxian_day r08_c07 4096-square candidate at 65536-square whole-city density, covering 18.75x18.75 world units, from 16 native1254 patches; not a complete city map.",
+        "backendModelVerified": False,
+        "backendModel": None,
+        "userSelectedModel": "GPT Image 2.0 (host builtin)",
+        "modelEvidenceNote": "User selected the builtin route. No backend model selector is exposed; do not claim a model from the prompt.",
+        "plan": {"file": "plan.json", "sha256": sha256(ROOT / "plan.json")},
+        "wholeCityPixels": plan["wholeCityPixels"],
+        "wholeCityGrid": plan["wholeCityGrid"],
+        "worldRect": plan["worldRect"],
+        "sampleTile": plan["sampleTile"],
+        "samplePixelRectInWholeCity": plan["samplePixelRectInWholeCity"],
+        "script": {"file": relative(Path(__file__)), "sha256": sha256(Path(__file__))},
+        "seamHelper": {"file": str(HELPERS), "sha256": sha256(HELPERS),
+                       "importedFunction": "_minimum_vertical_seam"},
+        "grid": {"rows": GRID, "columns": GRID, "order": "row-major", "origin": "top-left"},
+        "corePixels": CORE,
+        "nativePatchPixels": PATCH,
+        "contextPerSide": HALO,
+        "adjacentOverlap": OVERLAP,
+        "assembledBeforeOuterCrop": [ASSEMBLED, ASSEMBLED],
+        "outerCropPerSide": HALO,
+        "composition": {
+            "method": "existing minimum-error seam; horizontal row strips then vertical strip joins",
+            "featherRadiusPixels": 2.0,
+            "blendArithmetic": "uint32 weighted sum; (left*(255-alpha)+right*alpha+127)//255",
+            "identicalInputPixelsPreserved": True,
+            "colorMatching": False,
+            "globalBlur": False,
+            "sharpening": False,
+            "guidePixelsCompositedIntoFinal": False,
+            "sourceResampling": False,
+        },
+        "finalArtUpscaled": False,
+        "nativeSources": entries,
+        "seamMetrics": metrics,
+        "extendedContext": {"file": "output/extended-context.png", "pixels": [4326, 4326], "sha256": sha256(OUTPUT / "extended-context.png")},
+        "externalAdjacent4kSeamsAccepted": False,
+        "output": {"file": relative(ART), "width": FINAL, "height": FINAL, "mode": "RGB",
+                   "format": "PNG", "sha256": sha256(ART)},
+        "qa": qa_items,
+        "visualQa": {"status": "pending", "note": "Numeric seam differences are diagnostic only; Q-style consistency, tree/garden/railing geometry, stairs and all seam intersections require visual review."},
+        "runtimeIntegration": False,
+    }
+    result = validate_saved(manifest, entries)
+    manifest["mechanicalValidation"] = result
+    MANIFEST.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return {"candidate": str(ART), "assembly": str(MANIFEST), **result}
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--check", action="store_true", help="Read-only verification of sources, provenance, output and QA pixels.")
+    args = parser.parse_args()
+    if args.check:
+        _, entries = load_sources()
+        result = validate_saved(read_json(MANIFEST), entries)
+    else:
+        result = assemble()
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+
+
+if __name__ == "__main__":
+    main()

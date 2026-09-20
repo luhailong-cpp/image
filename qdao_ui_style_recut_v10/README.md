@@ -1,5 +1,7 @@
 # 五行奇谈 · UI 统一风格重制与重新切图 v10
 
+> 后续重绘的型号与最高画质统一读取[图像设置](../config/image-generation.json)和[执行策略](../docs/IMAGE_MODEL_POLICY.md)。下文型号、参数与工具限制描述保留为该批制作记录。
+
 更新：2026-09-11。所有 UI 的画法、材质、边框与装饰统一遵循[用户指定选角图](../docs/references/ui-style-20260910.png)，保留道家 Q 版及少量春节、元宵、中秋元素。其他游戏截图仅提取功能、字段、布局与交互意图；单独贴图不改变项目美术风格。长期规则和可复用提示词统一维护在 [UI 制作规范第 2 节](../qdao_ui_redesign_v5/UI_SPEC.md#2-统一视觉与控件层级)。
 
 ## 本次交付
@@ -18,7 +20,7 @@
 
 ## 原画与真实调用记录
 
-直接使用 ChatGPT/Codex 宿主内置 `image_gen`，无需另配 `OPENAI_API_KEY`。[官方说明](https://learn.chatgpt.com/docs/image-generation)确认该路径使用 GPT Image 2、计入 Codex 用量。本次以最高视觉质量为目标；工具未开放 model／quality 参数，因此不宣称已显式强制设置 `quality=high`。
+直接使用 ChatGPT/Codex 宿主内置 `image_gen`，无需另配 `OPENAI_API_KEY`。制作时引用的[旧帮助页](https://learn.chatgpt.com/docs/image-generation)当时标注该路径使用 GPT Image 2、计入 Codex 用量；后续产品开放情况以统一策略中的官方发布公告为准。本次以最高视觉质量为目标；工具未开放 model／quality 参数，因此不宣称已显式强制设置 `quality=high`。
 
 | 原画 / 实际提示词 | 内容 | 实际原生尺寸 |
 |---|---|---|

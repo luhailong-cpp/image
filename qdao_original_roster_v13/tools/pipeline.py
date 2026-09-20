@@ -8,6 +8,12 @@ from PIL import Image,ImageDraw
 ROOT=Path(__file__).resolve().parents[1]; DIRS=('N','NE','E','SE','S','SW','W','NW')
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def load(p):return json.loads(Path(p).read_text(encoding='utf-8-sig'))
+def generation_request(receipt):
+ data=load(receipt) if receipt.exists() else {};request=data.get('request')
+ request=request if isinstance(request,dict) else {}
+ return {'model_requested':next((data[k] for k in ('model_requested','requested_model','requestedModel') if data.get(k)),request.get('model','unknown')),
+         'quality_requested':next((data[k] for k in ('quality_requested','requested_quality','requestedQuality') if data.get(k)),request.get('quality','unknown'))}
+
 def write(p,v):
  p=Path(p);p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(v,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
 def save(im,p):
@@ -35,28 +41,42 @@ def output(character):
  require(re.fullmatch(r'[A-Za-z0-9_-]+',character),'Invalid character ID');return ROOT/'candidate'/character
 
 def import_sheet(a):
- out=output(a.character);kind='walk' if a.command=='import-walk' else 'idle';rows,cols=((a.rows or 4),(a.cols or 4)) if kind=='walk' else (2,4)
- require((rows,cols) in ((2,2),(2,4),(4,4)),'Walk sources must be 2x2 pose group, 2x4 half-cycle or 4x4 full-cycle')
- require(kind=='idle' or a.start_frame in (1,9) and (rows==2 or a.start_frame==1),'Use start-frame1 for4x4; start-frame1 or9 for2x4')
- output_frames=[int(v.strip()) for v in a.output_frames.split(',')] if kind=='walk' and a.output_frames else list(range(a.start_frame,a.start_frame+rows*cols)) if kind=='walk' else [0]*(rows*cols)
+ chroma_thresholds=(50,75) if getattr(a,'chroma_profile','standard')=='purple-preserve' else (100,150)
+ out=output(a.character);kind='walk' if a.command=='import-walk' else 'idle';rows,cols=((a.rows or 4),(a.cols or 4)) if kind=='walk' else ((a.rows or 1),(a.cols or 1)) if a.direction else ((a.rows or 2),(a.cols or 4))
+ require((rows,cols) in ((1,1),(1,2),(2,1),(2,2),(2,4),(4,4)),'Walk sources must be 1x1 frame, 1x2 or 2x1 pair, 2x2 pose group, 2x4 half-cycle or 4x4 full-cycle')
+ require(kind=='idle' or a.start_frame in (1,9) and (rows in (1,2) or a.start_frame==1),'Use start-frame1 for4x4; start-frame1 or9 for2x4')
+ source_indices=[int(v.strip()) for v in a.source_cell_indices.split(',')] if a.source_cell_indices else list(range(rows*cols))
+ require(source_indices and len(set(source_indices))==len(source_indices) and all(0<=v<rows*cols for v in source_indices),'--source-cell-indices must be unique zero-based native grid indices')
+ require(kind=='walk' or (rows,cols) in ((1,1),(2,4)),'Idle sources must be native 1x1 or 2x4')
+ require(kind=='walk' or not a.source_cell_indices,'Idle imports use every cell of their native source')
+ requested_frames=[int(v.strip()) for v in a.output_frames.split(',')] if kind=='walk' and a.output_frames else list(range(a.start_frame,a.start_frame+len(source_indices))) if kind=='walk' else [0]*(rows*cols)
  if kind=='walk':
-  require((rows,cols)!=(2,2) or a.output_frames,'2x2 pose groups require explicit --output-frames')
-  require(len(output_frames)==rows*cols and len(set(output_frames))==len(output_frames) and all(1<=v<=16 for v in output_frames),'--output-frames must map each source cell to a distinct final frame1..16')
+  require((rows,cols) not in ((1,1),(1,2),(2,1),(2,2)) and not a.source_cell_indices or a.output_frames,'1x1, 1x2, 2x1, 2x2 and selected-cell imports require explicit --output-frames')
+  require(len(requested_frames)==len(source_indices) and len(set(requested_frames))==len(requested_frames) and all(1<=v<=16 for v in requested_frames),'--output-frames must assign one unique final frame1..16 to each selected source cell')
+ output_frames=[None]*(rows*cols) if kind=='walk' else [0]*(rows*cols)
+ for index,frame in zip(source_indices,requested_frames):output_frames[index]=frame
+ idle_order=(a.direction,) if kind=='idle' and (rows,cols)==(1,1) else tuple(v.strip().upper() for v in a.idle_order.split(',')) if kind=='idle' and a.idle_order else DIRS
+ if kind=='idle':
+  if (rows,cols)==(1,1):require(a.direction in DIRS and not a.idle_order,'Native 1x1 idle requires --direction and forbids --idle-order')
+  else:require(not a.direction and len(idle_order)==8 and set(idle_order)==set(DIRS),'Native 2x4 idle requires every direction exactly once and no --direction')
  require(a.source and a.prompt,'--source and --prompt are required');require(a.source.is_file() and a.prompt.is_file(),'Source image or exact prompt file missing')
  profile_path=out/'processing/scale-profile.json';scale=float(a.common_scale if a.common_scale is not None else load(profile_path)['common_scale'] if profile_path.exists() else 1.0)
  require(math.isfinite(scale) and scale>0,'Invalid character-wide scale')
  profile={'whole_cell_normalization':'512/max(native_cell_width,native_cell_height)','common_scale':scale,'per_subject_bbox_scaling':False,'root_px':[256,471],'alignment_version':2,'horizontal':'upper_body_alpha_median_42_percent','vertical':'lowest_alpha_gt_8'}
  if profile_path.exists():require(load(profile_path)==profile,'Every direction/idle of one character must use one common_scale. Do not scale individual frames.')
  else:write(profile_path,profile)
- bid=a.batch_id or f'{kind}-{a.direction or "8dir"}-{output_frames[0] if kind=="walk" else 0:02d}-{sha(a.source)[:12]}'
+ bid=a.batch_id or f'{kind}-{a.direction or "8dir"}-{output_frames[source_indices[0]] if kind=="walk" else 0:02d}-{sha(a.source)[:12]}'
  require(re.fullmatch(r'[A-Za-z0-9_-]+',bid),'Invalid batch ID')
  source_dir=out/'source'/bid;copy_once(a.source,source_dir/'raw.png');copy_once(a.prompt,source_dir/'prompt.txt')
  if a.receipt:copy_once(a.receipt,source_dir/'generation-receipt.json')
  raw=imread(source_dir/'raw.png');cw=raw.width/cols;ch=raw.height/rows;factor=512/max(cw,ch)*scale
  records=load(out/'processing/frame-sources.json') if (out/'processing/frame-sources.json').exists() else {};selected=[];work=out/'processing/batches'/bid
- for index in range(rows*cols):
-  d=a.direction if kind=='walk' else DIRS[index];frame=output_frames[index] if kind=='walk' else 0;r,c=divmod(index,cols)
-  box=[round(c*cw),round(r*ch),round((c+1)*cw),round((r+1)*ch)];cell=raw.crop(box);keyed=KEYER.remove_bg_magenta(cell.copy(),100,150)
+ for index in source_indices:
+  d=a.direction if kind=='walk' else idle_order[index];frame=output_frames[index] if kind=='walk' else 0;r,c=divmod(index,cols)
+  box=[round(c*cw),round(r*ch),round((c+1)*cw),round((r+1)*ch)];cell=raw.crop(box);prepared=cell.copy();alpha_cleanup_threshold=8 if np.asarray(raw)[:,:,3].min()<255 else 0
+  if alpha_cleanup_threshold:
+   prepared_array=np.array(prepared);prepared_array[:,:,3][prepared_array[:,:,3]<=alpha_cleanup_threshold]=0;prepared=Image.fromarray(prepared_array,'RGBA').copy()
+  keyed=KEYER.remove_bg_magenta(prepared,*chroma_thresholds)
   require(not edge_touch(keyed),f'{d}/{frame:02d}: original cell touches boundary; regenerate rather than hide clipping')
   size=(round(cell.width*factor),round(cell.height*factor));normal=keyed.resize(size,Image.Resampling.LANCZOS) if keyed.size!=size else keyed.copy()
   clean,cleanup=EDGE.despill(normal,radius=4,reference_radius=12);ax,ay=axis(clean);delta=[round(256-ax),471-ay];b=cropbox(clean,0)
@@ -67,7 +87,7 @@ def import_sheet(a):
   for name,im in [('cell',cell),('keyed',keyed),('normalized',normal),('cleaned',clean),('final',final)]:
    p=work/d/f'{frame:02d}-{name}.png';save(im,p);stages[name]={'path':p.relative_to(out).as_posix(),'sha256':sha(p)}
   receipt=source_dir/'generation-receipt.json'
-  rec={'kind':kind,'direction':d,'frame':frame,'source':{'path':(source_dir/'raw.png').relative_to(out).as_posix(),'sha256':sha(source_dir/'raw.png'),'native_size':list(raw.size),'grid':[rows,cols],'cell_index':index,'sequence_start_frame':output_frames[0] if kind=='walk' else 0,'output_frame_map':output_frames if kind=='walk' else None,'cell_xyxy':box},'prompt':{'path':(source_dir/'prompt.txt').relative_to(out).as_posix(),'sha256':sha(source_dir/'prompt.txt')},'generation':{'tool':'built-in image_gen','model_requested':'GPT Image 2','model_actual':'not asserted by this processor','receipt':{'path':receipt.relative_to(out).as_posix(),'sha256':sha(receipt)} if receipt.exists() else None,'status':'unreviewed'},'whole_cell_scale':factor,'common_scale':scale,'normalized_size':list(size),'chroma_thresholds':[100,150],'cleanup':cleanup,'despill_radius':4,'translation_px':delta,'alignment_version':2,'anchor_after_px':list(axis(final)),'stages':stages,'output':relative,'output_sha256':stages['final']['sha256'],'visual_review':'pending'}
+  rec={'kind':kind,'direction':d,'frame':frame,'source':{'path':(source_dir/'raw.png').relative_to(out).as_posix(),'sha256':sha(source_dir/'raw.png'),'native_size':list(raw.size),'grid':[rows,cols],'cell_index':index,'sequence_start_frame':output_frames[source_indices[0]] if kind=='walk' else 0,'selected_source_cell_indices':source_indices,'output_frame_map':output_frames if kind=='walk' else None,'output_direction_map':list(idle_order) if kind=='idle' else None,'cell_xyxy':box},'prompt':{'path':(source_dir/'prompt.txt').relative_to(out).as_posix(),'sha256':sha(source_dir/'prompt.txt')},'generation':{'tool':'built-in image_gen',**generation_request(receipt),'model_actual':'not asserted by this processor','receipt':{'path':receipt.relative_to(out).as_posix(),'sha256':sha(receipt)} if receipt.exists() else None,'status':'unreviewed'},'whole_cell_scale':factor,'common_scale':scale,'normalized_size':list(size),'chroma_thresholds':list(chroma_thresholds),'alpha_cleanup_threshold':alpha_cleanup_threshold,'cleanup':cleanup,'despill_radius':4,'translation_px':delta,'alignment_version':2,'anchor_after_px':list(axis(final)),'stages':stages,'output':relative,'output_sha256':stages['final']['sha256'],'visual_review':'pending'}
   records[relative]=rec;selected.append(rec)
  source_keys=[(rec['source']['sha256'],tuple(rec['source']['cell_xyxy'])) for rec in records.values()]
  require(len(source_keys)==len(set(source_keys)),'One actual source cell is assigned to more than one final pose; reject reuse')
@@ -134,7 +154,7 @@ def preview():
  if template.exists():shutil.copy2(template,ROOT/'index.html')
 
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('command',choices=['import-walk','import-idle','portrait','review','preview']);p.add_argument('--character');p.add_argument('--direction',choices=DIRS);p.add_argument('--source',type=Path);p.add_argument('--prompt',type=Path);p.add_argument('--receipt',type=Path);p.add_argument('--batch-id');p.add_argument('--common-scale',type=float,default=None);p.add_argument('--rows',type=int,choices=(2,4));p.add_argument('--cols',type=int,choices=(2,4));p.add_argument('--output-frames',help='Comma-separated final frame number for each source cell in row-major order');p.add_argument('--start-frame',type=int,choices=(1,9),default=1);a=p.parse_args()
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('command',choices=['import-walk','import-idle','portrait','review','preview']);p.add_argument('--character');p.add_argument('--direction',choices=DIRS);p.add_argument('--source',type=Path);p.add_argument('--prompt',type=Path);p.add_argument('--receipt',type=Path);p.add_argument('--batch-id');p.add_argument('--common-scale',type=float,default=None);p.add_argument('--chroma-profile',choices=('standard','purple-preserve'),default='standard',help='Recorded chroma-key profile: standard100/150; purple-preserve50/75 avoids erasing purple costume. Source clipping checks remain strict.');p.add_argument('--rows',type=int,choices=(1,2,4));p.add_argument('--cols',type=int,choices=(1,2,4));p.add_argument('--source-cell-indices',help='Comma-separated zero-based native grid cells to import, paired with --output-frames');p.add_argument('--idle-order',help='Comma-separated direction assigned to each of eight source cells, default N,NE,E,SE,S,SW,W,NW');p.add_argument('--output-frames',help='Comma-separated final frame number for each source cell in row-major order');p.add_argument('--start-frame',type=int,choices=(1,9),default=1);a=p.parse_args()
  if a.command=='preview':preview();return
  require(a.character,'--character is required')
  if a.command=='import-walk':require(a.direction,'--direction is required');import_sheet(a)

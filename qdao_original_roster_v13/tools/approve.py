@@ -33,6 +33,7 @@ def main():
   records=read(out/'processing/frame-sources.json')
   for record in records.values():record['visual_review']='passed';record['generation']['status']='passed_internal_visual_review'
   write(out/'processing/frame-sources.json',records);manifest['sources_sha256']=sha(out/'processing/frame-sources.json');manifest['status']='passed';manifest['visual_review']='passed';qc['status']='passed';qc['visual_review']='passed'
+  for direction_qc in qc['directions'].values():direction_qc['status']='passed';direction_qc['visual_review']='passed'
   write(out/'manifest.json',manifest);write(out/'qc.json',qc)
   final={**review,'reviewed_manifest_sha256':sha(out/'manifest.json'),'reviewed_qc_sha256':sha(out/'qc.json'),'review_input_sha256':sha(a.review_input),'sealed_at_utc':datetime.now(timezone.utc).isoformat()};write(out/'review/visual-review.json',final)
   validation=v.verify(a.character,require_visual=True);write(out/'validation.json',validation)

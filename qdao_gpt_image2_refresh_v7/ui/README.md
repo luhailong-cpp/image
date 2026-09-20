@@ -24,4 +24,4 @@ node qdao_ui_redesign_v5/hud/build.mjs
 python qdao_gpt_image2_refresh_v7/ui/verify_ui.py
 ```
 
-末两种画面组合需要先生成本轮主城、道童与主城人物预览。已有迁移辅助脚本 `update_builders.py` / `update_docs.py` / `harden_writes.py` 用于记录本轮构建器变更；正常重建不运行这些一次性迁移。
+末两种画面组合需要先生成本轮主城、道童与主城人物预览。一次性迁移已经落实到构建器；对应的旧补丁脚本于2026-09-19清理，正常重建流程不变。记录见[Python与JSON清理说明](../../docs/CODE_METADATA_CLEANUP_20260919.md)。

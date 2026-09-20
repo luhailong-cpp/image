@@ -1,0 +1,60 @@
+{
+  "date": "2026-09-19",
+  "status": "paused_for_user_requested_handoff",
+  "scope": "donghai_day and donghai_lantern r08_c08/c09/c10",
+  "productionRoot": "E:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production",
+  "newGenerationCallsThisSession": 0,
+  "rootLedgerModifiedThisSession": false,
+  "runtimePublished": false,
+  "wholeCityComplete": false,
+  "accepted": false,
+  "selectedInRootLedger": {
+    "donghai_day": {"tiles": ["r08_c08", "r08_c09", "r08_c10"], "directory": "donghai_day/r08_c08_c09_c10_joint/output_v3"},
+    "donghai_lantern": {"tiles": ["r08_c08", "r08_c09"], "directory": "donghai_lantern/r08_c09/joined_pair_v3"}
+  },
+  "latestUnregisteredCandidate": {
+    "appearance": "donghai_lantern",
+    "directory": "donghai_lantern/r08_c08_c09_c10_joint/output_v1",
+    "tiles": ["r08_c08", "r08_c09", "r08_c10"],
+    "status": "visual_defect_found_do_not_merge",
+    "mechanicalEvidence": "donghai_lantern/r08_c08_c09_c10_joint/output_v1/qa/qa-mechanical-20260918.json",
+    "mechanicalEvidencePriorSession": true,
+    "mechanicalEvidenceSummary": "16 native records passed project/host bytes, prompt/guide/actual-reference SHA256, 1254x1254 opacity, 3-tile rejoin exact, c08 unchanged. Existing evidence read, not rerun this session."
+  },
+  "nativeDetailStatus": {
+    "donghai_day/r08_c10": {"count": 16, "missing": [], "ids": ["r01_c01", "r01_c02", "r01_c03", "r01_c04", "r02_c01", "r02_c02", "r02_c03", "r02_c04", "r03_c01", "r03_c02", "r03_c03", "r03_c04", "r04_c01", "r04_c02", "r04_c03", "r04_c04"], "fishRepairs": 2, "selectedJointVersion": "output_v3"},
+    "donghai_lantern/r08_c10": {"count": 16, "missing": [], "ids": ["r01_c01", "r01_c02", "r01_c03", "r01_c04", "r02_c01", "r02_c02", "r02_c03", "r02_c04", "r03_c01", "r03_c02", "r03_c03", "r03_c04", "r04_c01", "r04_c02", "r04_c03", "r04_c04"], "allPngAndRecordFilesExist": true, "nativePixels": [1254,1254], "lastSourcePath": "C:/Users/luyua/.codex/generated_images/01a0b3f0-5217-7272-9d03-933a516b3d2d/exec-4334febb-bd16-4bee-ae6f-039c7929c904.png", "lastSourceSha256": "4b930312d54a32bde9ff2353c62627787d820e7c7e265902ac8873dc866b765e"}
+  },
+  "visualReviewThisSession": {
+    "qaDirectory": "donghai_lantern/r08_c08_c09_c10_joint/output_v1/qa",
+    "viewMethod": "view_image detail=original; no rescale for native QA montages",
+    "overviewViewed": "overview.jpg",
+    "fullSeamsViewed": ["internal_x9216_all4096_native.png", "internal_x10240_all4096_native.png", "internal_x11264_all4096_native.png", "internal_y1024_all4096_native.png", "internal_y2048_all4096_native.png", "internal_y3072_all4096_native.png", "cross_x4096_all4096_native.png", "cross_x8192_all4096_native.png"],
+    "fullSeamCoverage": "All 6 internal c10 seams, each full 4096 pixels; both full c08/c09 and c09/c10 boundaries.",
+    "junctionsViewed": ["junction_x8192_y1024_native.png", "junction_x8192_y2048_native.png", "junction_x8192_y3072_native.png", "junction_x9216_y1024_native.png", "junction_x9216_y2048_native.png", "junction_x9216_y3072_native.png", "junction_x10240_y3072_native.png", "junction_x11264_y3072_native.png"],
+    "junctionsNotYetViewed": ["junction_x10240_y1024_native.png", "junction_x10240_y2048_native.png", "junction_x11264_y1024_native.png", "junction_x11264_y2048_native.png"],
+    "defects": [
+      {"id": "blue_fish_multiple_eyes_heads", "severity": "requires_native_repair", "coordinateSpace": "triple core12288x4096.png", "location": "Fish basin crossing x8192 near y3072, visible in 900x900 junction crop [7742,2622,8642,3522].", "description": "Blue fish have repeated eyes/head-like divisions along bodies; front blue head shows two same-side eyes. Existing lantern left region and new c10 shared region must be treated together. Do not accept this as clean anatomy.", "referenceForRepair": "Use final day output_v3 matching fish basin geometry and lantern output_v1 lighting; inspect exact crops before generating. Do not paste day art as lantern detail."},
+      {"id": "blue_canopy_tone_transition", "severity": "observation_requires_close_recheck", "location": "c09/c10 x8192 blue canopy, especially near y2048", "description": "Very small brush/tone variation visible along old/new region. No definitive broken contour observed; inspect with repair return edges. Do not mark globally seamless yet."}
+    ],
+    "otherObservations": "Reviewed internal rails, canopy rims, lamp poles, banner, ground and foliage boundaries remain continuous at viewed native scale. This does not constitute formal city acceptance.",
+    "repairReturnEdgesReviewed": false
+  },
+  "ledgers": {
+    "alreadyMergedDoNotRepeat": "donghai_batch_r08_c08_c10/day-v3-ledger-update-20260918.json",
+    "pendingMergeLedger": null,
+    "reason": "Lantern output_v1 has anatomy defect and 4 junctions remain unseen. No new visual-pass ledger produced."
+  },
+  "nextSteps": [
+    "Read this checkpoint, not the outdated RESUME-20260918.md missing-image queue. All 16 lantern native details are already present; do not regenerate r03_c04/r04.*.",
+    "View the 4 remaining junction PNGs listed above at original scale.",
+    "Prepare a new versioned local fish-basin repair using matching native-scale crops of lantern output_v1 and selected day output_v3. Preserve the fish basin outline, stall placement and traffic geometry. Write prompt by hand and retain actual input paths/hashes.",
+    "Use builtin image_gen only. First view_image the local references; then use referenced_image_paths. Keep model/quality host-managed unverified because tool has no selectors. Keep raw PNGs and source records; no separately billed API.",
+    "Apply only a bounded ROI in a new output_v2 (or later unused version), preserve zero-mask pixels exactly, record any finite registration fields, inspect every return edge and all affected complete seams/junctions.",
+    "After visual pass, emit lantern-only increment ledger with c08/c09 replacements and c10 new coordinate plus only new repair sources; root merges. Continue next adjacent tile only after joint QA."
+  ],
+  "safeReadOnlyCommand": "& 'C:/Users/luyua/AppData/Local/Programs/Python/Python312/python.exe' -X utf8 'E:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/donghai_lantern/r08_c10/assemble_builtin.py' --check",
+  "doNotRerun": ["prepare_lantern_patch.py on existing generated IDs", "qa_lantern_join_20260918.py because it refuses existing QA files", "assemble_triple.py without first choosing new output version"],
+  "remainingAcceptance": ["all missing city tiles", "new fish native repair and return-edge QA", "remaining junction views", "cross-appearance geometry validation", "all external neighboring seams", "navigation", "independent foreground", "closest camera", "movement and seasonal switch", "Unity device performance"],
+  "handoffNotes": "No image tool call was started in this session. User requested handoff while visual inspection was underway; all inspected paths and unresolved issues are recorded here. No pending tool image outputs or unrecorded new PNGs."
+}

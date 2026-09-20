@@ -1,4 +1,4 @@
-> 2026-09-17最新指示：用户已允许内置GPT Image 2，并指定9adcf929原人物包。新美术基线/16帧工作转入 `../qdao_original_roster_v13`。此目录保留之前吕洞宾专用准备、已通过代码测试和真实V12基线，不继续冒用它的原64奇数帧规则处理另一套人物。
+> 用户已允许内置生图，并指定9adcf929原人物包。后续型号／画质读取[统一设置](../config/image-generation.json)与[执行策略](../docs/IMAGE_MODEL_POLICY.md)。新美术基线/16帧工作转入 `../qdao_original_roster_v13`。此目录保留之前吕洞宾专用准备、已通过代码测试和真实V12基线，不继续冒用它的原64奇数帧规则处理另一套人物。
 
 # 年轻吕洞宾 V13：制作工作区
 
@@ -15,7 +15,7 @@
 
 ## 当前等待
 
-[本次模型核对](planning/model-resolution-20260917.md)发现官方内置入口仍标注GPT Image 2，无型号/质量选择参数；项目要求最新最高能力2.5 Sunburst。本任务已向用户询问：本次明确允许内置2，或授权2.5 Sunburst API最高质量单独计费。未收到答复前不进行依赖该选择的新增生图，不声称切换模型成功。
+[原模型核对](planning/model-resolution-20260917.md)保留历史记录；其中依赖旧帮助页的模型阻塞已撤销。后续按[统一设置](../config/image-generation.json)与[执行策略](../docs/IMAGE_MODEL_POLICY.md)执行已授权的内置生图，实际后端与参数按证据记录。
 
 新增实绘帧：0/64。当前candidate的manifest/QC是incomplete；无正式V13 appearance.json。
 
