@@ -1,36 +1,34 @@
 # 主城64K / 单块4K重制
 
-2026-09-20 追加精简：移除189张有后续版本替代的拼接输出与过期检查PNG，约2,109.29 MiB；当前候选、原生图和必要拼接输入保留。[详细记录](../docs/PNG_PROCESS_CLEANUP_20260920.md)。
+累计生成 **21个独立坐标的4096×4096局部候选**。**完整64K整城0/7套，正式验收0/1792块**。同一坐标的返修版本不重复计数。用户已确认继续全部主城至完成，维持原64K目标，无待确认的范围问题。
 
-2026-09-20 存储清理：移除82张旧试作效果、被替代的裁切候选与过期QA图，约481.94 MiB；当前选定候选和实际拼接输入保留。历史图片路径的恢复方式见[清理记录](../docs/CITY_CHARACTER_CLEANUP_20260920.md)。
-
-累计生成 **19个独立坐标的4096×4096局部候选**。**完整64K整城0/7套，正式验收0/1792块**。同一坐标的返修版本不重复计数。用户已确认继续全部主城至完成，维持原64K目标，无待确认的范围问题。
-
-累计核验385张基础原生1254×1254细节图及101张原生返修图，保留原始字节和来源记录；正在制作的图块中已核验原图也计入源图数量。布局参考、预览和机械处理版本不计为新增原生图。高清细节采用分区生成、重叠拼接后裁成4K；没有将低清图直接放大冒充高清。小幅机械接缝配准会重采样边缘像素，位移与色彩校正另存记录。
+累计核验385张基础原生1254×1254细节图及103张原生返修图，保留原始字节和来源记录；正在制作的图块中已核验原图也计入源图数量。布局参考、预览和机械处理版本不计为新增原生图。高清细节采用分区生成、重叠拼接后裁成4K；没有将低清图直接放大冒充高清。小幅机械接缝配准会重采样边缘像素，位移与色彩校正另存记录。
 
 [本批总览](builtin_q64_production/current-batch-overview.jpg) · [来源与数量核验](builtin_q64_production/current-batch.json) · [状态JSON](status.json)
 
 | 外观 | 图块坐标 | 4K候选 | 检查记录 |
 | --- | --- | --- | --- |
-| 天墉城节庆 | r10_c07 | [无损PNG](builtin_q64_production/tianyong_festival/L_r09_c07_r10_c07_c10/output_v3/r10_c07.png) | [QA](builtin_q64_production/tianyong_festival/L_r09_c07_r10_c07_c10/qa_v3/visual-review.json) |
-| 天墉城节庆 | r10_c08 | [无损PNG](builtin_q64_production/tianyong_festival/L_r09_c07_r10_c07_c10/output_v3/r10_c08.png) | [QA](builtin_q64_production/tianyong_festival/L_r09_c07_r10_c07_c10/qa_v3/visual-review.json) |
-| 天墉城节庆 | r10_c09 | [无损PNG](builtin_q64_production/tianyong_festival/L_r09_c07_r10_c07_c10/output_v3/r10_c09.png) | [QA](builtin_q64_production/tianyong_festival/L_r09_c07_r10_c07_c10/qa_v3/visual-review.json) |
-| 天墉城节庆 | r10_c10 | [无损PNG](builtin_q64_production/tianyong_festival/L_r09_c07_r10_c07_c10/output_v3/r10_c10.png) | [QA](builtin_q64_production/tianyong_festival/L_r09_c07_r10_c07_c10/qa_v3/visual-review.json) |
-| 蓬莱仙岛日景 | r09_c10 | [无损PNG](builtin_q64_production/penglai_day/r09_c10_c11_joint/output/penglai_day_r09_c10_4k_joint_candidate.png) | [QA](builtin_q64_production/penglai_day/r09_c10_c11_joint/qa/visual-review.json) |
+| 天墉城节庆 | r10_c07 | [无损PNG](builtin_q64_production/tianyong_festival/upperpair_r09_c07_c08_row10_c07_c10_20260918/output_v5/r10_c07.png) | [QA](builtin_q64_production/tianyong_festival/upperpair_r09_c07_c08_row10_c07_c10_20260918/qa_v5/visual-review-20260920.json) |
+| 天墉城节庆 | r10_c08 | [无损PNG](builtin_q64_production/tianyong_festival/upperpair_r09_c07_c08_row10_c07_c10_20260918/output_v5/r10_c08.png) | [QA](builtin_q64_production/tianyong_festival/upperpair_r09_c07_c08_row10_c07_c10_20260918/qa_v5/visual-review-20260920.json) |
+| 天墉城节庆 | r10_c09 | [无损PNG](builtin_q64_production/tianyong_festival/upperpair_r09_c07_c08_row10_c07_c10_20260918/output_v5/r10_c09.png) | [QA](builtin_q64_production/tianyong_festival/upperpair_r09_c07_c08_row10_c07_c10_20260918/qa_v5/visual-review-20260920.json) |
+| 天墉城节庆 | r10_c10 | [无损PNG](builtin_q64_production/tianyong_festival/upperpair_r09_c07_c08_row10_c07_c10_20260918/output_v5/r10_c10.png) | [QA](builtin_q64_production/tianyong_festival/upperpair_r09_c07_c08_row10_c07_c10_20260918/qa_v5/visual-review-20260920.json) |
+| 蓬莱仙岛日景 | r09_c10 | [无损PNG](builtin_q64_production/penglai_day/r09_c10_c11_c12_joint/output_v2_20260918/penglai_day_r09_c10_4k_joint_candidate_v2.png) | [QA](builtin_q64_production/penglai_day/r09_c10_c11_c12_joint/visual-review-v2-20260920.json) |
 | 蓬莱仙岛中秋 | r09_c10 | [无损PNG](builtin_q64_production/penglai_mid_autumn/r09_c10_c11_joint/output/v3/penglai_mid_autumn_r09_c10_4k_joint_candidate_v3.png) | [QA](builtin_q64_production/penglai_mid_autumn/r09_c10_c11_joint/qa/v3/visual-review.json) |
 | 东海渔村·日景 | r08_c08 | [无损PNG](builtin_q64_production/donghai_day/r08_c08_c09_c10_joint/output_v3/r08_c08.png) | [QA](builtin_q64_production/donghai_batch_r08_c08_c10/resume_audit_20260918/visual-review.json) |
 | 东海渔村·元宵 | r08_c08 | [无损PNG](builtin_q64_production/donghai_lantern/r08_c09/joined_pair_v3/r08_c08.png) | [QA](builtin_q64_production/donghai_lantern/r08_c09/joined_pair_v3/qa/visual-review.json) |
 | 揽仙镇日景 | r08_c06 | [无损PNG](builtin_q64_production/lanxian_day/triple_r08_c06_c08/output_v2/r08_c06.png) | [QA](builtin_q64_production/lanxian_day/triple_r08_c06_c08/visual-review-v2.json) |
 | 揽仙镇春景 | r08_c06 | [无损PNG](builtin_q64_production/lanxian_spring/pair_r08_c06_c07/output/lanxian_spring_r08_c06_q64_4k_candidate_pair_v6.png) | [QA](builtin_q64_production/lanxian_spring/pair_r08_c06_c07/qa/visual-review-v6.json) |
-| 蓬莱仙岛日景 | r09_c11 | [无损PNG](builtin_q64_production/penglai_day/r09_c10_c11_joint/output/penglai_day_r09_c11_4k_joint_candidate.png) | [QA](builtin_q64_production/penglai_day/r09_c10_c11_joint/qa/visual-review.json) |
+| 蓬莱仙岛日景 | r09_c11 | [无损PNG](builtin_q64_production/penglai_day/r09_c10_c11_c12_joint/output_v2_20260918/penglai_day_r09_c11_4k_joint_candidate_v2.png) | [QA](builtin_q64_production/penglai_day/r09_c10_c11_c12_joint/visual-review-v2-20260920.json) |
 | 蓬莱仙岛中秋 | r09_c11 | [无损PNG](builtin_q64_production/penglai_mid_autumn/r09_c10_c11_joint/output/v3/penglai_mid_autumn_r09_c11_4k_joint_candidate_v3.png) | [QA](builtin_q64_production/penglai_mid_autumn/r09_c10_c11_joint/qa/v3/visual-review.json) |
 | 揽仙镇日景 | r08_c07 | [无损PNG](builtin_q64_production/lanxian_day/triple_r08_c06_c08/output_v2/r08_c07.png) | [QA](builtin_q64_production/lanxian_day/triple_r08_c06_c08/visual-review-v2.json) |
 | 揽仙镇春景 | r08_c07 | [无损PNG](builtin_q64_production/lanxian_spring/pair_r08_c06_c07/output/lanxian_spring_r08_c07_q64_4k_candidate_pair_v6.png) | [QA](builtin_q64_production/lanxian_spring/pair_r08_c06_c07/qa/visual-review-v6.json) |
-| 天墉城节庆 | r09_c07 | [无损PNG](builtin_q64_production/tianyong_festival/L_r09_c07_r10_c07_c10/output_v3/r09_c07.png) | [QA](builtin_q64_production/tianyong_festival/L_r09_c07_r10_c07_c10/qa_v3/visual-review.json) |
+| 天墉城节庆 | r09_c07 | [无损PNG](builtin_q64_production/tianyong_festival/upperpair_r09_c07_c08_row10_c07_c10_20260918/output_v5/r09_c07.png) | [QA](builtin_q64_production/tianyong_festival/upperpair_r09_c07_c08_row10_c07_c10_20260918/qa_v5/visual-review-20260920.json) |
 | 东海渔村·日景 | r08_c09 | [无损PNG](builtin_q64_production/donghai_day/r08_c08_c09_c10_joint/output_v3/r08_c09.png) | [QA](builtin_q64_production/donghai_batch_r08_c08_c10/resume_audit_20260918/visual-review.json) |
 | 东海渔村·元宵 | r08_c09 | [无损PNG](builtin_q64_production/donghai_lantern/r08_c09/joined_pair_v3/r08_c09.png) | [QA](builtin_q64_production/donghai_lantern/r08_c09/joined_pair_v3/qa/visual-review.json) |
 | 东海渔村·日景 | r08_c10 | [无损PNG](builtin_q64_production/donghai_day/r08_c08_c09_c10_joint/output_v3/r08_c10.png) | [QA](builtin_q64_production/donghai_batch_r08_c08_c10/resume_audit_20260918/visual-review.json) |
 | 揽仙镇日景 | r08_c08 | [无损PNG](builtin_q64_production/lanxian_day/triple_r08_c06_c08/output_v2/r08_c08.png) | [QA](builtin_q64_production/lanxian_day/triple_r08_c06_c08/visual-review-v2.json) |
+| 蓬莱仙岛日景 | r09_c12 | [无损PNG](builtin_q64_production/penglai_day/r09_c10_c11_c12_joint/output_v2_20260918/penglai_day_r09_c12_4k_joint_candidate_v2.png) | [QA](builtin_q64_production/penglai_day/r09_c10_c11_c12_joint/visual-review-v2-20260920.json) |
+| 天墉城节庆 | r09_c08 | [无损PNG](builtin_q64_production/tianyong_festival/upperpair_r09_c07_c08_row10_c07_c10_20260918/output_v5/r09_c08.png) | [QA](builtin_q64_production/tianyong_festival/upperpair_r09_c07_c08_row10_c07_c10_20260918/qa_v5/visual-review-20260920.json) |
 
 ## 目标与制作状态
 
