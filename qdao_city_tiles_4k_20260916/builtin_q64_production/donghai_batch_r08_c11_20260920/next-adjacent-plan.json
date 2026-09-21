@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-09-21T03:25:26.202267+00:00",
+  "status": "plan_ready_waiting_for_root_lantern_v2_merge",
+  "tile": "r08_c11",
+  "row": 8,
+  "column": 11,
+  "finalPixelRectXYWH": [
+    40960,
+    28672,
+    4096,
+    4096
+  ],
+  "worldRect": {
+    "x": 237.5,
+    "z": 150,
+    "width": 18.75,
+    "height": 18.75
+  },
+  "appearances": [
+    "donghai_day",
+    "donghai_lantern"
+  ],
+  "rationale": "Continue the selected c08-c10 strip eastward across the street, foliage and house edge. Day geometry is authoritative for the matching festival appearance.",
+  "sources": [
+    {
+      "appearance": "donghai_day",
+      "layoutSource": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_all_city_references\\donghai_day\\map-native-layout-reference.png",
+      "layoutSourceSha256": "bf5cd3ebb2e7b0836e23eb80199c7372e68fe3aa770a75f7a5b3514723272004",
+      "layoutSourcePixels": [
+        1254,
+        1254
+      ],
+      "layoutSourceBoxXYXY": [
+        781.5495300292969,
+        546.4245300292969,
+        864.3254699707031,
+        629.2004699707031
+      ],
+      "layoutGuide": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\donghai_batch_r08_c11_20260920\\guides\\donghai_day-c11-layout-only.png",
+      "layoutGuideSha256": "e5c4f98a51f8aec8fc2f93e248c997f7f7e0232e2d7d17a23cae087985206ff9",
+      "referenceResampledOnly": true,
+      "referencePixels": [
+        1254,
+        1254
+      ],
+      "leftNeighbor": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\donghai_day\\r08_c08_c09_c10_joint\\output_v3\\r08_c10-extended-context.png",
+      "leftNeighborSha256": "2ca14a836ee61e67e58ad64050c469d8ce4b0fef96faec7a9c1aaed917ccb04c",
+      "leftOverlap": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\donghai_batch_r08_c11_20260920\\guides\\donghai_day-c10-native-right-overlap.png",
+      "leftOverlapSha256": "e1b9fe02de88c0d7e0e332f09df9294ae647fd722959aaebecd5275cfb2acefc",
+      "leftOverlapPixels": [
+        230,
+        4326
+      ],
+      "leftOverlapResized": false
+    },
+    {
+      "appearance": "donghai_lantern",
+      "layoutSource": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_all_city_references\\donghai_lantern\\map-native-layout-reference.png",
+      "layoutSourceSha256": "d5999ef7ea15a0f8a35c3c3b5b543881703a338fc7a3fb61409efa6c5a0eb86a",
+      "layoutSourcePixels": [
+        1254,
+        1254
+      ],
+      "layoutSourceBoxXYXY": [
+        781.5495300292969,
+        546.4245300292969,
+        864.3254699707031,
+        629.2004699707031
+      ],
+      "layoutGuide": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\donghai_batch_r08_c11_20260920\\guides\\donghai_lantern-c11-layout-only.png",
+      "layoutGuideSha256": "f6b1fdf866345e6b405d252c94c084c5f8aef601bb8d98ef582f790fd093cad2",
+      "referenceResampledOnly": true,
+      "referencePixels": [
+        1254,
+        1254
+      ],
+      "leftNeighbor": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\donghai_lantern\\r08_c08_c09_c10_joint\\output_v2\\r08_c10-extended-context.png",
+      "leftNeighborSha256": "c1d6639fd56358f2a4ba1bc02e126846a4e671e91b677e4a1ed9338367703e67",
+      "leftOverlap": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\donghai_batch_r08_c11_20260920\\guides\\donghai_lantern-c10-native-right-overlap.png",
+      "leftOverlapSha256": "f668127431255d4fffa5683b42acb1d62f5585c070d2efb5793ebb2ba3d95550",
+      "leftOverlapPixels": [
+        230,
+        4326
+      ],
+      "leftOverlapResized": false
+    }
+  ],
+  "route": "builtin_image_gen",
+  "configuredModelTarget": "gpt-image-2.5-sunburst",
+  "configuredQualityTarget": "max",
+  "actualBackendModel": null,
+  "actualQualityPreset": null,
+  "backendModelVerified": false,
+  "qualityVerified": false,
+  "nativePatchPlan": {
+    "rows": 4,
+    "columns": 4,
+    "core": 1024,
+    "halo": 115,
+    "adjacentOverlap": 230,
+    "nativeExpectedPixels": [
+      1254,
+      1254
+    ],
+    "extendedContextPixels": [
+      4326,
+      4326
+    ],
+    "finalCropBoxXYXY": [
+      115,
+      115,
+      4211,
+      4211
+    ]
+  },
+  "stages": [
+    "After root merges the lantern-v2 ledger, inspect local day layout-only guide and selected c10 context. Generate and retain a native local layout study with builtin GPT Image; this study is a structure guide, never a 4K completed tile.",
+    "Prepare one unified day geometry canvas and 16 overlapping guide crops. Carry the exact 230px selected c10 overlap into the first-column guides. Handcraft prompts, inspect actual references, preserve every source and ordered submitted input hash.",
+    "Generate 16 native day detail patches sequentially with actual adjacent native context. Assemble without enlarging native artwork; repair all internal/cross-tile seams before selecting c11.",
+    "Prepare lantern guides from the accepted local day structure and selected c10 lantern overlap; the whole lantern reference supplies appearance only. Generate 16 new native lantern patches and repair without moving roads, footprint, entrances or house placement.",
+    "Inspect all complete seams, intersections and actual repair ROI edges at native scale, audit hashes/rejoin, and emit an incremental candidate ledger for root merge."
+  ],
+  "generationStarted": false,
+  "newNativeSources": 0,
+  "finalArtUpscaled": false,
+  "accepted": false,
+  "runtimePublished": false,
+  "existingC10NativeComplete16of16": true,
+  "oldQueueMustNotBeReplayed": true,
+  "dependencies": [
+    "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\donghai_batch_r08_c08_c10\\lantern-v2-ledger-update-20260920.json"
+  ],
+  "limitations": [
+    "References are only low-resolution layout/style guides. They are never counted as HD final artwork.",
+    "This plan does not mark any tile complete.",
+    "Complete-city, navigation, foreground and Unity runtime acceptance remain pending."
+  ]
+}

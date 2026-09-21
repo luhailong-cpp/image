@@ -12,6 +12,11 @@ a=json.loads((out/'assembly.json').read_text(encoding='utf-8'))
 assert sha(a['source']['path'])==a['source']['sha256']
 for x in a['outputs']:assert sha(x['file'])==x['sha256'] and list(Image.open(x['file']).size)==x['pixels']
 for x in a['qa']:assert sha(x['path'])==x['sha256']
+assert sha(a['previousAssembly']['file'])==a['previousAssembly']['sha256']
+for x in a['registeredRepairs']:
+ assert sha(x['record'])==x['recordSha256']
+ assert sha(x['maskPath'])==x['maskSha256']
+ assert sha(x['registrationFieldPath'])==x['registrationFieldSha256']
 record_paths=list(sorted((prod/'donghai_lantern/r08_c10/native').glob('*.record.json')))
 assert len(record_paths)==16
 repair=base/'repairs_v2/fish_basin/native.record.json';record_paths.append(repair);records=[]

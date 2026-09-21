@@ -90,9 +90,11 @@ def load_sources() -> tuple[list[list[np.ndarray]], list[dict]]:
         native_row = []
         for column in range(1, GRID + 1):
             tile_id = f"r{row:02d}_c{column:02d}"
-            native = ROOT / "native" / f"{tile_id}.png"
-            record_path = ROOT / "native" / f"{tile_id}.record.json"
-            prompt = ROOT / "prompts" / f"{tile_id}.prompt.txt"
+            selected = next(p for p in read_json(ROOT / "plan.json")["patches"] if p["id"] == tile_id)
+            stem = selected.get("selectedNativeStem", tile_id)
+            native = ROOT / "native" / f"{stem}.png"
+            record_path = ROOT / "native" / f"{stem}.record.json"
+            prompt = ROOT / selected["promptFile"]
             guide = ROOT / "guides" / f"{tile_id}.layout-only.png"
             for path in (native, record_path, prompt, guide):
                 if not path.is_file():
@@ -122,7 +124,7 @@ def load_sources() -> tuple[list[list[np.ndarray]], list[dict]]:
             if hashes != expected:
                 raise ValueError(f"Recorded source hash mismatch for {tile_id}: {hashes} != {expected}")
             references = record.get("submittedImages", [])
-            if len(references) != 2 or record["toolCall"]["referenced_image_paths"] != [r["path"] for r in references]:
+            if not references or record["toolCall"]["referenced_image_paths"] != selected["submittedImages"] or [r["path"] for r in references] != selected["submittedImages"]:
                 raise ValueError(f"Incorrect multi-reference record: {tile_id}")
             if record["selectedTargetImageOneBased"] != 1:
                 raise ValueError(f"Incorrect selected target image: {tile_id}")
