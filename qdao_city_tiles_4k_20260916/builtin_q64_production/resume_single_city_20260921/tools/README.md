@@ -28,3 +28,24 @@ $TileDir = 'D:\luyuan\wuxingqitan\image\qdao_city_tiles_4k_20260916\builtin_q64_
 PNG `caBX` 等元数据中的软件声明仅记录原始可读字符串与字节偏移，不做 C2PA 验签。`actualModel/actualQuality` 保持 null，`backendModelVerified=false`；配置目标、提示词、未验签的软件声明都不等于实际后端型号证据。
 
 工具的机械检查通过只说明文件、来源和拼合完整性。视觉、内部接缝、外部接缝、四块交点、导航、最近镜头和实机验收均须另外检查，不提升正式状态。
+
+## 局部原生修补
+
+`city_repair.py` 从候选精确裁出 1254² 上下文，保留全图框与 SHA；根代理使用该上下文调用生图。默认中心十字带宽 280 像素，32 像素边缘过渡，裁框四周 80 像素逐渐归零。可改为 `vertical` 或 `horizontal`。全部新文件仅写入 `tools/repairs/`，原候选保持原样。
+
+```powershell
+$RepairTool = 'D:\luyuan\wuxingqitan\image\qdao_city_tiles_4k_20260916\builtin_q64_production\resume_single_city_20260921\tools\city_repair.py'
+& $CityPython $RepairTool prepare --source '<已审核候选4096 PNG>' --center-x 1024 --center-y 3072 --id junction_x1024_y3072 --shape cross
+# image_gen 的第一个实际参考图必须是返回的 context-native-1254.png。
+& $CityPython $RepairTool apply-repair --prepared '<prepared.json>' --request-file '<实际request/response JSON>' --version r09_c09_repair_v2
+```
+
+第二处从新候选 `r09_c09.png` 再 prepare，避免过期上下文。每个 id/version 必须唯一，已存在时拒绝覆盖。源目录应有 `assembly.json` 或 `repair.json`，否则用 `--source-record` 指定真实来源记录。
+
+应用过程调用现有 `mechanical_join.registered_join`，最大位移每轴 8 像素，保留局部色彩校正。输出包含原生输出原始字节、真实 prompt、工具 request/receipt、上下文前后图、mask、float32 flow/correction NPY、候选 PNG 和来源 SHA。精确断言完整候选在 mask 外像素不变。配准会重采样局部像素，并明确记录；不等于视觉通过。
+
+OpenCV 已隔离安装到 `tools/vendor`，不改变系统 Python。移机时可重装：
+
+```powershell
+& $CityPython -m pip --isolated install --no-deps --target '<本tools目录>/vendor' -r '<本tools目录>/repair-requirements.txt'
+```

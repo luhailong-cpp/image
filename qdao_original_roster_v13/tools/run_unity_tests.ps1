@@ -14,7 +14,7 @@ $v13Stem=$Platform.ToLowerInvariant()
 $v13Xml=Join-Path $v13Evidence ($v13Stem+'.xml')
 $v13Log=Join-Path $v13Evidence ($v13Stem+'.log')
 if ((Test-Path -LiteralPath $v13Xml) -or (Test-Path -LiteralPath $v13Log)){throw 'Choose a new run name to retain previous evidence.'}
-$v13Filter=if($Platform -eq 'EditMode'){'MmorpgClient.Tests.EditMode.Tianyong.Qdao;MmorpgClient.Tests.EditMode.Tianyong.PersistedAppearanceIdentityTests;MmorpgClient.Tests.EditMode.Battle.BattleRosterAppearanceTests'}else{'MmorpgClient.Tests.PlayMode.Qdao'}
+$v13Filter=if($Platform -eq 'EditMode'){'MmorpgClient.Tests.EditMode.Tianyong.Qdao;MmorpgClient.Tests.EditMode.Tianyong.PersistedAppearanceIdentityTests;MmorpgClient.Tests.EditMode.Battle.BattleRosterAppearanceTests;MmorpgClient.Tests.EditMode.Tianyong.TianyongCameraControllerTests'}else{'MmorpgClient.Tests.PlayMode.Qdao'}
 $v13Arguments=@('-batchmode','-force-d3d11','-projectPath',('"'+$v13Project+'"'),'-runTests','-testPlatform',$Platform,'-testFilter',$v13Filter,'-testResults',('"'+$v13Xml+'"'),'-logFile',('"'+$v13Log+'"'))
 $env:QDAO_ROSTER_CAPTURE_DIR=Join-Path $v13Evidence 'city-captures'
 $env:QDAO_IDENTITY_CAPTURE_DIR=Join-Path $v13Evidence 'identity-ui-captures'

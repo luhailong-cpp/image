@@ -1,6 +1,6 @@
 # 04 独立 staging 结果（2026-09-21）
 
-本轮只写本恢复目录及主代理授权的新生图目录中的精确 prompt/provenance。未写 canonical candidate、公共管线、旧 receipt、共享 preview 或正式资源；未生图、未运行 Unity。
+此文件记录首批独立staging处理阶段，当时未生图。后续主代理另授权的法杖/步态编辑及最新取图映射见 [NW追加交接](NW_DIAGNOSTIC_HANDOFF.md)。所有阶段均未写 canonical candidate、公共管线、旧 receipt、共享 preview 或正式资源；未运行 Unity。
 
 ## 可复用导入入口
 

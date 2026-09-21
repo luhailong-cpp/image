@@ -3,6 +3,7 @@ from __future__ import annotations
 import copy
 import importlib.util
 import json
+import re
 from pathlib import Path
 import sys
 import tempfile
@@ -39,7 +40,7 @@ class PublicationGateTests(unittest.TestCase):
         path.write_text(json.dumps(value), encoding='utf-8')
 
     def xml(self, platform):
-        required = (publisher.HD_REQUIRED_METHODS[platform], publisher.identity.REQUIRED_METHODS[platform])
+        required = (publisher.HD_REQUIRED_METHODS[platform], publisher.identity.REQUIRED_METHODS[platform]) + publisher.VIEW_REQUIRED_METHODS.get(platform, ())
         total = sum(sum(methods.values()) for _, methods in required)
         root = ET.Element('test-run', result='Passed', passed=str(total), total=str(total), failed='0', skipped='0',
                           inconclusive='0', **{'start-time': '2026-01-01 00:00:01Z', 'end-time': '2026-01-01 00:00:03Z'})
@@ -85,6 +86,32 @@ class PublicationGateTests(unittest.TestCase):
         del rows[publisher.identity.SOURCES[0]]
         with self.assertRaises(ValueError):
             publisher.check_launch_binding(path, report, rows, [], digest, platform="PlayMode")
+
+    def test_actual_unity_runner_uses_exact_current_publication_filters(self):
+        runner = Path(__file__).resolve().parents[2] / 'qdao_original_roster_v13/tools/run_unity_tests.ps1'
+        source = runner.read_text(encoding='utf-8-sig')
+        filters = re.search(r"\$v13Filter=if\(\$Platform -eq 'EditMode'\)\{'([^']+)'\}else\{'([^']+)'\}", source)
+        self.assertIsNotNone(filters, 'The actual runner must expose its complete platform filters')
+        self.assertEqual({'EditMode': filters[1], 'PlayMode': filters[2]}, publisher.EXPECTED_FILTERS)
+
+    def test_current_view_sources_are_required_without_rewriting_historical_bindings(self):
+        self.assertTrue(set(publisher.CURRENT_VIEW_BINDINGS).isdisjoint(publisher.INPUT_BINDING_PATHS))
+        path, report, rows, digest, _, _ = self.launch()
+        for missing in publisher.CURRENT_VIEW_BINDINGS:
+            changed = dict(rows)
+            del changed[missing]
+            with self.subTest(path=missing), self.assertRaisesRegex(ValueError, 'source/config differs'):
+                publisher.check_launch_binding(path, report, changed, [], digest, platform='PlayMode')
+
+    def test_missing_camera_case_cannot_hide_inside_passed_hd_results(self):
+        path, result = self.xml('EditMode')
+        classname, _ = publisher.VIEW_REQUIRED_METHODS['EditMode'][0]
+        victim = next(case for case in result if case.get('classname') == classname)
+        result.remove(victim)
+        result.set('total', str(len(result))); result.set('passed', str(len(result)))
+        ET.ElementTree(result).write(path, encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'Incomplete camera/nameplate'):
+            publisher.check_results(path, hd_platform='EditMode')
 
     def inventory_rows(self):
         prefix = publisher.FAMILY + '/' + self.actor_id + '/'

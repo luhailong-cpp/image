@@ -64,10 +64,31 @@ CAMERA_INPUT_PATHS = (CAMERA_CONFIG, CAMERA_CONFIG + '.meta',
     'Assets/Scripts/World/Tianyong/TianyongMapConfig.cs', 'Assets/Scripts/World/Tianyong/TianyongMapConfig.cs.meta',
     'Assets/Scripts/World/Tianyong/TianyongCameraController.cs', 'Assets/Scripts/World/Tianyong/TianyongCameraController.cs.meta')
 INPUT_BINDING_PATHS = CODE_PATHS + CAMERA_INPUT_PATHS
-CURRENT_INPUT_BINDING_PATHS = INPUT_BINDING_PATHS + identity.BINDINGS
+# The historical baseline above stays fixed. Current framing/nameplate code and
+# its tests are separate bindings so a new camera run cannot reuse old evidence.
+CURRENT_VIEW_SOURCES = (
+    'Assets/Scripts/World/WorldLabelBillboard.cs',
+    'Assets/Tests/EditMode/Tianyong/TianyongCameraControllerTests.cs',
+)
+CURRENT_VIEW_BINDINGS = CURRENT_VIEW_SOURCES + tuple(path + '.meta' for path in CURRENT_VIEW_SOURCES)
+CURRENT_INPUT_BINDING_PATHS = INPUT_BINDING_PATHS + identity.BINDINGS + CURRENT_VIEW_BINDINGS
 EXPECTED_FILTERS = {
-    'EditMode': 'MmorpgClient.Tests.EditMode.Tianyong.Qdao;MmorpgClient.Tests.EditMode.Battle.BattleRosterAppearanceTests;MmorpgClient.Tests.EditMode.Tianyong.PersistedAppearanceIdentityTests',
+    'EditMode': 'MmorpgClient.Tests.EditMode.Tianyong.Qdao;MmorpgClient.Tests.EditMode.Tianyong.PersistedAppearanceIdentityTests;MmorpgClient.Tests.EditMode.Battle.BattleRosterAppearanceTests;MmorpgClient.Tests.EditMode.Tianyong.TianyongCameraControllerTests',
     'PlayMode': 'MmorpgClient.Tests.PlayMode.Qdao',
+}
+VIEW_REQUIRED_METHODS = {
+    'EditMode': (('MmorpgClient.Tests.EditMode.Tianyong.TianyongCameraControllerTests', {
+        'Zoom_AtPaintingEdge_KeepsPaintingEdgeOutOfView': 5,
+        'FastWheelFlickOut_AtWestEdge_KeepsPaintingEdgeOutOfView': 1,
+        'Snap_AfterZoomOutAtEdge_ReclampsImmediately': 1,
+        'AspectChange_ToViewportWiderThanPainting_RefitsZoomBeforeRendering': 1,
+        'Zoom_AllEdgesAndCorners_StaysInsidePaintingEveryFrame': 12,
+        'SetZoom_IsClampedToTheConfiguredWindow': 1,
+        'Follow_AtRunSpeed_LagsBySmoothTimeAndSettlesWithoutOvershoot': 1,
+        'ClosestZoom_FramesWholeCharacterAndReadableNameplate_WithoutChangingGeometry': 2,
+        'NormalZoom_PreservesFootCenteredCameraAndOriginalNameplateLayout': 2,
+        'ZoomTransitionAndRunSpeed_KeepFullCharacterAndNameplateVisible': 2,
+    }),),
 }
 HD_REQUIRED_METHODS = {
     'EditMode': ('MmorpgClient.Tests.EditMode.Tianyong.QdaoOriginalHdAppearanceTests', {
@@ -273,6 +294,10 @@ def check_results(path, required_suffix=None, hd_platform=None):
         counts = Counter(test.get('methodname') for test in cases if test.get('classname') == class_name)
         for method, count in methods.items():
             require(counts[method] >= count, 'Incomplete identity ' + hd_platform + ' cases: ' + method)
+        for class_name, methods in VIEW_REQUIRED_METHODS.get(hd_platform, ()):
+            counts = Counter(test.get('methodname') for test in cases if test.get('classname') == class_name)
+            for method, count in methods.items():
+                require(counts[method] >= count, 'Incomplete camera/nameplate ' + hd_platform + ' cases: ' + method)
     return result
 
 
@@ -405,8 +430,8 @@ def check_runtime_view(actor, view_name, capture_root, camera):
             'Runtime clipping flag contradicts actual projected bounds')
     if view_name == 'normalView':
         require(inside, 'Normal view must show the complete character')
-    # The existing feet-following nearest camera can crop the top; report this
-    # truthfully and require explicit visual review instead of changing camera behavior.
+    # Keep historical or failed nearest captures honestly clipped. This binding
+    # check is not visual approval; current framing tests and image review remain required.
     return {'imagePath': str(path), 'imageSha256': digest, 'fullFrameInsideCapture': inside,
             'projectedFrameHeightPixels': view['projectedFrameHeightPixels'],
             'screenPixelsPerTexturePixel': view['screenPixelsPerTexturePixel']}
