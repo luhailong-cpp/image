@@ -8,8 +8,10 @@ SOURCES = (
     "Assets/Scripts/Game/Team/TeamAppearanceTransport.cs",
     "Assets/Scripts/Game/Team/TeamUiState.cs",
     "Assets/Scripts/App/DevAutoPilot.cs",
+    "Assets/Scripts/App/DevRoleUiDriver.cs",
     "Assets/Tests/EditMode/Tianyong/PersistedAppearanceIdentityTests.cs",
     "Assets/Tests/PlayMode/QdaoRoleIdentityPlayModeTests.cs",
+    "Assets/Tests/PlayMode/QdaoRoleUiDriverPlayModeTests.cs",
 ) + tuple("Assets/Scripts/Proto/Generated/" + name + ".cs" for name in
           ("BattleData", "Login", "PlayerScene", "Team", "UserAccounts"))
 BINDINGS = SOURCES + tuple(path + ".meta" for path in SOURCES)
@@ -30,6 +32,9 @@ REQUIRED_METHODS = {
         "BattleWalking_UsesDistanceAndTheWorldReferenceCadence_IndependentOfDisplayScale": 1,
     }),
     "PlayMode": ("MmorpgClient.Tests.PlayMode.QdaoRoleIdentityPlayModeTests", {
+        "MissingChangedIdentity_ClearsPreviousWorldAndBattleBody_AndCanRecover": 1,
+        "AppearanceUi_UsesOriginalChooserForCreationAndSavedCardSelection": 1,
+        "AppearanceUi_StrictRelogMissingRoleCannotCreateOrReportSuccess": 1,
         "CreationSelectorAndAccountCards_KeepAppearanceIndependentOfProfessionAndGender": 1,
         "BattleLunge_RendersPublishedWalkGeometry_AndReleasesMovementOnInterruptionAndDestroy": 1,
         "SyntheticHdLunge_IdentitySwapAndDestroyKeepAfterimageLeaseUntilPoolRelease": 1,
