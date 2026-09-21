@@ -3,6 +3,7 @@ from pathlib import Path
 from datetime import datetime,timezone
 import argparse,hashlib,importlib.util,json,os
 ROOT=Path(__file__).resolve().parents[1]
+WORKSPACE=ROOT.parent.parent.resolve()
 FOLDERS=('Assets','Packages','ProjectSettings','Library/PackageCache')
 def sha(p):
  with Path(p).open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
@@ -24,7 +25,7 @@ def inventory(project):
     p=Path(directory)/name;links(p,seen);require(p.is_file(),'Non-file input '+str(p));paths.append(p)
  return sorted(paths,key=lambda p:p.relative_to(project).as_posix())
 def main():
- parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--project',required=True,type=Path);parser.add_argument('--output',required=True,type=Path);parser.add_argument('--compare',type=Path);a=parser.parse_args();links(a.project);project=a.project.resolve();output=a.output.resolve();require(project.is_relative_to(Path('E:/work').resolve()),'Project must be under E:/work');require((project/'ProjectSettings/ProjectVersion.txt').is_file(),'Not a Unity project');require(output.is_relative_to((ROOT/'runtime-validation').resolve()) and not output.exists(),'Snapshot output must be new under runtime-validation');require(not (project/'Temp/UnityLockfile').exists(),'Capture input snapshot only while Unity is closed')
+ parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--project',required=True,type=Path);parser.add_argument('--output',required=True,type=Path);parser.add_argument('--compare',type=Path);a=parser.parse_args();links(a.project);project=a.project.resolve();output=a.output.resolve();require(project.is_relative_to(WORKSPACE),'Project must be under repository workspace '+str(WORKSPACE));require((project/'ProjectSettings/ProjectVersion.txt').is_file(),'Not a Unity project');require(output.is_relative_to((ROOT/'runtime-validation').resolve()) and not output.exists(),'Snapshot output must be new under runtime-validation');require(not (project/'Temp/UnityLockfile').exists(),'Capture input snapshot only while Unity is closed')
  paths=inventory(project);rows=[];stable_stats={}
  for p in paths:
   before=p.stat();require(before.st_nlink==1,'Hard-linked input file: '+str(p));digest=sha(p);after=p.stat();require((before.st_size,before.st_mtime_ns,before.st_nlink)==(after.st_size,after.st_mtime_ns,after.st_nlink),'Input changed during hashing: '+str(p));stable_stats[p]=(after.st_size,after.st_mtime_ns,after.st_nlink);rows.append({'path':p.relative_to(project).as_posix(),'sha256':digest,'bytes':after.st_size})

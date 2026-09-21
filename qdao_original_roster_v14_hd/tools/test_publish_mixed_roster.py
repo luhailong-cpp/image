@@ -73,9 +73,10 @@ class MixedPublicationTests(unittest.TestCase):
             self.patches.append(item)
         declarations = []
         for relative in sorted(pub.gate.EXPECTED_PNGS):
-            width = 1024 if relative == "portrait.png" or relative.startswith("walk/SW/") and int(Path(relative).stem) % 4 != 1 else 512
-            declarations.append({"path": relative, "width": width, "height": width, "pixels_per_unit": 104 if width == 1024 else 52})
+            width = 1024 if relative == "portrait.png" or relative.startswith(("walk/SW/", "walk/NW/")) and int(Path(relative).stem) % 4 != 1 else 512
             self.write(self.approved / relative, ("UNIT NONIMAGE RUNTIME HASH FIXTURE " + relative).encode())
+            declarations.append({"path": relative, "width": width, "height": width, "pixels_per_unit": 104 if width == 1024 else 52,
+                "source_kind": "native-hd" if width == 1024 else "preserved-v13", "sha256": pub.sha(self.approved / relative)})
         self.manifest = {"files": declarations}
         self.save(self.approved / "manifest.json", self.manifest)
         for name in ("validation.json", "qc.json", "approval.json", "appearance.json"):
@@ -116,6 +117,21 @@ class MixedPublicationTests(unittest.TestCase):
         for actor in old_actors + [self.actor]:
             self.view(actor, "normalView")
         self.view(self.actor, "nearestView")
+        self.actor["walkFrameCaptures"] = []
+        for n, direction in enumerate(("SW", "NW")):
+            resource = pub.gate.RESOURCE_FAMILY + "/" + self.character + f"/walk/{direction}/02"
+            moving = {"actualCharacterId": self.character + f"-walk-{direction}-02", "actualFrameHeight": 1024}
+            for name in ("normalView", "nearestView"):
+                self.view(moving, name)
+            self.actor["walkFrameCaptures"].append({"characterId": self.character, "direction": direction, "frameNumber": 2,
+                "resourcePath": resource, "resourcePngSha256": self.rows["Assets/Resources/" + resource + ".png"]["sha256"],
+                "inputSnapshotSha256": pub.sha(self.run / "input-playmode.json"), "textureWidth": 1024, "textureHeight": 1024,
+                "pixelsPerUnit": 104, "frameWorldHeight": 512 / 52, "normalizedPivot": {"x": .5, "y": .08},
+                "billboardScale": {"x": 1, "y": 1, "z": 1}, "locomotionState": "Run", "realMotorEnabled": True,
+                "matchesExpectedResource": True, "pathDistance": .45, "movementSeconds": .05,
+                "routeStart": {"x": 0, "y": 0, "z": 0}, "captureFeet": {"x": .45, "y": 0, "z": 0},
+                "simulationFrame": 100 + n * 35, "generatedUtc": "2026-01-01T00:00:08Z",
+                "normalView": moving["normalView"], "nearestView": moving["nearestView"]})
         self.report = {"schemaVersion": 2, "behaviorAssertionsCompleted": True,
             "projectPath": str(self.isolated), "inputSnapshotPath": str(self.run / "input-playmode.json"),
             "inputSnapshotSha256": pub.sha(self.run / "input-playmode.json"), "generatedUtc": "2026-01-01T00:00:08Z",
@@ -180,7 +196,7 @@ class MixedPublicationTests(unittest.TestCase):
         for field in ("actualFramesPerDirection", "actualUniqueFrameSpritesPerDirection", "actualUniqueFrameTexturesPerDirection"):
             actor[field] = {d: 16 for d in pub.gate.DIRECTIONS}
         for field in ("actualTextureWidthsPerDirection", "actualTextureHeightsPerDirection"):
-            actor[field] = {d: 0 if d == "SW" else 512 for d in pub.gate.DIRECTIONS}
+            actor[field] = {d: 0 if d in ("SW", "NW") else 512 for d in pub.gate.DIRECTIONS}
         actor["actualDedicatedIdleDirections"] = {d: 1 for d in pub.gate.DIRECTIONS}
         for field in ("activationPresent", "manifestPresent", "actualFramesMatchResources", "actualIdleMatchResources",
                       "actualHasDedicatedIdle", "spriteMatchesDedicatedIdle", "movementObserved", "stoppedIdle", "realMotorEnabled"):
@@ -238,7 +254,13 @@ class MixedPublicationTests(unittest.TestCase):
             "views": [{"character_id": self.character, "view": name, "status": "passed",
                 "image_sha256": self.actor[name]["imageSha256"], "clipping_reviewed": True,
                 "full_frame_inside_capture": self.actor[name]["fullFrameInsideCapture"],
-                "notes": "Synthetic noise PNG; not a gameplay or artwork acceptance."} for name in ("normalView", "nearestView")]})
+                "notes": "Synthetic noise PNG; not a gameplay or artwork acceptance."} for name in ("normalView", "nearestView")],
+            "walk_views": [{"character_id": self.character, "direction": capture["direction"], "frame_number": 2,
+                "simulation_frame": capture["simulationFrame"], "resource_sha256": capture["resourcePngSha256"],
+                "view": name, "status": "passed", "image_sha256": capture[name]["imageSha256"], "clipping_reviewed": True,
+                "full_frame_inside_capture": capture[name]["fullFrameInsideCapture"],
+                "notes": "Synthetic moving capture fixture, not actual Unity evidence."}
+                for capture in self.actor["walkFrameCaptures"] for name in ("normalView", "nearestView")]})
 
     def change(self, path, mutate):
         value = pub.read(path)
@@ -381,7 +403,17 @@ class MixedPublicationTests(unittest.TestCase):
             pub.prepare(self.arguments)
         self.arguments.project = self.formal
         self.checked["character_id"] = "05_unit"
-        with self.assertRaisesRegex(ValueError, "Original04 only"):
+        with self.assertRaisesRegex(ValueError, "Original04-06 only"):
+            pub.prepare(self.arguments)
+
+    def test_idle_only_evidence_cannot_publish_even_with_passed_unity_results(self):
+        self.change(self.report_path, lambda d: d["appearances"][-1].pop("walkFrameCaptures"))
+        with self.assertRaisesRegex(ValueError, "native direction captures"):
+            pub.prepare(self.arguments)
+
+    def test_native_captures_require_separate_exact_visual_review(self):
+        self.change(self.review, lambda d: d.pop("walk_views"))
+        with self.assertRaisesRegex(ValueError, "walking visual review coverage"):
             pub.prepare(self.arguments)
 
     def test_copy_failure_cleans_only_temp_and_retains_failed_audit(self):

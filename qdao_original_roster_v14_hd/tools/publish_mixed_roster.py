@@ -39,6 +39,7 @@ MIXED_SOURCE = ("Assets/Scripts/World/QdaoMixedResolutionContract.cs",
 BINDINGS = gate.INPUT_BINDING_PATHS + MIXED_SOURCE + tuple(p + ".meta" for p in MIXED_SOURCE)
 SCHEMA = "qdao-original-v14-mixed/publication-v1"
 REVIEW_SCHEMA = "qdao-original-v14-mixed/runtime-visual-review-v1"
+IMPORT_SCHEMA = "qdao-original-v14-mixed/formal-import-inventory-v1"
 FORMAL_BASELINE_RELATIVE = "mixed-resolution-client-run1/formal-safety-baseline.json"
 FORMAL_BASELINE_SHA256 = "8238ab4d32a2c4782f2b853339257cd3054b5e9b8c9c796351d78b42b823377f"
 FORMAL_BASELINE_CHARACTER_COUNT = 3451
@@ -206,7 +207,7 @@ def actor_check(actor, plan, baseline):
     gate.near(actor["actualPathDistance"] / actor["movementSeconds"], actor["controllerMoveSpeed"], .15, "Actual speed")
 
 
-def visual_review(path, report_path, snapshot_path, report, views, plan, stage_path):
+def visual_review(path, report_path, snapshot_path, report, views, plan, stage_path, walk_views):
     review = read(path)
     require(review.get("schema") == REVIEW_SCHEMA and review.get("status") == "passed"
             and isinstance(review.get("reviewer"), str) and review["reviewer"].strip(), "Mixed runtime visual review required")
@@ -230,10 +231,24 @@ def visual_review(path, report_path, snapshot_path, report, views, plan, stage_p
                 record["full_frame_inside_capture"] == observed["fullFrameInsideCapture"] and
                 isinstance(record.get("notes"), str) and len(record["notes"].strip()) >= 12,
                 "Runtime screenshot lacks exact SHA/clipping/visual review")
+    records = review.get("walk_views", [])
+    expected = {(v["character_id"], v["direction"], v["frame_number"], v["view"]): v for v in walk_views}
+    keys = [(v.get("character_id"), v.get("direction"), v.get("frame_number"), v.get("view")) for v in records]
+    require(len(keys) == len(set(keys)) and set(keys) == set(expected), "Native walking visual review coverage differs")
+    for key, record in zip(keys, records):
+        observed = expected[key]
+        require(record.get("status") == "passed" and record.get("image_sha256") == observed["imageSha256"]
+                and record.get("resource_sha256") == observed["resource_sha256"]
+                and record.get("simulation_frame") == observed["simulation_frame"]
+                and record.get("clipping_reviewed") is True
+                and type(record.get("full_frame_inside_capture")) is bool
+                and record["full_frame_inside_capture"] == observed["fullFrameInsideCapture"]
+                and isinstance(record.get("notes"), str) and len(record["notes"].strip()) >= 12,
+                "Native moving PNG needs exact resource/frame/SHA/clipping visual review")
     return sha(path)
 
 
-def formal_character_baseline(formal_rows, staged_at_utc):
+def formal_character_baseline(formal_rows, staged_at_utc, previous_imports=()):
     """Pin old formal resources to their own retained baseline, including metas.
 
     The prior source rows describe the pre-sync code and are validated for scope,
@@ -263,13 +278,94 @@ def formal_character_baseline(formal_rows, staged_at_utc):
                 and ".." not in Path(relative).parts and isinstance(row.get("sha256"), str)
                 and re.fullmatch("[0-9a-f]{64}", row["sha256"])
                 and type(row.get("bytes")) is int and row["bytes"] >= 0, "Invalid formal safety baseline row")
+    historical_count = len(resources)
+    chain = []
+    for import_path in previous_imports:
+        import_path = approve.child_directory(Path(import_path), AUDITS)
+        imported = read(import_path)
+        require(imported.get("schema") == IMPORT_SCHEMA and imported.get("status") == "recorded_local_index_inventory"
+                and Path(imported.get("project", "")).resolve() == FORMAL.resolve(), "Invalid prior formal import inventory")
+        publication = approve.child_directory(Path(imported["publicationAudit"]), AUDITS)
+        require(sha(publication) == imported.get("publicationAuditSha256"), "Prior publication audit changed")
+        receipt = read(publication)
+        character = receipt.get("characterId")
+        require(receipt.get("schema") == SCHEMA and receipt.get("status") == "published_pending_formal_editor_import"
+                and receipt.get("writesPerformed") is True and receipt.get("protectedChangedFiles") == 0
+                and receipt.get("derivedIndexCopied") is False and character in ALLOWED_IDS
+                and Path(receipt.get("project", "")).resolve() == FORMAL.resolve(), "Invalid prior mixed publication")
+        require(receipt.get("previousImportAudits", []) == [r["path"] for r in chain], "Prior publication order or chain differs")
+        before = {p: r for p, r in receipt["protectedFormal"].items() if p.startswith(prefix)}
+        require(before == resources, "Prior publication does not extend the exact protected character inventory")
+        after = imported.get("characterResources", {})
+        check_import_extension(resources, after, receipt)
+        require(gate.utc(receipt["publishedUtc"]) <= gate.utc(imported["recordedUtc"]) <= gate.utc(staged_at_utc),
+                "Prior formal import must follow publication and precede new stage")
+        resources = after
+        chain.append({"path": str(import_path), "sha256": sha(import_path), "characterId": character,
+                      "publicationAudit": str(publication), "publicationAuditSha256": sha(publication)})
     current = {p: row for p, row in formal_rows.items() if p.startswith(prefix)}
     require(current == resources, "Formal old character inventory differs from its own safety baseline")
     # Read again so a concurrent baseline edit cannot survive the pinned-SHA check.
     require(sha(path) == FORMAL_BASELINE_SHA256, "Formal safety baseline changed during validation")
     return {p: row["sha256"] for p, row in resources.items()}, {
         "path": str(path), "sha256": FORMAL_BASELINE_SHA256, "createdUtc": document["created_utc"],
-        "characterFileCount": len(resources), "scope": "Exact formal old character files, including every .meta"}
+        "characterFileCount": len(resources), "historicalCharacterFileCount": historical_count,
+        "priorImports": chain, "scope": "Exact historical and prior published character files, including every .meta/index"}
+
+
+def check_import_extension(before, after, receipt):
+    """A Unity import may add only the newly published character's derived data."""
+    target = gate.FAMILY + "/" + receipt["characterId"]
+    require(not any(p.startswith(target + "/") or p == target + ".meta" for p in before),
+            "Prior published target is already protected")
+    additions = {p: r for p, r in after.items() if p not in before}
+    require({p: r for p, r in after.items() if p in before} == before, "Formal import changed protected old meta/index/resources")
+    permitted_roots = {target + ".meta", gate.FAMILY + ".meta"}
+    require(all(p.startswith(target + "/") or p in permitted_roots for p in additions),
+            "Formal import added unrelated character files")
+    require(target + ".meta" in after and gate.FAMILY + ".meta" in after, "Formal import folder GUIDs missing")
+    gate.check_runtime_inventory(after, receipt, require_index=True)
+    for p, row in after.items():
+        require(row.get("path") == p and re.fullmatch("[0-9a-f]{64}", row.get("sha256", ""))
+                and type(row.get("bytes")) is int and row["bytes"] >= 0, "Invalid formal import file row")
+
+
+def check_local_index(project, receipt):
+    """Check serialized local GUID/source bindings; does not claim a Unity run."""
+    target = Path(project) / gate.FAMILY / receipt["characterId"]
+    source = (target / "runtime-index.asset").read_text(encoding="utf-8-sig")
+    def field(text, name):
+        matches = re.findall(r"^\s*" + re.escape(name) + r":\s*(.*?)\s*$", text, re.M)
+        require(len(matches) == 1, "Missing/duplicate local index field: " + name)
+        return matches[0]
+    for name, value in (("resourceFolder", gate.RESOURCE_FAMILY + "/" + receipt["characterId"]),
+                        ("manifestSha256", receipt["outputs"]["manifest.json"]),
+                        ("activationSha256", receipt["outputs"]["appearance.json"]),
+                        ("validationSha256", receipt["outputs"]["validation.json"]),
+                        ("resolutionMode", "mixed-preserved-v1")):
+        require(field(source, name) == value, "Formal index header binding differs: " + name)
+    chunks = re.split(r"^\s*- path:\s*", source, flags=re.M)[1:]
+    entries = {chunk.splitlines()[0].strip(): chunk for chunk in chunks}
+    require(len(chunks) == len(entries) == 137 and set(entries) == gate.EXPECTED_PNGS, "Formal index must contain exactly137 unique PNG entries")
+    declarations = {r["path"]: r for r in receipt["manifest"]["files"]}
+    guids = set()
+    for relative, entry in entries.items():
+        local = target / relative
+        guid = field(local.with_suffix(local.suffix + ".meta").read_text(encoding="utf-8-sig"), "guid")
+        require(re.fullmatch("[0-9a-f]{32}", guid) and guid not in guids and field(entry, "assetGuid") == guid,
+                "Formal index must use distinct local PNG GUIDs")
+        guids.add(guid)
+        require(field(entry, "sha256") == receipt["outputs"][relative] == sha(local)
+                and int(field(entry, "sourceBytes")) == local.stat().st_size,
+                "Formal index source digest/size differs")
+        declared = declarations[relative]
+        require(int(field(entry, "width")) == declared["width"] and int(field(entry, "height")) == declared["height"],
+                "Formal index geometry differs")
+        if relative != "portrait.png":
+            gate.near(float(field(entry, "pixelsPerUnit")), declared["pixels_per_unit"], .0001, "Formal index PPU")
+        # Unity's .NET ticks include the epoch offset; Windows timestamps have 100ns precision.
+        require(int(field(entry, "sourceWriteUtcTicks")) == local.stat().st_mtime_ns // 100 + 621355968000000000,
+                "Formal index timestamp differs from local PNG; import/rebuild it in the formal Editor")
 
 
 def stage_binding(stage_path, plan, rows, formal_rows):
@@ -292,7 +388,7 @@ def stage_binding(stage_path, plan, rows, formal_rows):
                 and ".." not in Path(relative).parts and isinstance(digest, str)
                 and re.fullmatch("[0-9a-f]{64}", digest), "Invalid isolated stage protection row")
     protected = {prefix + p: digest for p, digest in saved.items()}
-    formal, formal_binding = formal_character_baseline(formal_rows, record["staged_at_utc"])
+    formal, formal_binding = formal_character_baseline(formal_rows, record["staged_at_utc"], plan.get("previousImportAudits", []))
     target_key = gate.FAMILY + "/" + plan["characterId"]
     require(not any(p.startswith(target_key + "/") or p == target_key + ".meta" for p in protected),
             "Stage protection inventory already contains the new target")
@@ -304,8 +400,10 @@ def stage_binding(stage_path, plan, rows, formal_rows):
     require(previous == protected, "Tested old characters changed since staging")
     # GUIDs and importer details are generated independently by each project.
     # They remain fully protected above, but are not author-supplied asset bytes.
-    formal_authored = {p: h for p, h in formal.items() if not p.endswith(".meta")}
-    isolated_authored = {p: h for p, h in protected.items() if not p.endswith(".meta")}
+    def authored(path):
+        return not path.endswith(".meta") and not path.endswith("/runtime-index.asset")
+    formal_authored = {p: h for p, h in formal.items() if authored(p)}
+    isolated_authored = {p: h for p, h in protected.items() if authored(p)}
     require(formal_authored == isolated_authored, "Formal/isolated old authored character resources differ")
     protection = {
         "schema": "qdao-original-v14-mixed/separate-project-protection-v1",
@@ -380,33 +478,47 @@ def runtime_acceptance(plan, run, review_path, stage_path, formal_rows):
     originals = [a for a in actors if a.get("actualIsOriginalRoster") is True]
     mixed = [a for a in originals if a.get("actualIsMixedResolution") is True]
     full_hd = [a for a in originals if a.get("actualIsHd") is True]
-    require(report.get("testedOriginalCount") == len(originals) == 5 and
-            report.get("testedMixedOriginalCount") == len(mixed) == 1 and
-            report.get("testedHdOriginalCount") == len(full_hd) == 0, "First mixed04 run must observe old00-03 plus real mixed04")
+    prior_plans = [read(read(Path(p))["publicationAudit"]) for p in plan.get("previousImportAudits", [])]
+    mixed_plans = {p["characterId"]: p for p in prior_plans + [plan]}
+    require(len(mixed_plans) == len(prior_plans) + 1 and
+            {a["actualCharacterId"] for a in mixed} == set(mixed_plans), "Every prior mixed character must be observed in the fresh regression run")
+    require(report.get("testedOriginalCount") == len(originals) == 4 + len(mixed_plans) and
+            report.get("testedMixedOriginalCount") == len(mixed) == len(mixed_plans) and
+            report.get("testedHdOriginalCount") == len(full_hd) == 0, "Mixed run must observe old00-03 plus every published mixed identity")
     old_ids = {p.name for p in (FORMAL / CHARACTERS / "QdaoOriginalRosterV13").iterdir() if p.is_dir()}
     require({a["actualCharacterId"] for a in originals if a not in mixed} == old_ids and len(old_ids) == 4 and
             all(a.get("actualArtworkVersion") == 13 and a.get("v13SixteenFrameContractObserved") is True and
                 a.get("actualFramesMatchResources") is True and a.get("actualIdleMatchResources") is True and
                 a.get("movementObserved") is True and a.get("stoppedIdle") is True
                 for a in originals if a not in mixed), "Preserved original00-03 regression observations incomplete")
-    actor_check(mixed[0], plan, old)
+    for actor in mixed:
+        checked_plan = mixed_plans[actor["actualCharacterId"]]
+        gate.check_runtime_inventory(rows, checked_plan, require_index=True)
+        actor_check(actor, checked_plan, old)
     camera = gate.camera_contract(FORMAL)
     require(camera["minimum"] < camera["default"], "Nearest camera view is not closer")
-    # Check every normal capture for regressions; the reviewed pair belongs to 04.
+    # Check every normal capture and every old/new mixed normal+nearest view.
     for actor in actors:
         gate.check_runtime_view(actor, "normalView", report_path.parent, camera)
-    views = {(plan["characterId"], name): gate.check_runtime_view(mixed[0], name, report_path.parent, camera)
-             for name in ("normalView", "nearestView")}
-    review_sha = visual_review(review_path, report_path, snapshot_path, report, views, plan, stage_path)
+    views = {(actor["actualCharacterId"], name): gate.check_runtime_view(actor, name, report_path.parent, camera)
+             for actor in mixed for name in ("normalView", "nearestView")}
+    import verify_mixed_walk_captures as walking
+    walk_views = []
+    play_launch = read(run / "playmode-launch.json")
+    for actor in mixed:
+        walk_views.extend(walking.check_frames(actor, rows, mixed_plans[actor["actualCharacterId"]]["manifest"],
+            sha(snapshot_path), report_path.parent, camera, play_launch["started_utc"], report["generatedUtc"]))
+    review_sha = visual_review(review_path, report_path, snapshot_path, report, views, plan, stage_path, walk_views)
     return {"unityEvidence": evidence, "snapshotSha256": {p: sha(run / p) for p in documents},
             "inputFileCount": len(rows), "runtimeReportSha256": sha(report_path), "runtimeVisualReviewSha256": review_sha,
             "legacyProtection": staged["verified_legacy_protection"],
             "stageAuditSha256": sha(stage_path), "baselineReportSha256": sha(baseline_path),
             "baselineInputSha256": sha(baseline_input), "sourceBindings": {p: rows[p]["sha256"] for p in BINDINGS},
-            "testedOriginalCount": 5, "testedMixedOriginalCount": 1, "testedHdOriginalCount": 0,
+            "testedOriginalCount": len(originals), "testedMixedOriginalCount": len(mixed), "testedHdOriginalCount": 0,
             "runtimeViews": [{"characterId": key[0], "view": key[1], **value} for key, value in views.items()],
             "captureFrameSize": [mixed[0]["actualFrameWidth"], mixed[0]["actualFrameHeight"]],
-            "captureScope": "Actual preserved stopped idle; new native walk detail reviewed in the sealed offline assembly"}
+            "nativeWalkViews": walk_views,
+            "captureScope": "Actual Run-state native1024 frames in every native direction, plus preserved stopped idle; reviewed normal/nearest views"}
 
 
 def prepare(arguments):
@@ -430,12 +542,17 @@ def prepare(arguments):
             "manifestSha256": sha(approved / "manifest.json"), "qcSha256": sha(approved / "qc.json"),
             "validationSha256": sha(approved / "validation.json"), "approvalReceiptSha256": sha(approved / "approval.json"),
             "approvedInventory": file_inventory(approved)}
+    plan["previousImportAudits"] = [str(approve.child_directory(Path(p), AUDITS))
+                                   for p in getattr(arguments, "previous_import_audit", [])]
+    require(len(plan["previousImportAudits"]) == len(set(plan["previousImportAudits"])), "Duplicate prior import audit")
     plan["protectedFormal"] = tree_inventory(project, FORMAL_ROOTS)
     plan["runtimeAcceptance"] = runtime_acceptance(plan, run, review, arguments.stage_audit, plan["protectedFormal"])
     plan["toolSha256"] = {Path(module.__file__).name: sha(Path(module.__file__))
         for module in (approve, approve.assembly, gate, stage)}
     plan["toolSha256"][Path(__file__).name] = sha(Path(__file__))
     plan["toolSha256"]["review_mixed_client_run.py"] = sha(Path(__file__).with_name("review_mixed_client_run.py"))
+    for tool in ("verify_mixed_walk_captures.py", "mixed_workspace.py"):
+        plan["toolSha256"][tool] = sha(Path(__file__).with_name(tool))
     require(file_inventory(approved) == plan["approvedInventory"], "Approval changed during publication checks")
     require(tree_inventory(project, FORMAL_ROOTS) == plan["protectedFormal"], "Formal inputs changed during publication checks")
     return plan
@@ -512,6 +629,8 @@ def main(argv=None):
     parser.add_argument("--stage-audit", required=True, type=Path)
     parser.add_argument("--runtime-visual-review", required=True, type=Path)
     parser.add_argument("--audit", required=True, type=Path)
+    parser.add_argument("--previous-import-audit", action="append", type=Path, default=[],
+                        help="Prior formal import inventories in publication order; required for every existing mixed V14")
     parser.add_argument("--execute", action="store_true")
     arguments = parser.parse_args(argv)
     plan = prepare(arguments)
