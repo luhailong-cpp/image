@@ -26,7 +26,8 @@ cryptographic model or generation attestations.
 4. Run the independent approved-bundle check, then the isolated-stage dry run.
    Execute staging only when authorized and the isolated Unity editor is closed.
    The exact supported project is
-   E:/work/tmp/qdao-original-live-candidate-20260917.
+   `D:/luyuan/wuxingqitan/tmp/qdao-original-live-candidate-20260921` by default;
+   `QDAO_ISOLATED_PROJECT` may select an independent project under workspace/tmp.
 5. After staging, the primary agent still must capture real mixed-asset normal
    and closeup gameplay, run fresh Unity Edit/Play checks with complete input
    snapshots, review the real result, and implement/use a separately reviewed

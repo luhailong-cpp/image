@@ -1,5 +1,9 @@
 # First mixed Original04 publication
 
+> Historical first04 implementation notes. For the current04–06 sequential
+> publisher, local paths, native-walk hard gate and prior-index protection, use
+> [current publication instructions](PUBLISH_MIXED_ROSTER_CURRENT.md).
+
 `publish_mixed_roster.py` is a separate, read-only-by-default publisher. It
 supports the first formal publication of `04_mountain_guardian_boy` into the
 fixed formal project `E:/work/mmorpg-client`, from the sole isolated project

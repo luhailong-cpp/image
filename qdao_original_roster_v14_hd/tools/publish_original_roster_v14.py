@@ -17,6 +17,8 @@ import sys
 import uuid
 import xml.etree.ElementTree as ET
 from PIL import Image
+from mixed_workspace import active_ids
+import identity_runtime_contract as identity
 
 sys.dont_write_bytecode = True
 ROOT = Path(__file__).resolve().parents[1]
@@ -62,8 +64,9 @@ CAMERA_INPUT_PATHS = (CAMERA_CONFIG, CAMERA_CONFIG + '.meta',
     'Assets/Scripts/World/Tianyong/TianyongMapConfig.cs', 'Assets/Scripts/World/Tianyong/TianyongMapConfig.cs.meta',
     'Assets/Scripts/World/Tianyong/TianyongCameraController.cs', 'Assets/Scripts/World/Tianyong/TianyongCameraController.cs.meta')
 INPUT_BINDING_PATHS = CODE_PATHS + CAMERA_INPUT_PATHS
+CURRENT_INPUT_BINDING_PATHS = INPUT_BINDING_PATHS + identity.BINDINGS
 EXPECTED_FILTERS = {
-    'EditMode': 'MmorpgClient.Tests.EditMode.Tianyong.Qdao;MmorpgClient.Tests.EditMode.Battle.BattleRosterAppearanceTests',
+    'EditMode': 'MmorpgClient.Tests.EditMode.Tianyong.Qdao;MmorpgClient.Tests.EditMode.Battle.BattleRosterAppearanceTests;MmorpgClient.Tests.EditMode.Tianyong.PersistedAppearanceIdentityTests',
     'PlayMode': 'MmorpgClient.Tests.PlayMode.Qdao',
 }
 HD_REQUIRED_METHODS = {
@@ -266,6 +269,10 @@ def check_results(path, required_suffix=None, hd_platform=None):
         counts = Counter(test.get('methodname') for test in cases if test.get('classname') == class_name)
         for method, count in methods.items():
             require(counts[method] >= count, 'Incomplete HD ' + hd_platform + ' cases: ' + method)
+        class_name, methods = identity.REQUIRED_METHODS[hd_platform]
+        counts = Counter(test.get('methodname') for test in cases if test.get('classname') == class_name)
+        for method, count in methods.items():
+            require(counts[method] >= count, 'Incomplete identity ' + hd_platform + ' cases: ' + method)
     return result
 
 
@@ -324,8 +331,8 @@ def check_launch_binding(xml_path, report, rows, plans, expected_snapshot_sha=No
     require(Path(launch['project']).resolve() == Path(report['projectPath']).resolve() ==
             Path(launched_snapshot['project']).resolve(), 'Unity XML launch belongs to another project')
     launch_rows = snapshot_records(launched_snapshot)
-    for relative in INPUT_BINDING_PATHS:
-        require(relative in launch_rows and launch_rows[relative]['sha256'] == rows[relative]['sha256'],
+    for relative in CURRENT_INPUT_BINDING_PATHS:
+        require(relative in launch_rows and relative in rows and launch_rows[relative]['sha256'] == rows[relative]['sha256'],
                 'Unity result source/config differs from observed source: ' + relative)
     for plan in plans:
         check_runtime_inventory(launch_rows, plan, require_index=platform == 'PlayMode')
@@ -437,7 +444,7 @@ def runtime_acceptance(plans, project, arguments):
             Path(report['projectPath']).resolve() == Path(snapshot['project']).resolve(), 'Runtime project/input identity differs')
     require(snapshot.get('shared_writable_links') is False, 'Runtime input shares writable source links')
     rows = snapshot_records(snapshot)
-    for relative in INPUT_BINDING_PATHS:
+    for relative in CURRENT_INPUT_BINDING_PATHS:
         require(relative in rows and sha(safe_child(project, relative)) == rows[relative]['sha256'],
                 'Destination source differs from the actually tested code: ' + relative)
     check_results(arguments.editmode_results, 'QdaoOriginalAppearanceTests.OriginalRegistryKeepsTwentyThreeIndependentIdsAndDoesNotRewriteExistingRosterOrLegacy', hd_platform='EditMode')
@@ -543,7 +550,7 @@ def target_project(path, stage):
     project = Path(path).resolve()
     require((project / 'Assets').is_dir() and (project / 'ProjectSettings/ProjectVersion.txt').is_file(), 'Target is not a Unity project')
     if stage:
-        require(project.is_relative_to((WORK / 'tmp').resolve()), 'Staging is restricted to an independent E:/work/tmp Unity project')
+        require(project.is_relative_to((WORK / 'tmp').resolve()), 'Staging is restricted to an independent workspace/tmp Unity project')
     safe_child(project, FAMILY)
     return project
 
@@ -589,9 +596,9 @@ def execute(plans, project, audit):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--character', action='append', help='Exact original ID; repeat to select several; default checks all 23')
+    parser.add_argument('--character', action='append', help='Exact retained original ID; default checks the active15 IDs')
     destinations = parser.add_mutually_exclusive_group()
-    destinations.add_argument('--stage-project', type=Path, help='Independent E:/work/tmp Unity project; no actual-run evidence needed to stage approved art')
+    destinations.add_argument('--stage-project', type=Path, help='Independent workspace/tmp Unity project; no actual-run evidence needed to stage approved art')
     destinations.add_argument('--publish-project', type=Path, help='Formal destination; requires matching real Original runtime evidence')
     parser.add_argument('--execute', action='store_true', help='Explicitly perform validated copy; absent means zero filesystem writes')
     parser.add_argument('--runtime-report', type=Path)
@@ -608,8 +615,8 @@ def main(argv=None):
              'sourceCommit': SOURCE_COMMIT, 'resourceFamily': RESOURCE_FAMILY, 'candidates': [], 'blocked': []}
     try:
         entries = inventory()
-        selected = arguments.character or list(entries)
-        require(len(selected) == len(set(selected)) and all(character in entries for character in selected), 'Use unique exact Original 00-22 IDs; aliases and Lu IDs are not accepted')
+        selected = arguments.character or [character for character in entries if character in active_ids()]
+        require(len(selected) == len(set(selected)) and all(character in entries and character in active_ids() for character in selected), 'Use unique exact retained Original IDs; deleted identities and aliases are not accepted')
         plans = []
         for character in selected:
             try:

@@ -1,5 +1,6 @@
 """Current machine paths; historical evidence remains byte-for-byte immutable."""
 import os
+import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,3 +16,12 @@ def historical_formal_matches(value, formal):
     # a new run, current stage, source records or arbitrary evidence paths.
     normalized = str(value).replace("\\", "/").rstrip("/").lower()
     return Path(value).resolve() == Path(formal).resolve() or normalized == "e:/work/mmorpg-client"
+
+
+def active_ids():
+    document = json.loads((ROOT / "CONTINUATION_STATE_20260920_SCOPE_UPDATED.json").read_text(encoding="utf-8-sig"))
+    result = document["active_character_ids"]
+    numbers = {int(value.split("_", 1)[0]) for value in result}
+    if len(result) != 15 or len(set(result)) != 15 or numbers != set(range(11)) | {14, 15, 17, 20}:
+        raise ValueError("Current scope must retain exactly00-10,14,15,17,20 without renumbering")
+    return set(result)

@@ -2,17 +2,24 @@
 from pathlib import Path
 import hashlib
 import json
+import argparse
 from datetime import datetime, timezone
+import mixed_workspace
 
-FORMAL = Path('E:/work/mmorpg-client')
-PRIOR = Path('E:/work/image/qdao_original_roster_v13/runtime-validation/hd-publication-gates-run1/final-result-review.json')
-OUT = Path('E:/work/image/qdao_original_roster_v13/runtime-validation/mixed-resolution-client-run1')
+FORMAL = mixed_workspace.FORMAL
+PRIOR = mixed_workspace.ROOT.parent / 'qdao_original_roster_v13/runtime-validation/hd-publication-gates-run1/final-result-review.json'
 
 def sha(path):
     with path.open('rb') as stream:
         return hashlib.file_digest(stream, 'sha256').hexdigest()
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__ + ' A new capture never replaces the publisher pinned historical baseline.')
+    parser.add_argument('--output-directory', type=Path, required=True)
+    args = parser.parse_args()
+    OUT = args.output_directory.resolve()
+    if not OUT.is_relative_to((mixed_workspace.ROOT / 'mixed-preparation').resolve()):
+        raise ValueError('New safety snapshots must stay under mixed-preparation, away from historical run baselines')
     target = OUT / 'formal-safety-baseline.json'
     if target.exists():
         raise ValueError('Preserve previous evidence; baseline already exists')

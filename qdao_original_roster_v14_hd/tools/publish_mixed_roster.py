@@ -36,7 +36,7 @@ INPUT_ROOTS = ("Assets", "Packages", "ProjectSettings", "Library/PackageCache")
 FORMAL_ROOTS = INPUT_ROOTS[:3]
 MIXED_SOURCE = ("Assets/Scripts/World/QdaoMixedResolutionContract.cs",
                 "Assets/Tests/EditMode/Tianyong/QdaoMixedResolutionAppearanceTests.cs")
-BINDINGS = gate.INPUT_BINDING_PATHS + MIXED_SOURCE + tuple(p + ".meta" for p in MIXED_SOURCE)
+BINDINGS = gate.CURRENT_INPUT_BINDING_PATHS + MIXED_SOURCE + tuple(p + ".meta" for p in MIXED_SOURCE)
 SCHEMA = "qdao-original-v14-mixed/publication-v1"
 REVIEW_SCHEMA = "qdao-original-v14-mixed/runtime-visual-review-v1"
 IMPORT_SCHEMA = "qdao-original-v14-mixed/formal-import-inventory-v1"
@@ -280,6 +280,7 @@ def formal_character_baseline(formal_rows, staged_at_utc, previous_imports=()):
                 and type(row.get("bytes")) is int and row["bytes"] >= 0, "Invalid formal safety baseline row")
     historical_count = len(resources)
     chain = []
+    previous_imported_utc = None
     for import_path in previous_imports:
         import_path = approve.child_directory(Path(import_path), AUDITS)
         imported = read(import_path)
@@ -294,6 +295,9 @@ def formal_character_baseline(formal_rows, staged_at_utc, previous_imports=()):
                 and receipt.get("derivedIndexCopied") is False and character in ALLOWED_IDS
                 and Path(receipt.get("project", "")).resolve() == FORMAL.resolve(), "Invalid prior mixed publication")
         require(receipt.get("previousImportAudits", []) == [r["path"] for r in chain], "Prior publication order or chain differs")
+        require(receipt.get("previousImportAuditSha256", []) == [r["sha256"] for r in chain], "Prior import audit hash chain differs")
+        if previous_imported_utc:
+            require(gate.utc(previous_imported_utc) <= gate.utc(receipt["publishedUtc"]), "Prior import must precede the next publication")
         before = {p: r for p, r in receipt["protectedFormal"].items() if p.startswith(prefix)}
         require(before == resources, "Prior publication does not extend the exact protected character inventory")
         after = imported.get("characterResources", {})
@@ -301,6 +305,7 @@ def formal_character_baseline(formal_rows, staged_at_utc, previous_imports=()):
         require(gate.utc(receipt["publishedUtc"]) <= gate.utc(imported["recordedUtc"]) <= gate.utc(staged_at_utc),
                 "Prior formal import must follow publication and precede new stage")
         resources = after
+        previous_imported_utc = imported["recordedUtc"]
         chain.append({"path": str(import_path), "sha256": sha(import_path), "characterId": character,
                       "publicationAudit": str(publication), "publicationAuditSha256": sha(publication)})
     current = {p: row for p, row in formal_rows.items() if p.startswith(prefix)}
@@ -545,13 +550,14 @@ def prepare(arguments):
     plan["previousImportAudits"] = [str(approve.child_directory(Path(p), AUDITS))
                                    for p in getattr(arguments, "previous_import_audit", [])]
     require(len(plan["previousImportAudits"]) == len(set(plan["previousImportAudits"])), "Duplicate prior import audit")
+    plan["previousImportAuditSha256"] = [sha(Path(p)) for p in plan["previousImportAudits"]]
     plan["protectedFormal"] = tree_inventory(project, FORMAL_ROOTS)
     plan["runtimeAcceptance"] = runtime_acceptance(plan, run, review, arguments.stage_audit, plan["protectedFormal"])
     plan["toolSha256"] = {Path(module.__file__).name: sha(Path(module.__file__))
         for module in (approve, approve.assembly, gate, stage)}
     plan["toolSha256"][Path(__file__).name] = sha(Path(__file__))
     plan["toolSha256"]["review_mixed_client_run.py"] = sha(Path(__file__).with_name("review_mixed_client_run.py"))
-    for tool in ("verify_mixed_walk_captures.py", "mixed_workspace.py"):
+    for tool in ("verify_mixed_walk_captures.py", "mixed_workspace.py", "identity_runtime_contract.py"):
         plan["toolSha256"][tool] = sha(Path(__file__).with_name(tool))
     require(file_inventory(approved) == plan["approvedInventory"], "Approval changed during publication checks")
     require(tree_inventory(project, FORMAL_ROOTS) == plan["protectedFormal"], "Formal inputs changed during publication checks")

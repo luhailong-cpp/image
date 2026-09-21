@@ -308,7 +308,7 @@ class GateFixture(unittest.TestCase):
         plan = s.prepare_stage(self.output, self.project, self.audit)
         real_open = Path.open
         def reject_audit(path, *args, **kwargs):
-            if path == self.audit and args and args[0] == "xb":
+            if path.resolve() == self.audit.resolve() and args and args[0] == "xb":
                 raise PermissionError("fixture audit reservation denied")
             return real_open(path, *args, **kwargs)
         with patch.object(Path, "open", reject_audit):

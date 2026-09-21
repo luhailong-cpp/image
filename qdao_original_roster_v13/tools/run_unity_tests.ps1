@@ -14,9 +14,10 @@ $v13Stem=$Platform.ToLowerInvariant()
 $v13Xml=Join-Path $v13Evidence ($v13Stem+'.xml')
 $v13Log=Join-Path $v13Evidence ($v13Stem+'.log')
 if ((Test-Path -LiteralPath $v13Xml) -or (Test-Path -LiteralPath $v13Log)){throw 'Choose a new run name to retain previous evidence.'}
-$v13Filter=if($Platform -eq 'EditMode'){'MmorpgClient.Tests.EditMode.Tianyong.Qdao;MmorpgClient.Tests.EditMode.Battle.BattleRosterAppearanceTests'}else{'MmorpgClient.Tests.PlayMode.Qdao'}
+$v13Filter=if($Platform -eq 'EditMode'){'MmorpgClient.Tests.EditMode.Tianyong.Qdao;MmorpgClient.Tests.EditMode.Tianyong.PersistedAppearanceIdentityTests;MmorpgClient.Tests.EditMode.Battle.BattleRosterAppearanceTests'}else{'MmorpgClient.Tests.PlayMode.Qdao'}
 $v13Arguments=@('-batchmode','-force-d3d11','-projectPath',('"'+$v13Project+'"'),'-runTests','-testPlatform',$Platform,'-testFilter',$v13Filter,'-testResults',('"'+$v13Xml+'"'),'-logFile',('"'+$v13Log+'"'))
 $env:QDAO_ROSTER_CAPTURE_DIR=Join-Path $v13Evidence 'city-captures'
+$env:QDAO_IDENTITY_CAPTURE_DIR=Join-Path $v13Evidence 'identity-ui-captures'
 if (-not (Test-Path -LiteralPath $InputSnapshot -PathType Leaf)) { throw 'Input snapshot does not exist.' }
 $env:QDAO_ROSTER_INPUT_SNAPSHOT=[IO.Path]::GetFullPath($InputSnapshot)
 $v13SnapshotData=Get-Content -LiteralPath $env:QDAO_ROSTER_INPUT_SNAPSHOT -Raw | ConvertFrom-Json
@@ -24,7 +25,7 @@ if ([IO.Path]::GetFullPath($v13SnapshotData.project) -ne $v13Project) { throw 'I
 $v13SnapshotSha=(Get-FileHash -LiteralPath $env:QDAO_ROSTER_INPUT_SNAPSHOT -Algorithm SHA256).Hash.ToLowerInvariant()
 $v13Start=[DateTime]::UtcNow
 $v13Process=Start-Process -FilePath $v13Editor -ArgumentList $v13Arguments -WindowStyle Hidden -PassThru
-[ordered]@{started_utc=$v13Start.ToString('o');pid=$v13Process.Id;project=$v13Project;platform=$Platform;filter=$v13Filter;arguments=$v13Arguments;capture_directory=$env:QDAO_ROSTER_CAPTURE_DIR;input_snapshot=$env:QDAO_ROSTER_INPUT_SNAPSHOT;input_snapshot_sha256=$v13SnapshotSha;scope=$Scope} | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $v13Evidence ($v13Stem+'-launch.json')) -Encoding utf8
+[ordered]@{started_utc=$v13Start.ToString('o');pid=$v13Process.Id;project=$v13Project;platform=$Platform;filter=$v13Filter;arguments=$v13Arguments;capture_directory=$env:QDAO_ROSTER_CAPTURE_DIR;identity_capture_directory=$env:QDAO_IDENTITY_CAPTURE_DIR;input_snapshot=$env:QDAO_ROSTER_INPUT_SNAPSHOT;input_snapshot_sha256=$v13SnapshotSha;scope=$Scope} | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath (Join-Path $v13Evidence ($v13Stem+'-launch.json')) -Encoding utf8
 Write-Output ('V13_TEST_STARTED '+$Platform+' PID '+$v13Process.Id)
 $v13TimedOut=$false
 while(-not $v13Process.WaitForExit(10000)){

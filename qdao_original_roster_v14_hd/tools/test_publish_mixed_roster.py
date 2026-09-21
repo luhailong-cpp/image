@@ -219,7 +219,7 @@ class MixedPublicationTests(unittest.TestCase):
 
     def xml_and_launch(self, platform):
         second = 2 if platform == "EditMode" else 7
-        methods = [pub.gate.HD_REQUIRED_METHODS[platform], pub.MIXED_METHODS[platform]]
+        methods = [pub.gate.HD_REQUIRED_METHODS[platform], pub.MIXED_METHODS[platform], pub.gate.identity.REQUIRED_METHODS[platform]]
         extra = [("MmorpgClient.Tests.EditMode.Tianyong.QdaoOriginalAppearanceTests",
                   "OriginalRegistryKeepsTwentyThreeIndependentIdsAndDoesNotRewriteExistingRosterOrLegacy")] if platform == "EditMode" else [
             ("MmorpgClient.Tests.PlayMode.QdaoRosterSandboxPlayModeTests", "RealCitySandbox_SwitchesAllAvailableAppearancesWithoutReplacingThePlayer_AndWalksWithTheRealMotor"),

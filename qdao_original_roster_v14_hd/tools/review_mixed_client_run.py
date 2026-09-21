@@ -6,11 +6,12 @@ import hashlib
 import importlib.util
 import json
 import os
+import mixed_workspace
 
 ROOT = Path(__file__).resolve().parents[1]
 RUNS = ROOT.parent / 'qdao_original_roster_v13/runtime-validation'
-FORMAL = Path('E:/work/mmorpg-client')
-ISOLATED = Path('E:/work/tmp/qdao-original-live-candidate-20260917')
+FORMAL = mixed_workspace.FORMAL
+ISOLATED = mixed_workspace.ISOLATED
 BASELINE = RUNS / 'mixed-resolution-client-run1/formal-safety-baseline.json'
 NEW_SOURCE = ('Assets/Scripts/World/QdaoMixedResolutionContract.cs',
               'Assets/Tests/EditMode/Tianyong/QdaoMixedResolutionAppearanceTests.cs')

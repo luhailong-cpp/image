@@ -14,6 +14,7 @@ import re
 import sys
 
 from PIL import Image
+from mixed_workspace import active_ids
 
 ROOT = Path(__file__).resolve().parents[1]
 V13 = ROOT.parent / "qdao_original_roster_v13"
@@ -137,6 +138,8 @@ def build_preparation():
     preserved_rows = []
     for entry in identities[4:]:
         character = entry["character_id"]
+        if character not in active_ids():
+            continue
         require(entry["source_commit"] == SOURCE_COMMIT, "Identity source commit changed")
         out = V13 / "candidate" / character
         present = {p for p in ACTION_PATHS if (out / p).is_file()}
