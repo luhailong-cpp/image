@@ -16,9 +16,10 @@ import sys
 import uuid
 
 import approve_mixed_roster as approve
+import mixed_workspace
 
 ROOT = approve.ROOT
-ISOLATED_PROJECT = Path("E:/work/tmp/qdao-original-live-candidate-20260917")
+ISOLATED_PROJECT = mixed_workspace.ISOLATED
 CHARACTERS = "Assets/Resources/World/Characters"
 FAMILY = CHARACTERS + "/QdaoOriginalRosterV14"
 AUDIT_ROOT = ROOT / "mixed-stage-audits"

@@ -1,4 +1,4 @@
-"""Publish the first approved mixed Original04 after a fresh real Unity run.
+"""Publish approved mixed Original04-06 after a fresh real Unity regression run.
 
 Read-only by default. Does not generate artwork, approvals, Unity evidence, metas
 or indices. Saved reviews/receipts are assertions and file bindings, not signed
@@ -21,15 +21,16 @@ sys.dont_write_bytecode = True
 import approve_mixed_roster as approve
 import publish_original_roster_v14 as gate
 import stage_mixed_roster as stage
+import mixed_workspace
 from review_mixed_client_run import MIXED_METHODS
 
 ROOT = approve.ROOT
 WORK = ROOT.parents[1]
 FORMAL = WORK / "mmorpg-client"
-ISOLATED = WORK / "tmp/qdao-original-live-candidate-20260917"
+ISOLATED = mixed_workspace.ISOLATED
 RUNS = ROOT.parent / "qdao_original_roster_v13/runtime-validation"
 AUDITS = ROOT / "mixed-publication-audits"
-ALLOWED_IDS = {"04_mountain_guardian_boy"}
+ALLOWED_IDS = set(approve.assembly.base.MIXED_IDS)
 CHARACTERS = "Assets/Resources/World/Characters"
 INPUT_ROOTS = ("Assets", "Packages", "ProjectSettings", "Library/PackageCache")
 FORMAL_ROOTS = INPUT_ROOTS[:3]
@@ -242,7 +243,7 @@ def formal_character_baseline(formal_rows, staged_at_utc):
     path = safe_child(RUNS, FORMAL_BASELINE_RELATIVE)
     require(sha(path) == FORMAL_BASELINE_SHA256, "Formal safety baseline bytes changed or unrecognized")
     document = read(path)
-    require(document.get("schema") == 1 and Path(document.get("project", "")).resolve() == FORMAL.resolve()
+    require(document.get("schema") == 1 and mixed_workspace.historical_formal_matches(document.get("project", ""), FORMAL)
             and document.get("scope") == FORMAL_BASELINE_SCOPE
             and document.get("prior_review_sha256") == FORMAL_BASELINE_PRIOR_REVIEW_SHA256,
             "Formal safety baseline identity/scope differs")
@@ -414,7 +415,7 @@ def prepare(arguments):
     approved = approve.child_directory(arguments.approved, approve.APPROVED_ROOT)
     checked = approve.verify_approved(approved)
     character = checked["character_id"]
-    require(character in ALLOWED_IDS, "This first-publication workflow supports Original04 only")
+    require(character in ALLOWED_IDS, "This publication workflow supports retained mixed Original04-06 only")
     outputs = checked["runtime_outputs"]
     require(set(outputs) == gate.EXPECTED_OUTPUTS and len(outputs) == 140, "Exact 137 PNG plus three JSON required")
     target = safe_child(project, gate.FAMILY + "/" + character)

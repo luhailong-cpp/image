@@ -1,6 +1,6 @@
-"""Read-only binding checks for real mixed04 SW02/NW02 gameplay captures.
+"""Read-only binding checks for real mixed04-06 native gameplay captures.
 
-This supplements the first-04 publisher; it does not publish, approve artwork,
+This is a required publisher gate; it does not publish, approve artwork,
 produce screenshots, or replace a full current-input publication preflight.
 """
 from __future__ import annotations
@@ -24,25 +24,40 @@ TEST_SOURCES = (
 )
 
 
+def native_targets(manifest):
+    files = manifest.get("files", [])
+    require(len({row["path"] for row in files}) == len(files), "Duplicate manifest paths")
+    result = []
+    for direction in gate.DIRECTIONS:
+        candidates = [n for n in range(1, 17) if any(row.get("path") == f"walk/{direction}/{n:02d}.png"
+                      and row.get("source_kind") == "native-hd" for row in files)]
+        if candidates:
+            result.append((direction, min(candidates)))
+    require(len(result) >= 2, "Native walking evidence requires at least two native directions")
+    return result
+
+
 def check_frames(actor, rows, manifest, snapshot_sha, capture_root, camera, started_utc, generated_utc):
-    require(actor.get("actualCharacterId") == CHARACTER and actor.get("actualIsMixedResolution") is True,
-            "Required real mixed04 actor missing")
+    character = actor.get("actualCharacterId")
+    require(character in publisher.ALLOWED_IDS and actor.get("actualIsMixedResolution") is True,
+            "Required real mixed04-06 actor missing")
+    targets = native_targets(manifest)
     captures = actor.get("walkFrameCaptures")
-    require(isinstance(captures, list) and len(captures) == 2, "Exactly SW02 and NW02 walk captures are required")
+    require(isinstance(captures, list) and len(captures) == len(targets), "Exactly all declared native direction captures are required")
     indexed = {(entry.get("direction"), entry.get("frameNumber")): entry for entry in captures}
-    require(set(indexed) == {("SW", 2), ("NW", 2)}, "Duplicate, missing or wrong native walk target")
+    require(set(indexed) == set(targets), "Duplicate, missing or wrong native walk target")
     declarations = {row["path"]: row for row in manifest["files"]}
     require(len(declarations) == len(manifest["files"]), "Duplicate manifest paths")
-    prefix = gate.RESOURCE_FAMILY + "/" + CHARACTER + "/"
+    prefix = gate.RESOURCE_FAMILY + "/" + character + "/"
     result = []
     previous_frame = -1
-    for direction in ("SW", "NW"):
-        entry = indexed[direction, 2]
-        relative = "walk/" + direction + "/02.png"
+    for direction, number in targets:
+        entry = indexed[direction, number]
+        relative = f"walk/{direction}/{number:02d}.png"
         resource = prefix + relative[:-4]
         input_path = "Assets/Resources/" + resource + ".png"
         declared = declarations.get(relative, {})
-        require(entry.get("characterId") == CHARACTER and entry.get("resourcePath") == resource and
+        require(entry.get("characterId") == character and entry.get("resourcePath") == resource and
                 entry.get("inputSnapshotSha256") == snapshot_sha, "Walk identity/resource/input binding differs")
         require(declared.get("source_kind") == "native-hd" and declared.get("width") == declared.get("height") == 1024 and
                 declared.get("pixels_per_unit") == 104 and input_path in rows and
@@ -74,18 +89,19 @@ def check_frames(actor, rows, manifest, snapshot_sha, capture_root, camera, star
                 "Walking capture timestamp is outside the fresh run observation interval")
         # Reuse the existing checked PNG/projection implementation. This local
         # name only selects the explicit walking filename, not another actor.
-        view_actor = {"actualCharacterId": CHARACTER + "-walk-" + direction + "-02",
+        view_actor = {"actualCharacterId": f"{character}-walk-{direction}-{number:02d}",
                       "actualFrameHeight": 1024, "actualFrameWorldHeight": entry["frameWorldHeight"],
                       "normalView": entry.get("normalView"), "nearestView": entry.get("nearestView")}
         for name in ("normalView", "nearestView"):
             view = gate.check_runtime_view(view_actor, name, capture_root, camera)
-            result.append({"character_id": CHARACTER, "direction": direction, "frame_number": 2,
+            result.append({"character_id": character, "direction": direction, "frame_number": number,
                            "resource_path": resource, "resource_sha256": entry["resourcePngSha256"],
                            "simulation_frame": entry["simulationFrame"], "view": name, **view})
     return result
 
 
-def verify(run):
+def verify(run, character=CHARACTER):
+    require(character in publisher.ALLOWED_IDS, "Only retained mixed04-06 may be checked")
     run = publisher.approve.child_directory(Path(run), publisher.RUNS)
     require(run.parent == publisher.RUNS.resolve(), "Use the exact new runtime-validation run directory")
     report_path = run / "city-captures/runtime-observed-appearances.json"
@@ -106,10 +122,10 @@ def verify(run):
     require(Path(launch["input_snapshot"]).resolve() == snapshot_path and
             Path(launch["capture_directory"]).resolve() == report_path.parent,
             "Walk screenshots must belong to the exact fresh PlayMode launch")
-    actors = [actor for actor in report["appearances"] if actor.get("actualCharacterId") == CHARACTER]
-    require(len(actors) == 1, "Missing or duplicate runtime mixed04 actor")
+    actors = [actor for actor in report["appearances"] if actor.get("actualCharacterId") == character]
+    require(len(actors) == 1, "Missing or duplicate runtime mixed actor")
     actor = actors[0]
-    manifest_relative = gate.FAMILY + "/" + CHARACTER + "/manifest.json"
+    manifest_relative = gate.FAMILY + "/" + character + "/manifest.json"
     manifest_path = gate.safe_child(publisher.ISOLATED, manifest_relative)
     require(manifest_relative in rows and rows[manifest_relative]["sha256"] == sha(manifest_path) == actor.get("manifestSha256"),
             "Current runtime manifest differs from the actual tested/loaded manifest")
@@ -131,8 +147,9 @@ def verify(run):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run", type=Path, required=True)
+    parser.add_argument("--character", choices=sorted(publisher.ALLOWED_IDS), default=CHARACTER)
     args = parser.parse_args()
-    print(json.dumps(verify(args.run), ensure_ascii=False, indent=2))
+    print(json.dumps(verify(args.run, args.character), ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
