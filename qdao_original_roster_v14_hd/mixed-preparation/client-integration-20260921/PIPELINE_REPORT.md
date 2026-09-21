@@ -10,7 +10,7 @@
 - `publish_mixed_roster.py`：支持04–06按新同ID发布；每个前序V14必须提供顺序完整的正式导入inventory与原publication receipt SHA链。每份旧正式meta/index、隔离stage inventory分别精确保护；跨工程只比较作者资源，允许各自独立的GUID/index字节。
 - `record_mixed_formal_import.py`：实际正式Editor导入并关闭后，检查原有资源一字节不变、新包140作者文件/合法派生白名单及137行index。每行绑定本工程PNG GUID、SHA、尺寸、PPU、文件大小与本机时间戳。只记录文件/序列化绑定，不生成Unity/视觉通过证据。
 - `verify_mixed_walk_captures.py`已成为publisher硬门禁。每个native方向选manifest中首张native-hd走帧，至少2方向；校验实际Run、1024、104PPU、脚点、运动速度、真实位移、资源SHA、simulationFrame和正常/最近PNG。每个旧/新mixed人物都必须重新通过几何、移动、生命周期库存及全部截图审查。`walk_views`缺失、不全或仍是旧idle会拒绝。
-- 新`identity_runtime_contract.py`在历史50绑定之外增加15份身份脚本/协议及15.meta，当前mixed绑定共80项；旧历史baseline source_paths保持原值。要求实际13项身份Edit及3项Play用例，区分已发布资源几何与合成HD生命周期。fullHD当前绑定也增加身份链。
+- 新`identity_runtime_contract.py`在历史50绑定之外增加15份身份脚本/协议及15.meta，当前mixed绑定共80项；旧历史baseline source_paths保持原值。要求实际14项身份Edit及3项Play用例，包含首次进图后AOI修复空账号外观的回归，并区分已发布资源几何与合成HD生命周期。fullHD当前绑定也增加身份链。
 - 两份新增身份测试.meta需由实际Unity生成后才能进入新快照；本工具不伪造它们。截图源C#由根代理负责同步和运行，本报告不将保存C#或离线编译计为运行通过。
 
 当前操作说明：[混合发布2026-09-21版](../../tools/PUBLISH_MIXED_ROSTER_CURRENT.md)。旧工具说明加了历史标记和链接；暂停交接、旧批准、旧运行证据和历史baseline均未重写。
@@ -19,7 +19,11 @@
 
 首次8套共142项，134通过、8项失败，暴露Windows TEMP短名/长名问题。修复approval路径后，7套113项109通过、4项stage execute路径失败。进一步修复stage双方路径归一。失败日志保留在本目录，不能当通过。
 
-最终测试结果待本次实际运行输出补齐；合成夹具仅证明工具门禁和保护行为，不能替代真实人物/Unity/正式链验收。
+2026-09-21最终审计重新运行当前8套完整Python测试：**147/147通过，176.527秒，退出码0**。原始日志：[python-audit-full-suite-20260921.log](python-audit-full-suite-20260921.log)；执行范围和工具SHA：[pipeline-audit-final-result.json](pipeline-audit-final-result.json)。执行命令：在`qdao_original_roster_v14_hd/tools`下运行本机Python 3.12的`-X utf8 -B -m unittest discover -s . -p 'test_*.py' -v`。
+
+覆盖assemble/approve/stage、Windows路径、顺序发布3份import链、既有meta/index篡改拒绝、本工程137行index绑定、角色计数/错误回退拒绝、实际native走帧绑定和独立视觉审查门禁。合成夹具仅证明工具门禁和保护行为，不能替代真实人物/Unity/正式链验收。失败日志全部保留，最终通过记录不替换历史失败记录。
+
+同次只读复核了详细inventory中的每个动作槽，当前计数全部一致；正式V13仍仅00–03，正式V14仍0。新身份测试的两个`.meta`尚待实际Unity导入生成，发布门禁不因此放宽。
 
 ## 仍明确阻塞
 

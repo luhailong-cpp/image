@@ -141,7 +141,7 @@ def verify(run, character=CHARACTER):
             "runtime_report_sha256": sha(report_path), "input_snapshot_sha256": sha(snapshot_path),
             "manifest_sha256": sha(manifest_path), "playmode_xml_sha256": sha(xml),
             "test_sources": {path: rows[path]["sha256"] for path in TEST_SOURCES}, "views": views,
-            "scope": "File/input/geometry/movement assertion bindings only; requires actual four-image visual review and the full publication gate. No art or publication approval."}
+            "scope": "File/input/geometry/movement assertion bindings only; requires actual normal/nearest visual review for every declared native walking direction and the full publication gate. No art or publication approval."}
 
 
 def main():

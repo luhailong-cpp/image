@@ -1,0 +1,14 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>06 雷法少年 · 不完整 E 方向审计</title>
+<style>body{font:16px system-ui;background:#151920;color:#e8edf4;margin:24px}button,select,input{font:inherit;margin:6px;padding:6px}canvas{display:block;margin-top:16px;background:#202328;max-width:90vw;image-rendering:auto;border:1px solid #687080}p{max-width:1000px;line-height:1.5}.warn{color:#ffd082}</style>
+<h1>06 雷法少年 · E 方向审计</h1><p class="warn">不完整：8 / 16 帧。E04 / 06 / 13 仅在此独立审计副本重建，未导入正式候选；E03 紫边尚未修复。缺槽显示空白，禁止重复相邻帧补位。30 ms / 槽、480 ms / 周期仅用于检查现有帧的时间位置，不能作为完整步态或首尾验收。</p>
+<button id="play">播放</button><button id="back">上一槽</button><button id="next">下一槽</button><label>帧 <input id="frame" type="range" min="1" max="16" value="1"></label><strong id="status"></strong>
+<select id="bg"><option value="dark">深底</option><option value="light">浅底</option><option value="checker">棋盘格</option></select><select id="scale"><option value="512">512 显示</option><option value="1024">1024 原尺寸</option><option value="1536">150% 放大</option></select><canvas width="1024" height="1024" id="canvas" style="width:512px"></canvas>
+<p>使用真实 PNG，画布 1024 × 1024，整角色固定缩放 .88，脚底锚点 [512,942]。旧 S 方向及 8 张旧 idle 不改。全 E 缺 07、08、10、11、12、14、15、16；其余 N / NE / SE / SW / W / NW 各缺 16 张。接缝 15 / 16 / 01 无法在当前库存中验收。</p>
+<script>
+const present=[1,2,3,4,5,6,9,13],imgs={},c=document.getElementById('canvas'),ctx=c.getContext('2d'),slider=document.getElementById('frame');let frame=1,playing=false,epoch=0;
+for(const n of present){const im=new Image();im.src=`candidate/06_thunder_caster_boy/walk/E/${String(n).padStart(2,'0')}.png`;im.onload=draw;imgs[n]=im}
+function draw(){const bg=document.getElementById('bg').value;ctx.fillStyle=bg==='light'?'#f0ebde':'#202328';ctx.fillRect(0,0,1024,1024);if(bg==='checker'){for(let y=0;y<1024;y+=32)for(let x=0;x<1024;x+=32){ctx.fillStyle=((x+y)/32)%2?'#bbb':'#ddd';ctx.fillRect(x,y,32,32)}}const im=imgs[frame];if(im?.complete&&im.naturalWidth)ctx.drawImage(im,0,0);else{ctx.font='bold 36px system-ui';ctx.fillStyle='#d28e43';ctx.fillText(`缺 E${String(frame).padStart(2,'0')} · 无替代帧`,250,500)}document.getElementById('status').textContent=`E${String(frame).padStart(2,'0')} · ${im?'真实 PNG':'缺槽'}`;slider.value=frame}
+function tick(t){if(playing){frame=Math.floor((t-epoch)/30)%16+1;draw()}requestAnimationFrame(tick)}requestAnimationFrame(tick);
+document.getElementById('play').onclick=()=>{playing=!playing;epoch=performance.now()-(frame-1)*30;document.getElementById('play').textContent=playing?'暂停':'播放'};
+function step(delta){playing=false;document.getElementById('play').textContent='播放';frame=(frame+delta+15)%16+1;draw()}document.getElementById('back').onclick=()=>step(-1);document.getElementById('next').onclick=()=>step(1);slider.oninput=()=>{playing=false;frame=Number(slider.value);draw()};document.getElementById('bg').onchange=draw;document.getElementById('scale').onchange=e=>c.style.width=e.target.value+'px';draw();
+</script></html>

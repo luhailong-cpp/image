@@ -252,7 +252,7 @@ def formal_character_baseline(formal_rows, staged_at_utc, previous_imports=()):
     """Pin old formal resources to their own retained baseline, including metas.
 
     The prior source rows describe the pre-sync code and are validated for scope,
-    not compared to current code. Current code has its separate 50-file binding.
+    not compared to current code. Current code has its separate BINDINGS inventory.
     No replacement baseline can silently bless changed old resources.
     """
     path = safe_child(RUNS, FORMAL_BASELINE_RELATIVE)

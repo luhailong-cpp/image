@@ -19,6 +19,7 @@ REQUIRED_METHODS = {
         "CreateRequest_SeparatesPersistedAppearanceFromGameplayFields": 1,
         "RemoteAoiIdentity_DoesNotNeedTheLocalAccountRoleList_AndClearsOnDisconnect": 1,
         "RemoteLegacyAoi_UsesTransmittedProfessionAndGender": 1,
+        "AoiRestoredIdentity_OverridesTheEmptyRoleListReturnedBeforeEnterGameSelfHeal": 1,
         "MissingResources_DoNotChangeThePersistedIdentity": 1,
         "BattleSnapshotIdentity_WinsOverLocalCache_WithoutUsingPetOwnerIdentity": 1,
         "TeamSnapshotAndApplications_UseTheSameIdentityAsWorldAndBattle": 1,
