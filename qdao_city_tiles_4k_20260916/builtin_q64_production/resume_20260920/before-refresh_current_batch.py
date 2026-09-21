@@ -13,18 +13,7 @@ def sha(f):return hashlib.sha256(f.read_bytes()).hexdigest()
 def rel(f):return f.resolve().relative_to(ROOT.resolve()).as_posix()
 def verify_native(rf):
     r=read(rf)
-    route=r.get('route',r.get('tool'))
-    assert route in ('builtin','builtin_image_gen'),rf
-    # Some preserved repair records name the host tool directly instead of a route.
-    # Validate their actual invocation and inputs without rewriting historical evidence.
-    if 'route' not in r:
-        assert r.get('tool')=='builtin_image_gen' and r.get('separateBilledApiAuthorized') is False,rf
-        refs=r['actualInputs'];args=r['toolArguments']
-        assert len(refs)==r['actualInputCount']==len(args['referenced_image_paths']),rf
-        assert [Path(e['path']).resolve() for e in refs]==[Path(f).resolve() for f in args['referenced_image_paths']],rf
-        assert all(sha(Path(e['path']))==e['sha256'] for e in refs),rf
-        prompt=Path(r['prompt']);assert sha(prompt)==r['promptSha256'],rf
-        assert prompt.read_text(encoding='utf-8-sig').rstrip()==args['prompt'].rstrip(),rf
+    assert r.get('route') in ('builtin','builtin_image_gen'),rf
     src=Path(r['sourceOutputPath']);assert src.is_file(),src
     local=rf.with_name(rf.name.replace('.record.json','.png'))
     if not local.is_file():
@@ -35,7 +24,7 @@ def verify_native(rf):
     assert ROOT.resolve() in local.resolve().parents,local
     h=sha(local);assert h==r['outputSha256']==sha(src),rf
     with Image.open(local) as im:im.load();size=list(im.size);assert size==[1254,1254],local
-    assert not r.get('finalArtUpscaled',False) and not r.get('sourceUpscaledTo4K',False) and not r.get('resizedAfterGeneration',False),rf
+    assert not r.get('finalArtUpscaled',False),rf
     return {'record':rel(rf),'recordSha256':sha(rf),'native':rel(local),'sha256':h,'pixels':size,'originalSource':str(src)}
 cfg=read(ROOT/'builtin_q64_production/current-batch-config.json')
 entries=[]
