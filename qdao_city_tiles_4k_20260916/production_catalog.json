@@ -1064,11 +1064,11 @@
   "plannedTotalDeliveryTiles": 1792,
   "wholeCityReferenceCount": 7,
   "wholeCityReferencesModelAudit": "builtin_q64_all_city_references/model-audit.json",
-  "updatedAtUtc": "2026-09-22T02:12:47.421536+00:00",
+  "updatedAtUtc": "2026-09-22T06:08:56.029107+00:00",
   "currentBatch": "builtin_q64_production/current-batch.json",
   "activeProductionRun": {
     "id": "resume_single_city_20260921",
-    "updatedAtUtc": "2026-09-22T02:12:47.421536+00:00",
+    "updatedAtUtc": "2026-09-22T06:08:56.029107+00:00",
     "appearance": "tianyong_festival",
     "displayName": "天墉城节庆",
     "priority": "finish_one_appearance_before_other_cities_or_skins",
@@ -1097,20 +1097,20 @@
     "deliveryReady": false,
     "clientIntegrationOwner": "separate user window",
     "historicalContinuationTextSupersededByThisRun": true,
-    "sessionStateSha256": "584b0bc88ca30d2225b2debe7c74e4720111773efe9ce270bb3c6355e13d885a",
+    "sessionStateSha256": "7ffad09e2f8e0ee979e4a6071f2d5a907d7f45f7bb6a620d85f4c34254022207",
     "candidateCoordinatesIncludingWorkInProgress": 8,
     "coordinatesWithoutAny4KCandidate": 248,
     "allAppearanceCandidateCoordinatesIncludingWorkInProgress": 26,
-    "retainedNativeKnownCountExcludingReferences": 565,
-    "newNativeDetailCount": 49,
-    "newNativeRepairCount": 10,
-    "newReferenceCount": 1,
+    "retainedNativeKnownCountExcludingReferences": 16,
+    "newNativeDetailCount": 16,
+    "newNativeRepairCount": 0,
+    "newReferenceCount": 0,
     "coverageLedger": "builtin_q64_production/resume_single_city_20260921/current-coverage-ledger.json",
     "latestDetailedHandoff": {
       "requestedByUser": true,
       "purpose": "continue_art_production_in_new_user_window",
       "document": "主城美术详细交接-20260921.md",
-      "documentSha256": "a415d0188f890cf9edd903ce2b1cd9da40c7bf6438a26278ea3dcdfcddac1f67",
+      "documentSha256": "a81cb09257246cb198436a936065aaab124128ee2b78995ace835ad3e9be8e25",
       "snapshot": "builtin_q64_production/resume_single_city_20260921/handoff-20260921/snapshot.json",
       "snapshotSha256": "902a070fd3995bcd0782f9810e856656003c5871e550791c93f3facc8343e318",
       "frozenAtUtc": "2026-09-22T02:24:06.413959+00:00",
@@ -1119,7 +1119,23 @@
       "generationStoppedForHandoff": true,
       "clientIntegrationOwner": "separate user window"
     },
-    "currentWindowWorkState": "handoff_prepared_at_snapshot_not_production_complete"
+    "currentWindowWorkState": "handoff_ready_user_authorized_obsolete_sources_deleted",
+    "sourceRetention": {
+      "policy": "User requested final selected art/design only; obsolete originals and rollback images deleted",
+      "cleanupReceipt": "cleanup-current-assets\\deletion-receipt.json",
+      "cleanupReceiptSha256": "4662a6a2402ba8f820f91f5d81333e5bff63340f360a66ca60687932e372d9f3",
+      "deletedFiles": 3568,
+      "deletedBytes": 12354516996,
+      "historicalGenerationCountsAreNotRetainedByteCounts": true,
+      "sourceRecordsAndHashesPreserved": true,
+      "deletedOriginalsAvailableForReplay": false
+    },
+    "latestCleanup": {
+      "file": "cleanup-current-assets/deletion-receipt.json",
+      "sha256": "4662a6a2402ba8f820f91f5d81333e5bff63340f360a66ca60687932e372d9f3",
+      "verification": "cleanup-current-assets\\verification-20260922T060923083571Z.json",
+      "verificationSha256": "0e3ed2cbd6e1d391cef2d57e5cc87459eceab4c2d7452c6b36be49d604a26ef8"
+    }
   },
-  "baselineSelectionCountMeaning": "Existing candidate arrays and 24/502 counts are the preserved pre-resumption selection snapshot. Active-run candidates and exact source counts are in activeProductionRun/sessionState; neither is formal delivery."
+  "baselineSelectionCountMeaning": "Legacy candidate/source arrays and counts are historical pre-cleanup observations. Current selected artwork and physically retained sources are in activeProductionRun/sessionState. Deleted original bytes remain unavailable; their SHA metadata is retained."
 }

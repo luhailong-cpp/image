@@ -22,6 +22,13 @@ def read(p):
     return json.loads(p.read_text(encoding='utf-8-sig'))
 
 def main():
+    cleanup = ART/'cleanup-current-assets/deletion-receipt.json'
+    cleanup_record = read(cleanup) if cleanup.exists() else None
+    deleted = {}
+    if cleanup_record:
+        assert cleanup_record['status']=='completed', 'Finish or inspect partial cleanup before refreshing'
+        deleted = {Path(x['file']).resolve():x['sha256'] for x in
+                   (json.loads(line) for line in (cleanup.parent/'deleted-files.jsonl').read_text(encoding='utf-8-sig').splitlines())}
     records = []
     tile_dirs=sorted(ROOT.glob('next_tile_r??_c??'))
     native_dirs=[ROOT/'tools/sessions/tianyong_festival/r09_c09/native']+[p/sub for p in tile_dirs for sub in ('native','references')]
@@ -51,6 +58,8 @@ def main():
     for p in sorted(repair_paths):
         r = read(p)
         original = p.parent/'repair-native-1254.png'
+        if not original.exists() and original.resolve() in deleted:
+            continue  # Explicitly retired bytes, not a retained native source.
         item = entry(original)
         item['record'] = {'file': p.relative_to(ART).as_posix(), 'sha256': sha(p)}
         item['role'] = 'native_repair_source_not_production_tile'
@@ -61,12 +70,12 @@ def main():
         repairs.append(item)
     candidates = []
     first = ROOT/'tools/sessions/tianyong_festival/r09_c09/output_resume_20260921/tianyong_r09_c09_q64_4k_candidate.png'
-    if first.exists():
-        versions = sorted((ROOT/'tools/repairs/versions').glob('r09_c09_repair_v*/r09_c09.png'))
+    versions = sorted((ROOT/'tools/repairs/versions').glob('r09_c09_repair_v*/r09_c09.png'))
+    if first.exists() or versions:
         p = versions[-1] if versions else first
         candidates.append(dict(entry(p), tile='r09_c09', status='pending_or_failed_visual_acceptance', accepted=False))
     second = ROOT/'next_tile_r09_c10/output/r09_c10.candidate.png'
-    child_versions = list((ROOT/'next_tile_r09_c10/repairs/versions').glob('*/repair.json'))
+    child_versions = [p for p in (ROOT/'next_tile_r09_c10/repairs/versions').glob('*/repair.json') if (p.parent/'r09_c10.png').exists()]
     if child_versions:
         def repair_time(p):
             record = read(p)
@@ -138,6 +147,18 @@ def main():
       'remaining':['complete all 256 native-detail tile coordinates','resolve every failed internal and external seam','all 480 adjacent seams and 225 junctions','whole-city layout/navigation and foreground evidence','contract-bound art acceptance before client handoff'],
       'repositoryActivity':'This task performed no git add, commit, push, reset or deletion. Concurrent commit 06bfca2a included some in-progress files and is preserved; Git inclusion is not art acceptance.'
     }
+    if cleanup_record:
+        historical = read(ROOT/'audit/current_input_inventory.json')
+        retained_known = {(ART/e['native']).resolve() for e in historical['indexedNativeEvidence'] if (ART/e['native']).is_file()}
+        retained_known.update((ART/e['file']).resolve() for e in records+repairs if e['role']!='reference_only')
+        retained_known.update(p.resolve() for p in (ART/'builtin_q64_production/tianyong_festival/r09_c09/native').glob('*.png'))
+        state['allAppearanceRetainedNativeKnownCountExcludingReferences'] = len(retained_known)
+        state['sourceRetention'] = {'policy':'User requested final selected art/design only; obsolete originals and rollback images deleted',
+          'cleanupReceipt':str(cleanup.relative_to(ART)),'cleanupReceiptSha256':sha(cleanup),
+          'deletedFiles':cleanup_record['deletedFiles'],'deletedBytes':cleanup_record['deletedBytes'],
+          'historicalGenerationCountsAreNotRetainedByteCounts':True,'sourceRecordsAndHashesPreserved':True,
+          'deletedOriginalsAvailableForReplay':False}
+        state['repositoryActivity'] = 'User explicitly authorized obsolete city-original/rollback media deletion; see cleanup receipt. No git add, commit, push or reset performed by this window.'
     review_path = ROOT/state['latestR09C09VisualReview']
     if review_path.exists():
         review = read(review_path)

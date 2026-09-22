@@ -24,6 +24,15 @@ REPO = ART.parent
 OBSERVED: dict[Path, str] = {}
 ERRORS: list[str] = []
 NOTES: list[str] = []
+RETIRED: list[dict] = []
+_retired_path = ART/'cleanup-current-assets/deleted-files.jsonl'
+_retired_receipt = ART/'cleanup-current-assets/deletion-receipt.json'
+RETIRED_SHA = {}
+if _retired_receipt.exists() and _retired_path.exists():
+    _receipt = json.loads(_retired_receipt.read_text(encoding='utf-8-sig'))
+    if _receipt.get('status') == 'completed':
+        RETIRED_SHA = {Path(x['file']).resolve(): x['sha256'] for x in
+                       (json.loads(line) for line in _retired_path.read_text(encoding='utf-8-sig').splitlines())}
 
 
 def sha(data: bytes) -> str:
@@ -58,7 +67,7 @@ def read_json(path: Path) -> dict:
 
 
 def pointer(value: str | dict, *, base: Path = ART, expected: str | None = None,
-            pixels: list[int] | None = None, label: str = "file") -> dict:
+            pixels: list[int] | None = None, label: str = "file", allow_retired: bool = False) -> dict:
     if isinstance(value, dict):
         expected = value.get("sha256", expected)
         value = value.get("file", value.get("path"))
@@ -68,6 +77,13 @@ def pointer(value: str | dict, *, base: Path = ART, expected: str | None = None,
     path = resolve(value, base)
     result = {"declaredPath": value, "resolvedPath": str(path), "expectedSha256": expected,
               "status": "checked", "label": label}
+    if allow_retired and not path.exists() and path in RETIRED_SHA:
+        if expected:
+            require(expected == RETIRED_SHA[path], f"Retired-source SHA does not match pre-deletion record: {path}")
+        result.update(status="deleted_by_user_not_reverified", preDeletionSha256=RETIRED_SHA[path],
+                      currentBytesVerified=False, reason="User explicitly removed obsolete originals/rollback images")
+        RETIRED.append(result)
+        return result
     try:
         data = read_bytes(path)
         result["sha256"] = sha(data)
@@ -140,18 +156,18 @@ def provenance_links(record: dict, record_path: Path) -> list[dict]:
     for field, sha_field in (("promptFile", "promptSha256"), ("sourceOutputPath", "sourceOutputSha256"),
                              ("toolOutputPath", "toolOutputSha256")):
         if record.get(field):
-            links.append(pointer(record[field], expected=record.get(sha_field), label=field))
+            links.append(pointer(record[field], expected=record.get(sha_field), label=field, allow_retired=True))
     for field in ("originalNativeOutput", "sourceCandidate", "sourceRecord", "prepared", "toolOutputReceipt", "originalPlan",
                   "generationRecord", "prompt", "evidence"):
         if isinstance(record.get(field), dict) and record[field].get("file"):
-            links.append(pointer(record[field], label=field))
+            links.append(pointer(record[field], label=field, allow_retired=True))
     for field in ("submittedImages", "actualReferences", "references"):
         for entry in record.get(field, []):
-            links.append(pointer(entry, label=field))
+            links.append(pointer(entry, label=field, allow_retired=True))
     # Repair records explicitly enumerate their local raw input/prompt/receipt files.
     for name in ("actual-prompt.txt", "request-receipt.json", "repair-native-1254.png"):
         if name in record.get("files", {}):
-            links.append(pointer(record["files"][name], base=record_path.parent, label=name))
+            links.append(pointer(record["files"][name], base=record_path.parent, label=name, allow_retired=True))
     return links
 
 
@@ -291,6 +307,11 @@ def main() -> int:
     started = datetime.now(timezone.utc)
     data = {}
     try:
+        if RETIRED_SHA:
+            retired_receipt = read_json(_retired_receipt)
+            read_bytes(_retired_path)
+            require(retired_receipt.get('status') == 'completed', 'Cleanup receipt is not complete')
+            require(retired_receipt.get('deletedFiles') == len(RETIRED_SHA), 'Cleanup log count differs from receipt')
         state_path = SESSION / "session-state.json"
         state = read_json(state_path)
         ledger_path = resolve(state.get("coverageLedger", "current-coverage-ledger.json"), SESSION)
@@ -303,12 +324,13 @@ def main() -> int:
     changes = final_changes()
     if changes:
         ERRORS.append("STALE_FAIL: one or more inputs changed during verification; rerun after writer completes")
-    status = "STALE_FAIL" if changes or any("STALE_FAIL" in error for error in ERRORS) else ("TECHNICAL_FAIL" if ERRORS else "TECHNICAL_CONSISTENT")
+    status = "STALE_FAIL" if changes or any("STALE_FAIL" in error for error in ERRORS) else ("TECHNICAL_FAIL" if ERRORS else ("CURRENT_ASSETS_CONSISTENT_WITH_RETIRED_SOURCES" if RETIRED else "TECHNICAL_CONSISTENT"))
     report = {"schemaVersion": 1, "startedAtUtc": started.isoformat(), "finishedAtUtc": datetime.now(timezone.utc).isoformat(),
               "status": status, "scope": "Read-only file, provenance-pointer and grid consistency check; no visual review or publishing",
               "inputFilesBefore": [{"file": str(p), "sha256": h} for p, h in OBSERVED.items()],
               "inputChangesDuringCheck": changes, "inputCount": len(OBSERVED), "errors": ERRORS,
               "results": data, "scriptSha256": sha(Path(__file__).read_bytes()),
+              "retiredSourceReferencesNotReverified": RETIRED,
               "artAcceptance": "not_performed", "navigationAcceptance": "not_performed", "runtimeAcceptance": "not_performed",
               "limitations": ["World-coordinate formulas do not establish semantic geometry alignment",
                               "Source checks follow explicit current pointers only; they do not invent missing provenance or certify every historical ancestor",
@@ -326,11 +348,13 @@ def main() -> int:
              "输入在读前后变更时结果为 STALE_FAIL。每次报告使用新时间戳文件，旧报告不覆盖。", "",
              "本检查没有美术、布局语义、导航或客户端实机验收，也没有执行正式发布。", ""]
     lines.extend(["错误：", "", *["- " + error for error in ERRORS]] if ERRORS else [])
+    if RETIRED:
+        lines.extend(["", f"按用户授权已删除的历史来源引用 {len(RETIRED)} 项：仅核对删除前记录 SHA，当前字节无法复验；逐项 status=deleted_by_user_not_reverified，未把删除项标为通过。", ""])
     with report_path.with_suffix(".md").open("x", encoding="utf-8", newline="\n") as out:
         out.write("\n".join(lines) + "\n")
     print(json.dumps({"report": str(report_path), "status": status, "counts": counts,
-                      "nativeSourceCount": data.get("nativeSourceCount"), "inputCount": len(OBSERVED), "errors": ERRORS}, ensure_ascii=False))
-    return 2 if status != "TECHNICAL_CONSISTENT" else 0
+                      "nativeSourceCount": data.get("nativeSourceCount"), "inputCount": len(OBSERVED), "retiredSourceReferencesNotReverified": len(RETIRED), "errors": ERRORS}, ensure_ascii=False))
+    return 2 if ERRORS else 0
 
 
 if __name__ == "__main__":
