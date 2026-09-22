@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 1,
+  "reviewedAtUtc": "2026-09-21T13:05:44.954308+00:00",
+  "source": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\repairs\\versions\\r09_c09_repair_v4\\r09_c09.png",
+  "sourceSha256": "3421c5b29eea9cc72b00825738d339f4786572b477ee70cdd8c86894a4f34d50",
+  "sourceUnchanged": true,
+  "neighborSources": [
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\upperpair_r09_c07_c08_row10_c07_c10_20260918\\output_v5\\r09_c08.png",
+      "sha256": "082c9b20f605c9ff695acaae423b72903119baeb4d5dbc475343552020fafdc2"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\upperpair_r09_c07_c08_row10_c07_c10_20260918\\output_v5\\r10_c08.png",
+      "sha256": "76d8a0d3c79ef613039c1cc2b88f437703704d24c2754a99af848f86aef68cc6"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\upperpair_r09_c07_c08_row10_c07_c10_20260918\\output_v5\\r10_c09.png",
+      "sha256": "7afaaae5fc9c09232e3031aa47c395cfb23cdc26f35f918d803e6a538d9ac5d7"
+    }
+  ],
+  "neighborSourcesUnchanged": true,
+  "status": "candidate_retained_external_neighbor_QA_failed",
+  "formalArtAccepted": false,
+  "runtimePublished": false,
+  "coverage": {
+    "internalFullSeamsFreshlyViewed": 6,
+    "internalSegmentsFreshlyViewed": 24,
+    "internalJunctionsFreshlyViewed": 3,
+    "internalJunctionsInheritedAfterExactShaMatch": 6,
+    "repairFinalSupportsFreshlyViewed": 3,
+    "actualRepairMasksFreshlyViewed": 3,
+    "externalFullSeamsFreshlyViewed": 2,
+    "externalSegmentsFreshlyViewed": 8,
+    "externalFourTileJunctionsViewed": 1,
+    "externalDetailCropsViewed": 4,
+    "resizedEvidenceImages": 0
+  },
+  "repairChainVerification": {
+    "versions": [
+      2,
+      3,
+      4
+    ],
+    "verifiedRecordedFiles": 42,
+    "fileShaMismatches": 0,
+    "changedPixelsOutsideActualMaskPerVersion": [
+      0,
+      0,
+      0
+    ],
+    "actualMaxRegistrationShiftXYPerVersion": [
+      [
+        2.056262731552124,
+        2.9348013401031494
+      ],
+      [
+        1.2284501791000366,
+        1.1414326429367065
+      ],
+      [
+        5.51643705368042,
+        3.6689510345458984
+      ]
+    ],
+    "resamplingDisclosure": "Three native1254 repairs retained original bytes. Their assembly used bounded subpixel geometric registration and local color matching; this is not a no-resampling or single-native4K claim."
+  },
+  "previousDefects": [
+    {
+      "previousId": "R09C09-01",
+      "result": "specific_defect_resolved_in_reviewed_area",
+      "evidence": [
+        "junction_x1024_y3072.png",
+        "repair_v2_final_support.png"
+      ],
+      "finding": "The former abrupt highlight step and gray hard blocks are no longer visible in the exact target area. The continuing step highlight and gray faces reconnect cleanly."
+    },
+    {
+      "previousId": "R09C09-02",
+      "result": "specific_central_slab_defect_resolved_in_reviewed_area",
+      "evidence": [
+        "junction_x2048_y2048.png",
+        "repair_v3_final_support.png"
+      ],
+      "finding": "Dense scratches/flaky streaks on the targeted central slab face are replaced by sparse broad painted variation. Adjacent slabs and some inherited bevel texture were outside this material mask; broader style observation remains separate."
+    },
+    {
+      "previousId": "R09C09-03",
+      "result": "specific_defect_resolved_in_reviewed_area",
+      "evidence": [
+        "junction_x3072_y1024.png",
+        "repair_v4_final_support.png"
+      ],
+      "finding": "The two narrow highlighted rim interruptions targeted by v4 are now continuous in the reviewed native crop."
+    }
+  ],
+  "internalContinuityFinding": "No definitive new internal contour break was observed in six whole seam boards and nine covered junctions. This scoped observation does not pass whole-tile art because existing-neighbor boundaries fail and broader stone texture remains under review.",
+  "repairMaskReturnFinding": "The entire1254 support of each final repair and its actual cross/polygon/horizontal mask were viewed. No definitive new clipped contour or hard mask-return boundary was observed around these repair contours. Mechanical outside-mask invariance was independently verified, not substituted for visual inspection.",
+  "issues": [
+    {
+      "id": "V4-EXTERNAL-LEFT",
+      "priority": "P1",
+      "status": "not_passed",
+      "tileLocalBoundary": "x=0, y=0..4095",
+      "wholeCityBoundary": {
+        "x": 32768,
+        "yStart": 32768,
+        "yEndExclusive": 36864
+      },
+      "finding": "Joining unchanged r09_c08 v5 and this r09_c09 v4 produces a visible straight material/tone boundary. The full-length board also shows small white-highlight/bevel discontinuities, especially around local y600-700 and y1300-1600. The map structures continue in the same general direction; no large road-layout displacement is claimed.",
+      "focusedLocationsApproximate": [
+        [
+          0,
+          625
+        ],
+        [
+          0,
+          1376
+        ]
+      ],
+      "evidence": [
+        "external_left_r09_c08_c09_full_4096_native.png",
+        "external_left_y640_detail.png",
+        "external_left_y1376_detail.png"
+      ],
+      "requiredRepair": "Reconcile the shared material/tone and the specific small rim mismatches in a versioned joint assembly. Preserve existing neighbor source and geometry; recheck all4096 pixels afterward."
+    },
+    {
+      "id": "V4-EXTERNAL-BOTTOM",
+      "priority": "P1",
+      "status": "not_passed",
+      "tileLocalBoundary": "y=4096, x=0..4095",
+      "wholeCityBoundary": {
+        "y": 36864,
+        "xStart": 32768,
+        "xEndExclusive": 36864
+      },
+      "finding": "Joining unchanged r10_c09 v5 creates a horizontal material/tone line along the produced bottom boundary. Near x1409 the dark groove and its white rim change position/width slightly. A sampled darkest groove point shifts from upper x1409 to lower x1412, about3px; this does not support a claim of a large structural break.",
+      "focusedLocationsApproximate": [
+        [
+          1409,
+          4096
+        ],
+        [
+          1901,
+          4096
+        ]
+      ],
+      "evidence": [
+        "external_bottom_r09_c09_r10_c09_full_4096_native.png",
+        "external_bottom_x1408_detail.png",
+        "external_bottom_x1856_detail.png"
+      ],
+      "requiredRepair": "Preserve the slab pattern and bring the shared edge into local geometric and material continuity in a new joint version. Review the complete4096-pixel boundary, not only the groove crop."
+    },
+    {
+      "id": "V4-EXTERNAL-JUNCTION",
+      "priority": "P1",
+      "status": "not_passed",
+      "tileLocalPixelXY": [
+        0,
+        4096
+      ],
+      "wholeCityPixelXY": [
+        32768,
+        36864
+      ],
+      "finding": "The four-tile board shows a texture/tone quadrant change at the intersection. Stone joints remain generally connected, but the corner cannot be accepted while both incident new boundaries fail.",
+      "evidence": [
+        "external_four_tile_junction.png"
+      ],
+      "requiredRepair": "Recheck this corner from the final shared-boundary outputs of r09c08/r09c09/r10c08/r10c09."
+    },
+    {
+      "id": "V4-STYLE-OBS01",
+      "priority": "P2",
+      "status": "remaining_art_observation_not_accepted",
+      "regionApproximateLTRB": [
+        2250,
+        880,
+        2970,
+        1150
+      ],
+      "finding": "The prior OBS-01 dense streak/flake texture remains on an upper slab outside the central stone cleanup. The central repaired slab is substantially cleaner; that limited result does not establish uniform clean-stone styling over the entire tile.",
+      "evidence": [
+        "h1024_full_4096_native.png",
+        "repair_v4_final_support.png"
+      ],
+      "requiredRepair": "Review and, if retaining the clean-stone target, simplify the affected stone-face texture without changing slab joints or bevel geometry."
+    }
+  ],
+  "metrics": {
+    "bottomBoundaryMeanAbsoluteRgbDifference": 6.315592447916667,
+    "currentBottomAdjacentRowMeanAbsoluteRgbDifference": 0.9564615885416666,
+    "neighborTopAdjacentRowMeanAbsoluteRgbDifference": 0.8767903645833334,
+    "leftBoundaryMeanAbsoluteRgbDifference": 5.977376302083333,
+    "bottomDarkGrooveSample": {
+      "searchX": [
+        1300,
+        1460
+      ],
+      "upperMinimumX": 1409,
+      "lowerMinimumX": 1412
+    },
+    "meaning": "Supplementary diagnostics only. Scalar pixel differences are not visual acceptance and do not measure a universal geometric shift."
+  },
+  "extraEvidence": [
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\audit\\r09_c09_review_v4\\external_left_y640_detail.png",
+      "sha256": "09d06ef586c24823c8ffef1cf0c9f9ce3c7a38824c616ced461ffba1b1a51a6d",
+      "sourceBoxRelativeToCurrentTileLTRB": [
+        -256,
+        384,
+        256,
+        896
+      ],
+      "resized": false,
+      "viewedAtOriginalPixels": true
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\audit\\r09_c09_review_v4\\external_left_y1376_detail.png",
+      "sha256": "196acebe03d7e0bd3775e6e42797f4e47b9ab90540a007632eea99d79bc24bcd",
+      "sourceBoxRelativeToCurrentTileLTRB": [
+        -256,
+        1120,
+        256,
+        1632
+      ],
+      "resized": false,
+      "viewedAtOriginalPixels": true
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\audit\\r09_c09_review_v4\\external_bottom_x1408_detail.png",
+      "sha256": "fd8013703dcc00a1fccf7727bcf7a62a6fb4d36fb8ba85036c0499420784f75f",
+      "sourceBoxRelativeToCurrentTileLTRB": [
+        1152,
+        3840,
+        1664,
+        4352
+      ],
+      "resized": false,
+      "viewedAtOriginalPixels": true
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\audit\\r09_c09_review_v4\\external_bottom_x1856_detail.png",
+      "sha256": "dd5057edfc5793c4b5faab032733e63b574fabcb58a156b41555f601390ef37a",
+      "sourceBoxRelativeToCurrentTileLTRB": [
+        1600,
+        3840,
+        2112,
+        4352
+      ],
+      "resized": false,
+      "viewedAtOriginalPixels": true
+    }
+  ],
+  "priorityOrder": [
+    "V4-EXTERNAL-LEFT",
+    "V4-EXTERNAL-BOTTOM",
+    "V4-EXTERNAL-JUNCTION",
+    "V4-STYLE-OBS01"
+  ],
+  "notReviewed": [
+    "missing top and right delivery neighbors",
+    "whole256 tile city",
+    "navigation/entrances/foreground",
+    "game nearest camera/movement/device performance"
+  ],
+  "sourceFilesModifiedByReviewer": false
+}

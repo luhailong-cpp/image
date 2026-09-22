@@ -1,8 +1,8 @@
 {
   "schemaVersion": 4,
-  "status": "continuing_64K_production_user_confirmed_all_cities",
-  "updatedAtUtc": "2026-09-21T07:41:53.917888+00:00",
-  "scope": "24 unique local 4K candidates; 7 full64K appearances remain in production",
+  "status": "single_city_art_incomplete_handed_off_for_new_window",
+  "updatedAtUtc": "2026-09-22T02:12:47.421536+00:00",
+  "scope": "Current priority: Tianyong festival 256 tiles; 8 candidate coordinates, 248 missing, 0 production accepted. Other appearances retained.",
   "latestUserRequirements": {
     "wholeCityPixels": [
       65536,
@@ -59,7 +59,7 @@
   "lastCliAttempt": "q64_gpt25/qa/cli-preflight-missing-key.json",
   "currentBlocker": null,
   "activeRoute": "builtin_image_gen",
-  "activeWorkingDirectory": "builtin_q64_production",
+  "activeWorkingDirectory": "builtin_q64_production/resume_single_city_20260921",
   "requiresApiKey": false,
   "separateBilledApiAllowedThisRun": false,
   "strictGptImage25RequirementActive": false,
@@ -120,24 +120,16 @@
   "completedWholeCityCount": 0,
   "scopeDecision": {
     "pending": false,
-    "reason": "Observed native output1254 square despite higher requested dimensions. Current16-detail-patches-per4K scheme requires28672 detail generations across1792 planned tiles, plus references and seam repairs.",
-    "requestedWholeCityPixels": [
-      65536,
-      65536
-    ],
-    "requestedTilePixels": [
-      4096,
-      4096
-    ],
-    "minimumBaseGenerationsUnderCurrentScheme": 28672,
     "userResponseReceived": true,
-    "decision": "Continue original full7 appearances64K with4K tiles until complete; no scope reduction."
+    "decision": "Complete one Tianyong festival 65536-square appearance first; 16x16 native-detail 4096 tiles. Client integration belongs to another window.",
+    "remainingCoordinatesWithoutCandidate": 248,
+    "productionAccepted": 0
   },
   "continuationWork": {
-    "tianyong": "r09_c08 16/16; five repairs placed output_v4; remaining horizontal/full neighbor/junction/ROI-return QA before candidate merge.",
-    "penglai": "day and mid_autumn r09_c12 both16/16; day triple v2 partial QA; mid assembler preparation-state enum compatibility fix then assembly/full QA.",
-    "lanxian": "day c08 already merged output_v2; spring c08 16 selected (r01_c03.v2), triple output_v1 needs two short boundary line repairs and brush transition repair.",
-    "donghai": "day c10 already merged output_v3; lantern c10 16/16, triple output_v1 needs fish-basin anatomy repair and four remaining junction checks."
+    "activeAppearance": "tianyong_festival",
+    "sessionState": "builtin_q64_production/resume_single_city_20260921/session-state.json",
+    "coverageLedger": "builtin_q64_production/resume_single_city_20260921/current-coverage-ledger.json",
+    "remaining": "Complete missing native-detail areas, full-city layout/navigation, every seam and junction, and contract evidence."
   },
   "lastTransientInterruption": {
     "kind": "parallel_task_usage_error",
@@ -146,13 +138,24 @@
     "recordedAtUtc": "2026-09-17T14:34:01.922601+00:00"
   },
   "handoff": {
-    "requestedByUser": true,
-    "document": "E:/work/image/qdao_city_tiles_4k_20260916/跨窗口交接-全主城高清重制-20260919.md",
-    "snapshot": "E:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/handoff-snapshot-20260919.json",
-    "preparedAtUtc": "2026-09-19T08:34:44.774Z",
-    "newWindowNotCreatedByAssistant": true,
-    "currentWindowProductionStoppedForHandoff": true,
-    "noInFlightGeneration": true
+    "currentRunProductionDeliveryReady": false,
+    "currentRunFormalManifestProduced": false,
+    "clientIntegrationOwner": "separate user window",
+    "currentWorkingRecord": "builtin_q64_production/resume_single_city_20260921/session-state.json",
+    "historicalHandoffPreservedIn": "historicalScopeBeforeSingleCityRun.handoff",
+    "detailedArtContinuation": {
+      "requestedByUser": true,
+      "purpose": "continue_art_production_in_new_user_window",
+      "document": "主城美术详细交接-20260921.md",
+      "documentSha256": "a415d0188f890cf9edd903ce2b1cd9da40c7bf6438a26278ea3dcdfcddac1f67",
+      "snapshot": "builtin_q64_production/resume_single_city_20260921/handoff-20260921/snapshot.json",
+      "snapshotSha256": "902a070fd3995bcd0782f9810e856656003c5871e550791c93f3facc8343e318",
+      "frozenAtUtc": "2026-09-22T02:24:06.413959+00:00",
+      "productionComplete": false,
+      "formalAcceptedTiles": 0,
+      "generationStoppedForHandoff": true,
+      "clientIntegrationOwner": "separate user window"
+    }
   },
   "historicalRequestedRouteMetadata": {
     "requestedModel": "Built-in GPT Image 2.0 (user-selected route label, not an explicit model ID)",
@@ -160,7 +163,7 @@
   },
   "activeProductionRun": {
     "id": "resume_single_city_20260921",
-    "updatedAtUtc": "2026-09-21T13:07:22.471002+00:00",
+    "updatedAtUtc": "2026-09-22T02:12:47.421536+00:00",
     "appearance": "tianyong_festival",
     "displayName": "天墉城节庆",
     "priority": "finish_one_appearance_before_other_cities_or_skins",
@@ -188,6 +191,65 @@
     "formalAcceptedTileCount": 0,
     "deliveryReady": false,
     "clientIntegrationOwner": "separate user window",
-    "historicalContinuationTextSupersededByThisRun": true
+    "historicalContinuationTextSupersededByThisRun": true,
+    "sessionStateSha256": "584b0bc88ca30d2225b2debe7c74e4720111773efe9ce270bb3c6355e13d885a",
+    "candidateCoordinatesIncludingWorkInProgress": 8,
+    "coordinatesWithoutAny4KCandidate": 248,
+    "allAppearanceCandidateCoordinatesIncludingWorkInProgress": 26,
+    "retainedNativeKnownCountExcludingReferences": 565,
+    "newNativeDetailCount": 49,
+    "newNativeRepairCount": 10,
+    "newReferenceCount": 1,
+    "coverageLedger": "builtin_q64_production/resume_single_city_20260921/current-coverage-ledger.json",
+    "latestDetailedHandoff": {
+      "requestedByUser": true,
+      "purpose": "continue_art_production_in_new_user_window",
+      "document": "主城美术详细交接-20260921.md",
+      "documentSha256": "a415d0188f890cf9edd903ce2b1cd9da40c7bf6438a26278ea3dcdfcddac1f67",
+      "snapshot": "builtin_q64_production/resume_single_city_20260921/handoff-20260921/snapshot.json",
+      "snapshotSha256": "902a070fd3995bcd0782f9810e856656003c5871e550791c93f3facc8343e318",
+      "frozenAtUtc": "2026-09-22T02:24:06.413959+00:00",
+      "productionComplete": false,
+      "formalAcceptedTiles": 0,
+      "generationStoppedForHandoff": true,
+      "clientIntegrationOwner": "separate user window"
+    },
+    "currentWindowWorkState": "handoff_prepared_at_snapshot_not_production_complete"
+  },
+  "baselineSelectionCountMeaning": "Existing candidate arrays and 24/502 counts are the preserved pre-resumption selection snapshot. Active-run candidates and exact source counts are in activeProductionRun/sessionState; neither is formal delivery.",
+  "historicalScopeBeforeSingleCityRun": {
+    "status": "continuing_64K_production_user_confirmed_all_cities",
+    "scope": "24 unique local 4K candidates; 7 full64K appearances remain in production",
+    "activeWorkingDirectory": "builtin_q64_production",
+    "scopeDecision": {
+      "pending": false,
+      "reason": "Observed native output1254 square despite higher requested dimensions. Current16-detail-patches-per4K scheme requires28672 detail generations across1792 planned tiles, plus references and seam repairs.",
+      "requestedWholeCityPixels": [
+        65536,
+        65536
+      ],
+      "requestedTilePixels": [
+        4096,
+        4096
+      ],
+      "minimumBaseGenerationsUnderCurrentScheme": 28672,
+      "userResponseReceived": true,
+      "decision": "Continue original full7 appearances64K with4K tiles until complete; no scope reduction."
+    },
+    "continuationWork": {
+      "tianyong": "r09_c08 16/16; five repairs placed output_v4; remaining horizontal/full neighbor/junction/ROI-return QA before candidate merge.",
+      "penglai": "day and mid_autumn r09_c12 both16/16; day triple v2 partial QA; mid assembler preparation-state enum compatibility fix then assembly/full QA.",
+      "lanxian": "day c08 already merged output_v2; spring c08 16 selected (r01_c03.v2), triple output_v1 needs two short boundary line repairs and brush transition repair.",
+      "donghai": "day c10 already merged output_v3; lantern c10 16/16, triple output_v1 needs fish-basin anatomy repair and four remaining junction checks."
+    },
+    "handoff": {
+      "requestedByUser": true,
+      "document": "E:/work/image/qdao_city_tiles_4k_20260916/跨窗口交接-全主城高清重制-20260919.md",
+      "snapshot": "E:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/handoff-snapshot-20260919.json",
+      "preparedAtUtc": "2026-09-19T08:34:44.774Z",
+      "newWindowNotCreatedByAssistant": true,
+      "currentWindowProductionStoppedForHandoff": true,
+      "noInFlightGeneration": true
+    }
   }
 }

@@ -24,7 +24,7 @@
 
 ## 给接手的 Codex
 
-绘图型号与最高画质统一读取 [config/image-generation.json](config/image-generation.json)，以后升级只改这一处；[执行策略](docs/IMAGE_MODEL_POLICY.md)说明每任务核对、内置优先及实际参数记录。根目录 [AGENTS.md](AGENTS.md)与各技能引用同一设置。换电脑时同步配置，并迁移已适配的本机工具和路径登记。
+绘图默认型号与最高画质统一读取 [config/image-generation.json](config/image-generation.json)，以后出现更新型号或更高质量档位时更新这一处用于新图；**每张图都要记录所用 GPT Image 版本和质量**，记录位置与未披露参数的处理见[逐图生成记录](docs/IMAGE_MODEL_POLICY.md#逐图生成记录)。[执行策略](docs/IMAGE_MODEL_POLICY.md)说明每任务核对与内置优先。根目录 [AGENTS.md](AGENTS.md)与各技能引用同一设置。换电脑时同步配置，并迁移已适配的本机工具和路径登记。
 
 **开新窗口继续制作时，先阅读 [五行奇谈后续交接](docs/WUXING_QITAN_HANDOFF.md)**，其中列出最终交付、验收记录与客户端后续步骤。
 

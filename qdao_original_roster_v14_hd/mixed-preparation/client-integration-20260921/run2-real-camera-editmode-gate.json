@@ -1,0 +1,39 @@
+{
+  "schema": "qdao-real-camera-editmode-gate-v1",
+  "created_utc": "2026-09-21T13:21:11.535634+00:00",
+  "run": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v13\\runtime-validation\\formal-character-20260921-run2",
+  "status": "actual_editmode_xml_and_launch_binding_accepted",
+  "total": 405,
+  "identity_cases": {
+    "AoiRestoredIdentity_OverridesTheEmptyRoleListReturnedBeforeEnterGameSelfHeal": 1,
+    "AutoPilotOptions_ParseAppearanceAndStrictRelogWithoutChangingDefaults": 1,
+    "AvailableOriginals_NeverReintroduceDeletedIds_EvenIfHistoricalResourcesExist": 1,
+    "BattleSnapshotIdentity_WinsOverLocalCache_WithoutUsingPetOwnerIdentity": 1,
+    "BattleWalking_UsesDistanceAndTheWorldReferenceCadence_IndependentOfDisplayScale": 1,
+    "CreateRequest_SeparatesPersistedAppearanceFromGameplayFields": 1,
+    "LateTeamReplies_CannotRestoreThePreviousMembershipOrAppearance": 1,
+    "MissingResources_DoNotChangeThePersistedIdentity": 1,
+    "RemoteAoiIdentity_DoesNotNeedTheLocalAccountRoleList_AndClearsOnDisconnect": 1,
+    "RemoteLegacyAoi_UsesTransmittedProfessionAndGender": 1,
+    "SameProfessionAndGender_PreserveDistinctSavedAppearancesAcrossRelogAndEntityChanges": 1,
+    "StrictRelog_OnlySelectsThePersistedAppearance_AndNeverCreatesAReplacement": 2,
+    "TeamSnapshotAndApplications_UseTheSameIdentityAsWorldAndBattle": 1
+  },
+  "camera_cases": {
+    "AspectChange_ToViewportWiderThanPainting_RefitsZoomBeforeRendering": 1,
+    "ClosestZoom_FramesWholeCharacterAndReadableNameplate_WithoutChangingGeometry": 2,
+    "FastWheelFlickOut_AtWestEdge_KeepsPaintingEdgeOutOfView": 1,
+    "Follow_AtRunSpeed_LagsBySmoothTimeAndSettlesWithoutOvershoot": 1,
+    "NormalZoom_PreservesFootCenteredCameraAndOriginalNameplateLayout": 2,
+    "SetZoom_IsClampedToTheConfiguredWindow": 1,
+    "Snap_AfterZoomOutAtEdge_ReclampsImmediately": 1,
+    "Zoom_AllEdgesAndCorners_StaysInsidePaintingEveryFrame": 12,
+    "Zoom_AtPaintingEdge_KeepsPaintingEdgeOutOfView": 5,
+    "ZoomTransitionAndRunSpeed_KeepFullCharacterAndNameplateVisible": 2
+  },
+  "xml_sha256": "d179cbf1eb5734038014d5a56cf63ecb01502a32b1d91b1d6e46f9c3c488a68b",
+  "launch_sha256": "93b72f80c1b897b17b7767f0756afbc0bd75641effd063031adcb61dac5c1cba",
+  "snapshot_sha256": "7294566ff192e7248961c32fd657e48038cc4fe08b4eecb62964349fd823b442",
+  "filter": "MmorpgClient.Tests.EditMode.Tianyong.Qdao;MmorpgClient.Tests.EditMode.Tianyong.PersistedAppearanceIdentityTests;MmorpgClient.Tests.EditMode.Battle.BattleRosterAppearanceTests;MmorpgClient.Tests.EditMode.Tianyong.TianyongCameraControllerTests",
+  "scope": "Read-only check_results and check_launch_binding against real EditMode XML, launch, completion, log and input snapshot. EditMode project identity comes from that actual snapshot; no runtime capture report was synthesized. No PlayMode, screenshot, publication or online approval."
+}

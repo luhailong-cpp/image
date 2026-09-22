@@ -1,5 +1,7 @@
 # 保留15名人物：本机实际资源盘点（2026-09-21）
 
+> **同日绘图恢复后的补充（隔离素材，不改以下canonical盘点）：** 04现有[review-set-v3](../../recovery-20260921/04-delivery-preview/revisions/review-set-v3/index.html)共128walk+8idle，112张旧PNG原字节保留、24张HD补帧；离线预览复核见[最新交接](../../recovery-20260921/04-HANDOFF-20260921.md)。06的E04/06/13旧raw已在隔离目录处理，未写canonical。原始盘点JSON和下表仍保留原时点数字，不能据此重复生成04的10个已补槽或06的3张既有raw。正式接入/发布状态没有因此提升。按用户一窗口一角色要求，后续使用[独立接手文本](../../recovery-20260921/new-window-prompts/INDEX.md)。
+
 来源：[逐文件状态与逐方向缺槽JSON](retained-roster-inventory-detailed.json)。本次只读取当前文件，未恢复删除人物，未生成或批准任何候选。
 
 00–03正式V13资源齐套，现存appearance通过标记及manifest/validation SHA绑定一致；本轮真实Unity离线组件/沙盒测试通过，正式联网身份全流程未验收。运行资源仍为512×512的既有V13，不计为新增高清通过。

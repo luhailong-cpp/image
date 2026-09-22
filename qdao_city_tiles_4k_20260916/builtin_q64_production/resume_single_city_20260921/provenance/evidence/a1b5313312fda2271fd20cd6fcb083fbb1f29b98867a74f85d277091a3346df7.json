@@ -1,0 +1,976 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-09-21T12:42:07.122051+00:00",
+  "status": "candidate_pending_visual_QA_not_published",
+  "published": false,
+  "scope": "One more-Q/chibi Tianyong festival r09_c09 4096-square candidate at 65536-square whole-city density, covering 18.75x18.75 world units, from 16 native1254 patches; not a complete city map.",
+  "backendModelVerified": false,
+  "backendModel": null,
+  "userSelectedModel": "gpt-image-2.5-sunburst (configured target; actual unverified)",
+  "modelEvidenceNote": "User selected the builtin route. No backend model selector is exposed; do not claim a model from the prompt.",
+  "plan": {
+    "file": "plan.json",
+    "sha256": "ac304ddca98e228039b39c7784ea6db3a443a12ca205e319a72c062408213349"
+  },
+  "wholeCityPixels": [
+    65536,
+    65536
+  ],
+  "wholeCityGrid": {
+    "rows": 16,
+    "columns": 16
+  },
+  "worldRect": {
+    "x": 50,
+    "z": 0,
+    "width": 300,
+    "height": 300
+  },
+  "sampleTile": {
+    "row": 9,
+    "column": 9,
+    "worldRect": {
+      "x": 200,
+      "z": 131.25,
+      "width": 18.75,
+      "height": 18.75
+    }
+  },
+  "samplePixelRectInWholeCity": [
+    32768,
+    32768,
+    36864,
+    36864
+  ],
+  "script": {
+    "file": "../../../../../tianyong_festival/r09_c09/assemble_builtin.py",
+    "sha256": "1f051d1b2b7efaa3b46094d4c18f975e8eedf67be5f5687dfd06ccabd98c6665"
+  },
+  "seamHelper": {
+    "file": "D:\\luyuan\\wuxingqitan\\image\\tianyong_festival_hd_20260910\\seam_helpers.py",
+    "sha256": "3c9fb69c334985b77a51b254b59b5945bec893e746bda0ff71b0d41dca167a48",
+    "importedFunction": "_minimum_vertical_seam"
+  },
+  "grid": {
+    "rows": 4,
+    "columns": 4,
+    "order": "row-major",
+    "origin": "top-left"
+  },
+  "corePixels": 1024,
+  "nativePatchPixels": 1254,
+  "contextPerSide": 115,
+  "adjacentOverlap": 230,
+  "assembledBeforeOuterCrop": [
+    4326,
+    4326
+  ],
+  "outerCropPerSide": 115,
+  "composition": {
+    "method": "existing minimum-error seam; horizontal row strips then vertical strip joins",
+    "featherRadiusPixels": 2.0,
+    "blendArithmetic": "uint32 weighted sum; (left*(255-alpha)+right*alpha+127)//255",
+    "identicalInputPixelsPreserved": true,
+    "colorMatching": false,
+    "globalBlur": false,
+    "sharpening": false,
+    "guidePixelsCompositedIntoFinal": false,
+    "sourceResampling": false
+  },
+  "extendedContext": {
+    "file": "output/extended-context.png",
+    "pixels": [
+      4326,
+      4326
+    ],
+    "sha256": "3ada8c220bf28631ed096d0b05333ef054934223f2267e35fa6bb27bdef0908e"
+  },
+  "finalArtUpscaled": false,
+  "nativeSources": [
+    {
+      "id": "r01_c01",
+      "row": 1,
+      "column": 1,
+      "nativeFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r01_c01.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "b146e26646c5aa0c1abcdf41693a4f05555606f3c3fd07da311c8364941eb5a2",
+      "recordFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r01_c01.record.json",
+      "recordSha256": "6abcc8c1583d7cb44e03adc4e467d06b916421d5c96c9973b9bcb66ed6f787bc",
+      "promptFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\prompts\\r01_c01.prompt.txt",
+      "promptSha256": "2b8833d005a5efdaaa09231daebbecdf5c30f59085d939678f08569f889ea1d8",
+      "guideFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r01_c01.layout-only.png",
+      "guideSha256": "0fe109c15823c5ebb62c5cd1d0fb0080d2f8227275dc4c9a17e92babf7da8f3b",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0bc83-75f4-7403-ae19-3fdf6a5e0bc6\\exec-4adf22a0-e1fa-4a6d-9bcf-d39f25754a65.png",
+      "sourceOutputSha256": "b146e26646c5aa0c1abcdf41693a4f05555606f3c3fd07da311c8364941eb5a2",
+      "originalGeneratorOutputAvailable": false,
+      "provenanceVerification": "preserved native matches both historical recorded SHA values; original machine output unavailable",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true,
+      "submittedImages": [
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r01_c01.layout-only.png",
+          "sha256": "0fe109c15823c5ebb62c5cd1d0fb0080d2f8227275dc4c9a17e92babf7da8f3b"
+        },
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\style-reference.png",
+          "sha256": "195a06396478efd515f6fe0211e5beaf6a539a71a84d507cb1744e33d9281b6f"
+        }
+      ]
+    },
+    {
+      "id": "r01_c02",
+      "row": 1,
+      "column": 2,
+      "nativeFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r01_c02.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "15858f0dd9a6e849e6a6bd214a0b1e3b3a6292cb5e58ef6f6cd34854e0cbee61",
+      "recordFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r01_c02.record.json",
+      "recordSha256": "f7a753802ffbab3529c97a15e859693404b367225440f6817ed121aeb157c541",
+      "promptFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\prompts\\r01_c02.prompt.txt",
+      "promptSha256": "acc67ee2b3fd4e52f72343a0309c6758b7188a1b99473baf5c6d64b5fd1a33ce",
+      "guideFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r01_c02.layout-only.png",
+      "guideSha256": "f08eb73ca175c8ecbeb4ea47304968f1b04089fa0a9417dcd2b371586c169381",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0bc83-75f4-7403-ae19-3fdf6a5e0bc6\\exec-81de827c-5cc7-446b-93d6-dac87c268ccd.png",
+      "sourceOutputSha256": "15858f0dd9a6e849e6a6bd214a0b1e3b3a6292cb5e58ef6f6cd34854e0cbee61",
+      "originalGeneratorOutputAvailable": false,
+      "provenanceVerification": "preserved native matches both historical recorded SHA values; original machine output unavailable",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true,
+      "submittedImages": [
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r01_c02.layout-only.png",
+          "sha256": "f08eb73ca175c8ecbeb4ea47304968f1b04089fa0a9417dcd2b371586c169381"
+        },
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\style-reference.png",
+          "sha256": "195a06396478efd515f6fe0211e5beaf6a539a71a84d507cb1744e33d9281b6f"
+        }
+      ]
+    },
+    {
+      "id": "r01_c03",
+      "row": 1,
+      "column": 3,
+      "nativeFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r01_c03.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "39c60092d07e5f938508585354bb674f83a0e2e7406fe4e5023a8078d2b19b9b",
+      "recordFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r01_c03.record.json",
+      "recordSha256": "2ffa338a1326415850520f0fbc4df174d42f15c521d4804b8b9d036119585f78",
+      "promptFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\prompts\\r01_c03.prompt.txt",
+      "promptSha256": "7573c9f71a258a1fe718be56a53903d5034698e4975c70f0e306da2acabe9f5e",
+      "guideFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r01_c03.layout-only.png",
+      "guideSha256": "a513b31df14f3a93d8ab36be600fa37e2ea5f3d5efc98e2042189d9f3c5f76e0",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0bc83-75f4-7403-ae19-3fdf6a5e0bc6\\exec-ea540d08-90e2-4f1c-a8d2-6a03fa74bfde.png",
+      "sourceOutputSha256": "39c60092d07e5f938508585354bb674f83a0e2e7406fe4e5023a8078d2b19b9b",
+      "originalGeneratorOutputAvailable": false,
+      "provenanceVerification": "preserved native matches both historical recorded SHA values; original machine output unavailable",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true,
+      "submittedImages": [
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r01_c03.layout-only.png",
+          "sha256": "a513b31df14f3a93d8ab36be600fa37e2ea5f3d5efc98e2042189d9f3c5f76e0"
+        },
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\style-reference.png",
+          "sha256": "195a06396478efd515f6fe0211e5beaf6a539a71a84d507cb1744e33d9281b6f"
+        }
+      ]
+    },
+    {
+      "id": "r01_c04",
+      "row": 1,
+      "column": 4,
+      "nativeFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r01_c04.v2.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "c2ec68a704163c232165400842beaa50f4fe67bfa92f67bc6178eb33704446a2",
+      "recordFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r01_c04.v2.record.json",
+      "recordSha256": "1e43936a8277a024130aefb816f0ff907993f52db9df2cfe265b7d6a42220424",
+      "promptFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\prompts\\r01_c04.v2.prompt.txt",
+      "promptSha256": "debf7aae96742d4fe8e5f47d1178e811b5f149092ff9bd5708eb849022cdd2d7",
+      "guideFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r01_c04.layout-only.png",
+      "guideSha256": "8cce76617151f9300c31b49b1ae5d2efb561e2d22854d8be9b916c1eec51c555",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0bc83-75f4-7403-ae19-3fdf6a5e0bc6\\exec-bcb4ad8e-0f3f-4983-b62a-186f44658aed.png",
+      "sourceOutputSha256": "c2ec68a704163c232165400842beaa50f4fe67bfa92f67bc6178eb33704446a2",
+      "originalGeneratorOutputAvailable": false,
+      "provenanceVerification": "preserved native matches both historical recorded SHA values; original machine output unavailable",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true,
+      "submittedImages": [
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r01_c04.layout-only.png",
+          "sha256": "8cce76617151f9300c31b49b1ae5d2efb561e2d22854d8be9b916c1eec51c555"
+        }
+      ]
+    },
+    {
+      "id": "r02_c01",
+      "row": 2,
+      "column": 1,
+      "nativeFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r02_c01.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "27597d78b4c4a3b160f4c82c264f8d044eae7d29f5b87428c68d605275a04790",
+      "recordFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r02_c01.record.json",
+      "recordSha256": "2b1750a34037556dd9ee9069765bfa1ae62947a9cefe0bf6f0a381c0c181ac82",
+      "promptFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\prompts\\r02_c01.prompt.txt",
+      "promptSha256": "6b2994a4357fd7e629404624d209ef6fa3e9ddbf4012a3c6c9c3a03ca60a575c",
+      "guideFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r02_c01.layout-only.png",
+      "guideSha256": "e9741e9654bef9676c3e460ece96bdf45bf74d01efecdf5332c57a6a2c3ef5e2",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0bc83-75f4-7403-ae19-3fdf6a5e0bc6\\exec-fdcaf1c3-07c3-41f6-84a4-705b7cc32b46.png",
+      "sourceOutputSha256": "27597d78b4c4a3b160f4c82c264f8d044eae7d29f5b87428c68d605275a04790",
+      "originalGeneratorOutputAvailable": false,
+      "provenanceVerification": "preserved native matches both historical recorded SHA values; original machine output unavailable",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true,
+      "submittedImages": [
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r02_c01.layout-only.png",
+          "sha256": "e9741e9654bef9676c3e460ece96bdf45bf74d01efecdf5332c57a6a2c3ef5e2"
+        }
+      ]
+    },
+    {
+      "id": "r02_c02",
+      "row": 2,
+      "column": 2,
+      "nativeFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r02_c02.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "f9b65f46e23be51a036bd40586ed62a6c2525167ee37f7ad7f98139c185e54ef",
+      "recordFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r02_c02.record.json",
+      "recordSha256": "926a603cedb72a6ee9787423fbd4e65108fbd886e7d2a2b045bf7c9110989bb9",
+      "promptFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\prompts\\r02_c02.prompt.txt",
+      "promptSha256": "1dd3e11ad7a12883c12e59551a10b6a42bacbebaa7be8e588a9b636765e0e329",
+      "guideFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r02_c02.layout-only.png",
+      "guideSha256": "6cabaa51c80f7bc35637b64c5fc36e359de2e5870174b5946d8225cab8d795b7",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0bc83-75f4-7403-ae19-3fdf6a5e0bc6\\exec-79f477d6-8075-4b58-a85e-c5338d2bb0d1.png",
+      "sourceOutputSha256": "f9b65f46e23be51a036bd40586ed62a6c2525167ee37f7ad7f98139c185e54ef",
+      "originalGeneratorOutputAvailable": false,
+      "provenanceVerification": "preserved native matches both historical recorded SHA values; original machine output unavailable",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true,
+      "submittedImages": [
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r02_c02.layout-only.png",
+          "sha256": "6cabaa51c80f7bc35637b64c5fc36e359de2e5870174b5946d8225cab8d795b7"
+        }
+      ]
+    },
+    {
+      "id": "r02_c03",
+      "row": 2,
+      "column": 3,
+      "nativeFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r02_c03.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "9374b4cdbd5180aa59226a8fbb57c9090f18f54e6278737e57fbf4aabcda43cc",
+      "recordFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r02_c03.record.json",
+      "recordSha256": "7760c210218785e50a423d77c62333023f319b06e431737b3e79f226b6840b87",
+      "promptFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\prompts\\r02_c03.prompt.txt",
+      "promptSha256": "662b699f34b463859b6a2fe8dd8671f5b7ad4ff0687dc64569148bde9685208a",
+      "guideFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r02_c03.layout-only.png",
+      "guideSha256": "63ff992ff4e4b01be3a7d6a4d5c68d96d90c125cd276fd80d0088230d553e9f6",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0bc83-75f4-7403-ae19-3fdf6a5e0bc6\\exec-8616f4f1-c559-4946-b01c-88a3861c710c.png",
+      "sourceOutputSha256": "9374b4cdbd5180aa59226a8fbb57c9090f18f54e6278737e57fbf4aabcda43cc",
+      "originalGeneratorOutputAvailable": false,
+      "provenanceVerification": "preserved native matches both historical recorded SHA values; original machine output unavailable",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true,
+      "submittedImages": [
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r02_c03.layout-only.png",
+          "sha256": "63ff992ff4e4b01be3a7d6a4d5c68d96d90c125cd276fd80d0088230d553e9f6"
+        }
+      ]
+    },
+    {
+      "id": "r02_c04",
+      "row": 2,
+      "column": 4,
+      "nativeFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r02_c04.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "a9d9d70820545a36b64d127f2b92722aad0dfbb79669c4d736a570de931c668c",
+      "recordFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r02_c04.record.json",
+      "recordSha256": "57af4de16dab237a9883ac8b71aaf4f16b694ee77546855a9026916ad5e38c58",
+      "promptFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\prompts\\r02_c04.prompt.txt",
+      "promptSha256": "42a51ad1e630bc6a4e5e15069fe896494076b4d9c3bd4361f202fcde7110f1ae",
+      "guideFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r02_c04.layout-only.png",
+      "guideSha256": "8b9ac6442481c238cb022da36433f958bd4d34d057ff8e319a7b411fd8ed5349",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0bc83-75f4-7403-ae19-3fdf6a5e0bc6\\exec-dc486f43-fe88-4aa0-b0ed-bb710ad53ba4.png",
+      "sourceOutputSha256": "a9d9d70820545a36b64d127f2b92722aad0dfbb79669c4d736a570de931c668c",
+      "originalGeneratorOutputAvailable": false,
+      "provenanceVerification": "preserved native matches both historical recorded SHA values; original machine output unavailable",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true,
+      "submittedImages": [
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r02_c04.layout-only.png",
+          "sha256": "8b9ac6442481c238cb022da36433f958bd4d34d057ff8e319a7b411fd8ed5349"
+        }
+      ]
+    },
+    {
+      "id": "r03_c01",
+      "row": 3,
+      "column": 1,
+      "nativeFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r03_c01.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "c739122be1bf3239cedbc45f3dfade9a0b984151ab6cfbade69cfab69533aeb0",
+      "recordFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r03_c01.record.json",
+      "recordSha256": "2eca42a273d8b7964b338af69e717cf0d749b6f859b78d78346e9ee4650fc162",
+      "promptFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\prompts\\r03_c01.prompt.txt",
+      "promptSha256": "9060856b74613a07a66c70ce4ecea47acb3f2550d124b4ad1205706ae96b26ca",
+      "guideFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r03_c01.layout-only.png",
+      "guideSha256": "d379fa2a013c48c48a5efa0aecbcfd2e4a07543791226a72f5e472455adb5c7a",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0bc83-75f4-7403-ae19-3fdf6a5e0bc6\\exec-3d106fbd-d231-472a-8f25-d9e3b8b10819.png",
+      "sourceOutputSha256": "c739122be1bf3239cedbc45f3dfade9a0b984151ab6cfbade69cfab69533aeb0",
+      "originalGeneratorOutputAvailable": false,
+      "provenanceVerification": "preserved native matches both historical recorded SHA values; original machine output unavailable",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true,
+      "submittedImages": [
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r03_c01.layout-only.png",
+          "sha256": "d379fa2a013c48c48a5efa0aecbcfd2e4a07543791226a72f5e472455adb5c7a"
+        }
+      ]
+    },
+    {
+      "id": "r03_c02",
+      "row": 3,
+      "column": 2,
+      "nativeFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r03_c02.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "6cd7fe42f8ca1efe0f8141fb8120dca582ca8455612d4c58427388dd640c87b8",
+      "recordFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\native\\r03_c02.record.json",
+      "recordSha256": "cb4b525ea655415b3a26b85957417667876876b9f88da0d1d29f1931500e7a1c",
+      "promptFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\prompts\\r03_c02.prompt.txt",
+      "promptSha256": "95aaa3f8f7e4c07cec3ab457ff5057abec82bc515a9d39691f82f1f26ae645e9",
+      "guideFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r03_c02.layout-only.png",
+      "guideSha256": "30cc64bea7d17ace1d07316a2c56abf296494f7ab06ab9d2e7b58282e299000d",
+      "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a0bc83-75f4-7403-ae19-3fdf6a5e0bc6\\exec-eaa238ac-45ad-4ba7-8756-b4ee70a16a9b.png",
+      "sourceOutputSha256": "6cd7fe42f8ca1efe0f8141fb8120dca582ca8455612d4c58427388dd640c87b8",
+      "originalGeneratorOutputAvailable": false,
+      "provenanceVerification": "preserved native matches both historical recorded SHA values; original machine output unavailable",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true,
+      "submittedImages": [
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r03_c02.layout-only.png",
+          "sha256": "30cc64bea7d17ace1d07316a2c56abf296494f7ab06ab9d2e7b58282e299000d"
+        }
+      ]
+    },
+    {
+      "id": "r03_c03",
+      "row": 3,
+      "column": 3,
+      "nativeFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\sessions\\tianyong_festival\\r09_c09\\native\\r03_c03.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "30700b044c7c2b2a16d379d01a24e531cec41daa981189ea9458205739815107",
+      "recordFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\sessions\\tianyong_festival\\r09_c09\\native\\r03_c03.record.json",
+      "recordSha256": "02b9f0882c7bd14428dd694446a6c6453bb8750952127aa3343c9dbeafc3f712",
+      "promptFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\sessions\\tianyong_festival\\r09_c09\\prompts\\r03_c03.prompt.txt",
+      "promptSha256": "330ce7a3f5942609667e5df09e185b4ada5ab41971f63b40bb6ab522cc10795c",
+      "guideFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r03_c03.layout-only.png",
+      "guideSha256": "33ad1bf239cc5eb3e1a0576d6d9d3e42678248f3f55f6689b025899ef868bbd2",
+      "sourceOutputPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a0c3f1-94ef-7180-b442-9f465b46b003\\exec-2d77349f-5659-4ef3-86a9-4508537b034c.png",
+      "sourceOutputSha256": "30700b044c7c2b2a16d379d01a24e531cec41daa981189ea9458205739815107",
+      "originalGeneratorOutputAvailable": true,
+      "provenanceVerification": "live original + preserved native match",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true,
+      "submittedImages": [
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r03_c03.layout-only.png",
+          "sha256": "33ad1bf239cc5eb3e1a0576d6d9d3e42678248f3f55f6689b025899ef868bbd2"
+        }
+      ]
+    },
+    {
+      "id": "r03_c04",
+      "row": 3,
+      "column": 4,
+      "nativeFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\sessions\\tianyong_festival\\r09_c09\\native\\r03_c04.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "efe99c814dde477e984474254a40cce3c6d560ffeef40eebfc0c5861565b9c5f",
+      "recordFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\sessions\\tianyong_festival\\r09_c09\\native\\r03_c04.record.json",
+      "recordSha256": "91f82a658bfed154c9236b955214e2515a4b7ed7555cb19f941b787b2ed8713f",
+      "promptFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\sessions\\tianyong_festival\\r09_c09\\prompts\\r03_c04.prompt.txt",
+      "promptSha256": "c67c74a62a6464005df9187c3467206c27b3ba595771069c3e09bb2d685ee38a",
+      "guideFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r03_c04.layout-only.png",
+      "guideSha256": "56806b55c104a21bb044582ccd0e31351e6f8d23f8813b52db8bb8f0395f0b25",
+      "sourceOutputPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a0c3f1-94ef-7180-b442-9f465b46b003\\exec-f6b7acfe-c558-4fde-938a-682b3090766e.png",
+      "sourceOutputSha256": "efe99c814dde477e984474254a40cce3c6d560ffeef40eebfc0c5861565b9c5f",
+      "originalGeneratorOutputAvailable": true,
+      "provenanceVerification": "live original + preserved native match",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true,
+      "submittedImages": [
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r03_c04.layout-only.png",
+          "sha256": "56806b55c104a21bb044582ccd0e31351e6f8d23f8813b52db8bb8f0395f0b25"
+        }
+      ]
+    },
+    {
+      "id": "r04_c01",
+      "row": 4,
+      "column": 1,
+      "nativeFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\sessions\\tianyong_festival\\r09_c09\\native\\r04_c01.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "df270642aedce8741acae6a1e4c3cbe76d20f25e557a007449f5e14f1e0d3fca",
+      "recordFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\sessions\\tianyong_festival\\r09_c09\\native\\r04_c01.record.json",
+      "recordSha256": "693fa6cbe7d7041fa4c642a1a00fcd9d8d54c1ef9afac51d419f0e939f266b98",
+      "promptFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\sessions\\tianyong_festival\\r09_c09\\prompts\\r04_c01.prompt.txt",
+      "promptSha256": "e6970244430a539e6f6c944734c042ba8fec5263473cf335326041f6c2e90173",
+      "guideFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r04_c01.layout-only.png",
+      "guideSha256": "da10798af169926382be6da1d7cd2fb839b5544d40b224cec6c2ac75a2a3b99e",
+      "sourceOutputPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a0c3f1-94ef-7180-b442-9f465b46b003\\exec-1fa66f15-8af3-49aa-9aab-a459601c7e48.png",
+      "sourceOutputSha256": "df270642aedce8741acae6a1e4c3cbe76d20f25e557a007449f5e14f1e0d3fca",
+      "originalGeneratorOutputAvailable": true,
+      "provenanceVerification": "live original + preserved native match",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true,
+      "submittedImages": [
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r04_c01.layout-only.png",
+          "sha256": "da10798af169926382be6da1d7cd2fb839b5544d40b224cec6c2ac75a2a3b99e"
+        }
+      ]
+    },
+    {
+      "id": "r04_c02",
+      "row": 4,
+      "column": 2,
+      "nativeFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\sessions\\tianyong_festival\\r09_c09\\native\\r04_c02.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "5be3f135b9658571a23715850c79dd3050359aa3f8813388bb6f578935afbc4a",
+      "recordFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\sessions\\tianyong_festival\\r09_c09\\native\\r04_c02.record.json",
+      "recordSha256": "09f7c7b1a9b96b856163e05ac77105362e62f5a4e95c62058b0ab261ab90b818",
+      "promptFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\sessions\\tianyong_festival\\r09_c09\\prompts\\r04_c02.prompt.txt",
+      "promptSha256": "4d414920177845b3292e2a570cb78e6acf3a2e628cb71210472b8caa4889ce5b",
+      "guideFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r04_c02.layout-only.png",
+      "guideSha256": "89c6fed48c5073b1601a78c4289da2b556d17f7ae3bdf4bb5b31b3d8cedc1e27",
+      "sourceOutputPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a0c3f1-94ef-7180-b442-9f465b46b003\\exec-b583c10d-cf10-4bb5-a3dc-bc71d2918b4f.png",
+      "sourceOutputSha256": "5be3f135b9658571a23715850c79dd3050359aa3f8813388bb6f578935afbc4a",
+      "originalGeneratorOutputAvailable": true,
+      "provenanceVerification": "live original + preserved native match",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true,
+      "submittedImages": [
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r04_c02.layout-only.png",
+          "sha256": "89c6fed48c5073b1601a78c4289da2b556d17f7ae3bdf4bb5b31b3d8cedc1e27"
+        }
+      ]
+    },
+    {
+      "id": "r04_c03",
+      "row": 4,
+      "column": 3,
+      "nativeFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\sessions\\tianyong_festival\\r09_c09\\native\\r04_c03.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "404cc201b1f2d3c10ffd07d95d27f4cf42b6d41ce21150d48f143150c1085e2a",
+      "recordFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\sessions\\tianyong_festival\\r09_c09\\native\\r04_c03.record.json",
+      "recordSha256": "80cdacea9120127c43bda8f2d09f00d0b301acb906188e77506742eafb89de67",
+      "promptFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\sessions\\tianyong_festival\\r09_c09\\prompts\\r04_c03.prompt.txt",
+      "promptSha256": "20d300a5d9e3fcfac8692036a77ec474ab1f0ca9e1f631d28023c3593942ba56",
+      "guideFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r04_c03.layout-only.png",
+      "guideSha256": "d59bc900d10764e6d8ec441436735babd6956e6f7835c04fbc4c477fc9c201ef",
+      "sourceOutputPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a0c3f1-94ef-7180-b442-9f465b46b003\\exec-bda4a603-2d06-4b67-8e7a-a43dd3daef52.png",
+      "sourceOutputSha256": "404cc201b1f2d3c10ffd07d95d27f4cf42b6d41ce21150d48f143150c1085e2a",
+      "originalGeneratorOutputAvailable": true,
+      "provenanceVerification": "live original + preserved native match",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true,
+      "submittedImages": [
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r04_c03.layout-only.png",
+          "sha256": "d59bc900d10764e6d8ec441436735babd6956e6f7835c04fbc4c477fc9c201ef"
+        }
+      ]
+    },
+    {
+      "id": "r04_c04",
+      "row": 4,
+      "column": 4,
+      "nativeFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\sessions\\tianyong_festival\\r09_c09\\native\\r04_c04.png",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "nativeSha256": "19100eb77d4df32b4582a1084dff213ae7449d443c637e6d4839302d0f0112f5",
+      "recordFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\sessions\\tianyong_festival\\r09_c09\\native\\r04_c04.record.json",
+      "recordSha256": "a2aba0d58e3df36b719e22f4f0f6288cf01efdbbf81402fd1f201ab0913090be",
+      "promptFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\sessions\\tianyong_festival\\r09_c09\\prompts\\r04_c04.prompt.txt",
+      "promptSha256": "cf4c6287fed34db601ce68090c5cbf068cb24a1541c622dac60e1d9d5f3fe96a",
+      "guideFile": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r04_c04.layout-only.png",
+      "guideSha256": "5d845d77eb2f25fba7aa271919f2acba99834c2c962ff314db62cbcfca570108",
+      "sourceOutputPath": "C:\\Users\\Administrator\\.codex\\generated_images\\01a0c3f1-94ef-7180-b442-9f465b46b003\\exec-78c74001-3589-4012-b2e4-f2bf70818934.png",
+      "sourceOutputSha256": "19100eb77d4df32b4582a1084dff213ae7449d443c637e6d4839302d0f0112f5",
+      "originalGeneratorOutputAvailable": true,
+      "provenanceVerification": "live original + preserved native match",
+      "route": "builtin_image_gen",
+      "backendModelVerified": false,
+      "sourceBytesPreserved": true,
+      "submittedImages": [
+        {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\r09_c09\\guides\\r04_c04.layout-only.png",
+          "sha256": "5d845d77eb2f25fba7aa271919f2acba99834c2c962ff314db62cbcfca570108"
+        }
+      ]
+    }
+  ],
+  "seamMetrics": [
+    {
+      "label": "row01_join_c01_c02",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 19,
+      "seamMax": 155,
+      "seamMean": 99.74401913875599,
+      "beforeBlendMeanAbsoluteDifference": 6.260870720939371,
+      "beforeBlendP95AbsoluteDifference": 18.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row01_join_c02_c03",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 51,
+      "seamMax": 188,
+      "seamMean": 128.58133971291866,
+      "beforeBlendMeanAbsoluteDifference": 5.476075399301944,
+      "beforeBlendP95AbsoluteDifference": 19.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row01_join_c03_c04",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 20,
+      "seamMax": 205,
+      "seamMean": 105.60446570972887,
+      "beforeBlendMeanAbsoluteDifference": 9.64139218269653,
+      "beforeBlendP95AbsoluteDifference": 26.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row02_join_c01_c02",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 20,
+      "seamMax": 162,
+      "seamMean": 82.73046251993621,
+      "beforeBlendMeanAbsoluteDifference": 5.506617664054735,
+      "beforeBlendP95AbsoluteDifference": 17.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row02_join_c02_c03",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 26,
+      "seamMax": 184,
+      "seamMean": 105.88437001594896,
+      "beforeBlendMeanAbsoluteDifference": 8.687231583570256,
+      "beforeBlendP95AbsoluteDifference": 20.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row02_join_c03_c04",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 19,
+      "seamMax": 203,
+      "seamMean": 99.49441786283892,
+      "beforeBlendMeanAbsoluteDifference": 8.333603772276541,
+      "beforeBlendP95AbsoluteDifference": 23.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row03_join_c01_c02",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 26,
+      "seamMax": 210,
+      "seamMean": 93.60287081339713,
+      "beforeBlendMeanAbsoluteDifference": 6.176263781984606,
+      "beforeBlendP95AbsoluteDifference": 21.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row03_join_c02_c03",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 26,
+      "seamMax": 133,
+      "seamMean": 81.74401913875599,
+      "beforeBlendMeanAbsoluteDifference": 9.444717194831611,
+      "beforeBlendP95AbsoluteDifference": 29.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row03_join_c03_c04",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 59,
+      "seamMax": 209,
+      "seamMean": 131.42902711323765,
+      "beforeBlendMeanAbsoluteDifference": 5.483363382104801,
+      "beforeBlendP95AbsoluteDifference": 15.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row04_join_c01_c02",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 0,
+      "seamMax": 147,
+      "seamMean": 65.32057416267942,
+      "beforeBlendMeanAbsoluteDifference": 4.866449390934517,
+      "beforeBlendP95AbsoluteDifference": 16.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row04_join_c02_c03",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 57,
+      "seamMax": 210,
+      "seamMean": 124.44258373205741,
+      "beforeBlendMeanAbsoluteDifference": 4.665227792802163,
+      "beforeBlendP95AbsoluteDifference": 18.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "row04_join_c03_c04",
+      "overlapPixels": 230,
+      "seamLength": 1254,
+      "seamMin": 19,
+      "seamMax": 210,
+      "seamMean": 109.3652312599681,
+      "beforeBlendMeanAbsoluteDifference": 5.101171902087234,
+      "beforeBlendP95AbsoluteDifference": 15.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "vertical_join_r01_r02",
+      "overlapPixels": 230,
+      "seamLength": 4326,
+      "seamMin": 18,
+      "seamMax": 196,
+      "seamMean": 82.708275543227,
+      "beforeBlendMeanAbsoluteDifference": 8.81391049736343,
+      "beforeBlendP95AbsoluteDifference": 24.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "vertical_join_r02_r03",
+      "overlapPixels": 230,
+      "seamLength": 4326,
+      "seamMin": 19,
+      "seamMax": 210,
+      "seamMean": 155.8081368469718,
+      "beforeBlendMeanAbsoluteDifference": 6.8837363565096785,
+      "beforeBlendP95AbsoluteDifference": 21.0,
+      "identicalInputPixelsPreserved": true
+    },
+    {
+      "label": "vertical_join_r03_r04",
+      "overlapPixels": 230,
+      "seamLength": 4326,
+      "seamMin": 19,
+      "seamMax": 197,
+      "seamMean": 89.84650947757744,
+      "beforeBlendMeanAbsoluteDifference": 7.021048999309869,
+      "beforeBlendP95AbsoluteDifference": 21.0,
+      "identicalInputPixelsPreserved": true
+    }
+  ],
+  "output": {
+    "file": "output_resume_20260921/tianyong_r09_c09_q64_4k_candidate.png",
+    "width": 4096,
+    "height": 4096,
+    "mode": "RGB",
+    "format": "PNG",
+    "sha256": "ec6b067c57c98ee21cdb4ef3bad6b0df8481920b6d11409c1b74348834946171"
+  },
+  "qa": [
+    {
+      "file": "qa_resume_20260921/overview_1024.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "kind": "downsampled-preview-only",
+      "sha256": "6ba236fa4eef3e6894cd876be7fea2690b47413dffac74ae65fe6c17ad3fdadf"
+    },
+    {
+      "file": "qa_resume_20260921/stone_upper_left_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        350,
+        300,
+        1250,
+        1200
+      ],
+      "resized": false,
+      "sha256": "9195d18be575756e99251911c5921c209a7916a619f539f1ad330e0294938fad"
+    },
+    {
+      "file": "qa_resume_20260921/carving_lower_left_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        500,
+        2800,
+        1400,
+        3700
+      ],
+      "resized": false,
+      "sha256": "a32c81ea45ff7da08240be813f4761b6f459d42dbfb42d141ec511c836c0b80e"
+    },
+    {
+      "file": "qa_resume_20260921/planter_stairs_lower_right_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        2800,
+        2800,
+        3700,
+        3700
+      ],
+      "resized": false,
+      "sha256": "094c51803d8f728d17efa2162cdc2736ee12147157509ffc5ac8964a789cce39"
+    },
+    {
+      "file": "qa_resume_20260921/seam_x1024_y1024_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        574,
+        574,
+        1474,
+        1474
+      ],
+      "resized": false,
+      "sha256": "cc2cd3678c885e7e27600b991dcca18526e69add741dae47d389265ee8c06dfe"
+    },
+    {
+      "file": "qa_resume_20260921/seam_x2048_y1024_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        1598,
+        574,
+        2498,
+        1474
+      ],
+      "resized": false,
+      "sha256": "152f3945a30b1f209a19a7164b3c725c9fa0afea2c3aa85643297af55b13a34d"
+    },
+    {
+      "file": "qa_resume_20260921/seam_x3072_y1024_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        2622,
+        574,
+        3522,
+        1474
+      ],
+      "resized": false,
+      "sha256": "460aa123765b6d3eea9045a861f0a498cc1189cffe1fe94968850d22c93962c0"
+    },
+    {
+      "file": "qa_resume_20260921/seam_x1024_y2048_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        574,
+        1598,
+        1474,
+        2498
+      ],
+      "resized": false,
+      "sha256": "59aefc8c894cbd2f06e9300c9bca667f3e0b4d277fae8b26cf3c1aff9e8edcd5"
+    },
+    {
+      "file": "qa_resume_20260921/seam_x2048_y2048_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        1598,
+        1598,
+        2498,
+        2498
+      ],
+      "resized": false,
+      "sha256": "78b9eb1ef3f71f9d749a4ca3916f1229da9ee3ac4d0815b3e553a1c7eac9b617"
+    },
+    {
+      "file": "qa_resume_20260921/seam_x3072_y2048_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        2622,
+        1598,
+        3522,
+        2498
+      ],
+      "resized": false,
+      "sha256": "81765298334da816d7893728eb33b4932aa9ab7737d0a8bbc17b6a1a8ac3671c"
+    },
+    {
+      "file": "qa_resume_20260921/seam_x1024_y3072_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        574,
+        2622,
+        1474,
+        3522
+      ],
+      "resized": false,
+      "sha256": "434b7dfb574c4baebf65c239fa6e11b5f1206a7df6bd765ef24d31f23a4337bf"
+    },
+    {
+      "file": "qa_resume_20260921/seam_x2048_y3072_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        1598,
+        2622,
+        2498,
+        3522
+      ],
+      "resized": false,
+      "sha256": "e8ac6275431e8e73c6660003b94c9c727309248e7e90b303ab2ea143cf619875"
+    },
+    {
+      "file": "qa_resume_20260921/seam_x3072_y3072_100pct.png",
+      "size": [
+        900,
+        900
+      ],
+      "kind": "native-pixel-crop",
+      "crop": [
+        2622,
+        2622,
+        3522,
+        3522
+      ],
+      "resized": false,
+      "sha256": "faa9e809b39deca7d7615c8877e66aae0a0c82c08af157ac4531cf4d95f5c4b1"
+    }
+  ],
+  "visualQa": {
+    "status": "pending",
+    "note": "Numeric seam differences are diagnostic only; Q-style consistency, paving/carving/planter geometry, stairs and all seam intersections require visual review."
+  },
+  "runtimeIntegration": false,
+  "mechanicalValidation": {
+    "passed": true,
+    "nativeSources": 16,
+    "outputSize": [
+      4096,
+      4096
+    ],
+    "qaFiles": 13,
+    "status": "candidate_pending_visual_QA_not_published"
+  }
+}

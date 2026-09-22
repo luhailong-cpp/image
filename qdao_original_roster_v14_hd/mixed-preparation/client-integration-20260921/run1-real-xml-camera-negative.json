@@ -1,0 +1,47 @@
+{
+  "schema": "qdao-real-unity-xml-camera-negative-v1",
+  "created_utc": "2026-09-21T13:07:56.331244+00:00",
+  "run": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v13\\runtime-validation\\formal-character-20260921-run1",
+  "scope": "Read-only real XML/launch function checks. Not publication, visual acceptance or online acceptance.",
+  "platforms": {
+    "EditMode": {
+      "xml_sha256": "3885d6645f6b3e2572b4717850feb5485e0238a30778f4efc6a424df2579855a",
+      "xml_total": 377,
+      "identity_cases": {
+        "AoiRestoredIdentity_OverridesTheEmptyRoleListReturnedBeforeEnterGameSelfHeal": 1,
+        "AutoPilotOptions_ParseAppearanceAndStrictRelogWithoutChangingDefaults": 1,
+        "AvailableOriginals_NeverReintroduceDeletedIds_EvenIfHistoricalResourcesExist": 1,
+        "BattleSnapshotIdentity_WinsOverLocalCache_WithoutUsingPetOwnerIdentity": 1,
+        "BattleWalking_UsesDistanceAndTheWorldReferenceCadence_IndependentOfDisplayScale": 1,
+        "CreateRequest_SeparatesPersistedAppearanceFromGameplayFields": 1,
+        "LateTeamReplies_CannotRestoreThePreviousMembershipOrAppearance": 1,
+        "MissingResources_DoNotChangeThePersistedIdentity": 1,
+        "RemoteAoiIdentity_DoesNotNeedTheLocalAccountRoleList_AndClearsOnDisconnect": 1,
+        "RemoteLegacyAoi_UsesTransmittedProfessionAndGender": 1,
+        "SameProfessionAndGender_PreserveDistinctSavedAppearancesAcrossRelogAndEntityChanges": 1,
+        "StrictRelog_OnlySelectsThePersistedAppearance_AndNeverCreatesAReplacement": 2,
+        "TeamSnapshotAndApplications_UseTheSameIdentityAsWorldAndBattle": 1
+      },
+      "identity_total": 14,
+      "current_results_gate": "rejected",
+      "reason": "Incomplete camera/nameplate EditMode cases: Zoom_AtPaintingEdge_KeepsPaintingEdgeOutOfView",
+      "current_launch_gate": "rejected",
+      "launch_reason": "Unity launch must run the complete expected platform filter"
+    },
+    "PlayMode": {
+      "xml_sha256": "ee9676ea2833f7d42779ef48eba7e864518f1276b59311e116de65de28cad27a",
+      "xml_total": 49,
+      "identity_cases": {
+        "AppearanceUi_StrictRelogMissingRoleCannotCreateOrReportSuccess": 1,
+        "AppearanceUi_UsesOriginalChooserForCreationAndSavedCardSelection": 1,
+        "BattleLunge_RendersPublishedWalkGeometry_AndReleasesMovementOnInterruptionAndDestroy": 1,
+        "CreationSelectorAndAccountCards_KeepAppearanceIndependentOfProfessionAndGender": 1,
+        "MissingChangedIdentity_ClearsPreviousWorldAndBattleBody_AndCanRecover": 1,
+        "SyntheticHdLunge_IdentitySwapAndDestroyKeepAfterimageLeaseUntilPoolRelease": 1
+      },
+      "identity_total": 6,
+      "current_results_gate": "accepted",
+      "current_launch_gate": "accepted"
+    }
+  }
+}
