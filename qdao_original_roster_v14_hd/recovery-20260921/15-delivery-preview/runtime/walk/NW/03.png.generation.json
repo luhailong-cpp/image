@@ -3,44 +3,195 @@
   "character": "15_water_dragon_scholar_boy",
   "slot": "walk/NW/03.png",
   "file": "03.png",
-  "sha256": "d2f073ee544e649a9b0de149fdccde0f7dd0aec93a50c355675c58d8f4d6b894",
-  "selectedAt": "2026-09-21T17:33:48.184996+00:00",
-  "selectionAuthorization": "explicit_cli_--select",
-  "selectionNote": "Manual selection; art acceptance remains separately recorded",
+  "sha256": "969fee7b2b12353eb2bf2b7c8b8170bb079848251f599ee37c82660c13baa4ab",
+  "selectedAt": "2026-09-23T14:20:50.715401+00:00",
+  "selectionAuthorization": "user requested proportion repair; explicit --apply required",
+  "selectionNote": "NW03 head and shoulder review: small head 277x280 versus stable NW01 301x291; 6 percent uniform native-source correction preserves bent-knee pose",
   "derivedFrom": {
     "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\15-generation\\NW03-walk-v1\\raw.png",
     "sha256": "c1815f1b35c1b7179cb71b1eb0eb210ed23f7c0eb7a0af6447805cc657c08321",
     "generationRecord": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\15-generation\\NW03-walk-v1\\raw.png.generation.json"
   },
   "operation": {
-    "name": "existing_pipeline_deterministic_cleanup_uniform_scale_anchor",
-    "chromaThresholds": [
-      100,
-      150
+    "name": "native_uniform_downscale_manual_head_torso_scale_and_anchor",
+    "originalNativeSize": [
+      1254,
+      1254
     ],
-    "alphaCleanupThreshold": 8,
-    "commonScale": 0.88,
-    "wholeCellScale": 0.7185964912280702,
+    "sourceSha256": "c1815f1b35c1b7179cb71b1eb0eb210ed23f7c0eb7a0af6447805cc657c08321",
+    "keyedNativePath": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\15-generation\\NW03-walk-v1\\processing-fixed088-v1\\keyed.png",
+    "keyedNativeSha256": "ba8cb6ab21d1ae262bbe8356dfa608b46dcbc0aea51556a4a374320118f86186",
+    "baseWholeCellScale": 0.7185964912280702,
+    "manualMultiplier": 1.06,
+    "wholeCellScale": 0.7617122807017545,
     "normalizedSize": [
-      901,
-      901
+      955,
+      955
+    ],
+    "outputSize": [
+      1024,
+      1024
     ],
     "rootPx": [
       512,
       942
     ],
     "anchorAfterPx": [
-      512.0,
+      512,
       942
     ],
     "translationPx": [
-      74,
-      103
+      48,
+      53
     ],
     "anchorAlgorithm": "upper_body_alpha_gt8_median_42_percent_x_lowest_alpha_gt8_y",
     "upscaled": false,
-    "perSubjectFit": false,
+    "perSubjectBboxFit": false,
     "poseModification": false,
+    "reason": "NW03 head and shoulder review: small head 277x280 versus stable NW01 301x291; 6 percent uniform native-source correction preserves bent-knee pose",
+    "oldSelectedSha256": "d2f073ee544e649a9b0de149fdccde0f7dd0aec93a50c355675c58d8f4d6b894",
+    "oldOperation": {
+      "name": "existing_pipeline_deterministic_cleanup_uniform_scale_anchor",
+      "chromaThresholds": [
+        100,
+        150
+      ],
+      "alphaCleanupThreshold": 8,
+      "commonScale": 0.88,
+      "wholeCellScale": 0.7185964912280702,
+      "normalizedSize": [
+        901,
+        901
+      ],
+      "rootPx": [
+        512,
+        942
+      ],
+      "anchorAfterPx": [
+        512.0,
+        942
+      ],
+      "translationPx": [
+        74,
+        103
+      ],
+      "anchorAlgorithm": "upper_body_alpha_gt8_median_42_percent_x_lowest_alpha_gt8_y",
+      "upscaled": false,
+      "perSubjectFit": false,
+      "poseModification": false,
+      "stages": {
+        "keyed": {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\15-generation\\NW03-walk-v1\\processing-fixed088-v1\\keyed.png",
+          "sha256": "ba8cb6ab21d1ae262bbe8356dfa608b46dcbc0aea51556a4a374320118f86186",
+          "size": [
+            1254,
+            1254
+          ]
+        },
+        "normalized": {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\15-generation\\NW03-walk-v1\\processing-fixed088-v1\\normalized.png",
+          "sha256": "ed09536ccd7d5873c43f2f570134c7b8da2fc3fc5891db9a0721f1d7a4394f0d",
+          "size": [
+            901,
+            901
+          ]
+        },
+        "cleaned": {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\15-generation\\NW03-walk-v1\\processing-fixed088-v1\\cleaned.png",
+          "sha256": "ba68cd0175c2fdc9bd4f96cbc430150e73659b560b3f7b7f193a885f7b08f216",
+          "size": [
+            901,
+            901
+          ]
+        },
+        "final": {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\15-generation\\NW03-walk-v1\\processing-fixed088-v1\\final.png",
+          "sha256": "d2f073ee544e649a9b0de149fdccde0f7dd0aec93a50c355675c58d8f4d6b894",
+          "size": [
+            1024,
+            1024
+          ]
+        }
+      },
+      "edgeStatistics": {
+        "rawLowAlphaPixelsRemoved": 17515,
+        "keyerVisiblePixelsRemoved": 0,
+        "despill": {
+          "radius_px": 4,
+          "reference_radius_px": 12,
+          "visible_pixels": 226119,
+          "boundary_band_pixels": 17342,
+          "candidate_pixels": 541,
+          "changed_pixels": 531,
+          "changed_visible_fraction": 0.002348321016809733,
+          "maximum_distance_to_alpha_le_8_px": 4.0,
+          "maximum_clean_reference_distance_px": 12.0,
+          "no_clean_reference_candidates_unchanged": 10,
+          "changed_bbox_xyxy": [
+            271,
+            86,
+            705,
+            813
+          ],
+          "alpha_sha256_before": "85a49e95b160ae932b369051c0972f3c660dc5574c3fb720992d6d12ff078d00",
+          "alpha_sha256_after": "85a49e95b160ae932b369051c0972f3c660dc5574c3fb720992d6d12ff078d00",
+          "alpha_equal": true,
+          "green_equal": true,
+          "geometry_equal": true,
+          "outside_band_changes": 0,
+          "protected_red_changes": 0,
+          "protected_red_pixels": 35622,
+          "remaining_magenta_inside_band": 10,
+          "remaining_magenta_outside_band_untouched": 2336,
+          "maximum_channel_reduction": 74
+        },
+        "finalStrongMagentaPixels": 7,
+        "finalBorderVisiblePixels": 0
+      },
+      "backgroundChecks": {
+        "light": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\15-generation\\NW03-walk-v1\\processing-fixed088-v1\\check-light.png",
+        "dark": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\15-generation\\NW03-walk-v1\\processing-fixed088-v1\\check-dark.png"
+      },
+      "vendorSources": {
+        "generate2dsprite": {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\tools\\vendor\\generate2dsprite.py",
+          "sha256": "7b7451a711f9dbf806db1586567920dbe2a487d481b7f016e14db66d8050997b"
+        },
+        "edge_despill": {
+          "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\tools\\vendor\\edge_despill.py",
+          "sha256": "fd7b404eaca71f301cd75e4cd7387ce6c54a6a842c2f88b60500ae8c4cb2ef87"
+        }
+      }
+    },
+    "despill": {
+      "radius_px": 4,
+      "reference_radius_px": 12,
+      "visible_pixels": 253966,
+      "boundary_band_pixels": 18492,
+      "candidate_pixels": 570,
+      "changed_pixels": 548,
+      "changed_visible_fraction": 0.002157769150201208,
+      "maximum_distance_to_alpha_le_8_px": 4.0,
+      "maximum_clean_reference_distance_px": 12.0,
+      "no_clean_reference_candidates_unchanged": 22,
+      "changed_bbox_xyxy": [
+        288,
+        90,
+        758,
+        864
+      ],
+      "alpha_sha256_before": "3d1239bd0701b670ea375799e4059610133d93ccede04e67104f0ed4ecdeb38c",
+      "alpha_sha256_after": "3d1239bd0701b670ea375799e4059610133d93ccede04e67104f0ed4ecdeb38c",
+      "alpha_equal": true,
+      "green_equal": true,
+      "geometry_equal": true,
+      "outside_band_changes": 0,
+      "protected_red_changes": 0,
+      "protected_red_pixels": 39947,
+      "remaining_magenta_inside_band": 22,
+      "remaining_magenta_outside_band_untouched": 2592,
+      "maximum_channel_reduction": 81
+    },
     "stages": {
       "keyed": {
         "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\15-generation\\NW03-walk-v1\\processing-fixed088-v1\\keyed.png",
@@ -50,83 +201,18 @@
           1254
         ]
       },
-      "normalized": {
-        "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\15-generation\\NW03-walk-v1\\processing-fixed088-v1\\normalized.png",
-        "sha256": "ed09536ccd7d5873c43f2f570134c7b8da2fc3fc5891db9a0721f1d7a4394f0d",
-        "size": [
-          901,
-          901
-        ]
-      },
-      "cleaned": {
-        "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\15-generation\\NW03-walk-v1\\processing-fixed088-v1\\cleaned.png",
-        "sha256": "ba68cd0175c2fdc9bd4f96cbc430150e73659b560b3f7b7f193a885f7b08f216",
-        "size": [
-          901,
-          901
-        ]
-      },
       "final": {
-        "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\15-generation\\NW03-walk-v1\\processing-fixed088-v1\\final.png",
-        "sha256": "d2f073ee544e649a9b0de149fdccde0f7dd0aec93a50c355675c58d8f4d6b894",
+        "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\15-generation\\NW03-walk-v1\\processing-scale-v1-1.0600\\final.png",
+        "sha256": "969fee7b2b12353eb2bf2b7c8b8170bb079848251f599ee37c82660c13baa4ab",
         "size": [
           1024,
           1024
         ]
       }
-    },
-    "edgeStatistics": {
-      "rawLowAlphaPixelsRemoved": 17515,
-      "keyerVisiblePixelsRemoved": 0,
-      "despill": {
-        "radius_px": 4,
-        "reference_radius_px": 12,
-        "visible_pixels": 226119,
-        "boundary_band_pixels": 17342,
-        "candidate_pixels": 541,
-        "changed_pixels": 531,
-        "changed_visible_fraction": 0.002348321016809733,
-        "maximum_distance_to_alpha_le_8_px": 4.0,
-        "maximum_clean_reference_distance_px": 12.0,
-        "no_clean_reference_candidates_unchanged": 10,
-        "changed_bbox_xyxy": [
-          271,
-          86,
-          705,
-          813
-        ],
-        "alpha_sha256_before": "85a49e95b160ae932b369051c0972f3c660dc5574c3fb720992d6d12ff078d00",
-        "alpha_sha256_after": "85a49e95b160ae932b369051c0972f3c660dc5574c3fb720992d6d12ff078d00",
-        "alpha_equal": true,
-        "green_equal": true,
-        "geometry_equal": true,
-        "outside_band_changes": 0,
-        "protected_red_changes": 0,
-        "protected_red_pixels": 35622,
-        "remaining_magenta_inside_band": 10,
-        "remaining_magenta_outside_band_untouched": 2336,
-        "maximum_channel_reduction": 74
-      },
-      "finalStrongMagentaPixels": 7,
-      "finalBorderVisiblePixels": 0
-    },
-    "backgroundChecks": {
-      "light": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\15-generation\\NW03-walk-v1\\processing-fixed088-v1\\check-light.png",
-      "dark": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\15-generation\\NW03-walk-v1\\processing-fixed088-v1\\check-dark.png"
-    },
-    "vendorSources": {
-      "generate2dsprite": {
-        "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\tools\\vendor\\generate2dsprite.py",
-        "sha256": "7b7451a711f9dbf806db1586567920dbe2a487d481b7f016e14db66d8050997b"
-      },
-      "edge_despill": {
-        "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\tools\\vendor\\edge_despill.py",
-        "sha256": "fd7b404eaca71f301cd75e4cd7387ce6c54a6a842c2f88b60500ae8c4cb2ef87"
-      }
     }
   },
   "actualModel": null,
   "actualQuality": null,
-  "artReview": "pending_manual_review",
+  "artReview": "pending_after_scale_review",
   "clientValidation": "not_performed"
 }

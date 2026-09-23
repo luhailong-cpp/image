@@ -1,5 +1,7 @@
 # Q版道家节庆场景 · 完成交付
 
+> 2026-09-23 保留范围更新：已按用户要求清理原图、回退／中间图；当前游戏输出及配套设计保留。下文来源路径与像素重建命令属于历史制作记录，不能据此认定原图仍在。逐图来源文字与哈希未改写；当前清理范围见[清理记录](../docs/ASSET_CLEANUP_20260923.md)。
+
 已按用户提供的玉绿、暖金、象牙米白角色界面重绘，保留原场景主要构图、用途和活动空间，加入适量春节、元宵、中秋点缀。
 
 | 用途 | 成图 | 原生尺寸 |
@@ -14,6 +16,6 @@
 
 成图按工具实际返回的原生像素保存，未插值放大；未强行拉伸到旧文件的2560×1080。若接入固定画布，需按页面的安全区域进行适配。
 
-原图均保留，各场景子目录保存source-reference.png、scene-native.png和完整scene.prompt.txt。manifest.json记录尺寸、文件哈希和来源。scene-review-contact.jpg仅作缩小审阅。
+正式成图保留在 final/ 与 runtime/；各场景子目录保留完整 scene.prompt.txt，重复 scene-native.png 和旧 source-reference.png 已清理。manifest.json记录尺寸、文件哈希和来源。scene-review-contact.jpg仅作缩小审阅。
 
 本次为美术资源交付，尚未覆盖客户端资源或执行游戏内验收。主城6144高清地图另见[地图交付](../tianyong_festival_hd_20260910/README.md)。

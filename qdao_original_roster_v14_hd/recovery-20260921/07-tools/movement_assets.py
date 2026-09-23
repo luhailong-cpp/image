@@ -28,6 +28,7 @@ DIRS = ("N", "NE", "E", "SE", "S", "SW", "W", "NW")
 OUT = HERE / "candidate" / CHAR
 PREVIEWS = RECOVERY / "07-delivery-preview"
 CONFIG = PROJECT / "config/image-generation.json"
+CLEANUP_LEDGER = HERE / "cleanup-20260923.json"
 
 
 def now():
@@ -45,6 +46,35 @@ def read(path):
 def require(value, message):
     if not value:
         raise ValueError(message)
+
+
+def cleanup_record(path, expected_sha, ledger=None):
+    """Allow absent evidence only when this exact file/hash was recorded as deleted."""
+    ledger = read(CLEANUP_LEDGER) if ledger is None and CLEANUP_LEDGER.is_file() else ledger
+    require(isinstance(ledger, dict), "Missing source without cleanup ledger: " + str(path))
+    path = Path(path).resolve()
+    for entry in ledger.get("files", []):
+        recorded = Path(entry.get("path", ""))
+        if (recorded.is_absolute() and recorded.resolve() == path
+                and entry.get("sha256") == expected_sha and entry.get("deletedAt")):
+            evidence = ledger.get("preCleanupVerification")
+            require(isinstance(evidence, str) and evidence, "Cleanup ledger lacks pre-cleanup verification")
+            report = Path(evidence)
+            if not report.is_absolute():
+                report = HERE / report
+            require(report.is_file(), "Pre-cleanup verification report missing: " + str(report))
+            return {"cleanupLedger": str(CLEANUP_LEDGER), "deletedAt": entry["deletedAt"],
+                    "preCleanupVerification": str(report.resolve())}
+    raise ValueError("Missing source without matching completed cleanup record: " + str(path))
+
+
+def verify_source(path, expected_sha, ledger=None):
+    path = Path(path)
+    if path.is_file():
+        require(sha(path) == expected_sha, "Source SHA mismatch: " + str(path))
+        return {"available": True, "hashVerification": "verified_current_file", "cleanup": None}
+    return {"available": False, "hashVerification": "record_only_after_authorized_cleanup",
+            "cleanup": cleanup_record(path, expected_sha, ledger)}
 
 
 def write(path, value, exclusive=False):
@@ -403,6 +433,8 @@ def main():
     p.set_defaults(func=export)
     p = sub.add_parser("build-preview")
     p.add_argument("--revision", required=True)
+    p.add_argument("--reference-current", action="store_true",
+                   help="Reference current candidate PNGs directly instead of copying runtime snapshots")
     p.set_defaults(func=build_preview)
     args = parser.parse_args()
     args.func(args)
@@ -414,6 +446,10 @@ def build_preview(args):
     require(not root.exists(), "Use a new immutable preview revision")
     root.mkdir(parents=True)
     (root / "preview").mkdir()
+    reference_current = getattr(args, "reference_current", False)
+    image_root = OUT if reference_current else root / "runtime"
+    runtime_base = "../../07-tools/candidate/" + CHAR + "/" if reference_current else "runtime/"
+    ledger = read(CLEANUP_LEDGER) if CLEANUP_LEDGER.is_file() else None
     expected = [f"walk/{d}/{n:02d}.png" for d in DIRS for n in range(1, 17)] + [f"idle/{d}.png" for d in DIRS]
     rows, missing, cropped_hashes, mirrors, raw_hashes = [], [], [], [], []
     for key in expected:
@@ -423,20 +459,24 @@ def build_preview(args):
             continue
         meta = read(Path(str(source) + ".generation.json"))
         require(sha(source) == meta["outputSha256"], "Selected PNG differs from sidecar: " + key)
-        target = root / "runtime" / key
-        copy_exact(source, target)
-        copy_exact(Path(str(source) + ".generation.json"), Path(str(target) + ".generation.json"))
+        target = image_root / key
+        if not reference_current:
+            copy_exact(source, target)
+            copy_exact(Path(str(source) + ".generation.json"), Path(str(target) + ".generation.json"))
         with Image.open(target) as opened:
             require(opened.mode == "RGBA" and opened.size == (1024, 1024), "All new exports must be1024 RGBA")
             im = opened.copy()
         native = Path(meta["derivedFrom"]["path"])
-        require(native.is_file() and sha(native) == meta["derivedFrom"]["sha256"], "Original raw changed")
+        native_state = verify_source(native, meta["derivedFrom"]["sha256"], ledger)
         crop = im.crop(im.getchannel("A").getbbox())
         cropped_hashes.append((crop.size, hashlib.sha256(crop.tobytes()).hexdigest()))
         mirrors.append((crop.size, hashlib.sha256(crop.transpose(Image.Transpose.FLIP_LEFT_RIGHT).tobytes()).hexdigest()))
-        raw_hashes.append(sha(native))
+        raw_hashes.append(meta["derivedFrom"]["sha256"])
         rows.append({"path": key, "sha256": sha(target), "source": str(source), "attempt": meta["attempt"],
                      "nativeSource": meta["derivedFrom"], "nativeSize": meta["nativeMetrics"]["size"],
+                     "sourceRebuildAvailable": native_state["available"],
+                     "sourceHashVerification": native_state["hashVerification"],
+                     "sourceCleanup": native_state["cleanup"],
                      "metrics": metrics(im), "status": "candidate_pending_visual_review",
                      "actualModel": meta.get("actualModel"), "actualQuality": meta.get("actualQuality")})
     bykey = {r["path"]: r for r in rows}
@@ -458,7 +498,7 @@ def build_preview(args):
             for index, key in enumerate(keys):
                 view = Image.new("RGB", (512, 512), color)
                 if key in bykey:
-                    with Image.open(root / "runtime" / key) as im:
+                    with Image.open(image_root / key) as im:
                         small = im.resize((512, 512), Image.Resampling.LANCZOS)
                         view.paste(small, (0, 0), small)
                 else:
@@ -493,7 +533,7 @@ def build_preview(args):
             ImageDraw.Draw(contact).text((x + 10, y + 8), direction + (" / MISSING" if key not in bykey else ""),
                                         fill="white" if mode == "dark" else "black")
             if key in bykey:
-                with Image.open(root / "runtime" / key) as im:
+                with Image.open(image_root / key) as im:
                     small = im.resize((256, 256), Image.Resampling.LANCZOS)
                     contact.paste(small, (x, y + 28), small)
         contact.save(root / f"preview/idle-contact-{mode}.png")
@@ -502,7 +542,13 @@ def build_preview(args):
               "idleCount": sum(r["path"].startswith("idle/") for r in rows), "missing": missing,
               "frameDurationMs": 30, "cycleDurationMs": 480, "directions": direction_report,
               "files": rows, "gifs": gifs, "allOutput1024RGBA": True,
-              "uniqueRawHashes": len(set(raw_hashes)), "uniqueCroppedPixelHashes": len(set(cropped_hashes)),
+              "uniqueRawHashes": len(set(raw_hashes)) if all(r["sourceRebuildAvailable"] for r in rows) else None,
+              "uniqueRecordedSourceHashes": len(set(raw_hashes)),
+              "sourceRebuildAvailable": all(r["sourceRebuildAvailable"] for r in rows),
+              "sourceCurrentVerificationCount": sum(r["sourceRebuildAvailable"] for r in rows),
+              "runtimeMode": "reference_current_candidates" if reference_current else "immutable_snapshot",
+              "runtimeBase": runtime_base,
+              "uniqueCroppedPixelHashes": len(set(cropped_hashes)),
               "exactCroppedHorizontalMirrorMatches": len(set(cropped_hashes) & set(mirrors)),
               "alphaBoundaryTouchCount": sum(r["metrics"]["alpha_boundary_touched"] for r in rows),
               "offlineVisualReview": "pending", "formalApproval": False, "clientIntegration": False,
@@ -510,6 +556,7 @@ def build_preview(args):
     write(root / "manifest.json", report, exclusive=True)
     write(root / "structural-report.json", {**report, "manifestSha256": sha(root / "manifest.json")}, exclusive=True)
     template = (HERE / "preview-template.html").read_text(encoding="utf-8")
+    template = template.replace("'runtime/'+", "manifest.runtimeBase+")
     (root / "index.html").write_text(template.replace("__MANIFEST__", json.dumps(report, ensure_ascii=False)), encoding="utf-8")
     PREVIEWS.mkdir(exist_ok=True)
     (PREVIEWS / "index.html").write_text(f'<!doctype html><meta charset="utf-8"><title>07 月影少女预览</title><a href="{args.revision}/index.html">07 月影少女 {args.revision}：{report["walkCount"]}/128行走 + {report["idleCount"]}/8独立站立，待美术复核</a>', encoding="utf-8")
