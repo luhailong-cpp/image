@@ -1,0 +1,15 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>09 竹弓少女 N/SW 动作检查</title>
+<style>body{font:16px system-ui;background:#333;color:#fff;margin:20px}button,select{font:inherit;margin:6px;padding:8px}main{display:grid;grid-template-columns:repeat(2,max-content);gap:15px}figure{margin:0}canvas{display:block;width:384px;height:384px}figcaption{padding:8px}.light{background:#f2efe1}.dark{background:#192028}</style>
+<h1>竹弓少女 · 北 / 西南</h1><p>30 毫秒 / 帧 · 16 帧 / 圈</p><button id="play">暂停</button><button id="prev">上一帧</button><button id="next">下一帧</button><button id="seam">首尾四帧</button><select id="size"><option value="384">常规 384</option><option value="1024">原尺寸 1024</option></select><span id="status">加载</span><main id="views"></main>
+<script>
+const dirs=['N','SW'],canvases=[],images={},views=document.querySelector('#views');let f=0,playing=true,seam=false,loaded=false;
+for(const d of dirs){images[d]=[];for(const bg of ['light','dark']){const fig=document.createElement('figure');fig.innerHTML=`<figcaption>${d} ${bg==='light'?'浅底':'深底'}</figcaption><canvas width="1024" height="1024" class="${bg}"></canvas>`;views.append(fig);canvases.push([d,fig.querySelector('canvas')]);}for(let n=1;n<=16;n++){let im=new Image;im.src=`../../${d}/runtime/walk/${d}/${String(n).padStart(2,'0')}.png`;images[d].push(im);}}
+function render(){if(!loaded)return;for(const [d,c]of canvases){const x=c.getContext('2d');x.clearRect(0,0,1024,1024);x.drawImage(images[d][f],0,0);}document.querySelector('#status').textContent=`第 ${String(f+1).padStart(2,'0')} 帧`}
+function step(delta){if(seam){const order=[14,15,0,1];f=order[(order.indexOf(f)+delta+4)%4]}else f=(f+delta+16)%16;render()}
+Promise.all(Object.values(images).flat().map(im=>im.decode())).then(()=>{loaded=true;render();setInterval(()=>{if(playing)step(1)},30)});
+document.querySelector('#play').onclick=()=>{playing=!playing;document.querySelector('#play').textContent=playing?'暂停':'播放'};
+document.querySelector('#prev').onclick=()=>{playing=false;document.querySelector('#play').textContent='播放';step(-1)};
+document.querySelector('#next').onclick=()=>{playing=false;document.querySelector('#play').textContent='播放';step(1)};
+document.querySelector('#seam').onclick=()=>{seam=!seam;f=14;document.querySelector('#seam').textContent=seam?'全部16帧':'首尾四帧';render()};
+document.querySelector('#size').onchange=e=>{for(const[,c]of canvases)c.style.width=c.style.height=e.target.value+'px'};
+</script></html>
