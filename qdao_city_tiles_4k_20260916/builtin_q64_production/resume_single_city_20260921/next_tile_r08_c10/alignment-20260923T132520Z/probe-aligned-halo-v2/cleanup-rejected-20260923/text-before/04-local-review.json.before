@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "reviewedAtUtc": "2026-09-23T13:37:07.103031+00:00",
+  "tile": "r08_c10",
+  "patch": "r04_c02",
+  "native": {
+    "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c10\\alignment-20260923T132520Z\\probe-aligned-halo-v2\\native-r04_c02.png",
+    "sha256": "7e5a69ee7aff3bf34aa6f3f0b83b22907fcd8b4f13149ac97279cb6d6f096a37"
+  },
+  "nativePixels": [
+    1254,
+    1254
+  ],
+  "scope": "one revised registered-halo probe only",
+  "exactBottomNeighbor": {
+    "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r09_c10\\repairs\\versions\\external-v8\\r09_c10.png",
+    "sha256": "f5a45f15f69104c6f3dfe9f7a855e71f5d142d896cc78ffadbf12b3a57f813e4",
+    "pixels": [
+      4096,
+      4096
+    ]
+  },
+  "viewedWholeOutput": "actual image_gen return; saved PNG is byte-identical host copy, not resampled",
+  "viewedQA": [
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c10\\alignment-20260923T132520Z\\probe-aligned-halo-v2\\qa\\halo-comparison-generated-top-neighbor-bottom.png",
+      "sha256": "75997b8b6e40af9505adf57a01e6182979a036e1b34afe8b3f9c322c14cbb13e"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c10\\alignment-20260923T132520Z\\probe-aligned-halo-v2\\qa\\hypothetical-core-to-bottom-seam-native.png",
+      "sha256": "8a38c4126a23f5cc17105f08348c33f8e81c99a84e84dc5d7ad958007dfccbc0"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c10\\alignment-20260923T132520Z\\probe-aligned-halo-v2\\qa\\generated-y1139-context-native.png",
+      "sha256": "5f8d896cf72fcfd3cc79bc5a10e3f83d4b069055033dad4477b776c925f5b787"
+    }
+  ],
+  "additionalQAForRoot": {
+    "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c10\\alignment-20260923T132520Z\\probe-aligned-halo-v2\\qa\\right-band-originals-v-output.png",
+    "sha256": "8b512ed50a737c5c9dfe1f72d610d8385495dcfb0f798d1447a40dbf58fe9047"
+  },
+  "coordinateValidation": {
+    "globalPatchLTRB": [
+      37773,
+      31629,
+      39027,
+      32883
+    ],
+    "nativeCoreLTRB": [
+      115,
+      115,
+      1139,
+      1139
+    ],
+    "trueNeighborTargetLTRB": [
+      0,
+      1139,
+      1254,
+      1254
+    ],
+    "sourceNeighborLTRB": [
+      909,
+      0,
+      2163,
+      115
+    ],
+    "globalSharedHaloLTRB": [
+      37773,
+      32768,
+      39027,
+      32883
+    ],
+    "noNeighborPixelsAbove1139": true,
+    "registeredReferenceMasterCoreUnchanged": true
+  },
+  "decision": "failed_bottom_continuity_and_new_local_joint_not_selected",
+  "findings": [
+    {
+      "kind": "floral_boundary_discontinuity",
+      "targetContactY": 1139,
+      "globalContactY": 32768,
+      "targetXRegion": [
+        0,
+        650
+      ],
+      "globalXRegion": [
+        37773,
+        38423
+      ],
+      "extentMeaning": "visual problem region, not exact petal feature annotation",
+      "observation": "The output floral relief is displaced relative to the known neighbor. At the hypothetical actual seam review y128, petal contours terminate/restart across a straight horizontal cut. Correct halo coordinates did not constrain native shape continuation."
+    },
+    {
+      "kind": "invented_joint_near_reference_transition",
+      "targetInspectBoxLTRB": [
+        950,
+        1000,
+        1254,
+        1200
+      ],
+      "globalInspectBoxLTRB": [
+        38723,
+        32629,
+        39027,
+        32829
+      ],
+      "observation": "The right curved band changes from warm light stone to slate with a newly drawn transverse beveled joint near the registered boundary. This was not a real joint in the master geometry and violates the no-invented-grid-boundary requirement."
+    },
+    {
+      "kind": "material_and_macro_composition_only",
+      "observation": "Faces are clean and broad; three gray upper insets and central slab composition are retained. These improvements do not compensate for failed boundary continuity."
+    }
+  ],
+  "staticMetricLimit": "The preflight nine samples only measured three primary band edges (1..12px differences); they did not register the floral relief. No overall geometry or seam pass was implied.",
+  "locallySelectableForAssembly": false,
+  "selectedNativeCount": 0,
+  "bottomContinuityPassed": false,
+  "wholeTileReady": false,
+  "formalArtAcceptancePassed": false,
+  "clientRuntimeAccepted": false,
+  "nativeCoreExported": false,
+  "guidePixelsEnteredOutputFile": false,
+  "nativeSizeMatchesRequested": true,
+  "actualModel": null,
+  "actualQuality": null,
+  "currentExperimentGenerationCalls": 1,
+  "referenceHashesUnchangedAfterCall": true,
+  "sharedJSONWritten": false,
+  "navigationChanged": false,
+  "oldRejectedProbeRestored": false,
+  "nextStep": "Stop this batch. Review local geometry calibration proposal before another generation. Do not rerun this prompt unchanged.",
+  "retention": "Current failed probe and QA held only for root review; generation/request/source text retained. Not selected as game art."
+}
