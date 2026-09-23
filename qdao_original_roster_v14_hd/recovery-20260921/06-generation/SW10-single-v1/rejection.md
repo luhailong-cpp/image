@@ -1,0 +1,1 @@
+Not selected. Visual check: thigh overlap reverted toward the right-leading leg pattern despite the left-loading request. Forward toe remains visibly raised. Keep truthful generation record; do not import into SW10.
