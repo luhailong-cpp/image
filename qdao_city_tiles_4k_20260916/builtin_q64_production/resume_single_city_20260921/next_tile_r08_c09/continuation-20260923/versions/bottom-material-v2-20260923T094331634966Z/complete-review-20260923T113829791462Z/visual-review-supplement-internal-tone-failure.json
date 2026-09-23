@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "observedAtUtc": "2026-09-23T12:58:18.502139+00:00",
+  "candidate": {
+    "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v2-20260923T094331634966Z\\r08_c09.png",
+    "sha256": "dbaf9d7e02a8bcccf958d81e0bf5e506c4d558dff553d5abb759abdbc3320cd5"
+  },
+  "priorReview": {
+    "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v2-20260923T094331634966Z\\complete-review-20260923T113829791462Z\\visual-review.json",
+    "sha256": "db7cc3fee180a28cb4e6ccda164870a2ae852a3227684c6195829c1a88f9bf17"
+  },
+  "status": "corrective_supplement_overrides_prior_v2_v3_internal_pass",
+  "sourceUnchanged": true,
+  "reviewedEvidence": [
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\cross-boundary-plan-20260923T120626884718Z\\patch-03\\context-native-1254.png",
+      "sha256": "440677a2e343b3085ca923d609d8f741f095c281260567c876133119ab52b2f6"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\cross-boundary-plan-20260923T120626884718Z\\patch-04\\context-native-1254.png",
+      "sha256": "a8d01596b412a3de74632fd5dc3d50c4cd95d02f60b6266ce3837b9b4eae3fa3"
+    }
+  ],
+  "finding": "Original-pixel 1254-square cross-boundary context reveals straight rectangular tone steps in upper candidate at local x115 and x1139 of patch03, corresponding to tile x2048 and x3072. Patch04 confirms x3072. These are not preview artifacts; root independently inspected same original-pixel image and confirmed. Previous 512/1024-wide review missed them.",
+  "overrides": [
+    {
+      "id": "v2",
+      "coordinate": 2048,
+      "yRangeObserved": [
+        3469,
+        4096
+      ],
+      "previousStatus": "scoped_local_continuity_pass",
+      "status": "failed_rectangular_tone_step"
+    },
+    {
+      "id": "v3",
+      "coordinate": 3072,
+      "yRangeObserved": [
+        3469,
+        4096
+      ],
+      "previousStatus": "scoped_local_continuity_pass",
+      "status": "failed_rectangular_tone_step"
+    }
+  ],
+  "otherFindings": "Existing external y4096 material boundary remains failed. Earlier explicit bottom failure stands. V1 internal boundary at x1024 remains uncertain in broad material context and is conservatively pending until rechecked after internal repair.",
+  "internalSeamsAllPassed": false,
+  "wholeTilePassed": false,
+  "formalAccepted": false,
+  "clientRuntimeAccepted": false,
+  "newPairImpact": "Current bounded cross-boundary mask starts at y3904, so it cannot repair the more northern part of these internal tone steps. Do not declare entire new tile internally passed even if shared edge improves.",
+  "historyPolicy": "Prior review retained unchanged; this later supplement has precedence."
+}

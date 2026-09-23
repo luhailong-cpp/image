@@ -1,0 +1,399 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-09-23T09:24:20.194256+00:00",
+  "reviewer": "Codex audit_checkpoint independent visual inspection",
+  "candidate": {
+    "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\r08_c07.png",
+    "sha256": "7e60bc705c1b750cad18bffa9f486f7be680835c1ee3bf0f692f0202325699e6"
+  },
+  "repairRecord": {
+    "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\repair.json",
+    "sha256": "e21e435f684901f029f0f1ddb703f3b9f46deb36197622656e3fdd4ad80c286a"
+  },
+  "sourceAssembly": {
+    "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\versions\\hard-core-20260923T075129893416Z\\assembly.json",
+    "sha256": "bf74ba084ba556aef5f9675c04282c268b1b6df25a7cad9a2539e559ce8de1fd"
+  },
+  "evidenceIndex": {
+    "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\qa-current\\index.json",
+    "sha256": "d3c070f5eebafdba4061c299ade8df1f8e3449cd31437131aa6b7a20230484fd"
+  },
+  "scope": "Six complete 4096px internal seams with 384px context, nine internal 256px junctions, one complete bottom external edge, and repair band at native pixels. Overview only for layout. This is not whole-city or runtime acceptance.",
+  "originalFailure": {
+    "sourceCandidate": {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\versions\\hard-core-20260923T075129893416Z\\r08_c07.png",
+      "sha256": "e39ff9aedaab71c42501c14f7a99f7d50e7a2858bc001521464355f7c94ce156"
+    },
+    "reviewStatus": "failed",
+    "observed": [
+      "Artificial horizontal pasted-image line at y approximately 2956 across ivory stone faces, including abrupt bevel/width changes near x244 and x640.",
+      "Weaker rectangular material step at the true horizontal assembly seam y3072 in same left-side region."
+    ],
+    "evidence": [
+      {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\suspect-line-wide.png",
+        "sha256": "aa8c914ef5359af495b77a55068cc31faea8beda894e11c1613098996b56d11b"
+      },
+      {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\suspect-line-detail.png",
+        "sha256": "dbc8a5333dde69862811bbc45e8f144507e1e9e52ed2e79434c1d1f941e2c08c"
+      }
+    ],
+    "suspectedCause": "The r03_c01 guide paste boundary at local y1024 was rendered into the native art; cause inferred from location, not model telemetry."
+  },
+  "repairOutcome": {
+    "nativeImageCalls": 1,
+    "originalNative": {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\repair-native-1254.png",
+      "sha256": "e659844a058884c5a53d0b54067aebb2b54220682fc142d378a4a92ad3be7cb6"
+    },
+    "actualModel": null,
+    "actualQuality": null,
+    "generatedAt": null,
+    "observed": "Both artificial horizontal lines removed in native-pixel focus and full-seam views; existing two vertical grooves, rounded bevels and gold border remain continuous. No newly visible mottling or artificial seam in viewed repair area.",
+    "localVisualResult": "reviewed_no_visible_failure",
+    "mechanical": {
+      "outsideMaskPixelsUnchanged": true,
+      "bottom456RowsUnchanged": true,
+      "changedPixelCount": 303647,
+      "actualNonzeroMaskBoundsLTRB": [
+        0,
+        2871,
+        1251,
+        3156
+      ],
+      "actualChangedPixelBoundsLTRB": [
+        0,
+        2874,
+        1245,
+        3153
+      ],
+      "boundsClarification": "prepared/repair records list conservative allowed envelope [0,2869,1253,3158]; rounded mask actual nonzero bounds computed here are authoritative."
+    }
+  },
+  "items": [
+    {
+      "id": "internal-vertical-1024",
+      "initialStatus": "pending",
+      "reviewStatus": "reviewed_no_visible_discontinuity_in_original_pixels",
+      "evidence": {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\qa-current\\vertical-1024-wide.png",
+        "sha256": "a997b0bbc907e497ac1c217ade35f0073504d8c8cf4a229e22f405fe5a963e3f"
+      },
+      "lengthPixels": 4096,
+      "contextWidthPixels": 384,
+      "segments": 4,
+      "method": "all four new version segments viewed after repair",
+      "previousVersionPixelsEqual": false
+    },
+    {
+      "id": "internal-vertical-2048",
+      "initialStatus": "pending",
+      "reviewStatus": "reviewed_no_visible_discontinuity_in_original_pixels",
+      "evidence": {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\qa-current\\vertical-2048-wide.png",
+        "sha256": "78e02a1c46f367ceed4a101f657ac3bc02686dd577033814b36a7c2df922badd"
+      },
+      "lengthPixels": 4096,
+      "contextWidthPixels": 384,
+      "segments": 4,
+      "method": "all four original segments viewed; new candidate strips verified pixel-identical",
+      "previousVersionPixelsEqual": true
+    },
+    {
+      "id": "internal-vertical-3072",
+      "initialStatus": "pending",
+      "reviewStatus": "reviewed_no_visible_discontinuity_in_original_pixels",
+      "evidence": {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\qa-current\\vertical-3072-wide.png",
+        "sha256": "0f5f61017b16c0892ec9a182f3887031b312898fe6753de179f44f2812e94066"
+      },
+      "lengthPixels": 4096,
+      "contextWidthPixels": 384,
+      "segments": 4,
+      "method": "all four original segments viewed; new candidate strips verified pixel-identical",
+      "previousVersionPixelsEqual": true
+    },
+    {
+      "id": "internal-horizontal-1024",
+      "initialStatus": "pending",
+      "reviewStatus": "reviewed_no_visible_discontinuity_in_original_pixels",
+      "evidence": {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\qa-current\\horizontal-1024-wide.png",
+        "sha256": "c5ac9a9badb864cbbcc5a67b0a7848211f39b0e49b35895bbf5545ce637dc365"
+      },
+      "lengthPixels": 4096,
+      "contextWidthPixels": 384,
+      "segments": 4,
+      "method": "all four original segments viewed; new candidate strips verified pixel-identical",
+      "previousVersionPixelsEqual": true
+    },
+    {
+      "id": "internal-horizontal-2048",
+      "initialStatus": "pending",
+      "reviewStatus": "reviewed_no_visible_discontinuity_in_original_pixels",
+      "evidence": {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\qa-current\\horizontal-2048-wide.png",
+        "sha256": "957a5e5a7f4c09fe362813805147dea5efd98748326de4f7a068c90e59641cb1"
+      },
+      "lengthPixels": 4096,
+      "contextWidthPixels": 384,
+      "segments": 4,
+      "method": "all four original segments viewed; new candidate strips verified pixel-identical",
+      "previousVersionPixelsEqual": true
+    },
+    {
+      "id": "internal-horizontal-3072",
+      "initialStatus": "pending",
+      "reviewStatus": "reviewed_no_visible_discontinuity_in_original_pixels",
+      "evidence": {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\qa-current\\horizontal-3072-wide.png",
+        "sha256": "de7f4bd8832f89a91a94c60e3d26674ea71dc33474701bf852a3ff20ff2e47b8"
+      },
+      "lengthPixels": 4096,
+      "contextWidthPixels": 384,
+      "segments": 4,
+      "method": "all four new version segments viewed after repair",
+      "previousVersionPixelsEqual": false
+    },
+    {
+      "id": "internal-junction-r01_c01",
+      "initialStatus": "pending",
+      "reviewStatus": "reviewed_no_visible_discontinuity_in_original_pixels",
+      "evidence": {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\qa-current\\junctions.png",
+        "sha256": "af6c08fde977426d9bbdaa14b8d077aead5dffbf92d162ab238ee61e4fffe850"
+      },
+      "sourceBoxLTRB": [
+        896,
+        896,
+        1152,
+        1152
+      ],
+      "pixelScale": "1:1",
+      "previousVersionPixelsEqual": true,
+      "method": "viewed original board, then verified corresponding new candidate crop pixel-identical"
+    },
+    {
+      "id": "internal-junction-r01_c02",
+      "initialStatus": "pending",
+      "reviewStatus": "reviewed_no_visible_discontinuity_in_original_pixels",
+      "evidence": {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\qa-current\\junctions.png",
+        "sha256": "af6c08fde977426d9bbdaa14b8d077aead5dffbf92d162ab238ee61e4fffe850"
+      },
+      "sourceBoxLTRB": [
+        1920,
+        896,
+        2176,
+        1152
+      ],
+      "pixelScale": "1:1",
+      "previousVersionPixelsEqual": true,
+      "method": "viewed original board, then verified corresponding new candidate crop pixel-identical"
+    },
+    {
+      "id": "internal-junction-r01_c03",
+      "initialStatus": "pending",
+      "reviewStatus": "reviewed_no_visible_discontinuity_in_original_pixels",
+      "evidence": {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\qa-current\\junctions.png",
+        "sha256": "af6c08fde977426d9bbdaa14b8d077aead5dffbf92d162ab238ee61e4fffe850"
+      },
+      "sourceBoxLTRB": [
+        2944,
+        896,
+        3200,
+        1152
+      ],
+      "pixelScale": "1:1",
+      "previousVersionPixelsEqual": true,
+      "method": "viewed original board, then verified corresponding new candidate crop pixel-identical"
+    },
+    {
+      "id": "internal-junction-r02_c01",
+      "initialStatus": "pending",
+      "reviewStatus": "reviewed_no_visible_discontinuity_in_original_pixels",
+      "evidence": {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\qa-current\\junctions.png",
+        "sha256": "af6c08fde977426d9bbdaa14b8d077aead5dffbf92d162ab238ee61e4fffe850"
+      },
+      "sourceBoxLTRB": [
+        896,
+        1920,
+        1152,
+        2176
+      ],
+      "pixelScale": "1:1",
+      "previousVersionPixelsEqual": true,
+      "method": "viewed original board, then verified corresponding new candidate crop pixel-identical"
+    },
+    {
+      "id": "internal-junction-r02_c02",
+      "initialStatus": "pending",
+      "reviewStatus": "reviewed_no_visible_discontinuity_in_original_pixels",
+      "evidence": {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\qa-current\\junctions.png",
+        "sha256": "af6c08fde977426d9bbdaa14b8d077aead5dffbf92d162ab238ee61e4fffe850"
+      },
+      "sourceBoxLTRB": [
+        1920,
+        1920,
+        2176,
+        2176
+      ],
+      "pixelScale": "1:1",
+      "previousVersionPixelsEqual": true,
+      "method": "viewed original board, then verified corresponding new candidate crop pixel-identical"
+    },
+    {
+      "id": "internal-junction-r02_c03",
+      "initialStatus": "pending",
+      "reviewStatus": "reviewed_no_visible_discontinuity_in_original_pixels",
+      "evidence": {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\qa-current\\junctions.png",
+        "sha256": "af6c08fde977426d9bbdaa14b8d077aead5dffbf92d162ab238ee61e4fffe850"
+      },
+      "sourceBoxLTRB": [
+        2944,
+        1920,
+        3200,
+        2176
+      ],
+      "pixelScale": "1:1",
+      "previousVersionPixelsEqual": true,
+      "method": "viewed original board, then verified corresponding new candidate crop pixel-identical"
+    },
+    {
+      "id": "internal-junction-r03_c01",
+      "initialStatus": "pending",
+      "reviewStatus": "reviewed_no_visible_discontinuity_in_original_pixels",
+      "evidence": {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\qa-current\\junctions.png",
+        "sha256": "af6c08fde977426d9bbdaa14b8d077aead5dffbf92d162ab238ee61e4fffe850"
+      },
+      "sourceBoxLTRB": [
+        896,
+        2944,
+        1152,
+        3200
+      ],
+      "pixelScale": "1:1",
+      "previousVersionPixelsEqual": false,
+      "method": "new version board viewed after repair"
+    },
+    {
+      "id": "internal-junction-r03_c02",
+      "initialStatus": "pending",
+      "reviewStatus": "reviewed_no_visible_discontinuity_in_original_pixels",
+      "evidence": {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\qa-current\\junctions.png",
+        "sha256": "af6c08fde977426d9bbdaa14b8d077aead5dffbf92d162ab238ee61e4fffe850"
+      },
+      "sourceBoxLTRB": [
+        1920,
+        2944,
+        2176,
+        3200
+      ],
+      "pixelScale": "1:1",
+      "previousVersionPixelsEqual": true,
+      "method": "viewed original board, then verified corresponding new candidate crop pixel-identical"
+    },
+    {
+      "id": "internal-junction-r03_c03",
+      "initialStatus": "pending",
+      "reviewStatus": "reviewed_no_visible_discontinuity_in_original_pixels",
+      "evidence": {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\qa-current\\junctions.png",
+        "sha256": "af6c08fde977426d9bbdaa14b8d077aead5dffbf92d162ab238ee61e4fffe850"
+      },
+      "sourceBoxLTRB": [
+        2944,
+        2944,
+        3200,
+        3200
+      ],
+      "pixelScale": "1:1",
+      "previousVersionPixelsEqual": true,
+      "method": "viewed original board, then verified corresponding new candidate crop pixel-identical"
+    },
+    {
+      "id": "external-bottom-r09_c07",
+      "initialStatus": "pending",
+      "reviewStatus": "reviewed_no_visible_discontinuity_in_original_pixels",
+      "evidence": {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\qa-current\\bottom-edge.png",
+        "sha256": "6e31e71bf86265ae7818e86e12d455ac3d036375921b21010b04426c3cd36329"
+      },
+      "segments": 4,
+      "lengthPixels": 4096,
+      "neighbor": {
+        "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\tianyong_festival\\upperpair_r09_c07_c08_row10_c07_c10_20260918\\output_v5\\r09_c07.png",
+        "sha256": "869a04021590e5f080435968e2cedcbca8d112e821911ac02359b07cfa7d6699"
+      },
+      "method": "all four original segments viewed; new candidate bottom strip verified pixel-identical",
+      "wholeCityPass": false
+    },
+    {
+      "id": "external-top",
+      "initialStatus": "pending",
+      "reviewStatus": "pending",
+      "reason": "No reviewed final neighboring candidate pair supplied within this independent c07 task."
+    },
+    {
+      "id": "external-left",
+      "initialStatus": "pending",
+      "reviewStatus": "pending",
+      "reason": "No reviewed final neighboring candidate pair supplied within this independent c07 task."
+    },
+    {
+      "id": "external-right",
+      "initialStatus": "pending",
+      "reviewStatus": "pending",
+      "reason": "No reviewed final neighboring candidate pair supplied within this independent c07 task."
+    },
+    {
+      "id": "external-four-tile-junction-top-left",
+      "initialStatus": "pending",
+      "reviewStatus": "pending",
+      "reason": "Four participating selected candidate SHA and complete same-version junction review required."
+    },
+    {
+      "id": "external-four-tile-junction-top-right",
+      "initialStatus": "pending",
+      "reviewStatus": "pending",
+      "reason": "Four participating selected candidate SHA and complete same-version junction review required."
+    },
+    {
+      "id": "external-four-tile-junction-bottom-left",
+      "initialStatus": "pending",
+      "reviewStatus": "pending",
+      "reason": "Four participating selected candidate SHA and complete same-version junction review required."
+    },
+    {
+      "id": "external-four-tile-junction-bottom-right",
+      "initialStatus": "pending",
+      "reviewStatus": "pending",
+      "reason": "Four participating selected candidate SHA and complete same-version junction review required."
+    }
+  ],
+  "counts": {
+    "internalFullSeamsReviewed": 6,
+    "internalJunctionsReviewed": 9,
+    "externalFullEdgesReviewed": 1,
+    "externalEdgesPending": 3,
+    "externalFourTileJunctionsPending": 4
+  },
+  "formalAccepted": false,
+  "visualAcceptancePassed": false,
+  "wholeCityPass": false,
+  "runtimeVerified": false,
+  "sharedStateModified": false,
+  "latestCandidateModified": false,
+  "limitations": [
+    "Other three outer edges and four external four-tile junctions remain pending.",
+    "This review does not exhaustively view all sixteen native interiors at original pixels; it covers seams, junctions and repaired region.",
+    "Model/quality and server generation time were not disclosed by host."
+  ]
+}
