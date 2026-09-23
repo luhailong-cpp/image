@@ -1,0 +1,1 @@
+Not selected after whole-half-cycle review. Thigh overlap inconsistent with left-near leg descending phase; resembles right-far leg lead. Replaced by SW07-single-v2 with actual SW08 and SW09 references.
