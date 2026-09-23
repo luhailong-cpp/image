@@ -1,0 +1,7 @@
+from pathlib import Path
+from prepare_frame import prepare
+GEN=Path(__file__).resolve().parent.parent/'06-generation'
+for n in (10,11,12):
+    action={10:'LEFT boot now lies almost flat and begins bearing the body. RIGHT heel is lifted with its toe just leaving behind. Do not show a large foreground boot sole.',11:'LEFT foot is completely flat and bears weight. RIGHT knee bends, RIGHT rear boot lifts a little with toe down. This trailing boot must stay behind supporting left calf.',12:'LEFT sole stays flat under body. RIGHT far knee bends more, the right boot swings inward behind the left support calf, remains noticeably raised, before it passes to the front in frame 13.'}[n]
+    prepare('SW',n,2,[GEN/'SW09-single-v2/raw.png'],f'Image 4 is the EXACT approved prior left-contact pose and leg-ownership reference. Keep the same anatomy: LEFT NEAR thigh from picture RIGHT hip crosses in front diagonally to the foreground boot at lower LEFT; RIGHT FAR thigh is behind it with its boot farther away at middle RIGHT. DO NOT reverse this overlap, do not turn the two hips around. Advance only to phase {n}. {action} Keep left-near thigh continuous from the picture RIGHT hip in FRONT of the right-far thigh, keeping the same robe-panel overlap as image 4. Body advances above the planted left foot, no standing feet side by side yet. Fixed camera, no size change. Same upper body and identity. A new single animation phase, never mirrored.')
+print('Prepared SW10/11/12 v2')
