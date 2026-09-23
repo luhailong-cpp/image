@@ -3,6 +3,7 @@ from __future__ import annotations
 import copy
 import importlib.util
 import json
+import re
 from pathlib import Path
 import sys
 import tempfile
@@ -39,21 +40,22 @@ class PublicationGateTests(unittest.TestCase):
         path.write_text(json.dumps(value), encoding='utf-8')
 
     def xml(self, platform):
-        class_name, methods = publisher.HD_REQUIRED_METHODS[platform]
-        total = sum(methods.values())
+        required = (publisher.HD_REQUIRED_METHODS[platform], publisher.identity.REQUIRED_METHODS[platform]) + publisher.VIEW_REQUIRED_METHODS.get(platform, ())
+        total = sum(sum(methods.values()) for _, methods in required)
         root = ET.Element('test-run', result='Passed', passed=str(total), total=str(total), failed='0', skipped='0',
                           inconclusive='0', **{'start-time': '2026-01-01 00:00:01Z', 'end-time': '2026-01-01 00:00:03Z'})
-        for method, count in methods.items():
-            for index in range(count):
-                ET.SubElement(root, 'test-case', classname=class_name, methodname=method,
-                              fullname=class_name + '.' + method + '(' + str(index) + ')', result='Passed')
+        for class_name, methods in required:
+            for method, count in methods.items():
+                for index in range(count):
+                    ET.SubElement(root, 'test-case', classname=class_name, methodname=method,
+                                  fullname=class_name + '.' + method + '(' + str(index) + ')', result='Passed')
         path = self.root / (platform.lower() + '.xml')
         ET.ElementTree(root).write(path, encoding='utf-8')
         return path, root
 
     def launch(self):
         path, _ = self.xml('PlayMode')
-        rows = {rel: {'path': rel, 'sha256': 'a' * 64} for rel in publisher.INPUT_BINDING_PATHS}
+        rows = {rel: {'path': rel, 'sha256': 'a' * 64} for rel in publisher.CURRENT_INPUT_BINDING_PATHS}
         snapshot_path = self.root / 'unit-input.json'
         self.save_json(snapshot_path, {'project': str(self.project), 'shared_writable_links': False, 'files': list(rows.values())})
         log = path.with_suffix('.log'); log.write_text('Unit fixture, not an actual Unity run.\n', encoding='utf-8')
@@ -67,6 +69,49 @@ class PublicationGateTests(unittest.TestCase):
         self.save_json(launch_path, launch); self.save_json(completion_path, completion)
         report = {'projectPath': str(self.project), 'generatedUtc': '2026-01-01T00:00:02Z'}
         return path, report, rows, publisher.sha(snapshot_path), launch_path, completion_path
+
+    def test_missing_identity_case_cannot_hide_inside_passed_hd_results(self):
+        for platform in ("EditMode", "PlayMode"):
+            path, result = self.xml(platform)
+            classname, _ = publisher.identity.REQUIRED_METHODS[platform]
+            victim = next(case for case in result if case.get("classname") == classname)
+            result.remove(victim)
+            result.set("total", str(len(result))); result.set("passed", str(len(result)))
+            ET.ElementTree(result).write(path, encoding="utf-8")
+            with self.subTest(platform=platform), self.assertRaisesRegex(ValueError, "Incomplete identity"):
+                publisher.check_results(path, hd_platform=platform)
+
+    def test_missing_identity_source_binding_rejects_launch(self):
+        path, report, rows, digest, _, _ = self.launch()
+        del rows[publisher.identity.SOURCES[0]]
+        with self.assertRaises(ValueError):
+            publisher.check_launch_binding(path, report, rows, [], digest, platform="PlayMode")
+
+    def test_actual_unity_runner_uses_exact_current_publication_filters(self):
+        runner = Path(__file__).resolve().parents[2] / 'qdao_original_roster_v13/tools/run_unity_tests.ps1'
+        source = runner.read_text(encoding='utf-8-sig')
+        filters = re.search(r"\$v13Filter=if\(\$Platform -eq 'EditMode'\)\{'([^']+)'\}else\{'([^']+)'\}", source)
+        self.assertIsNotNone(filters, 'The actual runner must expose its complete platform filters')
+        self.assertEqual({'EditMode': filters[1], 'PlayMode': filters[2]}, publisher.EXPECTED_FILTERS)
+
+    def test_current_view_sources_are_required_without_rewriting_historical_bindings(self):
+        self.assertTrue(set(publisher.CURRENT_VIEW_BINDINGS).isdisjoint(publisher.INPUT_BINDING_PATHS))
+        path, report, rows, digest, _, _ = self.launch()
+        for missing in publisher.CURRENT_VIEW_BINDINGS:
+            changed = dict(rows)
+            del changed[missing]
+            with self.subTest(path=missing), self.assertRaisesRegex(ValueError, 'source/config differs'):
+                publisher.check_launch_binding(path, report, changed, [], digest, platform='PlayMode')
+
+    def test_missing_camera_case_cannot_hide_inside_passed_hd_results(self):
+        path, result = self.xml('EditMode')
+        classname, _ = publisher.VIEW_REQUIRED_METHODS['EditMode'][0]
+        victim = next(case for case in result if case.get('classname') == classname)
+        result.remove(victim)
+        result.set('total', str(len(result))); result.set('passed', str(len(result)))
+        ET.ElementTree(result).write(path, encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'Incomplete camera/nameplate'):
+            publisher.check_results(path, hd_platform='EditMode')
 
     def inventory_rows(self):
         prefix = publisher.FAMILY + '/' + self.actor_id + '/'

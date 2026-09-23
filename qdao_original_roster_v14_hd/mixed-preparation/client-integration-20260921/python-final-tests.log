@@ -1,0 +1,85 @@
+======================================================================
+ERROR: test_audit_reservation_failure_cannot_activate (test_approve_stage_mixed_roster.GateFixture.test_audit_reservation_failure_cannot_activate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\test_approve_stage_mixed_roster.py", line 316, in test_audit_reservation_failure_cannot_activate
+    s.execute_stage(plan)
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\stage_mixed_roster.py", line 104, in execute_stage
+    fresh = prepare_stage(plan["approved"], plan["project"], plan["audit"])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\stage_mixed_roster.py", line 71, in prepare_stage
+    project = project_path(project)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\stage_mixed_roster.py", line 32, in project_path
+    require(path == ISOLATED_PROJECT.absolute(), "Only the exact isolated project is allowed; formal publication is unsupported")
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\assemble_mixed_roster.py", line 35, in require
+    base.require(ok, message)
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\prepare_mixed_roster.py", line 33, in require
+    raise ValueError(message)
+ValueError: Only the exact isolated project is allowed; formal publication is unsupported
+
+======================================================================
+ERROR: test_post_activation_failure_has_explicit_retained_target_audit (test_approve_stage_mixed_roster.GateFixture.test_post_activation_failure_has_explicit_retained_target_audit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\test_approve_stage_mixed_roster.py", line 329, in test_post_activation_failure_has_explicit_retained_target_audit
+    s.execute_stage(plan)
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\stage_mixed_roster.py", line 104, in execute_stage
+    fresh = prepare_stage(plan["approved"], plan["project"], plan["audit"])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\stage_mixed_roster.py", line 71, in prepare_stage
+    project = project_path(project)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\stage_mixed_roster.py", line 32, in project_path
+    require(path == ISOLATED_PROJECT.absolute(), "Only the exact isolated project is allowed; formal publication is unsupported")
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\assemble_mixed_roster.py", line 35, in require
+    base.require(ok, message)
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\prepare_mixed_roster.py", line 33, in require
+    raise ValueError(message)
+ValueError: Only the exact isolated project is allowed; formal publication is unsupported
+
+======================================================================
+ERROR: test_stage_exact_new_target_preserves_every_other_project_file (test_approve_stage_mixed_roster.GateFixture.test_stage_exact_new_target_preserves_every_other_project_file)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\test_approve_stage_mixed_roster.py", line 241, in test_stage_exact_new_target_preserves_every_other_project_file
+    result = s.execute_stage(plan)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\stage_mixed_roster.py", line 104, in execute_stage
+    fresh = prepare_stage(plan["approved"], plan["project"], plan["audit"])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\stage_mixed_roster.py", line 71, in prepare_stage
+    project = project_path(project)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\stage_mixed_roster.py", line 32, in project_path
+    require(path == ISOLATED_PROJECT.absolute(), "Only the exact isolated project is allowed; formal publication is unsupported")
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\assemble_mixed_roster.py", line 35, in require
+    base.require(ok, message)
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\prepare_mixed_roster.py", line 33, in require
+    raise ValueError(message)
+ValueError: Only the exact isolated project is allowed; formal publication is unsupported
+
+======================================================================
+ERROR: test_stage_failed_copy_removes_only_own_temporary_tree (test_approve_stage_mixed_roster.GateFixture.test_stage_failed_copy_removes_only_own_temporary_tree)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\test_approve_stage_mixed_roster.py", line 301, in test_stage_failed_copy_removes_only_own_temporary_tree
+    s.execute_stage(plan)
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\stage_mixed_roster.py", line 104, in execute_stage
+    fresh = prepare_stage(plan["approved"], plan["project"], plan["audit"])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\stage_mixed_roster.py", line 71, in prepare_stage
+    project = project_path(project)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\stage_mixed_roster.py", line 32, in project_path
+    require(path == ISOLATED_PROJECT.absolute(), "Only the exact isolated project is allowed; formal publication is unsupported")
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\assemble_mixed_roster.py", line 35, in require
+    base.require(ok, message)
+  File "D:\luyuan\wuxingqitan\image\qdao_original_roster_v14_hd\tools\prepare_mixed_roster.py", line 33, in require
+    raise ValueError(message)
+ValueError: Only the exact isolated project is allowed; formal publication is unsupported
+
+----------------------------------------------------------------------
+Ran 113 tests in 164.051s
+
+FAILED (errors=4)

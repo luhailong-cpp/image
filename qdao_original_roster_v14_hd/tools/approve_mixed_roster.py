@@ -44,11 +44,14 @@ def digest(document):
 def child_directory(path, root):
     # Check lexical ancestors before resolve, so a junction cannot disguise a target.
     path, root = Path(path).absolute(), Path(root).absolute()
-    current = path
-    while current != current.parent:
-        require(not current.is_symlink() and not (hasattr(current, "is_junction") and current.is_junction()),
-                "Linked input/output ancestor is unsupported: " + str(current))
-        current = current.parent
+    for current in (path, root):
+        while current != current.parent:
+            require(not current.is_symlink() and not (hasattr(current, "is_junction") and current.is_junction()),
+                    "Linked input/output ancestor is unsupported: " + str(current))
+            current = current.parent
+    # Windows TEMP may use ADMINI~1 while saved receipts use Administrator.
+    # Normalize only after rejecting linked ancestors on both spellings.
+    path, root = path.resolve(), root.resolve()
     require(path.is_relative_to(root) and path != root, "Path must be a child of " + str(root))
     safe_child(root, path.relative_to(root))
     return path.resolve()

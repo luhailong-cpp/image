@@ -1,0 +1,1252 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>15 水龙书生 · 离线动作审阅</title>
+<style>
+:root{font:15px/1.65 system-ui,"Microsoft YaHei",sans-serif;color:#253e38;background:#f0eadc;--line:#ceba89;--paper:#fffaf0;--jade:#246154;--stage:#f2ebd6}
+*{box-sizing:border-box}body{margin:0}main{max-width:1440px;margin:auto;padding:24px}h1{font-size:25px;margin:0;color:#1d5045}h2{font-size:18px;margin:0 0 10px}p{margin:6px 0}.subtle{color:#66756a;font-size:13px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;margin:16px 0;box-shadow:0 4px 16px #594b2310}.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}label{display:flex;gap:6px;align-items:center}button,select,input{font:inherit}button,select{border:1px solid #bbae88;background:#f8f0dc;border-radius:9px;padding:7px 12px;color:#25483e}button{cursor:pointer}button:hover{border-color:#246154}button.primary,button[aria-pressed=true]{background:var(--jade);color:white}button:disabled{opacity:.45;cursor:not-allowed}.warning{color:#973d24;background:#fff1da;border-left:4px solid #ba7851;padding:10px 14px}.summary{font-weight:600}.view-area{overflow:auto;max-height:1180px;margin-top:16px}.stage{position:relative;width:256px;height:256px;margin:auto;background:var(--stage);background-image:linear-gradient(45deg,#87988c15 25%,transparent 25%),linear-gradient(-45deg,#87988c15 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#87988c15 75%),linear-gradient(-45deg,transparent 75%,#87988c15 75%);background-size:24px 24px;background-position:0 0,0 12px,12px -12px,-12px 0}.stage img{display:block;width:100%;height:100%;object-fit:contain}.stage.large{width:1024px;height:1024px}.empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;white-space:pre-wrap;color:#9b4e37;background:#f6eadbe8;padding:12px;font-size:13px}.hidden{display:none!important}.stage:after{content:"";position:absolute;inset:0;border:1px solid #9b9c8880;pointer-events:none}.phasebar{display:flex;gap:5px;flex-wrap:wrap;margin-top:12px}.phasebar button{padding:4px 11px}.phasebar .missing{border-style:dashed;color:#a65b41}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.card{border:1px solid #d7c8a9;border-radius:10px;padding:10px;overflow:hidden}.card .stage{width:min(100%,256px);height:auto;aspect-ratio:1}.card-title{display:flex;justify-content:space-between;margin-bottom:6px}.badge{font-size:12px;color:#836c44}.filmstrip{display:grid;grid-template-columns:repeat(4,minmax(220px,1fr));gap:10px;overflow:auto}.filmstrip .stage{width:100%;height:auto;aspect-ratio:1}.filmstrip>div{min-width:220px}details{margin:8px 0}summary{cursor:pointer}pre{white-space:pre-wrap;word-break:break-word;font:12px/1.5 ui-monospace,Consolas,monospace;max-height:480px;overflow:auto}.review-list{display:flex;flex-wrap:wrap;gap:8px 20px}.review-list label{font-size:14px}.monospace{font-family:ui-monospace,Consolas,monospace}@media(max-width:650px){main{padding:12px}.panel{padding:12px}.filmstrip{grid-template-columns:repeat(4,220px)}}
+</style></head><body><main>
+<h1>水龙书生 · 八方向动作审阅</h1>
+<p class="subtle">15_water_dragon_scholar_boy · 独立离线预览 · 1024 × 1024 透明 PNG</p>
+<div class="panel"><p id="counts" class="summary"></p><p id="inventoryWarning" class="warning"></p>
+<p>正常行走目标 <strong>30 毫秒 / 帧 · 16 帧 · 480 毫秒 / 圈</strong>。按单调时钟选择相位；浏览器刷新率和后台调度可能跳过显示相位，不代表每帧实际呈现均为 30 毫秒。</p>
+<p class="subtle">文件数量、尺寸、Alpha 与 SHA 只是文件核查。真实交替迈腿、支撑脚、身份、比例、脚底锚点、残边和首尾衔接需要逐帧审阅。此页面不自动给出美术通过，也不代表 Unity 或正式客户端验收。</p>
+<p id="buildTime" class="subtle"></p></div>
+<section class="panel"><div class="toolbar">
+<label>方向 <select id="direction"></select></label><label>动作 <select id="mode"><option value="walk">行走 16 帧</option><option value="idle">独立站立</option></select></label>
+<button id="play" class="primary">播放</button><button id="previous">上一帧</button><button id="next">下一帧</button>
+<label>背景 <select id="background"><option value="light">浅色底</option><option value="dark">深色底</option></select></label>
+<label>显示 <select id="zoom"><option value="normal">正常 256 px</option><option value="large">放大 1024 px</option></select></label>
+<button id="seam" aria-pressed="false">只看接缝 15 → 16 → 01 → 02</button></div>
+<p id="playStatus" role="status"></p><div id="phasebar" class="phasebar"></div>
+<div class="view-area"><div id="mainStage" class="stage"><img id="mainImage" alt="当前帧"><div id="mainEmpty" class="empty"></div></div></div>
+<p id="frameEvidence" class="subtle monospace"></p>
+</section>
+<section class="panel"><h2>八方向同步相位</h2><p class="subtle">使用相同相位查看各方向。缺少任何行走帧的方向暂停显示检查项，不缩短循环、不重复已有图片补齐。</p><div id="overview" class="grid"></div></section>
+<section class="panel"><h2>当前方向首尾接缝</h2><p class="subtle">固定顺序 15 → 16 → 01 → 02；此处保持四张静态图便于检查。主视图可切换接缝循环，接缝循环为 120 毫秒。</p><div id="filmstrip" class="filmstrip"></div></section>
+<section class="panel"><h2>审阅提示</h2><div class="review-list">
+<span>□ 左右腿真实交替</span><span>□ 支撑脚与脚底锚点</span><span>□ 身体比例与身份</span><span>□ 深浅底透明残边</span><span>□ 正常与 1024 px 放大</span><span>□ 15 → 16 → 01 → 02 衔接</span><span>□ 八张独立站立</span>
+</div><p class="subtle">此清单为检查提示，不保存为验收结果。请在角色交接记录中写明实际看过的方向、帧号、问题与结论。</p>
+<details><summary>使用说明与来源边界</summary><p>将实际交付图导入 runtime/walk/方向/01.png 至 16.png，以及 runtime/idle/方向.png 后，重新运行 15-tools/build_preview.py，再重新打开此文件。无需联网或启动服务器。方向固定 N、NE、E、SE、S、SW、W、NW。</p><p>空库、缺帧、尺寸或 Alpha 不合格及完全相同 SHA 的动作槽均单独报出；不以其他方向、站立图、镜像或已有相位替补。图片重新导入后必须重建清单；浏览器无法自行保证本页内嵌 SHA 与后来改动文件一致。</p><p>按空格播放或暂停，左右箭头逐帧。可选 --derived 输出深浅底 16 帧联系表、接缝联系表和 30 ms GIF，并把每个派生文件及其原图 SHA 写入 derived/manifest.json。派生缩略图仅供审阅，不进入 runtime。</p></details>
+<details><summary>库存、尺寸、Alpha、SHA 与缺帧清单</summary><pre id="manifest"></pre></details></section>
+</main>
+<script id="inventory" type="application/json">{
+  "role": "15_water_dragon_scholar_boy",
+  "label": "水龙书生",
+  "generated_at_utc": "2026-09-21T16:11:58.518874+00:00",
+  "frame_ms": 30,
+  "walk_cycle_ms": 480,
+  "runtime_root": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\15-delivery-preview\\runtime",
+  "visual_acceptance": "not-evaluated-by-tool",
+  "client_acceptance": "not-tested",
+  "directions": {
+    "N": {
+      "walk": [
+        {
+          "path": "runtime/walk/N/01.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/N/02.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/N/03.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/N/04.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/N/05.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/N/06.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/N/07.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/N/08.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/N/09.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/N/10.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/N/11.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/N/12.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/N/13.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/N/14.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/N/15.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/N/16.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        }
+      ],
+      "idle": {
+        "path": "runtime/idle/N.png",
+        "exists": false,
+        "usable": false,
+        "issues": [
+          "missing"
+        ]
+      }
+    },
+    "NE": {
+      "walk": [
+        {
+          "path": "runtime/walk/NE/01.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NE/02.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NE/03.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NE/04.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NE/05.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NE/06.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NE/07.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NE/08.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NE/09.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NE/10.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NE/11.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NE/12.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NE/13.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NE/14.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NE/15.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NE/16.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        }
+      ],
+      "idle": {
+        "path": "runtime/idle/NE.png",
+        "exists": false,
+        "usable": false,
+        "issues": [
+          "missing"
+        ]
+      }
+    },
+    "E": {
+      "walk": [
+        {
+          "path": "runtime/walk/E/01.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/E/02.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/E/03.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/E/04.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/E/05.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/E/06.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/E/07.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/E/08.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/E/09.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/E/10.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/E/11.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/E/12.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/E/13.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/E/14.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/E/15.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/E/16.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        }
+      ],
+      "idle": {
+        "path": "runtime/idle/E.png",
+        "exists": false,
+        "usable": false,
+        "issues": [
+          "missing"
+        ]
+      }
+    },
+    "SE": {
+      "walk": [
+        {
+          "path": "runtime/walk/SE/01.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SE/02.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SE/03.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SE/04.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SE/05.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SE/06.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SE/07.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SE/08.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SE/09.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SE/10.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SE/11.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SE/12.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SE/13.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SE/14.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SE/15.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SE/16.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        }
+      ],
+      "idle": {
+        "path": "runtime/idle/SE.png",
+        "exists": false,
+        "usable": false,
+        "issues": [
+          "missing"
+        ]
+      }
+    },
+    "S": {
+      "walk": [
+        {
+          "path": "runtime/walk/S/01.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/S/02.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/S/03.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/S/04.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/S/05.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/S/06.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/S/07.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/S/08.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/S/09.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/S/10.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/S/11.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/S/12.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/S/13.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/S/14.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/S/15.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/S/16.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        }
+      ],
+      "idle": {
+        "path": "runtime/idle/S.png",
+        "exists": false,
+        "usable": false,
+        "issues": [
+          "missing"
+        ]
+      }
+    },
+    "SW": {
+      "walk": [
+        {
+          "path": "runtime/walk/SW/01.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SW/02.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SW/03.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SW/04.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SW/05.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SW/06.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SW/07.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SW/08.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SW/09.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SW/10.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SW/11.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SW/12.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SW/13.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SW/14.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SW/15.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/SW/16.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        }
+      ],
+      "idle": {
+        "path": "runtime/idle/SW.png",
+        "exists": false,
+        "usable": false,
+        "issues": [
+          "missing"
+        ]
+      }
+    },
+    "W": {
+      "walk": [
+        {
+          "path": "runtime/walk/W/01.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/W/02.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/W/03.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/W/04.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/W/05.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/W/06.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/W/07.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/W/08.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/W/09.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/W/10.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/W/11.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/W/12.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/W/13.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/W/14.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/W/15.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/W/16.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        }
+      ],
+      "idle": {
+        "path": "runtime/idle/W.png",
+        "exists": false,
+        "usable": false,
+        "issues": [
+          "missing"
+        ]
+      }
+    },
+    "NW": {
+      "walk": [
+        {
+          "path": "runtime/walk/NW/01.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NW/02.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NW/03.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NW/04.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NW/05.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NW/06.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NW/07.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NW/08.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NW/09.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NW/10.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NW/11.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NW/12.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NW/13.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NW/14.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NW/15.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        },
+        {
+          "path": "runtime/walk/NW/16.png",
+          "exists": false,
+          "usable": false,
+          "issues": [
+            "missing"
+          ]
+        }
+      ],
+      "idle": {
+        "path": "runtime/idle/NW.png",
+        "exists": false,
+        "usable": false,
+        "issues": [
+          "missing"
+        ]
+      }
+    }
+  },
+  "duplicate_sha_groups": [],
+  "counts": {
+    "walk_present": 0,
+    "walk_file_contract_valid": 0,
+    "idle_present": 0,
+    "idle_file_contract_valid": 0,
+    "walk_expected": 128,
+    "idle_expected": 8
+  }
+}</script>
+<script>
+'use strict';
+const data = JSON.parse(document.getElementById('inventory').textContent);
+const dirs = Object.keys(data.directions);
+const $ = id => document.getElementById(id);
+const images = new Map();
+const failures = new Set();
+let dir = 'S', mode = 'walk', playing = false, seam = false, position = 0, origin = performance.now(), ready = false;
+const sequence = () => seam ? [14,15,0,1] : Array.from({length:16}, (_,i)=>i);
+const currentFrame = () => sequence()[position];
+const records = Object.values(data.directions).flatMap(d => [...d.walk, d.idle]);
+const why = record => record.issues.join(', ') || (failures.has(record.path) ? 'browser-load-failed' : '');
+const good = record => record.usable && !failures.has(record.path);
+const complete = d => data.directions[d].walk.every(good);
+const currentRecord = () => mode === 'idle' ? data.directions[dir].idle : data.directions[dir].walk[currentFrame()];
+function show(img, empty, record, extra) {
+  if (!good(record) || extra) {
+    img.classList.add('hidden'); img.removeAttribute('src'); delete img.dataset.path; empty.classList.remove('hidden');
+    empty.textContent = extra || (record.exists ? '文件待处理\n'+why(record) : '缺少图片\n'+record.path);
+  } else {
+    if (img.dataset.path !== record.path) { img.src = record.path; img.dataset.path = record.path; }
+    img.classList.remove('hidden'); empty.classList.add('hidden');
+  }
+}
+function card(parent, id, title) {
+  const element=document.createElement('div'); element.className='card';
+  const heading=document.createElement('div'); heading.className='card-title'; heading.textContent=title;
+  const status=document.createElement('span'); status.id=id+'Status'; status.className='badge'; heading.append(status);
+  const stage=document.createElement('div'); stage.className='stage';
+  const img=document.createElement('img'); img.id=id+'Image'; img.alt=title;
+  const empty=document.createElement('div'); empty.id=id+'Empty'; empty.className='empty';
+  stage.append(img,empty); element.append(heading,stage); parent.append(element);
+}
+dirs.forEach(d => { const option=document.createElement('option');option.value=d;option.textContent=d;$('direction').append(option);card($('overview'),'overview'+d,d); });
+$('direction').value=dir;
+[14,15,0,1].forEach((n,i)=>card($('filmstrip'),'seam'+i,String(n+1).padStart(2,'0')));
+for(let n=0;n<16;n++) {const b=document.createElement('button');b.textContent=String(n+1).padStart(2,'0');b.title='查看第 '+(n+1)+' 帧';b.onclick=()=>{playing=false;seam=false;position=n;render();};$('phasebar').append(b);}
+function render() {
+  const frame=currentFrame(), record=currentRecord();
+  const canPlay=ready && mode==='walk' && complete(dir);
+  if (!canPlay) playing=false;
+  $('play').disabled=!canPlay;$('play').textContent=playing?'暂停':'播放';
+  $('previous').disabled=mode==='idle';$('next').disabled=mode==='idle';$('seam').disabled=mode==='idle';
+  $('seam').setAttribute('aria-pressed',String(seam));
+  $('phasebar').classList.toggle('hidden',mode==='idle');
+  [...$('phasebar').children].forEach((b,n)=>{b.setAttribute('aria-pressed',String(n===frame));b.classList.toggle('missing',!good(data.directions[dir].walk[n]));});
+  show($('mainImage'),$('mainEmpty'),record);
+  const stage=mode==='idle'?'独立站立':`第 ${String(frame+1).padStart(2,'0')} / 16 帧`;
+  const transport=mode==='idle'?'静态检查':!ready?'正在验证图片读取':!complete(dir)?'库存不齐或存在文件问题，循环已锁定':playing?'播放中':'已暂停';
+  $('playStatus').textContent=`${dir} · ${stage} · ${transport}`+(mode==='walk'?` · ${seam?'接缝 4 帧 / 120 ms':'完整 16 帧 / 480 ms'} · 30 ms/帧`:'');
+  $('frameEvidence').textContent=record.path+(record.sha256?' · SHA256 '+record.sha256:' · missing');
+  dirs.forEach(d=>{const r=mode==='idle'?data.directions[d].idle:data.directions[d].walk[frame];
+    const ok=mode==='idle'?good(r):complete(d);const count=data.directions[d].walk.filter(good).length;
+    $('overview'+d+'Status').textContent=mode==='idle'?(ok?'站立':'缺失/待处理'):`${count}/16 · ${String(frame+1).padStart(2,'0')}`;
+    show($('overview'+d+'Image'),$('overview'+d+'Empty'),r,ok?'':mode==='walk'?`${d} ${count}/16 可读合规帧\n整组循环未启用`:undefined);});
+  [14,15,0,1].forEach((n,i)=>show($('seam'+i+'Image'),$('seam'+i+'Empty'),data.directions[dir].walk[n]));
+}
+function pause(){playing=false;render();}
+function togglePlay(){if(mode!=='walk'||!ready||!complete(dir))return;playing=!playing;if(playing)origin=performance.now()-position*30;render();}
+function step(delta){playing=false;const seq=sequence();position=(position+delta+seq.length)%seq.length;render();}
+$('play').onclick=togglePlay;$('previous').onclick=()=>step(-1);$('next').onclick=()=>step(1);
+$('direction').onchange=e=>{dir=e.target.value;playing=false;position=0;render();};
+$('mode').onchange=e=>{mode=e.target.value;playing=false;position=0;render();};
+$('seam').onclick=()=>{playing=false;seam=!seam;position=0;render();};
+$('background').onchange=e=>document.documentElement.style.setProperty('--stage',e.target.value==='dark'?'#1a2830':'#f2ebd6');
+$('zoom').onchange=e=>$('mainStage').classList.toggle('large',e.target.value==='large');
+document.addEventListener('keydown',e=>{if(['SELECT','INPUT','BUTTON','TEXTAREA'].includes(document.activeElement.tagName))return;
+  if(e.code==='Space'){e.preventDefault();togglePlay();}else if(e.code==='ArrowRight'){e.preventDefault();step(1);}else if(e.code==='ArrowLeft'){e.preventDefault();step(-1);}});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
+function tick(now){if(playing){const phase=Math.floor((now-origin)/30)%sequence().length;if(phase!==position){position=phase;render();}}requestAnimationFrame(tick);}
+const c=data.counts;
+$('counts').textContent=`行走：${c.walk_present} / 128 文件，${c.walk_file_contract_valid} 通过文件核查；独立站立：${c.idle_present} / 8 文件，${c.idle_file_contract_valid} 通过文件核查。`;
+$('inventoryWarning').textContent=c.walk_file_contract_valid===128&&c.idle_file_contract_valid===8?'文件合同已齐；美术审阅结论仍须由实际检查单独记录。':'库存未齐或存在文件问题：不能视为完成，也不能重复已有帧补齐。详见底部库存清单。';
+$('buildTime').textContent='库存快照 UTC：'+data.generated_at_utc+'。导入或更换任何图片后请重建预览。';
+$('manifest').textContent=JSON.stringify(data,null,2);
+render();requestAnimationFrame(tick);
+Promise.all(records.filter(r=>r.usable).map(r=>new Promise(resolve=>{const img=new Image();images.set(r.path,img);
+  img.onload=()=>{if(img.naturalWidth!==1024||img.naturalHeight!==1024)failures.add(r.path);resolve();};img.onerror=()=>{failures.add(r.path);resolve();};img.src=r.path;
+}))).then(()=>{ready=true;if(failures.size){$('inventoryWarning').textContent+=' 浏览器读取失败或尺寸变化：'+[...failures].join('、');}render();});
+</script></body></html>

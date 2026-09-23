@@ -1,0 +1,36 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>08 炼丹童子 · 离线动作审阅</title>
+<style>
+:root{font:16px system-ui;color:#243b37;background:#eeeade}body{margin:20px}button,select,input{font:inherit;margin:4px;padding:7px}header{position:sticky;top:0;background:#eeeade;z-index:2;border-bottom:1px solid #aea78b;padding:8px}#overview{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:10px}figure{margin:0;background:#faf7ee;border:1px solid #c6bea7}figcaption{padding:8px}canvas{display:block;width:100%;height:auto}#detail{overflow:auto;border:1px solid #aaa;margin-top:14px}#large{width:512px;height:512px;max-width:none}#detail.zoom #large{width:1024px;height:1024px}#missing{max-height:140px;overflow:auto;font-size:13px}.warn{color:#934013}a{color:#145c55}.seams{display:flex;overflow:auto;gap:6px}.seams img{width:256px;height:256px}.seams>div{min-width:256px}.meta{font-size:13px;color:#53645e}@media(max-width:800px){#overview{grid-template-columns:repeat(2,1fr)}}
+</style>
+<header><strong>08 炼丹童子 · 30 毫秒 / 帧 · 480 毫秒 / 圈</strong><p id="status"></p>
+<button id="play">暂停</button><button id="prev">上一帧</button><button id="next">下一帧</button><label>帧 <input id="frame" type="range" min="1" max="16" value="1"><output id="number">01</output></label>
+<label>方向 <select id="direction"></select></label><label>动作 <select id="action"><option value="walk">行走</option><option value="idle">独立站立</option></select></label>
+<label>底色 <select id="theme"><option value="light">浅底</option><option value="dark">深底</option></select></label><button id="zoom">放大 1:1</button><button id="seam">接缝 15→16→01→02</button><button id="cycle">完整16帧</button>
+<span class="meta">浏览器按时间选帧；不插值。刷新率可能跳过显示帧，逐帧按钮用于完整检查。</span></header>
+<p class="warn">这是素材离线审阅；文件齐全不代表美术通过。未宣称 Unity 或正式客户端验收。</p><p><a href="manifest.json">固定快照来源与 SHA 清单</a></p>
+<div id="overview"></div><h2 id="detailTitle"></h2><div id="detail"><canvas id="large" width="1024" height="1024"></canvas></div><h3>15→16→01→02 接缝静态对照</h3><div id="seams" class="seams"></div><details><summary>准确缺槽</summary><div id="missing"></div></details>
+<script>
+const M=__MANIFEST__, $=id=>document.getElementById(id), cache=new Map(), rows=new Map(M.files.map(r=>[r.slot,r]));
+let playing=true, frame=1, direction='S', action='walk', sequence=Array.from({length:16},(_,i)=>i+1), start=performance.now(), last=-1;
+$('status').textContent=`快照 ${M.revision}：${M.actual_walk}/128 行走，${M.actual_idle}/8 独立站立。美术审阅待确认。`;
+$('missing').textContent=M.missing.length?M.missing.join(' · '):'无缺槽';
+function slot(d,f,a=action){return a==='idle'?`idle/${d}`:`walk/${d}/${String(f).padStart(2,'0')}`}
+function color(){return $('theme').value==='dark'?'#1e262e':'#f0eee4'}
+function paint(canvas,key){const c=canvas.getContext('2d');c.fillStyle=color();c.fillRect(0,0,canvas.width,canvas.height);const im=cache.get(key);if(im&&im.complete&&im.naturalWidth)c.drawImage(im,0,0,canvas.width,canvas.height);else{c.fillStyle=$('theme').value==='dark'?'#eee':'#884829';c.font=`${canvas.width/22}px system-ui`;c.textAlign='center';c.fillText(rows.has(key)?'正在加载':'缺帧：'+key,canvas.width/2,canvas.height/2)}}
+const panels=[];
+for(const d of M.directions){const option=document.createElement('option');option.value=d;option.textContent=d;$('direction').append(option);const fig=document.createElement('figure'),cap=document.createElement('figcaption'),can=document.createElement('canvas');can.width=can.height=512;cap.textContent=d;fig.append(cap,can);fig.onclick=()=>{direction=d;$('direction').value=d;draw();drawSeams()};$('overview').append(fig);panels.push([d,can,cap])}
+$('direction').value=direction;
+for(const row of M.files){const im=new Image();im.src=row.path;im.onload=()=>{draw();drawSeams()};cache.set(row.slot,im)}
+function draw(){for(const[d,c,cap]of panels){paint(c,slot(d,frame));cap.textContent=`${d} · ${action==='idle'?'独立站立':String(frame).padStart(2,'0')}`};paint($('large'),slot(direction,frame));$('detailTitle').textContent=`${direction} · ${action==='idle'?'独立站立':'行走 '+String(frame).padStart(2,'0')}`;$('frame').value=frame;$('number').textContent=String(frame).padStart(2,'0')}
+function drawSeams(){$('seams').replaceChildren();for(const f of[15,16,1,2]){const box=document.createElement('div'),label=document.createElement('div'),c=document.createElement('canvas');c.width=c.height=512;label.textContent=`${direction} ${String(f).padStart(2,'0')}`;box.append(label,c);$('seams').append(box);paint(c,slot(direction,f,'walk'))}}
+function pause(){playing=false;$('play').textContent='播放'}
+function step(n){pause();frame=(frame-1+n+16)%16+1;draw()}
+$('play').onclick=()=>{playing=!playing;$('play').textContent=playing?'暂停':'播放';const at=sequence.indexOf(frame);start=performance.now()-Math.max(0,at)*30};
+$('prev').onclick=()=>step(-1);$('next').onclick=()=>step(1);$('frame').oninput=()=>{pause();frame=+$('frame').value;draw()};
+$('direction').onchange=()=>{direction=$('direction').value;draw();drawSeams()};$('action').onchange=()=>{action=$('action').value;draw()};$('theme').onchange=()=>{draw();drawSeams()};
+$('zoom').onclick=()=>{$('detail').classList.toggle('zoom');$('zoom').textContent=$('detail').classList.contains('zoom')?'正常 512 显示':'放大 1:1'};
+function mode(seq){sequence=seq;start=performance.now();frame=sequence[0];last=-1;playing=true;$('play').textContent='暂停';action='walk';$('action').value='walk';draw()}
+$('seam').onclick=()=>mode([15,16,1,2]);$('cycle').onclick=()=>mode(Array.from({length:16},(_,i)=>i+1));
+function tick(now){if(playing&&action==='walk'){const at=Math.floor((now-start)/30)%sequence.length;if(at!==last){last=at;frame=sequence[at];draw()}}requestAnimationFrame(tick)}
+draw();drawSeams();requestAnimationFrame(tick);
+</script></html>

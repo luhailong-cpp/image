@@ -1,0 +1,502 @@
+{
+  "schemaVersion": 1,
+  "reviewedAtUtc": "2026-09-21T14:15:53.701175+00:00",
+  "sourceCandidate": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\neighbor_join_v5\\output\\r09_c09.png",
+  "sourceSha256": "0ef8ac27a25ac3d044c554a26828242aacc134bfcdd9dae0f711bc6608538980",
+  "status": "reviewed_existing_neighbor_and_treatment_return_continuity_passed_candidate_only",
+  "localBoundaryContinuityPassed": true,
+  "formalArtAccepted": false,
+  "productionAccepted": false,
+  "runtimePublished": false,
+  "scope": "Only the existing left/bottom delivery neighbors, their complete treatment-return lines, one four-delivery-tile corner and registration-cap risk locations. Not missing top/right neighbors, whole city, navigation or runtime.",
+  "coverage": {
+    "fullExternalBoundariesFreshlyViewed": 2,
+    "fullTreatmentReturnLinesFreshlyViewed": 2,
+    "nativeFullLineSegmentsViewed": 16,
+    "fourTileCornerFreshlyViewed": 1,
+    "treatmentReturnCornerFreshlyViewed": 1,
+    "previousProblemDetailCropsFreshlyViewed": 4,
+    "nearCapClusterCropsFreshlyViewed": 4,
+    "providedQaFilesHashVerified": 12,
+    "providedCurrentQaFilesFreshlyViewed": 10,
+    "historicalBeforeQaFilesNotCountedAsFreshlyViewed": 2,
+    "resizedEvidenceImages": 0
+  },
+  "findings": [
+    {
+      "id": "left_existing_neighbor",
+      "result": "pass_scoped_local_visual_review",
+      "detail": "All4096 pixels across r09_c08/r09_c09 were read as four native segments, plus prior problem crops y640/y1376. The previous narrow tone split and small rim offsets no longer form a definite hard seam. General stone texture variation remains, but no broken slab contour was observed across the reviewed boundary."
+    },
+    {
+      "id": "bottom_existing_neighbor",
+      "result": "pass_scoped_local_visual_review",
+      "detail": "All4096 pixels across r09_c09/r10_c09 were read with the transposed axes explicitly accounted for, plus x1408/x1856 crops. The previous groove step and horizontal tone line are not visibly discontinuous in these current v5 images."
+    },
+    {
+      "id": "treatment_returns",
+      "result": "pass_scoped_local_visual_review",
+      "detail": "The full x215 return line and full y3880 return line were viewed in four native segments each, with the southwest return corner. No new clipped rim, hard color band or blurred return line was observed."
+    },
+    {
+      "id": "four_delivery_tile_corner",
+      "result": "pass_scoped_local_visual_review",
+      "detail": "The actual r09c08/r09c09/r10c08/r10c09 corner was viewed. Stone joints and highlights remain joined, with gradual painted surface variation rather than the former abrupt quadrant split."
+    },
+    {
+      "id": "near_eight_pixel_cap",
+      "result": "pass_scoped_local_visual_review_with_resampling_disclosure",
+      "detail": "All four effective near-cap clusters were viewed in additional512px native support crops. No definitive distortion, doubled contour or new edge break was observed at those locations. Reaching8px and matching hashes were not treated as visual pass evidence by themselves."
+    }
+  ],
+  "independentMechanicalEvidence": {
+    "sourceOutputQaHashChecks": 30,
+    "failedChecks": 0,
+    "interiorPixelsEqualV4": true,
+    "interiorRectLTRB": [
+      215,
+      0,
+      4096,
+      3881
+    ],
+    "nineInternalJunctionsEqualV4": true
+  },
+  "internalCoverageInheritance": "V4 internal review is retained only for unchanged pixels. The interior rectangle and all9 internal junction crops were independently compared at raw pixel level; altered left/bottom strips are covered by current full boundary and return boards.",
+  "nearCapDisclosure": {
+    "thresholdPixels": 7.999,
+    "maskRule": "effective core mask>0",
+    "pixelCount": 587,
+    "exactEightPixelCount": 449,
+    "clusters": [
+      {
+        "boundsLTRB": [
+          3566,
+          4089,
+          3628,
+          4094
+        ],
+        "pixels": 304
+      },
+      {
+        "boundsLTRB": [
+          3,
+          3092,
+          7,
+          3123
+        ],
+        "pixels": 118
+      },
+      {
+        "boundsLTRB": [
+          3,
+          693,
+          7,
+          726
+        ],
+        "pixels": 127
+      },
+      {
+        "boundsLTRB": [
+          3,
+          3522,
+          7,
+          3535
+        ],
+        "pixels": 38
+      }
+    ],
+    "interpretation": "Cap counts identify areas to inspect. They do not establish pass or failure."
+  },
+  "resamplingDisclosure": "Recorded bounded subpixel registration max8px and local RGB correction max18 on the left/bottom treatment bands. No artwork enlargement; not a no-resampling claim.",
+  "qaEvidence": [
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\neighbor_join_v5\\qa\\external_left_before_v4_full4096_100pct.png",
+      "sha256": "b049ee5090644920ed4c77ae157f19c672aa7a88b5609959d9af3e2b10f9571a",
+      "pixels": [
+        1280,
+        1024
+      ],
+      "role": "Full left boundary, four consecutive native-pixel segments",
+      "resized": false,
+      "sourceBoxes": [
+        {
+          "segment": 0,
+          "stripYRange": [
+            0,
+            1024
+          ]
+        },
+        {
+          "segment": 1,
+          "stripYRange": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "segment": 2,
+          "stripYRange": [
+            2048,
+            3072
+          ]
+        },
+        {
+          "segment": 3,
+          "stripYRange": [
+            3072,
+            4096
+          ]
+        }
+      ],
+      "viewedFreshThisRound": false,
+      "reviewRole": "historical before board: hash verified, not counted as fresh viewing"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\neighbor_join_v5\\qa\\external_bottom_before_v4_full4096_100pct.png",
+      "sha256": "ff1779db39704c352135e77db3ed5dd66013beae9ef55af4b92729b1ca007fba",
+      "pixels": [
+        1280,
+        1024
+      ],
+      "role": "Full bottom boundary, four consecutive native-pixel segments; axes transposed",
+      "resized": false,
+      "sourceBoxes": [
+        {
+          "segment": 0,
+          "stripYRange": [
+            0,
+            1024
+          ]
+        },
+        {
+          "segment": 1,
+          "stripYRange": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "segment": 2,
+          "stripYRange": [
+            2048,
+            3072
+          ]
+        },
+        {
+          "segment": 3,
+          "stripYRange": [
+            3072,
+            4096
+          ]
+        }
+      ],
+      "viewedFreshThisRound": false,
+      "reviewRole": "historical before board: hash verified, not counted as fresh viewing"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\neighbor_join_v5\\qa\\external_left_after_v5_full4096_100pct.png",
+      "sha256": "5267c92ecd3d60ff899ff36d6e0e77c98478837ba1d15b25a4e1da40a957ee6b",
+      "pixels": [
+        1280,
+        1024
+      ],
+      "role": "Full left boundary, four consecutive native-pixel segments",
+      "resized": false,
+      "sourceBoxes": [
+        {
+          "segment": 0,
+          "stripYRange": [
+            0,
+            1024
+          ]
+        },
+        {
+          "segment": 1,
+          "stripYRange": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "segment": 2,
+          "stripYRange": [
+            2048,
+            3072
+          ]
+        },
+        {
+          "segment": 3,
+          "stripYRange": [
+            3072,
+            4096
+          ]
+        }
+      ],
+      "viewedFreshThisRound": true,
+      "reviewRole": "actually viewed through view_image detail=original; all four panels read for full-strip boards"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\neighbor_join_v5\\qa\\external_bottom_after_v5_full4096_100pct.png",
+      "sha256": "afc867308eca53d1df7e3966c5e5faa1e3747b3e019be16d6f795fa49be5a6bc",
+      "pixels": [
+        1280,
+        1024
+      ],
+      "role": "Full bottom boundary, four consecutive native-pixel segments; axes transposed",
+      "resized": false,
+      "sourceBoxes": [
+        {
+          "segment": 0,
+          "stripYRange": [
+            0,
+            1024
+          ]
+        },
+        {
+          "segment": 1,
+          "stripYRange": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "segment": 2,
+          "stripYRange": [
+            2048,
+            3072
+          ]
+        },
+        {
+          "segment": 3,
+          "stripYRange": [
+            3072,
+            4096
+          ]
+        }
+      ],
+      "viewedFreshThisRound": true,
+      "reviewRole": "actually viewed through view_image detail=original; all four panels read for full-strip boards"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\neighbor_join_v5\\qa\\left_treatment_return_x215_100pct.png",
+      "sha256": "020ba3c13fe6bb69a7d0c458475a78913196941fe421db0938715296cda67496",
+      "pixels": [
+        1280,
+        1024
+      ],
+      "role": "Left treatment return boundary x=215",
+      "resized": false,
+      "sourceBoxes": [
+        {
+          "segment": 0,
+          "stripYRange": [
+            0,
+            1024
+          ]
+        },
+        {
+          "segment": 1,
+          "stripYRange": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "segment": 2,
+          "stripYRange": [
+            2048,
+            3072
+          ]
+        },
+        {
+          "segment": 3,
+          "stripYRange": [
+            3072,
+            4096
+          ]
+        }
+      ],
+      "viewedFreshThisRound": true,
+      "reviewRole": "actually viewed through view_image detail=original; all four panels read for full-strip boards"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\neighbor_join_v5\\qa\\bottom_treatment_return_y3880_100pct.png",
+      "sha256": "d29ce868fa46bfc5cfac61a2ef2b6883570875356ce4083aab13d609bd390cd4",
+      "pixels": [
+        1280,
+        1024
+      ],
+      "role": "Bottom treatment return boundary y=3880; axes transposed",
+      "resized": false,
+      "sourceBoxes": [
+        {
+          "segment": 0,
+          "stripYRange": [
+            0,
+            1024
+          ]
+        },
+        {
+          "segment": 1,
+          "stripYRange": [
+            1024,
+            2048
+          ]
+        },
+        {
+          "segment": 2,
+          "stripYRange": [
+            2048,
+            3072
+          ]
+        },
+        {
+          "segment": 3,
+          "stripYRange": [
+            3072,
+            4096
+          ]
+        }
+      ],
+      "viewedFreshThisRound": true,
+      "reviewRole": "actually viewed through view_image detail=original; all four panels read for full-strip boards"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\neighbor_join_v5\\qa\\four_tile_junction_100pct.png",
+      "sha256": "cd28fbf9a5380ae8ba6716156db8558774c3ead398a6a54470696b92288914fc",
+      "pixels": [
+        1024,
+        1024
+      ],
+      "role": "Actual r09c08/r09c09/r10c08/r10c09 corner, no resizing",
+      "resized": false,
+      "sourceBoxes": null,
+      "viewedFreshThisRound": true,
+      "reviewRole": "actually viewed through view_image detail=original; all four panels read for full-strip boards"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\neighbor_join_v5\\qa\\treatment_return_corner_100pct.png",
+      "sha256": "a8970215c8f47fd942a41b73ce1222cd49f624070c03f3d09ce9ad63b76c0057",
+      "pixels": [
+        720,
+        656
+      ],
+      "role": "Return-band corner and new tile southwest corner",
+      "resized": false,
+      "sourceBoxes": null,
+      "viewedFreshThisRound": true,
+      "reviewRole": "actually viewed through view_image detail=original; all four panels read for full-strip boards"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\neighbor_join_v5\\qa\\left_detail_y640_100pct.png",
+      "sha256": "1c03cd582bbcd1c6bae6d1585d97a28ccecae1d2a7f7bbf4677c55a60fa36e3c",
+      "pixels": [
+        512,
+        512
+      ],
+      "role": "Native-pixel left boundary detail",
+      "resized": false,
+      "sourceBoxes": null,
+      "viewedFreshThisRound": true,
+      "reviewRole": "actually viewed through view_image detail=original; all four panels read for full-strip boards"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\neighbor_join_v5\\qa\\left_detail_y1376_100pct.png",
+      "sha256": "a4929886da9d0e23822ebefa6570abdb3e75609624a124ee5a643f6dee6faf97",
+      "pixels": [
+        512,
+        512
+      ],
+      "role": "Native-pixel left boundary detail",
+      "resized": false,
+      "sourceBoxes": null,
+      "viewedFreshThisRound": true,
+      "reviewRole": "actually viewed through view_image detail=original; all four panels read for full-strip boards"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\neighbor_join_v5\\qa\\bottom_detail_x1408_100pct.png",
+      "sha256": "825f51c009a6d6f09c8ea77fd97b3e403061810d7816b47bbc0708aa83457113",
+      "pixels": [
+        512,
+        512
+      ],
+      "role": "Native-pixel bottom boundary detail",
+      "resized": false,
+      "sourceBoxes": null,
+      "viewedFreshThisRound": true,
+      "reviewRole": "actually viewed through view_image detail=original; all four panels read for full-strip boards"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\neighbor_join_v5\\qa\\bottom_detail_x1856_100pct.png",
+      "sha256": "e507aba92546f26654d793f15a477cfb2517a11c5c534ec154d27648437456c0",
+      "pixels": [
+        512,
+        512
+      ],
+      "role": "Native-pixel bottom boundary detail",
+      "resized": false,
+      "sourceBoxes": null,
+      "viewedFreshThisRound": true,
+      "reviewRole": "actually viewed through view_image detail=original; all four panels read for full-strip boards"
+    }
+  ],
+  "extraEvidence": [
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\audit\\r09_c09_review_v5\\near_cap_left_y710.png",
+      "sha256": "d6a72629d7636420c9b08c4fce93a1215d721fb5f5483531e8a2dceeab9f144c",
+      "sourceBoxRelativeToTileLTRB": [
+        -256,
+        454,
+        256,
+        966
+      ],
+      "resized": false,
+      "role": "native left-seam cap cluster support"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\audit\\r09_c09_review_v5\\near_cap_left_y3107.png",
+      "sha256": "431f1f51f2068351d136ae85cea90f1642c2108e4ec120f2e9ad104dbbaff3b7",
+      "sourceBoxRelativeToTileLTRB": [
+        -256,
+        2851,
+        256,
+        3363
+      ],
+      "resized": false,
+      "role": "native left-seam cap cluster support"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\audit\\r09_c09_review_v5\\near_cap_left_y3528.png",
+      "sha256": "979700c364025497a2aad2effba1252975b4ef5b3c419ca6b9656d23d8c0eb01",
+      "sourceBoxRelativeToTileLTRB": [
+        -256,
+        3272,
+        256,
+        3784
+      ],
+      "resized": false,
+      "role": "native left-seam cap cluster support"
+    },
+    {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\audit\\r09_c09_review_v5\\near_cap_bottom_x3597.png",
+      "sha256": "beb798ad3f9c6c83c0010f2a10f1d0e7a08eeb69eda7746e97306b4ba7e0181a",
+      "sourceBoxRelativeToTileLTRB": [
+        3341,
+        3840,
+        3853,
+        4352
+      ],
+      "resized": false,
+      "role": "native bottom-seam cap cluster support"
+    }
+  ],
+  "remaining": [
+    "upper material OBS01 in v5 is evaluated separately on v6",
+    "top/right future neighbors",
+    "full256 tiles and all external seams/junctions",
+    "foreground/navigation/entrances",
+    "closest game camera and movement",
+    "device performance"
+  ],
+  "sourceUnchanged": true
+}

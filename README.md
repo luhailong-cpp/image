@@ -1,5 +1,7 @@
 # 五行奇谈 · Q 版游戏美术
 
+**2026-09-21 风格确认：后续必须沿用 [designs 现有成图的美术风格](designs/README.md)。** 该入口列出直接参考图与作图流程；使用最新正式 GPT Image 和最高画质，具体型号与质量继续只在 [统一图像设置](config/image-generation.json)维护。
+
 **[主城地图切图规范](主城地图切图规范.md)**：只规定主城地图的高清分块、拼接、裁切、命名与验收。每块4096×4096、最高画质，整图尺寸由最终拼接结果决定。本轮方案与进度见 [制作记录](qdao_city_tiles_4k_20260916/README.md)，客户端实现见 [接入说明](../mmorpg-client/Docs/CityTiles4K.md)。
 
 2026-09-14 [群组、世界频道与谣言 UI](designs/social-ui-v1/README.md)：已补齐三张同风格效果图与可交互页面，群列表／群聊／资料／邀请、四个聊天频道与只读系统传闻均可演示，附桌面和手机验收。
@@ -22,7 +24,7 @@
 
 ## 给接手的 Codex
 
-绘图型号与最高画质统一读取 [config/image-generation.json](config/image-generation.json)，以后升级只改这一处；[执行策略](docs/IMAGE_MODEL_POLICY.md)说明每任务核对、内置优先及实际参数记录。根目录 [AGENTS.md](AGENTS.md)与各技能引用同一设置。换电脑时同步配置，并迁移已适配的本机工具和路径登记。
+绘图默认型号与最高画质统一读取 [config/image-generation.json](config/image-generation.json)，以后出现更新型号或更高质量档位时更新这一处用于新图；**每张图都要记录所用 GPT Image 版本和质量**，记录位置与未披露参数的处理见[逐图生成记录](docs/IMAGE_MODEL_POLICY.md#逐图生成记录)。[执行策略](docs/IMAGE_MODEL_POLICY.md)说明每任务核对与内置优先。根目录 [AGENTS.md](AGENTS.md)与各技能引用同一设置。换电脑时同步配置，并迁移已适配的本机工具和路径登记。
 
 **开新窗口继续制作时，先阅读 [五行奇谈后续交接](docs/WUXING_QITAN_HANDOFF.md)**，其中列出最终交付、验收记录与客户端后续步骤。
 

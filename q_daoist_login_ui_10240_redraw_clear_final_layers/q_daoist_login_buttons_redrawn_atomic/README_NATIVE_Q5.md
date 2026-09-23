@@ -1,13 +1,15 @@
-# 五行奇谈 · 原子 UI 新版原尺寸资产
+# Unity UGUI 对应图标保留目录
 
-本目录原有 11 个控件和徽标母图已按原像素尺寸原路径重做；旧清单中缺失的 10 枚 420 × 420 圆徽标已补齐。`icon_leaf.png` 是桃灵兼容别名。所有 PNG 均为真 RGBA。
+2026-09-21 按用户要求，仅保留当前 Unity UGUI 客户端有对应画面的素材。
 
-详见 [逐件清单](manifest_native_q5.json)、[十徽标清单](manifest_ai_qstyle_badges.json) 与 [完整重建/拆层/九宫格说明](../../exact_qdao_slices/README.md)。原生 SVG 源在 `svg_q5/`，当前构建入口见 [v10 重建流程](../../qdao_ui_style_recut_v10/README.md#确定性重建)，旧 `build_native_q5.mjs` 已禁止写回历史皮肤；当前原画、哈希与验收以 v10 为准。
+- `qstyle_redrawn_600x600/character_artifacts_redrawn_24_600x600/`：24 张独立物品图标。
+- `qstyle_redrawn_600x600/west_eight_immortals_redrawn_100_600x600/`：100 张独立物品图标。
+- 对应客户端路径：`mmorpg-client/Assets/Resources/UI/qdao_v3/icons_weapon/<同名文件>.png`。
 
-母图文件保留 `ai_qstyle_badges_sheet_chroma.png` 旧名和 1774 × 887 尺寸，背景已经改为真透明，10 个单元的原坐标未变。此文件由原生 SVG 构建，已不再是 AI 色键过程图。
+保留图为 600×600；客户端对应图为 256×256，存在缩放和细微像素差异，不声明逐字节相同。124 张均有同名、画面对应的客户端版本；这不表示每个图标都在某个当前页面实际显示。
 
-子目录中的物件素材与相关图集由独立构建链管理，本批没有改动。
+本次删除与当前客户端画面不一致的 23 张旧控件/徽标 PNG、对应 23 份嵌入 PNG 的 SVG，以及 3 份旧控件清单。4 个 FairyGUI 图集文件在本次操作前已由用户删除；当前项目采用 Unity UGUI，不再保留 FairyGUI 图集交付。
 
-## 2026-09-20 暂存去重
+历史构建/同步脚本中可能仍有已删除控件或图集路径；这些引用不构成本次保留依据，不应直接运行旧脚本重建已经弃用的资源。本次未修改客户端文件。
 
-正式控件、124 张图标及 FairyGUI 图集全部保留。对应 v10 暂存中的 46 个同字节 PNG/SVG 已移除；读取时按哈希引用正式来源，需要实体副本时使用恢复工具。图集已在隔离输出重建并核对为同字节，仍按正式交付合同保留。详见 [清理与恢复记录](../../docs/ui-cleanup-20260920/README.md)。
+[本次清理记录](../../docs/ugui-source-cleanup-20260921.md) · [逐文件哈希与客户端比对](../../docs/ugui-source-cleanup-20260921.json)

@@ -16,9 +16,10 @@ import sys
 import uuid
 
 import approve_mixed_roster as approve
+import mixed_workspace
 
 ROOT = approve.ROOT
-ISOLATED_PROJECT = Path("E:/work/tmp/qdao-original-live-candidate-20260917")
+ISOLATED_PROJECT = mixed_workspace.ISOLATED
 CHARACTERS = "Assets/Resources/World/Characters"
 FAMILY = CHARACTERS + "/QdaoOriginalRosterV14"
 AUDIT_ROOT = ROOT / "mixed-stage-audits"
@@ -28,8 +29,9 @@ require, sha, read, encoded, safe_child = approve.require, approve.sha, approve.
 
 def project_path(path):
     path = Path(path).absolute()
-    require(path == ISOLATED_PROJECT.absolute(), "Only the exact isolated project is allowed; formal publication is unsupported")
-    approve.child_directory(path, path.parent)
+    path = approve.child_directory(path, path.parent)
+    expected = approve.child_directory(ISOLATED_PROJECT, ISOLATED_PROJECT.absolute().parent)
+    require(path == expected, "Only the exact isolated project is allowed; formal publication is unsupported")
     require(path.is_dir() and all(safe_child(path, p).is_dir() for p in ("Assets", "Packages", "ProjectSettings")),
             "Isolated Unity project is unavailable")
     return path.resolve()

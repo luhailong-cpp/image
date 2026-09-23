@@ -1,0 +1,26 @@
+from pathlib import Path
+import importlib.util,json,sys
+here=Path(__file__).resolve().parent
+module_path=here.parent/'06-tools/archive_generation.py'
+spec=importlib.util.spec_from_file_location('archive06',module_path);a=importlib.util.module_from_spec(spec);spec.loader.exec_module(a)
+jobs=json.loads((here/'plan.json').read_text(encoding='utf-8'))['jobs']
+frame=int(sys.argv[1]);version=int(sys.argv[2]);job=next(j for j in jobs if j['direction']=='N' and j['frame']==frame)
+prompt=Path(job['prompt_path']).read_text(encoding='utf-8')
+reference_batch='N09-walk-v2' if frame in [6,7,8,10,11,12] else 'N01-walk-v1'
+reference=here.parent/'06-generation'/reference_batch/'raw.png'
+details={
+6:'IMAGE-LEFT leg is now swinging FORWARD AWAY from the viewer, boot extending toward screen top and becoming partly foreshortened, its heel is airborne just above where it will land. Do not show a large left boot sole toward the viewer. IMAGE-RIGHT leg supports behind: its heel lifts and the right sole angles toward the viewer, with right toes at the low ground contact. This is just after left high swing and before image 4 left-contact pose; make the airborne left boot higher and more bent than image 4.',
+7:'IMAGE-LEFT boot is the FORWARD boot, farther AWAY and HIGHER on the canvas, heel almost touching but still airborne. IMAGE-RIGHT boot is TRAILING toward the viewer LOWER on the canvas: show the dark sole angled toward the viewer, only its toes touch ground. Never put the large trailing exposed sole on image-left. This is two frames before the left-contact reference; left heel is visibly just above contact.',
+8:'IMAGE-LEFT boot is the FORWARD boot, farther AWAY and HIGHER on the canvas, heel a hair above contact. IMAGE-RIGHT boot is TRAILING toward the viewer LOWER on the canvas: show its dark sole toward the viewer and final toe push-off. Never put the large trailing exposed sole on image-left. This is immediately before the left-contact reference and should lead smoothly into it with a tiny real leg/sole angle difference, not an identical pose.',
+10:'Maintain the LEFT-leading assignment of image 4. IMAGE-LEFT boot is forward, farther away and higher on the canvas, beginning to flatten on its sole and bearing weight. IMAGE-RIGHT boot trails toward the viewer lower on canvas, heel rising and dark sole visible toward viewer, toe still touching. Do not place the trailing sole on image-left. Soften the left knee and right toe angle compared with the left-contact reference.',
+11:'IMAGE-LEFT boot remains planted farther away beneath the body and bears weight. IMAGE-RIGHT boot has just left its trailing ground point and begins to lift and move under the hip, bending the right knee, its dark sole visible toward viewer. Keep the image-right boot lower than its later high swing but completely airborne. Do not place an airborne trailing sole on image-left.',
+12:'IMAGE-LEFT leg is the sole planted supporting leg. IMAGE-RIGHT leg bends and swings forward to pass the supporting leg; right heel is lifted, its sole visible, right boot tucked higher with a visible gap from ground. Keep both boot silhouettes separate. This is a genuine right-leg passing pose before right high swing, do not repeat the wide contact split of image 4 or switch the supporting leg.',
+14:'IMAGE-RIGHT leg is now swinging FORWARD AWAY from the viewer, boot extending toward screen top and partly foreshortened, its heel airborne. Do not show a large right boot sole toward the viewer. IMAGE-LEFT leg supports behind: its heel lifts and the left sole angles toward the viewer, left toes at the low ground point. This is after right high swing and before image 4 right-contact; airborne right boot is higher and more bent than reference.',
+15:'IMAGE-RIGHT boot is the FORWARD boot, farther AWAY and HIGHER on the canvas, heel almost touching but still airborne. IMAGE-LEFT boot is TRAILING toward the viewer LOWER on the canvas, dark sole angled toward viewer, only toes touching. Never put the large exposed trailing sole on image-right. Two frames before right-contact reference; right heel visibly just above contact.',
+16:'IMAGE-RIGHT boot is the FORWARD boot, farther AWAY and HIGHER on the canvas, heel a hair above contact. IMAGE-LEFT boot trails toward viewer LOWER on canvas, dark sole toward viewer and final toe push-off. Never put the large trailing sole on image-right. Immediately precedes image 4 right-contact; a tiny genuine pose change should join smoothly into frame 01 and 02, not an identical pose.'}
+prompt+='\nAdditional input image 4 is the selected N-direction contact frame for consistent size, costume, camera and the stated leg assignment. Keep its equipment hands and do not mirror it. CRITICAL SCREEN-SPACE LEG CONSTRAINT: '+details[frame]+' Draw the exact new phase anatomically, not a transformed copy. Keep no background, native transparent alpha, no fringe. Do not let the frontal identity reference reverse left and right: the target is a rear view.'
+refs=job['references']+[str(reference.resolve())]
+batch=f'N{frame:02d}-walk-v{version}'
+prompt_path=here/'plans/N'/f'{frame:02d}-v{version}-enhanced.prompt.txt';prompt_path.write_text(prompt,encoding='utf-8')
+result=a.prepare(batch,prompt,refs)
+print(json.dumps(result,ensure_ascii=False))
