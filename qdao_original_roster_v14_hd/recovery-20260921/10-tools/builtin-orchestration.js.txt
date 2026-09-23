@@ -1,0 +1,14 @@
+async function generate10(attempt,prompt,refs,roles) {
+ const {base,rec}=load("root10paths"), dir=rec+"/10-generation/"+attempt;
+ const pre=await tools.exec_command({cmd:"if (Test-Path -LiteralPath '"+dir+"') { throw 'Attempt exists' }; Get-Content -LiteralPath '"+base+"/config/image-generation.json' -Raw",max_output_tokens:1200});
+ if(pre.exit_code!==0)throw Error(pre.output);
+ const request={status:"prepared_for_submission",startedAt:new Date().toISOString(),tool:"image_gen__imagegen",actual_request:{prompt,referenced_image_paths:refs},referenceRoles:roles,configSnapshot:JSON.parse(pre.output),submittedParameters:{model:null,quality:null}};
+ const add=(name,txt)=>"*** Add File: "+dir+"/"+name+"\n"+txt.split("\n").map(x=>"+"+x).join("\n")+"\n";
+ await tools.apply_patch("*** Begin Patch\n"+add("request.json",JSON.stringify(request,null,2))+add("prompt.txt",prompt)+"*** End Patch");
+ let result;try {result=await tools.image_gen__imagegen(request.actual_request);}catch(e){await tools.apply_patch("*** Begin Patch\n"+add("error.json",JSON.stringify({at:new Date().toISOString(),message:String(e)},null,2))+"*** End Patch");throw e;}
+ generatedImage(result);
+ await tools.apply_patch("*** Begin Patch\n"+add("result.json",JSON.stringify({output_hint:result.output_hint},null,2))+"*** End Patch");
+ const match=String(result.output_hint).match(/as (C:\\[^\r\n]+?\.png) by default/);
+ if(!match){text({attempt,keys:Object.keys(result),hint:result.output_hint});return;}
+ text({attempt,archive:await tools.exec_command({cmd:"& 'C:/Users/Administrator/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe' -X utf8 -B '"+rec+"/10-tools/archive_and_audit.py' archive --archive '"+dir+"' --original '"+match[1]+"' --result '"+dir+"/result.json'",max_output_tokens:1600})});
+}
