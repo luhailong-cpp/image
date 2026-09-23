@@ -1,0 +1,86 @@
+{
+  "character_id": "17_ghost_script_calligrapher_boy",
+  "reviewed_at": "2026-09-23T12:08:01.816Z",
+  "reviewer": "finish_wnw_independent_static",
+  "snapshot": "revisions/S-SW-review-20260923-v2",
+  "manifest_sha256": "630fc562f987e4b7d2445482308fabf30450f489df83ca6ff0f541791fd93d25",
+  "scope": {
+    "walk": 32,
+    "idle": 2,
+    "checks": [
+      "S/SW全16帧深浅底总览",
+      "34张逐张1024导出大图（深浅底交替）",
+      "两方向15→16→01→02接缝深浅底",
+      "鞋底/配件alpha下缘探针",
+      "角色形象与装备一致性"
+    ],
+    "browser_dynamic": false,
+    "changed_source_material": false
+  },
+  "findings": [
+    {
+      "severity": "review_required",
+      "slots": [
+        "walk/S/06.png",
+        "walk/S/07.png",
+        "walk/S/08.png"
+      ],
+      "summary": "S07→08上半身整体突然升高约30–40px",
+      "evidence": "alpha顶边S06=154、S07=161、S08=128、S09=139；1024放大嘴部和腰扣也有约30–40px跳升，头部宽度基本保持，因此并非只有发梢变动。",
+      "recommendation": "在30ms循环重点观察S06–09；若动态可见抽动，重画S07并必要时S06，锁定S08/09上半身高度，仍保持当前左腿前摆。禁止扭曲或复制填帧。"
+    },
+    {
+      "severity": "minor",
+      "slots": [
+        "walk/S/04.png"
+      ],
+      "summary": "最低像素落在卷轴流苏，鞋底比目标锚点高1px",
+      "evidence": "全图最低alpha>8像素x792,y942；靴底区域最低y941。其余33图最低可见像素位于靴底y942。",
+      "recommendation": "按真实鞋底校正该帧导出锚点或记录1px容差，不需要重画动作；避免把流苏最下点当鞋底。"
+    }
+  ],
+  "static_judgment": {
+    "S": "存在上述局部衔接/锚点事项待root判定，不能直接宣布全向最终通过。",
+    "SW": "34帧检查中的SW16行走+1站立静态可通过：关键帧左/右支撑交换可读，09v3挂饰完整，04v2未见旧问题，所有鞋底y942，首尾未见跳尺/装备缺失/透明脏边。",
+    "both": "未见缺手持装备、多脚、镜像装备、重复动作填槽、裁切或明显失真比例；循环仍由root做真实动态最终判断。"
+  },
+  "head_top_rows": {
+    "S": [
+      129,
+      139,
+      147,
+      147,
+      134,
+      154,
+      161,
+      128,
+      139,
+      143,
+      147,
+      145,
+      147,
+      131,
+      124,
+      138
+    ],
+    "SW": [
+      146,
+      132,
+      158,
+      138,
+      145,
+      141,
+      119,
+      132,
+      117,
+      134,
+      117,
+      124,
+      128,
+      137,
+      151,
+      154
+    ]
+  },
+  "client_integration": false
+}
