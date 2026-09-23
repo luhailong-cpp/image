@@ -1,0 +1,52 @@
+{
+  "scope": "r08_c10 bottom patch r04_c02 against exact r09_c10 external-v8 SHA; not a navigation change",
+  "status": "proposal_only_not_applied",
+  "fixedFrames": {
+    "globalPatchLTRB": [
+      37773,
+      31629,
+      39027,
+      32883
+    ],
+    "bottomBoundaryGlobalY": 32768,
+    "haloTargetY": [
+      1139,
+      1254
+    ],
+    "nativeCoreLTRB": [
+      115,
+      115,
+      1139,
+      1139
+    ]
+  },
+  "problems": [
+    {
+      "globalBoundarySegment": [
+        37773,
+        32768,
+        38423,
+        32768
+      ],
+      "issue": "floral silhouette/contour continuation is not anchored despite correct band registration"
+    },
+    {
+      "globalInspectionLTRB": [
+        38723,
+        32629,
+        39027,
+        32829
+      ],
+      "issue": "reference material transition is being converted into a real transverse joint"
+    }
+  ],
+  "calibrationSteps": [
+    "Trace a small explicit set of floral contour crossings and curved-band center/edge landmarks from the exact bottom native source on y0..115. Preserve their exact global coordinates and tangent direction; no early paste at1024.",
+    "Compare those landmarks to original-master nominal geometry within its limited6144 resolution. Where correspondence is ambiguous, require a reviewed local shape guide; do not treat a material-only native crop as geometry authority.",
+    "Prepare a geometry-continuous reference design across the boundary before another call: remove the visual resolution/material cutoff as a geometric cue while keeping confirmed neighbor landmark coordinates fixed. This is reference design only; no guide pixels may enter exported art.",
+    "If calibrated floral geometry cannot respect both the original layout and selected neighbor, document the conflict and plan a coordinated boundary-region native revision with root, instead of warping roads/entrances or changing navigation.",
+    "Any future output must use only actual native core115:1139 after original-pixel contour and contact review. Require both the y1139 contact and every newly introduced local joint to pass; do not count a preview or a smooth-looking full image as acceptance."
+  ],
+  "noFurtherImageCallAuthorizedByThisDocument": true,
+  "sharedOrNavigationChangesApplied": false
+}
