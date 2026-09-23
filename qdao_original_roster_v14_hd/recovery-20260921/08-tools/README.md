@@ -1,5 +1,7 @@
 # 08 炼丹童子：可复现后处理与离线预览
 
+2026-09-23 当前交付入口：`../08-delivery-preview/revisions/final-v1/`。下文是制作期间的工具说明，历史审阅快照不再是交付版本。最终验收与清理状态以 `../08-delivery-preview/08-HANDOFF.md` 为准。原图与加工图片按用户要求清理后，`process.py`/`build.py`只能作为历史处理逻辑证据，不能再假设源图仍在；最终包通过 `verify_final.py --runtime-only` 复核。
+
 只读 `../08-generation`，只写 `../08-delivery-preview`。不写 shared candidate、不改原始 raw/request/receipt，不生成、镜像、插值或复制动作凑帧。
 
 在 image 工作目录使用 bundled Python：

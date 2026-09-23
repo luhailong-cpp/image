@@ -1,5 +1,7 @@
 # 五行奇谈 · UI 统一风格重制与重新切图 v10
 
+> 2026-09-23 保留范围更新：已按用户要求清理原图、回退／中间图；当前游戏输出及配套设计保留。下文来源路径与像素重建命令属于历史制作记录，不能据此认定原图仍在。逐图来源文字与哈希未改写；当前清理范围见[清理记录](../docs/ASSET_CLEANUP_20260923.md)。
+
 > 后续重绘的型号与最高画质统一读取[图像设置](../config/image-generation.json)和[执行策略](../docs/IMAGE_MODEL_POLICY.md)。下文型号、参数与工具限制描述保留为该批制作记录。
 
 更新：2026-09-11。所有 UI 的画法、材质、边框与装饰统一遵循[用户指定选角图](../docs/references/ui-style-20260910.png)，保留道家 Q 版及少量春节、元宵、中秋元素。其他游戏截图仅提取功能、字段、布局与交互意图；单独贴图不改变项目美术风格。长期规则和可复用提示词统一维护在 [UI 制作规范第 2 节](../qdao_ui_redesign_v5/UI_SPEC.md#2-统一视觉与控件层级)。
@@ -69,6 +71,6 @@ Sharp 无法自动解析时，在合成命令后添加 `--sharp '<已安装的 n
 
 本次完成美术原画、重新切图、组合检查与仓库正式资源交付。并行客户端任务已通过官方 Unity relay MCP 同步 31 张 v10 属性 Sprite，保留 GUID，核对哈希、尺寸、资源加载与九宫格边距；[导入报告](../designs/attribute-panels/v2-painted/unity-slices/unity-import-v10.json)通过。人物／宝宝真实面板在 2560×1080、1920×1080 两种尺寸下完成 10 张编辑器截图检查，26 项测试通过、0 项失败，见 [v10 Unity 验收](../designs/attribute-panels/v2-painted/unity-slices/unity-validation-v10.json)与[检查记录](../designs/attribute-panels/v2-painted/unity-slices/unity-review-v10/qa-checks.txt)。验收使用临时编辑器场景和离线样例数据，没有执行在线服务器验证；该结论仅覆盖属性面板，不能扩展为全库 UI／FairyGUI 全部接入完成。
 
-`designs/attribute-panels/index.html` 的可操作预览仍为第一版交互；`v2-painted/index.html` 仍为历史静态效果稿。它们未随本轮换皮，不作为 v10 当前视觉验收。标准 02 选服与 04 HUD 纳入本次新皮肤组合预览的同步范围，最终文件与哈希见发布记录；其余登录／选角等历史整屏原画继续保留，不等于全部页面已经实现。
+`designs/attribute-panels/index.html` 已转到当前 v10 交互；`v2-painted/index.html` 仍为历史静态效果稿。它们未随本轮换皮，不作为 v10 当前视觉验收。标准 02 选服与 04 HUD 纳入本次新皮肤组合预览的同步范围，最终文件与哈希见发布记录；其余登录／选角等历史整屏原画继续保留，不等于全部页面已经实现。
 
 2026-09-12 全库前置交付已完成，[全库节庆精修](../qdao_festival_refinement_20260910/README.md)已完成并通过最终验证；v10 当前控件母图和切片经本轮实看可保留，新的登录前整屏与人物／场景来源变化以本轮发布记录为准。此处保留首次 v10 发布与验收的历史哈希，不用旧报告冒充新图验收。

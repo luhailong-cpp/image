@@ -13,7 +13,7 @@
 | 社交、头像与聊天分区 | [仙友群组](social-ui-v1/01-groups.png) |
 | 商店、分类与交易列表 | [聚宝斋角色页](jubaozhai-ui/02-characters.png) |
 | 背包、物品格与法器图标 | [背包](gameplay-ui/02-inventory.png) |
-| 帮会、徽章与功能入口 | [帮会总览手绘稿](guild-ui-v2/source/guild-overview.png) |
+| 帮会、徽章与功能入口 | [帮会总览手绘稿](gameplay-ui/04-guild.png) |
 | 属性、加点与简洁面板 | [人物属性手绘稿（无相性点）](attribute-panels/v2-painted/01-character-ui-no-affinity.png) |
 
 帮会总览与人物属性手绘稿在此作为画法样板；现行功能、原生文字与正式切片读取各目录交付说明。`source/reference-function-*`、外部游戏截图、未采用的初稿及 `qa/` 验收截图不因位于 `designs/` 就成为新的美术定调。

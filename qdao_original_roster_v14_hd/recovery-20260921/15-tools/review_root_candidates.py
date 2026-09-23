@@ -4,10 +4,11 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 R=Path(__file__).resolve().parents[1]
-p=argparse.ArgumentParser();p.add_argument('direction',choices=['S','SW']);p.add_argument('--select',action='store_true');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('direction',choices=['S','SW']);p.add_argument('--select',action='store_true');p.add_argument('--versions',default='');a=p.parse_args()
+versions=dict(tuple(map(int,item.split('='))) for item in a.versions.split(',') if item)
 rows=[]
 for n in range(1,17):
-    d=R/'15-generation'/f'{a.direction}{n:02d}-walk-v1'
+    d=R/'15-generation'/f'{a.direction}{n:02d}-walk-v{versions.get(n,1)}'
     if not (d/'raw.png').exists(): continue
     cmd=[sys.executable,str(R/'15-tools/archive_frame.py'),'--generation-dir',str(d),'--source',str(d/'raw.png'),'--request-json',str(d/'request.json'),'--receipt-json',str(d/'receipt.json'),'--direction',a.direction,'--kind','walk','--frame',str(n),'--process']
     if a.select:cmd.append('--select')

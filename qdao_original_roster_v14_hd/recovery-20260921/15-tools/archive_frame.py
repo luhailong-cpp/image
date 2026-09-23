@@ -206,7 +206,9 @@ def process_native(raw, folder):
     removed_low_alpha = int(low_alpha.sum())
     if data[:, :, 3].min() < 255:
         data[:, :, 3][data[:, :, 3] <= 8] = 0
-    prepared = Image.fromarray(data)
+    # The vendor keyer can mutate transparent pixels through PixelAccess.
+    # A NumPy-backed Pillow image may be read-only; copying preserves all bytes.
+    prepared = Image.fromarray(data).copy()
     keyed = modules["generate2dsprite"].remove_bg_magenta(prepared, 100, 150)
     alpha = np.asarray(keyed)[:, :, 3]
     if any(np.any(edge) for edge in (alpha[0], alpha[-1], alpha[:, 0], alpha[:, -1])):

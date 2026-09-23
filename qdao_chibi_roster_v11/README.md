@@ -1,5 +1,7 @@
 # 五行奇谈 · 八位 Q 版人物
 
+> 2026-09-23 保留范围更新：已按用户要求清理原图、回退／中间图；当前游戏输出及配套设计保留。下文来源路径与像素重建命令属于历史制作记录，不能据此认定原图仍在。逐图来源文字与哈希未改写；当前清理范围见[清理记录](../docs/ASSET_CLEANUP_20260923.md)。
+
 状态：已完成。八人全部通过角色视觉验收及整包独立文件验收；共256张独立移动帧、408份正式媒体，结果见 [validation.json](validation.json)。
 
 [人物总览](roster-overview.jpg) · [八方向移动预览](movement-overview.gif) · [旧 ZIP 已清理，素材目录保留](../docs/IMAGE_DIRECTORY_CLEANUP_20260919.md) · [总清单](manifest.json)

@@ -28,7 +28,17 @@ def main():
  p=argparse.ArgumentParser();p.add_argument('--direction',choices=['S','SW'],required=True);p.add_argument('--frame',type=int,required=True);p.add_argument('--attempt',type=int,default=1);p.add_argument('--continuity',type=Path);a=p.parse_args()
  d=a.direction;n=a.frame;folder=GEN/f'walk-{d}-{n:02d}-v{a.attempt}';folder.mkdir(parents=True,exist_ok=False)
  camera='S/front, face and body square toward viewer. Anatomical right leg appears on viewer LEFT, anatomical left leg on viewer RIGHT.' if d=='S' else 'SW/front-left three-quarter, face, torso and both boots consistently pointing diagonally toward lower-left of image, showing front and his left side. Do not turn pure profile or straight front.'
- prompt=BASE+f' View {camera} This is walk {d}{n:02d}, phase {(n-1)}/16 in a 16-pose cycle. REQUIRED articulated leg pose: '+PHASES[n]+END
+ depth=''
+ if d=='SW':
+  depth=' CAMERA DEPTH: anatomical LEFT leg is the near leg, anatomical RIGHT leg is the far leg. Near boot has only 10% larger apparent size, NEVER oversized. '
+  if n in (1,2):depth+='Right FAR leading heel goes at image x35%, y87%; LEFT NEAR trailing toe goes at x56%, y96%. Thus REAR screen-right boot is lower and slightly larger; front screen-left boot is higher and slightly smaller. The left near thigh overlaps the right far thigh. '
+  elif n in (3,4,5):depth+='RIGHT FAR foot supports flat under right hip at x44%, y94%; LEFT NEAR knee bends and boot lifts beside it to x55%, y88%. Right far support foot is low; left near swing foot is clearly raised, not planted. '
+  elif n in (6,7,8):depth+='RIGHT FAR trailing toe stays grounded at x54%, y87%; LEFT NEAR swing boot moves forward down-left at x37%, y93%, heel approaches ground, slightly larger, knee extending gradually. '
+  elif n in (9,10):depth+='LEFT NEAR leading heel goes at x36%, y96%; RIGHT FAR trailing toe goes at x54%, y87%. FRONT screen-left boot is lower and slightly larger; REAR screen-right boot is higher/smaller. This is genuinely opposite anatomical leg lead from frame01, without mirroring equipment. '
+  elif n in (11,12,13):depth+='LEFT NEAR foot supports flat at x53%, y96%; RIGHT FAR knee bends and boot passes lifted at x42%, y86%. LEFT near planted boot is clearly lower/slightly larger, RIGHT far lifted boot higher/smaller. '
+  else:depth+='LEFT NEAR rear toe supports at x56%, y96%; RIGHT FAR boot swings toward x35%, y87%, higher/smaller and ahead-left. Rear near boot must stay lower/slightly larger, lead far boot higher/smaller; approach frame01 contact. '
+  depth+='SHORTEN all hanging accessories so no tassel or scroll part extends lower than either boot; lowest opaque point must be the grounded boot. Keep short original legs and do not grow giant shoes. '
+ prompt=BASE+'The scroll lower outside roller MUST retain its small round yin-yang pendant and short teal tassel; keep this jewelry fully visible, do not delete the pendant or tassel. '+f' View {camera} This is walk {d}{n:02d}, phase {(n-1)}/16 in a 16-pose cycle. REQUIRED articulated leg pose: '+PHASES[n]+depth+END
  (folder/'prompt.txt').write_text(prompt,encoding='utf8')
  refs=[GEN/'references/identity-view-1024.png',GEN/('idle-S-v2/raw.png' if d=='S' else 'idle-SW-v1/raw.png')]
  if a.continuity: refs.append(a.continuity.resolve())

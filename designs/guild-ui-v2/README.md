@@ -4,7 +4,7 @@
 
 [最新接入记录](official-mcp-client-20260914.json) · [本次 Unity 总览](qa/unity-mcp-20260914/01-overview_2560x1080.png) · [本次成员页](qa/unity-mcp-20260914/02-members_1920x1080.png) · [27 张切图索引](qa/unity-mcp-20260914/sprite-contact-sheet.jpg)。下文保留 9 月 13 日网页与首次客户端交付说明。
 
-2026-09-13。将原来的帮会总览静态图补为独立文字、手绘皮肤和可操作页面。原图保留在 [source/guild-overview.png](source/guild-overview.png)，仅作为视觉参考；本界面没有把文字烘焙进整屏图片。
+2026-09-13。将原来的帮会总览静态图补为独立文字、手绘皮肤和可操作页面。已确认设计见[帮会总览](../gameplay-ui/04-guild.png)，作为视觉参考；2026-09-23 已清理 source 下的同字节重复图；本界面没有把文字烘焙进整屏图片。
 
 [打开完整交互预览](http://127.0.0.1:4345/guild-ui-v2/) · [本地入口](index.html) · [资源合同](ASSET_HANDOFF.md)
 

@@ -5,7 +5,7 @@ from datetime import datetime,timezone
 import numpy as np
 from PIL import Image,ImageDraw
 HERE=Path(__file__).resolve().parent;GEN=HERE.parent/'05-generation';OUT=GEN/'W-review'
-VERSIONS={5:3,9:2,10:2}
+VERSIONS={5:3,9:2,10:2,13:2,15:2}
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p,v):p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 def main():

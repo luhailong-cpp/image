@@ -220,6 +220,12 @@ def main():
     parser.add_argument('--selections', type=Path, default=HERE / 'selected-overrides.json')
     parser.add_argument('--inspect-only', action='store_true', help='Read inventory and selected hashes without writing')
     args = parser.parse_args()
+    if (HERE / 'final/manifest.json').is_file():
+        current = read(HERE / 'final/manifest.json')
+        require(args.inspect_only, '05 is finalized; historical raw/staging builder retired. Use final/index.html.')
+        require(all(sha(HERE / 'final/runtime' / r['path']) == r['sha256'] for r in current['files']), 'Final PNG SHA mismatch')
+        print(json.dumps({'character_id': CHAR, 'walk': current['actual_walk'], 'idle': current['actual_idle'], 'current_delivery': str(HERE / 'final'), 'offline_accepted': current['offline_accepted'], 'client_integration': False}))
+        return
     require(args.inspect_only or args.revision, '--revision is required when building')
     require(not args.revision or re.fullmatch(r'[A-Za-z0-9_-]+', args.revision), 'Invalid revision name')
     selection_path = args.selections.resolve()

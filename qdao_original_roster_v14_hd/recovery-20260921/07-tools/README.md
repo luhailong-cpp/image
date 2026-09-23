@@ -1,5 +1,9 @@
 # 07 月影少女专用归档、导出与预览
 
+> 2026-09-23：按用户最新授权，原图、回退、拒稿、加工中间图片及旧预览图片已清理，仅保留当前候选、正式设计、唯一在制稿和必要文字记录。本条覆盖本文旧的“不可变原图/回退图片保留”策略。清理前69图完整源/导出核验通过；清理后来源只能读取文字记录，`sourceRebuildAvailable=false`。当前69候选PNG的SHA/1024 RGBA仍可重新验证，不能把已删除来源的像素复验写成当前通过。清单：`cleanup-20260923.json`；验证：`pre-cleanup-verification-20260923.json`、`post-cleanup-verification-20260923.json`。
+
+当前预览：`../07-delivery-preview/current-review-20260923/index.html`，直接引用候选，不复制runtime图。后续构建使用`build-preview --revision <name> --reference-current`。当前64 walk+5 idle，不是完整动作包或美术验收通过。
+
 本目录仅服务 `07_moon_shadow_assassin_girl`。`candidate` 和所有预览均为待审候选；库存、哈希不同、16 帧 GIF 均不能证明步态合格。没有接入客户端、没有正式美术批准。
 
 Python：`C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe`。从 image 仓库根目录运行，脚本路径为 `qdao_original_roster_v14_hd/recovery-20260921/07-tools/movement_assets.py`。

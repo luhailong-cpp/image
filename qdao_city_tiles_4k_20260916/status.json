@@ -1,8 +1,8 @@
 {
   "schemaVersion": 4,
-  "status": "single_city_art_incomplete_handed_off_sources_cleaned_by_user",
-  "updatedAtUtc": "2026-09-22T06:08:56.029107+00:00",
-  "scope": "Current priority: Tianyong festival 256 tiles; 8 candidate coordinates, 248 missing, 0 production accepted. Other appearances retained.",
+  "status": "single_city_native_detail_production_incomplete",
+  "updatedAtUtc": "2026-09-23T12:15:01.727055+00:00",
+  "scope": "Current priority: Tianyong festival 256 tiles; 10 candidate coordinates, 246 missing, 0 production accepted. Other appearances retained.",
   "latestUserRequirements": {
     "wholeCityPixels": [
       65536,
@@ -122,7 +122,7 @@
     "pending": false,
     "userResponseReceived": true,
     "decision": "Complete one Tianyong festival 65536-square appearance first; 16x16 native-detail 4096 tiles. Client integration belongs to another window.",
-    "remainingCoordinatesWithoutCandidate": 248,
+    "remainingCoordinatesWithoutCandidate": 246,
     "productionAccepted": 0
   },
   "continuationWork": {
@@ -150,7 +150,7 @@
   },
   "activeProductionRun": {
     "id": "resume_single_city_20260921",
-    "updatedAtUtc": "2026-09-22T06:08:56.029107+00:00",
+    "updatedAtUtc": "2026-09-23T12:15:01.727055+00:00",
     "appearance": "tianyong_festival",
     "displayName": "天墉城节庆",
     "priority": "finish_one_appearance_before_other_cities_or_skins",
@@ -166,7 +166,7 @@
     "targetColumns": 16,
     "targetTileCount": 256,
     "sessionState": "builtin_q64_production/resume_single_city_20260921/session-state.json",
-    "modelEvidence": "builtin_q64_production/resume_single_city_20260921/model-capability.json",
+    "modelEvidence": "builtin_q64_production/resume_single_city_20260921/continuation-20260923/model-capability.json",
     "actualBackendModel": null,
     "actualQuality": null,
     "backendModelVerified": false,
@@ -179,11 +179,11 @@
     "deliveryReady": false,
     "clientIntegrationOwner": "separate user window",
     "historicalContinuationTextSupersededByThisRun": true,
-    "sessionStateSha256": "7ffad09e2f8e0ee979e4a6071f2d5a907d7f45f7bb6a620d85f4c34254022207",
-    "candidateCoordinatesIncludingWorkInProgress": 8,
-    "coordinatesWithoutAny4KCandidate": 248,
-    "allAppearanceCandidateCoordinatesIncludingWorkInProgress": 26,
-    "retainedNativeKnownCountExcludingReferences": 16,
+    "sessionStateSha256": "79b2d3ccd4dfa962acc8c257b76f56d8cb5b2f5a68ce2a631432639342a195af",
+    "candidateCoordinatesIncludingWorkInProgress": 10,
+    "coordinatesWithoutAny4KCandidate": 246,
+    "allAppearanceCandidateCoordinatesIncludingWorkInProgress": 28,
+    "retainedNativeKnownCountExcludingReferences": 44,
     "newNativeDetailCount": 16,
     "newNativeRepairCount": 0,
     "newReferenceCount": 0,
@@ -201,7 +201,7 @@
       "generationStoppedForHandoff": true,
       "clientIntegrationOwner": "separate user window"
     },
-    "currentWindowWorkState": "handoff_ready_user_authorized_obsolete_sources_deleted",
+    "currentWindowWorkState": "continuing_single_city_art_production_incomplete",
     "sourceRetention": {
       "policy": "User requested final selected art/design only; obsolete originals and rollback images deleted",
       "cleanupReceipt": "cleanup-current-assets\\deletion-receipt.json",
@@ -217,7 +217,22 @@
       "sha256": "4662a6a2402ba8f820f91f5d81333e5bff63340f360a66ca60687932e372d9f3",
       "verification": "cleanup-current-assets\\verification-20260922T060923083571Z.json",
       "verificationSha256": "0e3ed2cbd6e1d391cef2d57e5cc87459eceab4c2d7452c6b36be49d604a26ef8"
-    }
+    },
+    "coverageLedgerSha256": "cc3dbacf70b200acd0c63ad1bc1c5d319b3be7196ea9d40b60b7814c845ea84e",
+    "modelEvidenceSha256": "d0804b01c9cf9ccac74602ac1dabddb63716b44dd41505fd3af0c9c7165447e6",
+    "retainedNativeDetailCount": 37,
+    "retainedNativeRepairCount": 7,
+    "retainedNativeInventory": {
+      "file": "builtin_q64_production/resume_single_city_20260921/continuation-20260923/checkpoint-merge/transaction-20260923T121500840392Z/retained-native-inventory.json",
+      "sha256": "f9bab3f3b7df999d5a6683319b5336bc56a790b34b6424c0e21d226ece1023c2"
+    },
+    "legacyGenerationCountersAreHistorical": true,
+    "currentRetentionEvidence": [
+      {
+        "file": "builtin_q64_production/resume_single_city_20260921/next_tile_r08_c07/continuation-20260923/cleanup-selected-c07/receipt.json",
+        "sha256": "2a9b57d872e6da5b15a73d0f4289795ec4d8fb7c427c266d5aae4f4b3a1c97ec"
+      }
+    ]
   },
   "baselineSelectionCountMeaning": "Legacy candidate/source arrays and counts are historical pre-cleanup observations. Current selected artwork and physically retained sources are in activeProductionRun/sessionState. Deleted original bytes remain unavailable; their SHA metadata is retained.",
   "historicalScopeBeforeSingleCityRun": {
@@ -254,5 +269,7 @@
       "currentWindowProductionStoppedForHandoff": true,
       "noInFlightGeneration": true
     }
-  }
+  },
+  "currentSelectedCandidateCoordinateCountAllAppearances": 28,
+  "currentBatchSha256": "52aa5370277d7543eb388494892c0dbe76506d6c7eafbda5256678b09ea70616"
 }
