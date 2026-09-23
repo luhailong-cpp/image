@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "reviewedAtUtc": "2026-09-23 12:13:35 UTC",
+  "candidateSha256": "727526a5f7b8b1fe75e29052a2f7d34ec0c45ec79f07cd5a851e2ae96e838911",
+  "reviewer": "Codex c08_continue",
+  "viewedAtOriginalPixels": [
+    "qa/board-vertical-1024.png",
+    "qa/board-vertical-2048.png",
+    "qa/board-vertical-3072.png",
+    "qa/board-horizontal-1024.png",
+    "qa/board-horizontal-2048.png",
+    "qa/board-horizontal-3072.png",
+    "qa/board-nine-junctions.png",
+    "qa/board-bottom.png",
+    "qa/vertical-1024-segment-4.png",
+    "qa/vertical-3072-segment-4.png",
+    "qa/bottom-segment-3.png",
+    "qa/bottom-segment-4.png"
+  ],
+  "internalSeams": {
+    "count": 6,
+    "coveragePerSeam": [
+      0,
+      4096
+    ],
+    "geometryAtMechanicalBoundaries": "No definite broken contour at the six exact mechanical boundaries in inspected 384px-wide full length strips; this does not approve separate guide paste artifacts at y3981.",
+    "material": "Small patch tone differences remain under wider context review; no global acceptance claimed",
+    "passed": null
+  },
+  "internalJunctions": {
+    "count": 9,
+    "status": "All nine directly reviewed in384px square1to1 evidence; no clear isolated four-way geometry break observed",
+    "passed": true,
+    "scope": "local nine native patch junctions only"
+  },
+  "knownFailures": [
+    {
+      "type": "horizontal_guide_paste_artifact",
+      "tileY": 3981,
+      "regions": [
+        [
+          2048,
+          3850,
+          3072,
+          4096
+        ],
+        [
+          3072,
+          3850,
+          4096,
+          4096
+        ]
+      ],
+      "detail": "Straight tone transition and abruptly sliced diagonal joint endpoints in c03/c04. Horizontal line is not a constructed edge."
+    },
+    {
+      "type": "carving_cut_at_guide_paste_line",
+      "nearXY": [
+        930,
+        3981
+      ],
+      "detail": "Small notch/step in relief at guide paste boundary below left half, not the actual x1024 core boundary."
+    }
+  ],
+  "bottomEdge": {
+    "neighbor": "r09_c08 output_v5",
+    "fullRange": [
+      0,
+      4096
+    ],
+    "segmentsReviewed": 4,
+    "status": "failed_material_and_near_edge_artifacts",
+    "passed": false,
+    "detail": "Real selected bottom pixels viewed. Old lower core has denser mineral-like variation; new upper planes cleaner. Segments3/4 have nearby y3981 band."
+  },
+  "remaining": [
+    "Top/left/right external edges pending current neighbor comparison",
+    "External four-tile junctions pending",
+    "Whole4K original-pixel coverage beyond seams/returned natives not yet exhaustive",
+    "Layout/navigation/runtime/formal acceptance unperformed"
+  ],
+  "formalAccepted": false,
+  "runtimeAccepted": false
+}

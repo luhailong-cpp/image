@@ -1,0 +1,627 @@
+{
+  "schemaVersion": 1,
+  "reviewedAtUtc": "2026-09-23T08:25:40.389350+00:00",
+  "tile": "r08_c09",
+  "candidate": {
+    "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\r08_c09.png",
+    "sha256": "534b82614f5b9dfbfd4441f8f6e10080668989bc11c2f560ed501bf12183ffbf"
+  },
+  "repair": {
+    "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\repair.json",
+    "sha256": "46cec1bf96325fc6cfe3fb1aac877b16143d85234104364db11c4610361b2c12"
+  },
+  "qaIndex": {
+    "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\index.json",
+    "sha256": "d3e8dfd61ad8abab6094e9427213054bd88e89c8eb08339ea5d996c4a164a2e8"
+  },
+  "supplementIndex": {
+    "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\supplement-index.json",
+    "sha256": "b11ed82e31b461c5d1332c3f3dba8e41185c6924334ade1fbdd38d0a469ada10"
+  },
+  "status": "failed_bottom_material_repair_batch",
+  "formalAccepted": false,
+  "productionAccepted": false,
+  "clientValidated": false,
+  "scope": "Four native 1254 repair outputs; c09 bottom y3768..4096 only. All 14 generated QA artifacts and all 8 supplemental original-pixel crops directly inspected. No fifth generation.",
+  "actualModel": null,
+  "actualQuality": null,
+  "mechanicalVerification": {
+    "outsideMaskPixelsUnchanged": true,
+    "candidateYBefore3768Unchanged": true,
+    "fixedNeighborShaReverified": {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\repairs\\versions\\r09_c09_repair_v6\\r09_c09.png",
+      "sha256": "5ce3e9099c4292a3c2d2b854bcc6d2cfd3b8858bb6960bc8e7966699ade4742c"
+    },
+    "resampling": "none",
+    "registration": "none",
+    "colorCorrection": "none",
+    "topReturnPixels": 32
+  },
+  "evidence": [
+    {
+      "id": "bottom-edge-01",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\bottom-edge-01.png",
+      "sha256": "e0f9161b5a063841653b3091e9e1cbd94900665a35fecd7fb61b745c60b82798",
+      "kind": "bottom_edge",
+      "pixelScale": "1:1",
+      "coordinates": {
+        "xRange": [
+          0,
+          1024
+        ],
+        "boundaryLocalY": 4096
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "fail_material_cleanliness",
+      "observation": "Upper candidate now carries broad irregular cream cloud patches to meet fixed lower neighbor. The visible bottom interface is less abrupt, but this violates the requested clean restrained stone material. Geometry appears locally continuous."
+    },
+    {
+      "id": "top-return-01",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\top-return-01.png",
+      "sha256": "762196cb260e4310ab88d67ebef7962c26b6f0b30ecc3557f9b09e43481e4d7e",
+      "kind": "top_return",
+      "pixelScale": "1:1",
+      "coordinates": {
+        "boxLTRB": [
+          0,
+          3640,
+          1024,
+          3928
+        ],
+        "returnY": [
+          3768,
+          3800
+        ]
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "local_geometry_pass",
+      "observation": "No new geometry break or distinct horizontal return line observed in inspected 1:1 crop. This does not approve material cleanliness."
+    },
+    {
+      "id": "bottom-edge-02",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\bottom-edge-02.png",
+      "sha256": "57ecbbe5483249a4f13a0f899d6df815b5c673deea013cb02bd6b332637b54e4",
+      "kind": "bottom_edge",
+      "pixelScale": "1:1",
+      "coordinates": {
+        "xRange": [
+          1024,
+          2048
+        ],
+        "boundaryLocalY": 4096
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "local_edge_continuity_pass",
+      "observation": "In the inspected 1024x256 original-pixel strip, gray bevels and gray slab tone continue across boundary with no obvious new positional break. Gray mottling remains; pass is only this local edge strip and does not approve the full tile or other patches."
+    },
+    {
+      "id": "top-return-02",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\top-return-02.png",
+      "sha256": "8913b68650c43ee760dc02f3f1886a2e3d8c29f8d2ebbcfee8c29e7c45f5fede",
+      "kind": "top_return",
+      "pixelScale": "1:1",
+      "coordinates": {
+        "boxLTRB": [
+          1024,
+          3640,
+          2048,
+          3928
+        ],
+        "returnY": [
+          3768,
+          3800
+        ]
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "local_geometry_pass",
+      "observation": "No new geometry break or distinct horizontal return line observed in inspected 1:1 crop. This does not approve material cleanliness."
+    },
+    {
+      "id": "bottom-edge-03",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\bottom-edge-03.png",
+      "sha256": "a4d1d93faede0bb7e7de595735f8241e0aa7dfc8bde7eee2c4ba822585ea2662",
+      "kind": "bottom_edge",
+      "pixelScale": "1:1",
+      "coordinates": {
+        "xRange": [
+          2048,
+          3072
+        ],
+        "boundaryLocalY": 4096
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "pending_fine_bevel_joint",
+      "observation": "Gold/gray major geometry continues, but a small bevel kink at the tile boundary near candidate x2410-2430 remains ambiguous in the 384x384 focus crop. No geometry pass assigned for this segment."
+    },
+    {
+      "id": "top-return-03",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\top-return-03.png",
+      "sha256": "9a311c503fc8fe85cf1d7590537b70993a956742b43960a891e7ef2aed4c1bb4",
+      "kind": "top_return",
+      "pixelScale": "1:1",
+      "coordinates": {
+        "boxLTRB": [
+          2048,
+          3640,
+          3072,
+          3928
+        ],
+        "returnY": [
+          3768,
+          3800
+        ]
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "local_geometry_pass",
+      "observation": "No new geometry break or distinct horizontal return line observed in inspected 1:1 crop. This does not approve material cleanliness."
+    },
+    {
+      "id": "bottom-edge-04",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\bottom-edge-04.png",
+      "sha256": "dc10a0db9215d235aa4e6fbf4c940fcf71ca3baf65735751ad2e6aa742529484",
+      "kind": "bottom_edge",
+      "pixelScale": "1:1",
+      "coordinates": {
+        "xRange": [
+          3072,
+          4096
+        ],
+        "boundaryLocalY": 4096
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "fail_material_cleanliness",
+      "observation": "Dense cream/gold vein and flake texture remains in the fixed lower neighbor and now extends into the upper candidate band. Wider original-pixel crop confirms a broad material-density transition. Clean style not achieved."
+    },
+    {
+      "id": "top-return-04",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\top-return-04.png",
+      "sha256": "0a540d692eb3ef89ce4227af9b249b56ee5e559b82433c388b43378be3170bbe",
+      "kind": "top_return",
+      "pixelScale": "1:1",
+      "coordinates": {
+        "boxLTRB": [
+          3072,
+          3640,
+          4096,
+          3928
+        ],
+        "returnY": [
+          3768,
+          3800
+        ]
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "local_geometry_pass",
+      "observation": "No new geometry break or distinct horizontal return line observed in inspected 1:1 crop. This does not approve material cleanliness."
+    },
+    {
+      "id": "affected-vertical-01",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\affected-vertical-01.png",
+      "sha256": "ba3ca430239c11b4f44daf4dda56953254a01658ac6c604d9dee6a062c286aef",
+      "kind": "affected_internal_seam",
+      "pixelScale": "1:1",
+      "coordinates": {
+        "x": 1024,
+        "yRange": [
+          3072,
+          4096
+        ]
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "pending_inherited_tonal_boundary",
+      "observation": "No gross new geometric step observed in the narrow 256x1024 strip. Wider before/after crop reveals low-amplitude tonal-boundary concerns near the existing core cut, including above the permitted repair band. Earlier geometry impression is insufficient to mark the entire seam passed; require independent visual recheck/material repair."
+    },
+    {
+      "id": "return-junction-01",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\return-junction-01.png",
+      "sha256": "df0a20c2354157adc9b30613cd586be5c480d80b76e2ac35be15cda8da2edd09",
+      "kind": "repair_return_junction",
+      "pixelScale": "1:1",
+      "coordinates": {
+        "centerXY": [
+          1024,
+          3784
+        ]
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "local_geometry_pass",
+      "observation": "No new geometry break or distinct horizontal return line observed in inspected 1:1 crop. This does not approve material cleanliness."
+    },
+    {
+      "id": "affected-vertical-02",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\affected-vertical-02.png",
+      "sha256": "a068e33adec6bc9abfafc9295c1f0f6a0a794078da394a925b27fa10dc51a914",
+      "kind": "affected_internal_seam",
+      "pixelScale": "1:1",
+      "coordinates": {
+        "x": 2048,
+        "yRange": [
+          3072,
+          4096
+        ]
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "pending_inherited_tonal_boundary",
+      "observation": "No gross new geometric step observed in the narrow 256x1024 strip. Wider before/after crop reveals low-amplitude tonal-boundary concerns near the existing core cut, including above the permitted repair band. Earlier geometry impression is insufficient to mark the entire seam passed; require independent visual recheck/material repair."
+    },
+    {
+      "id": "return-junction-02",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\return-junction-02.png",
+      "sha256": "0f56aadb952be0183d42216236bc61536f37775d63d3ba9072b167d12cd25fc3",
+      "kind": "repair_return_junction",
+      "pixelScale": "1:1",
+      "coordinates": {
+        "centerXY": [
+          2048,
+          3784
+        ]
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "local_geometry_pass",
+      "observation": "No new geometry break or distinct horizontal return line observed in inspected 1:1 crop. This does not approve material cleanliness."
+    },
+    {
+      "id": "affected-vertical-03",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\affected-vertical-03.png",
+      "sha256": "e06929f3fe37bf7ad5fb23378abcf2d5954f16f2c0ac9066c950fdade870cd7c",
+      "kind": "affected_internal_seam",
+      "pixelScale": "1:1",
+      "coordinates": {
+        "x": 3072,
+        "yRange": [
+          3072,
+          4096
+        ]
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "pending_inherited_tonal_boundary",
+      "observation": "No gross new geometric step observed in the narrow 256x1024 strip. Wider before/after crop reveals low-amplitude tonal-boundary concerns near the existing core cut, including above the permitted repair band. Earlier geometry impression is insufficient to mark the entire seam passed; require independent visual recheck/material repair."
+    },
+    {
+      "id": "return-junction-03",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\return-junction-03.png",
+      "sha256": "2220bda11e75694e7e13dd18cf6847eb106514d9f9858f8fc7f1fcb3021b18d9",
+      "kind": "repair_return_junction",
+      "pixelScale": "1:1",
+      "coordinates": {
+        "centerXY": [
+          3072,
+          3784
+        ]
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "local_geometry_pass",
+      "observation": "No new geometry break or distinct horizontal return line observed in inspected 1:1 crop. This does not approve material cleanliness."
+    }
+  ],
+  "supplementalEvidence": [
+    {
+      "id": "wide-v1024-before",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\wide-v1024-before.png",
+      "sha256": "81161da03283a4a36a6705ef11a4ba75e296c63d33f3c955f5bb86707d919e89",
+      "pixels": [
+        768,
+        768
+      ],
+      "pixelScale": "1:1",
+      "sources": [
+        {
+          "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\hard-core-20260923T070734660600Z\\r08_c09.png",
+          "sha256": "a02bfaed46979a0a2900be3b85a4a1ef11d4aae76fee148bf961165609a7d645"
+        }
+      ],
+      "operation": {
+        "cropLTRB": [
+          640,
+          3328,
+          1408,
+          4096
+        ]
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "pending_inherited_tonal_boundary",
+      "observation": "768px-wide original-pixel context supports caution about faint core-cut tonal transitions. Not a proven geometry failure. Before/after both retained as linked QA until parent resolves candidate selection."
+    },
+    {
+      "id": "wide-v1024-after",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\wide-v1024-after.png",
+      "sha256": "f6793cca82dd1070d397deadfe58c0dc7d1b2f2ff75704a76c49d7065f4ed8e7",
+      "pixels": [
+        768,
+        768
+      ],
+      "pixelScale": "1:1",
+      "sources": [
+        {
+          "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\r08_c09.png",
+          "sha256": "534b82614f5b9dfbfd4441f8f6e10080668989bc11c2f560ed501bf12183ffbf"
+        }
+      ],
+      "operation": {
+        "cropLTRB": [
+          640,
+          3328,
+          1408,
+          4096
+        ]
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "pending_inherited_tonal_boundary",
+      "observation": "768px-wide original-pixel context supports caution about faint core-cut tonal transitions. Not a proven geometry failure. Before/after both retained as linked QA until parent resolves candidate selection."
+    },
+    {
+      "id": "wide-v2048-before",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\wide-v2048-before.png",
+      "sha256": "0153f0f155f9a9fb63486e1a1ba628cf8903f43b863168844e1348b9f57feb6b",
+      "pixels": [
+        768,
+        768
+      ],
+      "pixelScale": "1:1",
+      "sources": [
+        {
+          "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\hard-core-20260923T070734660600Z\\r08_c09.png",
+          "sha256": "a02bfaed46979a0a2900be3b85a4a1ef11d4aae76fee148bf961165609a7d645"
+        }
+      ],
+      "operation": {
+        "cropLTRB": [
+          1664,
+          3328,
+          2432,
+          4096
+        ]
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "pending_inherited_tonal_boundary",
+      "observation": "768px-wide original-pixel context supports caution about faint core-cut tonal transitions. Not a proven geometry failure. Before/after both retained as linked QA until parent resolves candidate selection."
+    },
+    {
+      "id": "wide-v2048-after",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\wide-v2048-after.png",
+      "sha256": "11c3a49c6a1f57a849e7a9773438e4911246171ffcc4753f7ebd61cdb4a207c7",
+      "pixels": [
+        768,
+        768
+      ],
+      "pixelScale": "1:1",
+      "sources": [
+        {
+          "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\r08_c09.png",
+          "sha256": "534b82614f5b9dfbfd4441f8f6e10080668989bc11c2f560ed501bf12183ffbf"
+        }
+      ],
+      "operation": {
+        "cropLTRB": [
+          1664,
+          3328,
+          2432,
+          4096
+        ]
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "pending_inherited_tonal_boundary",
+      "observation": "768px-wide original-pixel context supports caution about faint core-cut tonal transitions. Not a proven geometry failure. Before/after both retained as linked QA until parent resolves candidate selection."
+    },
+    {
+      "id": "wide-v3072-before",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\wide-v3072-before.png",
+      "sha256": "84fb9328891d0396f422a30c40138143c92c613101cabe34c5c7dcf8ffdc250a",
+      "pixels": [
+        768,
+        768
+      ],
+      "pixelScale": "1:1",
+      "sources": [
+        {
+          "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\hard-core-20260923T070734660600Z\\r08_c09.png",
+          "sha256": "a02bfaed46979a0a2900be3b85a4a1ef11d4aae76fee148bf961165609a7d645"
+        }
+      ],
+      "operation": {
+        "cropLTRB": [
+          2688,
+          3328,
+          3456,
+          4096
+        ]
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "pending_inherited_tonal_boundary",
+      "observation": "768px-wide original-pixel context supports caution about faint core-cut tonal transitions. Not a proven geometry failure. Before/after both retained as linked QA until parent resolves candidate selection."
+    },
+    {
+      "id": "wide-v3072-after",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\wide-v3072-after.png",
+      "sha256": "248589c65fd2c61f63107aec072043d6de4409efc03765d633453c3c32f92ff6",
+      "pixels": [
+        768,
+        768
+      ],
+      "pixelScale": "1:1",
+      "sources": [
+        {
+          "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\r08_c09.png",
+          "sha256": "534b82614f5b9dfbfd4441f8f6e10080668989bc11c2f560ed501bf12183ffbf"
+        }
+      ],
+      "operation": {
+        "cropLTRB": [
+          2688,
+          3328,
+          3456,
+          4096
+        ]
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "pending_inherited_tonal_boundary",
+      "observation": "768px-wide original-pixel context supports caution about faint core-cut tonal transitions. Not a proven geometry failure. Before/after both retained as linked QA until parent resolves candidate selection."
+    },
+    {
+      "id": "focus-bottom-gold-joint",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\focus-bottom-gold-joint.png",
+      "sha256": "d8df4f61685c1f5839a7a741f3732d381966b21405d15de29859b67aecb93c94",
+      "pixels": [
+        384,
+        384
+      ],
+      "pixelScale": "1:1",
+      "sources": [
+        {
+          "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\r08_c09.png",
+          "sha256": "534b82614f5b9dfbfd4441f8f6e10080668989bc11c2f560ed501bf12183ffbf"
+        },
+        {
+          "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\repairs\\versions\\r09_c09_repair_v6\\r09_c09.png",
+          "sha256": "5ce3e9099c4292a3c2d2b854bcc6d2cfd3b8858bb6960bc8e7966699ade4742c"
+        }
+      ],
+      "operation": {
+        "candidateCropLTRB": [
+          2304,
+          3904,
+          2688,
+          4096
+        ],
+        "neighborCropLTRB": [
+          2304,
+          0,
+          2688,
+          192
+        ],
+        "boundaryY": 192
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "pending_fine_bevel_joint",
+      "observation": "Original-pixel enlarged-context evidence only, not image enlargement. Small gold-bevel joint uncertainty near x2410-2430 at y4096 not resolved; no pass."
+    },
+    {
+      "id": "wide-bottom-fourth",
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\qa\\wide-bottom-fourth.png",
+      "sha256": "f8b5568a756d07431e9f585667d0a22d4f752d436dc082918557e2bfd072cb1c",
+      "pixels": [
+        1152,
+        1152
+      ],
+      "pixelScale": "1:1",
+      "sources": [
+        {
+          "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\bottom-material-v1-20260923T074753663242Z\\r08_c09.png",
+          "sha256": "534b82614f5b9dfbfd4441f8f6e10080668989bc11c2f560ed501bf12183ffbf"
+        },
+        {
+          "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\tools\\repairs\\versions\\r09_c09_repair_v6\\r09_c09.png",
+          "sha256": "5ce3e9099c4292a3c2d2b854bcc6d2cfd3b8858bb6960bc8e7966699ade4742c"
+        }
+      ],
+      "operation": {
+        "candidateCropLTRB": [
+          2944,
+          3520,
+          4096,
+          4096
+        ],
+        "neighborCropLTRB": [
+          2944,
+          0,
+          4096,
+          576
+        ],
+        "boundaryY": 576
+      },
+      "reviewed": true,
+      "reviewMethod": "view_image original pixels",
+      "status": "fail_material_cleanliness",
+      "observation": "Fixed neighbor contains pronounced layered cloud/vein shapes; reproducing them in upper patch compromises clean material target."
+    }
+  ],
+  "tonalBoundaryDiagnostic": {
+    "source": {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\hard-core-20260923T070734660600Z\\r08_c09.png",
+      "sha256": "a02bfaed46979a0a2900be3b85a4a1ef11d4aae76fee148bf961165609a7d645"
+    },
+    "meaning": "Pixel differences support reinspection only; numerical magnitude alone is not an art pass or failure. These rows are above repair band and unchanged in new candidate.",
+    "values": [
+      {
+        "x": 1024,
+        "yRange": [
+          3469,
+          3768
+        ],
+        "acrossCoreCutMeanAbsoluteRGB": [
+          3.6555182933807373,
+          4.688963413238525,
+          4.1605353355407715
+        ],
+        "onePixelLeftMeanAbsolute": 0.6421404480934143,
+        "onePixelRightMeanAbsolute": 0.5027870535850525
+      },
+      {
+        "x": 2048,
+        "yRange": [
+          3469,
+          3768
+        ],
+        "acrossCoreCutMeanAbsoluteRGB": [
+          4.725752353668213,
+          5.230769157409668,
+          6.006689071655273
+        ],
+        "onePixelLeftMeanAbsolute": 1.4191750288009644,
+        "onePixelRightMeanAbsolute": 1.3154960870742798
+      },
+      {
+        "x": 3072,
+        "yRange": [
+          3469,
+          3768
+        ],
+        "acrossCoreCutMeanAbsoluteRGB": [
+          6.254180431365967,
+          7.217391490936279,
+          6.946488380432129
+        ],
+        "onePixelLeftMeanAbsolute": 2.1036789417266846,
+        "onePixelRightMeanAbsolute": 2.0066890716552734
+      }
+    ]
+  },
+  "unchangedInheritedScope": {
+    "sourceReview": {
+      "file": "D:\\luyuan\\wuxingqitan\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c09\\continuation-20260923\\versions\\hard-core-20260923T070734660600Z\\visual-review.json",
+      "sha256": "baee29aa89cf6112466568716c9a1697a760f6707d9bc7c02d690681f1b597f2"
+    },
+    "internalHorizontalSeams": [
+      1024,
+      2048,
+      3072
+    ],
+    "internalJunctions": 9,
+    "pixelEqualityVerified": true
+  },
+  "priorReviewAmendment": "Earlier original candidate review stated all 24 internal seam segments locally passed. The three bottom vertical segments are now pending due wider-context tonal-boundary concerns. Do not count them as passed. Previous report is retained unchanged; this newer supplementary review controls this scope. The concerns are not asserted as proven geometric misalignment.",
+  "otherEdges": "Uninspected for this repair; pending neighbors and inspection",
+  "externalFourTileJunctions": "pending; not passed",
+  "disposition": "Do not promote this repair to latest/production. The batch could not simultaneously match the fixed noisy lower neighbor and retain the clean new stone style. Parent must choose the next art strategy; no changes to r09_c09 repair_v6."
+}

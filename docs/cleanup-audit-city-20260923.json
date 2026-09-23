@@ -1,0 +1,90 @@
+{
+  "audit_date": "2026-09-23",
+  "scope": "Read-only audit; only this JSON was written. No assets deleted.",
+  "delete_dirs": [
+    "tianyong_festival_hd_20260910/guides",
+    "tianyong_festival_hd_20260910/refined"
+  ],
+  "delete_files": [
+    "tianyong_festival_gptimage2_20260910/tianyong-festival-main-city-native.png",
+    "tianyong_festival_stylematch_20260910/tianyong-jade-gold-main-city-native.png",
+    "tianyong_festival_stylematch_20260910/character-ui-style-reference.png",
+    "tianyong_festival_hd_20260910/layout-source-native.png",
+    "tianyong_festival_hd_20260910/layout-guide-6144.png",
+    "tianyong_festival_hd_20260910/character-ui-style-reference.png",
+    "qdao_large_city_maps_20260912/style-reference.png",
+    "qdao_large_city_maps_20260912/lanxian_town/city-scale-reference.png",
+    "qdao_large_city_maps_20260912/lanxian_town/project-style-reference.png",
+    "qdao_large_city_maps_20260912/lanxian_town/draft-jade-gold/lanxian-town-native.png",
+    "qdao_large_city_maps_20260912/lanxian_town/draft-jade-gold/lanxian-town-preview-1024.png",
+    "qdao_festival_scenes_20260910/main_city_wide/scene-native.png",
+    "qdao_festival_scenes_20260910/main_city_wide/source-reference.png",
+    "qdao_festival_scenes_20260910/login_landscape/scene-native.png",
+    "qdao_festival_scenes_20260910/login_landscape/source-reference.png",
+    "qdao_festival_scenes_20260910/battle_forest_bridge/scene-native.png",
+    "qdao_festival_scenes_20260910/battle_forest_bridge/source-reference.png",
+    "qdao_festival_scenes_20260910/battle_entry/scene-native.png",
+    "qdao_festival_scenes_20260910/battle_entry/source-reference.png"
+  ],
+  "protected_paths": [
+    "qdao_city_tiles_4k_20260916",
+    "tianyong_festival_hd_20260910/Tiles",
+    "tianyong_festival_hd_20260910/tianyong_city_master_6144.png",
+    "tianyong_festival_hd_20260910/tianyong_city_master_preview_2048.png",
+    "tianyong_festival_hd_20260910/runtime",
+    "qdao_festival_scenes_20260910/final",
+    "qdao_festival_scenes_20260910/runtime",
+    "qdao_large_city_maps_20260912/penglai_island/penglai-island-native.png",
+    "qdao_large_city_maps_20260912/donghai_fishing_village/donghai-fishing-village-native.png",
+    "qdao_large_city_maps_20260912/lanxian_town/lanxian-town-native.png",
+    "qdao_large_city_maps_20260912/festival_variants/penglai_mid_autumn/map-native.png",
+    "qdao_large_city_maps_20260912/festival_variants/donghai_lantern_festival/map-native.png",
+    "qdao_large_city_maps_20260912/festival_variants/lanxian_spring_festival/map-native.png",
+    "qdao_large_city_maps_20260912/runtime"
+  ],
+  "reasons": [
+    "Entire qdao_city_tiles_4k_20260916 protected due to concurrent active production task 01a0ccf1-1624-7122-b220-945537c3bef7. Prior 2026-09-22 cleanup preserved 401 current assets; all 401 exist at audit.",
+    "HD guides are enlarged layout intermediates; refined are the 36 source patches already assembled into the retained 6144 master and 36 official tiles. Preserve generation/provenance text outside those PNG-only directories.",
+    "Old Tianyong 1254 drafts are explicitly review/layout versions superseded by the assembled HD delivery. Character/style reference copies and scene source-reference files are production inputs, not delivery.",
+    "Four scene-native PNGs have exact SHA256 equality with their corresponding final PNGs; final and runtime files are protected.",
+    "Lanxian draft-jade-gold is explicitly superseded by revision 2 per metadata.json and README. Only its PNG files are selected; prompt/model/source metadata is preserved."
+  ],
+  "dependencies": [
+    {
+      "path": "qdao_city_tiles_4k_20260916/builtin_q64_production/resume_single_city_20260921/tools/prepare_geometry_guides.py",
+      "dependency": "tianyong_festival_hd_20260910/tianyong_city_master_6144.png",
+      "status": "active; protected master required"
+    },
+    {
+      "path": "qdao_large_city_maps_20260912/runtime/prepare_import.py",
+      "dependency": "Six native map files listed in protected_paths",
+      "status": "active delivery inputs, matched by runtime/import-manifest.json"
+    },
+    {
+      "path": "qdao_festival_scenes_20260910/runtime/build_runtime.py",
+      "dependency": "qdao_festival_scenes_20260910/final via manifest outputs",
+      "status": "active; final delivery files retained"
+    },
+    {
+      "path": "tianyong_festival_hd_20260910/runtime/build_city_runtime.py",
+      "dependency": "retained HD master and 2048 preview",
+      "status": "active runtime generation uses retained outputs, not refined/guides"
+    },
+    {
+      "path": "qdao_festival_scenes_20260910/build_delivery.py",
+      "dependency": "selected scene-native duplicate files",
+      "status": "historical packaging script; after cleanup source reassembly is intentionally retired. Runtime builder remains supplied by final."
+    },
+    {
+      "path": "tianyong_festival_hd_20260910/build_hd_city.py",
+      "dependency": "selected layout-source, guides and refined files",
+      "status": "source reconstruction intentionally retired; already assembled official outputs retained"
+    },
+    {
+      "path": "qdao_large_city_maps_20260912/catalog",
+      "dependency": "old Tianyong drafts",
+      "status": "historical catalog, no runtime dependency. Mark old image links retired if updating catalog."
+    }
+  ],
+  "browser_reference_scan": "No HTML/JS/TS/CSS references to selected old Tianyong names, scene-native, source-reference, layout-source-native, layout-guide-6144 or draft-jade-gold were found by repository-wide rg -uuu. Historical scripts/manifests/docs still reference them."
+}
