@@ -1,6 +1,7 @@
 """Compose existing exported pet PNGs into review sheets; draws no character artwork."""
 from __future__ import annotations
 
+import argparse
 import hashlib
 import io
 import json
@@ -29,7 +30,58 @@ def center_text(draw, box, text, size, fill):
     draw.text((x + (w - bounds[2] + bounds[0]) / 2, y + (h - bounds[3] + bounds[1]) / 2 - bounds[1]), text, font=font, fill=fill)
 
 
-def make_sheet(pets, paired):
+def load_roster(config, requested=None):
+    """Resolve the configured roster or an explicit ordered subset before writing."""
+    pets = config["pets"]
+    by_slug = {pet["slug"]: pet for pet in pets}
+    if not pets or len(by_slug) != len(pets):
+        raise ValueError("The configured pet roster must be nonempty with unique slugs")
+    expected_count = config.get("expectedPetCount", len(pets))
+    if not isinstance(expected_count, int) or expected_count < len(pets):
+        raise ValueError("expectedPetCount must be an integer at least as large as the configured roster")
+    details = {"rosterSlugs": [pet["slug"] for pet in pets]}
+    if requested is None:
+        return pets, expected_count, details
+    path = Path(requested)
+    if not path.is_absolute():
+        path = ROOT / path
+    raw = path.read_bytes()
+    selection = json.loads(raw.decode("utf-8-sig"))
+    slugs = selection.get("slugs")
+    if not isinstance(slugs, list) or not slugs or not all(isinstance(slug, str) for slug in slugs):
+        raise ValueError("Requested roster must contain a nonempty list of slug strings")
+    if len(set(slugs)) != len(slugs):
+        raise ValueError("Requested roster contains duplicate slugs")
+    missing = [slug for slug in slugs if slug not in by_slug]
+    if missing:
+        raise ValueError("Requested roster contains unknown slugs: " + ", ".join(missing))
+    label = selection.get("label", "本次截图对应原创宠物")
+    if not isinstance(label, str) or not label.strip():
+        raise ValueError("Requested roster label must be a nonempty string")
+    try:
+        relative_path = path.resolve().relative_to(ROOT).as_posix()
+    except ValueError:
+        relative_path = str(path.resolve())
+    details = {
+        "rosterSlugs": slugs, "rosterLabel": label,
+        "requestedRoster": {"file": relative_path, "sha256": hashlib.sha256(raw).hexdigest()},
+    }
+    return [by_slug[slug] for slug in slugs], len(slugs), details
+
+
+def roster_arguments():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--requested", nargs="?", const="records/requested-roster.json",
+        help="Build requested-* sheets from an ordered roster JSON (default: records/requested-roster.json)",
+    )
+    return parser.parse_args()
+
+
+def make_sheet(pets, paired, expected_count=None, roster_details=None):
+    expected_count = len(pets) if expected_count is None else expected_count
+    roster_details = roster_details or {"rosterSlugs": [pet["slug"] for pet in pets]}
+    requested = "requestedRoster" in roster_details
     columns = 4 if paired else 7
     cw, ch = (572, 366) if paired else (340, 416)
     gap, pad, top = 16, 32, 112
@@ -38,9 +90,11 @@ def make_sheet(pets, paired):
     canvas = Image.new("RGBA", size, "#eeeadd")
     draw = ImageDraw.Draw(canvas)
     title = "五行奇谈 · 原创宠物双朝向" if paired else "五行奇谈 · 原创宠物高清设计"
+    if requested:
+        title = roster_details["rosterLabel"] + (" · 双朝向" if paired else " · 高清设计")
     draw.text((pad, 20), title, font=text_font(35), fill="#214f42")
     available = sum((ROOT / "runtime" / p["slug"] / "idle_E.png").exists() and (not paired or (ROOT / "runtime" / p["slug"] / "idle_W.png").exists()) for p in pets)
-    subtitle = f"{available} / 14 已导出  ·  " + ("E 敌方 / W 我方  ·  两向分别绘制  ·  静态素材" if paired else "敌方朝向 E  ·  原生母图逐只保留  ·  静态素材")
+    subtitle = f"{available} / {expected_count} 已导出  ·  " + ("E 敌方 / W 我方  ·  两向分别绘制  ·  静态素材" if paired else "敌方朝向 E  ·  原生母图逐只保留  ·  静态素材")
     draw.text((pad, 70), subtitle, font=text_font(20), fill="#6b796c")
     sources = []
     for index, pet in enumerate(pets):
@@ -70,7 +124,8 @@ def make_sheet(pets, paired):
         label_y = y + 325 if paired else y + 360
         center_text(draw, (x + 8, label_y, cw - 16, 42), f"{index + 1:02d}  {pet['name']}", 24, "#f5e8c5" if paired else "#2c5545")
     stem = "EW-roster" if paired else "E-roster"
-    output = ROOT / "previews" / f"{stem}.png"
+    prefix = "requested-" if requested else ""
+    output = ROOT / "previews" / f"{prefix}{stem}.png"
     buf = io.BytesIO()
     canvas.convert("RGB").save(buf, format="PNG", compress_level=9)
     raw = buf.getvalue()
@@ -81,15 +136,18 @@ def make_sheet(pets, paired):
         "operation": "deterministic-contact-sheet-of-existing-exported-pngs-with-labels", "characterArtworkGeneratedByThisScript": False,
         "processor": "build_overviews.py", "processorSha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         "font": str(FONT), "fontSha256": hashlib.sha256(FONT.read_bytes()).hexdigest(), "availablePetCount": available,
-        "expectedPetCount": 14, "clientIntegrated": False, "animation": False,
+        "expectedPetCount": expected_count, "clientIntegrated": False, "animation": False,
+        **roster_details,
     }
     write_changed(Path(str(output) + ".derived.json"), (json.dumps(record, ensure_ascii=False, indent=2) + "\n").encode("utf-8"))
     return {"file": record["file"], "size": list(size), "availablePetCount": available}
 
 
 def main():
-    config = json.loads((ROOT / "asset-config.json").read_text(encoding="utf-8"))
-    print(json.dumps([make_sheet(config["pets"], False), make_sheet(config["pets"], True)], ensure_ascii=False, indent=2))
+    args = roster_arguments()
+    config = json.loads((ROOT / "asset-config.json").read_text(encoding="utf-8-sig"))
+    pets, expected_count, details = load_roster(config, args.requested)
+    print(json.dumps([make_sheet(pets, False, expected_count, details), make_sheet(pets, True, expected_count, details)], ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":

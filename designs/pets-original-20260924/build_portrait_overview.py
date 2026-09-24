@@ -4,27 +4,28 @@ from __future__ import annotations
 import hashlib
 import io
 import json
+import math
 from pathlib import Path
 
 from PIL import Image, ImageDraw
 
-from build_overviews import ROOT, FONT, center_text, text_font, write_changed
+from build_overviews import ROOT, FONT, center_text, text_font, write_changed, load_roster, roster_arguments
 
 
 def main():
+    args = roster_arguments()
     config = json.loads((ROOT / "asset-config.json").read_text(encoding="utf-8-sig"))
-    pets = config["pets"]
-    if len(pets) != 14:
-        raise ValueError("The portrait review sheet requires the defined 14-pet roster")
-    columns, rows = 7, 2
+    pets, expected_count, roster_details = load_roster(config, args.requested)
+    columns, rows = 7, math.ceil(len(pets) / 7)
     cell_width, cell_height, gap, padding, top = 240, 302, 16, 32, 112
     width = columns * cell_width + (columns - 1) * gap + padding * 2
-    height = rows * cell_height + gap + top + padding
+    height = rows * cell_height + (rows - 1) * gap + top + padding
     canvas = Image.new("RGBA", (width, height), "#eeeadd")
     draw = ImageDraw.Draw(canvas)
     available = sum((ROOT / "ui" / pet["slug"] / "portrait_512.png").exists() for pet in pets)
-    draw.text((padding, 20), "五行奇谈 · 原创宠物头像取景", font=text_font(35), fill="#214f42")
-    draw.text((padding, 70), f"{available} / 14 已导出  ·  512像素透明头像  ·  实际母图人工取景", font=text_font(20), fill="#6b796c")
+    title = roster_details["rosterLabel"] + " · 头像取景" if args.requested else "五行奇谈 · 原创宠物头像取景"
+    draw.text((padding, 20), title, font=text_font(35), fill="#214f42")
+    draw.text((padding, 70), f"{available} / {expected_count} 已导出  ·  512像素透明头像  ·  实际母图人工取景", font=text_font(20), fill="#6b796c")
     sources = []
     for index, pet in enumerate(pets):
         x = padding + index % columns * (cell_width + gap)
@@ -47,7 +48,8 @@ def main():
         else:
             center_text(draw, viewport, "待生成", 22, "#a5aaa0")
         center_text(draw, (x + 6, y + 250, cell_width - 12, 42), f"{index + 1:02d}  {pet['name']}", 22, "#2c5545")
-    output = ROOT / "previews/portrait-roster.png"
+    prefix = "requested-" if args.requested else ""
+    output = ROOT / "previews" / f"{prefix}portrait-roster.png"
     buffer = io.BytesIO()
     canvas.convert("RGB").save(buffer, format="PNG", compress_level=9)
     raw = buffer.getvalue()
@@ -60,7 +62,8 @@ def main():
         "sha256": hashlib.sha256(raw).hexdigest(),
         "width": width, "height": height, "format": "PNG",
         "derivedFrom": sources,
-        "operation": "deterministic-7-by-2-contact-sheet-of-existing-transparent-portrait-pngs-with-labels",
+        "operation": "deterministic-contact-sheet-of-existing-transparent-portrait-pngs-with-labels",
+        "columns": columns, "rows": rows,
         "characterArtworkGeneratedByThisScript": False,
         "processor": processor.name,
         "processorSha256": hashlib.sha256(processor.read_bytes()).hexdigest(),
@@ -68,7 +71,8 @@ def main():
         "layoutHelperSha256": hashlib.sha256(helper.read_bytes()).hexdigest(),
         "font": str(FONT),
         "fontSha256": hashlib.sha256(FONT.read_bytes()).hexdigest(),
-        "availablePetCount": available, "expectedPetCount": 14,
+        "availablePetCount": available, "expectedPetCount": expected_count,
+        **roster_details,
         "clientIntegrated": False, "animation": False,
     }
     write_changed(Path(str(output) + ".derived.json"), (json.dumps(record, ensure_ascii=False, indent=2) + "\n").encode("utf-8"))

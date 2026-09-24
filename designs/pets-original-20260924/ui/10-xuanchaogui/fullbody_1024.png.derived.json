@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "file": "ui/10-xuanchaogui/fullbody_1024.png",
-  "sha256": "d23248690e2f7389278a1e9a1bafb246805bf7cf3dc9c49798ac6502d7845c4a",
+  "sha256": "2172086cfcf33f7381c8fc62652384a00a3b48945516fd9a4a184de1d1cdf850",
   "width": 1024,
   "height": 1024,
   "mode": "RGBA",
@@ -14,8 +14,8 @@
   ],
   "operation": "ui-fullbody-from-shared-scale-static-pose",
   "processor": "build_pack.py",
-  "processorVersion": 1,
-  "processorSha256": "4e80cf8b1525eaa2650b48ceb1c2cbddbf1ec4f6c9777bb79b51f71bb5d11a9a",
+  "processorVersion": 2,
+  "processorSha256": "033de1559c8c0c6a5791f6a169ef89deaa9aa228e40b432ba286f5920adb21ee",
   "facing": "E",
   "sharedScale": 0.8607594936708861,
   "sourceAnchor": [
@@ -62,6 +62,70 @@
     0.8604465709728868
   ],
   "alphaExtraction": "remove-edge-connected-magenta-only",
+  "magentaEdgeDecontamination": {
+    "enabled": true,
+    "applied": true,
+    "method": "bounded-edge-matte-unmix-with-nearest-clean-interior-colour",
+    "radius": 2,
+    "interiorInset": 3,
+    "searchRadius": 6,
+    "matteRgb": [
+      250.0,
+      3.0,
+      251.0
+    ],
+    "magentaExcessMinimum": 3,
+    "mixtureFractionRange": [
+      0.01,
+      0.95
+    ],
+    "fitRmsMaximum": 24,
+    "foregroundBrightnessRange": [
+      0.05,
+      1.35
+    ],
+    "candidatePixels": 4432,
+    "modifiedPixels": 4244,
+    "alphaModifiedPixels": 4244,
+    "protectedRedDominantPixels": 537,
+    "maxObservedRms": 23.7943,
+    "nativeRgbaUntouched": true,
+    "note": "Only opted-in originally opaque edge-connected-magenta extraction; original source is unchanged. Red-dominant knot colours and all interior pixels are excluded."
+  },
+  "reviewedMagentaPocketCleanup": {
+    "enabled": true,
+    "applied": true,
+    "method": "reviewed-bounded-key-colour-alpha-only-clear",
+    "sourceSha256": "fbd52b40f56eb6f541316fd0ae8ff723d88e791eb19ce770df4b5e874d7ef4bc",
+    "coordinateSpace": "native-source-top-left-pixels-half-open-box",
+    "selector": {
+      "minimumRedBlue": 60,
+      "minimumMagentaExcess": 20,
+      "maximumRedBlueRatio": 1.65
+    },
+    "regions": [
+      {
+        "reviewedSourceBox": [
+          189,
+          516,
+          211,
+          541
+        ],
+        "reason": "Visually verified enclosed magenta background gap under red knot, between left gold tassel and celadon shell; clear alpha only.",
+        "removedPixels": 69,
+        "removedSourceBbox": [
+          195,
+          523,
+          204,
+          536
+        ]
+      }
+    ],
+    "removedPixels": 69,
+    "rgbModifiedPixels": 0,
+    "nativeSourceUnchanged": true,
+    "note": "Only explicitly reviewed enclosed background gaps are affected; no global pink removal."
+  },
   "remoteAlphaOneCleanup": {
     "removedPixels": 0,
     "alphaValue": 1,

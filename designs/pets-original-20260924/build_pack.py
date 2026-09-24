@@ -210,7 +210,7 @@ def decontaminate_magenta_edge(data, background, options):
     brightness = np.divide(foreground_coefficient, 1 - fraction, out=np.zeros(len(ys)), where=np.abs(1 - fraction) > 1e-6)
     residual = colour - (foreground_coefficient[:, None] * estimates + fraction[:, None] * matte)
     rms = np.sqrt(np.mean(residual * residual, axis=1))
-    accepted = found & stable & (fraction >= .01) & (fraction <= .95) & (rms <= 12) & (brightness >= .05) & (brightness <= 1.35)
+    accepted = found & stable & (fraction >= .01) & (fraction <= .95) & (rms <= 24) & (brightness >= .05) & (brightness <= 1.35)
     yy, xx = ys[accepted], xs[accepted]
     keep_alpha = 1 - fraction[accepted]
     unmixed = (colour[accepted] - fraction[accepted, None] * matte) / keep_alpha[:, None]
@@ -221,7 +221,7 @@ def decontaminate_magenta_edge(data, background, options):
         "method": "bounded-edge-matte-unmix-with-nearest-clean-interior-colour",
         "radius": radius, "interiorInset": radius + 1, "searchRadius": search_radius,
         "matteRgb": matte.tolist(), "magentaExcessMinimum": 3,
-        "mixtureFractionRange": [.01, .95], "fitRmsMaximum": 12, "foregroundBrightnessRange": [.05, 1.35],
+        "mixtureFractionRange": [.01, .95], "fitRmsMaximum": 24, "foregroundBrightnessRange": [.05, 1.35],
         "candidatePixels": int(len(ys)), "modifiedPixels": int(len(yy)),
         "alphaModifiedPixels": int(np.count_nonzero(data[:, :, 3] != original_alpha)),
         "protectedRedDominantPixels": int(np.count_nonzero(near_background & (original_alpha > 0) & red_dominant)),
@@ -231,7 +231,42 @@ def decontaminate_magenta_edge(data, background, options):
     }
 
 
-def extract(path, policy="auto", cleanup_small=False, edge_decontamination=None):
+def clear_reviewed_magenta_pockets(data, source_path, options):
+    """Clear only reviewed key-colour pixels in source-hash-guarded small boxes."""
+    if not options:
+        return {"enabled": False, "applied": False, "removedPixels": 0}
+    expected_hash = options.get("sourceSha256")
+    if not expected_hash or sha(Path(source_path).read_bytes()) != expected_hash:
+        raise ValueError("Reviewed magenta-pocket source SHA256 does not match")
+    height, width = data.shape[:2]
+    regions = []
+    for region in options.get("regions", []):
+        box = [int(v) for v in region["box"]]
+        if len(box) != 4:
+            raise ValueError("Magenta-pocket box needs four source coordinates")
+        x0, y0, x1, y1 = box
+        if not (0 <= x0 < x1 <= width and 0 <= y0 < y1 <= height) or (x1-x0)*(y1-y0) > 4096:
+            raise ValueError("Magenta-pocket box must be a bounded reviewed source region <=4096 pixels")
+        roi = data[y0:y1, x0:x1]
+        rgb = roi[:, :, :3].astype(np.int16)
+        # Saturated key colour and its local mixed fringe; preserve red knot paint.
+        selected = ((roi[:, :, 3] > 0) & (rgb[:, :, 0] >= 60) & (rgb[:, :, 2] >= 60)
+                    & (np.minimum(rgb[:, :, 0], rgb[:, :, 2]) - rgb[:, :, 1] >= 20)
+                    & (rgb[:, :, 0] <= rgb[:, :, 2] * 1.65))
+        yy, xx = np.where(selected)
+        roi[selected, 3] = 0
+        regions.append({"reviewedSourceBox": box, "reason": region.get("reason"),
+                        "removedPixels": int(len(xx)),
+                        "removedSourceBbox": [int(xx.min()+x0), int(yy.min()+y0), int(xx.max()+x0+1), int(yy.max()+y0+1)] if len(xx) else None})
+    removed = sum(region["removedPixels"] for region in regions)
+    return {"enabled": True, "applied": bool(removed), "method": "reviewed-bounded-key-colour-alpha-only-clear",
+            "sourceSha256": expected_hash, "coordinateSpace": "native-source-top-left-pixels-half-open-box",
+            "selector": {"minimumRedBlue": 60, "minimumMagentaExcess": 20, "maximumRedBlueRatio": 1.65},
+            "regions": regions, "removedPixels": removed, "rgbModifiedPixels": 0,
+            "nativeSourceUnchanged": True, "note": "Only explicitly reviewed enclosed background gaps are affected; no global pink removal."}
+
+
+def extract(path, policy="auto", cleanup_small=False, edge_decontamination=None, pocket_cleanup=None):
     with Image.open(path) as raw:
         mode = raw.mode
         im = raw.convert("RGBA")
@@ -255,6 +290,9 @@ def extract(path, policy="auto", cleanup_small=False, edge_decontamination=None)
         im = Image.fromarray(data)
     elif not has_transparency:
         raise ValueError("Source has neither usable alpha nor a reliably detected magenta boundary; manual review required")
+    pocket_result = clear_reviewed_magenta_pockets(data, path, pocket_cleanup)
+    if pocket_result["applied"]:
+        im = Image.fromarray(data)
     alpha = data[:, :, 3]
     remote_alpha_one = 0
     remote_preserve_box = None
@@ -312,6 +350,7 @@ def extract(path, policy="auto", cleanup_small=False, edge_decontamination=None)
         "originalMode": mode, "nativeSize": list(im.size), "operation": operation,
         "hadNativeTransparency": has_transparency, "originalTransparentBoundaryRatio": round(float(np.mean(border_alpha <= 8)), 6),
         "magentaEdgeDecontamination": edge_cleanup,
+        "reviewedMagentaPocketCleanup": pocket_result,
         "removedMagentaPixels": removed, "alphaBbox": [x0, y0, x1, y1],
         "transparentPixels": int(np.count_nonzero(alpha == 0)), "partialAlphaPixels": int(np.count_nonzero((alpha > 0) & (alpha < 255))),
         "alphaComponents": comps, "componentCount": count, "smallComponentPixels": small_pixels,
@@ -474,7 +513,7 @@ def build(pet, config, snapshot, inspect, inspect_path, diagnose_only):
             result["directions"][direction] = {"status": "missing-source", **direction_reviews[direction]}
             continue
         try:
-            im, diag = extract(path, pet.get("backgroundPolicy", "auto"), pet.get("cleanupSmallComponents", False), pet.get("magentaEdgeDecontamination", {}).get(direction))
+            im, diag = extract(path, pet.get("backgroundPolicy", "auto"), pet.get("cleanupSmallComponents", False), pet.get("magentaEdgeDecontamination", {}).get(direction), pet.get("reviewedMagentaPocketCleanup", {}).get(direction))
             if min(im.size) < config["minimumNativeSize"]:
                 raise ValueError(f"Native source {im.size} is below the required minimum; upsampling prohibited")
             generation, evidence = generation_record(path, pet, direction, snapshot, inspect, inspect_path, write=not diagnose_only)
@@ -532,6 +571,7 @@ def build(pet, config, snapshot, inspect, inspect_path, diagnose_only):
         details = {"facing": direction, "sharedScale": factor, "sourceAnchor": item["anchor"], "runtimeAnchorTopOriginPixels": output_anchor, "runtimePivotBottomOrigin": config["runtimePivot"], "sourceNativeSize": list(item["image"].size), "sourceAlphaBbox": item["diagnostic"]["alphaBbox"], "alphaBbox": out.getchannel("A").getbbox(), "resample": "premultiplied-alpha-LANCZOS", "upscaled": False, "mirrored": False, **transform_info}
         details["alphaExtraction"] = item["diagnostic"]["operation"]
         details["magentaEdgeDecontamination"] = item["diagnostic"]["magentaEdgeDecontamination"]
+        details["reviewedMagentaPocketCleanup"] = item["diagnostic"]["reviewedMagentaPocketCleanup"]
         details["remoteAlphaOneCleanup"] = item["diagnostic"]["remoteAlphaOneCleanup"]
         details["smallComponentCleanup"] = {"enabled": pet.get("cleanupSmallComponents", False), "alphaThreshold": 16, "maxArea": 16, "maxWidthHeight": 8, "removed": item["diagnostic"].get("removedComponents", []), "removedPixels": item["diagnostic"].get("removedComponentPixels", 0)}
         body = pet.get("bodyBounds", {}).get(direction)
@@ -556,7 +596,7 @@ def build(pet, config, snapshot, inspect, inspect_path, diagnose_only):
         head = head.convert("RGBa").resize((round(head.width * portrait_factor), round(head.height * portrait_factor)), Image.Resampling.LANCZOS).convert("RGBA")
         canvas = Image.new("RGBA", (512, 512))
         canvas.alpha_composite(head, ((512 - head.width) // 2, (512 - head.height) // 2))
-        result["outputs"]["portrait_512"], _ = export_image(ROOT / "ui" / pet["slug"] / "portrait_512.png", canvas, item["path"], item["generation"], "manually-reviewed-face-crop-centered-without-upscale", {"sourceCrop": crop, "cropReviewed": True, "scale": portrait_factor, "upscaled": False, "alphaExtraction": item["diagnostic"]["operation"], "magentaEdgeDecontamination": item["diagnostic"]["magentaEdgeDecontamination"], "smallComponentCleanup": {"removed": item["diagnostic"]["removedComponents"], "removedPixels": item["diagnostic"]["removedComponentPixels"], "alphaThreshold": 16, "maxArea": 16, "maxWidthHeight": 8}, "remoteAlphaOneCleanup": item["diagnostic"]["remoteAlphaOneCleanup"]})
+        result["outputs"]["portrait_512"], _ = export_image(ROOT / "ui" / pet["slug"] / "portrait_512.png", canvas, item["path"], item["generation"], "manually-reviewed-face-crop-centered-without-upscale", {"sourceCrop": crop, "cropReviewed": True, "scale": portrait_factor, "upscaled": False, "alphaExtraction": item["diagnostic"]["operation"], "magentaEdgeDecontamination": item["diagnostic"]["magentaEdgeDecontamination"], "reviewedMagentaPocketCleanup": item["diagnostic"]["reviewedMagentaPocketCleanup"], "smallComponentCleanup": {"removed": item["diagnostic"]["removedComponents"], "removedPixels": item["diagnostic"]["removedComponentPixels"], "alphaThreshold": 16, "maxArea": 16, "maxWidthHeight": 8}, "remoteAlphaOneCleanup": item["diagnostic"]["remoteAlphaOneCleanup"]})
         result["portraitStatus"] = "exported-pending-final-visual-review"
     result["status"] = "exported-assistant-reviewed" if result["visualReview"] == "assistant-reviewed" else "exported-pending-visual-review"
     return result
@@ -591,8 +631,8 @@ def main():
             for direction, diagnostic in rows[pet["slug"]].get("directions", {}).items():
                 diagnostic.update(direction_reviews.get(direction, {}))
         ordered = [rows[pet["slug"]] for pet in config["pets"]]
-        expected_count = config.get("expectedPetCount", 14)
-        manifest = {"schemaVersion": 1, "title": "五行奇谈 · 14只原创宠物静态双朝向素材", "runtimeSize": config["runtimeSize"], "portraitSize": 512, "runtimePivot": config["runtimePivot"], "enemyFacing": "E", "friendlyFacing": "W", "expectedPetCount": expected_count, "originalityReview": aggregate_review(ordered, "originalityReview", expected_count), "visualReview": aggregate_review(ordered, "visualReview", expected_count), "userApproved": False, "clientIntegrated": False, "animation": False, "pets": ordered}
+        expected_count = config.get("expectedPetCount", len(config["pets"]))
+        manifest = {"schemaVersion": 1, "title": f"五行奇谈 · {expected_count}只原创宠物静态双朝向素材", "runtimeSize": config["runtimeSize"], "portraitSize": 512, "runtimePivot": config["runtimePivot"], "enemyFacing": "E", "friendlyFacing": "W", "expectedPetCount": expected_count, "originalityReview": aggregate_review(ordered, "originalityReview", expected_count), "visualReview": aggregate_review(ordered, "visualReview", expected_count), "userApproved": False, "clientIntegrated": False, "animation": False, "pets": ordered}
         write_if_changed(ROOT / "manifest.json", manifest)
         report["items"] = ordered
         write_if_changed(ROOT / "processing-report.json", report)

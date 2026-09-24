@@ -14,7 +14,66 @@ def digest(path):
 
 
 def read(path):
-    return json.loads(path.read_text(encoding="utf-8"))
+    return json.loads(path.read_text(encoding="utf-8-sig"))
+
+
+def validate_overview(filename, manifest_slugs, require_complete=False):
+    """Check one existing review sheet and all sources named by its sidecar."""
+    path = ROOT / filename
+    meta = read(Path(str(path) + ".derived.json"))
+    if meta["file"] != filename or digest(path) != meta["sha256"]:
+        raise ValueError("Overview file or hash mismatch")
+    with Image.open(path) as image:
+        image.load()
+        if image.size != (meta["width"], meta["height"]) or image.format != "PNG":
+            raise ValueError("Overview dimensions or format differ from its sidecar")
+    expected_count = meta.get("expectedPetCount")
+    if not isinstance(expected_count, int) or expected_count < 1:
+        raise ValueError("Overview expectedPetCount must be a positive integer")
+    requested = Path(filename).name.startswith("requested-")
+    if requested:
+        request_record = meta.get("requestedRoster", {"file": "records/requested-roster.json"})
+        request_path = ROOT / request_record["file"]
+        selection = read(request_path)
+        expected_slugs = selection["slugs"]
+        if request_record.get("sha256") and digest(request_path) != request_record["sha256"]:
+            raise ValueError("Overview has a stale requested roster")
+    else:
+        expected_slugs = manifest_slugs
+    if not isinstance(expected_slugs, list) or not expected_slugs or not all(isinstance(slug, str) for slug in expected_slugs):
+        raise ValueError("Overview roster must be a nonempty list of slug strings")
+    if len(set(expected_slugs)) != len(expected_slugs) or any(slug not in manifest_slugs for slug in expected_slugs):
+        raise ValueError("Overview roster contains duplicate or unknown slugs")
+    if expected_count != len(expected_slugs):
+        raise ValueError("Overview expectedPetCount differs from the current roster")
+    if meta.get("rosterSlugs", expected_slugs) != expected_slugs:
+        raise ValueError("Overview ordered roster differs from its current definition")
+    portrait = filename.endswith("portrait-roster.png")
+    paired = filename.endswith("EW-roster.png")
+    directions = ("E", "W") if paired else (None,) if portrait else ("E",)
+    seen = set()
+    for source in meta["derivedFrom"]:
+        pet = source["pet"]
+        direction = source.get("direction") if not portrait else None
+        key = (pet, direction)
+        if pet not in expected_slugs or direction not in directions or key in seen:
+            raise ValueError("Overview contains an unexpected or duplicate source")
+        seen.add(key)
+        expected_file = f"ui/{pet}/portrait_512.png" if portrait else f"runtime/{pet}/idle_{direction}.png"
+        if source["file"] != expected_file or digest(ROOT / source["file"]) != source["sha256"]:
+            raise ValueError("Overview has stale or unexpected source artwork")
+        if source["derivedRecord"] != expected_file + ".derived.json":
+            raise ValueError("Overview source points to an unexpected derived record")
+        derived = read(ROOT / source["derivedRecord"])
+        if derived["file"] != source["file"] or derived["sha256"] != source["sha256"]:
+            raise ValueError("Overview source derived-record hash mismatch")
+    available = sum(all((slug, direction) in seen for direction in directions) for slug in expected_slugs)
+    if meta.get("availablePetCount") != available:
+        raise ValueError("Overview availablePetCount differs from its recorded sources")
+    if require_complete and len(seen) != expected_count * len(directions):
+        raise ValueError("Overview does not contain the complete expected roster")
+    return {"file": filename, "checks": "passed", "expectedPetCount": expected_count,
+            "availablePetCount": available, "checkedSourceCount": len(seen)}
 
 
 def main():
@@ -23,7 +82,8 @@ def main():
     args = parser.parse_args()
     manifest = read(ROOT / "manifest.json")
     errors, pending, checked, source_records = [], [], [], {}
-    expected_count = manifest.get("expectedPetCount", 14)
+    checked_overviews = []
+    expected_count = manifest.get("expectedPetCount", len(manifest["pets"]))
     if len(manifest["pets"]) != expected_count:
         pending.append({"slug": None, "missingPetDefinitions": expected_count - len(manifest["pets"])})
     for pet in manifest["pets"]:
@@ -82,20 +142,21 @@ def main():
                 checked.append({"file": item["file"], "sha256": actual_sha, "checks": "passed"})
             except Exception as error:
                 errors.append({"file": item["file"], "error": str(error)})
-    for filename in ("previews/E-roster.png", "previews/EW-roster.png"):
-        path = ROOT / filename
-        if not path.exists():
-            continue
-        meta = read(Path(str(path) + ".derived.json"))
-        if digest(path) != meta["sha256"]:
-            errors.append({"file": filename, "error": "Overview hash mismatch"})
-        for source in meta["derivedFrom"]:
-            if digest(ROOT / source["file"]) != source["sha256"]:
-                errors.append({"file": filename, "error": "Overview has stale source artwork"})
+    manifest_slugs = [pet["slug"] for pet in manifest["pets"]]
+    for prefix in ("", "requested-"):
+        for stem in ("E-roster", "EW-roster", "portrait-roster"):
+            filename = f"previews/{prefix}{stem}.png"
+            path = ROOT / filename
+            if not path.exists() and not Path(str(path) + ".derived.json").exists():
+                continue
+            try:
+                checked_overviews.append(validate_overview(filename, manifest_slugs, args.require_complete))
+            except Exception as error:
+                errors.append({"file": filename, "error": str(error)})
     if args.require_complete and pending:
         errors.append({"file": "manifest.json", "error": "Incomplete expected static asset set"})
     previous = read(ROOT / "records/technical-validation.json") if (ROOT / "records/technical-validation.json").exists() else {}
-    report = {"schemaVersion": 1, "status": "passed" if not errors else "failed", "allExpectedStaticExportsPresent": not pending, "expectedPetCount": expected_count, "checkedOutputCount": len(checked), "checkedSourceCount": len(source_records), "outputs": checked, "sources": list(source_records.values()), "pending": pending, "errors": errors, "visualApproval": False, "clientIntegrated": False, "animation": False, "scope": "PNG dimensions, alpha, clipping, no-upscale, paired shared scale, hashes, generation and derived evidence; does not grant visual or engine acceptance", "deterministicRebuild": previous.get("deterministicRebuild"), "originalityReview": manifest.get("originalityReview", "pending"), "referencePolicy": "Rejected candidates and external-game clipboard screenshots are forbidden generation references; visual identity review remains manual"}
+    report = {"schemaVersion": 1, "status": "passed" if not errors else "failed", "allExpectedStaticExportsPresent": not pending, "expectedPetCount": expected_count, "checkedOutputCount": len(checked), "checkedSourceCount": len(source_records), "checkedOverviewCount": len(checked_overviews), "overviews": checked_overviews, "outputs": checked, "sources": list(source_records.values()), "pending": pending, "errors": errors, "visualApproval": False, "clientIntegrated": False, "animation": False, "scope": "PNG dimensions, alpha, clipping, no-upscale, paired shared scale, hashes, generation and derived evidence; does not grant visual or engine acceptance", "deterministicRebuild": previous.get("deterministicRebuild"), "originalityReview": manifest.get("originalityReview", "pending"), "referencePolicy": "Rejected candidates and external-game clipboard screenshots are forbidden generation references; visual identity review remains manual"}
     target = ROOT / "records/technical-validation.json"
     raw = (json.dumps(report, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
     if not target.exists() or target.read_bytes() != raw:
