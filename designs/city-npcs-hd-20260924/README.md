@@ -36,3 +36,8 @@
 ## 逐张制作计划
 
 [批次计划](batch-plan.json)与 [23 位角色提示词](prompts/)已保存。计划中的 proposedApiParameters 仅保留历史提案，用户已取消付费入口，不执行这些 API 参数。正式图以 native/ 中的实际文件与逐图记录为准。
+
+
+## 新窗口接续
+
+用户要求转到新窗口继续。最新准确进度和剩余工作见 [HANDOFF.md](HANDOFF.md)。

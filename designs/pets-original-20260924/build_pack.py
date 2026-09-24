@@ -12,11 +12,11 @@ from pathlib import Path
 import sys
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageFilter
 
 ROOT = Path(__file__).resolve().parent
 REPO = ROOT.parents[1]
-VERSION = 1
+VERSION = 2
 DIRECTIONS = ("E", "W")
 
 
@@ -160,7 +160,78 @@ def connected_background(mask):
     return seen
 
 
-def extract(path, policy="auto", cleanup_small=False):
+
+def decontaminate_magenta_edge(data, background, options):
+    """Unmix matte only in a narrow opt-in edge band of an opaque key source."""
+    radius = int(options.get("radius", 2))
+    if not 1 <= radius <= 3:
+        raise ValueError("Magenta edge radius must be 1, 2 or 3 pixels")
+    rgb = data[:, :, :3].astype(np.float64)
+    original_alpha = data[:, :, 3].copy()
+    matte = np.median(rgb[background], axis=0)
+    background_image = Image.fromarray((background * 255).astype(np.uint8))
+    near_background = np.asarray(background_image.filter(ImageFilter.MaxFilter(radius * 2 + 1))) > 0
+    # The estimate is at least radius+1 pixels inside, away from key-colour mixing.
+    outer_core = np.asarray(background_image.filter(ImageFilter.MaxFilter((radius + 1) * 2 + 1))) > 0
+    core = (original_alpha > 0) & ~outer_core
+    red_dominant = (rgb[:, :, 0] > rgb[:, :, 2] * 1.65) & (rgb[:, :, 0] - rgb[:, :, 1] > 35)
+    magenta_excess = np.minimum(rgb[:, :, 0], rgb[:, :, 2]) - rgb[:, :, 1] >= 3
+    candidates = near_background & (original_alpha > 0) & magenta_excess & ~red_dominant
+    ys, xs = np.where(candidates)
+    estimates = np.zeros((len(ys), 3), dtype=np.float64)
+    found = np.zeros(len(ys), dtype=bool)
+    search_radius = radius + 4
+    offsets = sorted(
+        ((dy, dx) for dy in range(-search_radius, search_radius + 1)
+         for dx in range(-search_radius, search_radius + 1)
+         if 0 < dy * dy + dx * dx <= search_radius * search_radius),
+        key=lambda offset: (offset[0] ** 2 + offset[1] ** 2, offset),
+    )
+    height, width = background.shape
+    for dy, dx in offsets:
+        eligible = np.flatnonzero(~found & (ys + dy >= 0) & (ys + dy < height) & (xs + dx >= 0) & (xs + dx < width))
+        if not len(eligible):
+            continue
+        take = eligible[core[ys[eligible] + dy, xs[eligible] + dx]]
+        estimates[take] = rgb[ys[take] + dy, xs[take] + dx]
+        found[take] = True
+    colour = rgb[ys, xs]
+    # Fit foreground intensity as well as matte fraction so a painted dark
+    # contour is not mistaken for a bad fit against the brighter inner material.
+    ff = np.sum(estimates * estimates, axis=1)
+    mm = float(np.sum(matte * matte))
+    fm = np.sum(estimates * matte, axis=1)
+    cf = np.sum(colour * estimates, axis=1)
+    cm = np.sum(colour * matte, axis=1)
+    determinant = ff * mm - fm * fm
+    stable = determinant > 1e-6
+    foreground_coefficient = np.divide(cf * mm - cm * fm, determinant, out=np.zeros(len(ys)), where=stable)
+    fraction = np.divide(cm * ff - cf * fm, determinant, out=np.zeros(len(ys)), where=stable)
+    brightness = np.divide(foreground_coefficient, 1 - fraction, out=np.zeros(len(ys)), where=np.abs(1 - fraction) > 1e-6)
+    residual = colour - (foreground_coefficient[:, None] * estimates + fraction[:, None] * matte)
+    rms = np.sqrt(np.mean(residual * residual, axis=1))
+    accepted = found & stable & (fraction >= .01) & (fraction <= .95) & (rms <= 12) & (brightness >= .05) & (brightness <= 1.35)
+    yy, xx = ys[accepted], xs[accepted]
+    keep_alpha = 1 - fraction[accepted]
+    unmixed = (colour[accepted] - fraction[accepted, None] * matte) / keep_alpha[:, None]
+    data[yy, xx, :3] = np.clip(np.rint(unmixed), 0, 255).astype(np.uint8)
+    data[yy, xx, 3] = np.rint(original_alpha[yy, xx] * keep_alpha).astype(np.uint8)
+    return {
+        "enabled": True, "applied": bool(len(yy)),
+        "method": "bounded-edge-matte-unmix-with-nearest-clean-interior-colour",
+        "radius": radius, "interiorInset": radius + 1, "searchRadius": search_radius,
+        "matteRgb": matte.tolist(), "magentaExcessMinimum": 3,
+        "mixtureFractionRange": [.01, .95], "fitRmsMaximum": 12, "foregroundBrightnessRange": [.05, 1.35],
+        "candidatePixels": int(len(ys)), "modifiedPixels": int(len(yy)),
+        "alphaModifiedPixels": int(np.count_nonzero(data[:, :, 3] != original_alpha)),
+        "protectedRedDominantPixels": int(np.count_nonzero(near_background & (original_alpha > 0) & red_dominant)),
+        "maxObservedRms": round(float(rms[accepted].max()), 4) if len(yy) else None,
+        "nativeRgbaUntouched": True,
+        "note": "Only opted-in originally opaque edge-connected-magenta extraction; original source is unchanged. Red-dominant knot colours and all interior pixels are excluded.",
+    }
+
+
+def extract(path, policy="auto", cleanup_small=False, edge_decontamination=None):
     with Image.open(path) as raw:
         mode = raw.mode
         im = raw.convert("RGBA")
@@ -172,12 +243,15 @@ def extract(path, policy="auto", cleanup_small=False):
     magenta = (rgb[:, :, 0] >= 180) & (rgb[:, :, 2] >= 180) & (rgb[:, :, 1] <= 80) & (np.minimum(rgb[:, :, 0], rgb[:, :, 2]) - rgb[:, :, 1] >= 110)
     border_key = np.concatenate([magenta[0], magenta[-1], magenta[:, 0], magenta[:, -1]])
     removed = 0
+    edge_cleanup = {"enabled": bool(edge_decontamination), "applied": False, "modifiedPixels": 0, "reason": "disabled-or-native-rgba"}
     operation = "preserve-native-rgba"
     if policy == "connected-magenta" or (policy == "auto" and not has_transparency and np.mean(border_key) >= .8):
         connected = connected_background(magenta)
         removed = int(np.count_nonzero(connected & (alpha > 0)))
         data[connected, 3] = 0
         operation = "remove-edge-connected-magenta-only"
+        if edge_decontamination and not has_transparency:
+            edge_cleanup = decontaminate_magenta_edge(data, connected, edge_decontamination)
         im = Image.fromarray(data)
     elif not has_transparency:
         raise ValueError("Source has neither usable alpha nor a reliably detected magenta boundary; manual review required")
@@ -231,10 +305,13 @@ def extract(path, policy="auto", cleanup_small=False):
         y0, x0 = coords.min(axis=0).tolist()
         y1, x1 = (coords.max(axis=0) + 1).tolist()
     post_comps, post_count, post_small = components(visible)
+    rgb = data[:, :, :3].astype(np.int16)
+    magenta = (rgb[:, :, 0] >= 180) & (rgb[:, :, 2] >= 180) & (rgb[:, :, 1] <= 80) & (np.minimum(rgb[:, :, 0], rgb[:, :, 2]) - rgb[:, :, 1] >= 110)
     saturated = (rgb.max(axis=2) - rgb.min(axis=2) > 160) & (rgb.max(axis=2) >= 180) & visible
     diagnostic = {
         "originalMode": mode, "nativeSize": list(im.size), "operation": operation,
         "hadNativeTransparency": has_transparency, "originalTransparentBoundaryRatio": round(float(np.mean(border_alpha <= 8)), 6),
+        "magentaEdgeDecontamination": edge_cleanup,
         "removedMagentaPixels": removed, "alphaBbox": [x0, y0, x1, y1],
         "transparentPixels": int(np.count_nonzero(alpha == 0)), "partialAlphaPixels": int(np.count_nonzero((alpha > 0) & (alpha < 255))),
         "alphaComponents": comps, "componentCount": count, "smallComponentPixels": small_pixels,
@@ -343,23 +420,68 @@ def transform(im, factor, source_anchor, output_anchor, size):
     return out, {"resizedSourceSize": list(resized.size), "pasteOffset": xy, "effectiveScale": [resized.width / im.width, resized.height / im.height]}
 
 
+def visual_review_state(pet):
+    """Expose explicit assistant review evidence, never user or engine approval."""
+    path = ROOT / "records" / f"{pet['slug']}-visual-review.json"
+    review = read_json(path) if path.exists() else {}
+    accepted = {"assistant-reviewed", "accepted-agent-visual-review", "passed-agent-visual-review", "passed-for-static-source-export"}
+    status = review.get("assistantVisualReview", review.get("status"))
+    reviewed = isinstance(status, str) and status in accepted
+    findings = review.get("findings") or {}
+    originality = review.get("originality", findings.get("originality"))
+    originality_ok = reviewed and bool(originality)
+    if isinstance(originality, dict) and "status" in originality:
+        originality_ok = originality_ok and originality["status"] in accepted | {"passed", "accepted", "reviewed-against-original-design-intent"}
+    record = relative(path) if path.exists() else None
+    summary = {
+        "visualReview": "assistant-reviewed" if reviewed else "pending",
+        "assistantVisualReviewStatus": status,
+        "visualReviewRecord": record,
+        "originalityReview": "assistant-reviewed" if originality_ok else "pending",
+        "userApproved": False,
+        "clientIntegrated": False,
+    }
+    directions = {}
+    for direction in DIRECTIONS:
+        finding = (review.get("directions") or {}).get(direction, findings.get(direction))
+        direction_ok = reviewed and bool(finding)
+        if isinstance(finding, dict):
+            direction_ok = direction_ok and finding.get("status") in accepted | {"passed", "accepted"}
+        directions[direction] = {
+            "visualReview": "assistant-reviewed" if direction_ok else "pending",
+            "visualReviewRecord": record,
+            "assistantVisualReviewFinding": finding,
+            "userApproved": False,
+            "clientIntegrated": False,
+        }
+    return summary, directions
+
+
+def aggregate_review(rows, field, expected_count):
+    reviewed = sum(row.get(field) == "assistant-reviewed" for row in rows)
+    return "assistant-reviewed" if reviewed == expected_count else ("partial" if reviewed else "pending")
+
+
 def build(pet, config, snapshot, inspect, inspect_path, diagnose_only):
     result = {"slug": pet["slug"], "name": pet["name"], "kind": pet["kind"], "status": "awaiting-sources", "directions": {}, "warnings": [], "outputs": {}, "visualReview": "pending", "clientIntegration": "not-performed"}
     result.update({"slotReferenceName": pet.get("slotReferenceName"), "clientModelId": pet.get("clientModelId"), "identitySummary": pet.get("identitySummary"), "originalityReview": pet.get("originalityReview", "pending"), "originalityAuditRecord": "records/originality-review.json"})
+    review, direction_reviews = visual_review_state(pet)
+    result.update(review)
     sources = {}
     for direction in DIRECTIONS:
         path = find_source(pet, direction)
         if path is None:
-            result["directions"][direction] = {"status": "missing-source"}
+            result["directions"][direction] = {"status": "missing-source", **direction_reviews[direction]}
             continue
         try:
-            im, diag = extract(path, pet.get("backgroundPolicy", "auto"), pet.get("cleanupSmallComponents", False))
+            im, diag = extract(path, pet.get("backgroundPolicy", "auto"), pet.get("cleanupSmallComponents", False), pet.get("magentaEdgeDecontamination", {}).get(direction))
             if min(im.size) < config["minimumNativeSize"]:
                 raise ValueError(f"Native source {im.size} is below the required minimum; upsampling prohibited")
             generation, evidence = generation_record(path, pet, direction, snapshot, inspect, inspect_path, write=not diagnose_only)
             box = diag["mainComponentBbox"]
             anchor = pet.get("anchors", {}).get(direction, [(box[0] + box[2] - 1) / 2, box[3] - 1])
             diag.update({"source": relative(path), "sha256": evidence["sha256"], "generationRecord": relative(generation), "sourceAnchor": anchor, "anchorBasis": "manually-configured" if direction in pet.get("anchors", {}) else "main-connected-component-bottom-virtual-feet", "status": "diagnosed", "embeddedCreatedActions": evidence.get("evidence", {}).get("embeddedCreatedActions", [])})
+            diag.update(direction_reviews[direction])
             sources[direction] = {"path": path, "image": im, "diagnostic": diag, "generation": generation, "anchor": anchor}
             result["directions"][direction] = diag
             if diag["sourceEdgeTouch"]:
@@ -369,7 +491,7 @@ def build(pet, config, snapshot, inspect, inspect_path, diagnose_only):
             if diag["visibleMagentaPixels"]:
                 result["warnings"].append(f"{direction}: visible magenta/pink pixels retained; check whether intended color or fringe")
         except Exception as error:
-            result["directions"][direction] = {"status": "processing-error", "source": relative(path), "error": str(error)}
+            result["directions"][direction] = {"status": "processing-error", "source": relative(path), "error": str(error), **direction_reviews[direction]}
     if not diagnose_only:
         for direction, item in sources.items():
             alias_name = pet.get("sourceOverrides", {}).get(direction)
@@ -409,6 +531,7 @@ def build(pet, config, snapshot, inspect, inspect_path, diagnose_only):
         out, transform_info = transform(item["image"], factor, item["anchor"], output_anchor, size)
         details = {"facing": direction, "sharedScale": factor, "sourceAnchor": item["anchor"], "runtimeAnchorTopOriginPixels": output_anchor, "runtimePivotBottomOrigin": config["runtimePivot"], "sourceNativeSize": list(item["image"].size), "sourceAlphaBbox": item["diagnostic"]["alphaBbox"], "alphaBbox": out.getchannel("A").getbbox(), "resample": "premultiplied-alpha-LANCZOS", "upscaled": False, "mirrored": False, **transform_info}
         details["alphaExtraction"] = item["diagnostic"]["operation"]
+        details["magentaEdgeDecontamination"] = item["diagnostic"]["magentaEdgeDecontamination"]
         details["remoteAlphaOneCleanup"] = item["diagnostic"]["remoteAlphaOneCleanup"]
         details["smallComponentCleanup"] = {"enabled": pet.get("cleanupSmallComponents", False), "alphaThreshold": 16, "maxArea": 16, "maxWidthHeight": 8, "removed": item["diagnostic"].get("removedComponents", []), "removedPixels": item["diagnostic"].get("removedComponentPixels", 0)}
         body = pet.get("bodyBounds", {}).get(direction)
@@ -433,9 +556,9 @@ def build(pet, config, snapshot, inspect, inspect_path, diagnose_only):
         head = head.convert("RGBa").resize((round(head.width * portrait_factor), round(head.height * portrait_factor)), Image.Resampling.LANCZOS).convert("RGBA")
         canvas = Image.new("RGBA", (512, 512))
         canvas.alpha_composite(head, ((512 - head.width) // 2, (512 - head.height) // 2))
-        result["outputs"]["portrait_512"], _ = export_image(ROOT / "ui" / pet["slug"] / "portrait_512.png", canvas, item["path"], item["generation"], "manually-reviewed-face-crop-centered-without-upscale", {"sourceCrop": crop, "cropReviewed": True, "scale": portrait_factor, "upscaled": False, "alphaExtraction": item["diagnostic"]["operation"], "smallComponentCleanup": {"removed": item["diagnostic"]["removedComponents"], "removedPixels": item["diagnostic"]["removedComponentPixels"], "alphaThreshold": 16, "maxArea": 16, "maxWidthHeight": 8}, "remoteAlphaOneCleanup": item["diagnostic"]["remoteAlphaOneCleanup"]})
+        result["outputs"]["portrait_512"], _ = export_image(ROOT / "ui" / pet["slug"] / "portrait_512.png", canvas, item["path"], item["generation"], "manually-reviewed-face-crop-centered-without-upscale", {"sourceCrop": crop, "cropReviewed": True, "scale": portrait_factor, "upscaled": False, "alphaExtraction": item["diagnostic"]["operation"], "magentaEdgeDecontamination": item["diagnostic"]["magentaEdgeDecontamination"], "smallComponentCleanup": {"removed": item["diagnostic"]["removedComponents"], "removedPixels": item["diagnostic"]["removedComponentPixels"], "alphaThreshold": 16, "maxArea": 16, "maxWidthHeight": 8}, "remoteAlphaOneCleanup": item["diagnostic"]["remoteAlphaOneCleanup"]})
         result["portraitStatus"] = "exported-pending-final-visual-review"
-    result["status"] = "exported-pending-visual-review"
+    result["status"] = "exported-assistant-reviewed" if result["visualReview"] == "assistant-reviewed" else "exported-pending-visual-review"
     return result
 
 
@@ -463,8 +586,13 @@ def main():
             rows.setdefault(pet["slug"], {"slug": pet["slug"], "name": pet["name"], "kind": pet["kind"], "status": "awaiting-sources", "outputs": {}, "visualReview": "pending"})
         for pet in config["pets"]:
             rows[pet["slug"]].update({"slotReferenceName": pet.get("slotReferenceName"), "clientModelId": pet.get("clientModelId"), "identitySummary": pet.get("identitySummary"), "originalityAuditRecord": "records/originality-review.json"})
+            review, direction_reviews = visual_review_state(pet)
+            rows[pet["slug"]].update(review)
+            for direction, diagnostic in rows[pet["slug"]].get("directions", {}).items():
+                diagnostic.update(direction_reviews.get(direction, {}))
         ordered = [rows[pet["slug"]] for pet in config["pets"]]
-        manifest = {"schemaVersion": 1, "title": "五行奇谈 · 14只原创宠物静态双朝向素材", "runtimeSize": config["runtimeSize"], "portraitSize": 512, "runtimePivot": config["runtimePivot"], "enemyFacing": "E", "friendlyFacing": "W", "expectedPetCount": config.get("expectedPetCount", 14), "originalityReview": "pending", "clientIntegrated": False, "animation": False, "pets": ordered}
+        expected_count = config.get("expectedPetCount", 14)
+        manifest = {"schemaVersion": 1, "title": "五行奇谈 · 14只原创宠物静态双朝向素材", "runtimeSize": config["runtimeSize"], "portraitSize": 512, "runtimePivot": config["runtimePivot"], "enemyFacing": "E", "friendlyFacing": "W", "expectedPetCount": expected_count, "originalityReview": aggregate_review(ordered, "originalityReview", expected_count), "visualReview": aggregate_review(ordered, "visualReview", expected_count), "userApproved": False, "clientIntegrated": False, "animation": False, "pets": ordered}
         write_if_changed(ROOT / "manifest.json", manifest)
         report["items"] = ordered
         write_if_changed(ROOT / "processing-report.json", report)
