@@ -1,0 +1,51 @@
+{
+  "verifiedAt": "2026-09-24T09:30:48.482758+00:00",
+  "configurationFile": "../../config/image-generation.json",
+  "model": "gpt-image-2.5-sunburst",
+  "highestDocumentedQuality": "max",
+  "documentedApiSizeConstraints": {
+    "multipleOf": 16,
+    "maxEdge": 3840,
+    "maxAspectRatio": 3,
+    "minPixels": 655360,
+    "maxPixels": 8294400,
+    "experimentalAbovePixels": 3686400
+  },
+  "transparentOutput": {
+    "background": "transparent",
+    "output_format": "png"
+  },
+  "sources": [
+    {
+      "url": "https://developers.openai.com/api/docs/guides/image-prompting",
+      "supports": "Model parameters: quality, native size constraints, experimental large sizes"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/image-generation",
+      "supports": "Output customization and transparent PNG/WebP"
+    }
+  ],
+  "builtinSchemaObserved": [
+    "prompt",
+    "referenced_image_paths",
+    "num_last_images_to_include"
+  ],
+  "builtinTrialsActualSize": [
+    [
+      941,
+      1672
+    ],
+    [
+      941,
+      1672
+    ]
+  ],
+  "builtinExplicitSizeSelectorAvailable": false,
+  "apiExecuted": false,
+  "notes": [
+    "Official API support is separate from actual builtin model/version evidence.",
+    "The two builtin trials did not return the requested 2160x3840 dimensions.",
+    "No evidence found establishing older project images as native 2K/4K; sampled records were 1254x1254.",
+    "Explicit API entry requires user choice and locally available credentials; no key values were read."
+  ]
+}
