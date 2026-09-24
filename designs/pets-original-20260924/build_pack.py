@@ -42,6 +42,9 @@ def reference_details(references):
     for reference in references:
         row = dict(reference) if isinstance(reference, dict) else {"path": reference}
         path = str(row.get("path", "")).replace("\\", "/")
+        normalized = path.lower()
+        if "pets-20260924/" in normalized or "codex-clipboard" in normalized:
+            raise ValueError("Rejected candidate or external game screenshot cannot be a new original-design generation reference")
         if "role" not in row:
             if path.endswith("designs/team-ui-v2/team-ui-v2.png"):
                 row["role"] = "approved primary art style, as stated in generation prompt"
@@ -342,6 +345,7 @@ def transform(im, factor, source_anchor, output_anchor, size):
 
 def build(pet, config, snapshot, inspect, inspect_path, diagnose_only):
     result = {"slug": pet["slug"], "name": pet["name"], "kind": pet["kind"], "status": "awaiting-sources", "directions": {}, "warnings": [], "outputs": {}, "visualReview": "pending", "clientIntegration": "not-performed"}
+    result.update({"slotReferenceName": pet.get("slotReferenceName"), "clientModelId": pet.get("clientModelId"), "identitySummary": pet.get("identitySummary"), "originalityReview": pet.get("originalityReview", "pending"), "originalityAuditRecord": "records/originality-review.json"})
     sources = {}
     for direction in DIRECTIONS:
         path = find_source(pet, direction)
@@ -457,6 +461,8 @@ def main():
         rows.update({row["slug"]: row for row in items})
         for pet in config["pets"]:
             rows.setdefault(pet["slug"], {"slug": pet["slug"], "name": pet["name"], "kind": pet["kind"], "status": "awaiting-sources", "outputs": {}, "visualReview": "pending"})
+        for pet in config["pets"]:
+            rows[pet["slug"]].update({"slotReferenceName": pet.get("slotReferenceName"), "clientModelId": pet.get("clientModelId"), "identitySummary": pet.get("identitySummary"), "originalityAuditRecord": "records/originality-review.json"})
         ordered = [rows[pet["slug"]] for pet in config["pets"]]
         manifest = {"schemaVersion": 1, "title": "五行奇谈 · 14只原创宠物静态双朝向素材", "runtimeSize": config["runtimeSize"], "portraitSize": 512, "runtimePivot": config["runtimePivot"], "enemyFacing": "E", "friendlyFacing": "W", "expectedPetCount": config.get("expectedPetCount", 14), "originalityReview": "pending", "clientIntegrated": False, "animation": False, "pets": ordered}
         write_if_changed(ROOT / "manifest.json", manifest)
