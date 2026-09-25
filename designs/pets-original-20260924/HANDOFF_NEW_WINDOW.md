@@ -1,3 +1,4 @@
+> **最新接续入口已更新：** 用户追加“本次截图对应14只全部提升仙气、要求美观”，新绘批次位于 [pets-xianling-20260924](../pets-xianling-20260924/HANDOFF_NEW_WINDOW.md)。新批次已28/28母图、56/56导出，技术通过，最后美观与边缘收尾详见新交接。以下保留的是上一轮原创包记录，不是当前仙气提升版状态。
 # 原创宠物任务接续 — 当前交付
 
 更新：2026-09-24T11:57:11.860755+00:00。工作区 `E:/work/image/designs/pets-original-20260924`。
@@ -40,3 +41,4 @@ python designs/pets-original-20260924/validate_pack.py --require-complete
 本机默认exec/view_image仍遇到`helper_unknown_error: setup refresh had errors`。已授权工作区操作可用require_escalated运行；只读System.Drawing在内存输出JPEG供对话查看。若需再次生成，先尝试正常输入通道；同样故障时用可见对话参考图和`num_last_images_to_include`，并如实记录。详见历史接续说明的工具恢复段。
 
 客户端接入是后续工作：按用户新的接入指令复核实际工程与宠物ID映射；当前素材技术或视觉通过不代表Unity验收。旧接线盘点仅供线索，见历史接续说明末段。
+

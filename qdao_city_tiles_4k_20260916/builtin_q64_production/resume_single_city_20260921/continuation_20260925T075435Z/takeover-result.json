@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "observedAtUtc": "2026-09-25 07:59:37 UTC",
+  "status": "blocked_builtin_reference_input",
+  "appearance": "tianyong_festival",
+  "target": {
+    "cityPixels": [
+      65536,
+      65536
+    ],
+    "rows": 16,
+    "columns": 16,
+    "tilePixels": [
+      4096,
+      4096
+    ],
+    "tileCount": 256
+  },
+  "pull": {
+    "state": "complete",
+    "targetCommit": "08e567132331fa6c42d2ecf5bf88aaa3d58169e0",
+    "mergedHead": "504f54d1554f839450b7e9cf079949bbeeec6b34",
+    "verifiedAtUtc": "2026-09-25T07:46:11Z",
+    "missingReachableObjects": 0,
+    "targetIsAncestor": true,
+    "gitWritesByThisTask": false
+  },
+  "baseline": {
+    "previousHandoff": {
+      "candidates": 8,
+      "missing": 248,
+      "oldSelectedPatches": [
+        9,
+        2,
+        5
+      ]
+    },
+    "current": {
+      "candidates": 10,
+      "missing": 246,
+      "formalAccepted": 0,
+      "c07HistoricalSelectedNativeInputs": 16,
+      "c07RetainedNativeInputs": 0,
+      "c08CurrentSelectedNativeInputs": 16,
+      "c09CurrentNativeInputs": 16
+    }
+  },
+  "newWork": {
+    "generatedImages": 0,
+    "aiEditedImages": 0,
+    "requestAttempts": 1,
+    "newFormalAcceptances": 0,
+    "apiCliCalls": 0,
+    "sharedJsonModified": false,
+    "automation3Resumed": false
+  },
+  "newVisualReview": {
+    "c08CandidateSha256": "07981e070d4bff63ba9897cdc639398d7ea782e1ed5be386069725cc13532680",
+    "overview": "1400px preview viewed only to locate defects",
+    "nativeContext": {
+      "cropLTRB": [
+        2445,
+        0,
+        3699,
+        1254
+      ],
+      "sourceScale": "1:1 exact crop",
+      "displayTransport": "same-pixel JPEG90",
+      "finding": "Visible carved slab discontinuity and gold ring step at crop x627/global x3072, plus rectangular ivory tone boundary",
+      "result": "failed_local_geometry_and_tone"
+    },
+    "fullInternalSeamsReviewedThisTask": 0,
+    "internalJunctionsReviewedThisTask": 0,
+    "newWholeTilePass": false
+  },
+  "historicalQA": {
+    "c07": "selected repaired-v1; recorded 16 interiors,6 full internal seams,9 internal junctions,1 bottom edge reviewed; pending other3 outer edges,4 outer junctions,layout/navigation/runtime",
+    "c08": "latest masked result existing external review still fails bottom material,c08-c09 edge,junction_r08_c08; internal37 QA entries remain null",
+    "c09": "selected bottom-material-v2 has internal x2048/x3072 tone failure at y3469..4096; latest pair94a3/06d3 exists but unreviewed, changes y3906..4096 only in upper tile",
+    "reviewEvidenceNote": "These are prior reviewers' observations bound to file hashes, not fresh visual passes by this task."
+  },
+  "readCompatibility": {
+    "historicalRoot": "D:/luyuan/wuxingqitan/image",
+    "currentRoot": "E:/work/image",
+    "historyRewritten": false,
+    "longPathNote": "Use Windows extended-length paths. Earlier apparent absence of c09 current-review/supplement was disproved; both exist and exact raw hashes match latest-candidate."
+  },
+  "capability": {
+    "route": "host_builtin_image_gen",
+    "configurationTarget": {
+      "model": "gpt-image-2.5-sunburst",
+      "quality": "max",
+      "product": "ChatGPT Images 2.5"
+    },
+    "explicitSubmittedModel": null,
+    "explicitSubmittedQuality": null,
+    "actualModel": null,
+    "actualQuality": null,
+    "releaseEvidence": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+    "apiGuideEvidence": "https://developers.openai.com/api/docs/guides/image-generation",
+    "modelPageFetch": "503; not used as successful page verification",
+    "toolExposedParameters": [
+      "prompt",
+      "referenced_image_paths",
+      "num_last_images_to_include"
+    ]
+  },
+  "blocker": {
+    "error": "unable to read referenced image at `E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260925T075435Z\\c08-x3072-top.context.png`: fs sandbox helper failed with status exit code: 1: windows sandbox failed: helper_unknown_error: setup refresh had errors"
+  },
+  "delivery": {
+    "contractPath": "E:/work/mmorpg-client/Docs/CityTilePublishing.md",
+    "contractLocallyAvailable": false,
+    "clientIntegrationOwner": "separate client task",
+    "formalArtAccepted": false,
+    "runtimeAccepted": false,
+    "wholeCity480EdgesPassed": false,
+    "wholeCity225JunctionsPassed": false
+  }
+}
