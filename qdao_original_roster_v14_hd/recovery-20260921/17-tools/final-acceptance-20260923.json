@@ -1,0 +1,118 @@
+{
+  "character_id": "17_ghost_script_calligrapher_boy",
+  "recorded_at": "2026-09-23T14:25:09.033941+00:00",
+  "manifest_sha256": "fecd8028b6facb779ee6f8f86d28243937912bca790cf61997368ecc1ceeea8d",
+  "offline_visual_approval": true,
+  "directions": {
+    "N": {
+      "accepted": true,
+      "note": "Recovered N08/N10 source frames are present. Opposite contact and passing poses, rear costume, anchors and seams checked."
+    },
+    "NE": {
+      "accepted": true,
+      "note": "NE02-v2 and NE13-v4 replaced the excessive body dip. Actual final 30ms playback inspected in dark/light at512/1024. Paused02/13 and12-13-14 plus15-16-01-02 inspected. Support/swing exchange and rear three-quarter identity accepted. Visible sole y values are recorded separately from nominal alpha anchor."
+    },
+    "E": {
+      "accepted": true,
+      "note": "E10-v4 restored near/far leg depth. Enlarged E13 passing boot is a modest lifted swing foot; support remains grounded. Loop and edges accepted."
+    },
+    "SE": {
+      "accepted": true,
+      "note": "Latest SE-review-v3 selected proportions and opposing leg contacts are consistent. Props and seam accepted."
+    },
+    "S": {
+      "accepted": true,
+      "note": "S06/S07-v2 reviewed during playback and paused enlarged; earlier upper-body dip improved. S04 actual boot bottom is y941 while tassel reaches y942, accepted one-pixel raster tolerance. Other measured support boots use y942."
+    },
+    "SW": {
+      "accepted": true,
+      "note": "Opposite lead legs, scroll medallion and short lifted passing foot accepted; no visible background remnants."
+    },
+    "W": {
+      "accepted": true,
+      "note": "W02/03/04-v2 correct near/far leg progression. Current selected sequence and seam accepted."
+    },
+    "NW": {
+      "accepted": true,
+      "note": "Rear three-quarter view, two props, foot contacts and seam accepted on all four display modes."
+    }
+  },
+  "actual_walk": 128,
+  "independent_idle": 8,
+  "materials_complete": true,
+  "client_integration": false,
+  "browser_review": {
+    "performed": true,
+    "tool": "CUA in-app browser",
+    "first_pass": {
+      "report": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\17-tools\\root-browser-review-complete-v1.json",
+      "sha256": "7c2e66a73872f842bf4cb881908d57e9a041be1c0643fd1c7f954383b18718fc"
+    },
+    "final_url": "http://127.0.0.1:18717/revisions/final-20260923/index.html",
+    "final_retested_direction": "NE",
+    "unchanged_image_sha_count": 134,
+    "final_changed_slots": [
+      "walk/NE/02.png",
+      "walk/NE/13.png"
+    ],
+    "per_direction_modes": [
+      "dark512",
+      "light512",
+      "dark1024",
+      "light1024"
+    ],
+    "playback_ms": 30,
+    "encoded_gif_frames": 16,
+    "encoded_cycle_ms": 480,
+    "browser_refresh_precision_measured": false,
+    "seam_order": [
+      15,
+      16,
+      1,
+      2
+    ],
+    "evidence": "Actual CUA states, changed frame labels and inspected screenshots are in this task conversation; no separate video recording."
+  },
+  "static_independent_review": {
+    "path": "D:\\luyuan\\wuxingqitan\\image\\qdao_original_roster_v14_hd\\recovery-20260921\\17-delivery-preview\\FINAL_SEAM_IDLE_REVIEW_20260923.json",
+    "sha256": "89ce4b35bb18f2a05c943ba87a44a5a79b0f6f66146f10c63d90afd24b9cbdbf",
+    "all_idle_accepted": true,
+    "seven_unchanged_direction_seams_accepted": true,
+    "NE_final_seam_root_inspected": true
+  },
+  "anchor_contract": {
+    "measurement": "upper-body alpha-axis median x and lowest alpha>8 pixel y",
+    "x": 512,
+    "x_tolerance_px": 0.5,
+    "lowest_alpha_y": 942,
+    "not_a_claim_every_support_sole_is_942": true,
+    "visually_reviewed_visible_sole_examples": [
+      {
+        "slot": "walk/S/04.png",
+        "sole_bottom_y": 941,
+        "lowest_alpha_y": 942,
+        "note": "tassel one pixel lower; accepted raster tolerance"
+      },
+      {
+        "slot": "walk/NE/02.png",
+        "screen_left_boot_max_y": 936,
+        "screen_right_boot_max_y": 942,
+        "note": "right support and lifted opposite boot; accepted"
+      },
+      {
+        "slot": "walk/NE/13.png",
+        "screen_left_boot_max_y": 937,
+        "screen_right_boot_max_y": 942,
+        "note": "left support and right swinging toe have5px screen-space difference; accepted after normal/enlarged visual comparison, not corrected by transforming pose"
+      }
+    ]
+  },
+  "quality_findings": {
+    "unresolved_blocking_issues": [],
+    "reviewed": "alternating legs, contact/support, proportion, ground/pose projection, identity/equipment, alpha edges, seams",
+    "pixel_duplicate_and_mirror_check": "passed in runtime-audit.json; unique raw source and per-pose visual inspection provide separate evidence of genuine actions"
+  },
+  "generation_model_note": "Configured target2.5/max; actual model and quality unexposed, null/host-managed-unverified. No paid API.",
+  "retention_note": "Latest user explicitly requests raw/request/receipt preservation; source archives retained, no cleanup.",
+  "historical_status_note": "Manifest and PNG generation records retain creation-time pending flags. This later acceptance is authoritative only for the manifest SHA above."
+}

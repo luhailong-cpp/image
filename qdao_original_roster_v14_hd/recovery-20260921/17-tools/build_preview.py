@@ -60,11 +60,23 @@ def selection_rows(document):
         generation_path = Path(selection.get('raw_generation_record', GEN / selection['selected_revision'] / 'raw.png.generation.json'))
         generation = read(generation_path)
         require(generation['sha256'] == source_record['source']['sha256'], 'Generation record raw mismatch')
+        prompt_path = origin / source_record['prompt']['path']
+        receipt_path = origin / source_record['generation']['receipt']['path']
+        require(sha(prompt_path) == source_record['prompt']['sha256'], 'Selected prompt SHA mismatch')
+        require(sha(receipt_path) == source_record['generation']['receipt']['sha256'], 'Selected receipt SHA mismatch')
+        validation_path = origin / 'review/single-frame-validation.json'
+        source_evidence = {'captured_at': now(), 'raw_exists_at_snapshot': True, 'raw_sha256_verified': sha(raw_path),
+            'generation_record': generation, 'exact_archived_prompt_text': prompt_path.read_bytes().decode('utf-8'),
+            'generation_receipt': read(receipt_path),
+            'processing_validation': read(validation_path) if validation_path.exists() else None,
+            'retention_policy': 'Source/intermediate image removal is authorized after final export and current references are verified; textual evidence remains.',
+            'source_images_deleted': False}
         rows.append({'path': key, 'sha256': sha(source), 'size': [1024, 1024], 'source': str(source),
             'selected_revision': selection['selected_revision'], 'visual_status': selection.get('visual_status', 'pending'),
             'copied_byte_exact': True, 'source_record_file': str(record_path), 'source_record_file_sha256': sha(record_path),
             'source_record': source_record, 'native_source_size': source_record['source']['native_size'],
             'raw_generation_record': str(generation_path), 'raw_generation_record_sha256': sha(generation_path),
+            'generation_and_source_evidence': source_evidence,
             'actualModel': generation.get('actualModel'), 'actualQuality': generation.get('actualQuality'),
             'anchor_native_px': [axis, int(y.max())], 'subject_height_native_px': height,
             'body_scale': float(np.sqrt(np.count_nonzero(alpha[:, 256:768]) / (1024 * 1024))),

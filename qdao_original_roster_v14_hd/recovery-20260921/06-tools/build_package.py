@@ -11,7 +11,7 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def read(p):return json.loads(p.read_text(encoding='utf-8-sig'))
 def write(p,v):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 def main():
- parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--revision',required=True);parser.add_argument('--selections',type=Path,default=HERE/'selections.json');args=parser.parse_args()
+ parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--revision',required=True);parser.add_argument('--selections',type=Path,default=HERE/'selections.json');parser.add_argument('--allow-legacy-restoration',action='store_true',help='User-authorized AI-restored final copies; original V13 files remain unchanged.');args=parser.parse_args()
  assert re.fullmatch(r'[a-zA-Z0-9_-]+',args.revision)
  out=HERE/'revisions'/args.revision
  assert not out.exists(), 'Use a fresh revision; never overwrite a reviewed snapshot.'
@@ -19,10 +19,10 @@ def main():
  write(out/'selection-input.json',selections)
  rows=[];missing=[]
  expected=[*[f'walk/{d}/{n:02d}.png' for d in DIRS for n in range(1,17)],*[f'idle/{d}.png' for d in DIRS]]
- assert all(key in expected and key.startswith('walk/') for key in overrides)
+ assert all(key in expected and (key.startswith('walk/') or args.allow_legacy_restoration) for key in overrides)
  for key in expected:
   old=V13/key;new=V14/key;selection=overrides.get(key)
-  if old.exists():
+  if old.exists() and not (selection and args.allow_legacy_restoration):
    assert selection is None,'Preserved V13 action override forbidden: '+key
    source=old;origin=V13;revision='preserved-v13';visual='preserved_existing_not_reapproved'
   elif selection:

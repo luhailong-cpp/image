@@ -1,0 +1,137 @@
+{
+  "schema": "qdao-05-offline-review-v1",
+  "character_id": "05_celestial_musician_girl",
+  "reviewed_at_utc": "2026-09-23T12:09:05.32Z",
+  "status": "accepted_with_nonblocking_observations",
+  "all_walk_and_idle_accepted": true,
+  "actual_walk": 128,
+  "actual_idle": 8,
+  "missing_slots": [],
+  "blocking_issues": [],
+  "client_integration": false,
+  "unity_validation": false,
+  "formal_release": false,
+  "reviewed_snapshot": "revisions/complete-review-v1",
+  "reviewed_manifest_sha256": "b47adeff4c3889935c9475b5e527dea5e756ffa11b679cb2f0fb21ee779853f8",
+  "png_bytes_must_match_reviewed_manifest": true,
+  "static_review": {
+    "performed": true,
+    "backgrounds": [
+      "dark",
+      "light"
+    ],
+    "normal_display": 512,
+    "enlarged_world_display": 1024,
+    "checks": [
+      "all 128 walk poses",
+      "8 distinct idle poses",
+      "alternating leg/support assignment",
+      "fixed foot anchor and body axis",
+      "identity/costume/instrument",
+      "alpha boundary",
+      "15-16-01-02 seam"
+    ],
+    "root_directions": [
+      "NE",
+      "SE",
+      "SW",
+      "W"
+    ],
+    "independent_directions": [
+      "N",
+      "E",
+      "S",
+      "NW"
+    ],
+    "independent_idle_count": 8
+  },
+  "browser_dynamic_review": {
+    "performed": true,
+    "tool": "mcp__cua_repl",
+    "directions": [
+      "N",
+      "NE",
+      "E",
+      "SE",
+      "S",
+      "SW",
+      "W",
+      "NW"
+    ],
+    "configured_frame_ms": 30,
+    "configured_cycle_ms": 480,
+    "method": "Started playback through browser UI for each direction and sampled rendered frames/advancing frame labels; combined with complete static sequence and seam inspection.",
+    "continuous_video_capture": false,
+    "engine_frame_pacing_measured": false,
+    "observed_samples": {
+      "N": [
+        "07"
+      ],
+      "NE": [
+        "07",
+        "04"
+      ],
+      "E": [
+        "07"
+      ],
+      "SE": [
+        "07",
+        "14"
+      ],
+      "S": [
+        "07"
+      ],
+      "SW": [
+        "06"
+      ],
+      "W": [
+        "07"
+      ],
+      "NW": [
+        "07"
+      ]
+    }
+  },
+  "timing_checks": {
+    "gif_count": 16,
+    "frames_each": 16,
+    "all_frame_durations_ms": 30,
+    "cycle_ms": 480,
+    "loop": 0,
+    "independent_audit": "FINAL-SOURCE-AUDIT-20260923.json"
+  },
+  "nonblocking_observations": [
+    {
+      "scope": "retained512",
+      "note": "60 legacy PNGs retain original bytes. Their lower detail is visible at1024 preview; they are not claimed as newHD."
+    },
+    {
+      "scope": "NE",
+      "note": "NE03 replacement restores leg phase. NE15/16 corrections reduce 15→16 crown change to4world pixels and16→01 to8. New15/16 ribbon/hem width slightly exceeds old01, accepted at normal playback scale."
+    },
+    {
+      "scope": "NW",
+      "note": "NW11→12 crown/top change24px; NW16→01 13px at1024. Support anchor fixed. Foot assignment advances through support transfer; no duplicated or mirrored substitute."
+    },
+    {
+      "scope": "NW01/NW07",
+      "note": "Only1-2pixel detached alpha=1 samples (at most1/255 opacity); zero alpha>8 residual pixels. Not a discernible purple patch at1024. No further repaint required."
+    },
+    {
+      "scope": "SW16→01",
+      "note": "15px subject-height difference at1024; fixed support anchor, acceptable small step bob."
+    },
+    {
+      "scope": "W",
+      "note": "W13v2 repairs28px height drop; W12/13/14 heights818/820/806. W15→16 stride shortens toward initial contact, accepted."
+    },
+    {
+      "scope": "SE14→15",
+      "note": "17px subject-height change at1024 while changing support, no extra limb or wrong lead leg; accepted."
+    }
+  ],
+  "paid_api_calls": 0,
+  "actual_model": "host-managed-unverified",
+  "actual_quality": "host-managed-unverified",
+  "retention_policy": "After final byte binding and active-reference verification, delete raw/rejected/fallback/intermediate images; preserve per-image textual lineage, final assets and current design."
+}

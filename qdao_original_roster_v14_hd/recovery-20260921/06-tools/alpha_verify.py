@@ -14,7 +14,7 @@ def imread(p):
 def mod(name):
  p=ROOT/'tools/vendor'/f'{name}.py';spec=importlib.util.spec_from_file_location('independent_'+name,p);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
 
-def verify(character,direction=None,require_visual=False,frame_number=None):
+def verify(character,direction=None,require_visual=False,frame_number=None,idle_only=False):
  require(character and all(c.isalnum() or c in '_-' for c in character),'Invalid character ID');out=ROOT/'candidate'/character
  manifest=read(out/'manifest.json');records=read(out/'processing/frame-sources.json');profile=read(out/'processing/scale-profile.json')
  require(manifest['character_id']==character and manifest['version']==14 and manifest['frame_count']==16 and manifest['frame_duration_ms']==30 and manifest['cycle_duration_ms']==480,'Wrong identity/timing')
@@ -23,8 +23,9 @@ def verify(character,direction=None,require_visual=False,frame_number=None):
  require(not require_visual or frame_number is None,'Single-frame audit cannot approve a character')
  require(sha(out/'processing/frame-sources.json')==manifest['sources_sha256'],'Source mapping changed')
  require(profile['per_subject_bbox_scaling'] is False and profile['root_px']==[512,942] and profile['alignment_version']==2,'Unsupported canonical alignment/scale')
- selected=[direction] if direction else list(DIRS);keys=[f'walk/{direction}/{frame_number:02d}.png'] if frame_number else [f'walk/{d}/{i:02d}.png' for d in selected for i in range(1,17)]
- if not frame_number:keys += [f'idle/{d}.png' for d in selected if (out/f'idle/{d}.png').exists()]
+ require(not idle_only or direction in DIRS and frame_number is None and not require_visual,'Single idle audit requires one direction and cannot approve a character')
+ selected=[direction] if direction else list(DIRS);keys=[f'idle/{direction}.png'] if idle_only else [f'walk/{direction}/{frame_number:02d}.png'] if frame_number else [f'walk/{d}/{i:02d}.png' for d in selected for i in range(1,17)]
+ if not frame_number and not idle_only:keys += [f'idle/{d}.png' for d in selected if (out/f'idle/{d}.png').exists()]
  if not direction:require(len(keys)==136 and (out/'portrait.png').exists(),'Full character needs 128 walk, eight independent idle and portrait')
  files={r['path']:r['sha256'] for r in manifest['files']};require(len(files)==len(manifest['files']),'Duplicate manifest paths')
  keyer=mod('generate2dsprite');edge=mod('edge_despill');source_cells=set();missing_receipts=[];native_dimensions=[];native_heights=[];factors=[]
@@ -79,7 +80,7 @@ def verify(character,direction=None,require_visual=False,frame_number=None):
   if receipt:require(sha(out/receipt['path'])==receipt['sha256'],'Generation receipt changed')
   else:missing_receipts.append(key)
  directions={};means=[]
- for d in ([] if frame_number else selected):
+ for d in ([] if frame_number or idle_only else selected):
   review_files={r['path']:r['sha256'] for r in manifest.get('review_files',[])}
   require(sha(out/f'review/strips/{d}.png')==review_files.get(f'review/strips/{d}.png'),'Review strip SHA differs from manifest')
   frames=[imread(out/f'walk/{d}/{i:02d}.png') for i in range(1,17)];strip=imread(out/f'review/strips/{d}.png');require(strip.size==(16384,1024),'Review strip must be16384x1024');hashes=[];heights=[];scales=[]

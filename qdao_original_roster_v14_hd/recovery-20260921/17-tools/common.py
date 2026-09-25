@@ -95,4 +95,12 @@ def request_data(archive):
     for item in request.get('reference_bindings_at_start', []) + request.get('reference_bindings_after_generation', []):
         path = Path(item['path'])
         require(path.is_file() and sha(path) == item['sha256'], 'Reference changed since request preparation: ' + str(path))
+    if (archive / 'submission.json').is_file():
+        submission = read(archive / 'submission.json')
+        require(submission['prepared_request_sha256'] == sha(archive / 'request.json'), 'Actual submission binds another prepared request')
+        require(submission['actual_parameters'] == {'prompt': actual['prompt'], 'referenced_image_paths': actual['referenced_image_paths']},
+                'Actual submission parameters differ from prepared request')
+        request['prepared_at_original'] = actual['started_at']
+        request['actual_request'] = {**actual, 'started_at': submission['submitted_at']}
+        request['actual_submission_evidence'] = {'path': str(archive / 'submission.json'), 'sha256': sha(archive / 'submission.json')}
     return request

@@ -1,5 +1,7 @@
 # 五行奇谈 · Q 版游戏美术
 
+**素材保留：仅保留最终游戏素材、当前设计及接入文件。** 用户于 2026-09-23 明确允许删除原图和回退版本；旧文档中的原图保留要求已由 [项目规则](AGENTS.md)覆盖。生成来源文字记录继续保留，已删除原图不再支持像素重建。目录中仍在制作的当前设计不等于已完成游戏接入。
+
 **2026-09-21 风格确认：后续必须沿用 [designs 现有成图的美术风格](designs/README.md)。** 该入口列出直接参考图与作图流程；使用最新正式 GPT Image 和最高画质，具体型号与质量继续只在 [统一图像设置](config/image-generation.json)维护。
 
 **[主城地图切图规范](主城地图切图规范.md)**：只规定主城地图的高清分块、拼接、裁切、命名与验收。每块4096×4096、最高画质，整图尺寸由最终拼接结果决定。本轮方案与进度见 [制作记录](qdao_city_tiles_4k_20260916/README.md)，客户端实现见 [接入说明](../mmorpg-client/Docs/CityTiles4K.md)。
@@ -36,7 +38,7 @@
 
 2026-09-09：沿用玉绿、米白、暖金美术，制作人物与四只宝宝的属性展示和加点面板。包含两张 2560×1080 视觉稿与可交互的本地 HTML 预览，支持独立加点草稿、自动分配、重置和确认。数值与收益为演示，未改动客户端。
 
-[交付与预览说明](designs/attribute-panels/README.md) · [人物效果图](designs/attribute-panels/01-character_2560x1080.png) · [宝宝效果图](designs/attribute-panels/02-pet_2560x1080.png)
+[交付与预览说明](designs/attribute-panels/README.md) · [人物效果图](designs/attribute-panels/v10-preview/01-character_2560x1080.png) · [宝宝效果图](designs/attribute-panels/v10-preview/02-pet_2560x1080.png)
 
 ## 客户端主城地图归档
 

@@ -35,6 +35,9 @@ def main():
                 native=Image.open(raw).convert('RGBA'); assert min(native.size)>=1024
                 size=tuple(round(v*1024/max(native.size)*.88) for v in native.size)
                 normalized=native.resize(size,Image.Resampling.LANCZOS)
+                if op.get('alphaFloor'):
+                    pp=np.array(normalized); aa=pp[:,:,3]; pp[(aa>0)&(aa<=op['alphaFloor']),3]=0
+                    normalized=Image.fromarray(pp)
                 aa=np.asarray(normalized)[:,:,3]; yy,xx=np.where(aa>8)
                 top=int(yy.min()); height=int(yy.max())-top
                 axis=float(np.median(xx[yy<top+max(1,int(height*.42))]))

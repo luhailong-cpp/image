@@ -1,0 +1,161 @@
+{
+  "schema": "qdao-character20-N-NE-static-and-timing-review-v1",
+  "reviewedAt": "2026-09-23T13:27:22.884Z",
+  "character": "20_star_formation_master_girl",
+  "reviewer": "/root/finish_n_ne20",
+  "scope": {
+    "directions": [
+      "N",
+      "NE"
+    ],
+    "walkFrames": 32,
+    "idleFrames": 2,
+    "clientValidationPerformed": false
+  },
+  "visualChecksPerformed": {
+    "staticFrameSequence": true,
+    "lightBackground": true,
+    "darkBackground": true,
+    "normalDisplayPixels": 256,
+    "enlargedDisplayPixels": 512,
+    "seamOrder": [
+      15,
+      16,
+      1,
+      2
+    ],
+    "browserPlaybackObserved": false
+  },
+  "playbackBlocker": {
+    "reason": "Child agent has no mcp__cua_repl tool. Native browser input attempt returned root-only MCP elicitation blocker; no retry performed.",
+    "exactError": "MCP elicitation request failed: MCP server elicitations can only be requested by the root thread. Ask the parent agent to handle this request. Do not retry the blocked action until the parent confirms the blocker is resolved.",
+    "requiredNextAction": "Root agent observes actual 30ms playback of N and NE in existing supported browser after NE05-v2 export."
+  },
+  "timingValidation": {
+    "method": "Pillow parsed every GIF frame duration; not visual playback",
+    "directions": [
+      "N",
+      "NE"
+    ],
+    "backgrounds": [
+      "light",
+      "dark"
+    ],
+    "framesPerGif": 16,
+    "durationsMs": [
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "cycleMs": 480,
+    "pass": true
+  },
+  "pixelValidation": {
+    "record": "NE-16-v1/N-NE-pixel-check.json",
+    "canvas": [
+      1024,
+      1024
+    ],
+    "transparent": true,
+    "anchorDefinition": "lowest alpha>8 pixel",
+    "N": {
+      "frameCount": 16,
+      "anchorY": [
+        942
+      ],
+      "alphaTopRange": [
+        45,
+        78
+      ],
+      "alphaWidthRange": [
+        756,
+        801
+      ],
+      "visibleBorderPixels": 0
+    },
+    "NE": {
+      "frameCount": 16,
+      "anchorY": [
+        942
+      ],
+      "alphaTopRange": [
+        49,
+        67
+      ],
+      "alphaWidthRange": [
+        771,
+        870
+      ],
+      "visibleBorderPixels": 0
+    },
+    "note": "Bounding box changes include robe, equipment counter-swing and perspective; do not treat as automatic body-scale rejection."
+  },
+  "findings": {
+    "N": {
+      "staticResult": "pass",
+      "alternation": "01-07 visibly ground left leg and lift/advance right leg;09-15 ground right leg and lift/advance left leg. Knee/pant and boot-side changes support alternating articulation.",
+      "support": "At least one leg visibly extends to a grounded boot in each inspected phase. No disconnected footwear or paired-airborne jump observed.",
+      "seam": "15 left swing ->16 left near-contact ->01 left contact ->02 left load visually coherent in sequential strips. Torso/crown/equipment retain heading and no large pose reset.",
+      "edges": "At256 and512 on light/dark, no visible magenta outline, detached fringe or opaque rectangular background. Gold trim and hair contour stay intact.",
+      "identityProportion": "Same rear identity and held equipment. Small hand-painted hair/robe silhouette variation remains; final acceptance still requires real playback."
+    },
+    "NE": {
+      "staticResult": "needs_NE05_v2_export_and_playback",
+      "alternation": "Do not infer anatomical leg from screen-left/right alone. Hip and knee trajectory is partly hidden by robe. Current05-v1 repeats a raised leftward sole silhouette too similar to13-v3; opposite passing overlap is insufficiently readable.",
+      "repair": {
+        "slot": "walk/NE/05.png",
+        "attempt": "NE-05-v2",
+        "nativeSize": [
+          1254,
+          1254
+        ],
+        "rawSha256": "6153bdcb21336d916170fc968e20d217d0807d24733ef4548809f3fc6fe7931d",
+        "result": "New near/right boot is visibly lifted and overlaps planted far/left leg.13-v3 shows lifted far/left boot beside planted near/right, giving opposite support/occlusion.",
+        "exportStatusAtReview": "pending root"
+      },
+      "support": "Other inspected phases retain at least one supporting boot; no missing sole or airborne whole body observed.",
+      "seam": "15->16->01->02 retains NE heading and advances into same contact. Modest astrolabe/robe changes; loop timing and size impression need root playback.",
+      "edges": "Current exported NE frames are visibly clean at256 and512 on both grounds. New05 raw has fringe and must use same export cleanup.",
+      "identityProportion": "Costume, crown, astrolabe and three cards retain identity. New01 is slightly narrower than02 primarily in robe spread; no static rescale repair recommended before playback."
+    },
+    "idle": {
+      "NE": "Independently generated idle-NE-v1; balanced two-foot rear-right stance, retained equipment,1024 RGBA anchor942.",
+      "N": "Independently generated idle-N-v1; balanced two-foot rear stance, clean full silhouette, 1024 RGBA anchor942."
+    }
+  },
+  "artApproval": false,
+  "remaining": [
+    "Export and inspect NE05-v2 final PNG",
+    "Rebuild previews after replacement",
+    "Actual 30ms N+NE playback at256/512 dark/light and seam mode by root",
+    "Record final current hashes after any export changes"
+  ],
+  "inspectionOnlyFiles": [
+    "NE-16-v1/N-all-256-light.png",
+    "NE-16-v1/N-all-256-dark.png",
+    "NE-16-v1/NE-all-256-light.png",
+    "NE-16-v1/NE-all-256-dark.png",
+    "NE-16-v1/N-phase-512-light.png",
+    "NE-16-v1/N-phase-512-dark.png",
+    "NE-16-v1/NE-phase-512-light.png",
+    "NE-16-v1/NE-phase-512-dark.png",
+    "NE-16-v1/N-seam-512-light.png",
+    "NE-16-v1/N-seam-512-dark.png",
+    "NE-16-v1/NE-seam-512-light.png",
+    "NE-16-v1/NE-seam-512-dark.png"
+  ],
+  "cleanupNote": "Inspection-only composites can be deleted after final review; they are not production frames."
+}

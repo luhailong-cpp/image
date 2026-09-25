@@ -1,0 +1,13 @@
+from pathlib import Path
+import json
+from datetime import datetime,timezone
+base=Path(__file__).resolve().parent.parent
+gen=base/'08-generation'
+dest=gen/'walk-SW-03-v2'
+dest.mkdir(exist_ok=True)
+if (dest/'request.json').exists(): raise RuntimeError('immutable attempt exists')
+refs=[gen/'walk-SW-02-v1/raw.png',gen/'references/identity-1024.png',gen/'references/style-1280.jpg',gen/'idle-SW-v1/raw.png',gen/'walk-SW-04-v1/raw.png']
+prompt='''Use case: identity-preserve. Edit reference1 (SW walking02) into adjacent independently drawn frame03. Match EXACTLY the size, crop, head/body proportions and camera of image1 and image5 (SW04). Reference2 original identity; reference3 primary hand-painted style/material only (do not reproduce its UI); reference4 SW idle design. Complete single native1254x1254 transparent sprite, with same large figure filling about94 percent source height as image1, topknot close to y35 and supporting sole y1200, all parts inside safe margins. DO NOT shrink the entire figure or head. Keep every head and torso part the same size and matching positions: chestnut topknot gold ribbons, huge amber-eyed round child head, smiling face, orange/teal brocade robe, twin-scroll herbs basket/pouch, image-left RIGHT hand censer, image-right LEFT hand green potion.
+Change BOTH legs and responsive lower robe into frame03 RIGHT mid-support: anatomical RIGHT leg on screen-LEFT is firmly planted flat and begins to straighten directly under its hip. Anatomical LEFT leg on screen-RIGHT trails behind, its heel lifts with only toe still in ground contact, knee starts bending gently. The screen-right boot is a little higher and farther than screen-left boot, not a high leg lift. This is one phase after02 and one phase before04, with smaller stride than02. Short stout child limbs, toes face southwest down-left, top of both boots visible, no broad soles. Maintain fixed southwest three-quarter front camera and unchanged hand ownership, no mirror, no copied or shifted pose, no interpolation. Bright clean detailed Daoist chibi hand painting. No floor, shadow, text, grid, sheet, extra limbs, opaque or checkerboard background.\n'''
+req={'tool':'image_gen__imagegen','parameters':{'prompt':prompt,'referenced_image_paths':[p.as_posix() for p in refs]},'slot':'walk/SW/03','attempt':'v2','startedAt':datetime.now(timezone.utc).isoformat(),'configSnapshot':json.loads((base.parents[1]/'config/image-generation.json').read_text(encoding='utf-8-sig')),'submittedParameters':{'model':None,'quality':None}}
+(dest/'prompt.txt').write_text(prompt,encoding='utf-8');(dest/'request.json').write_text(json.dumps(req,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');print(json.dumps(req,ensure_ascii=False))

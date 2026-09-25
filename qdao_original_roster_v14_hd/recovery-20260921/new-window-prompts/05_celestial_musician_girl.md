@@ -1,3 +1,5 @@
+> 本角色已于2026-09-23完成128walk+8idle及离线预览验收。当前请读 [05完成交接](../05-HANDOFF-20260923.md)，不要按下方历史库存重复出图。
+
 请恢复制作05_celestial_musician_girl（天音少女）的角色移动图。
 
 工作目录：D:\luyuan\wuxingqitan\image。

@@ -81,18 +81,33 @@ def main():
         for theme, color in [('light', (240, 238, 228)), ('dark', (30, 38, 46))]:
             sheet = Image.new('RGB', (2048, 2176), color); draw = ImageDraw.Draw(sheet)
             displays = []
+            feet = Image.new('RGB', (2048, 1200), color); feet_draw = ImageDraw.Draw(feet)
+            seam = Image.new('RGB', (2048, 544), color); seam_draw = ImageDraw.Draw(seam)
             for frame in range(1, 17):
                 slot = f'walk/{direction}/{frame:02d}'; row = present.get(slot)
                 x, y = ((frame-1) % 4) * 512, ((frame-1) // 4) * 544
                 label = f'{direction} {frame:02d}' + ('' if row else ' MISSING')
                 draw.text((x+12, y+8), label, fill='white' if theme == 'dark' else 'black')
                 if row:
-                    image = Image.open(dest / row['path']).convert('RGBA').resize((512, 512), Image.Resampling.LANCZOS)
+                    original = Image.open(dest / row['path']).convert('RGBA')
+                    image = original.resize((512, 512), Image.Resampling.LANCZOS)
                     display = Image.new('RGB', (512, 512), color); display.paste(image, (0, 0), image)
                     displays.append(display); sheet.paste(display, (x, y+32))
+                    crop = original.crop((256, 724, 768, 1024))
+                    fx, fy = ((frame-1) % 4) * 512, ((frame-1) // 4) * 300
+                    feet.paste(crop, (fx, fy), crop)
+                    feet_draw.text((fx+8, fy+8), label, fill='white' if theme == 'dark' else 'black')
+                    if frame in (15, 16, 1, 2):
+                        sx = (15, 16, 1, 2).index(frame) * 512
+                        seam.paste(display, (sx, 32))
+                        seam_draw.text((sx+12, 8), label, fill='white' if theme == 'dark' else 'black')
             path = preview / f'{direction}-contact-{theme}.jpg'; sheet.save(path, quality=92)
             contact_sheets.append({'path': path.relative_to(dest).as_posix(), 'sha256': sha(path), 'preview_only_downsample': True})
             if len(displays) == 16:
+                for kind, composite in [('feet-1to1', feet), ('seam', seam)]:
+                    composite_path = preview / f'{direction}-{kind}-{theme}.jpg'
+                    composite.save(composite_path, quality=96)
+                    contact_sheets.append({'path': composite_path.relative_to(dest).as_posix(), 'sha256': sha(composite_path), 'review_composite_only': True})
                 path = preview / f'{direction}-30ms-{theme}.gif'
                 displays[0].save(path, save_all=True, append_images=displays[1:], duration=[30]*16, loop=0, optimize=False, disposal=2)
                 with Image.open(path) as gif:

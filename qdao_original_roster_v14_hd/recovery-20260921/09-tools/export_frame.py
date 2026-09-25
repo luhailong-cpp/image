@@ -44,6 +44,8 @@ def main():
     parser.add_argument('--kind', choices=('walk', 'idle'), default='walk')
     parser.add_argument('--frame', type=int, choices=range(1, 17))
     parser.add_argument('--variant', help='Optional non-overwriting review variant below the direction workspace')
+    parser.add_argument('--alpha-floor', type=int, choices=(0, 2), default=0,
+                        help='Explicitly remove only normalized alpha 1/2 noise; no RGB, pose or opaque-edge change')
     parser.add_argument('--chroma-profile', choices=('standard', 'none'), default='none',
                         help='standard: project magenta100/150 + despill4/12; none: preserve native RGBA')
     args = parser.parse_args()
@@ -84,6 +86,12 @@ def main():
         cleaned, cleanup = edge.despill(normalized, radius=4, reference_radius=12)
     else:
         cleaned, cleanup = normalized.copy(), {'mode': 'native-rgba-preserved', 'changed_pixels': 0}
+    if args.alpha_floor:
+        clean_pixels = np.array(cleaned)
+        low_alpha = (clean_pixels[:, :, 3] > 0) & (clean_pixels[:, :, 3] <= args.alpha_floor)
+        cleanup = dict(cleanup, alphaFloor=args.alpha_floor, alphaRemovedPixels=int(low_alpha.sum()))
+        clean_pixels[low_alpha, 3] = 0
+        cleaned = Image.fromarray(clean_pixels)
     ax, ay = alpha_axis(cleaned)
     delta = (round(ROOT[0] - ax), ROOT[1] - ay)
     bbox = cleaned.getchannel('A').getbbox()
@@ -126,7 +134,7 @@ def main():
                      'despill': args.chroma_profile == 'standard',
                      'despillRadius': 4 if args.chroma_profile == 'standard' else 0,
                      'despillReferenceRadius': 12 if args.chroma_profile == 'standard' else 0,
-                     'alphaCleanup': False, 'cleanupReport': cleanup,
+                     'alphaCleanup': bool(args.alpha_floor), 'alphaFloor': args.alpha_floor, 'cleanupReport': cleanup,
                      'processingTools': tool_bindings,
                      'perSubjectBboxScaling': False, 'mirrored': False, 'poseInterpolated': False}
         record = {'schemaVersion': 1, 'character': CHARACTER, 'kind': args.kind,

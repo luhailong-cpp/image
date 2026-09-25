@@ -7,12 +7,13 @@
 <label>方向 <select id="direction"></select></label><label>动作 <select id="action"><option value="walk">行走</option><option value="idle">独立站立</option></select></label>
 <label>底色 <select id="theme"><option value="light">浅底</option><option value="dark">深底</option></select></label><button id="zoom">放大 1:1</button><button id="seam">接缝 15→16→01→02</button><button id="cycle">完整16帧</button>
 <span class="meta">浏览器按时间选帧；不插值。刷新率可能跳过显示帧，逐帧按钮用于完整检查。</span></header>
-<p class="warn">这是素材离线审阅；文件齐全不代表美术通过。未宣称 Unity 或正式客户端验收。</p><p><a href="manifest.json">固定快照来源与 SHA 清单</a></p>
-<div id="overview"></div><h2 id="detailTitle"></h2><div id="detail"><canvas id="large" width="1024" height="1024"></canvas></div><h3>15→16→01→02 接缝静态对照</h3><div id="seams" class="seams"></div><details><summary>准确缺槽</summary><div id="missing"></div></details>
+<p class="warn" id="reviewNote">这是素材离线审阅；文件齐全不代表美术通过。未宣称 Unity 或正式客户端验收。</p><p><a href="manifest.json">固定快照来源与 SHA 清单</a></p>
+<h2 id="detailTitle"></h2><div id="detail"><canvas id="large" width="1024" height="1024"></canvas></div><h3>15→16→01→02 接缝静态对照</h3><div id="seams" class="seams"></div><details open><summary>八方向同步预览</summary><div id="overview"></div></details><details><summary>准确缺槽</summary><div id="missing"></div></details>
 <script>
 const M=__MANIFEST__, $=id=>document.getElementById(id), cache=new Map(), rows=new Map(M.files.map(r=>[r.slot,r]));
 let playing=true, frame=1, direction='S', action='walk', sequence=Array.from({length:16},(_,i)=>i+1), start=performance.now(), last=-1;
-$('status').textContent=`快照 ${M.revision}：${M.actual_walk}/128 行走，${M.actual_idle}/8 独立站立。美术审阅待确认。`;
+$('status').textContent=`快照 ${M.revision}：${M.actual_walk}/128 行走，${M.actual_idle}/8 独立站立。${M.visual_approval?'离线美术验收通过。':'美术审阅待确认。'}`;
+if(M.visual_approval)$('reviewNote').textContent='八方向深浅底、正常与原尺寸、交替迈腿及首尾衔接已完成离线检查。客户端接入与 Unity 验收尚未进行。';
 $('missing').textContent=M.missing.length?M.missing.join(' · '):'无缺槽';
 function slot(d,f,a=action){return a==='idle'?`idle/${d}`:`walk/${d}/${String(f).padStart(2,'0')}`}
 function color(){return $('theme').value==='dark'?'#1e262e':'#f0eee4'}
