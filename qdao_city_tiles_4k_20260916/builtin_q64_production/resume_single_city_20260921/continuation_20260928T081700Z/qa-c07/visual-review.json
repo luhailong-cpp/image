@@ -1,0 +1,789 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-09-28T09:11:50.538810+00:00",
+  "tile": "r08_c07",
+  "source": {
+    "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\next_tile_r08_c07\\continuation-20260923\\qa-repair-20260923\\repaired-v1\\r08_c07.png",
+    "sha256": "7e60bc705c1b750cad18bffa9f486f7be680835c1ee3bf0f692f0202325699e6",
+    "pixels": [
+      4096,
+      4096
+    ]
+  },
+  "scope": "fresh native-pixel review of six 4096 internal seams, nine junctions, available full outer boundaries and available diagnostic four-tile corner",
+  "inspectionEvents": [
+    {
+      "sequence": 1,
+      "tool": "view_image",
+      "detail": "original",
+      "ids": [
+        "vertical-x1024"
+      ],
+      "completedBeforeUtc": "2026-09-28T08:58:11Z"
+    },
+    {
+      "sequence": 2,
+      "tool": "view_image",
+      "detail": "original",
+      "ids": [
+        "vertical-x2048",
+        "vertical-x3072",
+        "horizontal-y1024"
+      ],
+      "completedBeforeUtc": "2026-09-28T08:58:11Z"
+    },
+    {
+      "sequence": 3,
+      "tool": "view_image",
+      "detail": "original",
+      "ids": [
+        "horizontal-y2048",
+        "horizontal-y3072",
+        "internal-junctions-nine",
+        "south-r08_c07--r09_c07"
+      ],
+      "completedBeforeUtc": "2026-09-28T08:58:11Z"
+    },
+    {
+      "sequence": 4,
+      "tool": "view_image",
+      "detail": "original",
+      "ids": [
+        "east-unselected",
+        "southeast-unselected"
+      ],
+      "completedBeforeUtc": "2026-09-28T09:00:04Z"
+    }
+  ],
+  "timeNote": "Completion bounds are actual clock-tool readings after the corresponding views; exact per-image call times were not exposed. No invented timestamp or inherited visual pass.",
+  "nativeVerification": {
+    "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260928T081700Z\\qa-c07\\native-verification.json",
+    "sha256": "13ec560471bf2fa46a71563dc95be3dc5cd6f647b0f88a0063dc509681566027"
+  },
+  "coverageLedgerAtReview": {
+    "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\current-coverage-ledger.json",
+    "sha256": "f831c784dade4bf48a2d018279351aefee3779e987314b7f475b844ce6719874"
+  },
+  "internalSeams": [
+    {
+      "id": "vertical-x1024",
+      "viewed": true,
+      "viewTool": "view_image",
+      "detail": "original",
+      "evidence": {
+        "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260925T132104Z\\qa-c07\\vertical-x1024.png",
+        "sha256": "aa95fe053451a7a1b8c88de63a6ba6a6921e91a21c57ffe3f34afb2091ebc783"
+      },
+      "fullLengthPixels": 4096,
+      "coveredRanges": [
+        [
+          0,
+          1024
+        ],
+        [
+          1024,
+          2048
+        ],
+        [
+          2048,
+          3072
+        ],
+        [
+          3072,
+          4096
+        ]
+      ],
+      "nativeSourcePixelsVerified": true,
+      "status": "failed",
+      "failureKind": [
+        "straight_grid_tone_discontinuity",
+        "local_contour_steps"
+      ],
+      "segmentObservations": [
+        {
+          "range": [
+            0,
+            1024
+          ],
+          "note": "米色铺地有细长垂直明暗跳变，弧形金边附近也能追踪到同一直线。"
+        },
+        {
+          "range": [
+            1024,
+            2048
+          ],
+          "note": "中央直线贯穿米色石面，两条横向金边在 x1024 处出现错台/色阶。"
+        },
+        {
+          "range": [
+            2048,
+            3072
+          ],
+          "note": "大石砖与横槽均有沿 x1024 的突变。"
+        },
+        {
+          "range": [
+            3072,
+            4096
+          ],
+          "note": "多条金边及白色描边在 x1024 处出现错台，下半石面仍有直线色差。"
+        }
+      ]
+    },
+    {
+      "id": "vertical-x2048",
+      "viewed": true,
+      "viewTool": "view_image",
+      "detail": "original",
+      "evidence": {
+        "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260925T132104Z\\qa-c07\\vertical-x2048.png",
+        "sha256": "4daeeb03250510276215bdb6b6970e32bc19d98cc2c763c01ee81ad506ba29bb"
+      },
+      "fullLengthPixels": 4096,
+      "coveredRanges": [
+        [
+          0,
+          1024
+        ],
+        [
+          1024,
+          2048
+        ],
+        [
+          2048,
+          3072
+        ],
+        [
+          3072,
+          4096
+        ]
+      ],
+      "nativeSourcePixelsVerified": true,
+      "status": "failed",
+      "failureKind": [
+        "straight_grid_tone_discontinuity",
+        "local_contour_steps"
+      ],
+      "segmentObservations": [
+        {
+          "range": [
+            0,
+            1024
+          ],
+          "note": "中央直线横穿两条斜槽，槽线有细小错台。"
+        },
+        {
+          "range": [
+            1024,
+            2048
+          ],
+          "note": "金边及米色长条中央存在垂直色阶，底部金边也错台。"
+        },
+        {
+          "range": [
+            2048,
+            3072
+          ],
+          "note": "暗石面 x2048 左右纹理与色阶明显不同，贯穿全段。"
+        },
+        {
+          "range": [
+            3072,
+            4096
+          ],
+          "note": "暗石面到米色条处持续存在垂直色阶。"
+        }
+      ]
+    },
+    {
+      "id": "vertical-x3072",
+      "viewed": true,
+      "viewTool": "view_image",
+      "detail": "original",
+      "evidence": {
+        "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260925T132104Z\\qa-c07\\vertical-x3072.png",
+        "sha256": "50bed1a96f10d5312220c77814e0eea2caa17d32cf703f515395c69441df0260"
+      },
+      "fullLengthPixels": 4096,
+      "coveredRanges": [
+        [
+          0,
+          1024
+        ],
+        [
+          1024,
+          2048
+        ],
+        [
+          2048,
+          3072
+        ],
+        [
+          3072,
+          4096
+        ]
+      ],
+      "nativeSourcePixelsVerified": true,
+      "status": "failed",
+      "failureKind": [
+        "straight_grid_tone_discontinuity",
+        "local_contour_steps"
+      ],
+      "segmentObservations": [
+        {
+          "range": [
+            0,
+            1024
+          ],
+          "note": "斜向石框/槽线与米色面在 x3072 处有直线跳变。"
+        },
+        {
+          "range": [
+            1024,
+            2048
+          ],
+          "note": "雕刻/长框斜边在 x3072 处有垂直色阶。"
+        },
+        {
+          "range": [
+            2048,
+            3072
+          ],
+          "note": "暗石面与米色框的局部连续较好，但不能抵消其他段失败。"
+        },
+        {
+          "range": [
+            3072,
+            4096
+          ],
+          "note": "下半部米色面有垂直色阶，与斜向框边相交。"
+        }
+      ]
+    },
+    {
+      "id": "horizontal-y1024",
+      "viewed": true,
+      "viewTool": "view_image",
+      "detail": "original",
+      "evidence": {
+        "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260925T132104Z\\qa-c07\\horizontal-y1024.png",
+        "sha256": "67a7c4da159a42641039fbeacf09d7f0c51113d84944c2ecc119a1040761f3f6"
+      },
+      "fullLengthPixels": 4096,
+      "coveredRanges": [
+        [
+          0,
+          1024
+        ],
+        [
+          1024,
+          2048
+        ],
+        [
+          2048,
+          3072
+        ],
+        [
+          3072,
+          4096
+        ]
+      ],
+      "nativeSourcePixelsVerified": true,
+      "status": "failed",
+      "failureKind": [
+        "straight_grid_tone_discontinuity",
+        "local_contour_steps"
+      ],
+      "segmentObservations": [
+        {
+          "range": [
+            0,
+            1024
+          ],
+          "note": "石面在 y1024 有细水平色差，右侧斜槽出现小错台。"
+        },
+        {
+          "range": [
+            1024,
+            2048
+          ],
+          "note": "左侧斜槽及面色在 y1024 断续，右侧金边附近可追踪。"
+        },
+        {
+          "range": [
+            2048,
+            3072
+          ],
+          "note": "y1024 水平色带穿过金边、灰色框及米色雕刻区。"
+        },
+        {
+          "range": [
+            3072,
+            4096
+          ],
+          "note": "y1024 在 x3072..4096 有强水平明暗跳变，斜框也错台。"
+        }
+      ]
+    },
+    {
+      "id": "horizontal-y2048",
+      "viewed": true,
+      "viewTool": "view_image",
+      "detail": "original",
+      "evidence": {
+        "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260925T132104Z\\qa-c07\\horizontal-y2048.png",
+        "sha256": "803636322f86a9eab3566a399c0d63afef226e7182c6c466629457c1a6674d14"
+      },
+      "fullLengthPixels": 4096,
+      "coveredRanges": [
+        [
+          0,
+          1024
+        ],
+        [
+          1024,
+          2048
+        ],
+        [
+          2048,
+          3072
+        ],
+        [
+          3072,
+          4096
+        ]
+      ],
+      "nativeSourcePixelsVerified": true,
+      "status": "failed",
+      "failureKind": [
+        "straight_grid_tone_discontinuity",
+        "local_contour_steps"
+      ],
+      "segmentObservations": [
+        {
+          "range": [
+            0,
+            1024
+          ],
+          "note": "大块米色石面在 y2048 出现整段水平色阶。"
+        },
+        {
+          "range": [
+            1024,
+            2048
+          ],
+          "note": "y2048 横穿多条斜向金边和石框，色差及错台明显。"
+        },
+        {
+          "range": [
+            2048,
+            3072
+          ],
+          "note": "中央接近天然框边，仍有局部色阶；未独立判通过。"
+        },
+        {
+          "range": [
+            3072,
+            4096
+          ],
+          "note": "y2048 横跨米色面与斜向框线，出现直线明暗/几何错台。"
+        }
+      ]
+    },
+    {
+      "id": "horizontal-y3072",
+      "viewed": true,
+      "viewTool": "view_image",
+      "detail": "original",
+      "evidence": {
+        "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260925T132104Z\\qa-c07\\horizontal-y3072.png",
+        "sha256": "909b008663ca0dc117f6908a8a1a4a53289b85e597d6bc2d0f1f18e67946a54d"
+      },
+      "fullLengthPixels": 4096,
+      "coveredRanges": [
+        [
+          0,
+          1024
+        ],
+        [
+          1024,
+          2048
+        ],
+        [
+          2048,
+          3072
+        ],
+        [
+          3072,
+          4096
+        ]
+      ],
+      "nativeSourcePixelsVerified": true,
+      "status": "failed",
+      "failureKind": [
+        "straight_grid_tone_discontinuity",
+        "local_contour_steps"
+      ],
+      "segmentObservations": [
+        {
+          "range": [
+            0,
+            1024
+          ],
+          "note": "x0..1024 的已修区域未见与其他段同等明显的中心水平切断，但靠近 x1024 的竖色差保留。"
+        },
+        {
+          "range": [
+            1024,
+            2048
+          ],
+          "note": "y3072 横跨金条与石框，线条有错台。"
+        },
+        {
+          "range": [
+            2048,
+            3072
+          ],
+          "note": "暗石面有强水平色阶，竖白框在 y3072 突然横移。"
+        },
+        {
+          "range": [
+            3072,
+            4096
+          ],
+          "note": "多条竖向米色框在 y3072 错台，石面有整行色差。"
+        }
+      ]
+    }
+  ],
+  "internalJunctions": [
+    {
+      "pixelXY": [
+        1024,
+        1024
+      ],
+      "viewed": true,
+      "evidenceFile": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260925T132104Z\\qa-c07\\internal-junctions-nine.png",
+      "evidenceSha256": "1c39a9a6b51741493f7e034b7f97d53ae0e189ba423a5abad8c6637c543ceac7",
+      "sourceRectLTRB": [
+        832,
+        832,
+        1216,
+        1216
+      ],
+      "status": "failed",
+      "note": "米色石面呈十字分区色阶，右侧斜槽受横缝影响。"
+    },
+    {
+      "pixelXY": [
+        2048,
+        1024
+      ],
+      "viewed": true,
+      "evidenceFile": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260925T132104Z\\qa-c07\\internal-junctions-nine.png",
+      "evidenceSha256": "1c39a9a6b51741493f7e034b7f97d53ae0e189ba423a5abad8c6637c543ceac7",
+      "sourceRectLTRB": [
+        1856,
+        832,
+        2240,
+        1216
+      ],
+      "status": "failed",
+      "note": "斜金边和长条面在中心横缝处断续，竖向色阶同时可见。"
+    },
+    {
+      "pixelXY": [
+        3072,
+        1024
+      ],
+      "viewed": true,
+      "evidenceFile": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260925T132104Z\\qa-c07\\internal-junctions-nine.png",
+      "evidenceSha256": "1c39a9a6b51741493f7e034b7f97d53ae0e189ba423a5abad8c6637c543ceac7",
+      "sourceRectLTRB": [
+        2880,
+        832,
+        3264,
+        1216
+      ],
+      "status": "failed",
+      "note": "雕刻上有十字分区色阶，右侧斜边同样受横缝影响。"
+    },
+    {
+      "pixelXY": [
+        1024,
+        2048
+      ],
+      "viewed": true,
+      "evidenceFile": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260925T132104Z\\qa-c07\\internal-junctions-nine.png",
+      "evidenceSha256": "1c39a9a6b51741493f7e034b7f97d53ae0e189ba423a5abad8c6637c543ceac7",
+      "sourceRectLTRB": [
+        832,
+        1856,
+        1216,
+        2240
+      ],
+      "status": "failed",
+      "note": "竖色阶穿过水平金边并形成错台，米色面水平色差可见。"
+    },
+    {
+      "pixelXY": [
+        2048,
+        2048
+      ],
+      "viewed": true,
+      "evidenceFile": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260925T132104Z\\qa-c07\\internal-junctions-nine.png",
+      "evidenceSha256": "1c39a9a6b51741493f7e034b7f97d53ae0e189ba423a5abad8c6637c543ceac7",
+      "sourceRectLTRB": [
+        1856,
+        1856,
+        2240,
+        2240
+      ],
+      "status": "failed",
+      "note": "米色/暗石交接区呈强烈矩形明暗分区。"
+    },
+    {
+      "pixelXY": [
+        3072,
+        2048
+      ],
+      "viewed": true,
+      "evidenceFile": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260925T132104Z\\qa-c07\\internal-junctions-nine.png",
+      "evidenceSha256": "1c39a9a6b51741493f7e034b7f97d53ae0e189ba423a5abad8c6637c543ceac7",
+      "sourceRectLTRB": [
+        2880,
+        1856,
+        3264,
+        2240
+      ],
+      "status": "failed",
+      "note": "上方米色长框有竖色阶，交点附近材质过渡不连续。"
+    },
+    {
+      "pixelXY": [
+        1024,
+        3072
+      ],
+      "viewed": true,
+      "evidenceFile": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260925T132104Z\\qa-c07\\internal-junctions-nine.png",
+      "evidenceSha256": "1c39a9a6b51741493f7e034b7f97d53ae0e189ba423a5abad8c6637c543ceac7",
+      "sourceRectLTRB": [
+        832,
+        2880,
+        1216,
+        3264
+      ],
+      "status": "failed",
+      "note": "原水平修复区局部连续，但中央竖色阶仍贯穿米色面及金边。"
+    },
+    {
+      "pixelXY": [
+        2048,
+        3072
+      ],
+      "viewed": true,
+      "evidenceFile": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260925T132104Z\\qa-c07\\internal-junctions-nine.png",
+      "evidenceSha256": "1c39a9a6b51741493f7e034b7f97d53ae0e189ba423a5abad8c6637c543ceac7",
+      "sourceRectLTRB": [
+        1856,
+        2880,
+        2240,
+        3264
+      ],
+      "status": "failed",
+      "note": "暗石面在中心呈明显十字拼块色阶，邻侧白框横缝错台。"
+    },
+    {
+      "pixelXY": [
+        3072,
+        3072
+      ],
+      "viewed": true,
+      "evidenceFile": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260925T132104Z\\qa-c07\\internal-junctions-nine.png",
+      "evidenceSha256": "1c39a9a6b51741493f7e034b7f97d53ae0e189ba423a5abad8c6637c543ceac7",
+      "sourceRectLTRB": [
+        2880,
+        2880,
+        3264,
+        3264
+      ],
+      "status": "failed",
+      "note": "暗石与白框均被水平拼缝切断，存在几何错台和色差。"
+    }
+  ],
+  "outerEdges": [
+    {
+      "edge": "south",
+      "viewed": true,
+      "status": "failed",
+      "neighbor": "r09_c07",
+      "fullLengthPixels": 4096,
+      "evidenceFile": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260925T132104Z\\qa-c07\\south-r08_c07--r09_c07.png",
+      "evidenceSha256": "965eb12e3605adaf75504446295d711fd24a5b0c96ddf0408d39d64acb737f01",
+      "segmentObservations": [
+        {
+          "range": [
+            0,
+            1024
+          ],
+          "note": "边界 y4096 有横向色阶，斜石槽轻微断续。"
+        },
+        {
+          "range": [
+            1024,
+            2048
+          ],
+          "note": "边界存在明显亮度/材质变化与金边、槽线错位。"
+        },
+        {
+          "range": [
+            2048,
+            3072
+          ],
+          "note": "灰框及米色雕刻底面有明显水平明暗跳变。"
+        },
+        {
+          "range": [
+            3072,
+            4096
+          ],
+          "note": "边界横向色差持续，斜框可见断续。"
+        }
+      ]
+    },
+    {
+      "edge": "east",
+      "viewed": true,
+      "status": "failed_diagnostic_with_unselected_neighbor",
+      "neighbor": "r08_c08",
+      "neighborCandidateSelected": false,
+      "fullLengthPixels": 4096,
+      "evidence": {
+        "id": "east-unselected",
+        "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260928T081700Z\\qa-c07\\east-c07-c08-unselected-diagnostic.png",
+        "sha256": "486948499f96c78abd224b5ef1a25a30b062c1e39448cf0f76d610941a313e2d",
+        "pixels": [
+          1340,
+          1084
+        ],
+        "assembly": "c07 [3936,0,4096,4096] plus c08 [0,0,160,4096], 1:1, segments [0,1024),[1024,2048),[2048,3072),[3072,4096)"
+      },
+      "note": "四个1024段全部实看。前两段明显垂直色阶并有斜框错台；后两段金色槽及白边接缝也有直线断续。正式东边验收仍待邻块选用。"
+    },
+    {
+      "edge": "north",
+      "viewed": false,
+      "status": "pending_missing_selected_neighbor",
+      "neighbor": "r07_c07"
+    },
+    {
+      "edge": "west",
+      "viewed": false,
+      "status": "pending_missing_selected_neighbor",
+      "neighbor": "r08_c06"
+    }
+  ],
+  "fourTileCorners": [
+    {
+      "corner": "northwest",
+      "viewed": false,
+      "status": "pending_missing_selected_neighbors",
+      "missing": [
+        "r07_c06",
+        "r07_c07",
+        "r08_c06"
+      ]
+    },
+    {
+      "corner": "northeast",
+      "viewed": false,
+      "status": "pending_missing_selected_neighbors",
+      "missing": [
+        "r07_c07",
+        "r07_c08",
+        "r08_c08"
+      ]
+    },
+    {
+      "corner": "southwest",
+      "viewed": false,
+      "status": "pending_missing_selected_neighbors",
+      "missing": [
+        "r08_c06",
+        "r09_c06"
+      ]
+    },
+    {
+      "corner": "southeast",
+      "viewed": true,
+      "status": "pending_neighbor_selection",
+      "diagnosticOnly": true,
+      "evidence": {
+        "id": "southeast-unselected",
+        "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260928T081700Z\\qa-c07\\southeast-four-tiles-c08-unselected-diagnostic.png",
+        "sha256": "d22b9138bf57de2d08d46da2ac9ef7fa6966e5b39dd488d3de05f2e2aae6a466",
+        "pixels": [
+          512,
+          512
+        ],
+        "assembly": "256 px each corner; NW c07 bottom-right, NE unselected c08 bottom-left, SW r09c07 top-right, SE r09c08 top-left; no scaling"
+      },
+      "note": "以未选用 c08 masked-result 组成512原像素四块交点，局部未见明显十字几何切断。此局部观察不能抵消南/东全长缝失败，不计正式通过。"
+    }
+  ],
+  "repairGuides": [
+    {
+      "id": "priority-cross-x2048-y3072",
+      "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260928T081700Z\\qa-c07\\priority-cross-x2048-y3072.png",
+      "sha256": "0c086bb20210cb10511a987aaf3c9812b87d514a768edb1dda163ffaddb28785",
+      "sourceRectLTRB": [
+        1421,
+        2445,
+        2675,
+        3699
+      ],
+      "pixels": [
+        1254,
+        1254
+      ],
+      "resized": false,
+      "purpose": "native repair guide only, not completed repair"
+    },
+    {
+      "id": "priority-cross-x3072-y1024",
+      "file": "E:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20260928T081700Z\\qa-c07\\priority-cross-x3072-y1024.png",
+      "sha256": "e40cc3f0d868eb3b45de4515f13de8f3c13956120869f7e02af7574cafbc9324",
+      "sourceRectLTRB": [
+        2445,
+        397,
+        3699,
+        1651
+      ],
+      "pixels": [
+        1254,
+        1254
+      ],
+      "resized": false,
+      "purpose": "native repair guide only, not completed repair"
+    }
+  ],
+  "counts": {
+    "internalFullSeamsViewed": 6,
+    "internalFullSeamsFailed": 6,
+    "internalJunctionsViewed": 9,
+    "internalJunctionsFailed": 9,
+    "selectedOuterEdgesViewed": 1,
+    "selectedOuterEdgesFailed": 1,
+    "unselectedNeighborOuterEdgesViewed": 1,
+    "unselectedNeighborCornersViewed": 1,
+    "formalAccepted": 0
+  },
+  "overallStatus": "failed_requires_repair",
+  "formalArtAcceptancePassed": false,
+  "clientRuntimeAccepted": false,
+  "wholeCitySeamsPassedAdded": 0,
+  "wholeCityJunctionsPassedAdded": 0,
+  "generatedImagesByThisAgent": 0,
+  "sharedRecordsModified": false,
+  "sourceShaVerifiedAtEnd": "7e60bc705c1b750cad18bffa9f486f7be680835c1ee3bf0f692f0202325699e6"
+}
