@@ -1,6 +1,6 @@
 请恢复制作08_alchemy_prodigy_boy（炼丹童子）的角色移动图。
 
-2026-09-23 最新角色记录：[08-HANDOFF.md](../08-delivery-preview/08-HANDOFF.md)。正式选稿及当前状态以该记录和 `../08-delivery-preview/revisions/final-v1/manifest.json` 为准；下方接手库存是历史快照，不可据此重复生成。
+2026-09-28 本角色128行走＋8独立站立、八方向离线验收及授权图片清理全部完成，客户端接入未进行。最新角色记录：[08-HANDOFF.md](../08-delivery-preview/08-HANDOFF.md)。正式选稿及当前状态以该记录和 `../08-delivery-preview/revisions/final-v1/manifest.json` 为准；下方接手库存是历史快照，不可据此重复生成。
 
 工作目录：D:\luyuan\wuxingqitan\image。
 先读AGENTS.md、designs/README.md、config/image-generation.json、docs/IMAGE_MODEL_POLICY.md、README接手说明，以及：
