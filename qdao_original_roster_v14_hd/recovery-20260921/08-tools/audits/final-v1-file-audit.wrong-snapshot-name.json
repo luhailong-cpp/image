@@ -1,17 +1,23 @@
 {
   "schema": "qdao-08-final-file-audit-v1",
   "revision": "final-v1",
-  "auditedAt": "2026-09-28T13:15:02.904875+00:00",
+  "auditedAt": "2026-09-23T14:29:20.309567+00:00",
   "manifest_sha256": "d605cb139692c6d0e9b4fe0354829d41ed64b7e3b64bb73f7cf32e3b6d5c5107",
   "verifier_sha256": "7bcd74029a75b19b130ab1dfe5013638c5622718b29def7137fe8b2090df2c7c",
-  "status": "passed_file_checks_only",
+  "status": "failed",
   "complete_inventory": true,
   "missing_slots": [],
   "unexpected_slots": [],
   "verified_frames": 136,
   "unique_output_sha256": 136,
   "unique_raw_sha256": 136,
-  "errors": [],
+  "errors": [
+    {
+      "code": "snapshot_exception",
+      "context": "final-v1",
+      "detail": "FileNotFoundError: [Errno 2] No such file or directory: 'D:\\\\luyuan\\\\wuxingqitan\\\\image\\\\qdao_original_roster_v14_hd\\\\recovery-20260921\\\\08-delivery-preview\\\\revisions\\\\n-ne-review-v2\\\\manifest.json'"
+    }
+  ],
   "warnings": [
     {
       "code": "historical_config_not_in_request",
@@ -2883,33 +2889,7 @@
       "cycle_ms": 480
     }
   ],
-  "approved_snapshot_comparisons": [
-    {
-      "revision": "s-se-review-v3",
-      "manifest_sha256": "f2942dbbd664e80948ce58dbf90e70a96ee1e908b4ba5ef08d25b678a5d5994d",
-      "files": 34
-    },
-    {
-      "revision": "e-review-v2",
-      "manifest_sha256": "139977b5f22421aaa499eadbf90a12c83e22cd57eec264377023f7239844d6ce",
-      "files": 17
-    },
-    {
-      "revision": "sw-review-final-v1",
-      "manifest_sha256": "f8e677140d11d21de4c2e255a98e61d0d3310f7c2434b5d6df85988221cc4707",
-      "files": 17
-    },
-    {
-      "revision": "w-nw-review-final-v2",
-      "manifest_sha256": "2c9b9b333934e28b707cb5b5c78a617da1737859a44f04b0761b67e0fa48124c",
-      "files": 34
-    },
-    {
-      "revision": "n-ne-review-final-v1",
-      "manifest_sha256": "77eef98c15d965fd9eee7361db911b2079b69709dedc655eb8ba42a43cab40aa",
-      "files": 34
-    }
-  ],
+  "approved_snapshot_comparisons": [],
   "visual_approval": false,
   "browser_review_performed": false,
   "unity_validation": false,
