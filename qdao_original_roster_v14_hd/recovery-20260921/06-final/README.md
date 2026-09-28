@@ -8,4 +8,4 @@
 
 角色正式设计仍在 [4096肖像](../../../q_daoist_character_pack_4096/06_thunder_caster_boy_transparent_4096.png)，身份与风格未更换。`preview/idle-contact-*.png` 是站立总览，八方向深浅GIF均含16帧×30ms。
 
-验收范围与旧图保留限制见 [REVIEW.md](REVIEW.md)。本窗口只完成素材制作和离线检查；没有进行Unity导入、正式客户端运行或发布，没有Git提交/推送，没有启动其他角色。原图、拒稿、回退与中间图在成品和文字证据核验后按用户授权精简，结果见`cleanup-result.json`。
+验收范围与旧图保留限制见 [REVIEW.md](REVIEW.md)。本窗口完成素材制作和离线检查；没有进行Unity导入、正式客户端运行或发布，没有启动其他角色。素材验收后，用户另行明确授权将本角色成品与记录提交到本地Git；未授权推送。原图、拒稿、回退与中间图在成品和文字证据核验后按用户授权精简，结果见`cleanup-result.json`。

@@ -78,7 +78,7 @@ V13/V14的历史 `inventory.json`、2026-09-19暂停JSON和旧验收证据仍保
 - E04/06/13只有已归档真实原图，下一步切图/核对，不计已导入。
 - E09第一稿没有交换领先腿，明确拒收；E03处理后疑有细紫边，未视觉批准。
 - E其余缺04/06/07/08/10/11/12/13/14/15/16，共11；另N/NE/SE/SW/W/NW共96，总缺107。
-- 详细：[06完整交接](generation/06_thunder_caster_boy/PAUSED_HANDOFF_20260919.md)，同目录inventory-at-pause-20260919.json；本轮原生1254，固定scale .88。5张独立重建已通过，全部调用和命令已收尾。
+- 上述为2026-09-19暂停时的历史库存，已被[06最终交接](recovery-20260921/06-HANDOFF-20260923.md)替代。旧交接及inventory-at-pause-20260919.json的文字内容保存在[06来源文字归档](recovery-20260921/06-final/provenance/production-text-records.json)；原生尺寸与固定scale .88记录随对应来源保留。
 
 ## 4. 本次工具与代码增量
 
