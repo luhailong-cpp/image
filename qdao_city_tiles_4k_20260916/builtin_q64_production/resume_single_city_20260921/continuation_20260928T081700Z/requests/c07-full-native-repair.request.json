@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "preparedAtUtc": "2026-09-28 08:33:29 UTC",
+  "tool": "image_gen.imagegen",
+  "payload": {
+    "prompt": "Repair reference image 1 at its full native output resolution of exactly 4096 by 4096 pixels. It is an existing 4096px game-map tile assembled from sixteen native patches, tile r08_c07 in a single fixed-layout city. This is a high-resolution repair, not a redesigned composition or a low-resolution image to be enlarged. Return only the corrected 4096x4096 map artwork as one square PNG, no border, panel, text, labels or UI. Preserve the original camera angle, scale, proportions, paths, paving count and trajectories, spiral ornament at upper left, large circular ivory-and-gold paving rim on the right, inset blue-gray rectangular slabs, abstract carved motifs and all outer-edge endpoints. Preserve the outer 96px perimeter in appearance and alignment. The six false patch boundaries are vertical x=1024,2048,3072 and horizontal y=1024,2048,3072; remove their straight rectangular tone steps, cropped carvings, duplicated edges and interrupted gold trim, including all nine intersections. Restore coherent rounded bevels and continuous gold and grout curves crossing those seams without smoothing away native artwork detail. The large original ivory stone surfaces must remain clean, bright and softly shaded: eliminate dirty cloud mottling, tiny broken surface noise and patch-grid color changes. Keep subtle warm stone material and clear hand-painted depth. All linework and carvings need real crisp native detail across the full 4096 image, not low-res scaling, sharpening artifacts or blurred concealment. Reference image 2 is the approved rounded Daoist Q-style rendering and material finish reference only; match its clean warm gold, polished gentle volume and bright ivory/green visual language, never copy its UI, words or character content into this map. Reference image 3 is a native clean ivory texture crop for material character only; do not stretch or paste this small crop as production content. Keep the map composition exactly registered to reference 1. Use the host-managed highest-quality image route available; no explicit API model or quality is being asserted by this prompt.",
+    "referenced_image_paths": [
+      "E:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/resume_single_city_20260921/next_tile_r08_c07/continuation-20260923/qa-repair-20260923/repaired-v1/r08_c07.png",
+      "E:/work/image/designs/gameplay-ui/04-guild.png",
+      "E:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/resume_single_city_20260921/next_tile_r08_c08/correction-20260923T114016880544Z/native-ivory-material-reference.png"
+    ]
+  },
+  "configuredTarget": {
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max"
+  },
+  "submittedParameters": {
+    "model": null,
+    "quality": null,
+    "size": null
+  },
+  "desiredNativePixels": [
+    4096,
+    4096
+  ],
+  "sizeIsPromptRequestNotToolParameter": true,
+  "ifSmallerThan4096": "reject_for_4K_production_do_not_upscale",
+  "actualModel": null,
+  "actualQuality": null,
+  "officialRecheckedAtUtc": "2026-09-28T08:17:00Z",
+  "officialSources": [
+    "https://openai.com/index/introducing-chatgpt-images-2-5/",
+    "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+  ],
+  "status": "prepared_not_submitted",
+  "formalAccepted": false
+}
