@@ -11,7 +11,8 @@ def digest(im):
 
 def selected_root(d):
     base=DELIVERY/'work'/d
-    return base/'variants/native' if d=='S' else base
+    variant={'S':'native','N':'finalheels','E':'review20260928v2','NE':'review20260928v2','NW':'review20260928'}.get(d)
+    return base/'variants'/variant if variant else base
 
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--name', required=True); a=ap.parse_args()
@@ -33,7 +34,7 @@ def main():
             op=rec['operation']; rebuilt=None
             if not op.get('chromaKey') and not op.get('despill'):
                 native=Image.open(raw).convert('RGBA'); assert min(native.size)>=1024
-                size=tuple(round(v*1024/max(native.size)*.88) for v in native.size)
+                size=tuple(round(v*1024/max(native.size)*op.get('commonScale',.88)) for v in native.size)
                 normalized=native.resize(size,Image.Resampling.LANCZOS)
                 if op.get('alphaFloor'):
                     pp=np.array(normalized); aa=pp[:,:,3]; pp[(aa>0)&(aa<=op['alphaFloor']),3]=0

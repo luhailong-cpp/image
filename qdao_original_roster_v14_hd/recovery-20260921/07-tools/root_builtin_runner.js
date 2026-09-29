@@ -1,0 +1,12 @@
+async function(job){
+ const base="D:/luyuan/wuxingqitan/image/",folder=base+"qdao_original_roster_v14_hd/recovery-20260921/07-generation/"+job.attempt;
+ const q=s=>"'"+s.replaceAll("'","''")+"'",args={prompt:job.prompt,referenced_image_paths:job.refs,transparent_background:true};
+ const request={startedAt:new Date().toISOString(),tool:"image_gen.imagegen",kind:job.kind??"walk",direction:job.direction,frame:job.frame,arguments:args,submittedParameters:{model:null,quality:null}};
+ const prep=await tools.exec_command({cmd:`$f07=${q(folder)}\nif(Test-Path -LiteralPath $f07){throw 'Attempt already exists'}\nNew-Item -ItemType Directory -Path $f07 | Out-Null\n$r07=${q(JSON.stringify(request,null,2))} | ConvertFrom-Json\n$r07 | Add-Member -NotePropertyName configSnapshot -NotePropertyValue (Get-Content -Raw config/image-generation.json | ConvertFrom-Json)\n$r07 | Add-Member -NotePropertyName referenceBindings -NotePropertyValue @($r07.arguments.referenced_image_paths | ForEach-Object {@{path=$_;sha256=(Get-FileHash -LiteralPath $_ -Algorithm SHA256).Hash.ToLower()}})\n[IO.File]::WriteAllText((Join-Path $f07 'request.json'),($r07|ConvertTo-Json -Depth 20),[Text.UTF8Encoding]::new($false))\n[IO.File]::WriteAllText((Join-Path $f07 'prompt.txt'),${q(job.prompt)},[Text.UTF8Encoding]::new($false))`,max_output_tokens:300});
+ if(prep.exit_code!==0)throw Error(JSON.stringify(prep));let result;
+ try{result=await tools.image_gen__imagegen(args);}catch(e){await tools.exec_command({cmd:`[IO.File]::WriteAllText(${q(folder+"/error.json")},${q(JSON.stringify({observedAt:new Date().toISOString(),error:String(e)}))},[Text.UTF8Encoding]::new($false))`,max_output_tokens:300});throw e;}
+ generatedImage(result);const hint=result.output_hint??"",match=hint.match(/ as (.+?\.png) by default/);if(!match)throw Error("No parseable native tool path");
+ const receipt={completedAt:new Date().toISOString(),status:"success",output_hint:hint,original_generated_file:match[1],actualModel:null,actualQuality:null,unverifiedReason:"Host-managed; tool did not disclose actual model/quality",generation_calls:1,paid_api_calls:0};
+ text(await tools.exec_command({cmd:`[IO.File]::WriteAllText(${q(folder+"/result.json")},${q(JSON.stringify(receipt,null,2))},[Text.UTF8Encoding]::new($false))\nCopy-Item -LiteralPath ${q(match[1])} -Destination ${q(folder+"/raw.png")}`,max_output_tokens:300}));
+ text({attempt:job.attempt,status:"raw_saved"});return receipt;
+}

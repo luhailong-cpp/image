@@ -11,7 +11,7 @@ require(delivery['all_directions_accepted'] and acceptance['offline_visual_appro
 require(sha(out / 'manifest.json') == delivery['manifest_sha256'], 'Final bytes changed')
 link = lambda label, path: f'[{label}]({Path(path).resolve().as_posix()})'
 lines = [
-    '# 17 灵篆书生 — 最终交接（2026-09-23）', '',
+    '# 17 灵篆书生 — 最终交接（2026-09-28）', '',
     '本窗口角色为 `17_ghost_script_calligrapher_boy`。最终已完成 **128/128 张真实行走 + 8/8 张独立站立**；8 方向素材与离线预览全部通过本次验收。客户端接入、Unity/引擎播放和正式上线均未执行。完成本角色后停止，不自动续做其他角色。', '',
     '## 成品与预览', '',
     '- '+link('成品目录：136 张 1024×1024 RGBA PNG', out / 'runtime'),
@@ -32,7 +32,8 @@ lines += ['', '## 验收与来源边界', '',
     '- 本次修正的代表问题：W02–04腿部前后关系；SE02/03/05及14–16步态、04/07比例；E10腿部深度；S01/06/07比例起伏；NE02/13上半身下沉。N08/N10优先恢复已生成原稿，未重复生成。拒稿和替换版本不计入136张。',
     '- 身份参考为项目原角色4096肖像及其1024输入衍生；实际附入 `designs/jubaozhai-ui/02-characters.png` 等相近用途的已确认风格参考。具体每次附图和哈希见来源证据。',
     '- 使用宿主内置image_gen，无收费API调用。配置目标为gpt-image-2.5-sunburst/max；入口不提供实际model/quality选择或返回值，逐图实际值记为null/host-managed-unverified，不能把配置或提示词当作实际型号证据。',
-    '- 历史N向14条提示词档案比真实宿主返回文本多末尾LF；已保留原档并补充真实返回文本。idle-S-v2另有精确提交提示词补充。原请求/回执未伪改，详情见source-evidence。',
+    '- 历史N向15条直接提交参数未被独立完整捕获，其中14条提示词档案比宿主返回revisedPrompt多末尾LF；已保留原请求档案和真实宿主返回文本，未把返回文本冒充直接请求证据。idle-S-v2另有精确提交提示词补充。原请求/回执未伪改，详情见source-evidence中的historical_limitations。',
+    '- 2026-09-28继续封包时再次核验全部runtime PNG与16份GIF，文件SHA与9月23日审图时一致；863份文字来源记录的字节SHA复核通过，封装缺证与校验错误均为0。',
     '- 创建时manifest和单图派生记录中的pending/visualApproval=false是历史状态。最终离线批准在acceptance.json中，绑定本节同一manifest SHA；不要把旧创建标志读作最终结论。', '',
     '## 最终选稿与库存', '',
     f'- Manifest SHA256：`{sha(out / "manifest.json")}`。',
@@ -49,10 +50,10 @@ for d in DIRS:
     lines.append(f'| {d} | {bykey[f"idle/{d}.png"]["selected_revision"]} | {versions} |')
 lines += ['', '## 接手边界', '',
     '素材制作：完成。离线预览验收：完成。客户端接入：未执行。无剩余制图阻塞、无缺帧；下一步如另行安排接入，应从本成品runtime目录读取，按30ms逐帧和同一画布锚点接入后另做客户端验收，本窗口不自动执行。', '']
-path = RECOVERY / '17-HANDOFF-20260923.md'
+path = RECOVERY / '17-HANDOFF-20260928.md'
 require(not path.exists(), 'Do not overwrite existing handoff')
 path.write_text('\n'.join(lines), encoding='utf-8')
-save_new(RECOVERY / '17-HANDOFF-20260923.json', {
+save_new(RECOVERY / '17-HANDOFF-20260928.json', {
     'character_id':CHAR, 'recorded_at':now(), 'handoff_md':str(path), 'handoff_sha256':sha(path),
     'runtime':str(out/'runtime'), 'preview':str(out/'index.html'), 'manifest_sha256':sha(out/'manifest.json'),
     'walk_complete':True, 'walk_count':128, 'independent_idle_complete':True, 'independent_idle_count':8,

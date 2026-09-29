@@ -186,6 +186,12 @@ def validate_snapshot(snapshot):
 
 def collect_evidence():
     evidence = []
+    # Direction handoffs and SHA-bound reviews can also be direct children.
+    for path in sorted(DELIVERY.iterdir()):
+        if path.is_file() and path.suffix.lower() in TEXT_EXTENSIONS:
+            require(not path.is_symlink(), 'Linked evidence file is not supported')
+            path.read_bytes().decode('utf-8-sig')
+            evidence.append((path, 'evidence/processing/delivery-root/' + path.name))
     roots = [(GENERATION, 'generation')]
     for name in ('work', 'revisions', 'east-qa', 'qa-independent'):
         root = DELIVERY / name

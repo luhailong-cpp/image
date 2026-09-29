@@ -78,9 +78,12 @@ def main():
     parser.add_argument('--replace', action='store_true', help='Replace current slot without image backup per2026-09-23 user policy')
     parser.add_argument('--head-reference', type=Path, help='Optional diagnostic whole-frame scale to current same-direction idle PNG')
     parser.add_argument('--canvas-scale', type=float, default=1.0, help='Optional additional whole-native-canvas uniform reduction, 0 < value <= 1; never pose synthesis')
+    parser.add_argument('--subject-height', type=int, help='Optional visually reviewed alpha>8 figure height; whole-canvas downsample only, never pose synthesis')
     args = parser.parse_args()
     require(0 < args.canvas_scale <= 1, 'Canvas scale must be in (0,1]')
     require(not args.head_reference or args.canvas_scale == 1, 'Choose canvas reduction or head-reference calibration, not both')
+    require(not args.subject_height or (not args.head_reference and args.canvas_scale == 1), 'Choose only one whole-frame scale calibration')
+    require(args.subject_height is None or 1 <= args.subject_height <= 936, 'Subject height must be in 1..936')
     require(re.fullmatch(r'[A-Za-z0-9_-]+', args.attempt), 'Invalid attempt')
     match = re.match(r'^(idle|walk)-(N|NE|E|SE|S|SW|W|NW)(?:-(\d{2}))?-', args.attempt)
     require(match, 'Attempt must identify action/direction/frame')
@@ -162,6 +165,13 @@ def main():
         calibration = {'kind': 'diagnostic_per_frame_uniform_scale_not_original_common_scale_contract',
                        'reference': str(args.head_reference.resolve()), 'referenceSha256': sha(args.head_reference),
                        'targetWidth': target, 'nativeWidth': measured, 'method': 'alpha>8;18..42%height;95thpercentile_row_span'}
+    if args.subject_height:
+        measured = metrics(clean)['subject_height']
+        factor = args.subject_height / measured
+        require(factor <= 1, 'No enlargement of native artwork')
+        calibration = {'kind': 'visually_reviewed_per_frame_uniform_scale_not_original_common_scale_contract',
+                       'targetHeight': args.subject_height, 'nativeHeight': measured,
+                       'method': 'alpha>8 complete silhouette height; whole native canvas uniformly downsampled'}
     resized = clean.resize(tuple(round(v * factor) for v in clean.size), Image.Resampling.LANCZOS)
     sized = metrics(resized)
     shift = [round(512 - sized['axis'][0]), 942 - sized['axis'][1]]
@@ -192,6 +202,7 @@ def main():
             'nativeMetrics': raw_metrics, 'outputMetrics': metrics(output), 'wholeCanvasScale': factor,
             'commonScale': factor/canvas_factor, 'scaleCalibration': calibration, 'translationPx': shift,
             'requestedCanvasScale': args.canvas_scale,
+            'requestedSubjectHeight': args.subject_height,
             'anchorTarget': [512,942], 'removedLowAlphaPixels': int((remote|fringe).sum()),
             'alphaPolicy': 'Only remote/near-transparent extreme-saturation alpha<=8; source RGB and alpha>8 unchanged before uniform resize',
             'operation': 'limited_alpha_cleanup_then_complete_frame_uniform_downsample_and_integer_alignment;no_pose_synthesis',
