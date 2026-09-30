@@ -36,7 +36,7 @@ record = {
     'width': width, 'height': height, 'format': 'PNG', 'pngColorType': raw[25],
     'tool': 'image_gen.imagegen', 'route': 'builtin',
     'configSnapshot': json.loads((repo / 'config/image-generation.json').read_text(encoding='utf-8-sig')),
-    'officialRecheckDate': '2026-09-29',
+    'officialRecheckDate': datetime.now(timezone.utc).date().isoformat(),
     'submittedParameters': {'model': None, 'quality': None, 'transparent_background': True,
                             'referenced_image_paths': a.references},
     'actualModel': None, 'actualQuality': None,
