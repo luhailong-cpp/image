@@ -1,0 +1,30 @@
+{
+  "character": "09_bamboo_archer_girl",
+  "reviewer": "qa_complete09",
+  "reviewedAt": "2026-09-28T16:25:47.836Z",
+  "scope": "Read-only static review of packaging and cleanup scripts. Not execution, not final package acceptance.",
+  "files": [
+    {
+      "path": "09-tools/finalize_package.py",
+      "sha256": "40b69fd0496ef8ad41154ff7a16faea21873617d0f7fd09e0088e9f191b76e36"
+    },
+    {
+      "path": "09-tools/cleanup_accepted.ps1",
+      "sha256": "1a042af5e4e6e7919e7762c499849d094427e38ffaf9309957af3fe2d4229685"
+    }
+  ],
+  "blockingFindings": [],
+  "verifiedGuards": [
+    "Packager requires exact136 slots, built-in native source >=1024, hash agreement and distinct native/pixel sources; no mirrored output matches.",
+    "Acceptance must bind exact snapshot manifest and each direction must independently pass specified checks; packaging cannot self-approve.",
+    "16-frame deep/light GIFs required with30ms durations and480ms cycle; final output asset bytes copied and checked.",
+    "Text provenance copied byte-for-byte with old absolute paths explicitly historical and a portable evidence mapping.",
+    "Cleanup plan generated only from character09 generation/processing directories; external current portrait, approved designs, other characters, host image cache and final package excluded.",
+    "Cleanup verifies entire listed final checksums then each exact deletion target's resolved boundary, regular-file type, no reparse ancestor, bytes and SHA; final subtree rejected; no recursive broad delete."
+  ],
+  "operationalRequirements": [
+    "Root must confirm no active generation still references the planned removed originals; cleanup script does not inspect active processes.",
+    "After cleanup, changed README/retention metadata requires checksum refresh. Newly created cleanup logs are not in the original package-checksums index."
+  ],
+  "clientIntegration": "not_performed"
+}

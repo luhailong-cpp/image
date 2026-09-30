@@ -6,8 +6,11 @@ from common import DELIVERY, DIRS
 
 p = argparse.ArgumentParser()
 p.add_argument('direction', choices=DIRS)
+p.add_argument('--variant', default=None)
 args = p.parse_args()
 work = DELIVERY / 'work' / args.direction
+if args.variant:
+    work = work / 'variants' / args.variant
 out = work / 'qa'
 out.mkdir(parents=True, exist_ok=True)
 frames = []

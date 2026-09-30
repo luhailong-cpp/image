@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-09-23T14:14:55.168702+00:00",
+  "reviewedAt": "2026-09-28T14:08:01.921853+00:00",
   "method": "Actual native images viewed with view_image and generatedImage; no browser loop approval",
   "NKeyPoseGate": "provisional_leg_swap_observed",
   "NEKeyPoseGate": "not_passed_camera_drift",
@@ -364,20 +364,6 @@
       "method": "actual generatedImage or view_image"
     },
     {
-      "attempt": "NE14-v1",
-      "sha256": "c2a956ec2776312884f82371fb5cfcfa51086a874bd0e17a6fd9b5869845d2b4",
-      "anatomicalLeadingLeg": "L",
-      "supportLeg": "R",
-      "contactState": "Trailing boot planted lower-left; other boot advances upper-right airborne after passing. Inferred right support and left advance from hip tracks/phase prompt.",
-      "decision": "provisional_phase",
-      "issue": "Foot identities partly obscured by skirt; forward sole is conspicuous. Requires root continuous anatomy check at13-14, not approved yet.",
-      "edgeLight": "pending_root_composite_review",
-      "edgeDark": "pending_root_composite_review",
-      "loop30ms": "not_tested_by_subagent",
-      "reviewedAt": "2026-09-23T12:03:17.015038+00:00",
-      "method": "actual generatedImage or view_image"
-    },
-    {
       "attempt": "NE15-v1",
       "sha256": "e61e088f3561de00d7ef8f1b5e32a3e1e92137ea26d7270c72fb774d2a846440",
       "anatomicalLeadingLeg": "L",
@@ -389,34 +375,6 @@
       "edgeDark": "pending_root_composite_review",
       "loop30ms": "not_tested_by_subagent",
       "reviewedAt": "2026-09-23T12:06:09.336560+00:00",
-      "method": "actual generatedImage or view_image"
-    },
-    {
-      "attempt": "NE15-v2",
-      "sha256": "d3d911e15a0b104b07b7e569897b4ca4ee79bcc141c0bdbc35a215f3f0cad2ed",
-      "anatomicalLeadingLeg": "L",
-      "supportLeg": "R",
-      "contactState": "Far left forward boot descends with sole downward; near right trailing toe support and raised heel. Extra upper hand removed, exactly shoulder and low grips remain.",
-      "decision": "provisional_phase",
-      "issue": "Native actual image anatomy observed; final composite and loop review pending.",
-      "edgeLight": "pending_root_composite_review",
-      "edgeDark": "pending_root_composite_review",
-      "loop30ms": "not_tested_by_subagent",
-      "reviewedAt": "2026-09-23T12:09:30.645298+00:00",
-      "method": "actual generatedImage or view_image"
-    },
-    {
-      "attempt": "NE16-v1",
-      "sha256": "fc71ae1eb19d6c978313f3f2d5b571396c3eea79298f15b9ca8c7445cbf530b3",
-      "anatomicalLeadingLeg": "L",
-      "supportLeg": "R",
-      "contactState": "Far left forward boot lowers to nearly flat precontact; right near leg trails with heel raised, ready for next left contact.",
-      "decision": "provisional_phase",
-      "issue": "Difference from15 is subtle; require15-16-01-02 seam review and all-body scale check.",
-      "edgeLight": "pending_root_composite_review",
-      "edgeDark": "pending_root_composite_review",
-      "loop30ms": "not_tested_by_subagent",
-      "reviewedAt": "2026-09-23T12:12:22.004721+00:00",
       "method": "actual generatedImage or view_image"
     },
     {
@@ -585,6 +543,76 @@
       "edgeDark": "pending_root_composite_review",
       "loop30ms": "not_tested_by_subagent",
       "reviewedAt": "2026-09-23T14:14:55.168702+00:00",
+      "method": "actual generatedImage or view_image"
+    },
+    {
+      "attempt": "NE14-v1",
+      "sha256": "c2a956ec2776312884f82371fb5cfcfa51086a874bd0e17a6fd9b5869845d2b4",
+      "anatomicalLeadingLeg": "R",
+      "supportLeg": "L",
+      "contactState": "Actual native inspection: screen-left boot planted while screen-right boot swings; opposite of required right support and left swing after13-v2.",
+      "decision": "rejected_wrong_support_phase",
+      "issue": "Rejected20260928: conflicts with repaired01-v4 and13-v2; must redraw.",
+      "edgeLight": "pending_root_composite_review",
+      "edgeDark": "pending_root_composite_review",
+      "loop30ms": "not_tested_by_subagent",
+      "reviewedAt": "2026-09-28T13:57:13.911445+00:00",
+      "method": "actual generatedImage or view_image"
+    },
+    {
+      "attempt": "NE15-v2",
+      "sha256": "d3d911e15a0b104b07b7e569897b4ca4ee79bcc141c0bdbc35a215f3f0cad2ed",
+      "anatomicalLeadingLeg": "R",
+      "supportLeg": "L",
+      "contactState": "Actual native inspection: left screen-left leg trails and right screen-right boot leads, same half-cycle as09 rather than opposite contact01.",
+      "decision": "rejected_wrong_leg_phase",
+      "issue": "Rejected20260928: must redraw far left advancing while near right supports.",
+      "edgeLight": "pending_root_composite_review",
+      "edgeDark": "pending_root_composite_review",
+      "loop30ms": "not_tested_by_subagent",
+      "reviewedAt": "2026-09-28T13:57:13.974701+00:00",
+      "method": "actual generatedImage or view_image"
+    },
+    {
+      "attempt": "NE16-v1",
+      "sha256": "fc71ae1eb19d6c978313f3f2d5b571396c3eea79298f15b9ca8c7445cbf530b3",
+      "anatomicalLeadingLeg": "R",
+      "supportLeg": "L",
+      "contactState": "Actual native inspection: right screen-right boot forward flat, left screen-left leg extended back showing sole; repeats09-phase instead of left precontact.",
+      "decision": "rejected_wrong_leg_phase",
+      "issue": "Rejected20260928: seam to01-v4 swaps feet abruptly; must redraw.",
+      "edgeLight": "pending_root_composite_review",
+      "edgeDark": "pending_root_composite_review",
+      "loop30ms": "not_tested_by_subagent",
+      "reviewedAt": "2026-09-28T13:57:14.046277+00:00",
+      "method": "actual generatedImage or view_image"
+    },
+    {
+      "attempt": "NE14-v3",
+      "sha256": "ebdd13847eb6720c92e78c04da22147b0bf485e6343a9591835a71478c8e2c66",
+      "anatomicalLeadingLeg": "L",
+      "supportLeg": "R",
+      "contactState": "Actual new image: right screen-right boot sole down supporting; left screen-left knee flexed with boot fully airborne beside and higher than support ankle. Separate hip tracks retained; starts left forward recovery after13.",
+      "decision": "provisional_phase",
+      "issue": "Opposite support corrected. Some underside still visible; requires normalized13-14-15 continuity and edge QA. Not full-loop approved.",
+      "edgeLight": "pending_root_composite_review",
+      "edgeDark": "pending_root_composite_review",
+      "loop30ms": "not_tested_by_subagent",
+      "reviewedAt": "2026-09-28T13:59:58.139255+00:00",
+      "method": "actual generatedImage or view_image"
+    },
+    {
+      "attempt": "NE15-v3",
+      "sha256": "a6ff57e167988dc27aef3ad3790b659996d1aa5a2192a6eef87c3e00c03038f8",
+      "anatomicalLeadingLeg": "L",
+      "supportLeg": "R",
+      "contactState": "Right screen-right boot remains supporting under right hip. Far left boot screen-left advances higher and ahead with less knee flexion; sole rotates toward ground with only small underside visible. Leg identities retained.",
+      "decision": "provisional_phase",
+      "issue": "Correct opposite leg phase observed; compare left boot descending through16-01 and slight right heel roll in normalized final QA. Red/yellow edge remains for final cleanup.",
+      "edgeLight": "pending_root_composite_review",
+      "edgeDark": "pending_root_composite_review",
+      "loop30ms": "not_tested_by_subagent",
+      "reviewedAt": "2026-09-28T14:08:01.921853+00:00",
       "method": "actual generatedImage or view_image"
     }
   ]

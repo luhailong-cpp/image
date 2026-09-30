@@ -2,10 +2,27 @@
 
 // Only local design-preview data; there is no account, inventory or server connection.
 const STORAGE_KEY = "wuxing-qitan-mail-ui-v1";
+const STORAGE_VERSION = 4;
+async function startPreview() {
+const response = await fetch("festivals.json");
+if (!response.ok) throw new Error("节日目录加载失败");
+const catalog = await response.json();
+const festivalEvents = Object.fromEntries(catalog.festivals.map(event => [event.id, event]));
+const newFestivalIds = Object.keys(festivalEvents).filter(id => id !== "midautumn");
+function makeFestivalMail(id) {
+  const event = festivalEvents[id];
+  return { id, category: "event", title: event.title, sender: "仙盟司礼", date: event.name, expires: "7 天后到期",
+    read: false, claimed: false, expired: false, festival: id,
+    paragraphs: ["亲爱的道友：", event.letter,
+      `随信奉上<strong>${event.gift}</strong>，愿道友修行顺遂。前往节日雅集，还可体验${event.activities.join("、")}。`,
+      "请在邮件到期前领取附件，莫让这份心意久候。"], signature: "仙盟司礼 敬上",
+    rewards: [{name:event.gift,count:1,icon:"icon-chest.png"},{name:"祈福符",count:3,icon:"icon-talisman.png"}] };
+}
 const seedMails = [
-  { id: "midautumn", category: "event", title: "月满仙山 · 玉兔送福", sender: "仙盟司礼", date: "09-14 10:00", expires: "6 天后到期", read: false, claimed: false, expired: false, banner: true,
+  { id: "midautumn", category: "event", title: "月满仙山 · 玉兔送福", sender: "仙盟司礼", date: "09-14 10:00", expires: "6 天后到期", read: false, claimed: false, expired: false, festival: "midautumn",
     paragraphs: ["亲爱的道友：", "桂香入云，月满仙山。中秋雅集已备好花灯与团圆好礼，邀你与道友共赏明月。", "随信奉上<strong>玉兔团圆礼</strong>，愿道友修行顺遂，所行皆有良伴。前往雅集，还可体验月下祈福、花灯游园与玉兔寻宝。", "请在邮件到期前领取附件，莫让这份心意久候。"], signature: "仙盟司礼 敬上",
     rewards: [{name:"灵玉",count:200,icon:"round_badge_lotus.png"},{name:"修行丹",count:10,icon:"icon-pill.png"},{name:"祈福符",count:5,icon:"icon-talisman.png"},{name:"团圆礼匣",count:1,icon:"icon-chest.png"}] },
+  ...newFestivalIds.map(makeFestivalMail),
   { id: "maintenance", category: "system", title: "维护补偿，请道友查收", sender: "仙盟总管", date: "09-14 08:30", expires: "6 天后到期", read: false, claimed: false, expired: false,
     paragraphs: ["亲爱的道友：", "仙境例行维护已经结束。感谢道友的耐心等候，随信奉上维护补偿，请在有效期内领取。", "本次维护优化了部分界面的显示与操作体验。愿道友重返仙境，一路顺遂。", "<div class=\"body-bullet\">维护补偿：灵玉 × 100、修行丹 × 5。</div>", "如有未尽之处，也欢迎道友继续提出宝贵意见。"], signature: "仙盟总管 敬上",
     rewards: [{name:"灵玉",count:100,icon:"round_badge_lotus.png"},{name:"修行丹",count:5,icon:"icon-pill.png"}] },
@@ -31,11 +48,14 @@ let eventReturnFocus;
 function readSavedState() {
   try {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    if (!saved || saved.version !== 1 || !Array.isArray(saved.items)) return;
-    const savedIds = new Set(saved.items.map(item => item.id));
-    state.mails = cloneSeed().filter(mail => savedIds.has(mail.id)).map(mail => {
-      const item = saved.items.find(entry => entry.id === mail.id);
-      return { ...mail, read: item.read === true, claimed: item.claimed === true && mail.rewards.length > 0 };
+    if (!saved || ![1, 2, 3, STORAGE_VERSION].includes(saved.version) || !Array.isArray(saved.items)) return;
+    const savedItems = new Map(saved.items.map(item => [item.id, item]));
+    // Keep previously deleted mail deleted. Only add festivals absent from an older version.
+    const addedFestivalIds = catalog.festivals.filter(event => event.introducedVersion > saved.version).map(event => event.id);
+    state.mails = cloneSeed().filter(mail => savedItems.has(mail.id) ||
+      addedFestivalIds.includes(mail.id)).map(mail => {
+      const item = savedItems.get(mail.id);
+      return item ? { ...mail, read: item.read === true, claimed: item.claimed === true && mail.rewards.length > 0 } : mail;
     });
     state.category = Object.hasOwn(categoryNames, saved.category) ? saved.category : "all";
     state.selectedId = saved.selectedId;
@@ -44,7 +64,7 @@ function readSavedState() {
 
 function saveState() {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: 1, category: state.category, selectedId: state.selectedId,
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ version: STORAGE_VERSION, category: state.category, selectedId: state.selectedId,
       items: state.mails.map(({id, read, claimed}) => ({id, read, claimed})) }));
   } catch { /* The preview remains usable when local storage is unavailable. */ }
 }
@@ -110,12 +130,13 @@ function renderDetail() {
     return;
   }
   const status = claimState(mail);
-  const banner = mail.banner ? `<figure class="event-banner"><img src="assets/event-midautumn.png" alt="金发带 Q 版小道童与玉兔在青绿道观赏月放花灯"><figcaption class="banner-label"><p class="kicker">中 秋 雅 集</p><h3>月满仙山<br>玉兔送福</h3><p>桂香伴月 · 花灯寄情</p></figcaption></figure>` : "";
+  const festival = festivalEvents[mail.festival];
+  const banner = festival ? `<figure class="event-banner ${festival.tone === "dark" ? "is-dark" : "is-light"}"><img src="assets/${festival.image}" alt="${escapeHtml(festival.alt)}"><figcaption class="banner-label"><p class="kicker">${escapeHtml(festival.kicker)}</p><h3>${festival.lines.map(escapeHtml).join("<br>")}</h3><p>${escapeHtml(festival.tagline)}</p></figcaption></figure>` : "";
   const rewards = mail.rewards.length ? `<div class="attachments" aria-label="邮件附件">${mail.rewards.map(reward => `<div class="reward ${status.className}" tabindex="0" role="img" aria-label="${reward.name} ${reward.count} 个${mail.claimed ? "，已领取" : mail.expired ? "，已失效" : ""}" title="${reward.name} × ${reward.count}${mail.claimed ? " · 已领取" : mail.expired ? " · 已失效" : ""}"><img src="assets/${reward.icon}" alt=""><span class="reward-count">${reward.count}</span><span class="reward-name">${reward.name}</span></div>`).join("")}</div>` : `<div class="no-attachments"><img src="assets/notice_icon.png" alt=""><span>这是一封通知邮件，没有附件。</span></div>`;
   const claimButton = mail.rewards.length ? `<button id="claim-mail" type="button" class="button primary" ${canClaim(mail) ? "" : "disabled"}>${mail.expired ? "已过期" : mail.claimed ? "✓ 已领取" : "领取附件"}</button>` : "";
   detail.innerHTML = `<header class="detail-header"><button class="mail-back" id="back-to-list" type="button">‹ 返回收件箱</button><div class="detail-heading"><h2 id="detail-title">${escapeHtml(mail.title)}</h2><p class="detail-meta"><span>寄件人：${escapeHtml(mail.sender)}</span><span>${mail.date}</span></p></div><span class="mail-status ${status.className}">${status.label}</span></header>
-    <div class="mail-reader" tabindex="0" aria-label="邮件正文，可滚动">${banner}<div class="mail-copy">${!mail.banner ? '<img class="text-seal" src="assets/round_badge_taiji.png" alt="">' : ""}${mail.paragraphs.map((p,index) => p.startsWith("<div") ? p : `<p${index === 0 ? ' class="salutation"' : ""}>${p}</p>`).join("")}<p class="signature">${mail.signature}</p></div></div>
-    <footer class="detail-footer"><div class="attachment-heading"><h3>${mail.rewards.length ? "随信好礼" : "仙笺寄语"}</h3><p>${mail.expired ? "附件已失效 · " : ""}${mail.expires}</p></div><div class="attachment-and-actions">${rewards}<div class="detail-actions"><button id="delete-mail" class="delete-mail" type="button" aria-label="删除当前邮件" title="${canClaim(mail) ? "请先领取有效附件，再删除邮件" : "删除当前邮件"}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15M10 10v7M14 10v7"></path></svg></button>${mail.banner && !mail.expired ? '<button id="open-event" class="button secondary" type="button">前往活动</button>' : ""}${claimButton}</div></div></footer>`;
+    <div class="mail-reader" tabindex="0" aria-label="邮件正文，可滚动">${banner}<div class="mail-copy">${!festival ? '<img class="text-seal" src="assets/round_badge_taiji.png" alt="">' : ""}${mail.paragraphs.map((p,index) => p.startsWith("<div") ? p : `<p${index === 0 ? ' class="salutation"' : ""}>${p}</p>`).join("")}<p class="signature">${mail.signature}</p></div></div>
+    <footer class="detail-footer"><div class="attachment-heading"><h3>${mail.rewards.length ? "随信好礼" : "仙笺寄语"}</h3><p>${mail.expired ? "附件已失效 · " : ""}${mail.expires}</p></div><div class="attachment-and-actions">${rewards}<div class="detail-actions"><button id="delete-mail" class="delete-mail" type="button" aria-label="删除当前邮件" title="${canClaim(mail) ? "请先领取有效附件，再删除邮件" : "删除当前邮件"}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15M10 10v7M14 10v7"></path></svg></button>${festival && !mail.expired ? '<button id="open-event" class="button secondary" type="button">前往活动</button>' : ""}${claimButton}</div></div></footer>`;
   detail.dataset.currentMail = mail.id;
   document.getElementById("footer-note").textContent = mail.expired ? "邮件已过期，附件无法领取。道友可删除此封邮件。" : canClaim(mail) ? "查看邮件不会自动领取，记得在到期前领取附件。" : "附件领取后将保留邮件，可通过「清理已读」整理收件箱。";
 }
@@ -163,6 +184,25 @@ function cleanRead() {
   showToast(`已清理 ${removable.length} 封已读邮件，含有效待领附件的邮件已保留`);
 }
 
+function openFestivalDialog(mail, returnFocus) {
+  const festival = festivalEvents[mail?.festival];
+  if (!festival) return;
+  const dialog = document.getElementById("event-dialog");
+  const art = dialog.querySelector(".event-dialog-art");
+  art.src = `assets/${festival.image}`;
+  art.alt = festival.alt;
+  dialog.querySelector(".event-kicker").textContent = festival.kicker.replaceAll(" ", "");
+  dialog.querySelector("#event-title").textContent = festival.title;
+  dialog.querySelector("#event-intro").textContent = festival.intro;
+  dialog.querySelector(".event-activities").replaceChildren(...festival.activities.map(activity => {
+    const label = document.createElement("span");
+    label.textContent = activity;
+    return label;
+  }));
+  eventReturnFocus = returnFocus;
+  dialog.showModal();
+}
+
 document.getElementById("mail-list").addEventListener("click", event => {
   const row = event.target.closest("[data-mail-id]");
   if (row) selectMail(row.dataset.mailId, window.innerWidth <= 900);
@@ -181,7 +221,7 @@ document.getElementById("mail-detail").addEventListener("click", event => {
   if (button.id === "claim-mail") claimOne();
   if (button.id === "delete-mail") deleteCurrent();
   if (button.id === "back-to-list") document.querySelector(".mail-window").classList.remove("mobile-detail");
-  if (button.id === "open-event") { eventReturnFocus = button; document.getElementById("event-dialog").showModal(); }
+  if (button.id === "open-event") openFestivalDialog(selectedMail(), button);
 });
 document.getElementById("claim-all").addEventListener("click", claimAll);
 document.getElementById("clean-read").addEventListener("click", cleanRead);
@@ -219,6 +259,20 @@ function fitStage() {
 }
 window.addEventListener("resize", fitStage);
 readSavedState();
-ensureSelection(window.innerWidth > 900);
+const requestedFestival = new URLSearchParams(location.search).get("festival");
+if (Object.hasOwn(festivalEvents, requestedFestival)) {
+  // A gallery link explicitly opens this sample even if it was removed from the inbox.
+  if (!state.mails.some(mail => mail.id === requestedFestival)) state.mails.push(cloneSeed().find(mail => mail.id === requestedFestival));
+  state.selectedId = requestedFestival;
+  state.category = "event";
+  if (window.innerWidth <= 900) document.querySelector(".mail-window").classList.add("mobile-detail");
+}
+ensureSelection(Boolean(requestedFestival) || window.innerWidth > 900);
 render();
 fitStage();
+
+}
+startPreview().catch(error => {
+  document.getElementById("mail-detail").textContent = "节日目录暂未载入，请通过本地预览服务器打开页面后重试。";
+  console.error(error);
+});

@@ -4,15 +4,16 @@ from datetime import datetime,timezone
 import hashlib,json
 from PIL import Image,ImageDraw
 R=Path(__file__).resolve().parent.parent
-P=R/'20-work/export-v1/20_star_formation_master_girl'
-O=R/'20-delivery-preview';O.mkdir(exist_ok=True)
+P=R/'20-final' if (R/'20-final/walk').exists() else R/'20-work/export-v1/20_star_formation_master_girl'
+O=P/'preview' if P.name=='20-final' else R/'20-delivery-preview';O.mkdir(exist_ok=True)
+urlbase='..' if P.name=='20-final' else '../20-work/export-v1/20_star_formation_master_girl'
 dirs=['N','NE','E','SE','S','SW','W','NW'];data={};checks=[]
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 for d in dirs:
     paths=[P/f'walk/{d}/{n:02d}.png' for n in range(1,17)]
     idle_path=P/f'idle/{d}.png'
-    data[d]={'walk':[f'../20-work/export-v1/20_star_formation_master_girl/walk/{d}/{n:02d}.png?v={sha(p)[:16]}' if p.exists() else None for n,p in enumerate(paths,1)],
-             'idle':f'../20-work/export-v1/20_star_formation_master_girl/idle/{d}.png?v={sha(idle_path)[:16]}' if idle_path.exists() else None}
+    data[d]={'walk':[f'{urlbase}/walk/{d}/{n:02d}.png?v={sha(p)[:16]}' if p.exists() else None for n,p in enumerate(paths,1)],
+             'idle':f'{urlbase}/idle/{d}.png?v={sha(idle_path)[:16]}' if idle_path.exists() else None}
     present=[p for p in paths if p.exists()]
     if not present:continue
     for mode,color in [('dark',(27,33,43)),('light',(245,241,230))]:
@@ -33,9 +34,13 @@ for d in dirs:
                 for i in range(check.n_frames):check.seek(i);durations.append(check.info['duration'])
                 assert check.n_frames==16 and durations==[30]*16
             checks.append({'path':fp.name,'sha256':sha(fp),'frames':16,'durations':durations,'cycleMs':480})
+approval=False
+if (P/'acceptance.json').exists():
+    review=json.loads((P/'acceptance.json').read_text(encoding='utf8'))
+    approval=review['visualApproval'] and len(review['files'])==136 and all(sha(P/r['slot'])==r['sha256'] for r in review['files'])
 manifest={'at':datetime.now(timezone.utc).isoformat(),'character':'20_star_formation_master_girl','frameMs':30,'cycleMs':480,
     'walkCount':sum(sum(bool(x) for x in v['walk']) for v in data.values()),'idleCount':sum(bool(v['idle']) for v in data.values()),
-    'directions':data,'gifChecks':checks,'visualApproval':False,'clientValidation':False}
+    'directions':data,'gifChecks':checks,'visualApproval':approval,'clientValidation':False}
 (O/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
 html='''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>20 星阵少女 · 动作审阅</title>
 <style>body{margin:20px;font:16px system-ui;background:#eee9de;color:#253d36}header{position:sticky;top:0;padding:12px;background:#eee9def0;z-index:3}button,select,input{margin:5px;padding:7px}main{display:flex;flex-wrap:wrap;gap:12px}article{border:1px solid #89968b;padding:10px}canvas{background:#1b212b;display:block;width:256px;height:256px}h1{font-size:24px}p{margin:6px 0}.missing{color:#a74032}</style>
@@ -53,7 +58,10 @@ document.querySelector('#play').onclick=()=>{playing=!playing;start=performance.
 document.querySelector('#prev').onclick=()=>{stop();frame=(frame+15)%16;draw()};document.querySelector('#next').onclick=()=>{stop();frame=(frame+1)%16;draw()};document.querySelector('#frame').oninput=e=>{stop();frame=+e.target.value-1;draw()};
 document.querySelector('#bg').onchange=e=>Object.values(C).forEach(c=>c.style.background=e.target.value);document.querySelector('#zoom').onchange=e=>Object.values(C).forEach(c=>{c.style.width=c.style.height=e.target.value+'px'});document.querySelector('#direction').onchange=e=>document.querySelectorAll('article').forEach(a=>a.hidden=e.target.value!=='all'&&a.dataset.dir!==e.target.value);
 document.querySelector('#idle').onclick=()=>{isIdle=!isIdle;draw()};document.querySelector('#seam').onclick=()=>{seam=!seam;playing=true;start=performance.now();document.querySelector('#play').textContent='暂停'};
-function tick(t){if(playing){const i=Math.floor((t-start)/30);frame=seam?[14,15,0,1][i%4]:i%16;draw()}requestAnimationFrame(tick)}draw();requestAnimationFrame(tick);window.review={manifest:M,setFrame:n=>{stop();frame=n-1;draw()}};
+function tick(t){if(playing){const i=Math.max(0,Math.floor((t-start)/30));frame=seam?[14,15,0,1][i%4]:i%16;draw()}requestAnimationFrame(tick)}draw();requestAnimationFrame(tick);window.review={manifest:M,setFrame:n=>{stop();frame=n-1;draw()}};
 </script></html>'''
+if approval:
+    html=html.replace('待美术验收；30毫秒/帧，16帧/圈，480毫秒/圈。缺帧不会用其他姿势填补。','素材与离线预览已验收；30毫秒/帧，16帧/圈，480毫秒/圈。客户端尚未接入。')
+    html=html.replace('当前候选：','正式交付：')
 (O/'index.html').write_text(html.replace('__DATA__',json.dumps(manifest,ensure_ascii=False)),encoding='utf8')
-print(json.dumps({'walk':manifest['walkCount'],'idle':manifest['idleCount'],'exact30msGifs':len(checks),'visualApproval':False}))
+print(json.dumps({'walk':manifest['walkCount'],'idle':manifest['idleCount'],'exact30msGifs':len(checks),'visualApproval':approval}))

@@ -33,11 +33,22 @@ def build(selection, revision, current=False):
         sources.add(sha(raw))
         im=Image.open(raw).convert('RGBA'); assert min(im.size)>=1024
         a=np.array(im.getchannel('A')); assert a.min()==0 and a.max()==255
-        assert max(a[0].max(),a[-1].max(),a[:,0].max(),a[:,-1].max())<=8,'Native boundary crop'
-        factor=1024/max(im.size)*.88
+        boundary_max=int(max(a[0].max(),a[-1].max(),a[:,0].max(),a[:,-1].max()))
+        boundary_count=int((a[0]>8).sum()+(a[-1]>8).sum()+(a[:,0]>8).sum()+(a[:,-1]>8).sum())
+        boundary_review=item.get('nativeBoundaryReview')
+        assert boundary_max<=8 or (boundary_review and boundary_max<=boundary_review['maxAlpha'] and boundary_count<=boundary_review['maxPixelsAbove8']), (slot,'Native boundary crop',boundary_max,boundary_count)
+        factor=1024/max(im.size)*.84
         size=(round(im.width*factor),round(im.height*factor))
         normal=im.resize(size,Image.Resampling.LANCZOS)
-        ax,ay=axis(normal); delta=(round(512-ax),942-ay)
+        ax,ay=axis(normal)
+        root_method='alpha-estimate-pending-visual-review'
+        if 'nativeRootX' in item:
+            ax=item['nativeRootX']*size[0]/im.width
+            root_method='visually-reviewed-virtual-root'
+        if 'nativeRootY' in item:
+            ay=item['nativeRootY']*size[1]/im.height
+            root_method='visually-reviewed-virtual-root'
+        delta=(round(512-ax),round(942-ay))
         box=normal.getbbox(); moved=[box[0]+delta[0],box[1]+delta[1],box[2]+delta[0],box[3]+delta[1]]
         assert min(moved[:2])>=1 and max(moved[2:])<=1023, (slot,'Would clip',moved)
         final=Image.new('RGBA',(1024,1024)); final.paste(normal,delta)
@@ -49,12 +60,13 @@ def build(selection, revision, current=False):
         row={'slot':slot,'file':rel,'sha256':sha(target),'pixelSHA256':pixel_sha,'archive':item['archive'],
              'rawSHA256':sha(raw),'nativeSize':list(im.size),'outputSize':[1024,1024],
              'sourceSelectionReview':item.get('review','pending'),'finalVisualReview':'pending',
-             'anchor':list(axis(final)),'alphaBBox':final.getbbox()}
+             'anchor':[512,942],'sourceRoot':[ax,ay],'rootMethod':root_method,'nativeBoundaryReview':boundary_review,
+             'rootReview':item.get('rootReview','pending'),'alphaExtentAxis':list(axis(final)),'alphaBBox':final.getbbox()}
         rows[slot]=row
         write(Path(str(target)+'.generation.json'),{
             **row,'derivedFrom':[{'file':raw.relative_to(ROOT).as_posix(),'sha256':sha(raw),
                                  'generationRecord':record.relative_to(ROOT).as_posix(),'generationRecordSHA256':sha(record)}],
-            'operation':{'type':'full-cell-LANCZOS-downsample-and-root-align','factor':factor,'commonScale':.88,
+            'operation':{'type':'full-cell-LANCZOS-downsample-and-root-align','factor':factor,'commonScale':.84,
                          'translation':delta,'root':[512,942],'newPoseGenerated':False,'nativeAlphaPreserved':True,
                          'colorKeying':False,'despill':False,'noPerSubjectBBoxScaling':True},
             'actualModel':meta['actualModel'],'actualQuality':meta['actualQuality'],'unverifiedReason':meta['unverifiedReason']})
@@ -89,7 +101,7 @@ HTML='''<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewpor
 <script>const M=__MANIFEST__;let playing=true,frame=1,light=false,anchor=performance.now();const imgs={},canvases={};
 document.querySelector('#status').textContent=`库存 ${M.walkCount}/128 行走，${M.idleCount}/8 站立；验收状态：${M.visualReview}`;
 for(const d of M.directions){const a=document.createElement('article');const present=Object.keys(M.frames).some(s=>new RegExp('^'+d+'(?:[0-9]{2}|idle)$').test(s));a.innerHTML=`<b>${d}</b><canvas width="512" height="512"></canvas>`+(present?`<a href="contact/${d}-dark.jpg">深底逐帧</a> · <a href="contact/${d}-light.jpg">浅底逐帧</a>`:'<small>尚无选用稿</small>');document.querySelector('#cards').append(a);canvases[d]=a.querySelector('canvas');document.querySelector('#dir').add(new Option(d,d));}
-for(const [s,r] of Object.entries(M.frames)){const im=new Image();im.src=r.file;imgs[s]=im;}
+for(const [s,r] of Object.entries(M.frames)){const im=new Image();im.src=r.file+'?sha='+r.sha256;imgs[s]=im;}
 function draw(c,d){const ctx=c.getContext('2d'),s=d+(document.querySelector('#idle').checked?'idle':String(frame).padStart(2,'0'));ctx.fillStyle=light?'#f6f1e7':'#242a31';ctx.fillRect(0,0,c.width,c.height);const im=imgs[s];if(im&&im.complete&&im.naturalWidth)ctx.drawImage(im,0,0,c.width,c.height);else{ctx.fillStyle=light?'#933':'#fcc';ctx.font='22px system-ui';ctx.fillText('缺槽 '+s,25,50);}ctx.strokeStyle=light?'#ae9c7d':'#64736c';ctx.beginPath();ctx.moveTo(0,c.height*942/1024);ctx.lineTo(c.width,c.height*942/1024);ctx.stroke();}
 function render(){for(const d of M.directions)draw(canvases[d],d);draw(document.querySelector('#zoom'),document.querySelector('#dir').value);document.querySelector('#frame').value=frame;document.querySelector('#counter').textContent=frame+'/16';}
 document.querySelector('#play').onclick=()=>{playing=!playing;anchor=performance.now()-(frame-1)*30;document.querySelector('#play').textContent=playing?'暂停':'播放';};

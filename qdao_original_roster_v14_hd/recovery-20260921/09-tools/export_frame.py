@@ -46,9 +46,14 @@ def main():
     parser.add_argument('--variant', help='Optional non-overwriting review variant below the direction workspace')
     parser.add_argument('--alpha-floor', type=int, choices=(0, 2), default=0,
                         help='Explicitly remove only normalized alpha 1/2 noise; no RGB, pose or opaque-edge change')
+    parser.add_argument('--cell-scale', type=float, default=COMMON_SCALE,
+                        help='Uniform whole-image downscale for observed framing drift; never changes joint geometry')
+    parser.add_argument('--scale-evidence', help='Required factual landmark/size rationale for a non-default scale')
     parser.add_argument('--chroma-profile', choices=('standard', 'none'), default='none',
                         help='standard: project magenta100/150 + despill4/12; none: preserve native RGBA')
     args = parser.parse_args()
+    require(0 < args.cell_scale <= COMMON_SCALE, 'Only additional uniform reduction is allowed')
+    require(args.cell_scale == COMMON_SCALE or args.scale_evidence, 'Adjusted scale requires size evidence')
     require(not args.variant or re.fullmatch(r'[A-Za-z0-9_-]+', args.variant), 'Invalid review variant name')
     require(args.kind != 'walk' or args.frame is not None, 'walk requires --frame 1..16')
     require(args.kind != 'idle' or args.frame is None, 'idle is independent and must not specify --frame')
@@ -78,7 +83,7 @@ def main():
     ka = np.asarray(keyed)[:, :, 3]
     boundary_max = max(int(ka[0].max()), int(ka[-1].max()), int(ka[:, 0].max()), int(ka[:, -1].max()))
     require(boundary_max <= 8, 'Visible original subject touches canvas boundary; regenerate this pose')
-    factor = FRAME / max(native.size) * COMMON_SCALE
+    factor = FRAME / max(native.size) * args.cell_scale
     require(factor <= 1, 'Upscaling is forbidden')
     normalized_size = tuple(round(v * factor) for v in native.size)
     normalized = keyed.resize(normalized_size, Image.Resampling.LANCZOS)
@@ -116,14 +121,19 @@ def main():
         # One unique source per slot across all direction records. Direction lock avoids shared JSON writes.
         for existing in (DELIVERY / 'work').glob('*/sources/**/*.json'):
             other = read_json(existing)
-            require(other.get('source', {}).get('sha256') != generation['sha256'],
+            same_slot_revision = bool(args.variant) and (
+                other.get('character') == CHARACTER and other.get('kind') == args.kind
+                and other.get('direction') == args.direction
+                and other.get('frame') == (args.frame if args.kind == 'walk' else None))
+            require(other.get('source', {}).get('sha256') != generation['sha256'] or same_slot_revision,
                     'The same raw image is already assigned to another action slot: ' + str(existing))
         buffer = io.BytesIO()
         final.save(buffer, format='PNG')
         output_bytes = buffer.getvalue()
         output_sha = hashlib.sha256(output_bytes).hexdigest()
         operation = {'name': 'whole_cell_downsample_and_integer_foot_alignment',
-                     'commonScale': COMMON_SCALE, 'wholeCellScale': factor,
+                     'commonScale': args.cell_scale, 'defaultCellScale': COMMON_SCALE,
+                     'scaleEvidence': args.scale_evidence, 'wholeCellScale': factor,
                      'normalizedSize': list(normalized_size), 'translationPx': list(delta),
                      'footAnchorPx': list(ROOT), 'anchorAfterPx': list(anchor),
                      'horizontalAxis': 'upper_body_alpha_median_42_percent',

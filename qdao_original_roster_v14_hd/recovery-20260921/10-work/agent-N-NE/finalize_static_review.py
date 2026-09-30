@@ -1,0 +1,38 @@
+from pathlib import Path
+from PIL import Image
+import json,hashlib,datetime
+P=Path(__file__).resolve().parent
+R=P.parents[1]; C=R/'10-delivery-preview/current';Q=P/'final-NE-SE-QA'
+bound=json.loads((Q/'examined-outputs.json').read_text())
+for f in bound['frames']:
+ assert hashlib.sha256(Path(f['path']).read_bytes()).hexdigest()==f['sha256'],f['slot']
+report={
+ 'reviewedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+ 'reviewer':'independent complete_ne agent','character':'10_crimson_spear_girl',
+ 'exportManifestCreatedAt':bound['manifestCreatedAt'],'exportManifestSHA':bound['manifestSHA'],
+ 'exactOutputs':'examined-outputs.json','scope':'current exported PNGs, NE01-16 and SE01-16',
+ 'status':'32 of 32 pass static art inspection; dynamic playback is a separate root-agent check',
+ 'counts':{'NE':16,'SE':16,'staticPassed':32,'blockingRedraws':0},
+ 'inspection':{
+  'normal':'All 32 complete sprites viewed at 512 each on light #f4efe3 and dark #1e272b',
+  'enlargedFeet':'All 32 feet crops viewed enlarged on both backgrounds',
+  'sequence':'Both directions 15-16-01-02 and 06-07-08-09 viewed complete on both backgrounds',
+  'full1024Detail':'NE16 dark, NE01 light, NE08 dark, NE09 light, SE07 dark and SE15 light additionally viewed at actual 1024',
+  'actualPixelInspection':True},
+ 'findings':[
+  'Correct NE rear-right and SE front-right direction; identity, short chibi proportions, red-white-gold outfit, twin buns/tails, long crimson spear and grip ordering remain consistent.',
+  'NE01-08 uses far-left support and near-right recovery, followed by near-right support and far-left recovery at NE09-16; the stance sequence includes visible contact, lift and swing changes. Depth differences between near and far sole positions are perspective, not a requirement to flatten both to one screen line.',
+  'NE06 corrected boot proportion remains coherent in the final export. NE08 eases hair and upper-body counterrotation toward NE09; NE15-16 eases the return toward NE01. Some natural hair/torso motion remains and must be assessed during playback.',
+  'SE07-v2 has both legs present and a forward low extension rather than the rejected kneeling pose. SE07-09 rolls toward contact and new SE10-v2/11-v2 visibly restore flat support then early recovery before SE12. SE15-v2 preserves low opposite-foot approach and SE16-01-02 has no reversal of the planted side.',
+  'Head-to-body proportions and fixed root placement are visually coherent across both sequences. SE11-12 retains a small vertical body rise compatible with walking bob; static inspection does not establish its animation timing.',
+  'No clipped spear point, missing foot, detached component, conspicuous colored matte fringe or opaque residual background found on the reviewed light/dark composites.',
+  'No additional blocking static correction identified for these exact exported SHAs.'
+ ],
+ 'limits':['No browser playback performed by this reviewer','No Unity/client integration verification','Review applies only to the exact output SHA entries; changed exports require recheck']}
+(Q/'review-20260928.json').write_text(json.dumps(report,indent=2)+'\n')
+I=P/'idle-QA'
+for d in ['E','SW']:
+ im=Image.open(C/'idle'/(d+'.png')).convert('RGBA')
+ for n,c in [('light','#f4efe3'),('dark','#1e272b')]:
+  bg=Image.new('RGBA',(1024,1024),c);bg.alpha_composite(im);bg.convert('RGB').save(I/f'{d}-{n}-final1024.jpg',quality=97)
+print('32 exact current SHAs rechecked; NE/SE final static report saved. E/SW idle recheck composites written.')
