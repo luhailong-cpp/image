@@ -2,97 +2,16 @@
 
 // Only local design-preview data; there is no account, inventory or server connection.
 const STORAGE_KEY = "wuxing-qitan-mail-ui-v1";
-const STORAGE_VERSION = 3;
-const festivalEvents = {
-  midautumn: {
-    image: "event-midautumn.png", alt: "金发带 Q 版小道童与玉兔在青绿道观赏月放花灯",
-    tone: "dark", kicker: "中 秋 雅 集", lines: ["月满仙山", "玉兔送福"], tagline: "桂香伴月 · 花灯寄情",
-    title: "月满仙山 · 玉兔送福", intro: "与道友共赏一轮明月，提一盏花灯，在桂香与云海间赴团圆之约。",
-    activities: ["月下祈福", "花灯游园", "玉兔寻宝"]
-  },
-  "spring-festival": {
-    image: "event-spring-festival.png", alt: "道家 Q 版仙山迎春插画，点缀红灯笼与新春福饰",
-    kicker: "新 春 迎 福", lines: ["岁启仙山", "福满云门"], tagline: "迎春纳福 · 共赴新岁",
-    title: "岁启仙山 · 福满云门", intro: "新春福灯照亮山门，与道友互道吉言，在青绿仙境里迎接新的旅程。",
-    activities: ["迎春祈福", "新岁游园", "福签寻踪"], gift: "迎春福礼",
-    letter: "新春将至，仙山福灯次第点亮。邀你与道友同游山门、互赠祝福，迎接万物更新。"
-  },
-  "lantern-festival": {
-    image: "event-lantern-festival.png", alt: "道家 Q 版元宵灯会插画，圆润花灯映照仙山",
-    tone: "dark", kicker: "元 宵 灯 会", lines: ["灯映云阶", "元夕同游"], tagline: "花灯如昼 · 团圆相伴",
-    title: "灯映云阶 · 元夕同游", intro: "提灯走过云阶，与道友猜灯谜、赏灯影，在暖光里共度团圆之夜。",
-    activities: ["花灯游园", "灯谜小会", "团圆祈愿"], gift: "元宵灯礼",
-    letter: "元夕灯火照亮云阶，山门已备好花灯与灯谜。愿你在热闹灯影中寻得一份团圆与欢喜。"
-  },
-  "spring-equinox": {
-    image: "event-spring-equinox.png", alt: "道家 Q 版春分插画，小道童在青绿仙山湖畔照料新芽，燕子掠过春空",
-    kicker: "春 分 新 绿", lines: ["昼夜均分", "万物迎新"], tagline: "燕归云岭 · 新芽初生",
-    title: "昼夜均分 · 万物迎新", intro: "春光正好，山间新芽破土。与道友循着燕影游园，一同迎接草木舒展的时节。",
-    activities: ["春日育苗", "燕归寻踪", "仙山游园"], gift: "春分新芽礼",
-    letter: "春分已至，昼夜相半，仙山草木悄然抽新。邀你与道友照料一株嫩芽，共赏明净春光。"
-  },
-  qingming: {
-    image: "event-qingming.png", alt: "道家 Q 版清明踏青插画，青绿仙山沐在清润春光中",
-    kicker: "清 明 踏 青", lines: ["清风寄思", "踏青寻春"], tagline: "春草新绿 · 清心远行",
-    title: "清风寄思 · 踏青寻春", intro: "循着山间新绿缓步远行，折柳寄思，在清润春光中珍惜眼前相伴。",
-    activities: ["仙山踏青", "折柳寄思", "春景寻访"], gift: "清明春礼",
-    letter: "清风拂过山间，草木正绿。邀你放慢脚步踏青寻春，也在这一日遥寄思念、珍惜相伴。"
-  },
-  "dragon-boat": {
-    image: "event-dragon-boat.png", alt: "道家 Q 版端午插画，龙舟、艾草与粽叶点缀青绿水岸",
-    kicker: "端 午 雅 集", lines: ["艾香满袖", "龙舟逐浪"], tagline: "粽叶清香 · 平安相伴",
-    title: "艾香满袖 · 龙舟逐浪", intro: "沿着青绿水岸观龙舟、闻艾香，与道友共享粽香和端午安康。",
-    activities: ["龙舟观赛", "香囊祈安", "粽香小宴"], gift: "端午安康礼",
-    letter: "粽叶飘香，艾草迎风。仙山水岸已传来龙舟鼓声，邀你与道友共度平安热闹的端午。"
-  },
-  "summer-solstice": {
-    image: "event-summer-solstice.png", alt: "道家 Q 版夏至插画，仙山湖畔荷叶舒展，小道童在清风中纳凉",
-    kicker: "夏 至 清 风", lines: ["日长云暖", "荷风送凉"], tagline: "绿荫映水 · 共赏盛夏",
-    title: "日长云暖 · 荷风送凉", intro: "长日照亮仙山水岸，荷叶随风轻摇。与道友漫步绿荫，寻一处清凉共度盛夏。",
-    activities: ["荷塘纳凉", "绿荫游园", "夏日祈愿"], gift: "夏至清凉礼",
-    letter: "夏至已至，白昼正长，荷风吹过青绿水岸。邀你与道友在山间寻一处清凉，共赏盛夏生机。"
-  },
-  qixi: {
-    image: "event-qixi.png", alt: "道家 Q 版七夕插画，星桥与柔和灯影映照仙山夜色",
-    tone: "dark", kicker: "七 夕 星 愿", lines: ["星桥映夜", "巧愿成真"], tagline: "星河为证 · 心愿相随",
-    title: "星桥映夜 · 巧愿成真", intro: "仰望仙山星河，写下心愿，和珍惜的人一同走过柔光点亮的星桥。",
-    activities: ["星桥祈愿", "巧艺游园", "星灯寻踪"], gift: "七夕星愿礼",
-    letter: "今夜星河明亮，云间星桥悄然点亮。邀你与珍惜的人同赏星灯，把心中所愿轻轻写下。"
-  },
-  "autumn-equinox": {
-    image: "event-autumn-equinox.png", alt: "道家 Q 版秋分插画，仙山秋色与成熟稻穗映照澄澈天空",
-    kicker: "秋 分 丰 景", lines: ["昼夜再平", "金穗迎秋"], tagline: "云清谷熟 · 秋色正浓",
-    title: "昼夜再平 · 金穗迎秋", intro: "秋分天高云淡，山间谷穗渐熟。与道友登高望远，分享丰收时节的安宁与喜悦。",
-    activities: ["秋野寻穗", "山间赏景", "丰年祈愿"], gift: "秋分丰收礼",
-    letter: "秋分已至，昼夜相半，仙山染上温润秋色。邀你与道友走过成熟田畦，同享丰收的喜悦。"
-  },
-  "double-ninth": {
-    image: "event-double-ninth.png", alt: "道家 Q 版重阳登高插画，菊花与茱萸点缀秋日仙山",
-    kicker: "重 阳 登 高", lines: ["登高望远", "敬长安康"], tagline: "菊香满山 · 福寿绵长",
-    title: "登高望远 · 敬长安康", intro: "循秋色登上云峰，赏菊祈福，也向长者送上一份敬意与平安祝愿。",
-    activities: ["仙山登高", "赏菊祈福", "敬老献礼"], gift: "重阳安康礼",
-    letter: "秋色染遍云峰，菊香飘过山门。邀你登高望远，也向身边长者道一声安康。"
-  },
-  "winter-solstice": {
-    image: "event-winter-solstice.png", alt: "道家 Q 版冬至插画，仙山雪景与暖炉小宴相映",
-    kicker: "冬 至 围 炉", lines: ["长夜渐短", "暖意长存"], tagline: "围炉相聚 · 共盼春归",
-    title: "长夜渐短 · 暖意长存", intro: "山外清雪初落，山内暖炉正红。与道友相聚片刻，分享一碗热食和冬日祝福。",
-    activities: ["围炉小宴", "冬日祈暖", "雪景游园"], gift: "冬至暖心礼",
-    letter: "冬至已到，仙山炉火正暖。邀你暂歇脚步，与道友围炉小聚，静待春归。"
-  },
-  laba: {
-    image: "event-laba.png", alt: "道家 Q 版腊八插画，暖粥与节庆小饰点缀冬日道观",
-    kicker: "腊 八 送 暖", lines: ["腊香盈盏", "福粥暖心"], tagline: "一碗暖粥 · 岁末安宁",
-    title: "腊香盈盏 · 福粥暖心", intro: "岁末山中飘起粥香，与道友分享一碗暖粥，把平安与祝福送入寒冬。",
-    activities: ["暖粥分享", "岁末祈福", "山门送暖"], gift: "腊八暖粥礼",
-    letter: "腊八粥香漫过山门，岁末的暖意也随之而来。邀你与道友同坐片刻，分享平安和祝福。"
-  }
-};
+const STORAGE_VERSION = 4;
+async function startPreview() {
+const response = await fetch("festivals.json");
+if (!response.ok) throw new Error("节日目录加载失败");
+const catalog = await response.json();
+const festivalEvents = Object.fromEntries(catalog.festivals.map(event => [event.id, event]));
 const newFestivalIds = Object.keys(festivalEvents).filter(id => id !== "midautumn");
-const solarTermsAddedInV3 = ["spring-equinox", "summer-solstice", "autumn-equinox"];
 function makeFestivalMail(id) {
   const event = festivalEvents[id];
-  return { id, category: "event", title: event.title, sender: "仙盟司礼", date: "节日演示", expires: "7 天后到期",
+  return { id, category: "event", title: event.title, sender: "仙盟司礼", date: event.name, expires: "7 天后到期",
     read: false, claimed: false, expired: false, festival: id,
     paragraphs: ["亲爱的道友：", event.letter,
       `随信奉上<strong>${event.gift}</strong>，愿道友修行顺遂。前往节日雅集，还可体验${event.activities.join("、")}。`,
@@ -129,11 +48,10 @@ let eventReturnFocus;
 function readSavedState() {
   try {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    if (!saved || ![1, 2, STORAGE_VERSION].includes(saved.version) || !Array.isArray(saved.items)) return;
+    if (!saved || ![1, 2, 3, STORAGE_VERSION].includes(saved.version) || !Array.isArray(saved.items)) return;
     const savedItems = new Map(saved.items.map(item => [item.id, item]));
     // Keep previously deleted mail deleted. Only add festivals absent from an older version.
-    const addedFestivalIds = saved.version === 1 ? newFestivalIds :
-      saved.version === 2 ? solarTermsAddedInV3 : [];
+    const addedFestivalIds = catalog.festivals.filter(event => event.introducedVersion > saved.version).map(event => event.id);
     state.mails = cloneSeed().filter(mail => savedItems.has(mail.id) ||
       addedFestivalIds.includes(mail.id)).map(mail => {
       const item = savedItems.get(mail.id);
@@ -341,6 +259,20 @@ function fitStage() {
 }
 window.addEventListener("resize", fitStage);
 readSavedState();
-ensureSelection(window.innerWidth > 900);
+const requestedFestival = new URLSearchParams(location.search).get("festival");
+if (Object.hasOwn(festivalEvents, requestedFestival)) {
+  // A gallery link explicitly opens this sample even if it was removed from the inbox.
+  if (!state.mails.some(mail => mail.id === requestedFestival)) state.mails.push(cloneSeed().find(mail => mail.id === requestedFestival));
+  state.selectedId = requestedFestival;
+  state.category = "event";
+  if (window.innerWidth <= 900) document.querySelector(".mail-window").classList.add("mobile-detail");
+}
+ensureSelection(Boolean(requestedFestival) || window.innerWidth > 900);
 render();
 fitStage();
+
+}
+startPreview().catch(error => {
+  document.getElementById("mail-detail").textContent = "节日目录暂未载入，请通过本地预览服务器打开页面后重试。";
+  console.error(error);
+});
