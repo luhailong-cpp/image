@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "createdAt": "2026-09-29T19:19:40Z",
+  "character": "00_reference_topright_boy",
+  "action": "hit",
+  "direction": "W",
+  "status": "six_candidates_ready_for_root_review",
+  "runtimePublished": false,
+  "localPixelEditingPerformed": false,
+  "requestedFrameCount": 6,
+  "selectedFrameCount": 6,
+  "frameIndexing": "one-based",
+  "basePath": "characters/00_reference_topright_boy",
+  "frames": [
+    {
+      "frame": 1,
+      "file": "staging/hit-W-03-v1.png",
+      "generationRecord": "staging/hit-W-03-v1.png.generation.json",
+      "phase": "initial impact",
+      "selectionReason": "Original W03-v1 was reviewed as too upright for the peak and is reused as frame01. Original file, prompt and receipt are unchanged.",
+      "visualReview": "True left-facing single-eye profile; upright first impact, eye open, tense mouth, same gourd hold."
+    },
+    {
+      "frame": 2,
+      "file": "staging/hit-W-02-v1.png",
+      "generationRecord": "staging/hit-W-02-v1.png.generation.json",
+      "phase": "compression",
+      "visualReview": "Single visible eye half closed, clearly backward-leaning head and torso, slight knee compression. Side orientation and outfit retained."
+    },
+    {
+      "frame": 3,
+      "file": "staging/hit-W-03-v2.png",
+      "generationRecord": "staging/hit-W-03-v2.png.generation.json",
+      "phase": "peak recoil",
+      "visualReview": "Closed visible eye, strongest knee compression, visible backward lean, left profile held. Feet shifted left in canvas versus the base; parent should normalize anchor for the preview before judging sequence drift.",
+      "priorFailedAttempt": "provenance/receipts/hit-W-03-v2-network-error.json"
+    },
+    {
+      "frame": 4,
+      "file": "staging/hit-W-04-v1.png",
+      "generationRecord": "staging/hit-W-04-v1.png.generation.json",
+      "phase": "rebound",
+      "visualReview": "Camera, costume and gourd identity retained; tilt smaller and eye more open than the intended eight-degree/quarter-open rebound. Needs sequence review, not certified as an exact target-angle match.",
+      "reviewFlag": "rebound may recover too quickly"
+    },
+    {
+      "frame": 5,
+      "file": "staging/hit-W-05-v1.png",
+      "generationRecord": "staging/hit-W-05-v1.png.generation.json",
+      "phase": "recovery",
+      "visualReview": "Near upright, mildly tense closed mouth, eye nearly fully open; consistent left profile and planted shoes. Eye is more open than prompt target."
+    },
+    {
+      "frame": 6,
+      "file": "staging/hit-W-06-v1.png",
+      "generationRecord": "staging/hit-W-06-v1.png.generation.json",
+      "phase": "neutral alert recovered",
+      "visualReview": "Upright left-facing side profile, neutral closed mouth without smile, open eye; clear recovered pose."
+    }
+  ],
+  "commonReview": {
+    "camera": "All six visually preserve W side view, nose to screen left and one visible eye/eyelid. None is an E mirror.",
+    "props": "Golden yin-yang gourd held in the same visible/anatomical left-hand relationship. Costume and painting style remain consistent.",
+    "nativeSize": [
+      1254,
+      1254
+    ],
+    "export": "No 1024 runtime export. Root owns final uniform scaling, anchor alignment and runtime selection.",
+    "transparency": "All PNGs have true RGBA alpha. Faint near-transparent speckles extend outside the main subject in native output. No alpha cleanup was performed.",
+    "continuity": "Different poses are independently generated; costume motifs show minor detail variations. Peak foot anchor and frame04 rebound require review in the sequence.",
+    "model": "Configured target inherited from batch config; actualModel and actualQuality are null because host tool does not disclose them."
+  },
+  "provenancePolicy": "Every successful new image has its own generation JSON and raw tool receipt. Failed calls have text receipts. The original frame01 source historical receipt was not modified.",
+  "nextStep": "Root inspects the six candidates and aligns the preview; no further frame or other-character generation performed by this subtask."
+}

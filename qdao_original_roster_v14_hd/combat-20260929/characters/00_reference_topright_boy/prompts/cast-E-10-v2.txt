@@ -1,0 +1,18 @@
+Use case: identity-preserve, precise local pose edit.
+Asset type: character 00_reference_topright_boy, cast E frame 10, release key pose, version 2 SCALE CORRECTION.
+
+INPUT PRIORITY:
+Image 1 attack-E-05-v1.png is the EXACT EDIT TARGET and the authoritative pixel-scale, framing, character position, head geometry, legs and feet reference. Start from this exact image and make a localized arm/hand/gourd edit. Keep its original 1254 x 1254 canvas.
+Image 2 idle/E.png is a secondary identity and E side-profile reference only. Do not use its image dimensions to set scale.
+Image 3 designs/jubaozhai-ui/02-characters.png is the approved hand-painted style reference only; do not incorporate UI, text, scenery or framing.
+
+Critical scale lock: DO NOT RECOMPOSE, DO NOT ZOOM, DO NOT enlarge the character. Image 1 already has the correct character size and on-canvas location. Retain the exact original size, position and shape of its head and hair, golden headband, visible eye, face, torso, hip, legs, feet and shoes. In the 1254-square original, the top of the hair is at approximately y=182 and the bottom of the soles at y=1163. Preserve those landmarks. Keep the complete head in the same original pixels and preserve both shoes in their original positions. Leave the existing transparent headroom above the hair. Do not fill more of the canvas. Do not normalize the figure to the height of the canvas.
+
+Make ONLY these local pose changes:
+1. Change the near-side anatomical RIGHT arm from the straight horizontal open-palm attack gesture to a compact bent-elbow spell gesture in front of the chest. Reach only half an arm length. The right hand forms Daoist SWORD FINGERS: index and middle finger together, parallel and touching, pointed toward screen-right and up by approximately 35 degrees; ring and little finger curled tightly into the palm under the thumb. No open palm, no V sign. The gesture must be visible against the transparent background, around chest/chin height, without obstructing the face.
+2. The far-side anatomical LEFT hand cradles the same gold double-lobed taiji gourd and lifts it only a little toward the far-side chest. Show the supporting far hand where visible. Preserve the gourd identity, size, gold material, taiji emblem and tassels.
+Adapt only the necessary sleeve folds and hand/gourd occlusion to make those two local changes anatomically natural. Do not move the body, change the stance or add a forward lean. Keep the original face/expression from Image 1.
+
+Strict EAST side profile as Image 1: nose, gaze and toes face the RIGHT edge of the canvas, only one eye visible. Keep the same character silhouette proportions, short brown spiky hair, plain gold headband, ivory inner clothes, jade-and-warm-gold outer vest, cloth shoes, painterly materials and every identity feature. Crisp clean bright rounded Daoist chibi hand-painted art exactly matching Image 1.
+
+Output ONE full-body sprite on the SAME 1254 x 1254 genuinely transparent alpha canvas. No background, checkerboard, ground, floor, cast shadow, magic light, glow, particles, trails, rings, runes, new objects, text, border or additional figure. Preserve all unchanged image regions and especially head scale/position and feet placement. This is a small pose edit of Image 1, not a new camera view or newly framed full-body illustration.
