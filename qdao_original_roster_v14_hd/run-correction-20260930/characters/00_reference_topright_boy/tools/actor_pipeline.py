@@ -55,14 +55,18 @@ def export(source,direction,frame):
     with Image.open(source) as im:
         if im.width!=im.height or im.width<1024 or im.mode!='RGBA': raise ValueError('Native square RGBA >=1024 required')
         if info(source)['alpha_zero_pixels']==0: raise ValueError('No true transparency')
-        # Whole-canvas fixed scaling, not per-frame alpha bounds. No pose interpolation.
-        out=im.resize((1024,1024),Image.Resampling.LANCZOS)
+        # One shared camera transform calibrated once from E/01-v4 contact.
+        # Never recompute from this frame's alpha bounds or lowest foot.
+        tile=im.resize((860,860),Image.Resampling.LANCZOS)
+        out=Image.new('RGBA',(1024,1024),(0,0,0,0))
+        out.alpha_composite(tile,(82,116))
         target=ROOT/'candidate/walk'/direction/f'{frame:02d}.png'
         target.parent.mkdir(parents=True,exist_ok=True);out.save(target)
     save(str(target)+'.generation.json',dict(file=target.name,exportedAt=now(),**info(target),
          derivedFrom=dict(path=str(source),sha256=sha(source),generationRecord=str(source)+'.generation.json'),
-         operation='Uniform whole-square downsample to 1024; no bbox normalization, translation, mirroring or interpolation between poses',
-         virtualGroundPx=942,rootPx=[512,942],spritePivotBottomLeft=[0.5,80/1024],
+         operation='Shared camera transform: native whole-square downsample to 860, place at (82,116) on 1024 canvas. Same transform for every frame. No per-frame bbox alignment, mirroring or interpolation between poses.',
+         cameraTransform=dict(nativeSquareToPx=860,offsetPx=[82,116],calibrationFrame='generation/E/01-v4.png',calibrationSourceGroundY=1204),
+         virtualGroundPx=942.08,rootPx=[512,942.08],spritePivotBottomLeft=[0.5,0.08],
          actualModel=rec['actualModel'],actualQuality=rec['actualQuality'],visualApproval='pending'))
     print(json.dumps(dict(exported=str(target),sha256=sha(target))))
 def preview():

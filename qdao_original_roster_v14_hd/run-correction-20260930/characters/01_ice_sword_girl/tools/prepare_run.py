@@ -304,7 +304,7 @@ def main() -> int:
     config_data = CONFIG.read_bytes()
     config = json.loads(config_data)
     config_snapshot = {"path": str(CONFIG), "sha256": sha(config_data), "readAtUtc": now, "contents": config,
-                       "limitation": "Snapshot read at export time. It does not prove these settings were actually submitted at generation time."}
+                       "limitation": "Export-time context only; shared config may have changed after generation. This is not the generation target snapshot and does not prove submitted settings. Use the receipt-backed configSnapshotAtGeneration for the generation target."}
     output_plan: dict[Path, bytes] = {}
     frames, images, native_sizes = [], [], set()
     contract = {
@@ -346,6 +346,12 @@ def main() -> int:
             "source": file_record(source_path, True), "prompt": file_record(prompt_path),
             "receipt": {**file_record(receipt_path), "contents": receipt},
             "generationTimeAsReported": receipt.get("generatedAt"), "exportedAtUtc": now,
+            "configSnapshotAtGeneration": receipt.get("configSnapshot"),
+            "generationConfigEvidence": (
+                "Copied verbatim from this image's receipt.configSnapshot. This records the generation target, not proof of model/quality parameters actually submitted or returned."
+                if receipt.get("configSnapshot") is not None else
+                "No receipt.configSnapshot was supplied. Generation target snapshot remains unconfirmed; export-time shared config is not substituted."
+            ),
             "configurationSnapshotAtExport": config_snapshot,
             "submittedParameters": submitted,
             "actualModel": receipt.get("actualModel"), "actualQuality": receipt.get("actualQuality"),
@@ -361,6 +367,9 @@ def main() -> int:
         provenance_path = source_path.with_suffix(".provenance.json")
         output_plan[guarded(provenance_path)] = json_bytes(provenance)
         frames.append({"frame": frame, "source": relative(source_path), "output": provenance["output"],
+                       "derivedFrom": {"sourcePath": relative(source_path),
+                                       "sourceSha256": provenance["source"]["sha256"],
+                                       **provenance["derivation"]},
                        "provenance": relative(provenance_path), "technicalScan": provenance["technicalScan"]})
         images.append(exported)
     if len(native_sizes) != 1:
@@ -390,7 +399,9 @@ def main() -> int:
     output_plan[guarded(ROOT / "validation" / f"technical-{args.direction}.json")] = json_bytes(validation)
     output_plan[guarded(ROOT / "export" / f"{args.direction}.manifest.json")] = json_bytes({
         "schemaVersion": SCHEMA, "generatedAtUtc": now, "contract": contract,
-        "files": [{"frame": frame["frame"], **frame["output"], "provenance": frame["provenance"]} for frame in frames],
+        "files": [{"frame": frame["frame"], **frame["output"],
+                   "derivedFrom": frame["derivedFrom"],
+                   "provenance": frame["provenance"]} for frame in frames],
         "validation": f"validation/technical-{args.direction}.json", "preview": f"preview/{args.direction}.html",
         "visualReview": "not_assessed_by_tool", "clientIntegrated": False, "clientRuntimeVerified": False})
     collisions = [relative(path) for path, data in output_plan.items() if path.exists() and path.read_bytes() != data]
