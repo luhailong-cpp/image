@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>05 天音少女 · 六段战斗动作连播</title>
+<style>
+body{font:16px system-ui;background:#18232e;color:#f5f2ef;margin:20px}button,select{font:inherit;margin:4px;padding:8px}h1{font-size:24px}
+.stages{display:flex;flex-wrap:wrap;gap:16px}.stage{width:min(44vw,520px);height:min(44vw,520px);position:relative}.stage img{position:absolute;inset:0;width:100%;height:100%}
+.dark{background:#151515}.light{background:#fff}.stage:after{content:'';position:absolute;left:0;right:0;top:92%;border-top:1px dashed #b8808055;pointer-events:none}
+#counter{display:block;margin:12px 0;font-variant-numeric:tabular-nums}#load{color:#ffd08c}label{white-space:nowrap}
+</style>
+<h1>05 天音少女 · 六段连播</h1>
+<p>图片离线检查。正常：受击 40ms/帧、普攻 30ms/帧、施法 45ms/帧；0.25× 为四倍时长慢放。客户端未接入、未运行验收。</p>
+<div><select id="sequence"></select><select id="speed"><option value="1">正常 1×</option><option value="0.25">慢放 0.25×（4倍时长）</option></select>
+<button id="all">六段连续播放</button><button id="one">播放当前段</button><button id="pause">暂停</button><button id="previous">上一帧</button><button id="next">下一帧</button>
+<label><input type="checkbox" id="loop">循环</label></div>
+<p id="load">正在预载完整六段…</p><span id="counter"></span>
+<div class="stages"><div class="stage dark"><img id="dark" alt="深底动作"></div><div class="stage light"><img id="light" alt="浅底动作"></div></div>
+<p>同时检查琴形与左右持手、脚根漂移、衣袖飘带、头身比例、边缘、起止衔接。虚线仅为画布 92% 高度的固定比较线。</p>
+<script>
+'use strict';
+const sequences=__SEQUENCES__, $=id=>document.getElementById(id);
+let segment=0,frame=0,running=false,raf=0,start=0,plan=[],preloaded=false;
+window.playbackEvidence={loaded:false,runs:[],limitations:'Playback events prove playback scheduling only; visual judgement is separate.'};
+sequences.forEach((s,i)=>{const o=document.createElement('option');o.value=i;o.textContent=s.label;$('sequence').append(o)});
+function show(){const s=sequences[segment];$('sequence').value=segment;$('dark').src=s.images[frame];$('light').src=s.images[frame];$('counter').textContent=`${s.label} · ${frame+1}/${s.images.length} · ${s.ms}ms/帧 · 播放 ${$('speed').value}×`}
+function stop(){running=false;cancelAnimationFrame(raf)}
+function play(all){stop();if(!preloaded)return;const speed=+$('speed').value;let at=0;
+plan=(all?sequences.map((_,i)=>i):[segment]).map(i=>{const s=sequences[i],entry={segment:i,start:at,end:at+s.images.length*s.ms/speed};at=entry.end;return entry});
+const run={mode:all?'six-segment-continuous':'single',speed,startedAt:new Date().toISOString(),expectedDurationMs:at,completedSegments:[],finished:false};
+window.playbackEvidence.runs.push(run);running=true;start=performance.now();
+function tick(now){if(!running)return;const elapsed=now-start,p=plan.find(p=>elapsed<p.end);for(const item of plan){if(elapsed>=item.end&&!run.completedSegments.includes(sequences[item.segment].label))run.completedSegments.push(sequences[item.segment].label)}
+if(!p){const last=plan[plan.length-1];segment=last.segment;frame=sequences[segment].images.length-1;show();run.finished=true;run.observedDurationMs=elapsed;running=false;if($('loop').checked)play(all);return}
+segment=p.segment;frame=Math.min(sequences[segment].images.length-1,Math.floor((elapsed-p.start)/(sequences[segment].ms/speed)));show();raf=requestAnimationFrame(tick)}
+raf=requestAnimationFrame(tick)}
+$('all').onclick=()=>play(true);$('one').onclick=()=>play(false);$('pause').onclick=stop;
+$('previous').onclick=()=>{stop();frame=Math.max(0,frame-1);show()};$('next').onclick=()=>{stop();frame=Math.min(sequences[segment].images.length-1,frame+1);show()};
+$('sequence').onchange=()=>{stop();segment=+$('sequence').value;frame=0;show()};$('speed').onchange=()=>{stop();show()};
+Promise.all(sequences.flatMap(s=>s.images).map(src=>new Promise((resolve,reject)=>{const img=new Image;img.onload=resolve;img.onerror=()=>reject(new Error(src));img.src=src}))).then(()=>{preloaded=true;window.playbackEvidence.loaded=true;$('load').textContent='68 张图片已载入；可开始正常及慢放验收。';show()}).catch(e=>{$('load').textContent='载入失败：'+e.message});
+</script></html>

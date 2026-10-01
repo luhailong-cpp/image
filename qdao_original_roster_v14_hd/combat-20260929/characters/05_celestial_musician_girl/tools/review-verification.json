@@ -1,0 +1,67 @@
+{
+  "reviewedAtUtc": "2026-09-30T19:32:43.158254+00:00",
+  "status": "review_checks_passed",
+  "checks": [
+    {
+      "check": "fully transparent fails geometry",
+      "passed": true,
+      "evidence": "No visible subject at alpha > 8"
+    },
+    {
+      "check": "fully transparent fails fingerprints",
+      "passed": true,
+      "evidence": "Fully transparent source"
+    },
+    {
+      "check": "JSON snapshot and SHA share one read",
+      "passed": true
+    },
+    {
+      "check": "null model-quality accepted with reason; semitransparency retained",
+      "passed": true,
+      "scope": "isolated loader unit; required slots patched to six in memory only"
+    },
+    {
+      "check": "native size record cannot lie",
+      "passed": true,
+      "evidence": "Recorded native dimensions do not match source: frame1.json"
+    },
+    {
+      "check": "source receipt SHA mismatch rejected",
+      "passed": true,
+      "evidence": "Mandatory source/selection/receipt SHA mismatch: frame1.png"
+    },
+    {
+      "check": "null model without reason rejected",
+      "passed": true,
+      "evidence": "Undisclosed actual model/quality needs reason: frame1.json"
+    },
+    {
+      "check": "source selection SHA mismatch rejected",
+      "passed": true,
+      "evidence": "Mandatory source/selection/receipt SHA mismatch: frame1.png"
+    },
+    {
+      "check": "cross-action duplicate pixels rejected",
+      "passed": true,
+      "evidence": "Copied visible content: ('hit', 'E', 1) and ('attack', 'E', 1)"
+    },
+    {
+      "check": "cross-direction mirrored pixels rejected",
+      "passed": true,
+      "evidence": "Mirrored visible content: ('hit', 'E', 1) and ('hit', 'W', 1)"
+    },
+    {
+      "check": "normal six segment duration",
+      "passed": true,
+      "normalMs": 2640,
+      "quarterSpeedMs": 10560
+    }
+  ],
+  "imagesWritten": 0,
+  "syntheticImageBuffersOnly": true,
+  "actualAssetsReadOrModified": false,
+  "runtimeExportExecuted": false,
+  "visualPlaybackExecuted": false,
+  "clientStarted": false
+}

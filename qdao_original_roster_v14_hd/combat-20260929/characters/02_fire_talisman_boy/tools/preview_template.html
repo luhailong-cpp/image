@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>火符少年 · 六段动作离线连播</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#e8e6e0;color:#222;font:15px/1.6 system-ui,"Microsoft YaHei",sans-serif}main{max-width:1320px;margin:20px auto;padding:0 18px}h1{font-size:26px;margin-bottom:4px}p{margin:6px 0 14px}.state{background:#fff2c5;padding:8px 12px;border-radius:6px}.controls{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0}button,select{font:inherit;border:1px solid #999;border-radius:5px;padding:6px 10px;background:#fff}button{cursor:pointer}button:disabled{cursor:wait;opacity:.5}.stages{display:grid;grid-template-columns:1fr 1fr;gap:18px}.stage{aspect-ratio:1;position:relative;border:1px solid #888;overflow:hidden}.stage img{width:100%;height:100%;display:block}.white{background:#fff}.black{background:#000}.label{position:absolute;left:8px;top:5px;background:#777b;color:#fff;padding:1px 6px;border-radius:3px;pointer-events:none}.rootline{position:absolute;left:0;right:0;border-top:1px dashed #f26a6a;display:none;pointer-events:none}.rootaxis{position:absolute;top:0;bottom:0;left:50%;border-left:1px dashed #f26a6a;display:none;pointer-events:none}.guides .rootline,.guides .rootaxis{display:block}input[type=range]{width:100%;accent-color:#a64735}pre{padding:12px;background:#f6f5f2;white-space:pre-wrap;overflow-wrap:anywhere}.status{font-variant-numeric:tabular-nums;font-weight:600}small{color:#555}.error{color:#9c2727}@media(max-width:750px){.stages{grid-template-columns:1fr}main{padding:0 10px}}
+</style>
+<main>
+<h1>火符少年 · E / W 六段动作连播</h1>
+<p class="state">离线图像验收页 · 美术审核待记录 · 未接入客户端，未做游戏运行验收</p>
+<p>受击 6 帧 × 40 ms = 240 ms；普攻 12 帧 × 30 ms = 360 ms；施法 16 帧 × 45 ms = 720 ms。六段按受击 E/W、普攻 E/W、施法 E/W 连续播放。</p>
+<div class="controls">
+<label>单段 <select id="sequence"></select></label>
+<label>播放倍率 <select id="rate"><option value="1">1× 正常速度</option><option value="0.5">0.5× 慢放（时长 2 倍）</option><option value="0.25">0.25× 慢放（时长 4 倍）</option></select></label>
+<button id="playAll" disabled>六段连播一次</button><button id="playOne" disabled>所选单段播放一次</button><button id="stop">停止</button>
+<label><input type="checkbox" id="loop">循环</label>
+</div>
+<p id="loading" role="status">正在预载全部 68 张 PNG…</p>
+<p class="status" id="status"></p>
+<div class="stages" id="stages">
+<div class="stage white"><span class="label">纯白背景</span><img id="whiteImage" alt="当前帧，白底"><div class="rootline"></div><div class="rootaxis"></div></div>
+<div class="stage black"><span class="label">纯黑背景</span><img id="blackImage" alt="当前帧，黑底"><div class="rootline"></div><div class="rootaxis"></div></div>
+</div>
+<div class="controls"><button id="previous">上一帧</button><button id="next">下一帧</button><label><input type="checkbox" id="guides">显示根位参考线</label><label>地根 Y <input id="ground" type="number" min="0" max="1024" value="942" style="width:76px"></label></div>
+<input id="scrub" type="range" min="1" max="6" value="1" aria-label="帧号">
+<p id="file"></p>
+<small>固定 1024 画布；预览不做逐帧居中、缩放、镜像或补帧。倍率改变时间，不改变图片。浏览器 rAF 受刷新率/调度影响，日志记录呈现帧号与实际时间。</small>
+<p>请逐段检查：独立姿态、前后衔接、头身比例、双脚地根、解剖右手红符扇/左手铜铃、道具数量、服装闪变、黑白底边缘。自动计时日志仅证明页面播放，不能代替美术判断。</p>
+<details><summary>本页面播放记录（不代表美术通过）</summary><pre id="events"></pre></details>
+<p><a href="technical-report.json">技术预检与逐帧来源清单</a></p>
+</main>
+<script id="sequencesData" type="application/json">__SEQUENCES_JSON__</script>
+<script>
+"use strict";
+const sets=JSON.parse(document.getElementById("sequencesData").textContent),$=id=>document.getElementById(id);
+let sequence=0,frame=0,raf=0,playing=false,queue=[],queuePosition=0,startTime=0,rate=1,lastShown="",loaded=false;
+window.playbackAudit={character:"02_fire_talisman_boy",visualApproval:"pending",clientIntegration:"not_integrated",events:[]};
+function log(event){window.playbackAudit.events.push({...event,wallTime:new Date().toISOString()});$("events").textContent=JSON.stringify(window.playbackAudit,null,2);}
+sets.forEach((s,i)=>{const option=document.createElement("option");option.value=i;option.textContent=`${s.label} · ${s.images.length} 帧`;$("sequence").append(option);});
+function stop(){playing=false;cancelAnimationFrame(raf);raf=0;}
+function show(s,f,track=false){sequence=s;frame=Math.max(0,Math.min(f,sets[s].images.length-1));const selected=sets[s];$("sequence").value=s;$("scrub").max=selected.images.length;$("scrub").value=frame+1;const key=`${s}/${frame}`;$("status").textContent=`${selected.label} · 第 ${frame+1}/${selected.images.length} 帧 · ${rate}× ${rate===1?"正常":"慢放"} · 每帧 ${(selected.frameMs/rate).toFixed(1)} ms · 本段 ${(selected.durationMs/rate).toFixed(0)} ms`;$("file").textContent=selected.images[frame];if(key!==lastShown){$("whiteImage").src=selected.images[frame];$("blackImage").src=selected.images[frame];lastShown=key;if(track)log({type:"frame_presented",sequence:selected.label,frame:frame+1,rate,elapsedMs:performance.now()-startTime});}}
+function tick(now){if(!playing)return;let selected=sets[queue[queuePosition]],elapsed=now-startTime;const duration=selected.durationMs/rate;if(elapsed>=duration){log({type:"sequence_completed",sequence:selected.label,rate,nominalDurationMs:duration,observedBoundaryMs:elapsed});startTime+=duration;queuePosition++;if(queuePosition>=queue.length){log({type:"playback_completed",mode:queue.length===6?"six_sequences":"single_sequence",rate});if(!$("loop").checked){stop();return;}queuePosition=0;startTime=now;}selected=sets[queue[queuePosition]];elapsed=now-startTime;}const index=Math.min(selected.images.length-1,Math.floor(elapsed/(selected.frameMs/rate)));show(queue[queuePosition],index,true);raf=requestAnimationFrame(tick);}
+function play(all){if(!loaded)return;stop();rate=Number($("rate").value);queue=all?sets.map((_,i)=>i):[Number($("sequence").value)];queuePosition=0;lastShown="";playing=true;startTime=performance.now();log({type:"playback_started",mode:all?"six_sequences":"single_sequence",rate});show(queue[0],0,true);raf=requestAnimationFrame(tick);}
+$("playAll").onclick=()=>play(true);$("playOne").onclick=()=>play(false);$("stop").onclick=()=>{stop();log({type:"stopped",sequence:sets[sequence].label,frame:frame+1});};$("sequence").onchange=()=>{stop();show(Number($("sequence").value),0);};$("rate").onchange=()=>{stop();rate=Number($("rate").value);show(sequence,frame);};$("previous").onclick=()=>{stop();show(sequence,frame-1);};$("next").onclick=()=>{stop();show(sequence,frame+1);};$("scrub").oninput=()=>{stop();show(sequence,Number($("scrub").value)-1);};$("guides").onchange=()=>$("stages").classList.toggle("guides",$("guides").checked);function ground(){document.querySelectorAll(".rootline").forEach(e=>e.style.top=`${Number($("ground").value)/1024*100}%`);}$("ground").oninput=ground;ground();
+Promise.all(sets.flatMap(s=>s.images).map(url=>new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>{if(img.naturalWidth!==1024||img.naturalHeight!==1024)reject(new Error(`${url}: 非1024画布`));else resolve(img);};img.onerror=()=>reject(new Error(`图片无法读取: ${url}`));img.src=url;}))).then(images=>{window.preloadedCombatFrames=images;loaded=true;$("loading").textContent=`${images.length}/68 张已预载；可以正常速度与慢放连播。`;$("playAll").disabled=false;$("playOne").disabled=false;show(0,0);log({type:"preload_complete",count:images.length});}).catch(error=>{$("loading").className="error";$("loading").textContent=error.message;log({type:"preload_failed",error:error.message});});
+</script>
+</html>

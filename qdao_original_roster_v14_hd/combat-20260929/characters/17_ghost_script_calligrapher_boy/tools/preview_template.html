@@ -1,0 +1,41 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>灵篆书生 · 六段战斗动作离线预览</title>
+<style>
+*{box-sizing:border-box}body{font:15px/1.6 system-ui,"Microsoft YaHei",sans-serif;color:#273535;background:#f4f3ef;margin:24px auto;padding:0 20px;max-width:1180px}h1{font-size:25px}button,select,input{font:inherit}button,select{padding:8px 12px;margin:4px;border:1px solid #a7b9b4;border-radius:5px;background:white}button{cursor:pointer}button:disabled{opacity:.5;cursor:wait}.banner{background:#ffecbf;padding:12px;border-radius:6px}.layout{display:grid;grid-template-columns:minmax(320px,700px) minmax(260px,1fr);gap:20px}.stage{position:relative;aspect-ratio:1;background:#f9f9f9;border:1px solid #99a8a6}.stage.dark{background:#171d25}.stage img{width:100%;height:100%;object-fit:contain;display:block}.empty{position:absolute;inset:0;display:grid;place-content:center;white-space:pre-line;text-align:center;padding:30px;background:#ddddddcc}.dark .empty{background:#222933dd;color:white}input[type=range]{width:100%}pre{font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere;background:#e8ecea;padding:12px}small{color:#596565}.controls{margin:12px 0}#counter{font-variant-numeric:tabular-nums}@media(max-width:800px){.layout{grid-template-columns:1fr}}
+</style>
+<h1>灵篆书生 · 六段战斗动作</h1>
+<p class="banner" id="status">离线预览；未接入客户端、未做客户端运行验收。视觉验收仍需实际观察并记录。</p>
+<p id="inventory"></p><div class="layout"><section>
+<div id="stage" class="stage"><img id="sprite" alt="当前动作帧"><div id="empty" class="empty">加载中</div></div>
+<p id="counter"></p><input id="scrub" type="range" min="1" max="6" value="1" aria-label="逐帧查看">
+<div class="controls"><button id="previous">上一帧</button><button id="next">下一帧</button><button id="pause">暂停</button><button id="background">切换深色背景</button></div>
+</section><aside>
+<label>动作段 <select id="set"></select></label>
+<label>速度 <select id="speed"><option value="1">正常 1×</option><option value="0.25">慢放 0.25×（四倍时长）</option></select></label>
+<p><label><input type="checkbox" id="loop">当前段循环</label></p>
+<button id="play">播放当前段</button><button id="all">六段顺序连播</button>
+<p id="timing"></p><p id="playState" aria-live="polite">正在预加载</p>
+<p><small>正常受击40ms/帧、普通攻击30ms/帧、施法45ms/帧。浏览器实际显示受刷新率影响；帧号根据经过时间计算。六段顺序：hit E、hit W、attack E、attack W、cast E、cast W。</small></p>
+<p><small>图像只按整画布展示。候选不足时保留缺槽，不能据此声称68帧完成。唯一像素和精确镜像检查不能证明动作质量。</small></p>
+<p><a href="technical-report.json">技术检查报告</a></p><pre id="metadata"></pre>
+</aside></div>
+<script id="data" type="application/json">__DATA_JSON__</script><script>
+"use strict";
+const data=JSON.parse(document.getElementById('data').textContent),sets=data.sets,report=data.report,$=id=>document.getElementById(id),labels={hit:'受击',attack:'普通攻击',cast:'施法'};
+let selected=0,position=0,raf=0,playing=false,sequence=false,start=0,loaded=false;
+const preloaded=new Map(),badUrls=new Set();
+$('inventory').textContent=`已通过来源与候选技术检查 ${report.validSelectedSlots}/68；runtime ${report.runtime.present}/68，runtime问题帧 ${report.runtime.framesWithIssues}。`;
+if(!report.technicalPreflightPassed||!report.runtime.technicalAuditPassed)$('status').textContent='未完成 / PARTIAL：仍有缺槽或技术问题。离线候选预览，未接入客户端、未做客户端运行验收。';
+sets.forEach((s,i)=>{const o=document.createElement('option');o.value=i;o.textContent=`${labels[s.action]} / ${s.direction} · ${s.count}帧`;$('set').append(o)});
+function stop(){playing=false;cancelAnimationFrame(raf);$('playState').textContent='已暂停';}
+function show(index){const s=sets[selected];position=Math.max(0,Math.min(index,s.frames.length-1));const f=s.frames[position];$('set').value=selected;$('scrub').max=s.count;$('scrub').value=position+1;const valid=f.url&&!badUrls.has(f.url);$('sprite').style.visibility=valid?'visible':'hidden';$('empty').style.display=valid?'none':'grid';if(valid){$('sprite').src=f.url;$('sprite').alt=`${labels[s.action]} ${s.direction} ${position+1}/${s.count}`;}else{$('sprite').removeAttribute('src');$('empty').textContent=`缺少或无法读取 ${s.action}/${s.direction}/${String(f.frame).padStart(2,'0')}\n${f.issues.join('\n')}`;}$('counter').textContent=`${labels[s.action]} / ${s.direction} · 第 ${position+1}/${s.count} 帧 · ${f.source}`;$('timing').textContent=`${$('speed').value==='1'?'正常 1×':'慢放 0.25×'} · 每帧 ${s.interval/Number($('speed').value)}ms · 本段 ${s.interval*s.count/Number($('speed').value)}ms`;$('metadata').textContent=JSON.stringify(f,null,2);}
+function tick(now){if(!playing)return;let s=sets[selected],interval=s.interval/Number($('speed').value),duration=interval*s.count;while(now-start>=duration){if(sequence&&selected<sets.length-1){start+=duration;selected++;s=sets[selected];interval=s.interval/Number($('speed').value);duration=interval*s.count;}else if(!sequence&&$('loop').checked){start+=duration;}else{show(s.count-1);stop();$('playState').textContent=sequence?'六段连播结束；请记录实际观察结果':'当前段播放结束';return;}}show(Math.floor((now-start)/interval));$('playState').textContent=sequence?`六段连播 ${selected+1}/6`:'当前段播放中';raf=requestAnimationFrame(tick);}
+function play(all){if(!loaded)return;stop();sequence=all;if(all)selected=0;show(0);playing=true;start=performance.now();raf=requestAnimationFrame(tick);}
+$('play').onclick=()=>play(false);$('all').onclick=()=>play(true);$('pause').onclick=stop;
+$('previous').onclick=()=>{stop();show(position-1)};$('next').onclick=()=>{stop();show(position+1)};
+$('set').onchange=()=>{stop();selected=Number($('set').value);show(0)};$('speed').onchange=()=>{stop();show(position)};
+$('scrub').oninput=()=>{stop();show(Number($('scrub').value)-1)};
+$('background').onclick=()=>{const dark=$('stage').classList.toggle('dark');$('background').textContent=dark?'切换浅色背景':'切换深色背景'};
+$('play').disabled=$('all').disabled=true;show(0);
+Promise.all([...new Set(sets.flatMap(s=>s.frames.map(f=>f.url).filter(Boolean)))].map(url=>new Promise(resolve=>{const image=new Image();image.onload=()=>{preloaded.set(url,image);resolve()};image.onerror=()=>{badUrls.add(url);resolve()};image.src=url}))).then(()=>{loaded=true;$('play').disabled=$('all').disabled=false;$('playState').textContent=`预加载完成：${preloaded.size}张，读取失败${badUrls.size}张`;show(position)});
+</script></html>

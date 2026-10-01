@@ -1,0 +1,176 @@
+{
+  "character": "06_thunder_caster_boy",
+  "status": "blocked_imagegen_network_error",
+  "completed": false,
+  "capturedAtUtc": "2026-09-30T19:54:20Z",
+  "expectedFrames": 68,
+  "stagingPngs": 0,
+  "candidateSlots": 0,
+  "selectedSlots": 0,
+  "runtimePngs": 0,
+  "groups": [
+    {
+      "action": "hit",
+      "direction": "E",
+      "expected": 6,
+      "frameMs": 40,
+      "present": 0,
+      "missingFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "action": "hit",
+      "direction": "W",
+      "expected": 6,
+      "frameMs": 40,
+      "present": 0,
+      "missingFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "action": "attack",
+      "direction": "E",
+      "expected": 12,
+      "frameMs": 30,
+      "present": 0,
+      "missingFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "action": "attack",
+      "direction": "W",
+      "expected": 12,
+      "frameMs": 30,
+      "present": 0,
+      "missingFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "action": "cast",
+      "direction": "E",
+      "expected": 16,
+      "frameMs": 45,
+      "present": 0,
+      "missingFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "action": "cast",
+      "direction": "W",
+      "expected": 16,
+      "frameMs": 45,
+      "present": 0,
+      "missingFrames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    }
+  ],
+  "attempts": [
+    {
+      "slot": "hit/E/03",
+      "receipt": "provenance/receipts/hit-E-03-v1-failed.json"
+    },
+    {
+      "slot": "hit/E/03",
+      "receipt": "provenance/receipts/hit-E-03-v1-retry1-failed.json"
+    },
+    {
+      "slot": "attack/E/05",
+      "receipt": "provenance/receipts/attack-E-05-v1.failed.json"
+    },
+    {
+      "slot": "cast/E/09",
+      "receipt": "provenance/receipts/cast-E-09-v1-failed.json"
+    }
+  ],
+  "error": "image generation failed: network error: error sending request",
+  "localInputChecks": "audit-initial/reference-input-check.json",
+  "technicalAudit": {
+    "path": "audit-current",
+    "passed": false,
+    "allowIncomplete": true,
+    "exitCodeMeaning": "0 only because allow-incomplete; all 68 frames remain missing"
+  },
+  "visualPlayback": {
+    "performed": false,
+    "acceptedSegments": 0
+  },
+  "export": {
+    "performed": false
+  },
+  "clientIntegration": {
+    "performed": false
+  },
+  "clientRuntime": {
+    "performed": false
+  },
+  "next": "Recheck actual inventory and resume missing key poses using saved prompts with all required references through the built-in tool once it can return images. Preserve returned results immediately; then complete 68 original frames, explicit selections, export, audit and actual six-segment playback.",
+  "scope": "Only this character directory was written. No cleanup/deletions, client work, VCS submit or shared-file changes."
+}

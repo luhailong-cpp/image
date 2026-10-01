@@ -1,0 +1,1536 @@
+{
+  "schemaVersion": 1,
+  "character": "09_bamboo_archer_girl",
+  "title": "竹弓少女战斗动作逐帧生产设计",
+  "createdAtUtc": "2026-09-30T18:42:12.905357+00:00",
+  "status": "production_design_only",
+  "doesNotClaim": [
+    "images_generated",
+    "frames_selected",
+    "export_completed",
+    "visual_approval",
+    "client_integration",
+    "runtime_acceptance"
+  ],
+  "scope": "Only hit/attack/cast E/W; no movement, idle, portrait or other-character writes",
+  "expectedSlots": 68,
+  "nativeCanvas": [
+    1024,
+    1024
+  ],
+  "exportCanvas": [
+    1024,
+    1024
+  ],
+  "exportFormat": "RGBA transparent PNG",
+  "identityLocks": [
+    "棕色高马尾",
+    "竹叶金玉发饰",
+    "绿眼",
+    "象牙绿金短袍",
+    "白短裤与短靴",
+    "解剖左手持完整长竹弓",
+    "解剖右手取箭和拉弦",
+    "箭筒固定解剖右肩",
+    "弓弦完整可见",
+    "不对调非对称装饰"
+  ],
+  "canvasAndRootContract": {
+    "E": {
+      "facing": "朝屏幕右，依据E身份/朝向参考独立绘制",
+      "root": [
+        600,
+        940
+      ],
+      "body": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。"
+    },
+    "W": {
+      "facing": "朝屏幕左，依据W身份/朝向参考独立绘制",
+      "root": [
+        450,
+        940
+      ],
+      "body": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。"
+    },
+    "anchorNature": "Approximate original E/W reference root, not per-frame measured bbox center",
+    "allowedMotion": "Body articulation, knees, shoulders, hands, hair and cloth; preserve coherent foot support and native canvas.",
+    "prohibited": [
+      "per_frame_bbox_recentering",
+      "per_frame_bbox_scaling",
+      "mirroring",
+      "copied_pose_frames",
+      "warping",
+      "interpolated_frames"
+    ]
+  },
+  "eventPolicy": "Frame numbers are design candidates only. Confirm actual hit peak/full draw/release from final selected images; client event alignment is not tested.",
+  "plannedEventCandidates": {
+    "hitPeak": 3,
+    "attackFullDraw": 6,
+    "attackRelease": 7,
+    "castFullDraw": 9,
+    "castRelease": 10
+  },
+  "projectilePolicy": "A single physical arrow may be nocked before release. Once released, omit the detached arrow/projectile from character PNG. Spell arrow light, trajectories, rings and particles are separate assets.",
+  "productionOrderSuggestion": [
+    "Inspect pending hit-E-03 actual return",
+    "Establish corresponding independent W peak",
+    "Establish attack E/W full draw and release candidates",
+    "Establish cast E/W full draw and release candidates",
+    "Fill actual transitions by group and record real provenance"
+  ],
+  "clientIntegration": "not_integrated",
+  "runtimeAcceptance": "not_tested",
+  "groups": [
+    {
+      "action": "hit",
+      "direction": "E",
+      "requiredFrames": 6,
+      "normalFrameDurationMs": 40,
+      "normalSegmentDurationMs": 240,
+      "slowPlaybackMultiplier": 0.25,
+      "slowFrameDurationMs": 160,
+      "plannedEventFrame": 3,
+      "plannedEventName": "受击后仰峰值候选",
+      "actualEventFrame": null,
+      "actualEventStatus": "pending_final_selected_images",
+      "frames": [
+        {
+          "action": "hit",
+          "direction": "E",
+          "frame": 1,
+          "slot": "hit-E-01",
+          "phase": "初受力",
+          "pose": "保留原待机持弓姿态；胸肩开始轻缩，眉眼受惊，右手离开待机位置向胸前移动。左手仍稳握完整竹弓。",
+          "deltaFromPrevious": "从对应方向待机开始，只有胸肩轻缩、右手抬起，双脚地根不平移。",
+          "transitionToNext": "相较01，膝盖更屈、右前臂形成保护姿态，头部开始向受力反方向退让。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 40,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "hit",
+          "direction": "E",
+          "frame": 2,
+          "slot": "hit-E-02",
+          "phase": "压缩",
+          "pose": "屈膝加深，胸口收紧，右前臂横护胸腹；弓臂随身体轻弯，弓身仍完整且不换手，马尾略滞后。",
+          "deltaFromPrevious": "相较01，膝盖更屈、右前臂形成保护姿态，头部开始向受力反方向退让。",
+          "transitionToNext": "相较02，膝屈与躯干后仰继续增加到候选峰值；不是把上一帧整张向后移动。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 40,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "hit",
+          "direction": "E",
+          "frame": 3,
+          "slot": "hit-E-03",
+          "phase": "后仰峰值候选",
+          "pose": "躯干达到本段最大后仰，头颈随肩退让，右前臂保持护身；左手控弓，弓不脱手，脚底维持支撑。",
+          "deltaFromPrevious": "相较02，膝屈与躯干后仰继续增加到候选峰值；不是把上一帧整张向后移动。",
+          "transitionToNext": "相较03，头肩开始回到待机一侧，身体后仰幅度明显减少，头发/衣摆惯性与躯干回弹错相。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 40,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "hit",
+          "direction": "E",
+          "frame": 4,
+          "slot": "hit-E-04",
+          "phase": "回弹",
+          "pose": "核心带动上身前回，膝盖开始伸展；右臂仍护身但肘部放松，马尾与衣摆继续向后惯性摆动。",
+          "deltaFromPrevious": "相较03，头肩开始回到待机一侧，身体后仰幅度明显减少，头发/衣摆惯性与躯干回弹错相。",
+          "transitionToNext": "相较04，重心更稳定、右手更低，衣摆和马尾摆幅开始衰减；脚底仍不整帧滑移。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 40,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "hit",
+          "direction": "E",
+          "frame": 5,
+          "slot": "hit-E-05",
+          "phase": "恢复",
+          "pose": "上身基本回正，膝屈继续减少；右手从护胸位置下降，左手把弓恢复到警戒高度。",
+          "deltaFromPrevious": "相较04，重心更稳定、右手更低，衣摆和马尾摆幅开始衰减；脚底仍不整帧滑移。",
+          "transitionToNext": "相较05，肩线进一步稳定，右手停止下降并准备下一次动作；末帧仍是独立收势姿态。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 40,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "hit",
+          "direction": "E",
+          "frame": 6,
+          "slot": "hit-E-06",
+          "phase": "警觉收势",
+          "pose": "回到接近对应方向待机的警戒姿势；右手靠近可取箭的位置但尚未取箭，呼吸与衣摆余动收束。",
+          "deltaFromPrevious": "相较05，肩线进一步稳定，右手停止下降并准备下一次动作；末帧仍是独立收势姿态。",
+          "transitionToNext": "下一步衔接本方向待机：保持比例和固定脚根，让剩余肩、手、衣摆余动自然收束；不要求末帧与待机像素相同。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 40,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        }
+      ]
+    },
+    {
+      "action": "hit",
+      "direction": "W",
+      "requiredFrames": 6,
+      "normalFrameDurationMs": 40,
+      "normalSegmentDurationMs": 240,
+      "slowPlaybackMultiplier": 0.25,
+      "slowFrameDurationMs": 160,
+      "plannedEventFrame": 3,
+      "plannedEventName": "受击后仰峰值候选",
+      "actualEventFrame": null,
+      "actualEventStatus": "pending_final_selected_images",
+      "frames": [
+        {
+          "action": "hit",
+          "direction": "W",
+          "frame": 1,
+          "slot": "hit-W-01",
+          "phase": "初受力",
+          "pose": "保留原待机持弓姿态；胸肩开始轻缩，眉眼受惊，右手离开待机位置向胸前移动。左手仍稳握完整竹弓。",
+          "deltaFromPrevious": "从对应方向待机开始，只有胸肩轻缩、右手抬起，双脚地根不平移。",
+          "transitionToNext": "相较01，膝盖更屈、右前臂形成保护姿态，头部开始向受力反方向退让。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 40,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "hit",
+          "direction": "W",
+          "frame": 2,
+          "slot": "hit-W-02",
+          "phase": "压缩",
+          "pose": "屈膝加深，胸口收紧，右前臂横护胸腹；弓臂随身体轻弯，弓身仍完整且不换手，马尾略滞后。",
+          "deltaFromPrevious": "相较01，膝盖更屈、右前臂形成保护姿态，头部开始向受力反方向退让。",
+          "transitionToNext": "相较02，膝屈与躯干后仰继续增加到候选峰值；不是把上一帧整张向后移动。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 40,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "hit",
+          "direction": "W",
+          "frame": 3,
+          "slot": "hit-W-03",
+          "phase": "后仰峰值候选",
+          "pose": "躯干达到本段最大后仰，头颈随肩退让，右前臂保持护身；左手控弓，弓不脱手，脚底维持支撑。",
+          "deltaFromPrevious": "相较02，膝屈与躯干后仰继续增加到候选峰值；不是把上一帧整张向后移动。",
+          "transitionToNext": "相较03，头肩开始回到待机一侧，身体后仰幅度明显减少，头发/衣摆惯性与躯干回弹错相。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 40,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "hit",
+          "direction": "W",
+          "frame": 4,
+          "slot": "hit-W-04",
+          "phase": "回弹",
+          "pose": "核心带动上身前回，膝盖开始伸展；右臂仍护身但肘部放松，马尾与衣摆继续向后惯性摆动。",
+          "deltaFromPrevious": "相较03，头肩开始回到待机一侧，身体后仰幅度明显减少，头发/衣摆惯性与躯干回弹错相。",
+          "transitionToNext": "相较04，重心更稳定、右手更低，衣摆和马尾摆幅开始衰减；脚底仍不整帧滑移。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 40,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "hit",
+          "direction": "W",
+          "frame": 5,
+          "slot": "hit-W-05",
+          "phase": "恢复",
+          "pose": "上身基本回正，膝屈继续减少；右手从护胸位置下降，左手把弓恢复到警戒高度。",
+          "deltaFromPrevious": "相较04，重心更稳定、右手更低，衣摆和马尾摆幅开始衰减；脚底仍不整帧滑移。",
+          "transitionToNext": "相较05，肩线进一步稳定，右手停止下降并准备下一次动作；末帧仍是独立收势姿态。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 40,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "hit",
+          "direction": "W",
+          "frame": 6,
+          "slot": "hit-W-06",
+          "phase": "警觉收势",
+          "pose": "回到接近对应方向待机的警戒姿势；右手靠近可取箭的位置但尚未取箭，呼吸与衣摆余动收束。",
+          "deltaFromPrevious": "相较05，肩线进一步稳定，右手停止下降并准备下一次动作；末帧仍是独立收势姿态。",
+          "transitionToNext": "下一步衔接本方向待机：保持比例和固定脚根，让剩余肩、手、衣摆余动自然收束；不要求末帧与待机像素相同。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 40,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        }
+      ]
+    },
+    {
+      "action": "attack",
+      "direction": "E",
+      "requiredFrames": 12,
+      "normalFrameDurationMs": 30,
+      "normalSegmentDurationMs": 360,
+      "slowPlaybackMultiplier": 0.25,
+      "slowFrameDurationMs": 120,
+      "plannedEventFrame": 7,
+      "plannedEventName": "释放候选",
+      "actualEventFrame": null,
+      "actualEventStatus": "pending_final_selected_images",
+      "frames": [
+        {
+          "action": "attack",
+          "direction": "E",
+          "frame": 1,
+          "slot": "attack-E-01",
+          "phase": "起手",
+          "pose": "眼神锁定朝向一侧的目标；左手把弓从待机略提起，右肘抬起准备向解剖右肩箭筒取箭。",
+          "deltaFromPrevious": "从对应方向待机开始，先提弓与抬右肘，右手还未抓箭。",
+          "transitionToNext": "相较01，右手明确到箭筒并接触唯一取用箭；不能仅改变右臂透明边缘。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "E",
+          "frame": 2,
+          "slot": "attack-E-02",
+          "phase": "取箭",
+          "pose": "右手到达解剖右肩箭筒，手指抓住一支实体箭的箭尾；左手稳定弓身，躯干只有轻微转肩。",
+          "deltaFromPrevious": "相较01，右手明确到箭筒并接触唯一取用箭；不能仅改变右臂透明边缘。",
+          "transitionToNext": "相较02，实体箭从箭筒抽出到手中，右肘开始向前回转；手中箭与筒中余箭区分。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "E",
+          "frame": 3,
+          "slot": "attack-E-03",
+          "phase": "抽箭",
+          "pose": "右手把一支箭完整抽离箭筒并带向身体前侧；左手继续托弓，箭尚未搭弦。",
+          "deltaFromPrevious": "相较02，实体箭从箭筒抽出到手中，右肘开始向前回转；手中箭与筒中余箭区分。",
+          "transitionToNext": "相较03，箭从取箭搬运位置转成搭弦位置，右手靠近弓弦而不是继续抬肩。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "E",
+          "frame": 4,
+          "slot": "attack-E-04",
+          "phase": "搭弦",
+          "pose": "右手将实体箭箭尾搭到弓弦，箭杆对准弓的射向；左手持弓腕保持稳定，弓弦还未显著拉伸。",
+          "deltaFromPrevious": "相较03，箭从取箭搬运位置转成搭弦位置，右手靠近弓弦而不是继续抬肩。",
+          "transitionToNext": "相较04，弓弦可见向后拉伸，右手与弓的距离增加，箭与弦连贯且无重复箭。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "E",
+          "frame": 5,
+          "slot": "attack-E-05",
+          "phase": "半弦蓄力",
+          "pose": "左弓臂开始伸展，右手拉弦到半程，右肘向后打开；已搭箭仍留在弓上，胸肩朝目标展开。",
+          "deltaFromPrevious": "相较04，弓弦可见向后拉伸，右手与弓的距离增加，箭与弦连贯且无重复箭。",
+          "transitionToNext": "相较05，达到满弦，弓弦张力和上身扭转增加；保持左手弓、右手弦的解剖身份。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "E",
+          "frame": 6,
+          "slot": "attack-E-06",
+          "phase": "满弦峰值候选",
+          "pose": "左手稳定弓的握把并把弓臂伸到本段目标角度；右手拉至面颊附近锚点，右肘后展，实体箭仍在弦上。",
+          "deltaFromPrevious": "相较05，达到满弦，弓弦张力和上身扭转增加；保持左手弓、右手弦的解剖身份。",
+          "transitionToNext": "相较06，最明确变化为指尖松弦、弦回弹和手中实体箭消失；离体箭由独立表现承担。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "E",
+          "frame": 7,
+          "slot": "attack-E-07",
+          "phase": "释放候选",
+          "pose": "右手指张开松弦，拉弦手沿脸侧自然后随；弓弦明显回弹，弓臂仍对准目标。实体箭已离手，不画离体箭或弹道。",
+          "deltaFromPrevious": "相较06，最明确变化为指尖松弦、弦回弹和手中实体箭消失；离体箭由独立表现承担。",
+          "transitionToNext": "相较07，右手后随达到短暂末端，弓身回弹角度改变；不再次出现已发射的实体箭。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "E",
+          "frame": 8,
+          "slot": "attack-E-08",
+          "phase": "随动",
+          "pose": "左弓臂承受小幅回弹，右手继续短距离后随再开始放松；肩线略回旋，马尾与衣摆响应射击动作。",
+          "deltaFromPrevious": "相较07，右手后随达到短暂末端，弓身回弹角度改变；不再次出现已发射的实体箭。",
+          "transitionToNext": "相较08，弓开始下降、右手向内回收，肩线恢复；双脚支撑仍对齐固定地根。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "E",
+          "frame": 9,
+          "slot": "attack-E-09",
+          "phase": "弓臂回收",
+          "pose": "左肘轻屈让弓从射击高度下降，右手离开脸侧并回向身体前侧，躯干转回警戒方向。",
+          "deltaFromPrevious": "相较08，弓开始下降、右手向内回收，肩线恢复；双脚支撑仍对齐固定地根。",
+          "transitionToNext": "相较09，左肘进一步收回、右手更低，动作进入稳定恢复而非继续射击。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "E",
+          "frame": 10,
+          "slot": "attack-E-10",
+          "phase": "手臂归位",
+          "pose": "弓降至接近待机高度，右手下放到胸腹侧；上身更直，马尾与衣摆的惯性仍可见但幅度更小。",
+          "deltaFromPrevious": "相较09，左肘进一步收回、右手更低，动作进入稳定恢复而非继续射击。",
+          "transitionToNext": "相较10，双臂已接近待机关系，肩膝微小回正，次生摆动继续衰减。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "E",
+          "frame": 11,
+          "slot": "attack-E-11",
+          "phase": "收势",
+          "pose": "左手稳弓，右手回到可再次取箭的休息位置；肩和膝盖接近待机，表情保持警觉。",
+          "deltaFromPrevious": "相较10，双臂已接近待机关系，肩膝微小回正，次生摆动继续衰减。",
+          "transitionToNext": "相较11，余动进一步收束，视线持续锁定目标；不复制11或待机图片充当末帧。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "E",
+          "frame": 12,
+          "slot": "attack-E-12",
+          "phase": "恢复警戒",
+          "pose": "形成可衔接对应方向待机的独立末姿态；弓仍在左手，右手空手，箭筒仍在右肩，衣摆基本稳定。",
+          "deltaFromPrevious": "相较11，余动进一步收束，视线持续锁定目标；不复制11或待机图片充当末帧。",
+          "transitionToNext": "下一步衔接本方向待机：保持比例和固定脚根，让剩余肩、手、衣摆余动自然收束；不要求末帧与待机像素相同。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        }
+      ]
+    },
+    {
+      "action": "attack",
+      "direction": "W",
+      "requiredFrames": 12,
+      "normalFrameDurationMs": 30,
+      "normalSegmentDurationMs": 360,
+      "slowPlaybackMultiplier": 0.25,
+      "slowFrameDurationMs": 120,
+      "plannedEventFrame": 7,
+      "plannedEventName": "释放候选",
+      "actualEventFrame": null,
+      "actualEventStatus": "pending_final_selected_images",
+      "frames": [
+        {
+          "action": "attack",
+          "direction": "W",
+          "frame": 1,
+          "slot": "attack-W-01",
+          "phase": "起手",
+          "pose": "眼神锁定朝向一侧的目标；左手把弓从待机略提起，右肘抬起准备向解剖右肩箭筒取箭。",
+          "deltaFromPrevious": "从对应方向待机开始，先提弓与抬右肘，右手还未抓箭。",
+          "transitionToNext": "相较01，右手明确到箭筒并接触唯一取用箭；不能仅改变右臂透明边缘。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "W",
+          "frame": 2,
+          "slot": "attack-W-02",
+          "phase": "取箭",
+          "pose": "右手到达解剖右肩箭筒，手指抓住一支实体箭的箭尾；左手稳定弓身，躯干只有轻微转肩。",
+          "deltaFromPrevious": "相较01，右手明确到箭筒并接触唯一取用箭；不能仅改变右臂透明边缘。",
+          "transitionToNext": "相较02，实体箭从箭筒抽出到手中，右肘开始向前回转；手中箭与筒中余箭区分。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "W",
+          "frame": 3,
+          "slot": "attack-W-03",
+          "phase": "抽箭",
+          "pose": "右手把一支箭完整抽离箭筒并带向身体前侧；左手继续托弓，箭尚未搭弦。",
+          "deltaFromPrevious": "相较02，实体箭从箭筒抽出到手中，右肘开始向前回转；手中箭与筒中余箭区分。",
+          "transitionToNext": "相较03，箭从取箭搬运位置转成搭弦位置，右手靠近弓弦而不是继续抬肩。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "W",
+          "frame": 4,
+          "slot": "attack-W-04",
+          "phase": "搭弦",
+          "pose": "右手将实体箭箭尾搭到弓弦，箭杆对准弓的射向；左手持弓腕保持稳定，弓弦还未显著拉伸。",
+          "deltaFromPrevious": "相较03，箭从取箭搬运位置转成搭弦位置，右手靠近弓弦而不是继续抬肩。",
+          "transitionToNext": "相较04，弓弦可见向后拉伸，右手与弓的距离增加，箭与弦连贯且无重复箭。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "W",
+          "frame": 5,
+          "slot": "attack-W-05",
+          "phase": "半弦蓄力",
+          "pose": "左弓臂开始伸展，右手拉弦到半程，右肘向后打开；已搭箭仍留在弓上，胸肩朝目标展开。",
+          "deltaFromPrevious": "相较04，弓弦可见向后拉伸，右手与弓的距离增加，箭与弦连贯且无重复箭。",
+          "transitionToNext": "相较05，达到满弦，弓弦张力和上身扭转增加；保持左手弓、右手弦的解剖身份。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "W",
+          "frame": 6,
+          "slot": "attack-W-06",
+          "phase": "满弦峰值候选",
+          "pose": "左手稳定弓的握把并把弓臂伸到本段目标角度；右手拉至面颊附近锚点，右肘后展，实体箭仍在弦上。",
+          "deltaFromPrevious": "相较05，达到满弦，弓弦张力和上身扭转增加；保持左手弓、右手弦的解剖身份。",
+          "transitionToNext": "相较06，最明确变化为指尖松弦、弦回弹和手中实体箭消失；离体箭由独立表现承担。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "W",
+          "frame": 7,
+          "slot": "attack-W-07",
+          "phase": "释放候选",
+          "pose": "右手指张开松弦，拉弦手沿脸侧自然后随；弓弦明显回弹，弓臂仍对准目标。实体箭已离手，不画离体箭或弹道。",
+          "deltaFromPrevious": "相较06，最明确变化为指尖松弦、弦回弹和手中实体箭消失；离体箭由独立表现承担。",
+          "transitionToNext": "相较07，右手后随达到短暂末端，弓身回弹角度改变；不再次出现已发射的实体箭。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "W",
+          "frame": 8,
+          "slot": "attack-W-08",
+          "phase": "随动",
+          "pose": "左弓臂承受小幅回弹，右手继续短距离后随再开始放松；肩线略回旋，马尾与衣摆响应射击动作。",
+          "deltaFromPrevious": "相较07，右手后随达到短暂末端，弓身回弹角度改变；不再次出现已发射的实体箭。",
+          "transitionToNext": "相较08，弓开始下降、右手向内回收，肩线恢复；双脚支撑仍对齐固定地根。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "W",
+          "frame": 9,
+          "slot": "attack-W-09",
+          "phase": "弓臂回收",
+          "pose": "左肘轻屈让弓从射击高度下降，右手离开脸侧并回向身体前侧，躯干转回警戒方向。",
+          "deltaFromPrevious": "相较08，弓开始下降、右手向内回收，肩线恢复；双脚支撑仍对齐固定地根。",
+          "transitionToNext": "相较09，左肘进一步收回、右手更低，动作进入稳定恢复而非继续射击。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "W",
+          "frame": 10,
+          "slot": "attack-W-10",
+          "phase": "手臂归位",
+          "pose": "弓降至接近待机高度，右手下放到胸腹侧；上身更直，马尾与衣摆的惯性仍可见但幅度更小。",
+          "deltaFromPrevious": "相较09，左肘进一步收回、右手更低，动作进入稳定恢复而非继续射击。",
+          "transitionToNext": "相较10，双臂已接近待机关系，肩膝微小回正，次生摆动继续衰减。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "W",
+          "frame": 11,
+          "slot": "attack-W-11",
+          "phase": "收势",
+          "pose": "左手稳弓，右手回到可再次取箭的休息位置；肩和膝盖接近待机，表情保持警觉。",
+          "deltaFromPrevious": "相较10，双臂已接近待机关系，肩膝微小回正，次生摆动继续衰减。",
+          "transitionToNext": "相较11，余动进一步收束，视线持续锁定目标；不复制11或待机图片充当末帧。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "attack",
+          "direction": "W",
+          "frame": 12,
+          "slot": "attack-W-12",
+          "phase": "恢复警戒",
+          "pose": "形成可衔接对应方向待机的独立末姿态；弓仍在左手，右手空手，箭筒仍在右肩，衣摆基本稳定。",
+          "deltaFromPrevious": "相较11，余动进一步收束，视线持续锁定目标；不复制11或待机图片充当末帧。",
+          "transitionToNext": "下一步衔接本方向待机：保持比例和固定脚根，让剩余肩、手、衣摆余动自然收束；不要求末帧与待机像素相同。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 30,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        }
+      ]
+    },
+    {
+      "action": "cast",
+      "direction": "E",
+      "requiredFrames": 16,
+      "normalFrameDurationMs": 45,
+      "normalSegmentDurationMs": 720,
+      "slowPlaybackMultiplier": 0.25,
+      "slowFrameDurationMs": 180,
+      "plannedEventFrame": 10,
+      "plannedEventName": "释放候选",
+      "actualEventFrame": null,
+      "actualEventStatus": "pending_final_selected_images",
+      "frames": [
+        {
+          "action": "cast",
+          "direction": "E",
+          "frame": 1,
+          "slot": "cast-E-01",
+          "phase": "凝神起手",
+          "pose": "由待机进入专注状态，左手略抬弓，右手在胸前松开并形成引导手势；双脚保留原根位。",
+          "deltaFromPrevious": "从对应方向待机开始，眼神凝聚、右掌抬至胸前，尚不抓箭也不画光效。",
+          "transitionToNext": "相较01，右掌向外展开且位置升高，弓角度更稳定；没有凭空的符阵或粒子。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "E",
+          "frame": 2,
+          "slot": "cast-E-02",
+          "phase": "外引",
+          "pose": "右掌向目标方向前上方小幅引导，手指自然展开，左手把弓更竖直地稳定；身体稍转肩。",
+          "deltaFromPrevious": "相较01，右掌向外展开且位置升高，弓角度更稳定；没有凭空的符阵或粒子。",
+          "transitionToNext": "相较02，右掌从外引回到右肩，指形收拢；引导动作转入明确取箭路径。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "E",
+          "frame": 3,
+          "slot": "cast-E-03",
+          "phase": "引导转取箭",
+          "pose": "右手收回并抬向解剖右肩箭筒，手指由张开变为准备抓箭；左手保持强化射击准备角度。",
+          "deltaFromPrevious": "相较02，右掌从外引回到右肩，指形收拢；引导动作转入明确取箭路径。",
+          "transitionToNext": "相较03，唯一实体箭被右手抓取并明显抽出；本帧仍未搭弦。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "E",
+          "frame": 4,
+          "slot": "cast-E-04",
+          "phase": "取出实体箭",
+          "pose": "右手从右肩箭筒取出一支实体箭，右肘抬起后开始前回；左手持弓不变，注意完整弓与箭不触画布。",
+          "deltaFromPrevious": "相较03，唯一实体箭被右手抓取并明显抽出；本帧仍未搭弦。",
+          "transitionToNext": "相较04，箭从肩后搬到弓上，右手抵近弦和箭尾；脚位不通过整帧平移改变。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "E",
+          "frame": 5,
+          "slot": "cast-E-05",
+          "phase": "稳定搭弦",
+          "pose": "右手把实体箭带至弓弦并完成搭弦，左弓臂向目标伸出一部分；身体比普通攻击更加沉稳。",
+          "deltaFromPrevious": "相较04，箭从肩后搬到弓上，右手抵近弦和箭尾；脚位不通过整帧平移改变。",
+          "transitionToNext": "相较05，弦开始后移，右手从弓附近离开，箭仍牢固搭在弦上。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "E",
+          "frame": 6,
+          "slot": "cast-E-06",
+          "phase": "初拉弦",
+          "pose": "右手开始拉弦至约四分之一程，左弓臂逐步伸展，右肘向后展开；实体箭与弓弦关系清楚。",
+          "deltaFromPrevious": "相较05，弦开始后移，右手从弓附近离开，箭仍牢固搭在弦上。",
+          "transitionToNext": "相较06，右手进一步后移，弓臂更伸直、肩部转动和膝屈略增加。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "E",
+          "frame": 7,
+          "slot": "cast-E-07",
+          "phase": "半弦聚力",
+          "pose": "右手拉弦到约半程，胸肩打开，膝盖轻屈提供支撑；马尾与衣摆随上身转动产生少量滞后。",
+          "deltaFromPrevious": "相较06，右手进一步后移，弓臂更伸直、肩部转动和膝屈略增加。",
+          "transitionToNext": "相较07，手靠近脸侧、右肘后展更充分，箭头方向保持稳定；不通过加光隐藏动作。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "E",
+          "frame": 8,
+          "slot": "cast-E-08",
+          "phase": "深拉弦",
+          "pose": "右手拉至约四分之三程并接近面颊，左手握把稳定；视线沿实体箭方向聚焦，身体更集中。",
+          "deltaFromPrevious": "相较07，手靠近脸侧、右肘后展更充分，箭头方向保持稳定；不通过加光隐藏动作。",
+          "transitionToNext": "相较08，弦达到最大候选拉距，面部与肩背张力增强，整个身体仍保留参考脚根。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "E",
+          "frame": 9,
+          "slot": "cast-E-09",
+          "phase": "满弦聚力峰值候选",
+          "pose": "强化拉弓达到本段满弦，右手锚在脸侧，左弓臂对准施法方向；肩背保持张力，实体箭仍在弦上。",
+          "deltaFromPrevious": "相较08，弦达到最大候选拉距，面部与肩背张力增强，整个身体仍保留参考脚根。",
+          "transitionToNext": "相较09，核心变化为松弦、弦回弹、手中实体箭消失；不得在人物PNG烘焙离体特效。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "E",
+          "frame": 10,
+          "slot": "cast-E-10",
+          "phase": "施法释放候选",
+          "pose": "右手指松弦并沿脸侧向后随动，弓弦迅速回弹；左手稳弓，实体箭已离手。法术箭光、离体弹道、光圈和粒子均留给独立资源。",
+          "deltaFromPrevious": "相较09，核心变化为松弦、弦回弹、手中实体箭消失；不得在人物PNG烘焙离体特效。",
+          "transitionToNext": "相较10，右手后随和弓回弹继续推进，实体箭不重新出现；身体不整体飞移。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "E",
+          "frame": 11,
+          "slot": "cast-E-11",
+          "phase": "释放后随动",
+          "pose": "右手空手继续短距离后随，弓与弓臂回弹达到小幅末端；肩线跟随释放旋回，马尾与衣摆稍滞后。",
+          "deltaFromPrevious": "相较10，右手后随和弓回弹继续推进，实体箭不重新出现；身体不整体飞移。",
+          "transitionToNext": "相较11，后随转向回收，弓臂出现明确屈回，姿态不再维持释放瞬间。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "E",
+          "frame": 12,
+          "slot": "cast-E-12",
+          "phase": "回弹收住",
+          "pose": "右手停止后随并放松手指，左肘开始屈回控制弓；膝盖开始伸展，身体张力降低。",
+          "deltaFromPrevious": "相较11，后随转向回收，弓臂出现明确屈回，姿态不再维持释放瞬间。",
+          "transitionToNext": "相较12，弓和右手都明显降低，左右手回到更接近休息的位置。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "E",
+          "frame": 13,
+          "slot": "cast-E-13",
+          "phase": "低位回收",
+          "pose": "弓从强化射击高度向待机高度下降，右手从脸侧回到胸前；肩膝继续回正，衣摆余动逐步衰减。",
+          "deltaFromPrevious": "相较12，弓和右手都明显降低，左右手回到更接近休息的位置。",
+          "transitionToNext": "相较13，右手由抓弦后的手形展开再放松，弓角度接近待机；不增加任何光效。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "E",
+          "frame": 14,
+          "slot": "cast-E-14",
+          "phase": "解除引导",
+          "pose": "右手在胸前短暂张掌后自然下降，左手恢复常态持弓角度；面部专注稍缓，重心稳定。",
+          "deltaFromPrevious": "相较13，右手由抓弦后的手形展开再放松，弓角度接近待机；不增加任何光效。",
+          "transitionToNext": "相较14，右手下降完成，上身更接近待机，次生摆动进一步变小。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "E",
+          "frame": 15,
+          "slot": "cast-E-15",
+          "phase": "恢复警戒",
+          "pose": "右手降到常态休息位置，肩线和膝盖恢复，弓完整留在左侧解剖手；头发、衣摆只有小幅余动。",
+          "deltaFromPrevious": "相较14，右手下降完成，上身更接近待机，次生摆动进一步变小。",
+          "transitionToNext": "相较15，呼吸与衣摆收束，警戒视线稳定；不能复制15或待机素材作为末帧。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "E",
+          "frame": 16,
+          "slot": "cast-E-16",
+          "phase": "施法收势",
+          "pose": "接回对应方向待机前的独立稳定姿态，右手空手可再取箭，左手握弓、右肩箭筒和非对称装饰保持原身份。",
+          "deltaFromPrevious": "相较15，呼吸与衣摆收束，警戒视线稳定；不能复制15或待机素材作为末帧。",
+          "transitionToNext": "下一步衔接本方向待机：保持比例和固定脚根，让剩余肩、手、衣摆余动自然收束；不要求末帧与待机像素相同。",
+          "directionSpecific": "目标位于屏幕右。受击时上身向屏幕左退让，回弹向右恢复；射击/施法弓与箭朝右。不得将W图镜像取得E图。",
+          "approximateReferenceRoot": [
+            600,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        }
+      ]
+    },
+    {
+      "action": "cast",
+      "direction": "W",
+      "requiredFrames": 16,
+      "normalFrameDurationMs": 45,
+      "normalSegmentDurationMs": 720,
+      "slowPlaybackMultiplier": 0.25,
+      "slowFrameDurationMs": 180,
+      "plannedEventFrame": 10,
+      "plannedEventName": "释放候选",
+      "actualEventFrame": null,
+      "actualEventStatus": "pending_final_selected_images",
+      "frames": [
+        {
+          "action": "cast",
+          "direction": "W",
+          "frame": 1,
+          "slot": "cast-W-01",
+          "phase": "凝神起手",
+          "pose": "由待机进入专注状态，左手略抬弓，右手在胸前松开并形成引导手势；双脚保留原根位。",
+          "deltaFromPrevious": "从对应方向待机开始，眼神凝聚、右掌抬至胸前，尚不抓箭也不画光效。",
+          "transitionToNext": "相较01，右掌向外展开且位置升高，弓角度更稳定；没有凭空的符阵或粒子。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "W",
+          "frame": 2,
+          "slot": "cast-W-02",
+          "phase": "外引",
+          "pose": "右掌向目标方向前上方小幅引导，手指自然展开，左手把弓更竖直地稳定；身体稍转肩。",
+          "deltaFromPrevious": "相较01，右掌向外展开且位置升高，弓角度更稳定；没有凭空的符阵或粒子。",
+          "transitionToNext": "相较02，右掌从外引回到右肩，指形收拢；引导动作转入明确取箭路径。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "W",
+          "frame": 3,
+          "slot": "cast-W-03",
+          "phase": "引导转取箭",
+          "pose": "右手收回并抬向解剖右肩箭筒，手指由张开变为准备抓箭；左手保持强化射击准备角度。",
+          "deltaFromPrevious": "相较02，右掌从外引回到右肩，指形收拢；引导动作转入明确取箭路径。",
+          "transitionToNext": "相较03，唯一实体箭被右手抓取并明显抽出；本帧仍未搭弦。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "W",
+          "frame": 4,
+          "slot": "cast-W-04",
+          "phase": "取出实体箭",
+          "pose": "右手从右肩箭筒取出一支实体箭，右肘抬起后开始前回；左手持弓不变，注意完整弓与箭不触画布。",
+          "deltaFromPrevious": "相较03，唯一实体箭被右手抓取并明显抽出；本帧仍未搭弦。",
+          "transitionToNext": "相较04，箭从肩后搬到弓上，右手抵近弦和箭尾；脚位不通过整帧平移改变。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "W",
+          "frame": 5,
+          "slot": "cast-W-05",
+          "phase": "稳定搭弦",
+          "pose": "右手把实体箭带至弓弦并完成搭弦，左弓臂向目标伸出一部分；身体比普通攻击更加沉稳。",
+          "deltaFromPrevious": "相较04，箭从肩后搬到弓上，右手抵近弦和箭尾；脚位不通过整帧平移改变。",
+          "transitionToNext": "相较05，弦开始后移，右手从弓附近离开，箭仍牢固搭在弦上。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "W",
+          "frame": 6,
+          "slot": "cast-W-06",
+          "phase": "初拉弦",
+          "pose": "右手开始拉弦至约四分之一程，左弓臂逐步伸展，右肘向后展开；实体箭与弓弦关系清楚。",
+          "deltaFromPrevious": "相较05，弦开始后移，右手从弓附近离开，箭仍牢固搭在弦上。",
+          "transitionToNext": "相较06，右手进一步后移，弓臂更伸直、肩部转动和膝屈略增加。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "W",
+          "frame": 7,
+          "slot": "cast-W-07",
+          "phase": "半弦聚力",
+          "pose": "右手拉弦到约半程，胸肩打开，膝盖轻屈提供支撑；马尾与衣摆随上身转动产生少量滞后。",
+          "deltaFromPrevious": "相较06，右手进一步后移，弓臂更伸直、肩部转动和膝屈略增加。",
+          "transitionToNext": "相较07，手靠近脸侧、右肘后展更充分，箭头方向保持稳定；不通过加光隐藏动作。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "W",
+          "frame": 8,
+          "slot": "cast-W-08",
+          "phase": "深拉弦",
+          "pose": "右手拉至约四分之三程并接近面颊，左手握把稳定；视线沿实体箭方向聚焦，身体更集中。",
+          "deltaFromPrevious": "相较07，手靠近脸侧、右肘后展更充分，箭头方向保持稳定；不通过加光隐藏动作。",
+          "transitionToNext": "相较08，弦达到最大候选拉距，面部与肩背张力增强，整个身体仍保留参考脚根。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "W",
+          "frame": 9,
+          "slot": "cast-W-09",
+          "phase": "满弦聚力峰值候选",
+          "pose": "强化拉弓达到本段满弦，右手锚在脸侧，左弓臂对准施法方向；肩背保持张力，实体箭仍在弦上。",
+          "deltaFromPrevious": "相较08，弦达到最大候选拉距，面部与肩背张力增强，整个身体仍保留参考脚根。",
+          "transitionToNext": "相较09，核心变化为松弦、弦回弹、手中实体箭消失；不得在人物PNG烘焙离体特效。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "W",
+          "frame": 10,
+          "slot": "cast-W-10",
+          "phase": "施法释放候选",
+          "pose": "右手指松弦并沿脸侧向后随动，弓弦迅速回弹；左手稳弓，实体箭已离手。法术箭光、离体弹道、光圈和粒子均留给独立资源。",
+          "deltaFromPrevious": "相较09，核心变化为松弦、弦回弹、手中实体箭消失；不得在人物PNG烘焙离体特效。",
+          "transitionToNext": "相较10，右手后随和弓回弹继续推进，实体箭不重新出现；身体不整体飞移。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "W",
+          "frame": 11,
+          "slot": "cast-W-11",
+          "phase": "释放后随动",
+          "pose": "右手空手继续短距离后随，弓与弓臂回弹达到小幅末端；肩线跟随释放旋回，马尾与衣摆稍滞后。",
+          "deltaFromPrevious": "相较10，右手后随和弓回弹继续推进，实体箭不重新出现；身体不整体飞移。",
+          "transitionToNext": "相较11，后随转向回收，弓臂出现明确屈回，姿态不再维持释放瞬间。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "W",
+          "frame": 12,
+          "slot": "cast-W-12",
+          "phase": "回弹收住",
+          "pose": "右手停止后随并放松手指，左肘开始屈回控制弓；膝盖开始伸展，身体张力降低。",
+          "deltaFromPrevious": "相较11，后随转向回收，弓臂出现明确屈回，姿态不再维持释放瞬间。",
+          "transitionToNext": "相较12，弓和右手都明显降低，左右手回到更接近休息的位置。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "W",
+          "frame": 13,
+          "slot": "cast-W-13",
+          "phase": "低位回收",
+          "pose": "弓从强化射击高度向待机高度下降，右手从脸侧回到胸前；肩膝继续回正，衣摆余动逐步衰减。",
+          "deltaFromPrevious": "相较12，弓和右手都明显降低，左右手回到更接近休息的位置。",
+          "transitionToNext": "相较13，右手由抓弦后的手形展开再放松，弓角度接近待机；不增加任何光效。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "W",
+          "frame": 14,
+          "slot": "cast-W-14",
+          "phase": "解除引导",
+          "pose": "右手在胸前短暂张掌后自然下降，左手恢复常态持弓角度；面部专注稍缓，重心稳定。",
+          "deltaFromPrevious": "相较13，右手由抓弦后的手形展开再放松，弓角度接近待机；不增加任何光效。",
+          "transitionToNext": "相较14，右手下降完成，上身更接近待机，次生摆动进一步变小。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "W",
+          "frame": 15,
+          "slot": "cast-W-15",
+          "phase": "恢复警戒",
+          "pose": "右手降到常态休息位置，肩线和膝盖恢复，弓完整留在左侧解剖手；头发、衣摆只有小幅余动。",
+          "deltaFromPrevious": "相较14，右手下降完成，上身更接近待机，次生摆动进一步变小。",
+          "transitionToNext": "相较15，呼吸与衣摆收束，警戒视线稳定；不能复制15或待机素材作为末帧。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        },
+        {
+          "action": "cast",
+          "direction": "W",
+          "frame": 16,
+          "slot": "cast-W-16",
+          "phase": "施法收势",
+          "pose": "接回对应方向待机前的独立稳定姿态，右手空手可再取箭，左手握弓、右肩箭筒和非对称装饰保持原身份。",
+          "deltaFromPrevious": "相较15，呼吸与衣摆收束，警戒视线稳定；不能复制15或待机素材作为末帧。",
+          "transitionToNext": "下一步衔接本方向待机：保持比例和固定脚根，让剩余肩、手、衣摆余动自然收束；不要求末帧与待机像素相同。",
+          "directionSpecific": "目标位于屏幕左。受击时上身向屏幕右退让，回弹向左恢复；射击/施法弓与箭朝左。不得将E图镜像取得W图。",
+          "approximateReferenceRoot": [
+            450,
+            940
+          ],
+          "normalDurationMs": 45,
+          "productionStatus": "planned_only",
+          "imageFile": null,
+          "selectionStatus": "not_selected",
+          "visualApproval": "not_reviewed"
+        }
+      ]
+    }
+  ]
+}

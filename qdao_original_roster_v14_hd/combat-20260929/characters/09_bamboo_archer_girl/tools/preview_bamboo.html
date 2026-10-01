@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>09 竹弓少女 · 六段连播验收</title>
+<style>
+body{font:16px/1.6 system-ui,sans-serif;background:#182324;color:#f5f1dd;margin:24px}
+h1{font-size:24px}button,select,input{font:inherit;margin:4px;padding:5px 9px}
+.stages{display:flex;gap:16px;flex-wrap:wrap}.stage{width:min(46vw,640px);height:min(46vw,640px);min-width:300px;min-height:300px;position:relative}
+.stage canvas{width:100%;height:100%;display:block}.dark{background:#101415}.light{background:#fff}.tag{position:absolute;left:12px;top:8px;color:#fff;background:#0008;padding:0 6px}
+#counter{font-weight:700}#status{color:#ffd99b}#frame{width:min(600px,70vw)}.note{max-width:1050px}
+</style>
+<h1>09 竹弓少女 · 六段连播</h1>
+<p class="note">受击每帧 40ms（240ms/段），普攻 30ms（360ms/段），施法 45ms（720ms/段）。播放器使用实际时钟计时；显示器刷新率可能限制肉眼逐帧观察。0.25× 慢放对应每帧 160/120/180ms。图片存在与技术预检通过，不自动代表美术或客户端验收。</p>
+<select id="sequence"></select><select id="speed"><option value="1">正常速度 1×</option><option value="0.25">慢放 0.25×（时长 4 倍）</option></select>
+<button id="play-all">六段连续播放</button><button id="play-one">当前段循环</button><button id="pause">暂停</button>
+<button id="prev">上一帧</button><button id="next">下一帧</button><br>
+<input id="frame" type="range" min="0" value="0"><span id="counter"></span>
+<p id="status">正在预载全部 68 帧…</p>
+<div class="stages"><div class="stage dark"><span class="tag">深色背景</span><canvas id="dark" width="1024" height="1024"></canvas></div><div class="stage light"><span class="tag">白色背景</span><canvas id="light" width="1024" height="1024"></canvas></div></div>
+<p class="note">逐段观察：左手持完整竹弓、右手取箭/拉弦，解剖右肩箭筒；身份和头身比例；地根、脚滑、弓长、弦与箭；深浅底边缘；起止及连续动作。E/W 独立绘制与真实姿态差异仍须人工核实。客户端：未接入，未运行测试。</p>
+<script>
+const sequences=__SEQUENCES__;
+const $=id=>document.getElementById(id), canvases=[$('dark'),$('light')].map(c=>c.getContext('2d'));
+let sequenceIndex=0,frameIndex=0,playing=false,playAll=false,baseTime=0,baseIndex=0,cycleCount=0,ready=false;
+const frames=[];
+sequences.forEach((s,i)=>{const option=document.createElement('option');option.value=i;option.textContent=`${s.label} · ${s.count} 帧 · ${s.ms*s.count}ms`; $('sequence').append(option)});
+function show(){const s=sequences[sequenceIndex];$('sequence').value=sequenceIndex;$('frame').max=s.count-1;$('frame').value=frameIndex;
+ const duration=s.ms/+$('speed').value;$('counter').textContent=`${s.label}  ${frameIndex+1}/${s.count} · ${$('speed').value}× · ${duration}ms/帧`;
+ for(const ctx of canvases){ctx.clearRect(0,0,1024,1024);if(frames[sequenceIndex]?.[frameIndex])ctx.drawImage(frames[sequenceIndex][frameIndex],0,0)}}
+function pause(){playing=false}
+function start(all){if(!ready)return;playAll=all;playing=true;frameIndex=0;if(all)sequenceIndex=0;baseIndex=sequenceIndex;baseTime=performance.now();cycleCount=0;show();$('status').textContent=all?'六段连续播放中，播完六段后循环。':'当前段循环播放中。'}
+function tick(time){if(playing){const speed=+$('speed').value;const elapsed=(time-baseTime)*speed;
+ if(playAll){const total=sequences.reduce((n,s)=>n+s.count*s.ms,0);let position=elapsed%total;cycleCount=Math.floor(elapsed/total);let i=0;for(;i<sequences.length-1;i++){let d=sequences[i].count*sequences[i].ms;if(position<d)break;position-=d}sequenceIndex=i;frameIndex=Math.min(sequences[i].count-1,Math.floor(position/sequences[i].ms));$('status').textContent=`六段连续播放中 · 已完成 ${cycleCount} 轮 · ${speed}×`}
+ else{sequenceIndex=baseIndex;const s=sequences[sequenceIndex];frameIndex=Math.floor(elapsed/s.ms)%s.count}show()}requestAnimationFrame(tick)}
+$('play-all').onclick=()=>start(true);$('play-one').onclick=()=>start(false);$('pause').onclick=()=>{pause();$('status').textContent='已暂停，可逐帧检查。'};
+$('sequence').onchange=()=>{pause();sequenceIndex=+$('sequence').value;frameIndex=0;show()};$('speed').onchange=()=>{if(playing)start(playAll);else show()};
+$('frame').oninput=()=>{pause();frameIndex=+$('frame').value;show()};$('prev').onclick=()=>{pause();frameIndex=(frameIndex+sequences[sequenceIndex].count-1)%sequences[sequenceIndex].count;show()};$('next').onclick=()=>{pause();frameIndex=(frameIndex+1)%sequences[sequenceIndex].count;show()};
+Promise.all(sequences.map(async(s,i)=>{frames[i]=await Promise.all(s.frames.map(path=>new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=()=>reject(new Error(path));image.src=path}))) })).then(()=>{ready=true;$('status').textContent='68 帧已预载，可开始六段连播。';show()}).catch(error=>{$('status').textContent='载入失败：'+error.message});
+requestAnimationFrame(tick);
+</script></html>

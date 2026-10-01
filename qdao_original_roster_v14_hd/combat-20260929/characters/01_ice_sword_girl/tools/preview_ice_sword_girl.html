@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>冰剑少女 · 六段动作离线验收</title>
+<style>
+:root{font:15px/1.5 system-ui,sans-serif;color:#e7edf4;background:#122033}body{margin:24px;max-width:1220px}h1{margin:0;font-size:26px}p{margin:8px 0}button,select,input{font:inherit}button,select{margin:4px;padding:6px 10px}.toolbar{position:sticky;top:0;padding:10px;background:#122033ef;z-index:2}#status{font-weight:600}.stages{display:flex;flex-wrap:wrap;gap:18px}.stage{width:min(512px,90vw);height:min(512px,90vw);position:relative;border:1px solid #8593a9;overflow:hidden}.light{background:#fff}.dark{background:#0c1020}.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.root{position:absolute;left:50%;top:0;bottom:0;border-left:1px dashed #b0708050;pointer-events:none}.missing{position:absolute;inset:0;display:grid;place-items:center;color:#ad3150;font-weight:700}.label{position:absolute;top:8px;left:12px;padding:3px 7px;background:#75869a88;color:white}#frame{width:min(500px,75vw)}small{color:#b8c7d8}pre{white-space:pre-wrap;font-size:13px;color:#b8c7d8}
+</style>
+<h1>01 冰剑少女 · 六段动作离线连播</h1>
+<p>选择状态：__SELECTION_STATUS__。本页仅提供验收播放，技术通过与美术通过分开记录；客户端未接入、未测试。</p>
+<div class="toolbar">
+  <select id="set" aria-label="动作方向"></select>
+  <select id="speed" aria-label="播放速度"><option value="1">正常 1×</option><option value="0.5">慢放 0.5×</option></select>
+  <button id="play">播放当前段</button><button id="all">六段连续播放</button><button id="loop">六段循环</button><button id="stop">暂停</button>
+  <button id="prev">上一帧</button><button id="next">下一帧</button><br>
+  <input id="frame" type="range" min="0" value="0" aria-label="当前帧"><span id="status"></span>
+  <p id="timing"></p><small id="readiness">正在预载原帧…</small>
+</div>
+<div class="stages">
+ <div class="stage light"><div class="root"></div><img id="light" alt="浅底动作帧"><div class="missing"></div><span class="label">白色背景 · 1024 原图显示为 512</span></div>
+ <div class="stage dark"><div class="root"></div><img id="dark" alt="深底动作帧"><div class="missing"></div><span class="label">深色背景 · 同步帧</span></div>
+</div>
+<p>正常：受击 40ms/帧，240ms/段；普攻 30ms/帧，360ms/段；施法 45ms/帧，720ms/段。0.5× 每帧及段时长翻倍。浏览器按实际经过时间显示目标帧，受屏幕刷新率影响可能跳过短帧，使用慢放和逐帧辅助检查。</p>
+<p>检查：六段起止衔接、身份与持手、头身比例、根位置/脚滑、剑长与衣摆闪变、深浅底透明边缘。缺槽显示占位，不跳过缺槽或以邻帧补齐。</p>
+<pre id="playbackLog">尚未播放。播放记录只证明页面播放，不自动构成视觉验收。</pre>
+<script>
+const sets=__SETS__;const $=id=>document.getElementById(id);let frame=0,raf=0,run=null,ready=false;
+sets.forEach((s,i)=>{const o=document.createElement('option');o.value=i;o.textContent=s.label+' ('+s.frames.filter(f=>f.url).length+'/'+s.count+')';$('set').append(o)});
+function show(){const s=sets[+$('set').value],f=s.frames[frame];$('frame').max=s.count-1;$('frame').value=frame;['light','dark'].forEach(id=>{const img=$(id);if(f.url){img.src=f.url;img.style.visibility='visible'}else{img.removeAttribute('src');img.style.visibility='hidden'}});document.querySelectorAll('.missing').forEach(n=>n.textContent=f.url?'':`缺少 ${s.label}/${String(f.number).padStart(2,'0')}`);const speed=+$('speed').value;$('status').textContent=`${s.label} · ${f.number}/${s.count} · ${speed}×`;$('timing').textContent=`当前 ${s.ms/speed}ms/帧 · ${s.ms*s.count/speed}ms/段；正常 ${s.ms}ms/帧 · ${s.ms*s.count}ms/段`}
+function stop(){cancelAnimationFrame(raf);raf=0;run=null}
+function log(text){$('playbackLog').textContent=new Date().toISOString()+' '+text+'\n'+$('playbackLog').textContent}
+function begin(mode){if(!ready)return;stop();if(mode!=='single')$('set').value=0;frame=0;show();run={mode,start:performance.now(),sequence:+$('set').value,shown:new Set([0]),passes:0};log(`开始 ${mode}，${$('speed').value}×，双背景同步`);raf=requestAnimationFrame(tick)}
+function tick(now){if(!run)return;const speed=+$('speed').value;let s=sets[run.sequence],duration=s.count*s.ms/speed;while(now-run.start>=duration){log(`${s.label} 结束；目标 ${duration}ms；实际显示帧 ${run.shown.size}/${s.count}；缺槽 ${s.frames.filter(f=>!f.url).length}`);if(run.mode==='single'||(run.mode==='all'&&run.sequence===sets.length-1)){frame=s.count-1;show();stop();return}run.start+=duration;run.sequence=(run.sequence+1)%sets.length;run.shown=new Set();$('set').value=run.sequence;s=sets[run.sequence];duration=s.count*s.ms/speed}frame=Math.min(s.count-1,Math.floor((now-run.start)/(s.ms/speed)));run.shown.add(frame);show();raf=requestAnimationFrame(tick)}
+$('play').onclick=()=>begin('single');$('all').onclick=()=>begin('all');$('loop').onclick=()=>begin('loop');$('stop').onclick=()=>{stop();log('暂停')};$('set').onchange=()=>{stop();frame=0;show()};$('speed').onchange=()=>{stop();show()};$('frame').oninput=()=>{stop();frame=+$('frame').value;show()};$('prev').onclick=()=>{stop();frame=Math.max(0,frame-1);show()};$('next').onclick=()=>{stop();frame=Math.min(sets[+$('set').value].count-1,frame+1);show()};document.addEventListener('visibilitychange',()=>{if(document.hidden&&run){stop();log('页面进入后台，已暂停，避免把后台计时当作连播检查')}});
+show();Promise.all(sets.flatMap(s=>s.frames.filter(f=>f.url).map(f=>new Promise(resolve=>{const im=new Image();im.onload=()=>resolve(true);im.onerror=()=>resolve(false);im.src=f.url})))).then(results=>{ready=results.every(Boolean);$('readiness').textContent=ready?`已预载 ${results.length} 张；可播放。页面不会自动记录美术通过。`:'图片加载失败，播放已禁用；检查路径。'});
+</script></html>
