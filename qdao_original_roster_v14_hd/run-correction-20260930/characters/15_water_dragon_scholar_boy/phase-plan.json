@@ -1,0 +1,94 @@
+{
+  "directions": [
+    "N",
+    "NE",
+    "E",
+    "SE",
+    "S",
+    "SW",
+    "W",
+    "NW"
+  ],
+  "frameDurationMs": 30,
+  "cycleDurationMs": 480,
+  "phases": [
+    {
+      "frame": 1,
+      "phase": "LEFT initial touchdown: LEFT boot forward touching ground, RIGHT trailing leg bent and foot raised. RIGHT fan arm forward, LEFT empty arm back."
+    },
+    {
+      "frame": 2,
+      "phase": "LEFT loading/compression: LEFT supporting boot still ahead but closer to hip, knee flexes, hip sinks 1.5% canvas. RIGHT heel tucks upward behind. RIGHT fan arm remains forward but starts returning; LEFT empty elbow starts coming forward."
+    },
+    {
+      "frame": 3,
+      "phase": "LEFT mid-stance: LEFT supporting boot directly below hip, bent knee, lowest hip 2% lower than first frame. RIGHT folded thigh passes forward beside it, toe still off ground. Both bent elbows pass torso, right fan hand nearer waist."
+    },
+    {
+      "frame": 4,
+      "phase": "LEFT late support/push: LEFT boot shifts behind hip, heel raised with TOE touching floor, leg extends to push. RIGHT knee passes ahead with folded shin. LEFT empty arm now forward, RIGHT fan arm swings back beside hip; fan stays attached."
+    },
+    {
+      "frame": 5,
+      "phase": "First early flight after LEFT push: BOTH boots fully off ground, LEFT leg trailing and beginning to fold, RIGHT thigh forward, shin beginning to extend; body rising 2% canvas. LEFT empty arm forward and RIGHT fan arm back."
+    },
+    {
+      "frame": 6,
+      "phase": "First flight apex: BOTH boots at least 5% canvas above virtual floor, RIGHT boot unfolding forward for next contact, LEFT knee bent with heel behind. Hip/head 3% above contact height. LEFT empty arm at forward extreme, RIGHT fan arm at rear extreme with visible real grip."
+    },
+    {
+      "frame": 7,
+      "phase": "First descending flight: RIGHT leading lower leg extends down and forward, sole still 2.5% canvas above floor, LEFT trailing heel high. Body descends slightly. LEFT empty arm forward but returning, RIGHT fan arm back but returning."
+    },
+    {
+      "frame": 8,
+      "phase": "Pre-RIGHT-contact: RIGHT leading boot nearly touches floor (1% gap), LEFT boot trailing raised, body comes down. LEFT empty arm forward, RIGHT fan hand back close to hip. This must lead smoothly into RIGHT touchdown."
+    },
+    {
+      "frame": 9,
+      "phase": "RIGHT initial touchdown: RIGHT boot FORWARD touches virtual floor, LEFT leg trails with knee bent and heel raised. LEFT EMPTY arm forward and RIGHT FAN arm BACK. Opposite legs and arms from first reference. Never swap hands. Keep side profile."
+    },
+    {
+      "frame": 10,
+      "phase": "RIGHT loading/compression: RIGHT supporting boot ahead but closer to hip, knee bends, hip sinks 1.5%. LEFT heel tucks up behind. LEFT empty arm forward returning; RIGHT fan arm begins forward return."
+    },
+    {
+      "frame": 11,
+      "phase": "RIGHT mid-stance: RIGHT supporting boot directly below hip, flexed knee, lowest hip 2% down. LEFT folded thigh passes forward. Both bent elbows pass torso; RIGHT fan hand returns toward waist."
+    },
+    {
+      "frame": 12,
+      "phase": "RIGHT late support/push: RIGHT boot behind hip, heel raised with TOE on floor, extending to push. LEFT knee ahead with folded shin. RIGHT fan arm now forward, LEFT empty arm back."
+    },
+    {
+      "frame": 13,
+      "phase": "Second early flight after RIGHT push: BOTH boots off ground, RIGHT leg trails and begins folding, LEFT thigh forward with shin starting to extend. Body rises 2% canvas. RIGHT fan hand forward, LEFT empty arm back."
+    },
+    {
+      "frame": 14,
+      "phase": "Second flight apex: BOTH boots at least 5% canvas above virtual floor. LEFT boot unfolds forward for touchdown, RIGHT knee bent heel behind. Hip/head 3% above contact. RIGHT fan arm at forward extreme, LEFT empty arm at rear extreme."
+    },
+    {
+      "frame": 15,
+      "phase": "Second descending flight: LEFT leading shin extends down forward, sole 2.5% above virtual floor. RIGHT heel tucked behind. Body descending. RIGHT fan arm forward returning, LEFT empty arm back returning."
+    },
+    {
+      "frame": 16,
+      "phase": "Pre-LEFT-contact: LEFT leading boot sole 1% canvas above floor, RIGHT leg bent behind. RIGHT fan hand forward, LEFT empty arm back. This is 30ms BEFORE reference frame01; only small differences from that first contact frame, same scale and identity."
+    }
+  ],
+  "exportContract": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "pivotNormalized": [
+      0.5,
+      0.08
+    ],
+    "pixelsPerUnit": 104,
+    "alignment": "one uniform scale and translation for whole sequence; no per-frame bbox alignment or scaling",
+    "groundPixelY": 942
+  },
+  "acceptance": "planned; not proof of produced poses"
+}
