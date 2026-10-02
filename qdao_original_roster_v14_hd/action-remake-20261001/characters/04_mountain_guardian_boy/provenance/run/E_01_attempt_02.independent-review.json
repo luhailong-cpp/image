@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-02T09:01:33.946Z",
+  "reviewer": "attack_continue 独立视觉复核",
+  "file": "E_01_attempt_02.png",
+  "status": "needs_revision",
+  "statusZh": "需修：仅作动作候选，不能作为正式 E/run/frame_01 验收通过",
+  "imageInspected": true,
+  "inspectionMethod": "view_image 实际查看候选、4096身份画像、512 E idle，并读取本次submission的确切姿态要求；未进行像素修改。",
+  "formalFrameAccepted": false,
+  "sequenceAccepted": false,
+  "references": [
+    {
+      "path": "D:/work/image/q_daoist_character_pack_4096/04_mountain_guardian_boy_transparent_4096.png",
+      "role": "身份、装备、右杖左盾与法杖实体长度"
+    },
+    {
+      "path": "D:/work/image/qdao_original_roster_v14_hd/recovery-20260921/04-delivery-preview/revisions/review-set-v3/runtime/idle/E.png",
+      "role": "严格E侧面相机与远近遮挡"
+    },
+    {
+      "path": "E_01_attempt_02.submission.json",
+      "role": "本帧要求为右腿前伸近触地、左腿后伸蹬离"
+    }
+  ],
+  "passedObservations": [
+    "棕色束发、玉绿飘带、琥珀眼、金色额饰、木珠、金绿甲衣、狮首腰扣与棕金靴可辨认，身份主特征保留。",
+    "画面右向运动明确；两腿与两靴分离，近侧握杖臂后摆，远侧盾臂前送，具备跑动势能，没有仅抬一只脚复制idle的明显表现。",
+    "可见握杖手在近侧，按E方向为解剖右手；没有证据断言左右手交换。左盾仍可能属于远侧左臂，但左前臂/固定点被遮挡，不能据单图确认绑定。",
+    "仍为大头短身的Q版，高清手绘体积与金玉材料总体贴近身份画像，没有变成写实成人。"
+  ],
+  "issues": [
+    {
+      "severity": "major",
+      "id": "camera_profile_drift",
+      "finding": "相机/身体朝向偏向右前3/4：正面额饰、腰部狮首及盾的大面同时充分可见，和E idle的严格侧面、远盾只露边的投影差异明显。",
+      "impact": "与既有E idle衔接会出现转身跳变；不能仅把面朝右等同于E向一致。",
+      "fix": "固定E idle相机和头胸侧面投影，盾留在远侧左臂，仅保留该投影下合理的盾沿/少量正面。"
+    },
+    {
+      "severity": "major",
+      "id": "staff_length_drift",
+      "finding": "法杖变成短柄武器：握点至下端尖底的杆长显著缩短，整杖相对头/身体偏短；原画像和E idle里是接近全身高的长法杖。",
+      "impact": "装备比例跨帧突变，后续持物连续难以成立。",
+      "fix": "恢复画像与E idle中的实体总长度、杆段长度及握点位置；保持刚性杖体，不能通过缩短武器塞进画布。"
+    },
+    {
+      "severity": "major",
+      "id": "phase_mismatch",
+      "finding": "submission要求右脚前伸接近脚跟触地、左腿后伸且后跟抬起准备蹬离；当前后腿明显屈膝回收、后靴已高抬，整体读作腾空/回收相位。",
+      "impact": "不能未经重排直接当接触/蹬离的frame_01使用，会破坏16帧相位与落脚逻辑。",
+      "fix": "本槽位重画为前脚跟接触、后脚前掌仍支撑的接触相位，后腿应向后伸展；若保留该图，只能经全序列审查后考虑重分配为腾空候选。"
+    },
+    {
+      "severity": "moderate",
+      "id": "scale_anchor_unconfirmed",
+      "finding": "候选头部/马尾明显放大且衣摆大幅外展开，头身仍属Q版但未证明与固定相机、全局缩放和root(512,928)一致。",
+      "impact": "逐帧独立缩放或按最低脚贴地会掩盖漂移，不能这样修正。",
+      "fix": "在同一1024画布的固定缩放下，与idle及后续帧叠看头尺度、髋和虚拟地面；整组确定一个缩放，不逐帧bbox拟合。"
+    },
+    {
+      "severity": "review_required",
+      "id": "alpha_edges",
+      "finding": "黑色显示背景上，头发、法杖及衣摆边缘能见细红/金色彩边；小玉环中间视觉上有开孔，但仅凭当前查看不能完整确认透明边缘质量。",
+      "impact": "浅色场景与深色场景可能出现边缘杂色，需要实际Alpha/多底色复核。",
+      "fix": "保持原生Alpha，在检查器中用明暗棋盘及纯色底查看轮廓与环孔；当前不判为已通过透明边缘验收。"
+    }
+  ],
+  "limitations": [
+    "只有一帧，无法确认左右腿交替、速度、首尾衔接和持物轨迹连续。",
+    "未做像素处理、正式导出、客户端接入或运行验收。"
+  ],
+  "recommendation": "保留为当前唯一跑姿候选并针对相机、长杖比例和接触相位修正；本次不登记正式帧通过。",
+  "sha256": "7aa1fa7118bdb0da4583f2450635f95f2ae289e9f19a13007f7ba5cb35aec32a"
+}
