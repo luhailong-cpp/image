@@ -5,7 +5,50 @@
 当前是**制作中的候选素材交接**。最终目标为八方向跑步各 16 帧，加 E/W 受击各 6、普攻各 12、施法各 16，共 196 槽。另一台电脑未提交图没有获取；本机已提交旧素材经实图审核后复用，复用不计作本批新生图。
 
 <!-- CURRENT_SNAPSHOT_START -->
-待首次实扫更新。
+核对时间：2026-10-02T07:24:50.968381-04:00（America/New_York）。本段由 tools/audit_provenance.py 实扫更新。
+
+当前候选导出 **57/196**，缺 **139** 槽；本批本角色 generation 实际原图 **4** 张。正式美术通过 **0**；客户端 **未接入、未运行**。
+
+| 动作/方向 | 实际导出帧号 | 缺失帧号 | 帧时长 / 完整段时长 |
+| --- | --- | --- | --- |
+| run/N | 无 | 01、02、03、04、05、06、07、08、09、10、11、12、13、14、15、16 | 30 / 480 ms |
+| run/NE | 无 | 01、02、03、04、05、06、07、08、09、10、11、12、13、14、15、16 | 30 / 480 ms |
+| run/E | 01、04 | 02、03、05、06、07、08、09、10、11、12、13、14、15、16 | 30 / 480 ms |
+| run/SE | 无 | 01、02、03、04、05、06、07、08、09、10、11、12、13、14、15、16 | 30 / 480 ms |
+| run/S | 无 | 01、02、03、04、05、06、07、08、09、10、11、12、13、14、15、16 | 30 / 480 ms |
+| run/SW | 无 | 01、02、03、04、05、06、07、08、09、10、11、12、13、14、15、16 | 30 / 480 ms |
+| run/W | 无 | 01、02、03、04、05、06、07、08、09、10、11、12、13、14、15、16 | 30 / 480 ms |
+| run/NW | 无 | 01、02、03、04、05、06、07、08、09、10、11、12、13、14、15、16 | 30 / 480 ms |
+| hit/E | 01、02、03、04、05、06 | 无 | 40 / 240 ms |
+| hit/W | 01、02、03、04、05、06 | 无 | 40 / 240 ms |
+| attack/E | 01、02、03、04、05、06、07、08、09、10、11、12 | 无 | 30 / 360 ms |
+| attack/W | 无 | 01、02、03、04、05、06、07、08、09、10、11、12 | 30 / 360 ms |
+| cast/E | 01、02、03、04、05、06、07、08、09、10、11、12、13、14、15、16 | 无 | 45 / 720 ms |
+| cast/W | 01、02、03、04、05、06、07、08、09、10、11、12、13、14、15 | 16 | 45 / 720 ms |
+
+当前本批原图（逐图来源、完整路径及导出链见 [来源审计](review/provenance-completion.json)）：
+
+| 文件 | SHA-256 | 已关联导出 |
+| --- | --- | --- |
+| [generation/combat/attack/W/06-v3.png](generation/combat/attack/W/06-v3.png) | `527ff10ab675ab3c0596ee1a3a8274ee095b8e3fc17a1f3919083a86d6cf21e8` | 未导出；待选帧/验收 |
+| [generation/run/E/01-v5.png](generation/run/E/01-v5.png) | `0335d08d84cd367c85a43fb72dd69980a45befd970d9ab1de1a1758a315b4dc6` | 未导出；待选帧/验收 |
+| [generation/run/E/04-v1.png](generation/run/E/04-v1.png) | `ecc55b1b0e7dea0d3f2077e106a229d679e7f2e71cacba773df263f0a6927a06` | frames/run/E/04.png |
+| [generation/run/E/09-v3.png](generation/run/E/09-v3.png) | `703ab6983638bbcd29488af9806644205168a508c7bd85f6bb6ea56d208e5a83` | 未导出；待选帧/验收 |
+
+已确认失败请求 6 项（原始网络错误证据保留）；无完成证据请求 3 项（unknown，不等同于已确认失败）。
+
+- `generation/combat/attack/W/06-v1.request.json` — `confirmed_failure`；SHA `46b18acd30cdc2e76aab1eb552faa90e3a9cefb054396a9ba700a871a8f424ab`。
+- `generation/combat/attack/W/06-v2.request.json` — `confirmed_failure`；SHA `15f79062b2d44e7fca1cdbd8b10929ed62b80bda705b618c82ab3c164fde5fb2`。
+- `generation/combat/cast/W/16-v1.request.json` — `confirmed_failure`；SHA `5a4f35dbfa78cba8797b994877eb7d284b61a8330c1b5194e223d22232b5209e`。
+- `generation/combat/cast/W/16-v2.request.json` — `confirmed_failure`；SHA `fd301a6b0279b4605f81bdf5d0d375e3d524243abf3cf044a7699b86ebec4d12`。
+- `generation/run/N/01-v1.request.json` — `confirmed_failure`；SHA `4369161b44a6161fc9f1b1c1ffcd092d42851e587181ed1261f72a668bd045c5`。
+- `generation/run/N/01-v2.request.json` — `confirmed_failure`；SHA `cb1890b901b4b6b3ec504771eeb236648b3c9a4100c0ceb8349269f5ce8fe0b5`。
+- `generation/combat/cast/W/16-v3.request.json` — `unknown_no_completion_receipt`；SHA `5d13252494f0ca7d776eece32b29a35e01f57aa5ffbec9dab5efc6ca81df8fa0`。
+- `generation/run/E/09-v2.request.json` — `unknown_no_completion_receipt`；SHA `65b205d98eb8e51761d040eb5f6a4a50020cee35ea04f4537da01db2866eda03`。
+- `generation/run/N/01-v3.request.json` — `unknown_no_completion_receipt`；SHA `68659a615a528a35f695bc357bb30c97903a2771d499d906e005de1241a05eff`。
+
+当前索引/源SHA问题 0 项。逐项文件、源PNG、生成记录与回执SHA均在 `review/provenance-completion.json`。
+旧 `current-validation.json` 的 57 张检查仅适用于其原始快照；新增原图、替换及当前动态美术结果须另行刷新。
 <!-- CURRENT_SNAPSHOT_END -->
 
 ## 合并文件和来源入口
