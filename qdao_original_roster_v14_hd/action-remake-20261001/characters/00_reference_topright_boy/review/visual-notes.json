@@ -1,0 +1,38 @@
+{
+  "scope": "引用既有静态审核，未把控件验证或技术通过记为美术通过；问题按原生来源 SHA 绑定。",
+  "actions": {
+    "run": [
+      {
+        "status": "review_required",
+        "message": "跑步全局比例、相机与根锚待复核：当前仅有 E/01、E/04，无法检查完整交替、腾空或首尾衔接；不得逐帧包围盒缩放或最低像素贴地。",
+        "evidence": "../TASK.md"
+      }
+    ]
+  },
+  "frames": {
+    "hit/W/03.png": {
+      "status": "requires_root_correction",
+      "source_sha256": "92f25f3c0fe1be971235cc30b011618301e0a0873a984ebd044775d160297eeb",
+      "message": "静态审核：双鞋从 02 到 03 一起向左约 50 原生像素，03 到 04 又回约 60；需核定统一根点和支撑关系，再修正或解释。",
+      "evidence": "combat-reviewed.md"
+    },
+    "attack/E/10.png": {
+      "status": "requires_ground_correction",
+      "source_sha256": "806e34038d9e3727176f78be1891f8000dfb293d84e0cbca89cfc0c55f5ffd39",
+      "message": "静态审核：平底站姿的双鞋基线比 09/11 高约 13/15 原生像素；需先校核虚拟地面，再检查 09→10→11 头高与收势连续性。",
+      "evidence": "combat-reviewed.md"
+    },
+    "cast/W/02.png": {
+      "status": "requires_continuity_review",
+      "source_sha256": "79140fcb2967f1ba6a1a6925ea2b929b9247d2c8432bfaae73dc0505c0baf491",
+      "message": "静态审核：02 提手偏高，03 又降到腹部、04 再抬；建议把 02 手位放在 01 与 03 之间，严重度仍需正常速和慢速核实。",
+      "evidence": "cast-review.md"
+    },
+    "cast/W/05.png": {
+      "status": "requires_continuity_review",
+      "source_sha256": "ef1f889b469ec51a8e2c7d7f5433b89b77e123e06cb0aed30d7db9ac8cbcdbcc",
+      "message": "静态审核：05 过早前伸、06 明显回收；建议保留半屈食中指成印，缩短肩肘前伸，让手位介于 04 与 06。严重度仍待动态核实。",
+      "evidence": "cast-review.md"
+    }
+  }
+}
