@@ -18,7 +18,7 @@ EXPECTED = {
     "attack": {"E": 12, "W": 12},
     "cast": {"E": 16, "W": 16},
 }
-DURATIONS = {"run": 30, "hit": 40, "attack": 30, "cast": 45}
+DURATIONS = {"run": 75, "hit": 40, "attack": 30, "cast": 45}
 
 
 def local_path(value: str) -> Path:

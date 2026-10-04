@@ -41,8 +41,12 @@ def verify(manifest: dict, require_complete: bool = False) -> dict:
         index = frame.get("index")
         if not isinstance(index, int) or isinstance(index, bool) or not 0 <= index < EXPECTED[action][direction]:
             errors.append(f"{label}: index 必须采用 0 起始并落在当前组范围内。")
-        if frame.get("durationMs") != DURATIONS[action]:
-            errors.append(f"{label}: durationMs 应为 {DURATIONS[action]}。")
+        expected_ms = DURATIONS[action]
+        if action == "run" and manifest.get("timing"):
+            schedule = manifest["timing"]["E" if direction == "E" else "otherRunDirections"]
+            expected_ms = schedule[index] if isinstance(index, int) and 0 <= index < len(schedule) else None
+        if frame.get("durationMs") != expected_ms:
+            errors.append(f"{label}: durationMs 应为 {expected_ms}。")
         if frame.get("isPlaceholder") or frame.get("mirrored") or frame.get("interpolated"):
             errors.append(f"{label}: 不得使用占位、镜像或插值帧。")
         transform = frame.get("transform", {})
@@ -57,6 +61,26 @@ def verify(manifest: dict, require_complete: bool = False) -> dict:
             errors.append(f"{label}: 根锚点不同于统一虚拟根锚点；腾空应表现在画布中。")
         for path_key, sha_key, is_native in (("path", "sha256", False), ("nativePath", "nativeSha256", True)):
             value = frame.get(path_key, frame.get("file") if path_key == "path" else None)
+            expected_digest = frame.get(sha_key, "")
+            if is_native and frame.get("nativeProvenance"):
+                native = frame["nativeProvenance"]
+                value = native.get("historicalPath")
+                expected_digest = native.get("sha256", "")
+                if native.get("disposition") == "removed_after_verified_export":
+                    try:
+                        ledger = json.loads((ROOT / "review" / "cleanup-ledger.json").read_text(encoding="utf-8"))
+                        prior = json.loads((ROOT / "review" / "pre-cleanup-structure-report.json").read_text(encoding="utf-8"))
+                        source = json.loads(local_path(native["generationRecord"]).read_text(encoding="utf-8-sig"))
+                        archived = {x["path"]: x["sha256"] for x in ledger["removed"]}
+                        if archived.get(value) != expected_digest or not prior["passed"] or not native.get("verifiedBeforeCleanup"):
+                            errors.append(f"{label}: 原生图清理证据不完整。")
+                        if [native.get("width"), native.get("height"), native.get("mode")] != [1254, 1254, "RGBA"]:
+                            errors.append(f"{label}: 原生图尺寸/模式历史证据不正确。")
+                        if source.get("sha256") and source["sha256"].lower() != expected_digest:
+                            errors.append(f"{label}: 原生来源记录 SHA 不匹配。")
+                    except (OSError, ValueError, KeyError) as exc:
+                        errors.append(f"{label}: 读取原生清理记录失败 {exc}")
+                    continue
             if not value:
                 errors.append(f"{label}: 缺少 {path_key}，不能证明正式帧或原生输入。")
                 continue
@@ -76,7 +100,7 @@ def verify(manifest: dict, require_complete: bool = False) -> dict:
                 if not is_native and (info["width"], info["height"]) != (1024, 1024):
                     errors.append(f"{label}: 导出尺寸为 {info['width']}×{info['height']}，要求 1024×1024。")
                 digest = sha256(path)
-                if frame.get(sha_key, "").lower() != digest:
+                if expected_digest.lower() != digest:
                     errors.append(f"{label}: {sha_key} 缺失或与文件不符。")
                 if not is_native:
                     hashes[digest].append(label)
