@@ -1,0 +1,1549 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-03T13:32:35.097Z",
+  "reviewer": "independent subagent audit_hands_feet",
+  "scope": "N/NE/W current selected-new native sources at audit start; all 48 contact tiles and specified native suspects",
+  "visualMode": "static only; no browser/video playback claimed",
+  "artApproved": false,
+  "sequenceVisualApproved": false,
+  "clientIntegrated": false,
+  "selectionChanged": false,
+  "manifestChanged": false,
+  "method": [
+    "实看三个16帧完整拼图，逐项检查肢体数、持葫芦手、前后半圈承重腿、明显部位尺度跳档。",
+    "疑点回到1254原生图比头发横宽、耳距、发带、背心和葫芦，不用总高度或几像素脚差替代视觉判断。",
+    "拼图→导出帧→原生SHA来源链48项一致。原生只读测量，没有裁切、重排、单帧配准或缩放。"
+  ],
+  "nativeInspected": [
+    "generation/run/N/01-v4.png",
+    "generation/run/N/05-v1.png",
+    "generation/run/N/06-v3.png",
+    "generation/run/N/07-v1.png",
+    "generation/run/N/12-v2.png",
+    "generation/run/N/13-v1.png",
+    "generation/run/N/14-v1.png",
+    "generation/run/N/15-v1.png",
+    "generation/run/NE/01-v1.png",
+    "generation/run/NE/03-v2.png",
+    "generation/run/NE/04-v3.png",
+    "generation/run/NE/05-v5.png",
+    "generation/run/W/01-v2.png",
+    "generation/run/W/15-v1.png",
+    "generation/run/W/16-v2.png",
+    "generation/run/W/16-v3.png",
+    "generation/run/N/06-v4.png",
+    "generation/run/N/06-v5.png",
+    "generation/run/N/12-v3.png",
+    "generation/run/NE/04-v4.png",
+    "generation/run/NE/04-v5.png",
+    "generation/run/NE/04-v6.png",
+    "generation/run/W/16-v4.png"
+  ],
+  "conclusions": {
+    "noConfirmedExtraLimbs": true,
+    "noConfirmedGourdHandSwap": true,
+    "supportAlternation": "N/NE静态前后半圈交替可辨；W严格侧面腿有重叠，未定位确定不交替的硬错，但不能只凭拼图批准整圈。",
+    "preferred": [
+      "generation/run/N/06-v5.png",
+      "generation/run/NE/04-v6.png",
+      "generation/run/W/16-v4.png"
+    ],
+    "conditional": [
+      "generation/run/N/12-v3.png"
+    ],
+    "remaining": "N14-v1/N15-v1后脑、发带耳距仍较N05/07/新06v5宽；N13居中，N12新稿与13更接近。N整组尺度不能标通过。"
+  },
+  "findings": [
+    {
+      "id": "N06-scale",
+      "direction": "N",
+      "frames": [
+        6
+      ],
+      "sources": [
+        {
+          "source": "generation/run/N/06-v3.png",
+          "sha256": "753e98da814201206b36d949cbf47e66e9f4c021e4fe1a67eadd4e19be143bc9"
+        }
+      ],
+      "severity": "confirmed_hard_error_original",
+      "reason": "原06-v3后脑横宽、耳距、发带及上背同步明显大于05/07，不是腾空头高造成。",
+      "suggestion": "06-v5可供总控合入；06-v4仍偏大。"
+    },
+    {
+      "id": "N12-scale",
+      "direction": "N",
+      "frames": [
+        12
+      ],
+      "sources": [
+        {
+          "source": "generation/run/N/12-v2.png",
+          "sha256": "7e4a36249811f81d11f0ebf1b8db913ea2a9a71357df962acaac970cb3c604bb"
+        }
+      ],
+      "severity": "confirmed_hard_error_original_partial_repair",
+      "reason": "12-v2头背、葫芦相对前半圈偏大；12-v3与13更接近，但尾段仍需统一尺度复核。",
+      "suggestion": "12-v3仅条件候选；若还需修应以05/07正确尺寸为底，仅借12的腿臂相位，不继续用大头12底口头缩小。"
+    },
+    {
+      "id": "NE04-scale",
+      "direction": "NE",
+      "frames": [
+        4
+      ],
+      "sources": [
+        {
+          "source": "generation/run/NE/04-v3.png",
+          "sha256": "a7c99aca12056160206542fb2b5f4057cfe3945a21ceb06400a1967bcd018be0"
+        }
+      ],
+      "severity": "confirmed_hard_error_original",
+      "reason": "04-v3后脑、耳和发带同时大于03-v2/05-v5，超过合理抬头高度变化。",
+      "suggestion": "04-v6静态优于旧稿；拒04-v4交换腿、04-v5头过小。"
+    },
+    {
+      "id": "W16-scale",
+      "direction": "W",
+      "frames": [
+        16
+      ],
+      "sources": [
+        {
+          "source": "generation/run/W/16-v2.png",
+          "sha256": "513208f0d7d85bf2197a01bcc2b8eeaae41150a5c419d932e26d1a705999b24c"
+        }
+      ],
+      "severity": "confirmed_hard_error_original",
+      "reason": "16-v2头脸、眼耳和葫芦比15/01明显偏小，16→01发生部位尺寸跳档；既有16-v3则过大。",
+      "suggestion": "16-v4以01-v2母版纠正；动态仍验证近地脚与01着地衔接。"
+    },
+    {
+      "id": "N-tail-scale",
+      "direction": "N",
+      "frames": [
+        14,
+        15
+      ],
+      "sources": [
+        {
+          "source": "generation/run/N/14-v1.png",
+          "sha256": "39afae3eb19be47d17e76c08f2ebf9d5f18e9f7b1f5487d3e43cbddacc7880dc"
+        },
+        {
+          "source": "generation/run/N/15-v1.png",
+          "sha256": "ee95ee4cd431da3ac71b914ca432f389a974e91c13f30dee1a11a41d5bc76f7b"
+        }
+      ],
+      "severity": "remaining_static_scale_concern",
+      "reason": "14/15后脑横宽、发带耳距仍比05/07宽一档，不能仅用头顶高度解释；13介于两组。",
+      "suggestion": "暂未扩修，交总控复核相邻尺度；若确需改，用05/07固定部位尺寸，仅移植14/15腿臂。"
+    }
+  ],
+  "snapshot": [
+    {
+      "source": "generation/run/N/01-v4.png",
+      "sha256": "9e468dfad7ebc8d29dd448e71a66f2ef52c297cc591d0cc13a6dbde5f3d732f4",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        97,
+        57,
+        1138,
+        1214
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "N",
+      "frame": 1
+    },
+    {
+      "source": "generation/run/N/02-v1.png",
+      "sha256": "32881e14b1ee57c2ff95f31c215fa0d9f77af85964812223f43b9e6991efb5ca",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        39,
+        21,
+        1230,
+        1226
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "N",
+      "frame": 2
+    },
+    {
+      "source": "generation/run/N/03-v2.png",
+      "sha256": "d039b572386bbc6334414058ef1cc297db971a14aaf4e1c8f59b9c0d4b7df9ef",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        41,
+        21,
+        1214,
+        1214
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "N",
+      "frame": 3
+    },
+    {
+      "source": "generation/run/N/04-v1.png",
+      "sha256": "11def6aa6cffb199508ed0aad230d945a569fb4c7ab2de4755cb47961ad55f4b",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        19,
+        21,
+        1214,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "N",
+      "frame": 4
+    },
+    {
+      "source": "generation/run/N/05-v1.png",
+      "sha256": "6a202bf74cf0bf608d9fc37dcf0674c2c7c1ea08b3df267ede6c5676670d9a11",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        41,
+        21,
+        1210,
+        1246
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "N",
+      "frame": 5
+    },
+    {
+      "source": "generation/run/N/06-v3.png",
+      "sha256": "753e98da814201206b36d949cbf47e66e9f4c021e4fe1a67eadd4e19be143bc9",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        31,
+        21,
+        1210,
+        1216
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "N",
+      "frame": 6
+    },
+    {
+      "source": "generation/run/N/07-v1.png",
+      "sha256": "5e7e7423b20c313e8740a50556ce74d69e2cabd6c1e23448889688ebf3e4684a",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        65,
+        57,
+        1194,
+        1214
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "N",
+      "frame": 7
+    },
+    {
+      "source": "generation/run/N/08-v1.png",
+      "sha256": "b4a015f07055cd89b376f60e90a5ab9514634b6f140370453f461afc65718f92",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        41,
+        21,
+        1214,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "N",
+      "frame": 8
+    },
+    {
+      "source": "generation/run/N/09-v1.png",
+      "sha256": "04faa163497b751410884cd5665f6c07ddc530806be81f400545138d2f1af878",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        41,
+        21,
+        1196,
+        1182
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "N",
+      "frame": 9
+    },
+    {
+      "source": "generation/run/N/10-v1.png",
+      "sha256": "a9b721450ea7475accf481928dd91922cd8162d46964d20ff9ed8dc34cd25b36",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        19,
+        29,
+        1196,
+        1161
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "N",
+      "frame": 10
+    },
+    {
+      "source": "generation/run/N/03-v1.png",
+      "sha256": "147b6fc945e4c9a37a2b51bc5f276ec65b0a6cd142de1a3c84182b6b373a27aa",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        91,
+        21,
+        1218,
+        1182
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "N",
+      "frame": 11
+    },
+    {
+      "source": "generation/run/N/12-v2.png",
+      "sha256": "7e4a36249811f81d11f0ebf1b8db913ea2a9a71357df962acaac970cb3c604bb",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        0,
+        21,
+        1196,
+        1206
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "N",
+      "frame": 12
+    },
+    {
+      "source": "generation/run/N/13-v1.png",
+      "sha256": "a64cb46d9a45aa3a8c6e2ac82f54c5db63351e1f9215ead58a8970c8fd3643b4",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        23,
+        21,
+        1218,
+        1214
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "N",
+      "frame": 13
+    },
+    {
+      "source": "generation/run/N/14-v1.png",
+      "sha256": "39afae3eb19be47d17e76c08f2ebf9d5f18e9f7b1f5487d3e43cbddacc7880dc",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        2,
+        0,
+        1134,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "N",
+      "frame": 14
+    },
+    {
+      "source": "generation/run/N/15-v1.png",
+      "sha256": "ee95ee4cd431da3ac71b914ca432f389a974e91c13f30dee1a11a41d5bc76f7b",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        0,
+        21,
+        1214,
+        1214
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "N",
+      "frame": 15
+    },
+    {
+      "source": "generation/run/N/16-v1.png",
+      "sha256": "f3b6abd01afe21b6843ce94a7cf2ba5e4e0e1936e0adcd6d3d5d9fcbf3fb5aa7",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        55,
+        21,
+        1194,
+        1198
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "N",
+      "frame": 16
+    },
+    {
+      "source": "generation/run/NE/01-v1.png",
+      "sha256": "941354667a8d548d54b4b1d129d173adc6aed5e2991c4d7c6346e091ced95ce4",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        33,
+        21,
+        1199,
+        1230
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "NE",
+      "frame": 1
+    },
+    {
+      "source": "generation/run/NE/02-v2.png",
+      "sha256": "1d1ab85153630fd7040751a8282d4bb0ab7ad636f1946c0759237bf4b8eae399",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        97,
+        242,
+        1214,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "NE",
+      "frame": 2
+    },
+    {
+      "source": "generation/run/NE/03-v2.png",
+      "sha256": "7786eff4d70862f72bd397f0120dcd82a22f98b6fec54ada14950e44ef645880",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        59,
+        21,
+        1196,
+        1236
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "NE",
+      "frame": 3
+    },
+    {
+      "source": "generation/run/NE/04-v3.png",
+      "sha256": "a7c99aca12056160206542fb2b5f4057cfe3945a21ceb06400a1967bcd018be0",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        23,
+        9,
+        1218,
+        1212
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "NE",
+      "frame": 4
+    },
+    {
+      "source": "generation/run/NE/05-v5.png",
+      "sha256": "18fab2338f7501c61b130d7bc81132b6cb6330db56d69ed0ed86c8e24efce2bd",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        49,
+        50,
+        1230,
+        1222
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "NE",
+      "frame": 5
+    },
+    {
+      "source": "generation/run/NE/06-v1.png",
+      "sha256": "3845c1bf733fad7dabdf14424965c5fee50faad827ab68fce8d3098ca8734f4d",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        61,
+        20,
+        1214,
+        1210
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "NE",
+      "frame": 6
+    },
+    {
+      "source": "generation/run/NE/07-v1.png",
+      "sha256": "498246e33908bac436522ca33e1bf0ff65c11b9ed800322353efb427e504271d",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        97,
+        21,
+        1210,
+        1206
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "NE",
+      "frame": 7
+    },
+    {
+      "source": "generation/run/NE/08-v2.png",
+      "sha256": "5d364bbe6558915b44539d5d16f5d1ca5f5d019b1f6179e83df42cd3eca7e324",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        39,
+        21,
+        1200,
+        1230
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "NE",
+      "frame": 8
+    },
+    {
+      "source": "generation/run/NE/09-v5.png",
+      "sha256": "2678ab91e10c898f434ae2dfc7ec5bf672ba1477a30e6a80842e7904b363276e",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        35,
+        21,
+        1210,
+        1180
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "NE",
+      "frame": 9
+    },
+    {
+      "source": "generation/run/NE/10-v2.png",
+      "sha256": "8c76259d4bd6110946f8ef7387149a8da79ada581276747f6a286d7dd2eabbb3",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        97,
+        50,
+        1059,
+        1206
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "NE",
+      "frame": 10
+    },
+    {
+      "source": "generation/run/NE/11-v1.png",
+      "sha256": "883a5d6fe0dc3e43d5cdf1805b069e7c90901838c75cb68f29ae76458ee51517",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        97,
+        53,
+        1210,
+        1182
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "NE",
+      "frame": 11
+    },
+    {
+      "source": "generation/run/NE/12-v2.png",
+      "sha256": "46ad2e608523fa26049f42d35a10ac7a0bdf461ac67b48918ceef655ad875e48",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        97,
+        21,
+        1210,
+        1214
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "NE",
+      "frame": 12
+    },
+    {
+      "source": "generation/run/NE/13-v3.png",
+      "sha256": "b18c96830643e493fbf9200753c33cdcf14f11a57407ec29903291aa865c0599",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        45,
+        21,
+        1218,
+        1206
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "NE",
+      "frame": 13
+    },
+    {
+      "source": "generation/run/NE/14-v1.png",
+      "sha256": "14b1059ab455218f11d8552db3cc0b46c7f48dcac41b0f4b1891091394ddca00",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        97,
+        51,
+        1210,
+        1236
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "NE",
+      "frame": 14
+    },
+    {
+      "source": "generation/run/NE/15-v1.png",
+      "sha256": "938f9a4f3e6d6cf72c400de53657712c4c0c63f37acc53fac99b2cc4fcf5e133",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        39,
+        21,
+        1218,
+        1228
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "NE",
+      "frame": 15
+    },
+    {
+      "source": "generation/run/NE/16-v1.png",
+      "sha256": "6596181262a27fbcac58271eb6be8781b22f511b37f69ac96769b41d2c41da5e",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        119,
+        21,
+        1210,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "NE",
+      "frame": 16
+    },
+    {
+      "source": "generation/run/W/01-v2.png",
+      "sha256": "bd51a4f441a0c99e8a797ae894726e8c36ee3075f3560dffe7d6d1b3fded44bc",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        41,
+        21,
+        1210,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "W",
+      "frame": 1
+    },
+    {
+      "source": "generation/run/W/02-v2.png",
+      "sha256": "1e943a2e776973353e85d3268a86fb0af450566d61d725ac24c5aa9c6eab6a3c",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        97,
+        21,
+        1210,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "W",
+      "frame": 2
+    },
+    {
+      "source": "generation/run/W/03-v3.png",
+      "sha256": "d7f52551af55ed1ebb54c763a44919c8e5c91743e8f3b5bbcd49ce5a2599c4a4",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        49,
+        21,
+        1198,
+        1222
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "W",
+      "frame": 3
+    },
+    {
+      "source": "generation/run/W/04-v4.png",
+      "sha256": "ea82c5029fae51b94cc6019630c6cf5e4fbcfb3bb3d757b17554fbdf1c08665b",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        19,
+        33,
+        1168,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "W",
+      "frame": 4
+    },
+    {
+      "source": "generation/run/W/05-v2.png",
+      "sha256": "f72181d94a683b2c44c86a89f5999093fac43ea7202c11730c5ad750567fc8c8",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        59,
+        6,
+        1218,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "W",
+      "frame": 5
+    },
+    {
+      "source": "generation/run/W/06-v2.png",
+      "sha256": "01b574de0acc100aff4e731773db3c930a2679f1c9c1241c6c877db329babb3d",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        97,
+        212,
+        1190,
+        1198
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "W",
+      "frame": 6
+    },
+    {
+      "source": "generation/run/W/07-v2.png",
+      "sha256": "70db3ce3b76ab3387acb439d2173ccbf8ec795c12f56c12539548e01af7dfd9c",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        67,
+        21,
+        1216,
+        1222
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "W",
+      "frame": 7
+    },
+    {
+      "source": "generation/run/W/08-v2.png",
+      "sha256": "c6e920e5940d2b9caf6f4d3f0b89a127e9a24865002363b60a1d281c749d5b5a",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        73,
+        21,
+        1134,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "W",
+      "frame": 8
+    },
+    {
+      "source": "generation/run/W/09-v2.png",
+      "sha256": "153fe777b64e11bd44ce3dc28dffc0c932d6993f81952ef3a1844dabc35b8b7b",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        49,
+        21,
+        1226,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "W",
+      "frame": 9
+    },
+    {
+      "source": "generation/run/W/10-v2.png",
+      "sha256": "108004a107cd5751e8a5491dd89bcba4f1434eb24611b921513bb15feaf69c52",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        41,
+        40,
+        1210,
+        1214
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "W",
+      "frame": 10
+    },
+    {
+      "source": "generation/run/W/11-v1.png",
+      "sha256": "bce754b820365b04c8ce07e54985fde3bedbb9a7758ac55735fd3f1691ee13d7",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        97,
+        48,
+        1214,
+        1206
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "W",
+      "frame": 11
+    },
+    {
+      "source": "generation/run/W/12-v3.png",
+      "sha256": "90a39e98177ff8ebf5e4878bf3c87cab9c71d95ca1e5937f0fdd568a965807b2",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        41,
+        5,
+        1226,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "W",
+      "frame": 12
+    },
+    {
+      "source": "generation/run/W/13-v2.png",
+      "sha256": "40c94564c5044986e3f99843eea8e4fcc4e17de8a042aae6b7a972bbf01cd845",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        89,
+        51,
+        1172,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "W",
+      "frame": 13
+    },
+    {
+      "source": "generation/run/W/14-v2.png",
+      "sha256": "53e2fc3c733edfbde375b129c57bfb4d5880cec755f325161e79ca0aa8db73a3",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        105,
+        50,
+        1059,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "W",
+      "frame": 14
+    },
+    {
+      "source": "generation/run/W/15-v1.png",
+      "sha256": "75d58cdfc3b849225bfcb1cce95650795c791e893e111f79baaa65e88b3371e6",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        89,
+        21,
+        1210,
+        1230
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "W",
+      "frame": 15
+    },
+    {
+      "source": "generation/run/W/16-v2.png",
+      "sha256": "513208f0d7d85bf2197a01bcc2b8eeaae41150a5c419d932e26d1a705999b24c",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        19,
+        51,
+        1210,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "direction": "W",
+      "frame": 16
+    }
+  ],
+  "contactChecks": [
+    {
+      "direction": "N",
+      "source": "review/animations/run-N-contact.png",
+      "sha256": "c108b02fbf9982c99f1c96a23beb4e98053da632d684e933577a5bc520178d8d",
+      "issues": []
+    },
+    {
+      "direction": "NE",
+      "source": "review/animations/run-NE-contact.png",
+      "sha256": "bd52a3b7fef57ebdd02eb8d097e5ef9be47e281f97623c53dfaad5924aea811f",
+      "issues": []
+    },
+    {
+      "direction": "W",
+      "source": "review/animations/run-W-contact.png",
+      "sha256": "6259dc75af3ecd7d3adf5993021d9ff42957595caae23302d3671e84cf63dc2b",
+      "issues": []
+    }
+  ],
+  "attempts": [
+    {
+      "source": "generation/run/N/06-v4.png",
+      "sha256": "b11d05c37294e755024bf5989a8a90460cbedf1a9eadf6563deb245a61b4ac43",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        0,
+        21,
+        1218,
+        1212
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "generationRecord": "generation/run/N/06-v4.png.generation.json",
+      "request": "generation/run/N/06-v4.request.json",
+      "receipt": "generation/run/N/06-v4.receipt.json",
+      "references": [
+        "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/00_reference_topright_boy/generation/run/N/05-v1.png",
+        "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/00_reference_topright_boy/generation/run/N/06-v3.png",
+        "D:/work/image/designs/jubaozhai-ui/02-characters.png"
+      ],
+      "actualModel": null,
+      "actualQuality": null,
+      "provenanceIssues": [],
+      "reviewStatus": "rejected_scale_drift",
+      "observation": "虽略减小，后脑、发带、耳距仍明显宽于05/07，不能当作尺度修复完成。",
+      "alphaThresholdBounds": {
+        "32": [
+          200,
+          80,
+          970,
+          1129
+        ],
+        "128": [
+          201,
+          82,
+          969,
+          1129
+        ],
+        "224": [
+          204,
+          83,
+          969,
+          1128
+        ]
+      }
+    },
+    {
+      "source": "generation/run/N/06-v5.png",
+      "sha256": "553be0ef3d9520c4bda300b90b66cd0a3386aabb37d978f4d31d03b8501075a1",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        96,
+        23,
+        1210,
+        1214
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "generationRecord": "generation/run/N/06-v5.png.generation.json",
+      "request": "generation/run/N/06-v5.request.json",
+      "receipt": "generation/run/N/06-v5.receipt.json",
+      "references": [
+        "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/00_reference_topright_boy/generation/run/N/05-v1.png",
+        "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/00_reference_topright_boy/generation/run/N/07-v1.png",
+        "D:/work/image/designs/jubaozhai-ui/02-characters.png"
+      ],
+      "actualModel": null,
+      "actualQuality": null,
+      "provenanceIssues": [],
+      "reviewStatus": "preferred_static_candidate",
+      "observation": "仅用05/07正确尺度图；头背、葫芦与05/07相合，右鞋底后翻、左脚跟离地，双脚腾空可读。屈腿导致人物总高变短，不据总包围盒误判整体缩小。",
+      "alphaThresholdBounds": {
+        "32": [
+          250,
+          85,
+          940,
+          1021
+        ],
+        "128": [
+          250,
+          86,
+          939,
+          1020
+        ],
+        "224": [
+          252,
+          87,
+          939,
+          1019
+        ]
+      }
+    },
+    {
+      "source": "generation/run/N/12-v3.png",
+      "sha256": "d58e7e8d6e2681b28a8001ad743cef23a2dd58ccdc82d2d3a7f74a98d9d53d1a",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        19,
+        55,
+        1199,
+        1230
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "generationRecord": "generation/run/N/12-v3.png.generation.json",
+      "request": "generation/run/N/12-v3.request.json",
+      "receipt": "generation/run/N/12-v3.receipt.json",
+      "references": [
+        "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/00_reference_topright_boy/generation/run/N/13-v1.png",
+        "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/00_reference_topright_boy/generation/run/N/12-v2.png",
+        "D:/work/image/designs/jubaozhai-ui/02-characters.png"
+      ],
+      "actualModel": null,
+      "actualQuality": null,
+      "provenanceIssues": [],
+      "reviewStatus": "conditional_candidate_tail_scale_unresolved",
+      "observation": "后脑和背心更接近13-v1，较12-v2改善；左鞋后伸、右脚前收。13–15尾段仍比05/07宽，不能声称全N组尺度已一致；接地临界和12→13需播放复核。",
+      "alphaThresholdBounds": {
+        "32": [
+          191,
+          76,
+          1030,
+          1194
+        ],
+        "128": [
+          192,
+          77,
+          1030,
+          1193
+        ],
+        "224": [
+          193,
+          78,
+          1029,
+          1192
+        ]
+      }
+    },
+    {
+      "source": "generation/run/NE/04-v4.png",
+      "sha256": "5722997ec066e09f0b76cf326c36acd79dd6f840711662aacd2099d961a230b7",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        91,
+        21,
+        1210,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "generationRecord": "generation/run/NE/04-v4.png.generation.json",
+      "request": "generation/run/NE/04-v4.request.json",
+      "receipt": "generation/run/NE/04-v4.receipt.json",
+      "references": [
+        "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/00_reference_topright_boy/generation/run/NE/03-v2.png",
+        "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/00_reference_topright_boy/generation/run/NE/04-v3.png",
+        "D:/work/image/designs/jubaozhai-ui/02-characters.png"
+      ],
+      "actualModel": null,
+      "actualQuality": null,
+      "provenanceIssues": [],
+      "reviewStatus": "rejected_leg_swap_and_scale",
+      "observation": "最低后蹬鞋移到画面左，左右腿身份交换；头部仍偏大。",
+      "alphaThresholdBounds": {
+        "32": [
+          289,
+          164,
+          964,
+          1171
+        ],
+        "128": [
+          290,
+          165,
+          964,
+          1170
+        ],
+        "224": [
+          291,
+          166,
+          963,
+          1169
+        ]
+      }
+    },
+    {
+      "source": "generation/run/NE/04-v5.png",
+      "sha256": "d686ba5fc82e5863d3915a77782219bedae2b8512e4c3061f5a5fa9bb36ac743",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        43,
+        21,
+        1232,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "generationRecord": "generation/run/NE/04-v5.png.generation.json",
+      "request": "generation/run/NE/04-v5.request.json",
+      "receipt": "generation/run/NE/04-v5.receipt.json",
+      "references": [
+        "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/00_reference_topright_boy/generation/run/NE/04-v3.png",
+        "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/00_reference_topright_boy/generation/run/NE/03-v2.png",
+        "D:/work/image/designs/jubaozhai-ui/02-characters.png"
+      ],
+      "actualModel": null,
+      "actualQuality": null,
+      "provenanceIssues": [],
+      "reviewStatus": "rejected_undersized_head",
+      "observation": "保住原腿位但头缩小过度，上半身也发生上移；不采纳。",
+      "alphaThresholdBounds": {
+        "32": [
+          274,
+          217,
+          960,
+          1157
+        ],
+        "128": [
+          275,
+          217,
+          959,
+          1157
+        ],
+        "224": [
+          275,
+          218,
+          958,
+          1156
+        ]
+      }
+    },
+    {
+      "source": "generation/run/NE/04-v6.png",
+      "sha256": "1b33a0019f1a4d5f6695f1cee3f3b9b3cd0701955b004dad2d8948cb8be3166b",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        97,
+        21,
+        1210,
+        1204
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "generationRecord": "generation/run/NE/04-v6.png.generation.json",
+      "request": "generation/run/NE/04-v6.request.json",
+      "receipt": "generation/run/NE/04-v6.receipt.json",
+      "references": [
+        "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/00_reference_topright_boy/generation/run/NE/03-v2.png",
+        "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/00_reference_topright_boy/generation/run/NE/05-v5.png",
+        "D:/work/image/designs/jubaozhai-ui/02-characters.png"
+      ],
+      "actualModel": null,
+      "actualQuality": null,
+      "provenanceIssues": [],
+      "reviewStatus": "preferred_static_candidate",
+      "observation": "用03-v2主底、05-v5相邻姿态；头背、耳部和葫芦接近05-v5正确尺寸，画面右的右鞋后伸蹬离，画面左的左膝前提，右空手向前摆。前掌接触/离地临界仍待动态。",
+      "alphaThresholdBounds": {
+        "32": [
+          312,
+          191,
+          938,
+          1157
+        ],
+        "128": [
+          312,
+          192,
+          937,
+          1157
+        ],
+        "224": [
+          313,
+          193,
+          936,
+          1156
+        ]
+      }
+    },
+    {
+      "source": "generation/run/W/16-v4.png",
+      "sha256": "7697e2da0a40701e11b2d15712e1b9d897fbe04cce3b46c44de409db60ad337c",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        89,
+        21,
+        1218,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "generationRecord": "generation/run/W/16-v4.png.generation.json",
+      "request": "generation/run/W/16-v4.request.json",
+      "receipt": "generation/run/W/16-v4.receipt.json",
+      "references": [
+        "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/00_reference_topright_boy/generation/run/W/01-v2.png",
+        "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/00_reference_topright_boy/generation/run/W/16-v2.png",
+        "D:/work/image/designs/jubaozhai-ui/02-characters.png"
+      ],
+      "actualModel": null,
+      "actualQuality": null,
+      "provenanceIssues": [],
+      "reviewStatus": "preferred_static_candidate",
+      "observation": "用01-v2固定头脸、眼耳和葫芦尺寸，修复旧16-v2明显偏小，保持前脚向前、后腿后收及空右臂反摆。16→01实际落地可读性仍待播放；不把近地几像素诊断冒充动态通过。",
+      "alphaThresholdBounds": {
+        "32": [
+          303,
+          170,
+          1005,
+          1171
+        ],
+        "128": [
+          303,
+          171,
+          1005,
+          1170
+        ],
+        "224": [
+          304,
+          172,
+          1004,
+          1169
+        ]
+      }
+    }
+  ],
+  "provenanceSummary": {
+    "newNativePNGs": 7,
+    "verifiedByteIdenticalHostCopies": 7,
+    "all1254RGBA": true,
+    "allRequestReceiptPromptReferenceChecksPassed": true,
+    "actualModel": null,
+    "actualQuality": null,
+    "reason": "builtin无型号/质量选择器，回执未披露；配置目标不作为实际值。"
+  },
+  "diagnosticNote": "alphaBounds包含极淡散点；alphaThresholdBounds仅只读诊断。无任何图像后处理。"
+}

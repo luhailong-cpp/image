@@ -1,0 +1,98 @@
+{
+  "character": "00_reference_topright_boy",
+  "reviewed_at": "2026-10-02T09:49:12.736703-04:00",
+  "timezone": "America/New_York",
+  "review_type": "independent_static_native_canvas_visual_review",
+  "subject": {
+    "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\00_reference_topright_boy\\generation\\run\\E\\01-v5.png",
+    "sha256": "0335d08d84cd367c85a43fb72dd69980a45befd970d9ab1de1a1758a315b4dc6",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      0,
+      255
+    ],
+    "alpha128_bbox_diagnostic_only": [
+      308,
+      170,
+      911,
+      1152
+    ]
+  },
+  "reference": {
+    "path": "D:/work/image/qdao_original_roster_v14_hd/combat-20260929/characters/00_reference_topright_boy/staging/cast-E-01-v1.png",
+    "sha256": "d4cb208d2478166aface9ce4066207e1b5687bd9a45d2d6fe058091fd0bca7f9",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha128_bbox_diagnostic_only": [
+      386,
+      181,
+      880,
+      1163
+    ]
+  },
+  "method": {
+    "actually_viewed": [
+      "run/E/01-v5.png",
+      "combat/cast-E-01-v1.png"
+    ],
+    "tool": "view_image original",
+    "same_full_canvas_scale": true,
+    "pixel_perfect_matching_required": false,
+    "png_modified": false,
+    "export_script_modified": false,
+    "dynamic_viewed": false
+  },
+  "decision": "usable_candidate_baseline_continue_next_keyframe",
+  "can_continue_production": true,
+  "blocking_static_findings": [],
+  "findings": [
+    {
+      "area": "全局比例",
+      "severity": "nonblocking_review_with_sequence",
+      "observation": "头发、脸颊、眼耳、葫芦和身体已明显接近cast E01的尺度；原E01-v4那种大头/大脸跨动作跳档基本消除。仍有少量头发蓬松度、下颌与脸宽绘制差异，但未见必须再次重画才可继续的证据。",
+      "decision": "沿用v5作为下一关键姿态的实际参考，仍同时附cast E01比例母版。"
+    },
+    {
+      "area": "手臂/持物",
+      "severity": "no_static_blocker_observed",
+      "observation": "近侧右臂向后摆、拳形与袖口连通；左手在远侧托抱葫芦，指腹可读，没有换手、额外手或手穿物。",
+      "decision": "可继续；肘轨迹及持物连续性由相邻帧检验。"
+    },
+    {
+      "area": "腿膝/鞋",
+      "severity": "nonblocking_review_with_sequence",
+      "observation": "前后腿和两鞋分离，近腿前伸、后腿屈曲，没有观察到反折膝踝或断腿。前膝略屈、前鞋接近水平；更像将要落地或较轻的接触姿态，不能单帧宣布支撑已成立。",
+      "decision": "继续接触/压缩相邻帧，整段观察膝踝弯曲和落脚，不把前鞋单独拉长或贴地。"
+    },
+    {
+      "area": "地面/根锚",
+      "severity": "nonblocking_review_with_sequence",
+      "observation": "alpha128排他下边界1152，比cast E01的1163高11原生像素；当前统一901/1254映射差约7.9输出像素。该差异须结合实际鞋底、相位及下一帧判断，不能直接当配准错误。",
+      "decision": "维持统一画布变换；如果后续显示本帧必须稳定接触且确有脚滑，再定向修正，不现在逐帧最低像素贴地。"
+    },
+    {
+      "area": "红穗/配饰",
+      "severity": "not_a_new_frame_blocker",
+      "observation": "cast E01母版本来不显示葫芦红穗；v5沿用金珠、绿穗等可见配置。不能把从既定母版继承的无红穗自动认定为v5新丢失。",
+      "decision": "不因红穗单独重试本帧；最终全角色配饰口径在跨动作整体审核中统一，不在单张随意补配件。"
+    }
+  ],
+  "next_step": "保留E01-v5，继续下一关键帧/接触压缩相位；v5和cast E01同时作为实际参考，锁定同一原画布、脸部尺度、持物侧与固定根坐标，不复制或形变凑帧。",
+  "pending": [
+    "完整跑步16帧的左右腿交替与反向摆臂",
+    "相邻接触、压缩、蹬地、腾空及首尾衔接",
+    "跨动作头脸/服装/配饰连续性",
+    "统一根锚与地面、透明边缘全帧复核",
+    "最终动态美术及客户端验收"
+  ],
+  "final_art_approved": false,
+  "dynamic_approved": false,
+  "runtime_approved": false,
+  "previous_audit_scope": "scale-audit.json中run/E01否决针对01-v4及对应SHA；本次仅对新01-v5重新判断，不改写旧稿历史结论。"
+}
