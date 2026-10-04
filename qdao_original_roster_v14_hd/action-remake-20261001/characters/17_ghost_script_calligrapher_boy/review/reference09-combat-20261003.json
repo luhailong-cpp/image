@@ -1,0 +1,98 @@
+{
+  "character": "17_ghost_script_calligrapher_boy",
+  "reviewedAt": "2026-10-04T01:56:17.593Z",
+  "referenceCharacter": "09_bamboo_archer_girl",
+  "scope": "Read-only comparison of09current E/W hit12 attack24 cast32runtime images against17current68explicit combat selections. No frame edits or selection changes.",
+  "authority": "The user's latest explicit acceptance of09as correct overrides older09needs_review visual labels for use as an action reference. It does not establish client integration, client timing or client acceptance.",
+  "inputs": "review/reference09-combat-input-evidence.json",
+  "referenceManifestVerified": {
+    "runtimeFilesInspected": 68,
+    "manifestHashMismatches": 0
+  },
+  "timing": {
+    "hit": {
+      "frameMs": 40,
+      "cycleMs": 240
+    },
+    "attack": {
+      "frameMs": 30,
+      "cycleMs": 360
+    },
+    "cast": {
+      "frameMs": 45,
+      "cycleMs": 720
+    },
+    "combatTimingChanged": false,
+    "runCurrentUserSettingFor17": {
+      "frameMs": 75,
+      "cycleMs": 1200
+    },
+    "reference09RunTimingIsSourceMetadataOnly": true
+  },
+  "client": {
+    "reference09": "not_integrated / not_tested",
+    "character17": "not_integrated / not_tested",
+    "clientAcceptanceClaimed": false
+  },
+  "inspection": {
+    "contactSheets": [
+      "review/reference09-combat-hit.png",
+      "review/reference09-combat-attack.png",
+      "review/reference09-combat-cast.png"
+    ],
+    "nativeViews": [
+      "09 runtime/hit/E/03.png",
+      "09 runtime/attack/E/06.png",
+      "09 runtime/cast/W/09.png",
+      "17 staging/cast-E-10-v3.png"
+    ],
+    "method": "Wholecanvas static comparisons; no bow pose or character appearance transferred to17."
+  },
+  "conclusion": {
+    "newConfirmedFootAxisHardErrors": 0,
+    "newConfirmedHandGripHardErrors": 0,
+    "existingStandalonePropHardError": "cast-E-10-v3 detached shoulder brush tassel remains",
+    "blanketLimbRedrawJustified": false
+  },
+  "castE10": {
+    "slot": "cast-E-10",
+    "key": "17-cast-E-10-v3",
+    "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-10-v3.png",
+    "sha256": "9a3859d19f7f8f480671e77ca76691d34f412878a241242c86ff6ead2d64264f",
+    "status": "confirmed_independent_hard_prop_defect",
+    "finding": "大青穗的珠链起点在后肩/后领附近，而真实握笔手在前上方；笔尾没有与该链形成物理连续连接。不是衣袖遮挡能解释的相接，也不是自然握持差异。此项独立于脚轴和手指，09参照不会使其变正确。",
+    "history": "v4/v5修穗已在先前记录为失败，本次不重新生成、不改变v3当前待修选择。"
+  },
+  "realDifferences": [
+    {
+      "item": "支撑稳定性与恢复节奏",
+      "reference09": "09受击E脚底保持较紧凑连续的支撑带，膝部屈伸承担反应；普攻/施法张弓时逐步扩站，释放后逐步收回。",
+      "character17": "17许多独立脚轴本身仍正确，但hit-W05→06、cast-W13→14的收腿较集中，需按同一根点连播核对是否滑移；这是既有连续性待审，不是新发现的单帧脚掌外撇。",
+      "action": "记录连续性差距，不据参照自动重画全部脚。"
+    },
+    {
+      "item": "手臂的接触链条",
+      "reference09": "09可追踪肩—肘—腕到弓把/弦的接触，双手职责在准备/释放/恢复中稳定。",
+      "character17": "17右笔左卷在现选战斗图中可辨，握笔/握卷的不同手形是持物差异；既往攻击W04/W05/W07夹握不因参照改变而变成错误。笔与卷需要各自连续的腕肘轨迹，不能照搬双手开弓姿势。",
+      "action": "保留已正确手形与站姿，仅继续原有真实连接/连续性问题。"
+    },
+    {
+      "item": "鞋尖与膝踝方向",
+      "reference09": "09正常站姿也允许膝髋自然展开，两靴不必强行平行；承重腿鞋轴随所属膝踝而非统一屏幕水平。",
+      "character17": "现选战斗68槽未因09参照新增明确鞋膝反拧证据。17深色长裤遮挡更多膝部，但可见靴口/胫部仍与足向协调。",
+      "action": "不把较宽站姿、正常弓步和跖屈归为外撇硬错。"
+    }
+  ],
+  "nonTransferred": [
+    "09弓、箭、开弓姿态、裸腿/白靴、身材外形不转给17。",
+    "09技术记录未充当17客户验收。",
+    "彩边问题不混同肢体全错。"
+  ],
+  "formalDynamicPass": false,
+  "latestTargetedRepair": {
+    "slot": "cast-E-10",
+    "selected": "staging/cast-E-10-v7.png",
+    "priorDefectStatus": "resolved_by_actual_local_review",
+    "notes": "v3肩挂缺陷系初次只读审查时的历史实况；v7已可见真实笔尾→金环→青穗连续连接。其他68槽审查未因此改写为正式动态通过。"
+  }
+}
