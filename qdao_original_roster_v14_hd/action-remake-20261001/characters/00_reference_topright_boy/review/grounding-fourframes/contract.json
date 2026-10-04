@@ -1,7 +1,7 @@
 {
   "atUtc": "2026-10-04T08:35:45.594590+00:00",
-  "status": "repair_in_progress",
-  "latestUserRequirement": "每只脚每次落地至少连续4张真实接触、缓冲和承重姿态；16帧×75ms=1200ms。检查膝踝鞋掌朝向，不复制/插值/延长单帧或整图上下移。",
+  "status": "middle4_each_side2_native_pose_repair_in_progress",
+  "latestUserRequirement": "应该是要着中间地四帧，旁边地各两帧",
   "minimumConsecutiveContactFrames": 4,
   "minimumContactMs": 300,
   "normalFrameMs": 75,
@@ -1015,5 +1015,77 @@
   "priorStaticReviewsDoNotApproveNewFourFrameRequirement": true,
   "dynamicVisualPlaybackVerified": false,
   "clientValidated": false,
-  "visualLimit": "历史本地页面实播被策略拒绝，不绕过；现采用逐图原生与完整画布正常显示尺寸联系表复查，编码验证不冒充实际动态验收。"
+  "visualLimit": "历史本地页面实播被策略拒绝，不绕过；现采用逐图原生与完整画布正常显示尺寸联系表复查，编码验证不冒充实际动态验收。",
+  "latestSpatialFeedback": {
+    "atUtc": "2026-10-04T10:42:16.299295+00:00",
+    "verbatim": "应该是要着中间地四帧，旁边地各两帧",
+    "spaceMeaning": "实际前侧/身体正下方/后侧空间位置，不直接等同脚跟、全掌、前掌。",
+    "middleFrames": 4,
+    "eachSideFrames": 2,
+    "allocationScope": "per_foot_eight_frame_half_cycle_execution_interpretation",
+    "timingUnchanged": "16 x 75ms =1200ms",
+    "priorFourContactOnlyPlanIsNotFinalAcceptance": true
+  },
+  "allocationInterpretation": "每脚半圈8帧：沿跑向前侧2，中间身体下方4，后侧2。16帧75ms均匀。每帧独立真实姿态。",
+  "allocationIsAssistantExecutionInterpretation": true,
+  "activeFramePlan": [
+    {
+      "frames": [
+        1,
+        2
+      ],
+      "supportFoot": "right",
+      "position": "front_side_landing",
+      "ms": 150
+    },
+    {
+      "frames": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "supportFoot": "right",
+      "position": "middle_under_body_weight_bearing",
+      "ms": 300
+    },
+    {
+      "frames": [
+        7,
+        8
+      ],
+      "supportFoot": "right",
+      "position": "rear_side_push_off",
+      "ms": 150
+    },
+    {
+      "frames": [
+        9,
+        10
+      ],
+      "supportFoot": "left",
+      "position": "front_side_landing",
+      "ms": 150
+    },
+    {
+      "frames": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "supportFoot": "left",
+      "position": "middle_under_body_weight_bearing",
+      "ms": 300
+    },
+    {
+      "frames": [
+        15,
+        16
+      ],
+      "supportFoot": "left",
+      "position": "rear_side_push_off",
+      "ms": 150
+    }
+  ]
 }
