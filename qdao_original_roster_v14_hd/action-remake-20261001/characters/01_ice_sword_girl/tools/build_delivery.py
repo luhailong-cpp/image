@@ -2,7 +2,8 @@
 """Read-only PNG audit + offline animation preview for 01_ice_sword_girl.
 
 No PNG is created, resized, mirrored, re-anchored, or changed. The only outputs
-are manifest.json, validation.json, and index.html under --output-dir (preview).
+are manifest.json, validation.json, and index.html under --output-dir
+(preview/legacy-audit). The active grounding preview is built separately.
 Run --help for the supported source metadata and anchor declaration formats.
 """
 from __future__ import annotations
@@ -21,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CHARACTER = "01_ice_sword_girl"
 DIRECTIONS = ("N", "NE", "E", "SE", "S", "SW", "W", "NW")
 SPECS = {
-    "run": {"label": "跑步", "directions": DIRECTIONS, "count": 16, "frame_ms": 30},
+    "run": {"label": "跑步", "directions": DIRECTIONS, "count": 16, "frame_ms": 75},
     "hit": {"label": "受击", "directions": ("E", "W"), "count": 6, "frame_ms": 40},
     "attack": {"label": "普攻", "directions": ("E", "W"), "count": 12, "frame_ms": 30},
     "cast": {"label": "施法", "directions": ("E", "W"), "count": 16, "frame_ms": 45},
@@ -281,12 +282,26 @@ def load_anchor():
 
 def build(frame_base):
     source_index, sources, source_errors = load_sources()
+    # The selected E sequence has real contact events at slots 1 and 8;
+    # use the user-selected uniform 75 ms instead of old fast timings.
+    selected_timing = None
+    selection_file = ROOT / "review/run-E-selection.json"
+    if selection_file.exists():
+        selection = json.loads(selection_file.read_text(encoding="utf-8-sig"))
+        candidate_timing = selection.get("timing", {}).get("frameDurationsMs")
+        if (selection.get("characterId") != CHARACTER or selection.get("direction") != "E"
+                or not isinstance(candidate_timing, list) or len(candidate_timing) != 16
+                or any(isinstance(n, bool) or not isinstance(n, (int, float)) or n <= 0
+                       for n in candidate_timing)):
+            raise ValueError("E向选择清单的角色、方向或16个正帧时长无效")
+        selected_timing = candidate_timing
     slots = []
     for action, spec in SPECS.items():
         for direction in spec["directions"]:
             for frame in range(spec["count"]):
                 slots.append({"id": f"{action}/{direction}/{frame:03d}", "action": action,
-                              "direction": direction, "frame": frame, "duration_ms": spec["frame_ms"],
+                              "direction": direction, "frame": frame,
+                              "duration_ms": selected_timing[frame] if action == "run" and direction == "E" and selected_timing else spec["frame_ms"],
                               "draft": None, "final": None})
     lookup = {(s["action"], s["direction"], s["frame"]): s for s in slots}
     unassigned, groups, duplicates = [], {}, []
@@ -426,7 +441,7 @@ function rebuildDirections(){const current=$('direction').value;$('direction').r
 function select(){stop();const token=++selectionToken;frame=0;sequence=data.slots.filter(s=>s.action===$('action').value&&s.direction===$('direction').value);$('seek').max=sequence.length-1;$('frames').replaceChildren(...sequence.map((s,i)=>{const b=document.createElement('button');b.className='frame';b.textContent=String(i).padStart(3,'0');b.title=s.id;b.onclick=()=>{stop();frame=i;render();};return b;}));$('play').disabled=true;$('play').textContent='加载中';render();Promise.allSettled(sequence.map(s=>s[$('stage').value]).filter(Boolean).map(p=>load(p.path))).then(()=>{if(token!==selectionToken)return;$('play').disabled=false;$('play').textContent='播放';});}
 function load(path){if(!cache.has(path)){cache.set(path,new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>reject(new Error('读取失败'));im.src=url(path);}));}return cache.get(path);}
 function overlay(){if(!$('anchor').checked||!data.anchor.root_anchor)return;const [x,y]=data.anchor.root_anchor;ctx.save();ctx.strokeStyle='#ea5454';ctx.lineWidth=2;ctx.setLineDash([8,6]);ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,1024);ctx.moveTo(0,y);ctx.lineTo(1024,y);ctx.stroke();ctx.setLineDash([]);ctx.beginPath();ctx.arc(x,y,10,0,Math.PI*2);ctx.stroke();if(typeof data.anchor.virtual_ground_y==='number'){ctx.strokeStyle='#1684bb';ctx.beginPath();ctx.moveTo(0,data.anchor.virtual_ground_y);ctx.lineTo(1024,data.anchor.virtual_ground_y);ctx.stroke();}ctx.restore();}
-async function render(){const token=++drawToken,s=sequence[frame],p=s[$('stage').value];ctx.clearRect(0,0,1024,1024);$('seek').value=frame;$('counter').textContent=`${frame+1}/${sequence.length}`;$('timing').textContent=`${s.duration_ms} ms/帧 · ${s.duration_ms*sequence.length} ms/完整动作 · 编号从 000 开始 · 预览定时受浏览器调度影响`;$('empty').hidden=!!p;$('empty').textContent='此槽位未生成';Array.from($('frames').children).forEach((b,i)=>{b.className='frame'+(sequence[i][$('stage').value]?' available':'')+(i===frame?' active':'');});$('links').replaceChildren();
+async function render(){const token=++drawToken,s=sequence[frame],p=s[$('stage').value];ctx.clearRect(0,0,1024,1024);$('seek').value=frame;$('counter').textContent=`${frame+1}/${sequence.length}`;$('timing').textContent=`${s.duration_ms} ms/帧 · ${sequence.reduce((sum,slot)=>sum+slot.duration_ms,0)} ms/完整动作 · 编号从 000 开始 · 预览定时受浏览器调度影响`;$('empty').hidden=!!p;$('empty').textContent='此槽位未生成';Array.from($('frames').children).forEach((b,i)=>{b.className='frame'+(sequence[i][$('stage').value]?' available':'')+(i===frame?' active':'');});$('links').replaceChildren();
 if(!p){$('detail').textContent=s.id+'\n缺失，未生成图像。';overlay();return;}
 const v=p.provenance;$('detail').textContent=`${p.path}\n${p.width??'?'}×${p.height??'?'} ${p.mode??'?'}\n技术检查：${p.technical_passed?'通过':'待处理'}\n真实原生单帧：${v.native_frame_size?.join('×')??'未确认'}\n来源：${v.status}\n视觉验收：${v.visual_passed?'人工记录通过':'未通过或未记录'}\n实际型号/质量：${data.sources[v.selected_source_id]?.actual_model??'未确认'} / ${data.sources[v.selected_source_id]?.actual_quality??'未确认'}\nSHA256：${p.sha256??'无'}\n${[...p.errors,...p.warnings,...v.issues].join('\n')}`;
 const a=document.createElement('a');a.href=url(p.path);a.target='_blank';a.textContent='打开原始 PNG';$('links').append(a);v.source_ids.forEach(id=>{const r=data.sources[id];if(r){const div=document.createElement('div'),link=document.createElement('a');link.href=sourcePrefix+r.record.split('/').map(encodeURIComponent).join('/');link.target='_blank';link.textContent=r.record;div.append(link);$('links').append(div);}});
@@ -456,13 +471,15 @@ def main():
 检查不会新增图片；缺槽为 null；来源和视觉状态不会自动补成已通过。
 Pillow 可选：有 Pillow 时解码图片检查透明度及像素重复；没有时不判技术通过。''')
     parser.add_argument("--frame-base", choices=("0", "1", "auto"), default="0")
-    parser.add_argument("--output-dir", default="preview", help="角色目录内的输出目录；默认 preview")
+    parser.add_argument("--output-dir", default="preview/legacy-audit", help="角色目录内的输出目录；默认 preview/legacy-audit，避免覆盖当前接地预览")
     parser.add_argument("--check-only", action="store_true", help="只输出摘要，不写任何文件")
     parser.add_argument("--strict", action="store_true", help="196 正式槽未全部可交接则退出码 2")
     args = parser.parse_args()
     if ROOT.name != CHARACTER:
         parser.error("本脚本仅限 01_ice_sword_girl 专属目录")
     output = inside(ROOT / args.output_dir)
+    if output == ROOT / "preview":
+        parser.error("preview/index.html由当前接地预览维护；请使用preview/legacy-audit等独立目录")
     if output == ROOT or any(output == ROOT / p or (ROOT / p) in output.parents for p in ("drafts", "final", "sources")):
         parser.error("输出须为独立预览目录，不能写角色根目录或覆盖 drafts/final/sources")
     manifest, validation = build(args.frame_base)

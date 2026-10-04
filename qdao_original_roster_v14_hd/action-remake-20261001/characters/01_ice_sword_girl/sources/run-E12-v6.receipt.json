@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "frame": "run/E/12",
+  "version": 6,
+  "status": "provisional_upper_left_sword_transition",
+  "startedAt": "2026-10-03T17:38:06.677Z",
+  "completedAt": "2026-10-03T17:42:44.253Z",
+  "completionTimeEvidence": "UTC clock after built-in tool returned; not generation service metadata.",
+  "tool": "image_gen__imagegen",
+  "route": "builtin",
+  "submittedParameters": {
+    "model": null,
+    "quality": null,
+    "prompt": "Use case: precise-object-edit.\nAsset: a single E-facing run animation frame, E12-v6, a local edit of Image 1 (E12-v5).\nPrimary request: keep the existing lower-body running phase and head/chest completely unchanged. Move the near anatomical RIGHT sword hand slightly forward from approximately (620,800) to around (740,810), using coordinates on the 1254 square target. Preserve the same near shoulder-to-upper-arm-to-elbow-to-sword-hand ownership and connected anatomy. Rotate the same rigid ice sword so it points diagonally UPPER LEFT, from grip around (740,810) toward blade tip around (500,450). The blade must point up-left, not rear-left/down or horizontal-left. This is the intermediate sword angle after E11 almost vertical-up and before E13 rear-left. Preserve the sword's full crystal blade, width, length, hilt design and ornament. Preserve the far anatomical LEFT hand and blue talisman exactly where they are.\nInput roles: Image 1 is the exact edit target and authoritative canvas registration, pose, scale and all unchanged pixels. Image 2 is ONLY the original identity reference for the same girl, costume and ice sword; do not import its pose, framing or proportions. Image 3 is ONLY the confirmed painting/material/finish reference from designs; do not import its UI or other characters.\nStyle: Preserve Image 1's bright clean rounded Taoist chibi HD painted finish, blue-white brocade, silver-blue ornaments and crystal ice blade.\nFixed canvas: one native 1254 x 1254 RGBA frame on genuine transparent background, identical square framing. Keep the entire figure at the same location and scale. No canvas translation, recentering, resizing, rotation, cropped weapon or cropped hair.\nLocked invariants: preserve Image 1's exact head, face, chest, body lean, hair mass, hips, legs, boots, readable support sole and ground contact coordinates. Do not lift, lower, shrink or shift either boot. Preserve the far anatomical LEFT arm and its blue talisman, including its position. Only edit the anatomical RIGHT near sword arm, grip and sword enough to achieve the requested angle. Maintain an anatomically connected single near shoulder-to-upper-arm-to-elbow-to-right-hand chain. The right hand always holds the one ice sword, left hand always holds the one talisman. No hand swap, mirroring, duplicate limb, extra hand, extra sword, ghost pose, text, floor or shadow.",
+    "referenced_image_paths": [
+      "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/01_ice_sword_girl/drafts/run/E/12-v5.png",
+      "D:/work/image/q_daoist_character_pack_4096/01_ice_sword_girl_transparent_4096.png",
+      "D:/work/image/designs/jubaozhai-ui/02-characters.png"
+    ],
+    "transparent_background": true
+  },
+  "referenceRoles": [
+    "exact edit target and canvas registration",
+    "original ice sword girl identity reference only",
+    "confirmed designs painting and material finish reference only"
+  ],
+  "actualModel": null,
+  "actualQuality": null,
+  "unverifiedReason": "宿主管理，工具未披露实际型号/质量；接口无 model/quality 选择器。",
+  "output": {
+    "returnedFields": [
+      "image_url",
+      "output_hint"
+    ],
+    "toolReturnedPath": "C:/Users/luyua/.codex/generated_images/01a1017b-e0cf-7f21-b1fb-5751bbe60a8d/exec-95c737a3-0572-46b5-9775-4d311bfa0c65.png",
+    "output_hint": "Generated images are saved to C:\\Users\\luyua\\.codex\\generated_images\\01a1017b-e0cf-7f21-b1fb-5751bbe60a8d as C:\\Users\\luyua\\.codex\\generated_images\\01a1017b-e0cf-7f21-b1fb-5751bbe60a8d\\exec-95c737a3-0572-46b5-9775-4d311bfa0c65.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "sha256": "0fbe9ef7eb39429da45b85eb893492ed0cbd4838ce418d1c85a208ed7e2061b1",
+    "nativeFrameSize": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alphaExtrema": [
+      0,
+      255
+    ]
+  },
+  "callCount": 1,
+  "noPostprocessing": true,
+  "requestedEditScope": "Near right sword arm and sword orientation only; keep head/chest/legs/boots/talisman, fixed native 1254 canvas.",
+  "visualReview": {
+    "status": "partial_angle_success_hand_position_failed",
+    "acceptedAsFinal": false,
+    "clientRuntimeVerified": false,
+    "findings": [
+      "Exactly one authorized call. Native 1254x1254 RGBA output copied without pixel postprocessing.",
+      "Near anatomical RIGHT shoulder ornament visibly connects through rearward upper arm and wide sleeve to the right sword hand. Only two hands visible, no detached extra hand; far LEFT hand retains its front blue talisman.",
+      "Sword now points upper-left. Actual grip approximately (500,650), blade tip approximately (120,320), visually estimated in native pixels. Requested grip (740,810) and tip (500,450) were NOT achieved. The sword arm became substantially higher and farther rearward.",
+      "Head/chest and lower-body phase remain visually close to source. Support sole band alpha>=128 bounding box changed from [460,1160,571,1188] to [457,1160,571,1190]; crown minimum opaque y79 to77. Small redraw drift, not pixel-identical preservation.",
+      "Lower-body phase remains far-left trailing support/toe approach, near-right front foot airborne. No root translation/scale or source pixel processing was applied.",
+      "E11-v4 grip roughly (975,905) to E12-v6 (500,650) still implies a large adjacent-frame hand displacement; obtaining intermediate weapon direction did not fix arm phase continuity.",
+      "Angle goal achieved, low neutral hand placement failed. Candidate only; not final sequence acceptance."
+    ]
+  },
+  "actualLandmarks": {
+    "coordinateSpace": "native1254, manual visual estimate",
+    "swordGrip": [
+      500,
+      650
+    ],
+    "swordTip": [
+      120,
+      320
+    ],
+    "actualGroundEvidence": "diagnostic local alpha>=128 sole band, not engine verification"
+  }
+}
