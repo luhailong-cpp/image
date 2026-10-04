@@ -68,24 +68,23 @@ state={"character":ROOT.name,"updatedAt":stamp,"expected":196,"selectedCandidate
 wr(ROOT/"STATUS.json",state)
 state["offlineMaterialComplete"]=grounding_complete
 state["grounding4Reviewed"]=grounding_complete
-if not grounding_complete:state["remaining"].insert(0,"八方向每次连续4帧真实接地的新要求仍在复核/修正")
+if not grounding_complete:state["remaining"].insert(0,"八方向同脚8帧、四位置各2帧的新要求仍在复核/修正")
 wr(ROOT/"STATUS.json",state)
 lines=["# 20 星阵少女 · 本机完整交付","",f"更新：{stamp}。八方向跑步128帧、E/W受击12帧、普攻24帧、施法32帧，共196张1024×1024 RGBA。","", "本机素材与离线预览已整理完成；用户最终观感及客户端验收尚未完成。","", "|动作|方向|帧数|每帧时长|检查|","|---|---|---:|---:|---|"]
 for g in groups:lines.append(f"|{g['action']}|{g['direction']}|{g['available']}/{g['count']}|{g['durationMs']}ms|逐帧脚向/手持物；正常及慢放抽看|")
 lines+=["","[完整预览](preview/index.html) · [八方向跑步](preview/run-E-grounding.html) · [逐图清单](merge-manifest.json) · [合并交接](MERGE_HANDOFF.md)"]
 (ROOT/"STATUS.md").write_text("\n".join(lines)+"\n",encoding="utf-8")
-handoff=["# 星阵少女 · 合并交接","",f"更新：{stamp}。本机完整196帧已导出至runtime，逐动作逐方向检查如下。","","## 交付与播放","","- 游戏素材：runtime/run/{N,NE,E,SE,S,SW,W,NW}/01–16.png；runtime/hit/{E,W}/01–06.png；runtime/attack/{E,W}/01–12.png；runtime/cast/{E,W}/01–16.png。","- 全部为1024×1024 RGBA，逐图SHA、原生来源与模型记录见merge-manifest.json及图旁generation.json。","- 跑步正常1×1200ms/圈，16×75ms均匀播放，无额外尾帧停留。慢放4倍。","- 受击40ms/帧、普攻30ms/帧、施法45ms/帧。普攻接触第6帧、施法释放第10帧仅离线事件参考。","- 固定完整原生画布缩放到922×922，偏移(51,40)，根点(512,922)。没有逐帧最低像素贴地、bbox缩放、镜像或插值补帧。","","## 已复核与修正","","|动作/方向|保留|修正|当前检查|","|---|---|---|---|"]
+handoff=["# 星阵少女 · 合并交接","",f"更新：{stamp}。本机完整196帧已导出至runtime，逐动作逐方向检查如下。","","## 交付与播放","","- 游戏素材：runtime/run/{N,NE,E,SE,S,SW,W,NW}/01–16.png；runtime/hit/{E,W}/01–06.png；runtime/attack/{E,W}/01–12.png；runtime/cast/{E,W}/01–16.png。","- 全部为1024×1024 RGBA，逐图SHA、原生来源与模型记录见merge-manifest.json及图旁generation.json。","- 跑步正常1×1200ms/圈，16×75ms均匀播放，无额外尾帧停留。慢放4倍。","- 受击40ms/帧、普攻30ms/帧、施法45ms/帧。普攻接触第6帧、施法释放第10帧仅离线事件参考。","- 画布1024×1024，根点(512,922)。旧保留图沿用原固定画布变换；本轮以既有最终构图为编辑输入，新原生返回按完整画布等比导出1024，不重复套用旧922缩放。各图operation逐项记录；没有逐帧最低像素贴地、bbox缩放、镜像或插值补帧。","","## 已复核与修正","","|动作/方向|保留|修正|当前检查|","|---|---|---|---|"]
 for g in groups:
  r=g["review"];handoff.append(f"|{g['action']}/{g['direction']}|{r.get('retained','正确原生帧')}|{r.get('repaired','见逐帧记录')}|{r.get('footDirection','已检查脚向')}；{r.get('pose','已检查动作相位')}|")
-handoff+=["","全部组已实看逐帧姿态、靴轴和道具手别；浏览器正常/慢放抽看与逐帧控制完成。固定地面线只是参考，客户端移动位移、投影及碰撞根点仍需游戏内验收。详见provenance/offline-visual-review.json。","","## 来源与合并边界","","目标GPT Image 2.5 Sunburst/max；实际使用内置宿主管理入口，没有型号/质量选择器，回执未披露实际值，实际model/quality均标记null/未确认。每图真实提示词、输入参考、回执、时间、原生尺寸与SHA均保留。","","另一电脑未提交内容未获取。合并时按完整角色ID和SHA对比；本机没有切分支、暂存、提交、推送或覆盖客户端。","","客户端未接入、未运行，用户最终验收未完成。当前离线完成不表示游戏内速度/滑步或用户观感已通过。"]
+handoff+=["","全部组已实看逐帧姿态、靴轴和道具手别；浏览器正常/慢放抽看与逐帧控制完成。固定地面线只是参考，客户端移动位移、投影及碰撞根点仍需游戏内验收。详见provenance/offline-visual-review.json。","","## 来源与合并边界","","目标GPT Image 2.5 Sunburst/max；实际使用内置宿主管理入口，没有型号/质量选择器，回执未披露实际值，实际model/quality均标记null/未确认。每图真实提示词、输入参考、回执、时间、原生尺寸与SHA均保留。","",'NW早期部分调用在宿主会话中断后按本地文件和姿态关联恢复，对应新选帧05/07/08/11；调用与回执的对应关系仍注明推断、未确认，详见provenance/grounding-pairs-E-NW.json及逐图记录。配置目标未冒充实际模型/质量。',"","另一电脑未提交内容未获取。合并时按完整角色ID和SHA对比；本机没有切分支、暂存、提交、推送或覆盖客户端。","","客户端未接入、未运行，用户最终验收未完成。当前离线完成不表示游戏内速度/滑步或用户观感已通过。"]
 (ROOT/"MERGE_HANDOFF.md").write_text("\n".join(handoff)+"\n",encoding="utf-8")
-contactlines=["","## 连续接地复核（2026-10-04新要求）","","16帧×75ms=1200ms保持不变；以下为实图复核的接地段，至少连续4个独立姿态，非重复图/插值/延长单帧。","","|方向|首次接地段|另一次接地段|本轮局部修正|","|---|---|---|---|"]
+contactlines=["","## 最新两帧一位置接地复核","","同一支撑脚连续8帧，前落、身下、后侧、后蹬各2张独立姿态；再换另一脚同样8帧。每对150ms，半圈600ms，整圈1200ms。真实姿态无重复图、插值或加停顿。","","|方向|01–08支撑脚|09–16支撑脚|本轮改图与复用|","|---|---|---|---|"]
 for g in groups:
  if g["action"]!="run":continue
  r=g["review"].get("grounding4",{});ss=r.get("contactSegments",[])
- strings=["→".join(f"{n:02}" for n in s["frames"])+f"（{len(s['frames'])*75}ms）" for s in ss]
- contactlines.append(f"|{g['direction']}|{strings[0] if strings else '待复核'}|{strings[1] if len(strings)>1 else '待复核'}|{r.get('replacementFrames',[])}|")
-contactlines+=["","本轮局部编辑以既有1024最终构图为输入；返回原生图按整个画布等比导出1024，不再次套用922缩放/偏移，不改变根点。各图真实操作见图旁记录。","","新要求离线复核："+("已完成" if grounding_complete else "进行中，未判通过")+"；用户最终观感及客户端位移/滑步验收仍未完成。"]
+ contactlines.append(f"|{g['direction']}|{ss[0].get('supportFoot','待复核') if ss else '待复核'}：01/02→03/04→05/06→07/08|{ss[1].get('supportFoot','待复核') if len(ss)>1 else '待复核'}：09/10→11/12→13/14→15/16|局部编辑{len(r.get('replacementFrames',[]))}帧；其余复用/重排；详见来源表|")
+contactlines+=["","逐方向空间位置与源图槽位记录：provenance/grounding-pairs-applied.json、provenance/grounding-pairs-*.json及provenance/offline-visual-review.json。模型目标与返回证据严格分开；历史输入图片经成品确认后清理，仅保留来源文字与SHA。","","新要求离线复核："+("已完成" if grounding_complete else "进行中，未判通过")+"；用户最终观感及客户端位移/滑步验收仍未完成。"]
 with (ROOT/"MERGE_HANDOFF.md").open("a",encoding="utf-8") as f:f.write("\n".join(contactlines)+"\n")
 with (ROOT/"STATUS.md").open("a",encoding="utf-8") as f:f.write("\n".join(contactlines)+"\n")
 for script in ["build_sequence_previews.py","build_run_preview.py","build_overview.py"]:

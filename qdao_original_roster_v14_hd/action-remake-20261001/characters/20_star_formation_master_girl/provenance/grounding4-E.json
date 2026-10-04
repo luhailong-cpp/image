@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "direction": "E",
+  "frameMs": 75,
+  "loopMs": 1200,
+  "requirement": "每次落地至少连续4个真实承重姿态；保留自然屈膝、膝踝鞋尖方向连续；不重复、插值、整图平移。",
+  "staticReviewed": true,
+  "normalSizeBrowserReviewed": false,
+  "contactSegments": [
+    {
+      "frames": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "supportLeg": "近侧/解剖右腿，从前伸到身体下再向后；另一腿回摆",
+      "observations": [
+        "01鞋跟初触，膝部自然弯曲，前掌开始压下",
+        "02鞋跟与前掌压稳，膝踝承重缓冲",
+        "03支撑脚向身下移动，鞋底平稳，摆动腿抬膝",
+        "04新图压低后脚脚跟，全掌/前掌仍压地；尚未腾空"
+      ],
+      "nextAirborneFrame": 5
+    },
+    {
+      "frames": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "supportLeg": "远侧/解剖左腿交替承重；近侧右腿回摆",
+      "observations": [
+        "09另一腿鞋跟/前掌接触，身重前移",
+        "10支撑膝踝缓冲，足底平稳",
+        "11支撑位于身下，另一腿前摆，足底仍低",
+        "12新图压低后脚跟并保留自然屈膝，全掌/前掌持续承重"
+      ],
+      "nextAirborneFrame": 13
+    }
+  ],
+  "retainedFrames": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16
+  ],
+  "replacements": [
+    {
+      "frame": 4,
+      "exportFile": "grounding4/E/04-v1-1024.png",
+      "nativeFile": "grounding4/E/04-v1.png",
+      "generationRecord": "grounding4/E/04-v1.png.generation.json",
+      "reason": "原脚跟较早抬高，第四承重姿态不够可辨；局部改为脚跟及前掌压地。"
+    },
+    {
+      "frame": 12,
+      "exportFile": "grounding4/E/12-v1-1024.png",
+      "nativeFile": "grounding4/E/12-v1.png",
+      "generationRecord": "grounding4/E/12-v1.png.generation.json",
+      "reason": "另一半圈第四姿态同样提跟偏早，局部压低脚跟和保持E靴轴。"
+    }
+  ],
+  "actualModelConfirmed": false,
+  "clientIntegrated": false
+}
