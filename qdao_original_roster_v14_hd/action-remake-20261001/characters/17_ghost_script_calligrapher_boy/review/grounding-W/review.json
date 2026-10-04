@@ -1,0 +1,683 @@
+{
+  "character": "17_ghost_script_calligrapher_boy",
+  "direction": "W",
+  "reviewed_at": "2026-10-03T18:32:46.148242-04:00",
+  "source_policy": "逐一查看实际原生PNG及固定坐标下半身对照图；提示词中的相位、脚侧、地面值不作为验收结果。无已通过方向模板。",
+  "measurement": {
+    "coordinate_space": "1254x1254 native canvas",
+    "method": "人工原图及固定坐标裁片标记鞋底前端、后跟和另一鞋低点；坐标仅为诊断近似，不读取整图最低像素，不据此逐帧对齐。端点辨认不足时留空。",
+    "uncertainty_px": 12,
+    "points_are_approximate": true,
+    "transforms_applied": false
+  },
+  "status": "not_accepted",
+  "loop_ms_adopted": null,
+  "timing_trials_ms": [
+    480,
+    640,
+    720,
+    800
+  ],
+  "per_frame_timing_weights": null,
+  "ground": {
+    "accepted_y": null,
+    "diagnostic_band_y": [
+      1145,
+      1163
+    ],
+    "candidate_y": 1155,
+    "evidence_frames": [
+      2,
+      3,
+      5,
+      10,
+      11,
+      12,
+      13
+    ],
+    "explanation": "02/03/10/11支撑及05/12/13前掌候选约1145–1163；04仍偏低。07v5实际前靴高于08，下降反序改善，但踝俯仰变化尚未整体验收。"
+  },
+  "root": {
+    "accepted_anchor": null,
+    "definition": "将来固定相机下角色根点应为参考髋中线投向已验证地面；当前髋位置/比例有漂移，未标定可信正式根锚。不得据最低鞋像素逐帧归一。"
+  },
+  "frames": [
+    {
+      "n": 1,
+      "phase": "前伸脚跟接触候选",
+      "support": "左近腿（较可信）",
+      "toe": [
+        293,
+        1118
+      ],
+      "heel": [
+        456,
+        1162
+      ],
+      "other": [
+        879,
+        1084
+      ],
+      "notes": "前鞋尖抬起、后脚屈膝离地，可作左脚轻接触候选；还不能证明已承重。",
+      "key": "run-W-01-v1",
+      "file": "staging/run-W-01-v1.png",
+      "sha256": "4b7f14f90d770972a9e2a1e3cb06e6ff9c5214834f29cf4e22b3cabb8d706bfc",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "review_status": "pending_sequence_review",
+      "contact_root_accepted": false,
+      "hands_status": "持物与肩肘分帧可读，跨帧未验收",
+      "foot_direction_status": "鞋尖整体朝左；膝踝与两脚轴向连续性待连播"
+    },
+    {
+      "n": 2,
+      "phase": "全脚承重/缓冲",
+      "support": "左近腿（较可信）",
+      "toe": [
+        422,
+        1144
+      ],
+      "heel": [
+        592,
+        1136
+      ],
+      "other": [
+        870,
+        1085
+      ],
+      "notes": "前鞋底近水平、膝屈曲、另一腿后折，存在真实支撑形态。鞋底与03约有十余像素差，须连播判断。",
+      "key": "run-W-02-v1",
+      "file": "staging/run-W-02-v1.png",
+      "sha256": "32c1031544bacd47bade3c0b07c5020add298f8f047006b83634af5cbcde15b4",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "review_status": "pending_sequence_review",
+      "contact_root_accepted": false,
+      "hands_status": "持物与肩肘分帧可读，跨帧未验收",
+      "foot_direction_status": "鞋尖整体朝左；膝踝与两脚轴向连续性待连播"
+    },
+    {
+      "n": 3,
+      "phase": "单脚支撑与摆腿过身",
+      "support": "左近腿支撑/右远腿前摆（仍需确认髋遮挡）",
+      "toe": [
+        566,
+        1157
+      ],
+      "heel": [
+        726,
+        1152
+      ],
+      "other": [
+        419,
+        1034
+      ],
+      "notes": "v2把摆动腿由身后改到前方，支撑鞋底平直且分离清楚；抬膝幅度大，02→03髋/膝过渡和近远归属待复核。",
+      "key": "run-W-03-v2",
+      "file": "staging/run-W-03-v2.png",
+      "sha256": "6a5af3dae9629000340a94dce0233f5245f01fed5394d592592f271e6049bf6e",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "review_status": "pending_sequence_review",
+      "contact_root_accepted": false,
+      "hands_status": "持物与肩肘分帧可读，跨帧未验收",
+      "foot_direction_status": "鞋尖整体朝左；膝踝与两脚轴向连续性待连播"
+    },
+    {
+      "n": 4,
+      "phase": "后脚前掌支撑、前腿抬起",
+      "support": "左近腿候选",
+      "toe": [
+        843,
+        1177
+      ],
+      "heel": [
+        953,
+        1097
+      ],
+      "other": [
+        487,
+        1063
+      ],
+      "notes": "v3仅补笔尾挂接：金色末端帽的小环经短珠链连到单青穗，笔毫箍没有穗；固定画布与局部对照可见头身、握持臂、腿膝和两靴原布局保持，无明显位置/比例退步。未顺带转鞋、移鞋或平移全图。原后脚前掌接触比05约低22px、03→04上身/摆臂跨度仍待动态与地面复核；鞋俯仰/外撇解释尚不确定，不能仅凭宽底面判硬错。本次只确认笔尾连接改善，接地、脚轴、彩边及全循环未通过。",
+      "key": "run-W-04-v3",
+      "file": "staging/run-W-04-v3.png",
+      "sha256": "331b24abc65d38f037aa0d383e5085b9b22abff1eb17c397f8e7c6456bdb7d01",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "review_status": "prop_corrected_pending_grounding_and_sequence",
+      "contact_root_accepted": false,
+      "hands_status": "v3笔尾环/短链/单青穗连接可见；握持臂位置保持，跨帧摆臂仍未验收",
+      "foot_direction_status": "本轮保留两靴原轴向与膝踝；鞋俯仰/横向外撇尚有解释不确定，须按相邻真实腿链复核，未通过",
+      "targeted_prop_pass": true,
+      "unchanged_grounding_observation": "v2人工近似足端坐标继续作诊断参考；v3未改变脚部任务或接受正式根锚，不能以笔穗修好推断接地通过。"
+    },
+    {
+      "n": 5,
+      "phase": "前掌蹬离候选",
+      "support": "左近腿候选",
+      "toe": [
+        851,
+        1154
+      ],
+      "heel": [
+        939,
+        1078
+      ],
+      "other": [
+        503,
+        1075
+      ],
+      "notes": "后脚仅前掌低点、后跟明显抬起，前腿膝盖向前；蹬地姿态基本可读，髋遮挡仍需贯穿追踪。",
+      "key": "run-W-05-v2",
+      "file": "staging/run-W-05-v2.png",
+      "sha256": "2c5b1e728ea10df2da399473c19b44bd0cceb826a1cfca40a90436fe58f0620f",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "review_status": "pending_sequence_review",
+      "contact_root_accepted": false,
+      "hands_status": "持物与肩肘分帧可读，跨帧未验收",
+      "foot_direction_status": "鞋尖整体朝左；膝踝与两脚轴向连续性待连播"
+    },
+    {
+      "n": 6,
+      "phase": "双脚离地、屈膝收腿",
+      "support": "无；近左腿后收遮挡远右腿，脚侧候选比v2清楚",
+      "toe": [
+        615,
+        1122
+      ],
+      "heel": null,
+      "other": [
+        992,
+        1027
+      ],
+      "notes": "v3实际两鞋高于诊断地面，髋处近左后腿在前遮挡远右腿，右脚前摆；前鞋尖明显向下，为矢状面屈踝，不直接当外撇。05→06收腿幅度仍偏大，踝方向须连播。",
+      "key": "run-W-06-v3",
+      "file": "staging/run-W-06-v3.png",
+      "sha256": "9ad8932bea740f126fa99709325a8d552efaed5ea81745efb0f61d53bce31544",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "review_status": "pending_sequence_review",
+      "contact_root_accepted": false,
+      "hands_status": "持物与肩肘分帧可读，跨帧未验收",
+      "foot_direction_status": "鞋尖整体朝左；膝踝与两脚轴向连续性待连播"
+    },
+    {
+      "n": 7,
+      "phase": "短腾空前腿伸展候选",
+      "support": "右远脚候选；近左腿后收",
+      "toe": [
+        369,
+        965
+      ],
+      "heel": [
+        493,
+        1088
+      ],
+      "other": [
+        1000,
+        1091
+      ],
+      "notes": "v5改以08v3为基底绘制前一帧，实际前靴更屈收、鞋跟约1090，高于08约1142和09约1164，旧07低于08的下降反序已改善。原头身/道具基本保持；前靴上翘角度较大，06→07→08踝俯仰及反向摆臂仍待动态复核，不能判全组通过。",
+      "key": "run-W-07-v5",
+      "file": "staging/run-W-07-v5.png",
+      "sha256": "8b0b20a531330dd592e19ff4fe47509568168b640c44718cf2f9ea5bb347b4ab",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "review_status": "pending_sequence_review",
+      "contact_root_accepted": false,
+      "hands_status": "持物与肩肘分帧可读，跨帧未验收",
+      "foot_direction_status": "单帧鞋侧面朝左；v5已改善旧下降反序，前靴上翘及06→07→08踝俯仰仍待动态复核，不据此误报外撇已通过"
+    },
+    {
+      "n": 8,
+      "phase": "右远脚预落地候选",
+      "support": "无或极近接触；右远脚向前",
+      "toe": [
+        384,
+        1064
+      ],
+      "heel": [
+        527,
+        1142
+      ],
+      "other": [
+        1018,
+        1090
+      ],
+      "notes": "v3近左后腿遮挡远右前腿已与09一致，右鞋尖朝左、跟约1142高于09约1164；当前07v5跟约1090，旧07→08下降反序已改善，踝角与摆臂仍待连播，08单帧不能使整段通过。",
+      "key": "run-W-08-v3",
+      "file": "staging/run-W-08-v3.png",
+      "sha256": "b7bd85776e48b0e066185ac688cdd88c3947c66654e5f0a1f5f78f1d48595398",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "review_status": "pending_sequence_review",
+      "contact_root_accepted": false,
+      "hands_status": "持物与肩肘分帧可读，跨帧未验收",
+      "foot_direction_status": "鞋尖整体朝左；膝踝与两脚轴向连续性待连播"
+    },
+    {
+      "n": 9,
+      "phase": "右远脚跟接触候选",
+      "support": "右远腿（较可信）",
+      "toe": [
+        382,
+        1120
+      ],
+      "heel": [
+        516,
+        1164
+      ],
+      "other": [
+        1009,
+        1081
+      ],
+      "notes": "v3确实把近左大腿画到后方且置于远右大腿之前，异侧可辨；v4补笔尾饰物。右脚只有脚跟低点，尚非全脚承重。",
+      "key": "run-W-09-v4",
+      "file": "staging/run-W-09-v4.png",
+      "sha256": "a086adda4ea39660c2f3de6a940caa55abc58be4da8a005216db6e07dd4a030c",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "review_status": "pending_sequence_review",
+      "contact_root_accepted": false,
+      "hands_status": "持物与肩肘分帧可读，跨帧未验收",
+      "foot_direction_status": "鞋尖整体朝左；膝踝与两脚轴向连续性待连播"
+    },
+    {
+      "n": 10,
+      "phase": "右脚全脚承重形态",
+      "support": "右远腿候选；近左腿后收",
+      "toe": [
+        445,
+        1155
+      ],
+      "heel": [
+        628,
+        1147
+      ],
+      "other": [
+        1020,
+        1088
+      ],
+      "notes": "v4实际重画支撑膝/小腿，鞋底约1150–1157，旧v3约1175过低已改善，未平移全图。鞋尖向左，平底承重可读；09→10→11脚侧和髋部连续仍待动态确认。",
+      "key": "run-W-10-v4",
+      "file": "staging/run-W-10-v4.png",
+      "sha256": "d81941abecf1859d4ea17c811e83ddacc0566c5ce408c7bf108ef0a1d6bd4ae1",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "review_status": "pending_sequence_review",
+      "contact_root_accepted": false,
+      "hands_status": "持物与肩肘分帧可读，跨帧未验收",
+      "foot_direction_status": "鞋尖整体朝左；膝踝与两脚轴向连续性待连播"
+    },
+    {
+      "n": 11,
+      "phase": "右单脚承重、左腿过身抬膝",
+      "support": "右远腿支撑/左近腿抬起",
+      "toe": [
+        613,
+        1148
+      ],
+      "heel": [
+        784,
+        1135
+      ],
+      "other": [
+        455,
+        1049
+      ],
+      "notes": "v5支撑膝重新屈曲，将旧v4约1195支撑降差改到约1150；v6只进一步改抬起左靴/踝朝向，宽棕底面收成朝左侧面，支撑腿保留。高抬膝、10→11上身与手臂跳幅仍须复核。",
+      "key": "run-W-11-v6",
+      "file": "staging/run-W-11-v6.png",
+      "sha256": "7e7d4b0ef93fb98dd343f09324865ca125169ca63d0a95c777b4181b5e8d5c21",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "review_status": "pending_sequence_review",
+      "contact_root_accepted": false,
+      "hands_status": "持物与肩肘分帧可读，跨帧未验收",
+      "foot_direction_status": "v6抬脚朝左侧面明确改善，仍待11→12方向连续复核"
+    },
+    {
+      "n": 12,
+      "phase": "后脚前掌支撑",
+      "support": "右远腿候选",
+      "toe": [
+        846,
+        1158
+      ],
+      "heel": [
+        935,
+        1080
+      ],
+      "other": [
+        437,
+        1138
+      ],
+      "notes": "后脚前掌约1158、前腿抬起，11v6支撑高度已接近此帧，旧约40px落差问题改善。前鞋棕色底面露出明显，比11v6侧面更宽，需核查摆腿踝外翻与鞋尖方向；不能只按接地通过。",
+      "key": "run-W-12-v2",
+      "file": "staging/run-W-12-v2.png",
+      "sha256": "28bd420a195abea116c8ed54bc48060b6541151d86b95004466f223f38654c2d",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "review_status": "pending_sequence_review",
+      "contact_root_accepted": false,
+      "hands_status": "持物与肩肘分帧可读，跨帧未验收",
+      "foot_direction_status": "前鞋朝左但底面露出较宽，需排查逐帧外撇/踝翻转；未通过"
+    },
+    {
+      "n": 13,
+      "phase": "后脚前掌蹬离",
+      "support": "右远腿（较可信）",
+      "toe": [
+        887,
+        1149
+      ],
+      "heel": [
+        971,
+        1065
+      ],
+      "other": [
+        451,
+        1096
+      ],
+      "notes": "v3只改后腿关节/鞋，前掌已从旧1138下伸到约1150，后跟抬起；较原稿接地明确，未作整图平移。仍需与12/14连播。",
+      "key": "run-W-13-v3",
+      "file": "staging/run-W-13-v3.png",
+      "sha256": "5200183ba958ef9b32f9d8e06fc3b7585d85c311e9b26c2be9fef795bee4e033",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "review_status": "pending_sequence_review",
+      "contact_root_accepted": false,
+      "hands_status": "持物与肩肘分帧可读，跨帧未验收",
+      "foot_direction_status": "前鞋朝左但底面露出较宽，需排查逐帧外撇/踝翻转；未通过"
+    },
+    {
+      "n": 14,
+      "phase": "明确离地",
+      "support": "无；左近腿前摆、右遠腿后收",
+      "toe": [
+        297,
+        1035
+      ],
+      "heel": [
+        416,
+        1097
+      ],
+      "other": [
+        868,
+        1043
+      ],
+      "notes": "两鞋明显高于支撑带，有短暂腾空形态；15v4下降幅度较旧稿减小。前鞋露底及后脚尖下垂在逐帧方向上的变化尚未验收。",
+      "key": "run-W-14-v2",
+      "file": "staging/run-W-14-v2.png",
+      "sha256": "49494d0d1d5d419d55ef96d6882e93c1d4742932f4f6636af38973a589310b44",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "review_status": "pending_sequence_review",
+      "contact_root_accepted": false,
+      "hands_status": "持物与肩肘分帧可读，跨帧未验收",
+      "foot_direction_status": "前鞋朝左但底面露出较宽，需排查逐帧外撇/踝翻转；未通过"
+    },
+    {
+      "n": 15,
+      "phase": "前摆下降、尚有离地间隙",
+      "support": "无；左近脚在前",
+      "toe": [
+        337,
+        1026
+      ],
+      "heel": [
+        479,
+        1135
+      ],
+      "other": [
+        930,
+        1114
+      ],
+      "notes": "v3曾过度把前脚回勾，不采用。v4用v2重改小腿关节，恢复前伸，跟约1135，14→15→16约1097→1135→1159，纵向下降较连贯。鞋尖向左，底面露出宽度和膝踝朝向仍需动态确认。",
+      "key": "run-W-15-v4",
+      "file": "staging/run-W-15-v4.png",
+      "sha256": "c09c194a8d2fdd25bb60fb0dd2da423266b9b004b6875a6bd94ef9cd9993b5d3",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "review_status": "pending_sequence_review",
+      "contact_root_accepted": false,
+      "hands_status": "持物与肩肘分帧可读，跨帧未验收",
+      "foot_direction_status": "前鞋朝左但底面露出较宽，需排查逐帧外撇/踝翻转；未通过"
+    },
+    {
+      "n": 16,
+      "phase": "左脚临近落地/轻接触候选",
+      "support": "左近脚候选",
+      "toe": [
+        387,
+        1095
+      ],
+      "heel": [
+        529,
+        1159
+      ],
+      "other": [
+        860,
+        1059
+      ],
+      "notes": "v3只改腿部，跟约1159接近01约1162，旧v2约1174再抬升的问题已减轻；两鞋仍沿侧面走势，16→01鞋角、步幅和上身切换须动态确认。",
+      "key": "run-W-16-v3",
+      "file": "staging/run-W-16-v3.png",
+      "sha256": "a0e2b5074b4a44caada9c7fcad90cffd4976e513fbe8379ffc95269a05ad8d88",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "review_status": "pending_sequence_review",
+      "contact_root_accepted": false,
+      "hands_status": "持物与肩肘分帧可读，跨帧未验收",
+      "foot_direction_status": "前鞋朝左但底面露出较宽，需排查逐帧外撇/踝翻转；未通过"
+    }
+  ],
+  "priority_redraw": [
+    4
+  ],
+  "secondary_continuity": [
+    3,
+    6,
+    7,
+    8,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "preserve_as_pose_candidates": [
+    1,
+    2,
+    5,
+    9
+  ],
+  "known_edge_issue": "全组红/青/白边仍在，当前未做程序修像素；不继续无限清边生图。",
+  "client": "not_integrated_not_tested",
+  "external_rotation_review": {
+    "status": "not_accepted",
+    "criterion": "鞋长轴沿W朝左，膝盖—踝—鞋尖沿前进平面，避免内外踝突然翻转；垂直侧面抬尖或脚尖下垂不等于横向外撇。",
+    "concrete_improvement": "11v6抬起左鞋已从v5宽棕色底面朝镜头改为较薄的侧面轮廓，鞋尖向左；未移动支撑腿或全图。",
+    "pending": [
+      3,
+      4,
+      5,
+      6,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "limitation": "12–15等前鞋仍露出较宽底面；单张二维图不能量化横向外旋角，需逐帧确认膝踝连续，不能只凭左右腿距离或鞋底面积判通过。"
+  },
+  "two_round_stop": {
+    "frame": 7,
+    "attempts": [
+      "run-W-07-v3",
+      "run-W-07-v4"
+    ],
+    "defect": "历史v3/v4：下降腾空的鞋跟仍到约1153，下一08约1142，07→08先抬后落；当时未解决。",
+    "action": "v3/v4同类重试当时停止；后续以08v3为新基底的v5已改善下降反序，当前只待踝角、相位与摆臂动态复核，不将历史失败当作v5结论。"
+  },
+  "repair_history": [
+    {
+      "before": "10v3、11v4",
+      "after": "10v4、11v5/6",
+      "result": "实际承重鞋由约1175/1195改到约1150–1157，靠改膝小腿关节，不是程序平移；11v6再单独改抬脚朝向。"
+    },
+    {
+      "before": "06v2、07v2、08v2",
+      "after": "06v3、07v4、08v3",
+      "result": "依据09修正近左腿后收遮挡、右远腿前摆及笔尾；06明确离地、08较接近预落地；07仍失败。"
+    },
+    {
+      "before": "15v2/3、16v2",
+      "after": "15v4、16v3",
+      "result": "15v3过度回勾不采用；15v4恢复前伸并抬高跟，16v3压缩膝踝后跟接近01。动态图尚未判通过。"
+    },
+    {
+      "before": "04v2",
+      "after": "04v3",
+      "result": "仅修真实笔尾小环—短珠链—单青穗连接，头身/握持/腿脚保持；不改鞋轴，不清除原接地和连续性待审项。"
+    }
+  ],
+  "previous_measurement_snapshot": {
+    "reviewed_at": "2026-10-03T15:12:15.304Z",
+    "frames": [
+      {
+        "n": 6,
+        "key": "run-W-06-v2",
+        "toe": [
+          307,
+          1074
+        ],
+        "heel": [
+          445,
+          1161
+        ],
+        "notes": "提示写腾空，但前鞋后跟已到邻近支撑地面；不能据提示认定腾空。前后腿层次未延续05；笔流苏误接笔头，需重画。"
+      },
+      {
+        "n": 7,
+        "key": "run-W-07-v2",
+        "toe": [
+          373,
+          1111
+        ],
+        "heel": [
+          512,
+          1183
+        ],
+        "notes": "提示写下降腾空，实图前脚跟低于可信支撑带约30像素；前腿遮挡与09不一致。流苏接笔头，需重画。"
+      },
+      {
+        "n": 8,
+        "key": "run-W-08-v2",
+        "toe": [
+          360,
+          1128
+        ],
+        "heel": [
+          493,
+          1183
+        ],
+        "notes": "与07形态类似，鞋跟仍低于支撑带；09换到远腿在前时发生遮挡跳变，笔尾流苏缺失。"
+      },
+      {
+        "n": 10,
+        "key": "run-W-10-v3",
+        "toe": [
+          420,
+          1171
+        ],
+        "heel": [
+          590,
+          1172
+        ],
+        "notes": "v3保留09正确肩肘/持物，前鞋底变平、膝屈曲；支撑面约1175，比02/03支撑带更低；腿层次仍需独立复审，不能判修好。"
+      },
+      {
+        "n": 11,
+        "key": "run-W-11-v4",
+        "toe": [
+          600,
+          1195
+        ],
+        "heel": [
+          812,
+          1193
+        ],
+        "notes": "v4鞋底较v3平直，关节也改画；请求地面1154未兑现，实际支撑鞋仍约1195。低于邻近地面约40px，必须重画支撑腿；不能整图上移冒充修复。"
+      },
+      {
+        "n": 15,
+        "key": "run-W-15-v2",
+        "toe": [
+          349,
+          1107
+        ],
+        "heel": [
+          487,
+          1166
+        ],
+        "notes": "提示称腾空，但前鞋跟已到地面带且略低；14→15下落幅度大、15→16跟部还继续下降，可能拖底。"
+      },
+      {
+        "n": 16,
+        "key": "run-W-16-v2",
+        "toe": [
+          385,
+          1128
+        ],
+        "heel": [
+          529,
+          1174
+        ],
+        "notes": "比01脚跟低约12px，16→01反而抬升，不是干净的离地到落地衔接；应修首尾脚踝与鞋角，不能只加时长。"
+      }
+    ]
+  },
+  "hands_review": {
+    "status": "not_accepted",
+    "identity_rule": "解剖右手毛笔，左手卷轴，追踪肩肘及近远遮挡，不按画面左右交换道具。",
+    "improved": "09及06–10系列能看到近左持卷袖在前、远右毛笔臂向后；笔尾已存在。",
+    "remaining": "03→04、10→11上身转向/手臂摆幅较大；04v3笔尾连接已补对，仍需动态验证手臂是否连续穿越中立相，而非突然交换。"
+  }
+}
