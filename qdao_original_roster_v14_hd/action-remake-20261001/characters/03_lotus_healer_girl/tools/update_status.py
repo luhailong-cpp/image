@@ -43,7 +43,7 @@ if manifestPath.exists():
  m["counts"]["combatGeneratedThisBatch"]=sum(g["nativeOrExportPresent"] for label,g in groups.items() if not label.startswith("run/"))
  m["counts"]["allPresentSlotsIncludingUnacceptedNativeWip"]=result["presentSlots"]
  m["counts"]["newGenerationRecords"]=result["newGenerationRecords"]
- m["status"]="in_progress_not_all_actions_complete"
+ m["status"]="revision_exported_pending_user_and_client_review" if result["candidateExportCount"]==196 else "in_progress_not_all_actions_complete"
  manifestPath.write_text(json.dumps(m,ensure_ascii=False,indent=2),encoding="utf-8")
 print(json.dumps({k:v for k,v in result.items() if k not in ["slots","groups"]},ensure_ascii=False))
 

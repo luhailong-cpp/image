@@ -64,7 +64,7 @@ function renderGroups(){
 }
 async function reload(){
   ui.reload.disabled=true;
-  try{const response=await fetch('../review/all-actions-selection.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);overview=await response.json();ui['overview-status'].textContent=`当前已选入 ${overview.selectedExported}/${overview.target} 帧，均为待审候选。正常倍速、脚掌朝向、承重和手臂连贯性仍在检查；客户端尚未验收。`;await loadGroup();}
+  try{const response=await fetch('../review/all-actions-selection.json',{cache:'no-store'});if(!response.ok)throw Error('HTTP '+response.status);overview=await response.json();ui['overview-status'].textContent=`本轮修订已导出 ${overview.selectedExported}/${overview.target} 帧。参照竹弓少女校正脚向与连续承重；跑步正常1×为1200ms一圈。当前为素材预览，客户端尚未接入。`;await loadGroup();}
   catch(error){ui['overview-status'].textContent='无法读取动作清单：'+error.message;}
   finally{ui.reload.disabled=false;}
 }

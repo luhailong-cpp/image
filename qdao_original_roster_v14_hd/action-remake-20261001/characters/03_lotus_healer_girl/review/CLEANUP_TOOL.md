@@ -1,6 +1,10 @@
 # 莲花医者原生图清理工具
 
-当前仅准备工具，**未对实际素材运行 dry run、未生成清理计划、未冻结导出、未删除任何图片**。2026-10-04 已通过10项内存安全测试。等根任务明确最终选表稳定，再运行下列检查。技术核验不代表美术、动态或客户端通过。
+2026-10-04 最终选帧稳定、196张导出及14组浏览器加载通过后，已完成实际清理：删除285张未选生成图，显式保留195张本角色当前原生设计母稿及196张1024导出图；另1张当前来源在旧目录，仅只读引用。所有逐图文字记录与SHA保留，没有新增图片备份。技术核验不代表用户或客户端验收。
+
+实际记录：[清理计划](cleanup-plan-final-20261004T232411095411Z.json)、[完整执行日志](cleanup-applied-20261004T232535264075Z.json)、[文字冻结清单](final-export-freeze-20261004T232411095411Z.json)。计划使用all-sources模式并逐个keep-source保留当前母稿，285个非当前源逐个retire-source；没有删除当前选用的原生PNG。所有删除路径均在本角色generation内，196成品在删除后再次核验完整。
+
+以下为工具使用说明和历史准备记录。当前冻结清单所列文件应保持不变；如有新的修订任务，应建立新版本记录与冻结清单，不能把旧冻结记录视为新版本核验。未选祖先图片已淘汰，来源文字记录中的历史路径允许不再存在。
 
 工具仅适用于 `D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl`。没有可改BASE的命令行选项，未修改现有build/finalize脚本。
 
@@ -20,7 +24,7 @@
 
 `all-sources` 允许把当前本角色已选原生PNG也列入删除，但必须先由根任务明确决定冻结。它仍保留 `--keep-source` 指定的当前设计母稿，以及状态不明确的未选在制稿。确已淘汰但状态缺失的图，可用明确逐文件的 `--retire-source` 放入新计划；这不会覆盖unselected模式对当前母稿/参考祖先的保护。不是把所有未知文件一律当拒稿。
 
-## 根任务通知稳定后才运行
+## 原始操作说明（实际执行见页首记录）
 
 PowerShell，工具输出实际计划路径；不要预先猜测计划文件名：
 
@@ -38,7 +42,7 @@ $taskCleanup = 'D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001
 & $taskPython -B $taskCleanup --apply 'review/cleanup-plan-unselected-实际时间戳.json'
 ```
 
-冻结及删除已选原生源属于根任务后续独立决定，目前没有执行：
+本轮已冻结文字清单，但显式保留了全部当前原生母稿。下面是不保留当前母稿时的工具用法，并非本轮执行结果：
 
 ```powershell
 # 只创建冻结文字清单及all-sources计划，仍不删除
@@ -68,5 +72,4 @@ $taskCleanup = 'D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001
 
 ## 已做的测试
 
-`tools/test_cleanup_generation.py`仅使用内存图与mock，无实际素材扫描、计划生成或删除。测试14组196目标、指纹变化、重复/缺失槽、越界/非PNG、备用流、symlink/reparse、硬链接、过期/篡改计划、无冻结all-sources、即使声明SHA匹配仍拒绝错误导出像素。当前还没有实际库存清理计划；实际dry run须等待根任务通知。
-
+`tools/test_cleanup_generation.py`的10项测试仅使用内存图与mock，无实际素材扫描或删除。覆盖14组196目标、指纹变化、重复/缺失槽、越界/非PNG、备用流、symlink/reparse、硬链接、过期/篡改计划、无冻结all-sources、即使声明SHA匹配仍拒绝错误导出像素。随后执行的真实清理及核验以页首计划、冻结清单和执行日志为准。

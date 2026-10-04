@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-03T22:06:00.922679-04:00",
+  "updatedAt": "2026-10-04T19:21:10.020720-04:00",
   "groups": [
     {
       "action": "run",
@@ -26,28 +26,52 @@
       ],
       "events": [
         {
-          "type": "right_contact",
-          "frame": 16,
-          "timeMs": 1125,
-          "status": "offline_candidate_not_client_event"
+          "name": "right_contact",
+          "frame": 1,
+          "timeMs": 0,
+          "status": "candidate_observed",
+          "contactPersistsThroughFrame": 8,
+          "type": "right_contact"
         },
         {
-          "type": "right_toe_off",
-          "frame": 6,
-          "timeMs": 375,
-          "status": "offline_candidate_not_client_event"
+          "name": "right_late_push",
+          "frame": 7,
+          "timeMs": 450,
+          "status": "candidate_observed",
+          "contactPersistsThroughFrame": 8,
+          "type": "right_late_push"
         },
         {
-          "type": "left_contact",
+          "name": "right_final_push",
+          "frame": 8,
+          "timeMs": 525,
+          "status": "candidate_observed",
+          "contactPersistsThroughFrame": 8,
+          "type": "right_final_push"
+        },
+        {
+          "name": "left_contact",
           "frame": 9,
           "timeMs": 600,
-          "status": "offline_candidate_not_client_event"
+          "status": "candidate_observed",
+          "contactPersistsThroughFrame": 16,
+          "type": "left_contact"
         },
         {
-          "type": "left_toe_off",
-          "frame": 13,
-          "timeMs": 900,
-          "status": "offline_candidate_not_client_event"
+          "name": "left_late_push",
+          "frame": 15,
+          "timeMs": 1050,
+          "status": "candidate_observed",
+          "contactPersistsThroughFrame": 16,
+          "type": "left_late_push"
+        },
+        {
+          "name": "left_final_push",
+          "frame": 16,
+          "timeMs": 1125,
+          "status": "candidate_observed",
+          "contactPersistsThroughFrame": 16,
+          "type": "left_final_push"
         }
       ],
       "status": "offline_candidate_not_client_event"
@@ -79,25 +103,29 @@
           "name": "right_contact",
           "frame": 1,
           "timeMs": 0,
-          "status": "candidate_observed"
+          "status": "candidate_observed",
+          "type": "right_contact"
         },
         {
-          "name": "right_toe_off",
-          "frame": 6,
-          "timeMs": 375,
-          "status": "candidate_observed"
+          "name": "right_final_push",
+          "frame": 8,
+          "timeMs": 525,
+          "status": "candidate_observed",
+          "type": "right_final_push"
         },
         {
           "name": "left_contact",
           "frame": 9,
           "timeMs": 600,
-          "status": "candidate_observed"
+          "status": "candidate_observed",
+          "type": "left_contact"
         },
         {
-          "name": "left_toe_off",
-          "frame": 13,
-          "timeMs": 900,
-          "status": "candidate_observed"
+          "name": "left_final_push",
+          "frame": 16,
+          "timeMs": 1125,
+          "status": "candidate_observed",
+          "type": "left_final_push"
         }
       ],
       "status": "offline_candidate_not_client_event"
@@ -124,8 +152,37 @@
         1050,
         1125
       ],
-      "events": [],
-      "status": "event_review_pending"
+      "events": [
+        {
+          "event": "right_support_start",
+          "slot": 1,
+          "frame": 1,
+          "timeMs": 0,
+          "startMs": 0,
+          "evidence": "RIGHT support continuously shown in slots01-08",
+          "type": "right_support_start"
+        },
+        {
+          "event": "right_to_left_support_exchange",
+          "slot": 9,
+          "frame": 9,
+          "timeMs": 600,
+          "startMs": 600,
+          "evidence": "RIGHT remains support in08; LEFT becomes support in09; exact release is between drawings",
+          "type": "right_to_left_support_exchange"
+        },
+        {
+          "event": "left_to_right_support_exchange_loop",
+          "slot": 1,
+          "frame": 1,
+          "timeMs": 0,
+          "startMs": 0,
+          "evidence": "LEFT support retained16, RIGHT support on next01; cyclic time0 equals1200ms boundary.",
+          "cycleBoundaryMs": 1200,
+          "type": "left_to_right_support_exchange_loop"
+        }
+      ],
+      "status": "offline_candidate_not_client_event"
     },
     {
       "action": "run",
@@ -151,44 +208,32 @@
       ],
       "events": [
         {
-          "event": "right_contact_candidate",
+          "event": "right_support_start",
           "slot": 1,
-          "startMs": 0,
-          "status": "observed_candidate",
-          "evidence": "16→01 smaller far-right leading shoe descends; planted orientation, near-left recovery sole retained",
-          "name": "right_contact_candidate",
           "frame": 1,
-          "timeMs": 0
+          "timeMs": 0,
+          "startMs": 0,
+          "evidence": "RIGHT support continuously shown in slots01-08",
+          "type": "right_support_start"
         },
         {
-          "event": "right_liftoff_interval",
-          "slot": 6,
-          "startMs": 375,
-          "status": "observed_interval_05_to_06",
-          "evidence": "05 far-right leg low/long;06 both knees flexed and recover. Exact toe release within interval cannot be resolved. Far-right rear-shoe ROI lowest y1176→1138.",
-          "name": "right_liftoff_interval",
-          "frame": 6,
-          "timeMs": 375
-        },
-        {
-          "event": "left_contact_candidate",
+          "event": "right_to_left_support_exchange",
           "slot": 9,
-          "startMs": 600,
-          "status": "observed_candidate",
-          "evidence": "07→08→09 near-left leading sole lowers progressively;09 shoe at terminal depth.",
-          "name": "left_contact_candidate",
           "frame": 9,
-          "timeMs": 600
+          "timeMs": 600,
+          "startMs": 600,
+          "evidence": "RIGHT remains support in08; LEFT becomes support in09; exact release is between drawings",
+          "type": "right_to_left_support_exchange"
         },
         {
-          "event": "left_liftoff_interval",
-          "slot": 13,
-          "startMs": 900,
-          "status": "observed_interval_12_to_13",
-          "evidence": "12 near-left rear shoe low with heel raised;13 knee flexes and heel rises. Depth-dependent ground remains provisional. Near-left rear-shoe ROI lowest y1179→1138.",
-          "name": "left_liftoff_interval",
-          "frame": 13,
-          "timeMs": 900
+          "event": "left_to_right_support_exchange_loop",
+          "slot": 1,
+          "frame": 1,
+          "timeMs": 0,
+          "startMs": 0,
+          "evidence": "LEFT support retained16, RIGHT support on next01; cyclic time0 equals1200ms boundary.",
+          "cycleBoundaryMs": 1200,
+          "type": "left_to_right_support_exchange_loop"
         }
       ],
       "status": "offline_candidate_not_client_event"
@@ -215,8 +260,165 @@
         1050,
         1125
       ],
-      "events": [],
-      "status": "event_review_pending"
+      "events": [
+        {
+          "name": "left_contact",
+          "frame": 1,
+          "timeMs": 0,
+          "status": "candidate_observed",
+          "contactPersistsThroughFrame": 8,
+          "type": "left_contact"
+        },
+        {
+          "name": "left_late_push",
+          "frame": 7,
+          "timeMs": 450,
+          "status": "candidate_observed",
+          "contactPersistsThroughFrame": 8,
+          "type": "left_late_push"
+        },
+        {
+          "name": "left_final_push",
+          "frame": 8,
+          "timeMs": 525,
+          "status": "candidate_observed",
+          "contactPersistsThroughFrame": 8,
+          "type": "left_final_push"
+        },
+        {
+          "name": "right_contact",
+          "frame": 9,
+          "timeMs": 600,
+          "status": "candidate_observed",
+          "contactPersistsThroughFrame": 16,
+          "type": "right_contact"
+        },
+        {
+          "name": "right_late_push",
+          "frame": 15,
+          "timeMs": 1050,
+          "status": "candidate_observed",
+          "contactPersistsThroughFrame": 16,
+          "type": "right_late_push"
+        },
+        {
+          "name": "right_final_push",
+          "frame": 16,
+          "timeMs": 1125,
+          "status": "candidate_observed",
+          "contactPersistsThroughFrame": 16,
+          "type": "right_final_push"
+        }
+      ],
+      "status": "offline_candidate_not_client_event"
+    },
+    {
+      "action": "run",
+      "direction": "SW",
+      "cycleMs": 1200,
+      "frameStartsMs": [
+        0,
+        75,
+        150,
+        225,
+        300,
+        375,
+        450,
+        525,
+        600,
+        675,
+        750,
+        825,
+        900,
+        975,
+        1050,
+        1125
+      ],
+      "events": [
+        {
+          "slot": 1,
+          "atMs": 0,
+          "event": "first_foot_front_contact",
+          "basis": "current actual planted pose; exact four-position spacing under review",
+          "frame": 1,
+          "type": "first_foot_front_contact",
+          "timeMs": 0
+        },
+        {
+          "slot": 3,
+          "atMs": 150,
+          "event": "first_foot_underbody_support",
+          "basis": "current actual planted pose; exact four-position spacing under review",
+          "frame": 3,
+          "type": "first_foot_underbody_support",
+          "timeMs": 150
+        },
+        {
+          "slot": 5,
+          "atMs": 300,
+          "event": "first_foot_rear_load",
+          "basis": "current actual planted pose; exact four-position spacing under review",
+          "frame": 5,
+          "type": "first_foot_rear_load",
+          "timeMs": 300
+        },
+        {
+          "slot": 7,
+          "atMs": 450,
+          "event": "first_foot_terminal_load",
+          "basis": "current actual planted pose; exact four-position spacing under review",
+          "frame": 7,
+          "type": "first_foot_terminal_load",
+          "timeMs": 450
+        },
+        {
+          "slot": 9,
+          "atMs": 600,
+          "event": "opposite_foot_front_contact",
+          "basis": "current actual planted pose; exact four-position spacing under review",
+          "frame": 9,
+          "type": "opposite_foot_front_contact",
+          "timeMs": 600
+        },
+        {
+          "slot": 11,
+          "atMs": 750,
+          "event": "opposite_foot_underbody_support",
+          "basis": "current actual planted pose; exact four-position spacing under review",
+          "frame": 11,
+          "type": "opposite_foot_underbody_support",
+          "timeMs": 750
+        },
+        {
+          "slot": 13,
+          "atMs": 900,
+          "event": "opposite_foot_rear_load",
+          "basis": "current actual planted pose; exact four-position spacing under review",
+          "frame": 13,
+          "type": "opposite_foot_rear_load",
+          "timeMs": 900
+        },
+        {
+          "slot": 15,
+          "atMs": 1050,
+          "event": "opposite_foot_terminal_load",
+          "basis": "current actual planted pose; exact four-position spacing under review",
+          "frame": 15,
+          "type": "opposite_foot_terminal_load",
+          "timeMs": 1050
+        },
+        {
+          "slot": 17,
+          "atMs": 1200,
+          "event": "next_cycle_contact",
+          "basis": "current actual planted pose; exact four-position spacing under review",
+          "frame": 1,
+          "type": "next_cycle_contact",
+          "timeMs": 1200,
+          "cycleOffset": 1
+        }
+      ],
+      "status": "offline_candidate_not_client_event"
     },
     {
       "action": "run",
@@ -243,27 +445,139 @@
       "events": [
         {
           "name": "right_contact",
-          "frame": 16,
-          "timeMs": 1125,
-          "status": "candidate_observed"
+          "frame": 1,
+          "timeMs": 0,
+          "status": "candidate_observed",
+          "type": "right_contact"
         },
         {
-          "name": "right_toe_off",
-          "frame": 6,
-          "timeMs": 375,
-          "status": "candidate_observed"
+          "name": "right_final_push",
+          "frame": 8,
+          "timeMs": 525,
+          "status": "candidate_observed",
+          "type": "right_final_push"
         },
         {
           "name": "left_contact",
           "frame": 9,
           "timeMs": 600,
-          "status": "candidate_observed"
+          "status": "candidate_observed",
+          "type": "left_contact"
         },
         {
-          "name": "left_toe_off",
+          "name": "left_final_push",
+          "frame": 16,
+          "timeMs": 1125,
+          "status": "candidate_observed",
+          "type": "left_final_push"
+        }
+      ],
+      "status": "offline_candidate_not_client_event"
+    },
+    {
+      "action": "run",
+      "direction": "SE",
+      "cycleMs": 1200,
+      "frameStartsMs": [
+        0,
+        75,
+        150,
+        225,
+        300,
+        375,
+        450,
+        525,
+        600,
+        675,
+        750,
+        825,
+        900,
+        975,
+        1050,
+        1125
+      ],
+      "events": [
+        {
+          "slot": 1,
+          "atMs": 0,
+          "event": "first_foot_front_contact",
+          "basis": "current actual planted pose; exact four-position spacing under review",
+          "frame": 1,
+          "type": "first_foot_front_contact",
+          "timeMs": 0
+        },
+        {
+          "slot": 3,
+          "atMs": 150,
+          "event": "first_foot_underbody_support",
+          "basis": "current actual planted pose; exact four-position spacing under review",
+          "frame": 3,
+          "type": "first_foot_underbody_support",
+          "timeMs": 150
+        },
+        {
+          "slot": 5,
+          "atMs": 300,
+          "event": "first_foot_rear_load",
+          "basis": "current actual planted pose; exact four-position spacing under review",
+          "frame": 5,
+          "type": "first_foot_rear_load",
+          "timeMs": 300
+        },
+        {
+          "slot": 7,
+          "atMs": 450,
+          "event": "first_foot_terminal_load",
+          "basis": "current actual planted pose; exact four-position spacing under review",
+          "frame": 7,
+          "type": "first_foot_terminal_load",
+          "timeMs": 450
+        },
+        {
+          "slot": 9,
+          "atMs": 600,
+          "event": "opposite_foot_front_contact",
+          "basis": "current actual planted pose; exact four-position spacing under review",
+          "frame": 9,
+          "type": "opposite_foot_front_contact",
+          "timeMs": 600
+        },
+        {
+          "slot": 11,
+          "atMs": 750,
+          "event": "opposite_foot_underbody_support",
+          "basis": "current actual planted pose; exact four-position spacing under review",
+          "frame": 11,
+          "type": "opposite_foot_underbody_support",
+          "timeMs": 750
+        },
+        {
+          "slot": 13,
+          "atMs": 900,
+          "event": "opposite_foot_rear_load",
+          "basis": "current actual planted pose; exact four-position spacing under review",
           "frame": 13,
-          "timeMs": 900,
-          "status": "candidate_observed"
+          "type": "opposite_foot_rear_load",
+          "timeMs": 900
+        },
+        {
+          "slot": 15,
+          "atMs": 1050,
+          "event": "opposite_foot_terminal_load",
+          "basis": "current actual planted pose; exact four-position spacing under review",
+          "frame": 15,
+          "type": "opposite_foot_terminal_load",
+          "timeMs": 1050
+        },
+        {
+          "slot": 17,
+          "atMs": 1200,
+          "event": "next_cycle_contact",
+          "basis": "current actual planted pose; exact four-position spacing under review",
+          "frame": 1,
+          "type": "next_cycle_contact",
+          "timeMs": 1200,
+          "cycleOffset": 1
         }
       ],
       "status": "offline_candidate_not_client_event"
