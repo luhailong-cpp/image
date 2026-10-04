@@ -5,7 +5,9 @@ const ctx=$('canvas').getContext('2d'), names={run:'跑步',hit:'受击',attack:
 let sequence,images=[],index=0,elapsed=0,playing=true,last=0,request=0;
 $('summary').textContent='已落盘 '+data.presentFrameCount+' / '+data.targetFrameCount+' 帧；完整序列 '+data.completeSequences+' / '+data.sequenceCount+'。';
 function draw(){
- ctx.clearRect(0,0,1024,1024);if(images[index])ctx.drawImage(images[index],0,0,1024,1024);
+ const size=Number($('size').value),canvas=$('canvas');
+ if(canvas.width!==size){canvas.width=size;canvas.height=size}
+ ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,size,size);ctx.setTransform(size/1024,0,0,size/1024,0,0);ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';if(images[index])ctx.drawImage(images[index],0,0,1024,1024);
  if($('ground').checked){ctx.save();ctx.strokeStyle='#bc745a';ctx.lineWidth=2;ctx.setLineDash([12,8]);ctx.beginPath();ctx.moveTo(0,966);ctx.lineTo(1024,966);ctx.stroke();ctx.restore()}
  if(!sequence)return;
  $('info').textContent=(index+1)+' / '+sequence.expectedFrames+' · '+sequence.frameMs+' ms/帧 · '+sequence.cycleMs+' ms/圈';
@@ -28,7 +30,7 @@ for(const s of data.sequences){const b=document.createElement('button');b.textCo
 $('play').onclick=()=>{playing=!playing;$('play').textContent=playing?'暂停':'播放';elapsed=0};
 function step(delta){if(!sequence?.complete)return;pause();index=(index+delta+images.length)%images.length;elapsed=0;draw()}
 $('prev').onclick=()=>step(-1);$('next').onclick=()=>step(1);
-$('size').onchange=()=>{$('canvas').style.width=$('size').value+'px';$('canvas').style.height=$('size').value+'px'};
+$('size').onchange=()=>{$('canvas').style.width=$('size').value+'px';$('canvas').style.height=$('size').value+'px';draw()};
 $('ground').onchange=draw;$('rate').onchange=()=>{elapsed=0};
 function tick(now){const dt=last?Math.min(now-last,250):0;last=now;if(playing&&sequence?.complete&&images.length){elapsed+=dt*Number($('rate').value);let changed=false;while(elapsed>=sequence.frameMs){elapsed-=sequence.frameMs;index=(index+1)%images.length;changed=true}if(changed)draw()}requestAnimationFrame(tick)}
 const first=data.sequences.find(s=>s.complete)||data.sequences.find(s=>s.presentFrames);if(first)select(first);

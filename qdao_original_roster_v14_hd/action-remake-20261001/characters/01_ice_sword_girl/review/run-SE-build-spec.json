@@ -1,0 +1,160 @@
+{
+  "direction": "SE",
+  "versions": {
+    "1": 1,
+    "2": 1,
+    "3": 1,
+    "4": 2,
+    "5": 2,
+    "6": 1,
+    "7": 2,
+    "8": 3,
+    "9": 1,
+    "10": 1,
+    "11": 3,
+    "12": 2,
+    "13": 1,
+    "14": 1,
+    "15": 1,
+    "16": 1
+  },
+  "observations": [
+    {
+      "frame": 1,
+      "evidence": "近右腿前伸、前靴跟部/全掌初触候选，远左腿后收；剑在近右后摆、符在远左前摆",
+      "left": "air",
+      "right": "initial_contact_candidate"
+    },
+    {
+      "frame": 2,
+      "evidence": "近右膝压缩，右靴鞋面及水平底边更明确，远左靴抬起",
+      "left": "air",
+      "right": "support_candidate"
+    },
+    {
+      "frame": 3,
+      "evidence": "右支撑候选，左腿开始通过；剑腕开始回收，但与02角度变化仍需连播",
+      "left": "air",
+      "right": "support_candidate"
+    },
+    {
+      "frame": 4,
+      "evidence": "二版已去掉初版提前伸直飞行腿；右靴最低、左膝前摆，后跟抬起不够明显",
+      "left": "air",
+      "right": "terminal_support_candidate"
+    },
+    {
+      "frame": 5,
+      "evidence": "后侧支撑腿已延长、前腿抬起，后鞋为最低；前掌蹬地及近远腿遮挡仍待逐帧核对",
+      "left": "air",
+      "right": "toe_off_candidate"
+    },
+    {
+      "frame": 6,
+      "evidence": "前腿低空，近右剑袖横过胸前，未换手；鞋底可见是前摆背屈，非外撇",
+      "left": "air",
+      "right": "air"
+    },
+    {
+      "frame": 7,
+      "evidence": "选二版：保持09近右肩→胸前剑袖，原v1换手拒选；两脚低空候选",
+      "left": "air",
+      "right": "air"
+    },
+    {
+      "frame": 8,
+      "evidence": "选三版：剑更竖、留出画布边距；近右剑袖连接正确，前靴近水平，左初触时间候选",
+      "left": "precontact_or_initial_contact_candidate",
+      "right": "air"
+    },
+    {
+      "frame": 9,
+      "evidence": "左前脚支撑候选，近右剑袖前摆清晰；无凭鞋底诊断线直接定接触",
+      "left": "support_candidate",
+      "right": "air"
+    },
+    {
+      "frame": 10,
+      "evidence": "左膝受载、近右剑袖前摆，后腿收起；与09小幅压缩候选",
+      "left": "support_candidate",
+      "right": "air"
+    },
+    {
+      "frame": 11,
+      "evidence": "选11-v3：近肩接胸前剑袖，剑腕低于胸部的回收中位。",
+      "left": "support_candidate",
+      "right": "air"
+    },
+    {
+      "frame": 12,
+      "evidence": "本槽按实际姿态改选独立生成11-v2：低剑腕中位、右膝前通过；原12-v2举剑过高拒选。未复用其它选槽图片。",
+      "left": "terminal_support_candidate",
+      "right": "air"
+    },
+    {
+      "frame": 13,
+      "evidence": "后鞋为最低、前膝收起；远左最后支撑仍受裙摆遮挡，不能只按提示确认",
+      "left": "toe_off_candidate",
+      "right": "air"
+    },
+    {
+      "frame": 14,
+      "evidence": "近右前摆、远左后折的低空候选，鞋底与支持投影接近，未强作漂浮判断",
+      "left": "air",
+      "right": "air_or_precontact"
+    },
+    {
+      "frame": 15,
+      "evidence": "近右前脚下降，鞋尖沿SE，未镜像；足部高度与14差很小",
+      "left": "air",
+      "right": "precontact_candidate"
+    },
+    {
+      "frame": 16,
+      "evidence": "近右脚到最低前伸，可能已经初触，接01需连播检查，不强称精确空中相位",
+      "left": "air",
+      "right": "precontact_or_initial_contact_candidate"
+    }
+  ],
+  "issues": [
+    "SE05/13 末支撑后跟及近远腿遮挡仍待连播，不能根据提示词自动贴蹬地事件。",
+    "SE14–16 低空高度差很小，16可能已初触；需客户端/整圈复核接01。",
+    "SE08v3完整剑尖已入框；SE07v1换手、SE12v2举剑过高均未选，12槽按实图改选11v2。",
+    "SE原生冠顶约4–8%、鞋底约92–97%；固定原生画布下自然姿态差，未做包围盒对齐或整图平移。"
+  ],
+  "events": {
+    "kind": "manual_visual_hypotheses_not_runtime_events",
+    "rightContact": {
+      "frameRange": [
+        16,
+        1,
+        2
+      ],
+      "confidence": "medium_candidate"
+    },
+    "leftContact": {
+      "frameRange": [
+        8,
+        9
+      ],
+      "confidence": "medium_candidate"
+    },
+    "rightToeOff": {
+      "betweenFrames": [
+        5,
+        6
+      ],
+      "confidence": "low_occlusion"
+    },
+    "leftToeOff": {
+      "betweenFrames": [
+        13,
+        14
+      ],
+      "confidence": "low_occlusion"
+    }
+  },
+  "sourceFrames": {
+    "12": 11
+  }
+}

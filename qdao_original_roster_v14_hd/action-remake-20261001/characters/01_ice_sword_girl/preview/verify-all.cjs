@@ -23,6 +23,7 @@ const {chromium}=require('C:/Users/luyua/.cache/codex-runtimes/codex-primary-run
    function read(t){const v=window.animationReview.getState().index;if(v!==previous){out.push({frame:v+1,time:t-start});previous=v}if(t-start<ms)requestAnimationFrame(read);else resolve(out)}requestAnimationFrame(read);
   }),s.cycleMs*2.2);
   await page.locator('#play').click();
+  fs.writeFileSync(path.join(__dirname,'last-playback-observation.json'),JSON.stringify({sequence:s.action+'/'+s.direction,observed},null,2)+'\n');
   if(observed.some((v,i)=>i&&v.frame!==(observed[i-1].frame%s.expectedFrames)+1))throw Error('Dropped/reordered frames '+s.action+s.direction);
   const boundaries=observed.filter(v=>v.frame===1),measured=boundaries.length>=2?boundaries[1].time-boundaries[0].time:null;
   if(measured===null||Math.abs(measured-s.cycleMs)>45)throw Error('Wrong actual cycle '+s.action+s.direction);
