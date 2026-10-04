@@ -155,7 +155,7 @@ def make_card(item: dict, sequence: dict, anchor: list[float] | None) -> Image.I
         x, y = anchor[0]/2, anchor[1]/2
         draw.line((x-7, y, x+7, y), fill="#1179cc", width=1)
         draw.line((x, y-7, x, y+7), fill="#1179cc", width=1)
-    label = "COMPLETE INVENTORY / VISUAL REVIEW REQUIRED" if sequence["complete"] else "PARTIAL PREVIEW / MISSING SLOTS"
+    label = "OFFLINE REVIEW COMPLETE / CLIENT PENDING" if sequence.get("offline_review_complete") else ("COMPLETE INVENTORY / VISUAL REVIEW REQUIRED" if sequence["complete"] else "PARTIAL PREVIEW / MISSING SLOTS")
     draw.text((10, 518), f"{item['action']} {item['direction']}  frame {item['frame']:02d}  ({len(sequence['available'])}/{sequence['expected']})", font=font(16), fill="white")
     draw.text((10, 543), label, font=font(12), fill="#ffdc87")
     return image
@@ -198,7 +198,7 @@ body{margin:0;background:#10202d;color:#eef3f7;font:15px system-ui,"Microsoft Ya
 </style><main><h1>02 火符少年 · 动作验收</h1><p class="note">只展示清单中实际存在的图。缺帧显示文字空槽；不插值、不镜像、不重复补帧。固定全画布显示，根锚点仅作参考标记，不自动贴地。跑步正常1×为1200ms（每帧75ms）；慢放为4800ms。</p>
 <p><a href="run-grounding.html">八方向跑步 · 1200ms正常 / 慢放 / 逐帧</a></p><div id="total" class="badge"></div><div class="summary" id="summary"></div><div class="layout"><section><h2 id="title"></h2><div id="stage" class="stage"><img id="frame" alt="当前实际动作帧"><div id="empty" class="empty"></div><div id="cross" class="cross">＋</div></div><div><button id="bg-checker">棋盘格</button><button id="bg-light">浅底</button><button id="bg-dark">深底</button></div><div id="state" class="badge"></div><button id="normal">正常速度</button><button id="slow">慢速 ×4</button><button id="stop">暂停</button><button id="previous">上一槽</button><button id="next">下一槽</button><input id="slider" class="timeline" type="range" min="1" step="1"><div id="slots" class="slots"></div></section><aside><h2>来源与技术检查</h2><p class="note">技术通过不代表美术或动态验收通过。正常/慢速均保留全部规格槽位与时长；缺帧时播放文字空槽，不跳帧、不复制上一帧。只有槽位齐全时生成 GIF；美术与动态验收另记。</p><p id="links"></p><pre id="detail"></pre><p><a href="technical-report.json">完整技术审计 JSON</a></p></aside></div></main><script>
 const report=__REPORT__;const preloadAll=report.sequences.flatMap(s=>s.available).map(f=>new Promise(resolve=>{const img=new Image();img.onload=()=>resolve(true);img.onerror=()=>resolve(false);img.src='../'+f.path.split('/').map(encodeURIComponent).join('/')+'?sha='+f.sha256}));let current=0,slot=1,timer=null,factor=1;const byId=x=>document.getElementById(x);const seq=()=>report.sequences[current];
-byId('total').textContent=`目标 ${report.target_frames} 帧；实际可预览 ${report.loadable_frames} 帧；技术通过 ${report.technical_pass_frames} 帧。${report.loadable_frames<report.target_frames?'本页为部分成果预览。':'库存已齐，仍需视觉及动态验收。'}`;
+byId('total').textContent=`目标 ${report.target_frames} 帧；实际可预览 ${report.loadable_frames} 帧；技术通过 ${report.technical_pass_frames} 帧。${report.loadable_frames<report.target_frames?'本页为部分成果预览。':(report.offline_materials_complete?'素材及离线手脚复核完成；客户端未接入。':'库存已齐，仍需视觉及动态验收。')}`;
 report.sequences.forEach((s,i)=>{const b=document.createElement('button');b.textContent=`${s.action} ${s.direction}：${s.available.length}/${s.expected}`;b.onclick=()=>select(i);byId('summary').append(b)});
 let playbackStart=0,playbackSlot=1;function stop(){cancelAnimationFrame(timer);timer=null}
 function show(n){slot=n;const s=seq(),f=s.available.find(x=>x.frame===slot);byId('slider').value=slot;byId('state').textContent=`${s.complete?'库存齐全':'部分预览'} · 槽位 ${slot}/${s.expected} · 单帧 ${s.frame_ms}ms / 整段 ${s.duration_ms}ms · 缺帧：${s.missing.join(', ')||'无'}`;byId('frame').style.visibility=f?'visible':'hidden';byId('empty').style.display=f?'none':'grid';byId('empty').textContent='此槽位未生成或 PNG 无法读取';if(f){byId('frame').src='../'+f.path.split('/').map(encodeURIComponent).join('/')+'?sha='+f.sha256;byId('detail').textContent=JSON.stringify(f,null,2)}else{byId('frame').removeAttribute('src');byId('detail').textContent=JSON.stringify(s.entries.find(x=>x.frame===slot)||{action:s.action,direction:s.direction,frame:slot,status:'未生成；无占位图'},null,2)}Array.from(byId('slots').children).forEach((b,i)=>b.classList.toggle('active',i+1===slot))}
@@ -240,11 +240,14 @@ def build(manifest_path: Path, anchor_override: list[float] | None) -> dict:
             sequence = {"action": action, "direction": direction, "expected": expected,
                         "frame_ms": ms, "duration_ms": expected * ms,
                         "complete": not missing, "missing": missing,
-                        "entries": subset, "available": available}
+                        "entries": subset, "available": available,
+                        "offline_review_complete": bool(data.get("offline_materials_complete",False))}
             sequence["animations"] = make_animations(sequence, anchor)
             sequences.append(sequence)
     report = {"character": "02_fire_talisman_boy", "generated_at_utc": datetime.now(timezone.utc).isoformat(),
               "manifest": manifest_path.relative_to(ROOT).as_posix(), "target_frames": 196,
+              "offline_materials_complete": bool(data.get("offline_materials_complete",False)),
+              "client_integrated": False,
               "canvas": [1024, 1024], "root_anchor": anchor,
               "root_anchor_note": "仅绘制统一参考标记；不证明图片已对齐；不读取 bbox 进行归一化",
               "loadable_frames": sum(x["loadable"] for x in inspected),

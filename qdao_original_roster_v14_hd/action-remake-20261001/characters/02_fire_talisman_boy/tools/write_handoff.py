@@ -50,7 +50,7 @@ animation-events.json：受击01开始、普攻06/150ms命中候选、施法09/3
 
 本批使用内置image_gen；配置目标GPT Image 2.5 Sunburst/max。工具无型号/质量选择器，实际提交参数model/quality=null，返回型号/质量未披露，均记未确认；未使用收费API/CLI，不取另一电脑未提交图，不沿用旧run-correction/combat在制图。
 
-reviews/full-source-chain-audit.json保存清理前的196帧来源、原生尺寸、宿主哈希与实际全画布导出像素审计。原始回执证据分级如实保留：部分旧生成记录只有宿主路径；N09为带标记的回溯推断。它们不能冒充原始返回文字或型号证据。淘汰稿与导出中间图清理以reviews/cleanup-completed.json为准，文字来源与SHA保留；历史路径不代表原图仍存在。
+reviews/full-source-chain-audit.json保存清理前的196帧来源、原生尺寸、宿主哈希与实际全画布导出像素审计。原始回执证据分级如实保留：部分旧生成记录只有宿主路径；N09为带标记的回溯推断。它们不能冒充原始返回文字或型号证据。清理计划为reviews/work-image-cleanup-plan.json：389张work过程图共455.7MB。自动审批拦截批量删除，未执行删除，过程图暂留；见reviews/cleanup-blocked.json。正式PNG与预览不受影响，文字来源和SHA均保留。
 
 ## 客户端边界
 
