@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw
 import hashlib,json,datetime
 B=Path(__file__).resolve().parents[1]
 G=B/'generation'/'W'; R=B/'review'; R.mkdir(exist_ok=True)
-choices=['01-v1','02-v1','03-v1','04-v1','05-v1','06-v2','08-v5','07-v3','09-v2','10-v2','11-v1','12-v1','13-v1','14-v1','15-v1','16-v1']
+choices=['01-v1','02-v1','03-v1','04-v1','05-v1','06-v2','08-v5','07-v3','09-v2','10-v2','11-v2','12-v1','13-v1','14-v1','15-v1','16-v1']
 phases=[
 '近左前脚足跟接触，远右后脚折叠；瓶近后、灯远前',
 '近左前脚全掌承重，膝屈；远右脚仍在后方',
@@ -15,7 +15,7 @@ phases=[
 '远右前腿再伸准备下落，近左后脚折叠；两足仍离地',
 '远右前脚足跟接触姿，近左后脚折叠；瓶前灯后',
 '远右前脚全掌承重、膝压缩，近左脚在后回收',
-'远右身体下方全掌支撑，近左膝向前通过，灯回髋侧',
+'远右身体下方全掌支撑，近左膝向前通过，灯回髋侧；11-v2局部恢复灯体量',
 '远右支撑腿扫向后，近左膝在前折叠；灯已经转至前方',
 '远右后侧前掌蹬地，近左前腿准备展开',
 '远右脚刚离地、近左前膝回收；后足仅极小地面间隙',
@@ -33,7 +33,7 @@ issues=[
 ['前鞋过度向左伸出，08→09接触间隙落差较大；头水平与垂直注册仍漂'],
 ['头眼仍较01左漂约80px；局部修正后接触底仍低于诊断地面约7px'],
 ['承重底低于诊断地面约21px；头仍左漂；不可用整图移位掩盖'],
-['莲灯直径相对邻帧缩小；右侧头发靠近边缘；头向左漂'],
+['11-v2局部恢复灯体量，持手与双脚保持；右侧头发靠近边缘；头向左漂'],
 ['灯从11髋侧到12前方过渡偏大；支撑鞋稍朝下左，足轴需全圈核查'],
 ['前腿伸展较14提前，13→14有回收反转；后鞋前掌轴需独立确认'],
 ['后足仅约3px间隙，初腾空可信度弱；右侧发梢靠近画布边缘'],
@@ -68,7 +68,7 @@ for n,errs in rejected.items():
  gp=G/(n+'.png.generation.json');meta=json.loads(gp.read_text(encoding='utf-8'));meta['status']='not_selected';meta['review']=rv;gp.write_text(json.dumps(meta,ensure_ascii=False,indent=2),encoding='utf-8')
 failed=G/'08-v4.job.json';j=json.loads(failed.read_text(encoding='utf-8'));j['status']='failed_no_image';j['error']='image generation failed: network error: error sending request';failed.write_text(json.dumps(j,ensure_ascii=False,indent=2),encoding='utf-8')
 (G/'08-v4.review.json').write_text(json.dumps(dict(status='failed_no_image',imageViewed=False,error=j['error'],actualModel=None,actualQuality=None),ensure_ascii=False,indent=2),encoding='utf-8')
-seq=dict(schemaVersion=1,character='03_lotus_healer_girl',action='run',direction='W',createdAt=stamp,nativeRoot=[610,1179],nativeCanvas=[1254,1254],canvas=[1254,1254],rootStatus='provisional fixed diagnostic baseline from W01, not accepted or realigned',visualAccepted=False,clientTested=False,durationMs=1200,timingBasis='uniform75ms per frame,1200ms offline default',frames=items,issues=['Head/torso registration drifts strongly left during reversed arm half-cycle; no programmatic compensation used.','Contact shoe heights vary around provisional1179; technical files do not imply dynamic acceptance.','04→05 and11→12 arm travel jumps; lamp shrinks in11.','07 source08-v5 and08 source07-v3 are deliberately mapped by actual knee recovery then extension; no repeated image.','All 16 sources unique independent built-in generations/AI edits, nativeRGBA; builtin actual model and quality undisclosed.'])
+seq=dict(schemaVersion=1,character='03_lotus_healer_girl',action='run',direction='W',createdAt=stamp,nativeRoot=[610,1179],nativeCanvas=[1254,1254],canvas=[1254,1254],rootStatus='provisional fixed diagnostic baseline from W01, not accepted or realigned',visualAccepted=False,clientTested=False,durationMs=1200,timingBasis='uniform75ms per frame,1200ms offline default',frames=items,issues=['Head/torso registration drifts strongly left during reversed arm half-cycle; no programmatic compensation used.','Contact shoe heights vary around provisional1179; technical files do not imply dynamic acceptance.','04→05 and11→12 arm travel jumps;11-v2 restores lamp dimensions while keeping original grip and feet.','07 source08-v5 and08 source07-v3 are deliberately mapped by actual knee recovery then extension; no repeated image.','All 16 sources unique independent built-in generations/AI edits, nativeRGBA; builtin actual model and quality undisclosed.'])
 (R/'run-W-sequence-input.json').write_text(json.dumps(seq,ensure_ascii=False,indent=2),encoding='utf-8')
 # Whole-canvas uniform reduction only; no bbox fit or per-frame registration.
 sheet=Image.new('RGB',(1024,4*284),(235,231,225));d=ImageDraw.Draw(sheet)
@@ -82,10 +82,10 @@ for i,it in enumerate(items):
  anim.append(back.convert('RGB'))
 sheet.save(R/'run-W-contact.jpg',quality=94)
 # GIF would quantize75ms to10ms granularity, so APNG keeps exact75ms.
-anim[0].save(R/'run-W-trial.apng',save_all=True,append_images=anim[1:],duration=[45]*16,loop=0,format='PNG')
+anim[0].save(R/'run-W-trial.apng',save_all=True,append_images=anim[1:],duration=[75]*16,loop=0,format='PNG')
 lines=['# W run 16 候选复核','', '视觉未验收；客户端未测。原生1254透明，固定诊断根点(610,1179)，不作逐帧移图或贴地。','', '|槽|唯一源|实际相位|最低鞋y|问题|','|---|---|---|---|---|']
 for i,it in enumerate(items):lines.append(f"|{i+1:02d}|{choices[i]}|{it['observedPhase']}|{it['diagnosticLowestShoeY']}|{'；'.join(it['issues'])}|")
-lines += ['', '08-v4 调用失败原文：image generation failed: network error: error sending request。无PNG，随后按parent授权用两图来源重试08-v5成功。','', '可保留：身份、长波浪发、左太阳穴莲饰、改后左右持物；两段膝回收与展开；16→01接触前后近似连续。主要遗留：反向摆臂半圈头部大幅左漂、04→05灯跨度、11灯缩小、接触足底高度分散。','', '每槽独立来源与hash见run-W-sequence-input.json；模型/质量actual均null。']
+lines += ['', '08-v4 调用失败原文：image generation failed: network error: error sending request。无PNG，随后按parent授权用两图来源重试08-v5成功。','', '可保留：身份、长波浪发、左太阳穴莲饰、改后左右持物；两段膝回收与展开；16→01接触前后近似连续。主要遗留：反向摆臂半圈头部大幅左漂、04→05灯跨度、11-v2灯体量已局部恢复、接触足底高度分散。','', '每槽独立来源与hash见run-W-sequence-input.json；模型/质量actual均null。']
 (R/'run-W-review.md').write_text('\n'.join(lines),encoding='utf-8')
 print(json.dumps(dict(selection=str(R/'run-W-sequence-input.json'),contact=str(R/'run-W-contact.jpg'),uniqueHashes=len({i['sourceSha256'] for i in items}),frames=len(items),visualAccepted=False),ensure_ascii=False))
 
