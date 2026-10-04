@@ -1,16 +1,85 @@
 {
+  "direction": "N",
+  "updatedAt": "2026-10-04T19:51:59.379250+00:00",
+  "artStatus": "agent_frame_visual_and_offline_playback_verified",
+  "eightConsecutiveSupportVerified": true,
+  "positionPairsVerified": true,
+  "dynamicArtAccepted": false,
+  "verificationScope": "Agent inspected full native images, sequential contact sheets and feet close-ups: anatomy, same-foot support ownership, four spatial pairs, straight boot axes, arm continuity. Offline browser at 1x verified 16 ordered frames, 75ms schedule, 1200ms loop and wrap controls. Continuous-motion human acceptance and game-client integration remain separate; dynamicArtAccepted is reserved for that downstream acceptance and is not an unresolved frame-repair flag.",
+  "actualSupportFrames": {
+    "right": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "left": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ]
+  },
+  "positionPairs": [
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      7,
+      8
+    ],
+    [
+      9,
+      10
+    ],
+    [
+      11,
+      12
+    ],
+    [
+      13,
+      14
+    ],
+    [
+      15,
+      16
+    ]
+  ],
+  "remainingIssues": [],
+  "clientRuntimeVerified": false,
+  "rejectedLatest": {
+    "drafts/run/N/04-v5.png": "premature raised heel before body-approach pair; replaced v6",
+    "drafts/run/N/07-v6.png": "heel too flat for rear push; replaced v7",
+    "drafts/run/N/08-v6.png": "heel too flat for rear push; replaced v7",
+    "drafts/run/N/10-v6.png": "support boot/calf size shrank; rejected",
+    "drafts/run/N/10-v7.png": "support shoe depth too low relative front09; replaced v8",
+    "drafts/run/N/11-v6.png": "extra floating blade behind head; replaced v7",
+    "drafts/run/N/14-v6.png": "abrupt sword-arm swing between13 and15; replaced v7"
+  },
   "schemaVersion": 1,
   "characterId": "01_ice_sword_girl",
-  "direction": "N",
-  "updatedAt": "2026-10-04T07:37:07.931927+00:00",
+  "action": "run",
   "canvasSize": [
     1024,
     1024
   ],
-  "root": {
-    "status": "provisional",
-    "definition": "Fixed full canvas; no per-frame registration. Actual support geometry reviewed visually; shared character virtual root handled by parent."
-  },
   "timing": {
     "cycleMs": 1200,
     "frameDurationsMs": [
@@ -31,429 +100,418 @@
       75,
       75
     ],
-    "status": "user_requested_1200ms_uniform",
-    "formalClientTimingConfirmed": false,
-    "uniformCycleMs": 1200
+    "formalClientTimingConfirmed": false
   },
   "frames": [
     {
       "frame": 1,
+      "sourcePath": "drafts/run/N/01-v5.png",
+      "actualPhase": "right_front_landing_A",
+      "actualContact": {
+        "right": "grounded_weight",
+        "left": "air"
+      },
+      "spatialPosition": 1,
+      "notes": "右脚前侧落低，跟/掌承重；左膝后折、鞋底离地，脚轴顺纯N。保留原正确01。",
       "path": "candidate/run/N/01.png",
-      "sourcePath": "drafts/run/N/01-v1.png",
-      "sha256": "0ab7560286a23160a10c1d4614472edb18efc482a2d9884f4e5b1804a5b881bf",
-      "sourceSha256": "cbcead859353920b6d599c6ac54676bc9484d64cb83a8dbb48128af50a6cb431",
+      "sha256": "64c1551379fe72b8fe0ab129100443898e046ebc6c31709fc53a4bc951c4ea1b",
+      "sourceSha256": "7afeb27a54c003d2ab36e92bbbdfe99288341cf96262f823cd4ff9de15695232",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/N/01.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": null,
-      "actualPhase": "right_initial_contact_left_recovery",
-      "actualContact": {
-        "right": "contact",
-        "left": "air"
-      },
-      "notes": "Viewed actual native: straight rear N, right support heel below knee and left recovery sole visible; right sword on screen-right and left talisman on screen-left. Clear depth stride, no outward toes. Crown/sole differ from requested coordinate targets, adopt actual anchor for next frames and keep provisional registration; do not reposition.",
+      "nativeGenerationRecord": "drafts/run/N/01-v5.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 2,
+      "sourcePath": "drafts/run/N/02-v5.png",
+      "actualPhase": "right_front_landing_B",
+      "actualContact": {
+        "right": "grounded_weight",
+        "left": "air"
+      },
+      "spatialPosition": 1,
+      "notes": "右脚持续前側承重，右膝缓冲；左回收膝/鞋位与01不同。保留原正确02。",
       "path": "candidate/run/N/02.png",
-      "sourcePath": "drafts/run/N/02-v1.png",
-      "sha256": "3a226c62d31cf184215df26bb49c29d3ef3a5195003d2bf99e0d81ca14fba1f3",
-      "sourceSha256": "e3cce4b346d378a2d2a32e65ff7d679be5f933bbdfc87b60d15b94898e598cc9",
+      "sha256": "726792d854073c2c6775037e35b4fe4cc7d58a0b2cadb50851cfc5bd3e23b80d",
+      "sourceSha256": "dfa773b3b94f77f9bda34e9d28012ce12339759457446dc62168f90b960d5b5c",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/N/02.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "right_absorb",
-      "actualPhase": "right_support_left_recovery",
-      "actualContact": {
-        "right": "weight",
-        "left": "air"
-      },
-      "notes": "Actual native reviewed: right heel/sole support and left lifted sole retained; left boot lifts slightly and robe/hips change, props stay correct sides. Right knee compression is subtle rather than a pronounced absorb pose; distinguish in final sequence review, do not claim strong absorption from prompt.",
+      "nativeGenerationRecord": "drafts/run/N/02-v5.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 3,
+      "sourcePath": "drafts/run/N/03-v5.png",
+      "actualPhase": "right_body_approaches_A",
+      "actualContact": {
+        "right": "grounded_weight",
+        "left": "air"
+      },
+      "spatialPosition": 2,
+      "notes": "右脚在身体接近位置全掌支撑，左回收腿下降但鞋底仍离地。保留原正确03。",
       "path": "candidate/run/N/03.png",
-      "sourcePath": "drafts/run/N/03-v1.png",
-      "sha256": "f047cc75e93323e2730da1113b68f60ec48fa1ece6053263b7cf8c8192a0c213",
-      "sourceSha256": "ee707d5273e793d4990123d828b2b6cf7f333539766e1c21652df8198534abfd",
+      "sha256": "bf548034f896d9efea74f2de701b72ae2e28407b2e8ef822d7620cdcbc64b083",
+      "sourceSha256": "306f8bb839d539c1061552f45b9b969fc5e7dc08956bb8ada14b63d394258581",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/N/03.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "right_support_left_passing",
-      "actualPhase": "right_mid_support_left_passing_low",
-      "actualContact": {
-        "right": "weight",
-        "left": "air"
-      },
-      "notes": "Actual native: left recovered boot is lower and passes beside right calf; right support remains low and knee soft, heel begins to unload. Sword hand rises forward on right while left talisman hand draws back/down. Rear N and north-pointing boots preserved; hair masks upper thighs, so passing-leg anatomy confidence medium.",
+      "nativeGenerationRecord": "drafts/run/N/03-v5.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 4,
+      "sourcePath": "drafts/run/N/04-v6.png",
+      "actualPhase": "right_body_approaches_B",
+      "actualContact": {
+        "right": "grounded_weight",
+        "left": "air"
+      },
+      "spatialPosition": 2,
+      "notes": "旧v5提跟过早已修：右鞋跟落低、全掌承重于身体接近位置；左鞋仍空中，手臂保持。",
       "path": "candidate/run/N/04.png",
-      "sourcePath": "drafts/run/N/04-v2.png",
-      "sha256": "bd03aa95cb0e75ce3cd39159897967c19b9c51efd869ec722da3e3ff2e08a58e",
-      "sourceSha256": "73d639063cb0061d3d21c9c7a70eb1187ec48aa215cf61df8cb0f784ef338155",
+      "sha256": "798a639bea02d7373253449f2a5244943ca8bcca9c441fc87b977792e91afa24",
+      "sourceSha256": "d2070021cb0117f49fb64a31e1c9699a817ec1067c40667845bc99449214a135",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/N/04.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "right_late_support",
-      "actualPhase": "right_toe_off_left_air",
-      "actualContact": {
-        "right": "push_off",
-        "left": "air"
-      },
-      "notes": "Actual native has SCREEN-RIGHT trailing boot with heel raised and sole exposed, toe at low ground band; left boot higher airborne. Correct support side restored versus prior reassigned attempt. Both toes follow north, two hands correct. Arm swing remains modest and full support contact is a visual hypothesis, sequence review pending.",
+      "nativeGenerationRecord": "drafts/run/N/04-v6.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 5,
+      "sourcePath": "drafts/run/N/05-v6.png",
+      "actualPhase": "right_body_passes_A",
+      "actualContact": {
+        "right": "grounded_weight",
+        "left": "air"
+      },
+      "spatialPosition": 3,
+      "notes": "右腿随身体经过而向后，右鞋仍低置全掌承重；左膝前送、鞋仍离地，没有外八。",
       "path": "candidate/run/N/05.png",
-      "sourcePath": "drafts/run/N/05-v1.png",
-      "sha256": "bbf2de404a2df0235932dae12f003d2f4c40bcf16dff2d9ef43515e9ab9ac51c",
-      "sourceSha256": "857a7885ec21f9a3bf329b9a0cb0407198905895aa21f9e0b7fbd6538b1dff59",
+      "sha256": "9bab56079e22934c6d93f97d7a790cde22c1c65b2ee7c78f7e1652b9a12032d5",
+      "sourceSha256": "3337065c1d26339994800f57fedad34fd6a26cfa1a84c4957d03fc837853a22e",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/N/05.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "right_toe_off_left_forward",
-      "actualPhase": "right_final_toe_push_left_air",
-      "actualContact": {
-        "right": "toe_contact_candidate",
-        "left": "air"
-      },
-      "notes": "实看：右腿伸展靴底朝后，右前掌最低约1205/1254，较注册支撑线偏低；左足离地向前。两鞋纵轴朝北，无横向外撇。右剑左符与两条手链保留。接地力度/深度待整序列复核，不按提示词视为已验收。",
+      "nativeGenerationRecord": "drafts/run/N/05-v6.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 6,
+      "sourcePath": "drafts/run/N/06-v6.png",
+      "actualPhase": "right_body_passes_B",
+      "actualContact": {
+        "right": "grounded_weight",
+        "left": "air"
+      },
+      "spatialPosition": 3,
+      "notes": "右脚继续承重，左脚继续前摆；已修旧提前换左支撑。右膝/左膝与05独立变化。",
       "path": "candidate/run/N/06.png",
-      "sourcePath": "drafts/run/N/06-v1.png",
-      "sha256": "97dee21f6b4a22953dcd262aedd2bf78c5a6ea728264d7b6e1e0fa6d04041247",
-      "sourceSha256": "f01d0e93d8f295e53cac56d80542c2523886e988eb5decdcc177eea05d1ecef0",
+      "sha256": "b8b4b1dd1c12a623854974ed1fc85c2911b82150a4710a545b5556f0594b8a6a",
+      "sourceSha256": "67e31dd99a517cfbc532d34edd11c7e5352e2029cc1de49e2e4cfa2aaf3f7a0c",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/N/06.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "short_flight_left_approach",
-      "actualPhase": "left_approach_air_contact_uncertain",
-      "actualContact": {
-        "right": "air",
-        "left": "air_or_near_contact_uncertain"
-      },
-      "notes": "实看：左右靴底均可见，左腿伸下、右腿后收。左足最低约1189/1254已近基准支撑高度，因此短腾空不充分，保留为左脚接近地面的过渡候选。双靴纵轴朝北，露鞋底并非外撇；右剑左符正确。",
+      "nativeGenerationRecord": "drafts/run/N/06-v6.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 7,
+      "sourcePath": "drafts/run/N/07-v7.png",
+      "actualPhase": "right_rear_push_A",
+      "actualContact": {
+        "right": "forefoot_support",
+        "left": "air"
+      },
+      "spatialPosition": 4,
+      "notes": "右后侧前掌仍触地，右跟开始抬起露部分底；左腿前送未落地。v7替换太平的v6。",
       "path": "candidate/run/N/07.png",
-      "sourcePath": "drafts/run/N/07-v1.png",
-      "sha256": "d2f6f9da7919f1cfb4549195edec6732cc0ea7bfcea677d6fec74015b989d0bb",
-      "sourceSha256": "b723afb81b115bcd59989044a295be3903fb9af32c839782b206b457a69ea1bc",
+      "sha256": "00dbbafe480f0d6eb9ef4cd62c879648db4047453e3ca9ea8ca102202ee67763",
+      "sourceSha256": "64c72cade80f619a924704661e1d1b9a6a46577a192e8c569f667e738c039686",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/N/07.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "left_approach",
-      "actualPhase": "left_approach_near_contact",
-      "actualContact": {
-        "right": "air",
-        "left": "near_contact"
-      },
-      "notes": "实看：左靴后跟向下，右靴收高露底；左足约1174/1254，略高于后续08。右剑前摆/左符后摆，持手与肩袖链可辨。鞋跟至鞋尖顺北向，无额外肢体。",
+      "nativeGenerationRecord": "drafts/run/N/07-v7.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 8,
+      "sourcePath": "drafts/run/N/08-v7.png",
+      "actualPhase": "right_rear_push_B",
+      "actualContact": {
+        "right": "forefoot_support",
+        "left": "air"
+      },
+      "spatialPosition": 4,
+      "notes": "右前掌后侧持续蹬地，跟比07更抬、踝伸展；左脚仍空中准备09。v7替换太平的v6。",
       "path": "candidate/run/N/08.png",
-      "sourcePath": "drafts/run/N/08-v1.png",
-      "sha256": "9e93aaeb55767bbcd37128a1798f144a7a9433904e89aea3d5602730b5609638",
-      "sourceSha256": "638759d7cc95b48572536bb80d3da9000f326ce373c6ae8978d09d4f14223c9b",
+      "sha256": "8155bb74a4a220dd0be29d2bfb7dcec2f90883d18accb44fbf93445f41d26489",
+      "sourceSha256": "361f66728ca735d08def603c419356bf5d673ee47263584abc5a7d07c640618d",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/N/08.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "left_initial_contact",
-      "actualPhase": "left_initial_contact_early_weight",
-      "actualContact": {
-        "right": "air",
-        "left": "initial_contact_candidate"
-      },
-      "notes": "实看：左腿伸向虚拟地面、左靴后跟低，右腿后收露底；左靴最低约1188/1254。头冠与基本比例延续北向锚，右剑左符。压缩尚轻，作为初触地/早期承重候选。",
+      "nativeGenerationRecord": "drafts/run/N/08-v7.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 9,
+      "sourcePath": "drafts/run/N/09-v6.png",
+      "actualPhase": "left_front_landing_A",
+      "actualContact": {
+        "left": "grounded_weight",
+        "right": "air"
+      },
+      "spatialPosition": 1,
+      "notes": "此处切换左脚前侧落地，鞋保持原尺寸，左腿适当屈膝；右靴后折露底离地。前侧地面深度已修。",
       "path": "candidate/run/N/09.png",
-      "sourcePath": "drafts/run/N/09-v1.png",
-      "sha256": "77c7dc5382311ba1675cc880814856c9f3b11715534fae86bd352facf6e12fbe",
-      "sourceSha256": "ecc426a617c3c096a71fb79c554b0d3f89ebfec5ccff27d3de579d4244d8614d",
+      "sha256": "b16b9f67acb0ed1bd61d3f2eac52cd9fae54f5944fc1a8408c9d312d5b5255aa",
+      "sourceSha256": "6d6d9e2cc4f5318409d8956f5a2a4c4fe5b455709322f5b9b16dd8f11c3e9c18",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/N/09.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "right_late_support",
-      "actualPhase": "left_early_weight_right_recovery",
-      "actualContact": {
-        "left": "weight",
-        "right": "air"
-      },
-      "notes": "Original request was N04 right late support, but actual image clearly has SCREEN-LEFT support with screen-right recovery sole. Anatomically valid opposite contact pose with right sword forward and left talisman back, so reassigned to selected N09 instead of falsely accepting as N04. Left boot north-facing, no outward turn. Right-late-support slot remains missing.",
+      "nativeGenerationRecord": "drafts/run/N/09-v6.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 10,
+      "sourcePath": "drafts/run/N/10-v8.png",
+      "actualPhase": "left_front_landing_B",
+      "actualContact": {
+        "left": "grounded_weight",
+        "right": "air"
+      },
+      "spatialPosition": 1,
+      "notes": "左鞋与09保持前侧接地深度和正常尺寸，稍沉承重；右膝继续回收，右剑近水平、左符抬起。v8修正v6缩小靴和v7过深支撑位置。",
       "path": "candidate/run/N/10.png",
-      "sourcePath": "drafts/run/N/10-v2.png",
-      "sha256": "f4e845547bfa7291d5e583f3e7ce90a027b650308086c7248fbb249a48ea0fa0",
-      "sourceSha256": "5aaecbee468a39ba034ad80e19325f0638a0810d20c63e2265028c4e2a01efdb",
+      "sha256": "39112ce66a68c05ab7093980b8423e4d2062b510389b13c43ada035cab5b6d5a",
+      "sourceSha256": "9b0caed31eb66d9ea03bdd1785b446e933ad37221a04c509a821b41ece6b248d",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/N/10.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "left_support_right_passing_arm_transition",
-      "actualPhase": "left_mid_support_right_recovery_arm_transition",
-      "actualContact": {
-        "left": "weight_candidate",
-        "right": "air"
-      },
-      "notes": "实看：头冠恢复到09同等位置/大小，右袖接剑拳中位、剑水平偏上，补09前高剑到11后下剑。左足低置、右足离地，脚轴顺北；右腿通过仍偏保守，保留实际回收相位。",
+      "nativeGenerationRecord": "drafts/run/N/10-v8.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 11,
+      "sourcePath": "drafts/run/N/11-v7.png",
+      "actualPhase": "left_body_approaches_A",
+      "actualContact": {
+        "left": "grounded_weight",
+        "right": "air"
+      },
+      "spatialPosition": 2,
+      "notes": "左全掌在身体接近位置承重，右脚仍回收离地。v7已去除v6后脑旁多出的一把浮剑，保留右手单剑。",
       "path": "candidate/run/N/11.png",
-      "sourcePath": "drafts/run/N/11-v1.png",
-      "sha256": "adc376bc1d947190059dc39be9f82a218d2083bfd0e2c55d4de37fcc2e1c1bff",
-      "sourceSha256": "d9598b35713d1783697f6d524d0d57ee2d96244a03f7d9fc845618f7cad1db01",
+      "sha256": "49ce5a5e08c044d0fabfa96da3f61fb535b5de5b9b5329149fb2022250e3bb7d",
+      "sourceSha256": "6844306cd2b963c8f299b6c5cd0ea2911370d9f53ae43b83a6477a51f2c37511",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/N/11.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "left_support_exit",
-      "actualPhase": "left_heel_rise_right_air",
-      "actualContact": {
-        "left": "forefoot_candidate",
-        "right": "air"
-      },
-      "notes": "实看：左靴后跟抬起露部分底、右靴收高；右剑后下、左符前。双足纵轴顺北，屈膝露底不是外撇；左前掌接近虚拟地面，晚支撑候选。",
+      "nativeGenerationRecord": "drafts/run/N/11-v7.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 12,
+      "sourcePath": "drafts/run/N/12-v6.png",
+      "actualPhase": "left_body_approaches_B",
+      "actualContact": {
+        "left": "grounded_weight",
+        "right": "air"
+      },
+      "spatialPosition": 2,
+      "notes": "左脚持续身体接近阶段承重，左膝略沉；右腿前送但鞋仍空中，右剑左符未换手。",
       "path": "candidate/run/N/12.png",
-      "sourcePath": "drafts/run/N/12-v1.png",
-      "sha256": "9d1e59fa6145c69e85c86bff17d7602a8a30f27d558f05fa167ed085eb8d3c0e",
-      "sourceSha256": "9a9cab2caefd858ac03e5d8fbbffa21d5eefaf0f4f38f35e5a8147740e4e6abb",
+      "sha256": "d9da6a69a957eb1cc879febfa03e8cd0ab5bc7291b416bf2e996671e20356037",
+      "sourceSha256": "8b9025299c65cd62f5ffbea91c4ebcfacce0500ba7bf18b72501b2f3ec30d6e0",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/N/12.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "left_late_support",
-      "actualPhase": "left_late_support_right_passing",
-      "actualContact": {
-        "left": "forefoot_candidate",
-        "right": "air"
-      },
-      "notes": "实看：左脚后跟微抬、右靴较11下降通过，右剑后下/左符前。双腿有清晰连接，鞋轴顺北；左膝伸展不强但支撑相位可辨。",
+      "nativeGenerationRecord": "drafts/run/N/12-v6.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 13,
+      "sourcePath": "drafts/run/N/13-v6.png",
+      "actualPhase": "left_body_passes_A",
+      "actualContact": {
+        "left": "grounded_weight",
+        "right": "air"
+      },
+      "spatialPosition": 3,
+      "notes": "左腿随身体经过向后，左靴仍全掌承重；右脚前摆离地，无提前换脚。",
       "path": "candidate/run/N/13.png",
-      "sourcePath": "drafts/run/N/13-v2.png",
-      "sha256": "bb435b426cda9d9d1376a16cffc146a3968e1072d8cb7a0725383758a0f70e68",
-      "sourceSha256": "ba4051616636d981be55be14b78910f0e8dac21dcf9a71793057da00b66f3cfb",
+      "sha256": "dfe8e1f62d9c741adb56bbfb8b44a098a7d68f47222a26abe7523f4e79b7e5bd",
+      "sourceSha256": "8a130f0037f414504e2bc5a4763fd3acabdb09f992fe298f7374c970c26f73c7",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/N/13.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "left_toe_push_right_arm_back",
-      "actualPhase": "left_toe_push_right_arm_back",
-      "actualContact": {
-        "left": "toe_candidate",
-        "right": "air"
-      },
-      "notes": "局部修正实看：近屏右单袖连右剑，拳已后下，12→13连续；左符仍前。头冠与双腿鞋轮廓基本保持13-v1，鞋轴顺北，未加手脚。保留。",
+      "nativeGenerationRecord": "drafts/run/N/13-v6.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 14,
+      "sourcePath": "drafts/run/N/14-v7.png",
+      "actualPhase": "left_body_passes_B",
+      "actualContact": {
+        "left": "grounded_weight",
+        "right": "air"
+      },
+      "spatialPosition": 3,
+      "notes": "左脚持续后移承重，右脚继续前摆；右手剑已改为13下斜→14近水平略上→15上斜的连接姿，单剑完整无裁切。",
       "path": "candidate/run/N/14.png",
-      "sourcePath": "drafts/run/N/14-v1.png",
-      "sha256": "70d33f1ad20f8c5fbaed943970494e458eca18d11051b32fe83b9bf053d07cc4",
-      "sourceSha256": "8660fbfcae006a8f90295e88195dafd2db5cf7b271e3118a64f01414d7d948ac",
+      "sha256": "11df31394e25c105b7d14f1c16a744974a16ad998a54c8157d50eefe026f4dcf",
+      "sourceSha256": "f2dead405dc8d400754ad97f93a45fa4f86aa1999cd8ad953418e7333971b835",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/N/14.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "short_flight_right_approach",
-      "actualPhase": "short_flight_right_approach",
-      "actualContact": {
-        "left": "air",
-        "right": "air"
-      },
-      "notes": "实看：左靴后收露底、右靴伸下但尚高于支撑高度，两脚腾空可读；右剑手在侧后较14之前低、左符前。北向鞋轴无外翻。",
+      "nativeGenerationRecord": "drafts/run/N/14-v7.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 15,
+      "sourcePath": "drafts/run/N/15-v6.png",
+      "actualPhase": "left_rear_push_A",
+      "actualContact": {
+        "left": "forefoot_support",
+        "right": "air"
+      },
+      "spatialPosition": 4,
+      "notes": "左后側前掌支撑、脚跟抬起，右腿向前离地；脚轴保持N，无横向外撇。",
       "path": "candidate/run/N/15.png",
-      "sourcePath": "drafts/run/N/15-v1.png",
-      "sha256": "f9bbb72455bf6ce6ea340a73c6fdc6a6525dafafdd17acc8cc3f1f97cc68c9d3",
-      "sourceSha256": "837a4525bd4647fe46301d47dcb1040e107bb992031759a8d77b3416bbab5afc",
+      "sha256": "988a932a49a340153a895d718c9d5956780ed7c5f56571d6c72d56e491fd5806",
+      "sourceSha256": "f0305b8a1e0330c1ddab55965fd2ede00016bb0685e76680028e6bb66ff3448c",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/N/15.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "right_approach_high",
-      "actualPhase": "right_approach_near_contact",
-      "actualContact": {
-        "left": "air",
-        "right": "near_contact_uncertain"
-      },
-      "notes": "实看：右腿向地面伸展、左腿回收露底。右足已接近甚至略低于N01支撑高度，因此不强称未触地，作为接地前后过渡候选。右剑后摆/左符前，鞋轴顺北。",
+      "nativeGenerationRecord": "drafts/run/N/15-v6.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 16,
+      "sourcePath": "drafts/run/N/16-v6.png",
+      "actualPhase": "left_rear_push_B",
+      "actualContact": {
+        "left": "forefoot_support",
+        "right": "air"
+      },
+      "spatialPosition": 4,
+      "notes": "左前掌继续蹬地、左跟进一步抬起；右脚前送准备循环01，到01才换右承重。",
       "path": "candidate/run/N/16.png",
-      "sourcePath": "drafts/run/N/16-v1.png",
-      "sha256": "c0d04169fe10260c1d8205c253994fb0685d03d011c1b549ba14f291f2cb7f8c",
-      "sourceSha256": "1b2e5efb0386d5c4eb177448c8030728872508aa5052bc6be683b8349a1cf848",
+      "sha256": "521352f7e8b3659941e4a8f18cdece6dd00492d3cfb8c4439954618b405ec136",
+      "sourceSha256": "04b8e887f78433f493abbcfa368bb627f29cacb67de5d9bb2623e481e8189009",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/N/16.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "right_approach_low",
-      "actualPhase": "right_initial_contact_candidate",
-      "actualContact": {
-        "left": "air",
-        "right": "initial_contact_candidate"
-      },
-      "notes": "实看：右靴后跟落低，左靴回收，已较接近N01承重姿势，不能按原提示记为空中。手链保持右剑左符，双靴无向外撇。",
+      "nativeGenerationRecord": "drafts/run/N/16-v6.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     }
   ],
-  "artStatus": "new_contact_4_positions_x2_frames_revision_in_progress",
   "clientIntegrated": false,
-  "clientRuntimeVerified": false,
-  "formalExportCount": 0,
-  "nativeCanvasSize": [
-    1254,
-    1254
-  ],
-  "visualReviewDocument": "review/run-N-visual-review.md",
-  "technicalReviewDocument": "review/run-N-technical.json",
-  "contactSheet": "review/run-N-contact.png",
-  "contactStructureRequirement": {
-    "status": "not_yet_verified",
-    "source": "latest user clarification",
-    "firstSupportFoot": "right",
-    "firstSupportFrames": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8
-    ],
-    "secondSupportFoot": "left",
-    "secondSupportFrames": [
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16
-    ],
-    "positions": [
-      "front_landing",
-      "body_approaches_support",
-      "body_passes_support",
-      "rear_push_off"
-    ],
-    "framesPerPosition": 2,
-    "frameMs": 75,
-    "positionMs": 150,
-    "stanceMs": 600,
-    "cycleMs": 1200,
-    "positionMeaning": "actual support foot relative to body/pelvis; not labels for heel/fullsole/toe",
-    "requireIndependentPoses": true,
-    "allowWholeImageTranslation": false
-  }
+  "agentSequenceContinuityVerified": true,
+  "offlinePlaybackVerified": true,
+  "validationScopes": {
+    "nativeFrameAndSequentialVisual": "passed_by_agent",
+    "eightConsecutiveSupport": "passed_by_agent_visual_judgement",
+    "fourPositionPairs": "passed_by_agent_visual_judgement",
+    "offline1xTimingAndOrdering": "passed",
+    "clientRuntime": "not_tested",
+    "userContinuousMotionAcceptance": "not_requested_or_observed"
+  },
+  "playbackEvidence": {
+    "file": "preview/nne-playback-verification.json",
+    "measuredCycleMs": 1189,
+    "ordered": true,
+    "loadedFrames": 16,
+    "stepWrap": true,
+    "player": "preview/nne-review.html",
+    "contactSheet": "preview/run-N-selected-256.png",
+    "feetSheet": "review/run-N-paired-feet-final.png",
+    "animation": "preview/run-N-1x-1200ms.webp"
+  },
+  "pendingValidation": [
+    "Root aggregate preview/package revalidation",
+    "Actual game-client timing and user visual acceptance have not been observed"
+  ]
 }

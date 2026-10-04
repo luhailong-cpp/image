@@ -1,16 +1,81 @@
 {
+  "direction": "NE",
+  "updatedAt": "2026-10-04T19:51:59.383765+00:00",
+  "artStatus": "agent_frame_visual_and_offline_playback_verified",
+  "eightConsecutiveSupportVerified": true,
+  "positionPairsVerified": true,
+  "dynamicArtAccepted": false,
+  "verificationScope": "Agent inspected full native images, sequential contact sheets and feet close-ups: anatomy, same-foot support ownership, four spatial pairs, straight boot axes, arm continuity. Offline browser at 1x verified 16 ordered frames, 75ms schedule, 1200ms loop and wrap controls. Continuous-motion human acceptance and game-client integration remain separate; dynamicArtAccepted is reserved for that downstream acceptance and is not an unresolved frame-repair flag.",
+  "actualSupportFrames": {
+    "left": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "right": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ]
+  },
+  "positionPairs": [
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      7,
+      8
+    ],
+    [
+      9,
+      10
+    ],
+    [
+      11,
+      12
+    ],
+    [
+      13,
+      14
+    ],
+    [
+      15,
+      16
+    ]
+  ],
+  "remainingIssues": [],
+  "clientRuntimeVerified": false,
+  "rejectedLatest": {
+    "drafts/run/NE/11-v5.png": "wrong near-right support ownership; replaced by11-v6",
+    "drafts/run/NE/06-v5.png": "slight forward reversal of planted shoe relative05; replaced by06-v6",
+    "drafts/run/NE/14-v5.png": "slight forward reversal of right support relative13; replaced by14-v6"
+  },
   "schemaVersion": 1,
   "characterId": "01_ice_sword_girl",
-  "direction": "NE",
-  "updatedAt": "2026-10-04T07:37:14.289170+00:00",
+  "action": "run",
   "canvasSize": [
     1024,
     1024
   ],
-  "root": {
-    "status": "provisional",
-    "definition": "Fixed full canvas; no per-frame registration. Actual support geometry reviewed visually; shared character virtual root handled by parent."
-  },
   "timing": {
     "cycleMs": 1200,
     "frameDurationsMs": [
@@ -31,14 +96,20 @@
       75,
       75
     ],
-    "status": "user_requested_1200ms_uniform",
     "formalClientTimingConfirmed": false
   },
   "frames": [
     {
       "frame": 1,
-      "path": "candidate/run/NE/01.png",
       "sourcePath": "drafts/run/NE/01-v1.png",
+      "actualPhase": "left_front_landing_A",
+      "actualContact": {
+        "left": "grounded_weight",
+        "right": "air"
+      },
+      "spatialPosition": 1,
+      "notes": "远左脚前侧低置，靴跟/掌落地，近右蓝链腿后折离地；脚轴沿NE。保留原正确01。",
+      "path": "candidate/run/NE/01.png",
       "sha256": "b0c5d699e2990c5506a82dba4f45cb8de811026119405ed4c640e388ab45b669",
       "sourceSha256": "c00150fe05deeea462f166d82f81e690e701fc18ba35edbf8fa17520be929ae4",
       "nativeSize": [
@@ -46,22 +117,23 @@
         1254
       ],
       "generationRecord": "candidate/run/NE/01.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "left_initial_contact_right_recovery",
-      "actualPhase": "left_support_right_recovery",
-      "actualContact": {
-        "left": "weight_candidate",
-        "right": "air"
-      },
-      "notes": "实看：东北后3/4视角、近侧右肩袖连前剑，远左符在后；近右膝后折露底、远左腿落下承重，鞋头顺东北投影，无横向叉脚。左右腿有前后遮挡而非换腿。实际冠约5%、支撑靴约93%，作为本方向固定新比例锚，不按提示坐标移动。腿上新增细蓝饰链需身份一致性关注。",
+      "nativeGenerationRecord": "drafts/run/NE/01-v1.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 2,
-      "path": "candidate/run/NE/02.png",
       "sourcePath": "drafts/run/NE/02-v1.png",
+      "actualPhase": "left_front_landing_B",
+      "actualContact": {
+        "left": "grounded_weight",
+        "right": "air"
+      },
+      "spatialPosition": 1,
+      "notes": "同一远左脚前侧承重，右回收鞋与膝位变化，右剑臂比01稍回落；无左右换手。保留原正确02。",
+      "path": "candidate/run/NE/02.png",
       "sha256": "bdb994471e68c97932746d499e2727e182ac171935c4f93aa275a4cddf9b6601",
       "sourceSha256": "0b0f80654ccf9ae12a678b57e0efd28eafe8984650cc41df16f9807660714aae",
       "nativeSize": [
@@ -69,383 +141,373 @@
         1254
       ],
       "generationRecord": "candidate/run/NE/02.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "left_absorb",
-      "actualPhase": "left_absorb_right_recovery",
-      "actualContact": {
-        "left": "weight_candidate",
-        "right": "air"
-      },
-      "notes": "实看：近右腿后折露底，远左足低置，近右肩袖连剑、远左符后摆均保持。剑臂比01降低形成初步过渡。双鞋轴顺NE，注册轻微上移待序列复核。",
+      "nativeGenerationRecord": "drafts/run/NE/02-v1.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 3,
+      "sourcePath": "drafts/run/NE/03-v5.png",
+      "actualPhase": "left_body_approaches_A",
+      "actualContact": {
+        "left": "grounded_weight",
+        "right": "air"
+      },
+      "spatialPosition": 2,
+      "notes": "远左支撑鞋已移至身体接近位置，左小腿承重；近右蓝链腿回收下降。保留已修正的近右肩—袖—肘—剑手中位连接。",
       "path": "candidate/run/NE/03.png",
-      "sourcePath": "drafts/run/NE/03-v2.png",
-      "sha256": "fd59d0f24b0e5cf1fc9a2da32e27b830a4aaf1e79db31946c1f396edd8cf7294",
-      "sourceSha256": "0654f225ed68f49e2ae21a6d9476f943c9b80d38388e9c5e054a51595812c9fe",
+      "sha256": "34baa38a4f9b013742c6501281d31e6e0e7653753cc586ef749e5680969e2fc6",
+      "sourceSha256": "1a99161de930c53c6635b612060feb77d3db92e8f9dbf419986488d0dfc6511c",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/NE/03.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "left_support_right_passing",
-      "actualPhase": "left_support_right_recovery_low",
-      "actualContact": {
-        "left": "weight_candidate",
-        "right": "air"
-      },
-      "notes": "修正后近银蓝右肩沿单袖连剑，远左符后方，无换手。右靴较02降低，但还未充分通过，记为回收下降而非严格通过。左足支撑/鞋尖顺NE，基本头位延续02。",
+      "nativeGenerationRecord": "drafts/run/NE/03-v5.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 4,
+      "sourcePath": "drafts/run/NE/04-v5.png",
+      "actualPhase": "left_body_approaches_B",
+      "actualContact": {
+        "left": "grounded_weight",
+        "right": "air"
+      },
+      "spatialPosition": 2,
+      "notes": "远左鞋跟已落低，左腿接近身体支撑；近右蓝链膝向前。由旧早后蹬修成全掌支撑，03→04姿态不同。",
       "path": "candidate/run/NE/04.png",
-      "sourcePath": "drafts/run/NE/04-v2.png",
-      "sha256": "25984113c891314dc1c70b556b7932a4348bfa5ef307e834e3698ad7b93fd00c",
-      "sourceSha256": "24d584e56028a95bb9c16958327cd13e1acddb139cfea2a2407c7b2367ec758c",
+      "sha256": "7585fd6e1a03ca96872f082ce37e0c5c023f764274c6bd166b48bc70ca7da2f9",
+      "sourceSha256": "f9efd95b89f44ef30ec2abf87149751fc415af09ddbcc0779b59696a4363ef2b",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/NE/04.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "left_late_support",
-      "actualPhase": "left_late_support_right_knee_forward",
-      "actualContact": {
-        "left": "forefoot_candidate",
-        "right": "air"
-      },
-      "notes": "修正后银蓝近右肩明确向后下连近袖剑手，远左符向前由远肩发出，持手正确。左腿向后伸、左靴前掌低置，右膝前移同时屈膝露底；脚底暴露来自屈膝，鞋轴未向两侧外翻。保留为后摆臂校准锚。",
+      "nativeGenerationRecord": "drafts/run/NE/04-v5.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 5,
+      "sourcePath": "drafts/run/NE/05-v5.png",
+      "actualPhase": "left_body_passes_A",
+      "actualContact": {
+        "left": "grounded_weight",
+        "right": "air"
+      },
+      "spatialPosition": 3,
+      "notes": "远左腿略后伸、左鞋跟掌仍在地面，身体经过支撑；近右蓝链膝前送且靴底离地。",
       "path": "candidate/run/NE/05.png",
-      "sourcePath": "drafts/run/NE/05-v1.png",
-      "sha256": "58a35f764a767bf0e87b8307c86ce7fc5b68349ed6414aa0ff1d59f28c190a0d",
-      "sourceSha256": "b5618cdf5a81e16eaed11cfc6fb179ef6da484b9e5133f9af31fef106e5617e2",
+      "sha256": "a262897b0c6c17553ba8d642a78f9d77ef2acbe117d8fd5988ec4bbbb3e6cf95",
+      "sourceSha256": "8820cdcdd4b87f8f97141f44f43c6f1273cfedc618863ffc28ab9672ca388e96",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/NE/05.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "short_flight_right_forward",
-      "actualPhase": "left_toe_off_right_forward_air",
-      "actualContact": {
-        "left": "toe_off_or_low_air",
-        "right": "air"
-      },
-      "notes": "实看：右膝前移、左腿后伸，两靴底可见，左靴最低仍接近后蹬轨道，记为刚离地/最后后蹬而非已确证大腾空。近右肩沿前景后摆袖连剑，远左符前，未换手；鞋纵轴沿NE，无横向外撇。",
+      "nativeGenerationRecord": "drafts/run/NE/05-v5.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 6,
+      "sourcePath": "drafts/run/NE/06-v6.png",
+      "actualPhase": "left_body_passes_B",
+      "actualContact": {
+        "left": "grounded_weight",
+        "right": "air"
+      },
+      "spatialPosition": 3,
+      "notes": "远左脚继续后移承重，位置逆跳已二修，左胫骨向后连地面鞋；右膝进一步前送、靴跟未落地。",
       "path": "candidate/run/NE/06.png",
-      "sourcePath": "drafts/run/NE/06-v1.png",
-      "sha256": "80f31f923ad9e7701ab7b5edc4e38bfa486ae6a11dee68c3bf07854ebf329802",
-      "sourceSha256": "ede896898821b438a8f1fd7a44a69241a4a18d1a4f9ebe1c011d7f4f4c286cf8",
+      "sha256": "c11af24f0083c7fbc4edc596aff72641aa3bd112325cffd3708f881975748446",
+      "sourceSha256": "b6346e7289fa28bd299a692dafc9f16e45dc4eeda02e9452c8e9a0d8edd0f020",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/NE/06.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "right_approach",
-      "actualPhase": "right_approach_left_recovery",
-      "actualContact": {
-        "right": "near_contact_candidate",
-        "left": "air"
-      },
-      "notes": "实看：近右腿（前侧蓝细链）伸向右前，右靴后跟低、前掌抬；远左腿后收露底。右肩后剑与远左前符链保持，鞋轴沿NE。最低跟接近接地轨道，接近落地而非强认腾空。",
+      "nativeGenerationRecord": "drafts/run/NE/06-v6.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 7,
+      "sourcePath": "drafts/run/NE/07-v5.png",
+      "actualPhase": "left_rear_push_A",
+      "actualContact": {
+        "left": "forefoot_support",
+        "right": "air"
+      },
+      "spatialPosition": 4,
+      "notes": "远左腿后伸、前掌支撑并开始抬跟；近右蓝链腿向前屈膝离地，仍未提前换右支撑。",
       "path": "candidate/run/NE/07.png",
-      "sourcePath": "drafts/run/NE/07-v2.png",
-      "sha256": "3a6f28092d4ba4b75f5dea549e64ab47ca5de44b62537dcce4b5440e358e6cf4",
-      "sourceSha256": "e057b2dd398c4990ca3b09fc46e6731304e407788292c0783689f5152a0b491f",
+      "sha256": "5c5e15c0ac9bdfa85903e3328083af20da82d11a8d717a2102c3f429bf4a9c5f",
+      "sourceSha256": "f0bb307576ce7e7d0ff2e5704d9894e4d3a09f097a808c955529118b9e12e14c",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/NE/07.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "right_initial_contact_left_recovery",
-      "actualPhase": "right_initial_contact_left_recovery",
-      "actualContact": {
-        "right": "initial_contact_candidate",
-        "left": "air"
-      },
-      "notes": "网络失败后同提示内置重试成功。实看：近右大腿蓝链保持前景，右靴跟/全掌落低且比06更平；远左靴后收露底，左/右腿归属连续。头冠与06/08相近，近右肩后剑、远左前符保留。鞋跟至尖顺NE，拒绝v1的腿链/注册疑点已消除。",
+      "nativeGenerationRecord": "drafts/run/NE/07-v5.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 8,
+      "sourcePath": "drafts/run/NE/08-v5.png",
+      "actualPhase": "left_rear_push_B",
+      "actualContact": {
+        "left": "forefoot_support",
+        "right": "air"
+      },
+      "spatialPosition": 4,
+      "notes": "左前掌继续后侧蹬地，左踝更伸展；右蓝链膝/鞋向前准备09，右足仍离地。",
       "path": "candidate/run/NE/08.png",
-      "sourcePath": "drafts/run/NE/08-v1.png",
-      "sha256": "6e61b960e3389d42a9e943676a5680a1cf2da4bd4e7264bf33436f7986203f7e",
-      "sourceSha256": "ea5d2a71f80a52a249ad58602eea4efe9a62f78d15d2d012adebc8bcb24f1135",
+      "sha256": "6eda2425cd5e26c5e6c812010ab5acf3b633d64479f1a7584ee15da6cc9cfbea",
+      "sourceSha256": "502d353f28dd2e2de4c28250b30a141ec643bbf5a4a49e05db2d709b9451d4bf",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/NE/08.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "right_absorb",
-      "actualPhase": "right_weight_left_recovery",
-      "actualContact": {
-        "right": "weight_candidate",
-        "left": "air"
-      },
-      "notes": "实看前景右大腿带蓝链向下接右靴，远左腿后折露底；右靴后跟低、前掌仍略上翘，属于承重初段候选，压缩不深。近右肩后摆剑、远左符前。鞋轴沿NE，无叉脚。",
+      "nativeGenerationRecord": "drafts/run/NE/08-v5.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 9,
+      "sourcePath": "drafts/run/NE/09-v5.png",
+      "actualPhase": "right_front_landing_A",
+      "actualContact": {
+        "right": "grounded_weight",
+        "left": "air"
+      },
+      "spatialPosition": 1,
+      "notes": "支撑在此换成近右蓝链腿，右鞋在前侧落低承重；远左靴抬起回收。近右肩剑臂为中间摆位，没有改手。",
       "path": "candidate/run/NE/09.png",
-      "sourcePath": "drafts/run/NE/09-v2.png",
-      "sha256": "6787be5f8809a7256474f3be9ba78b2cc0fb69453340a2acf598351e0eb24c98",
-      "sourceSha256": "8121676b12925847e7ce2e8758849430eed88e768318571bbddc88f5f451436b",
+      "sha256": "a06664e1bc3fe4d04b34c6d757544ba9d578e9a906b664768e84d8d59c878577",
+      "sourceSha256": "a0a3fa0cf358951e984c26b9248ed9d3aac1b778ed55d5779a93b8f1d999f893",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/NE/09.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "right_support_arm_neutral",
-      "actualPhase": "right_support_arm_neutral",
-      "actualContact": {
-        "right": "weight_candidate",
-        "left": "air"
-      },
-      "notes": "实看：近右银蓝肩下接可见上臂和肘，剑拳降至髋前中位，远左符侧后部分遮挡，连接完整且未换手。脚/头轮廓保留08，右近腿带链低置、左腿后收露底。08→09→10手位形成中间步，保留。",
+      "nativeGenerationRecord": "drafts/run/NE/09-v5.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 10,
+      "sourcePath": "drafts/run/NE/10-v5.png",
+      "actualPhase": "right_front_landing_B",
+      "actualContact": {
+        "right": "grounded_weight",
+        "left": "air"
+      },
+      "spatialPosition": 1,
+      "notes": "近右蓝链膝软弯，右前側鞋全掌承重；远左腿屈膝回收，区别于09初接地姿。",
       "path": "candidate/run/NE/10.png",
-      "sourcePath": "drafts/run/NE/10-v1.png",
-      "sha256": "78dea22a8b80cb5298e18d55d90cce907a1833f3448a0ddde228233fc41fda37",
-      "sourceSha256": "8eaa045f338159cecb977360b3a64a969c57bb9f30861183414daaa095188da7",
+      "sha256": "28fd0862b6a01a49cd4abbaf97e17277ffb761ceb03d440c3367e387f09cc7ac",
+      "sourceSha256": "e5bd919f2cf98e98d264a2b26768c7ff28fcc1996bc1cd722b665879ffd3b148",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/NE/10.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "right_support_exit",
-      "actualPhase": "right_support_exit_left_air",
-      "actualContact": {
-        "right": "forefoot_candidate",
-        "left": "air"
-      },
-      "notes": "实看：近右腿带链伸向后下低位、远左靴在前上离地，支持向后蹬相位；右足跟略起，前掌接近基准。近右银蓝肩接前剑、远左符后，无换手。鞋轴延续NE，露底由后蹬踝姿造成。",
+      "nativeGenerationRecord": "drafts/run/NE/10-v5.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 11,
+      "sourcePath": "drafts/run/NE/11-v6.png",
+      "actualPhase": "right_body_approaches_A",
+      "actualContact": {
+        "right": "grounded_weight",
+        "left": "air"
+      },
+      "spatialPosition": 2,
+      "notes": "二修已纠正v5错误换腿：蓝链明确在低置前景右承重腿，远左无链腿回收露底；近右手单剑保持。",
       "path": "candidate/run/NE/11.png",
-      "sourcePath": "drafts/run/NE/11-v1.png",
-      "sha256": "76588b4a8775a27f3b131bc73b6bc95387d50fdbf09a4a04df31d013a92181d3",
-      "sourceSha256": "3189901c1c9779ccabff478b500d2c99b5c278865cffb8fbf5bcc9bd855b7529",
+      "sha256": "17a3153429fb34a0a39a83d334b63f4ca5bbe43498b79506ad28ff7e4f417271",
+      "sourceSha256": "ccd3136a547da694dd5fb18b9bf46b9f412ad4abe9d40b75b2505b4a6780d198",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/NE/11.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "right_late_support",
-      "actualPhase": "right_late_support_left_air",
-      "actualContact": {
-        "right": "toe_or_low_air_uncertain",
-        "left": "air"
-      },
-      "notes": "实看：近右腿后伸、右靴底朝后，远左靴前上离地；右足较10抬跟更多，前掌最低接近地面。仅能标记后蹬/低空不确定，不能凭提示强认实接地。近右剑前、左符后，鞋与小腿连续无侧向外撇。",
+      "nativeGenerationRecord": "drafts/run/NE/11-v6.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 12,
+      "sourcePath": "drafts/run/NE/12-v5.png",
+      "actualPhase": "right_body_approaches_B",
+      "actualContact": {
+        "right": "grounded_weight",
+        "left": "air"
+      },
+      "spatialPosition": 2,
+      "notes": "近右鞋跟/掌持续承重于身体接近位置，右膝稍沉；远左膝继续前摆但脚仍高于支撑。",
       "path": "candidate/run/NE/12.png",
-      "sourcePath": "drafts/run/NE/12-v1.png",
-      "sha256": "ebebd584f055fc2f2338f11ac3563797919eef9544a30dc9d7962d1ef4a904b2",
-      "sourceSha256": "707b5015e6e74bb0997a3a7f032569e00bb8b76651b5d23e0c90a152f50ad8d1",
+      "sha256": "5ae781e4f25c9741f4d9be1244bbf004dff0546d78435066f7f98710e0d97027",
+      "sourceSha256": "3a13de58e86659f24986f459b6c66f3a394841842bf51dec8030239740028988",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/NE/12.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "right_toe_push",
-      "actualPhase": "right_final_toe_push_left_forward",
-      "actualContact": {
-        "right": "toe_or_low_air_uncertain",
-        "left": "air"
-      },
-      "notes": "实看：近右膝踝伸展较11明显，右靴前掌最低、跟抬起；远左脚在前方离地。蓝链标记近腿归属连续。剑手连接近右肩、远左符后，脚向沿NE。接地深度仍需动态审，未移动整图贴地。",
+      "nativeGenerationRecord": "drafts/run/NE/12-v5.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 13,
+      "sourcePath": "drafts/run/NE/13-v5.png",
+      "actualPhase": "right_body_passes_A",
+      "actualContact": {
+        "right": "grounded_weight",
+        "left": "air"
+      },
+      "spatialPosition": 3,
+      "notes": "右蓝链腿延至身体后侧、右靴仍全掌承重；远左无链膝前送，头与右剑左符保持。",
       "path": "candidate/run/NE/13.png",
-      "sourcePath": "drafts/run/NE/13-v1.png",
-      "sha256": "e66cdfd8245841986c85d6814e72ae2b5b23abe75f6e2290f093e8b37f820d7f",
-      "sourceSha256": "11633a4f02f91a83ccef45c9ad02d4438fc98c3fbf388ddaea61ac2eec89b7cd",
+      "sha256": "7c6c8e4608b456d4cf7cc9304bca365ec20a81946c5aeb3d5a34763f0bac16af",
+      "sourceSha256": "e9ff3e0e70a1d9a8e9a8b89be534879c82d372b2767e88739e5f6e1b5c64196b",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/NE/13.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "short_flight_left_forward",
-      "actualPhase": "short_flight_left_approach_right_recovery",
-      "actualContact": {
-        "left": "air",
-        "right": "air"
-      },
-      "notes": "实看：双靴高于支撑高度，近右腿后收露底、远左腿伸前，腾空可读。近右肩连前剑、远左符后摆。头部略前倾，朝向保留东北后3/4；鞋轴与胫骨连续，无外撇。",
+      "nativeGenerationRecord": "drafts/run/NE/13-v5.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 14,
+      "sourcePath": "drafts/run/NE/14-v6.png",
+      "actualPhase": "right_body_passes_B",
+      "actualContact": {
+        "right": "grounded_weight",
+        "left": "air"
+      },
+      "spatialPosition": 3,
+      "notes": "右支撑腿后移空间逆跳已二修，右靴位于13之后的后侧承重位置；左足继续前摆离地。",
       "path": "candidate/run/NE/14.png",
-      "sourcePath": "drafts/run/NE/14-v1.png",
-      "sha256": "ed7c613817ff8e18c8a7016f7dc3c76e2dd92e5ea92da07f42d0d7aaeee3b167",
-      "sourceSha256": "6df7c5f66761c211bef79237bae5664967ce8b50a4906db764a1215143211328",
+      "sha256": "2634ea690691b9c6e4ddf99c0eb43e99b59bae446b481ca79fe6fd0f20cd4358",
+      "sourceSha256": "28fa4e968dc9cfaf1edc00adbd65524746c630862ecfc46de6b5bc385b153a5c",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/NE/14.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "left_approach_high",
-      "actualPhase": "left_approach_right_recovery",
-      "actualContact": {
-        "left": "near_contact",
-        "right": "air"
-      },
-      "notes": "实看：远左靴已下伸接近支撑高度，近右膝折后露底；前剑由银蓝近右肩单袖相连，远左符后。鞋跟到鞋尖沿NE投影，未外撇。",
+      "nativeGenerationRecord": "drafts/run/NE/14-v6.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 15,
+      "sourcePath": "drafts/run/NE/15-v5.png",
+      "actualPhase": "right_rear_push_A",
+      "actualContact": {
+        "right": "forefoot_support",
+        "left": "air"
+      },
+      "spatialPosition": 4,
+      "notes": "右蓝链腿后伸、前掌蹬地抬跟，左无链腿向前离地；鞋轴与胫骨顺NE，无横向外撇。",
       "path": "candidate/run/NE/15.png",
-      "sourcePath": "drafts/run/NE/15-v1.png",
-      "sha256": "a0582c952d3cb713f9970e9724366dc58b6313987114a727a05e774caa32ffd4",
-      "sourceSha256": "6b485c0f20a3e81c2d8f79c03a59c7e71ef2f0b64c7091f420fb84c12d117147",
+      "sha256": "475ccd415220b4dc5def8eff9126a6b2aafae03e40180de20fbafffe63a5f8d2",
+      "sourceSha256": "fbeb974f4c18d7fb9fd18f4cc93cebe7156b7e17ee36178e39ecf2f4bc8d7552",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/NE/15.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "left_approach_low",
-      "actualPhase": "left_near_contact_right_recovery",
-      "actualContact": {
-        "left": "near_contact_or_initial_contact",
-        "right": "air"
-      },
-      "notes": "实看：左靴后跟接近既有支撑高度，右靴回收位置略降低；不强称悬空。近右剑前、远左符后，身头比例较稳定。",
+      "nativeGenerationRecord": "drafts/run/NE/15-v5.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     },
     {
       "frame": 16,
+      "sourcePath": "drafts/run/NE/16-v5.png",
+      "actualPhase": "right_rear_push_B",
+      "actualContact": {
+        "right": "forefoot_support",
+        "left": "air"
+      },
+      "spatialPosition": 4,
+      "notes": "右前掌仍后侧蹬地、右跟比15更起，左脚继续前摆准备循环01；到01才换左承重。",
       "path": "candidate/run/NE/16.png",
-      "sourcePath": "drafts/run/NE/16-v1.png",
-      "sha256": "65c97d5e0be7a18af4df49efced5fb12976a9f142d169472946864f3b256769d",
-      "sourceSha256": "ff100093b229d4618a8b5975f4167271577c984bac2ba99cb2b4033c85a3186c",
+      "sha256": "4aada374861101e05ce5c6c954a4ae98672ac7c8de2ed9a941996ad1ea91f13e",
+      "sourceSha256": "e18b5c3a1dcbf381f60bacb2bf519fe71d5c25684f5a6d631c0d7b7d4d7b138d",
       "nativeSize": [
         1254,
         1254
       ],
       "generationRecord": "candidate/run/NE/16.png.generation.json",
-      "status": "selected_for_preview",
-      "plannedPhase": "left_contact_transition",
-      "actualPhase": "left_initial_contact_right_recovery",
-      "actualContact": {
-        "left": "initial_contact_candidate",
-        "right": "air"
-      },
-      "notes": "实看：左足低置准备进入01承重，右腿后折露底。近银蓝肩连右剑，远左符后摆；头冠/脚尺度接近NE01，靴轴顺NE。",
+      "nativeGenerationRecord": "drafts/run/NE/16-v5.png.generation.json",
       "durationMs": 75,
       "actualModel": null,
-      "actualQuality": null
+      "actualQuality": null,
+      "status": "selected_for_preview"
     }
   ],
-  "artStatus": "new_contact_4_positions_x2_frames_revision_in_progress",
   "clientIntegrated": false,
-  "clientRuntimeVerified": false,
-  "formalExportCount": 0,
-  "contactStructureRequirement": {
-    "status": "not_yet_verified",
-    "source": "latest user clarification",
-    "firstSupportFoot": "left",
-    "firstSupportFrames": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8
-    ],
-    "secondSupportFoot": "right",
-    "secondSupportFrames": [
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16
-    ],
-    "positions": [
-      "front_landing",
-      "body_approaches_support",
-      "body_passes_support",
-      "rear_push_off"
-    ],
-    "framesPerPosition": 2,
-    "frameMs": 75,
-    "positionMs": 150,
-    "stanceMs": 600,
-    "cycleMs": 1200,
-    "positionMeaning": "actual support foot relative to body/pelvis; not labels for heel/fullsole/toe",
-    "requireIndependentPoses": true,
-    "allowWholeImageTranslation": false
-  }
+  "agentSequenceContinuityVerified": true,
+  "offlinePlaybackVerified": true,
+  "validationScopes": {
+    "nativeFrameAndSequentialVisual": "passed_by_agent",
+    "eightConsecutiveSupport": "passed_by_agent_visual_judgement",
+    "fourPositionPairs": "passed_by_agent_visual_judgement",
+    "offline1xTimingAndOrdering": "passed",
+    "clientRuntime": "not_tested",
+    "userContinuousMotionAcceptance": "not_requested_or_observed"
+  },
+  "playbackEvidence": {
+    "file": "preview/nne-playback-verification.json",
+    "measuredCycleMs": 1190.3000000000002,
+    "ordered": true,
+    "loadedFrames": 16,
+    "stepWrap": true,
+    "player": "preview/nne-review.html",
+    "contactSheet": "preview/run-NE-selected-256.png",
+    "feetSheet": "review/run-NE-paired-feet-final.png",
+    "animation": "preview/run-NE-1x-1200ms.webp"
+  },
+  "pendingValidation": [
+    "Root aggregate preview/package revalidation",
+    "Actual game-client timing and user visual acceptance have not been observed"
+  ]
 }

@@ -1,12 +1,12 @@
 """Export individually reviewed N/NE native frames using whole-canvas downsample only."""
 from pathlib import Path
 from PIL import Image,ImageDraw
-import hashlib,json,datetime
+import hashlib,json,datetime,sys
 R=Path(__file__).resolve().parents[1]
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p,v):p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 def read(p):return json.loads(p.read_text(encoding='utf-8-sig'))
-for d in ['N','NE']:
+for d in (sys.argv[1:] or ['N','NE']):
  a=read(R/f'review/run-{d}-final-visual.json');frames=[];imgs=[];seen=set();checks=[]
  for f in a['frames']:
   p=R/f['sourcePath'];gpath=p.with_name(p.name+'.generation.json');g=read(gpath);im=Image.open(p).convert('RGBA');source_sha=sha(p)
