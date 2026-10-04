@@ -1,0 +1,1352 @@
+{
+  "createdAt": "2026-10-04T19:25:38.461051+00:00",
+  "reviewer": "finish_side_pairs",
+  "scope": "04 run E/W 32正式帧；实际修正24、保留8。只写角色独占范围。",
+  "configTarget": {
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max"
+  },
+  "actualModel": null,
+  "actualQuality": null,
+  "modelEvidenceNote": "宿主内置image_gen无型号/质量选择器，未回传可核实版本/质量。",
+  "reviewStatus": "static_passed_pending_root_dynamic_review",
+  "clientIntegration": "not_integrated",
+  "worldSpaceFootLock": "not_tested_no_local_client",
+  "footMap": {
+    "E": {
+      "01-08": "right",
+      "09-16": "left"
+    },
+    "W": {
+      "01-08": "left",
+      "09-16": "right"
+    }
+  },
+  "phaseRule": "每半轮8帧，同一支撑脚4位置段，每位置段2独立姿势；不以复制、镜像、插值、整图平移增加帧。",
+  "replacedSlots": {
+    "E": [
+      1,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "W": [
+      1,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      12,
+      13,
+      14,
+      15,
+      16
+    ]
+  },
+  "retainedSlots": {
+    "E": [
+      2,
+      3,
+      10,
+      11
+    ],
+    "W": [
+      2,
+      3,
+      10,
+      11
+    ]
+  },
+  "failedAttempt": "stancepairs_E_05_attempt03 网络发送错误；attempt04重新真实调用成功，未造回执。",
+  "retention": "本分工未清理任何native/拒稿；交角色根窗口统一按当前引用与用户保留策略处理。",
+  "issues": [],
+  "frames": [
+    {
+      "direction": "E",
+      "frame": 1,
+      "file": "frames/run/E/frame_01.png",
+      "sha256": "b99270b6d15c59343e97ffb97c5e78915783e1033d4458b61713209d698e115c",
+      "generationRecord": "frames/run/E/frame_01.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "right",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "initial_load",
+      "stagePair": [
+        1,
+        2
+      ],
+      "observation": "初承重：鞋底平直，支撑脚在身体略前",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_E_01_attempt01.png",
+        "sha256": "dc1b9c89446120308a63960f0158011b69848334e58edc3db145d5f8b6c33073",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "af843cb1a784c704d7ca0f1a8b08a0892a86e8fe75dac028832c9a6a6e530fa1"
+    },
+    {
+      "direction": "E",
+      "frame": 2,
+      "file": "frames/run/E/frame_02.png",
+      "sha256": "a0d7bb9102637b377f5949f43e0992226d021f7d5132d29d399084b647635ac9",
+      "generationRecord": "frames/run/E/frame_02.generation.json",
+      "replacedThisPass": false,
+      "supportFoot": "right",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "initial_load",
+      "stagePair": [
+        1,
+        2
+      ],
+      "observation": "初承重：鞋底平直，支撑脚在身体略前",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/E_02_attempt_02.png",
+        "sha256": "fdd4fb33e4a9537110d7b77cdd64ec35a13e69c03ab32551b32b4828454f8cb5",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "precleanupSnapshot": {
+          "path": "provenance/audit/export_precleanup_snapshot.json",
+          "sha256": "73586716fed1ee19369d0dcf39a2f741ade4f31a00bb2f7bf07cb8779fe61dc4"
+        },
+        "fileRetained": false,
+        "deletedAt": "2026-10-03T21:15:14.759873+00:00",
+        "retentionRecord": "provenance/audit/final_image_retention_20261003.json",
+        "retentionNote": "成功删除后登记；原生实测与导出绑定见SHA锁定的清理前快照。"
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated"
+    },
+    {
+      "direction": "E",
+      "frame": 3,
+      "file": "frames/run/E/frame_03.png",
+      "sha256": "2b99f86c21e716a2232f159729605fabe62acc73ebe9c771907d40d0454f29fe",
+      "generationRecord": "frames/run/E/frame_03.generation.json",
+      "replacedThisPass": false,
+      "supportFoot": "right",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "body_passes_support",
+      "stagePair": [
+        3,
+        4
+      ],
+      "observation": "身体经过：同一脚继续承重",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/E_03_attempt_01.png",
+        "sha256": "d284d5131ad241073a244e0f4ddc888b96f9ebc8fb2a9d138b521500d8d1cc24",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "precleanupSnapshot": {
+          "path": "provenance/audit/export_precleanup_snapshot.json",
+          "sha256": "73586716fed1ee19369d0dcf39a2f741ade4f31a00bb2f7bf07cb8779fe61dc4"
+        },
+        "fileRetained": false,
+        "deletedAt": "2026-10-03T21:15:14.770948+00:00",
+        "retentionRecord": "provenance/audit/final_image_retention_20261003.json",
+        "retentionNote": "成功删除后登记；原生实测与导出绑定见SHA锁定的清理前快照。"
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated"
+    },
+    {
+      "direction": "E",
+      "frame": 4,
+      "file": "frames/run/E/frame_04.png",
+      "sha256": "938682b7405c998421380eea870b0877bcfe8f5ff3f35a0f68b8be2b2c8d80e8",
+      "generationRecord": "frames/run/E/frame_04.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "right",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "body_passes_support",
+      "stagePair": [
+        3,
+        4
+      ],
+      "observation": "身体经过：同一脚继续承重",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_E_04_attempt02.png",
+        "sha256": "070a3d65f77f8846f4085f9390429ce1dd493dce8906948cc4368acdba8f2cf8",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "45468a7a8bc51e08e8b03c5f5bcf6954be6478e53a40e05f001d278c32432ce6"
+    },
+    {
+      "direction": "E",
+      "frame": 5,
+      "file": "frames/run/E/frame_05.png",
+      "sha256": "15af3ffc80dbc0a1e34f47295697549689475fd353613970365d5f2c07daf300",
+      "generationRecord": "frames/run/E/frame_05.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "right",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "rear_support",
+      "stagePair": [
+        5,
+        6
+      ],
+      "observation": "后支撑：同一脚后移，另一腿向前摆",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_E_05_attempt04.png",
+        "sha256": "99c98affa2f59f07979d83ee47ec8a6a9848cd348d33a862ba9e3eb03b490773",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "0e6cb4374d2d364f995d5d6fb2af944d070440466ecd4fb9c420c8876c852a62"
+    },
+    {
+      "direction": "E",
+      "frame": 6,
+      "file": "frames/run/E/frame_06.png",
+      "sha256": "057cb541e4dd944f22847484e6a5587cf6fe6b8ac3478a289075bd8147bbd83c",
+      "generationRecord": "frames/run/E/frame_06.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "right",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "rear_support",
+      "stagePair": [
+        5,
+        6
+      ],
+      "observation": "后支撑：同一脚后移，另一腿向前摆",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_E_06_attempt02.png",
+        "sha256": "792642b95fb0150d4e33c17d78780340ce1d4fa0eec4ae1c42b3abd69f1cc22b",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "32c92ebe1182741bddcce07d37c1d294cb548177941173ee730944c28778c85a"
+    },
+    {
+      "direction": "E",
+      "frame": 7,
+      "file": "frames/run/E/frame_07.png",
+      "sha256": "44d42f15408d0eae47915d4b1efff8c062b42ea7219f89345419fa2811b59fd9",
+      "generationRecord": "frames/run/E/frame_07.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "right",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "rear_push_contact",
+      "stagePair": [
+        7,
+        8
+      ],
+      "observation": "后蹬：同一脚仍以鞋底或前脚掌接地",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_E_07_attempt01.png",
+        "sha256": "7972f6f8c30ca9d9aa64eab529392ec08f65a17a0a19489dc03e8781587cd6ba",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "383efa52a1806079545e6fe32b9eef4ca7336f310ec6adcbc91523e395dd8660"
+    },
+    {
+      "direction": "E",
+      "frame": 8,
+      "file": "frames/run/E/frame_08.png",
+      "sha256": "2aa2a2007e5605111985d137a7b00279b109763da4c06b81dcbceed7946858d9",
+      "generationRecord": "frames/run/E/frame_08.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "right",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "rear_push_contact",
+      "stagePair": [
+        7,
+        8
+      ],
+      "observation": "后蹬：同一脚仍以鞋底或前脚掌接地",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_E_08_attempt01.png",
+        "sha256": "bd8d7781e5d259ca48c4815db40289f0639b0418cd1348d82552a206938944f1",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "eb8d20a2486c86c9ad70268848bdc1fac09ef6bed4e9416c74d78572bbadd0f5"
+    },
+    {
+      "direction": "E",
+      "frame": 9,
+      "file": "frames/run/E/frame_09.png",
+      "sha256": "00d058842f2f0a704717958648f233163134a981911b48222b87e71287371f4b",
+      "generationRecord": "frames/run/E/frame_09.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "left",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "initial_load",
+      "stagePair": [
+        9,
+        10
+      ],
+      "observation": "初承重：鞋底平直，支撑脚在身体略前",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_E_09_attempt01.png",
+        "sha256": "27fc71468f9e32a9759dbe570190e41477c746024d0e343a901a716401468957",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "a8f78c4d2db097bd66c2edda6a5100148f01c67ef7d76bdfde10c920e1bf0ea3"
+    },
+    {
+      "direction": "E",
+      "frame": 10,
+      "file": "frames/run/E/frame_10.png",
+      "sha256": "57e0279d93946e0660d6db00d7dbf0e253718e98b16ac5eace089c9746069de5",
+      "generationRecord": "frames/run/E/frame_10.generation.json",
+      "replacedThisPass": false,
+      "supportFoot": "left",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "initial_load",
+      "stagePair": [
+        9,
+        10
+      ],
+      "observation": "初承重：鞋底平直，支撑脚在身体略前",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/E_10_support_attempt02.png",
+        "sha256": "becaeaa448977fda5663e8953816d1e9cd9f82f7c304cbd8974da1b8300c1d81",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "precleanupSnapshot": {
+          "path": "provenance/audit/export_precleanup_snapshot.json",
+          "sha256": "73586716fed1ee19369d0dcf39a2f741ade4f31a00bb2f7bf07cb8779fe61dc4"
+        },
+        "fileRetained": false,
+        "deletedAt": "2026-10-03T21:15:14.890763+00:00",
+        "retentionRecord": "provenance/audit/final_image_retention_20261003.json",
+        "retentionNote": "成功删除后登记；原生实测与导出绑定见SHA锁定的清理前快照。"
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated"
+    },
+    {
+      "direction": "E",
+      "frame": 11,
+      "file": "frames/run/E/frame_11.png",
+      "sha256": "bd20c0d15e8850432421e22fe07756e18be58de972ea05f8375633a11fafd2bb",
+      "generationRecord": "frames/run/E/frame_11.generation.json",
+      "replacedThisPass": false,
+      "supportFoot": "left",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "body_passes_support",
+      "stagePair": [
+        11,
+        12
+      ],
+      "observation": "身体经过：同一脚继续承重",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/E_11_shield_surface_attempt01.png",
+        "sha256": "46fc3b45474aaf23e507c0404773f4c1f71b3477e2e1ba15a256f9d186110002",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "precleanupSnapshot": {
+          "path": "provenance/audit/export_precleanup_snapshot.json",
+          "sha256": "73586716fed1ee19369d0dcf39a2f741ade4f31a00bb2f7bf07cb8779fe61dc4"
+        },
+        "fileRetained": false,
+        "deletedAt": "2026-10-03T21:15:14.923695+00:00",
+        "retentionRecord": "provenance/audit/final_image_retention_20261003.json",
+        "retentionNote": "成功删除后登记；原生实测与导出绑定见SHA锁定的清理前快照。"
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated"
+    },
+    {
+      "direction": "E",
+      "frame": 12,
+      "file": "frames/run/E/frame_12.png",
+      "sha256": "aa02fa40d3ff55695fa989b8560815174953956a1c070650f567b5f1e1a36607",
+      "generationRecord": "frames/run/E/frame_12.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "left",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "body_passes_support",
+      "stagePair": [
+        11,
+        12
+      ],
+      "observation": "身体经过：同一脚继续承重",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_E_12_attempt02.png",
+        "sha256": "e18078956c63c5497b5e0a44f53e4010913de81e565ac2b15e640fcc0a515d21",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "8b35e1c3396592ce4c5bc3785b5ef608bf8cce39c7e4504913d3cfd0aec2f0ec"
+    },
+    {
+      "direction": "E",
+      "frame": 13,
+      "file": "frames/run/E/frame_13.png",
+      "sha256": "0afc00d91e71d1426ba1d3e77f4c88fee9d7b01b268d420694555c36a08c766c",
+      "generationRecord": "frames/run/E/frame_13.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "left",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "rear_support",
+      "stagePair": [
+        13,
+        14
+      ],
+      "observation": "后支撑：同一脚后移，另一腿向前摆",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_E_13_attempt03.png",
+        "sha256": "c372270289eff80779f25ad5ce59e3649c0ce072384f522796dc931e0eed3ca7",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "dad3d3d602d452a3fb6cb7b740a2a4b2bc40f7ec4a9022ffc9278b9b731be826"
+    },
+    {
+      "direction": "E",
+      "frame": 14,
+      "file": "frames/run/E/frame_14.png",
+      "sha256": "349a4e245f52e9cf78145434e03cbf2f9e70926cbc4c0eb07852f203f50de55d",
+      "generationRecord": "frames/run/E/frame_14.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "left",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "rear_support",
+      "stagePair": [
+        13,
+        14
+      ],
+      "observation": "后支撑：同一脚后移，另一腿向前摆",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_E_14_attempt01.png",
+        "sha256": "52a3a231e44f2ce43e1c8ef4c250ecdcd5fd886833dd31718980821df11dd205",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "7e569fcc77f9a89f8747f6277d625608806e79c0f0b750f3cdc20ae57e170c10"
+    },
+    {
+      "direction": "E",
+      "frame": 15,
+      "file": "frames/run/E/frame_15.png",
+      "sha256": "a74275a99d048e2627e8890caa088f37fc231d5a4d646026b23da9588483c9c7",
+      "generationRecord": "frames/run/E/frame_15.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "left",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "rear_push_contact",
+      "stagePair": [
+        15,
+        16
+      ],
+      "observation": "后蹬：同一脚仍以鞋底或前脚掌接地",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_E_15_attempt02.png",
+        "sha256": "e36366ba5414225cd0dfc80b1f289487d0f607528ab72f2f74a3d51a56f8a765",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "76f216d8fc5b99bcb6b4fe23611919e7bd27498d2e0b3132d0f3b6cc1a6724d0"
+    },
+    {
+      "direction": "E",
+      "frame": 16,
+      "file": "frames/run/E/frame_16.png",
+      "sha256": "953d4dbc0285b8b34a455e6eb0a4f2893d454fdaa36238a41ae457e351c3b1af",
+      "generationRecord": "frames/run/E/frame_16.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "left",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "rear_push_contact",
+      "stagePair": [
+        15,
+        16
+      ],
+      "observation": "后蹬：同一脚仍以鞋底或前脚掌接地",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_E_16_attempt01.png",
+        "sha256": "9d99e2fe2a2a37d8e3136c7476bfe747a1ebf751182ba474ed9bbeda4520b425",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "110410599c5d28c109b9bc9887e4ec2bc33ee5dba98ae6fb5ed02d711a1d64ec"
+    },
+    {
+      "direction": "W",
+      "frame": 1,
+      "file": "frames/run/W/frame_01.png",
+      "sha256": "a16d0d7b6bfa0c875bd596d28931c617029d0c4354c3f0170cd22917b5af51c9",
+      "generationRecord": "frames/run/W/frame_01.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "left",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "initial_load",
+      "stagePair": [
+        1,
+        2
+      ],
+      "observation": "初承重：鞋底平直，支撑脚在身体略前",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_W_01_attempt01.png",
+        "sha256": "5542cf37901fd0fc9c4ffd9556dc24cfebbd015346b49edbe097a0098694aa2c",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "2ec1e0db978986f53eb92c7f1234eada498887acbee28f63257d18533612bca8"
+    },
+    {
+      "direction": "W",
+      "frame": 2,
+      "file": "frames/run/W/frame_02.png",
+      "sha256": "ca04d33bcc8e856903e14d9763312174b3fe3071758b6c9cc75d4ddf77c6e910",
+      "generationRecord": "frames/run/W/frame_02.generation.json",
+      "replacedThisPass": false,
+      "supportFoot": "left",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "initial_load",
+      "stagePair": [
+        1,
+        2
+      ],
+      "observation": "初承重：鞋底平直，支撑脚在身体略前",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/W_02_attempt_01.png",
+        "sha256": "00696748b74dac2ccc7557a106757a3e177b98779cedbc31a7c0773827068b01",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "fileRetained": false,
+        "retentionNote": "成功删除后登记；原生实测与导出绑定见SHA锁定的清理前快照。",
+        "deletedAt": "2026-10-03T21:15:16.699334+00:00",
+        "restoredAt": "2026-10-03T11:53:16.821674+00:00",
+        "precleanupSnapshot": {
+          "path": "provenance/audit/export_precleanup_snapshot.json",
+          "sha256": "73586716fed1ee19369d0dcf39a2f741ade4f31a00bb2f7bf07cb8779fe61dc4"
+        },
+        "retentionRecord": "provenance/audit/final_image_retention_20261003.json"
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated"
+    },
+    {
+      "direction": "W",
+      "frame": 3,
+      "file": "frames/run/W/frame_03.png",
+      "sha256": "9bcc956c225500ba17610512db9585e94532aa735ee1f0b1f5f9967d0afb33da",
+      "generationRecord": "frames/run/W/frame_03.generation.json",
+      "replacedThisPass": false,
+      "supportFoot": "left",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "body_passes_support",
+      "stagePair": [
+        3,
+        4
+      ],
+      "observation": "身体经过：同一脚继续承重",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/W_03_grounding_final01.png",
+        "sha256": "ecd9ab84315e97596d21861728ffc14b728c5e32349c8880f05bcb2315749fb7",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "precleanupSnapshot": {
+          "path": "provenance/audit/export_precleanup_snapshot.json",
+          "sha256": "73586716fed1ee19369d0dcf39a2f741ade4f31a00bb2f7bf07cb8779fe61dc4"
+        },
+        "fileRetained": false,
+        "deletedAt": "2026-10-03T21:15:16.721559+00:00",
+        "retentionRecord": "provenance/audit/final_image_retention_20261003.json",
+        "retentionNote": "成功删除后登记；原生实测与导出绑定见SHA锁定的清理前快照。"
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated"
+    },
+    {
+      "direction": "W",
+      "frame": 4,
+      "file": "frames/run/W/frame_04.png",
+      "sha256": "593af3c5cd77550123cb9778cb1aa4b0748b668d1f131075c6e7e53d583fb47d",
+      "generationRecord": "frames/run/W/frame_04.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "left",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "body_passes_support",
+      "stagePair": [
+        3,
+        4
+      ],
+      "observation": "身体经过：同一脚继续承重",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_W_04_attempt01.png",
+        "sha256": "bddd9def0da0e74dd604b873db6fbdd4bb92277c07db5bc4067acd1c341d8214",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "ecd3c2a3ff4630e0fe183324cbda07a413bb4961d021447d248bd6871037b9c3"
+    },
+    {
+      "direction": "W",
+      "frame": 5,
+      "file": "frames/run/W/frame_05.png",
+      "sha256": "684206b7efc11775af91b24f835d75cce627c677fc3b6db0f9ff847955d6fb5a",
+      "generationRecord": "frames/run/W/frame_05.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "left",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "rear_support",
+      "stagePair": [
+        5,
+        6
+      ],
+      "observation": "后支撑：同一脚后移，另一腿向前摆",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_W_05_attempt03.png",
+        "sha256": "24030e40d389ee5ef3ef7f6f82a1c1ac7e2c3346a95bd4a9066c299c70e671d4",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "bdc0982b11a73951215da9e64bf7a67498c6865d7580726652b51d95b1ca2eb1"
+    },
+    {
+      "direction": "W",
+      "frame": 6,
+      "file": "frames/run/W/frame_06.png",
+      "sha256": "b904f544102a9c3182857547e9cb1b74e812854a6f527bcf45d2dd4f55652b3a",
+      "generationRecord": "frames/run/W/frame_06.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "left",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "rear_support",
+      "stagePair": [
+        5,
+        6
+      ],
+      "observation": "后支撑：同一脚后移，另一腿向前摆",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_W_06_attempt02.png",
+        "sha256": "a90f79ea2d2738e7532c40dafb16443bb0dfb53a1bfe6e62d2f5a94a942f1e76",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "33d5ed065922c2c75b30203e7f8ca7315f65d7a655ef9bc6a35733fabce6a868"
+    },
+    {
+      "direction": "W",
+      "frame": 7,
+      "file": "frames/run/W/frame_07.png",
+      "sha256": "a2468831f8280228ebccbaa0ed776f3b2e5fd60665cc6f1f818e7e76b5c70812",
+      "generationRecord": "frames/run/W/frame_07.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "left",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "rear_push_contact",
+      "stagePair": [
+        7,
+        8
+      ],
+      "observation": "后蹬：同一脚仍以鞋底或前脚掌接地",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_W_07_attempt01.png",
+        "sha256": "b66d04afc1509cbd5bcbeed4e973977480b077f8c5f8304a54e9cdf90af23742",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "240f29d6c61002ebed244f88636789d7810360eb0f6881ca84e83d763a1f6e54"
+    },
+    {
+      "direction": "W",
+      "frame": 8,
+      "file": "frames/run/W/frame_08.png",
+      "sha256": "5cda74036c56ee30453013660e144df9bf3531a92144fbb3f8d167c42459b6d5",
+      "generationRecord": "frames/run/W/frame_08.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "left",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "rear_push_contact",
+      "stagePair": [
+        7,
+        8
+      ],
+      "observation": "后蹬：同一脚仍以鞋底或前脚掌接地",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_W_08_attempt02.png",
+        "sha256": "29273f82686ec1fda6d0b3bd0ebb8307add2d966ae4ec66fb3d807046d388793",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "86fadc8d1fb7f63e44e29199423f67351d772d61ae8c4d174f2d5b58a44c43bf"
+    },
+    {
+      "direction": "W",
+      "frame": 9,
+      "file": "frames/run/W/frame_09.png",
+      "sha256": "212d548887131b7e13809a0ee7917c9f33afa7e2907d440e7de64ff59052a6f5",
+      "generationRecord": "frames/run/W/frame_09.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "right",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "initial_load",
+      "stagePair": [
+        9,
+        10
+      ],
+      "observation": "初承重：鞋底平直，支撑脚在身体略前",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_W_09_attempt01.png",
+        "sha256": "8ecd3f7c51066d86b3851726335c4bd1946e12f4febe67cc9360504696628e8d",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "2817b17410c856523ed94aa654a326cf6d0e8643dc6455eb6522e78d58c38351"
+    },
+    {
+      "direction": "W",
+      "frame": 10,
+      "file": "frames/run/W/frame_10.png",
+      "sha256": "42805fce7d71bd3725466c8ed90cf9d3eb6d794887b9b0f78a29befc17472191",
+      "generationRecord": "frames/run/W/frame_10.generation.json",
+      "replacedThisPass": false,
+      "supportFoot": "right",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "initial_load",
+      "stagePair": [
+        9,
+        10
+      ],
+      "observation": "初承重：鞋底平直，支撑脚在身体略前",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/W_10_attempt_02.png",
+        "sha256": "73164117abc9523d58b5474f4afbab3a6dd735a3e747373ff2026926ab6056f6",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "fileRetained": false,
+        "retentionNote": "成功删除后登记；原生实测与导出绑定见SHA锁定的清理前快照。",
+        "deletedAt": "2026-10-03T21:15:16.792596+00:00",
+        "restoredAt": "2026-10-03T11:53:16.821674+00:00",
+        "precleanupSnapshot": {
+          "path": "provenance/audit/export_precleanup_snapshot.json",
+          "sha256": "73586716fed1ee19369d0dcf39a2f741ade4f31a00bb2f7bf07cb8779fe61dc4"
+        },
+        "retentionRecord": "provenance/audit/final_image_retention_20261003.json"
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated"
+    },
+    {
+      "direction": "W",
+      "frame": 11,
+      "file": "frames/run/W/frame_11.png",
+      "sha256": "420e26bec8b26b0eaa7a07df5b760a78dcac870c96d508201ec1bf3153953fe6",
+      "generationRecord": "frames/run/W/frame_11.generation.json",
+      "replacedThisPass": false,
+      "supportFoot": "right",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "body_passes_support",
+      "stagePair": [
+        11,
+        12
+      ],
+      "observation": "身体经过：同一脚继续承重",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/W_11_finish_attempt04.png",
+        "sha256": "642609cf4c92ac7657341752ec4983a4efa3078ff0147838b3c7d8551e1195a0",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "fileRetained": false,
+        "retentionNote": "成功删除后登记；原生实测与导出绑定见SHA锁定的清理前快照。",
+        "deletedAt": "2026-10-03T21:15:16.801517+00:00",
+        "restoredAt": "2026-10-03T11:53:16.821674+00:00",
+        "precleanupSnapshot": {
+          "path": "provenance/audit/export_precleanup_snapshot.json",
+          "sha256": "73586716fed1ee19369d0dcf39a2f741ade4f31a00bb2f7bf07cb8779fe61dc4"
+        },
+        "retentionRecord": "provenance/audit/final_image_retention_20261003.json"
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated"
+    },
+    {
+      "direction": "W",
+      "frame": 12,
+      "file": "frames/run/W/frame_12.png",
+      "sha256": "339beec8a79e7dab76e66dae49c77bde74ffea5c95f1565a1047b1a11946d4a0",
+      "generationRecord": "frames/run/W/frame_12.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "right",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "body_passes_support",
+      "stagePair": [
+        11,
+        12
+      ],
+      "observation": "身体经过：同一脚继续承重",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_W_12_attempt03.png",
+        "sha256": "a7fc4a51f0e9f0dc178a824748b37d73bfc1da031a5efc51b182f1c72e853276",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "ec79f976ca27fac715d738cc994f7051dd79a997c5bfcf9dcb96567e8a3ee6d8"
+    },
+    {
+      "direction": "W",
+      "frame": 13,
+      "file": "frames/run/W/frame_13.png",
+      "sha256": "32799b8d375218f763351d5db0460a32793aa59bcad9db39308bebdc46a803ce",
+      "generationRecord": "frames/run/W/frame_13.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "right",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "rear_support",
+      "stagePair": [
+        13,
+        14
+      ],
+      "observation": "后支撑：同一脚后移，另一腿向前摆",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_W_13_attempt01.png",
+        "sha256": "da23eb397ee500872a980608659eccb3deaa1cb05217d24229ff51064da46482",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "2a350f3d30ab834eaf6f934c7b10bd356fdf50d39e53f82b7854db5836713fa0"
+    },
+    {
+      "direction": "W",
+      "frame": 14,
+      "file": "frames/run/W/frame_14.png",
+      "sha256": "fc5db6838766f023f2f055d6b4f9527503e2c5c52243312c52e3f1abbfe573fc",
+      "generationRecord": "frames/run/W/frame_14.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "right",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "rear_support",
+      "stagePair": [
+        13,
+        14
+      ],
+      "observation": "后支撑：同一脚后移，另一腿向前摆",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_W_14_attempt02.png",
+        "sha256": "dae3f7b24d16889edd4a0131bb4af2bf0629935e6a265a1c687f239617d8b1ff",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "53ecff91755b552acc8a663845de84160cbd5922ec20db17588fd9de527fb9b7"
+    },
+    {
+      "direction": "W",
+      "frame": 15,
+      "file": "frames/run/W/frame_15.png",
+      "sha256": "7d0d1ff21b9eacbeeb7b1e74970016717a6234011eea5da1e92bd5b12741b47a",
+      "generationRecord": "frames/run/W/frame_15.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "right",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "rear_push_contact",
+      "stagePair": [
+        15,
+        16
+      ],
+      "observation": "后蹬：同一脚仍以鞋底或前脚掌接地",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_W_15_attempt01.png",
+        "sha256": "67b9cb647bd3c3527bd6cd94332e7ec1931bb02a6f08ba729563b550d14a19f2",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "fadf30864ae76cc170807f82bfb899753e29921439c258dbfff2a671e6ebbb78"
+    },
+    {
+      "direction": "W",
+      "frame": 16,
+      "file": "frames/run/W/frame_16.png",
+      "sha256": "3cac0d04281db888995d0e6a2d02efc6656081a3e25c9425b3d1439729dcbf77",
+      "generationRecord": "frames/run/W/frame_16.generation.json",
+      "replacedThisPass": true,
+      "supportFoot": "right",
+      "supportFootMappingBasis": "侧视逐帧追踪裤腿、近远遮挡与持杖右手/持盾左臂；01–08和09–16各保持同一条支撑腿",
+      "supportStage": "rear_push_contact",
+      "stagePair": [
+        15,
+        16
+      ],
+      "observation": "后蹬：同一脚仍以鞋底或前脚掌接地",
+      "groundContactVisible": true,
+      "shoeAxis": "随行进轴，未见明显向外翻掌",
+      "nativeSource": {
+        "path": "provenance/run/stancepairs_W_16_attempt01.png",
+        "sha256": "5508e224eeeb2fdb1df9da25366bed8c87480d4f0dc15da0590b260e2a7e0499",
+        "width": 1254,
+        "height": 1254,
+        "format": "PNG",
+        "mode": "RGBA",
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null,
+      "visualScope": "已查看原生候选、正式PNG和完整连图；素材静态通过。正常1×256px动态最终由角色根窗口复核。",
+      "clientIntegration": "not_integrated",
+      "oldFrameSha256": "2169625d61d662b4e98c653d972fc03a5bd40901fc2cbfd640cc55df66856884"
+    }
+  ],
+  "previews": [
+    {
+      "file": "preview/run_E_normal.apng",
+      "sha256": "883d7e8476578440a4baa184a19bb28a695e7a9dd4e700e4dd2706d521502299",
+      "frameCount": 16,
+      "durationsMs": [
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0
+      ],
+      "loopMs": 1200.0
+    },
+    {
+      "file": "preview/run_E_slow.apng",
+      "sha256": "64163a4eae91408f5ce638b5717dec4ec1400611591850a0aa92405201a2f85c",
+      "frameCount": 16,
+      "durationsMs": [
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0
+      ],
+      "loopMs": 4800.0
+    },
+    {
+      "file": "preview/run_W_normal.apng",
+      "sha256": "024969b1ebf98c810aa7e06b7f7e5a8540e01d36f9cefb8e5c5d5046c1ff446d",
+      "frameCount": 16,
+      "durationsMs": [
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0
+      ],
+      "loopMs": 1200.0
+    },
+    {
+      "file": "preview/run_W_slow.apng",
+      "sha256": "a63afc72260b46bf28231b2baae19ef15b2d7a147a5b28c193572bb040771dea",
+      "frameCount": 16,
+      "durationsMs": [
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0
+      ],
+      "loopMs": 4800.0
+    }
+  ]
+}

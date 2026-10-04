@@ -1,0 +1,53 @@
+{
+  "reviewedAt": "2026-10-04T20:06:31.959799+00:00",
+  "scope": "attack/E/09 and attack/E/10 only",
+  "originalProblem": "两帧近侧解剖右臂错误持符牌、远侧左臂错误持雷杖，导致收招阶段换手。",
+  "actualCorrection": "内置image_gen局部修正持物与相连手袖：近右雷杖、远左符牌；双脚与膝踝朝向/原阶段保持。",
+  "actualReferenceViewing": [
+    "原09/10原生1254与运行1024",
+    "已提交idle/E持物身份",
+    "attack/E/01正确右杖左牌",
+    "designs/jubaozhai-ui/02-characters.png已确认画法"
+  ],
+  "rejectedCandidates": [
+    {
+      "file": "work/attack_E_09_hands_v1.png",
+      "reason": "持物正确但整体头身体积与足点放大漂移，未选入runtime"
+    }
+  ],
+  "frames": [
+    {
+      "file": "runtime/attack/E/09.png",
+      "sha256": "1c63f5d5b23e348f1a08bc7f0b4f38120c0a3481d2df3bba5ad99311faedd53a",
+      "nativeSource": {
+        "file": "work/attack_E_09_hands_v2.png",
+        "sha256": "fbd65164a8300b960e74f1c1fae11960d1c0baa8a243492f05b9f222652a5a56",
+        "generationRecord": "work/attack_E_09_hands_v2.png.generation.json"
+      },
+      "generationRecord": "runtime/attack/E/09.png.generation.json",
+      "observation": "已实际查看原生：近侧解剖右肩经前景白袖连接右手握雷杖；远侧左手持矩形符牌，两手未混接；保持原09头部体积、留白、收招站姿、膝踝靴轴与两脚落点。首稿放大漂移已拒绝，此版替代。",
+      "actualModel": null,
+      "actualQuality": null
+    },
+    {
+      "file": "runtime/attack/E/10.png",
+      "sha256": "16511330d601c4af270787e1a08ae31e41148768317cccd64c2aa0c74b5621ae",
+      "nativeSource": {
+        "file": "work/attack_E_10_hands_v1.png",
+        "sha256": "f775fdf0666fa506a1baea4fad9c18074fb4bba59f52fc5933c65277655eeae6",
+        "generationRecord": "work/attack_E_10_hands_v1.png.generation.json"
+      },
+      "generationRecord": "runtime/attack/E/10.png.generation.json",
+      "observation": "已实际查看：近侧解剖右臂经前景白袖连接握杖手；远侧左手持矩形符牌；两腕与两道具独立，收招站姿、原镜头、头身与双脚轴保留。",
+      "actualModel": null,
+      "actualQuality": null
+    }
+  ],
+  "technicalIssues": [],
+  "technicalChecks": "两张1254原生透明，完整画布Lanczos到1024，与runtime逐像素一致，独立原生SHA，未做bbox缩放。",
+  "modelNote": "目标GPT Image2.5 Sunburst/max；内置无model/quality选择器，实际提交与返回版本、质量均未确认，记录null。",
+  "staticVisualReviewCompleted": true,
+  "frozenForParentPlaybackReview": true,
+  "wholeCycleVisualApproved": false,
+  "clientIntegrated": false
+}
