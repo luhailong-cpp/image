@@ -13,7 +13,7 @@
 <div class="summary" id="summary"></div>
 <p class="notice" id="inventoryNotice">正在读取库存。缺帧会显示明确空缺，播放时仍保留该槽的时间，不压缩为现有帧循环。</p>
 <div class="controls"><select id="sequence" aria-label="动作和朝向"></select><select id="speed" aria-label="播放速度"><option value="1">正常 1×</option><option value="0.25">慢放 0.25×</option></select><select id="runCycle" aria-label="跑步周期"><option value="1200" selected>跑步 1200ms · 75ms/帧</option></select><select id="displaySize" aria-label="显示尺寸"><option value="large">放大检查</option><option value="256" selected>游戏尺寸 256px</option><option value="128">游戏尺寸 128px</option></select><button id="playOne">播放当前段</button><button id="playAll">全部顺序播放</button><button id="pause">暂停</button><button id="prev">上一帧</button><button id="next">下一帧</button><label><input type="checkbox" id="guides">显示固定参考线</label></div>
-<p class="notice">跑步正常 1×：完整16帧，每帧75ms，一圈1200ms；首尾不额外停顿。正在按每两帧一个连续支撑位置修订跑步，客户端尚未同步。</p>
+<p class="notice">跑步正常 1×：完整16帧，每帧75ms，一圈1200ms；首尾不额外停顿。接触姿态已按每两帧一组修订；实播与客户端尚未验收。</p>
 <p id="position" aria-live="polite"></p><input id="timeline" type="range" min="0" value="0" aria-label="逐帧选择">
 <div id="slots" aria-label="当前动作所有帧槽"></div>
 <div class="legend"><span><i class="dot missing"></i>缺帧 / 无法预览</span><span><i class="dot present"></i>已存在选定 PNG</span><span><i class="dot export"></i>已存在 runtime PNG</span></div>
@@ -24,6 +24,6 @@
 <p class="muted" id="anchorInfo"></p><label>诊断地面 y <input id="groundY" type="number" value="940" min="0" max="1024" step="1" style="width:80px">（仅参考线，尚未按各方向实际鞋底确认；不移动图片）</label>
 <details><summary>全部动作库存与验收状态</summary><table id="groups"><thead><tr><th>动作</th><th>实际 PNG</th><th>已导出</th><th>视觉通过</th><th>动态通过</th></tr></thead><tbody></tbody></table></details>
 <details><summary>明确缺帧清单</summary><p id="missingList"></p></details>
-<script src="data.js?v=20261004-ground-pairs"></script>
-<script src="player.js?v=20261004-ground-pairs"></script>
+<script src="data.js?v=20261004-ground-pairs-final"></script>
+<script src="player.js?v=20261004-ground-pairs-final"></script>
 </body></html>
