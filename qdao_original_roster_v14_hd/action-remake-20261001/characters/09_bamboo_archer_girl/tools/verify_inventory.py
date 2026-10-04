@@ -192,7 +192,7 @@ def scan() -> tuple[dict, dict, dict]:
                        "visualApproval": "passed" if visual else "pending",
                        "dynamicApproval": "pending", "generationRecord": provenance,
                        "selection": selection or None,
-                       "previewUrl": "../" + info["file"] if previewable else None}
+                       "previewUrl": "../" + info["file"] + "?v=" + info["sha256"][:16] if previewable else None}
                 if info:
                     visible[info.get("visiblePixelSha256")].append(key)
                     mirror[info.get("mirroredVisiblePixelSha256")].append(key)

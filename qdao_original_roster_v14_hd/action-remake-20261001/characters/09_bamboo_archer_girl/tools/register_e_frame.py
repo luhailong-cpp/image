@@ -1,4 +1,4 @@
-import argparse, hashlib, json
+import argparse, hashlib, json, os, uuid, msvcrt
 from datetime import datetime, timezone
 from pathlib import Path
 from PIL import Image
@@ -7,7 +7,10 @@ ROOT=Path(__file__).resolve().parents[1]
 REPO=ROOT.parents[3]
 def read(p): return json.loads(Path(p).read_text(encoding="utf-8-sig"))
 def write(p,v):
- p=Path(p);p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(v,ensure_ascii=False,indent=2),encoding="utf-8")
+ p=Path(p);p.parent.mkdir(parents=True,exist_ok=True)
+ tmp=p.with_name('.'+p.name+'.'+uuid.uuid4().hex+'.tmp')
+ tmp.write_text(json.dumps(v,ensure_ascii=False,indent=2),encoding="utf-8")
+ os.replace(tmp,p)
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 p=argparse.ArgumentParser()
 p.add_argument("mode",choices=["prepare","register"])
@@ -76,10 +79,17 @@ else:
    matches.append(candidate)
  if len(matches)>1:raise ValueError(f"Multiple selections for {slot}: {matches}")
  sel=matches[0] if matches else ROOT/"selection"/(group_name+".json")
- data=read(sel) if sel.exists() else {"frames":[]}
- data["frames"]=[f for f in data["frames"] if not (f.get("action",data.get("action"))==a.action and f.get("direction",data.get("direction"))==a.direction and f["frame"]==a.frame)]
- data["frames"].append({"action":a.action,"direction":a.direction,"frame":a.frame,"file":out.relative_to(ROOT).as_posix(),"sha256":sha(out),"generationRecord":rec.relative_to(ROOT).as_posix(),"generationRecordSha256":sha(rec),"sourceNativeSize":list(size)})
- write(sel,data)
+ with open(sel.with_suffix('.json.lock'),'a+b') as lock:
+  lock.seek(0,os.SEEK_END)
+  if lock.tell()==0:lock.write(b'0');lock.flush()
+  lock.seek(0);msvcrt.locking(lock.fileno(),msvcrt.LK_LOCK,1)
+  try:
+   data=read(sel) if sel.exists() else {"frames":[]}
+   data["frames"]=[f for f in data["frames"] if not (f.get("action",data.get("action"))==a.action and f.get("direction",data.get("direction"))==a.direction and f["frame"]==a.frame)]
+   data["frames"].append({"action":a.action,"direction":a.direction,"frame":a.frame,"file":out.relative_to(ROOT).as_posix(),"sha256":sha(out),"generationRecord":rec.relative_to(ROOT).as_posix(),"generationRecordSha256":sha(rec),"sourceNativeSize":list(size)})
+   write(sel,data)
+  finally:
+   lock.seek(0);msvcrt.locking(lock.fileno(),msvcrt.LK_UNLCK,1)
  print(json.dumps({"file":str(out),"sha256":sha(out),"nativeSize":size},ensure_ascii=False))
 
 

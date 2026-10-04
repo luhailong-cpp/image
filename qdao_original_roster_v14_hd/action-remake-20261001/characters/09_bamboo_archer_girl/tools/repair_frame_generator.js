@@ -2,7 +2,12 @@ async function repairFrame(spec) {
  const root="D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/09_bamboo_archer_girl";
  const py="C:/Users/luyua/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe";
  const q=s=>"'"+String(s).replace(/'/g,"''")+"'";
- const p=await tools.exec_command({cmd:"& "+q(py)+" -X utf8 "+q(root+"/tools/prepare_repair_frame.py")+" "+q(spec),workdir:root,max_output_tokens:4000});
+ async function runCommand(args) {
+  let r=await tools.exec_command({...args,yield_time_ms:30000}),output=r.output;
+  while(r.session_id){r=await tools.write_stdin({session_id:r.session_id,chars:"",yield_time_ms:1000,max_output_tokens:4000});output+=r.output;}
+  return {...r,output};
+ }
+ const p=await runCommand({cmd:"& "+q(py)+" -X utf8 "+q(root+"/tools/prepare_repair_frame.py")+" "+q(spec),workdir:root,max_output_tokens:4000});
  if(p.exit_code!==0) throw new Error(p.output);
  const prep=JSON.parse(p.output.trim());
  const recPath=prep.request.replace(/\.request\.json$/, ".receipt.json");
@@ -13,7 +18,9 @@ async function repairFrame(spec) {
  const native=(r.output_hint||"").match(/ as (.+?\.png) by default/);
  if(!native) throw new Error("Native output path unavailable: "+JSON.stringify(Object.keys(r)));
  await tools.apply_patch("*** Begin Patch\n*** Add File: "+recPath+"\n+"+JSON.stringify(rec,null,2).split("\n").join("\n+")+"\n*** End Patch");
- text(await tools.exec_command({cmd:"& "+q(py)+" -X utf8 "+q(root+"/tools/register_e_frame.py")+" register --action "+prep.action+" --direction "+prep.direction+" --frame "+prep.frame+" --native "+q(native[1])+" --request "+q(prep.request)+" --receipt "+q(recPath),workdir:root,max_output_tokens:1000}));
+ const registered=await runCommand({cmd:"& "+q(py)+" -X utf8 "+q(root+"/tools/register_e_frame.py")+" register --action "+prep.action+" --direction "+prep.direction+" --frame "+prep.frame+" --native "+q(native[1])+" --request "+q(prep.request)+" --receipt "+q(recPath),workdir:root,max_output_tokens:1000});
+ text(registered);
+ if(registered.exit_code!==0) throw new Error(registered.output);
  } catch(e) {
  await tools.apply_patch("*** Begin Patch\n*** Add File: "+prep.request.replace(/\.request\.json$/,".error.json")+"\n+"+JSON.stringify({failedAt:new Date().toISOString(),error:String(e),request:prep.request},null,2).split("\n").join("\n+")+"\n*** End Patch");
  throw e;
