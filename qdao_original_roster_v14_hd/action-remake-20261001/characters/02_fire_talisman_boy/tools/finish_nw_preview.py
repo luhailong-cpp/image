@@ -2,9 +2,9 @@ from PIL import Image,ImageDraw
 from pathlib import Path
 import json
 R=Path(__file__).resolve().parents[1]
-W=R/'work/finish-NW';W.mkdir(exist_ok=True)
+W=R/'work/finish-NW-final';W.mkdir(exist_ok=True)
 choices={1:R/'work/grounding-v2/north/NW/grounding-v3-NW01-a03.png'}
-override=W/'selection-overrides.json';overrides=json.loads(override.read_text(encoding='utf-8')) if override.exists() else {}
+override=R/'work/finish-NW/selection-overrides.json';overrides=json.loads(override.read_text(encoding='utf-8')) if override.exists() else {}
 frames=[];rows=[]
 for f in range(1,17):
     candidates=sorted((R/'work/grounding-v2/north/NW').glob(f'finish-nw-NW{f:02d}-a[0-9][0-9].png'))
