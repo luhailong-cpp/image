@@ -24,7 +24,7 @@ draw=ImageDraw.Draw(sheet)
 derived=[]
 for i,f in enumerate(frames):
     x=(i%cols)*tile;y=(i//cols)*(tile+header)
-    draw.text((x+12,y+8),f"{args.action} {args.direction} / {f['frame']:02d} / {'40' if args.action=='hit' else '30'} ms",font=font,fill=(36,42,46))
+    draw.text((x+12,y+8),f"{args.action} {args.direction} / {f['frame']:02d} / {'40' if args.action=='hit' else '75'} ms",font=font,fill=(36,42,46))
     for yy in range(0,tile,24):
         for xx in range(0,tile,24):
             c=(240,242,243) if (xx//24+yy//24)%2 else (218,222,225)

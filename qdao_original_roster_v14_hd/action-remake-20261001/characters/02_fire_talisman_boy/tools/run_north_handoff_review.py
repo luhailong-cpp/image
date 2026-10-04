@@ -36,7 +36,7 @@ for f,(phase,support,swing,obs,confidence) in enumerate(ne,1):
     row={"frame":f,"path":p.relative_to(ROOT).as_posix(),"sha256":sha(p),"sourceRecord":source.get("source_record",source["native_evidence"]),"actualPhase":phase,"supportFoot":support,"recoveryOrSwingFoot":swing,"legIdentificationConfidence":confidence,"observation":obs,"trialDurationMs":dur[f-1],"sourceOwner":"north" if f in (1,2,3,4,5,6,9) else "cast_read_only"}
     nerows.append(row)
     nefeet.append({k:row[k] for k in ("frame","path","sha256","sourceRecord","sourceOwner")}|{"criteria":{"shoeAxis":"single_frame_pass","talismanCount":"single_frame_pass_five","wholeSequence":"pending_root_dynamic_review"},"observation":"实看鞋掌/鞋尖未见明确向两侧外撇，沿NE纵深；五张符顶边可逐张辨认。静态鞋向/符数通过不代表腿相位或正常速度已通过。"})
-write(ROOT/"work/run-NE/grounding-review-20261003.json",{"schema":1,"direction":"NE","reviewedAt":now,"evidence":"已实际查看16帧全图、当前联系表；cast九槽只读，不修改其清单/记录。","timing":{"status":"provisional_trial_only_not_final_or_client","cycleMs":sum(dur),"durationsMs":dur,"reason":"1-3/9-11支撑候选延长，4-7/12-15缩短试播；是NE实图观察后的试值，不照搬其他角色。"},"frames":nerows,"limitations":["NE03→04→06腿侧/相位要重点实播","01/02→03与16→01摆臂幅度要重点实播","触地/重心与统一配准未在客户端验证"]})
+write(ROOT/"work/run-NE/grounding-review-20261003.json",{"schema":1,"direction":"NE","reviewedAt":now,"evidence":"已实际查看16帧全图、当前联系表；cast九槽只读，不修改其清单/记录。","timing":{"status":"user_requested_uniform_1200ms_client_unconfirmed","cycleMs":1200,"frameMs":75,"durationsMs":dur,"phaseWeightsApplied":False,"reason":"用户最新明确统一正常1200ms，每帧75ms；时长不代替接地姿态验收。"},"frames":nerows,"limitations":["NE05→06→07左伸距和交换相位要重点实播","01/02→03与16→01摆臂幅度要重点实播","触地/重心与统一配准未在客户端验证"]})
 write(ROOT/"work/run-NE/foot-direction-review-20261003.json",{"schema":1,"direction":"NE","reviewedAt":now,"frames":nefeet,"criterion":"只对鞋轴及五符逐图给出单图通过；动态/接地仍未通过。"})
 # Add explicit swing-leg observations without pretending occluded joints are proven.
 allrows=[]
@@ -54,6 +54,8 @@ for direction in ("W","N","NW","NE"):
                 row["jointOcclusionNote"]="胯/远近腿被袍摆遮挡，支撑腿左右只是低置信推断；请在根窗口慢速实播追踪。"
         review=footdoc["frames"][f-1]
         row["singleFrameCriteria"]=review["criteria"]
+        row["trialDurationMs"]=75
+        row["durationMs"]=75
         allrows.append({"direction":direction,**row})
     doc["timing"]={"status":"user_requested_uniform_1200ms_client_unconfirmed","cycleMs":1200,"frameMs":75,"durationsMs":[75]*16,"phaseWeightsApplied":False,"reason":"用户最新明确统一正常1200ms；删除旧快档与非均匀权重。时长不代替接地姿态验收。"}
     for row in doc["frames"]:

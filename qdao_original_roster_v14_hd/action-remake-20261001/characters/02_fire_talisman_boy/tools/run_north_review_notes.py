@@ -68,6 +68,9 @@ for direction in ("W","N"):
     doc["reviewedAt"]=now
     for row in doc["frames"]:
         row["sha256"]=sha(ROOT/row["path"])
+        row["durationMs"]=75
+        row["trialDurationMs"]=75
+    doc["timing"]={"status":"user_requested_uniform_1200ms_client_unconfirmed","cycleMs":1200,"frameMs":75,"durationsMs":[75]*16,"phaseWeightsApplied":False,"reason":"用户最新明确统一正常1200ms，每帧75ms；不加权、不保留旧快档。时长不代替接地姿态验收。"}
     if direction=="W":
         row=doc["frames"][9]
         row.update(actualPhase="左脚缓冲候选",supportFoot="left",observation="attempt05从09初触独立重画：鞋位较旧10更低、底边更平、膝屈曲；与09地面更接近，仍待全周期注册判断。",action="new_review")
@@ -88,15 +91,15 @@ nw_phases=[
 ("右缓冲支撑候选","right?","attempt04低位鞋平底、另一鞋高折，较旧02抬高前鞋改善；左右归属和01→02摆臂连续性需动态确认。","new_review"),
 ("支撑候选","right?","低位平底鞋、后折腿可读；新脚轴已朝NW，左右腿归属仍待联检。","review_leg_identity"),
 ("后蹬/离地过渡","right?","后腿伸展、前掌方向可读，真实toe接地仍需共同地面确认。","check_toe_contact"),
-("早腾空","none","前后大分腿，脚底可见。","shorten_trial"),
-("腾空交换","none","前鞋抬起后鞋折膝，和05相位接近。","shorten_trial"),
+("早腾空","none","前后大分腿，脚底可见。","review_flight_pose"),
+("腾空交换","none","前鞋抬起后鞋折膝，和05相位接近。","review_flight_pose"),
 ("下降","none","前脚稍下放；未见承重。","check"),
 ("预接触","left?","前鞋露后跟，但仍比03/11支撑鞋明显高。","check"),
 ("左初触候选","left","实际工具新稿用attempt05重新登记（attempt03导入撞名已纠正）；近左腿下伸、右腿折高，鞋跟较旧稿接近共同支撑地面；正确近左铃/远右符保持。","new_review"),
 ("缓冲候选","left?","左腿屈膝，鞋底近平但高度与11不同；脚向定点重画。","review_grounding"),
 ("支撑候选","left","可见近左鞋平底与胯上承重，新脚轴顺NW。","new_review"),
 ("蹬离过渡","left?","后腿伸展，鞋底朝镜头；是否前掌接地待复核。","check_toe_contact"),
-("早腾空","none","前后分腿并露鞋底。","shorten_trial"),
+("早腾空","none","前后分腿并露鞋底。","review_flight_pose"),
 ("换腿腾空","none","前鞋抬起、后鞋折膝；新鞋轴保持NW。","check_leg_identity"),
 ("下降","none","前腿下放，新鞋轴保留脚踝俯仰。","check"),
 ("预接触候选","right?","前鞋伸下仍未明确压地，首尾连续性待动态。","check")]
@@ -104,7 +107,7 @@ dur=[75]*16
 rows=[]
 for f,(phase,foot,obs,act) in enumerate(nw_phases,1):
     p=ROOT/f"frames/run/NW/{f:02}.png";rows.append({"frame":f,"path":p.relative_to(ROOT).as_posix(),"sha256":sha(p),"actualPhase":phase,"supportFoot":foot,"observation":obs,"action":act,"trialDurationMs":dur[f-1]})
-write(ROOT/"work/run-NW/grounding-review-20261003.json",{"schema":1,"direction":"NW","reviewedAt":now,"evidence":"16帧全身与固定下肢裁切逐图复核；静态证据不冒充动态通过。","ground":{"familyNormalizationPending":True,"rootTarget":[512,920],"definition":"全run统一虚拟地面/根锚点待主代理；不逐帧贴最低像素。"},"timing":{"status":"provisional_trial_only_not_final_or_client","cycleMs":sum(dur),"durationsMs":dur,"reason":"实图支撑候选较短、腾空跨度长，延长支撑试播但不能代替姿态接地修复；未套用其他角色权重。"},"frames":rows,"limitations":["NW02/09新接触候选已选，需实播看重心/地面连续性","左右腿归属有遮挡，需慢速联检","未运行客户端"]})
+write(ROOT/"work/run-NW/grounding-review-20261003.json",{"schema":1,"direction":"NW","reviewedAt":now,"evidence":"16帧全身与固定下肢裁切逐图复核；静态证据不冒充动态通过。","ground":{"familyNormalizationPending":True,"rootTarget":[512,920],"definition":"全run统一虚拟地面/根锚点待主代理；不逐帧贴最低像素。"},"timing":{"status":"user_requested_uniform_1200ms_client_unconfirmed","cycleMs":1200,"frameMs":75,"durationsMs":dur,"phaseWeightsApplied":False,"reason":"用户最新明确统一正常1200ms，每帧75ms；时长不代替接地姿态验收。"},"frames":rows,"limitations":["NW02/09新接触候选已选，需实播看重心/地面连续性","左右腿归属有遮挡，需慢速联检","未运行客户端"]})
 inventory=load(ROOT/"inventory-run-north.json")
 inventory["expected_frames"]=55
 inventory["ownershipNote"]="W/N/NW各16及NE01-06,09共55；NE07,08,10-16九张由cast代理独立inventory-run-ne-cast.json负责。"

@@ -1,6 +1,6 @@
 {
   "summary": {
-    "reviewedAt": "2026-10-03T22:43:07.462820-04:00",
+    "reviewedAt": "2026-10-03T23:00:39.643864-04:00",
     "slots": 32,
     "nativeAllAtLeast1024": true,
     "singleFrameAnatomyReviewed": 32,
@@ -245,17 +245,18 @@
       "direction": "E",
       "frame": 11,
       "path": "frames/cast/E/11.png",
-      "sha256": "eabf2725ba05332010c406be5f3acaa4336ff94f27c3d75acb7fb685da890147",
-      "source_record": "records/cast-E-11-20261003-foot-axis-v6.generation.json",
+      "sha256": "7524ae071c43df6b36ce367e26c65024c2a99a715cd90def5efd9a806593a36d",
+      "source_record": "records/cast-E-11-20261003-arm-chain-v9.generation.json",
       "footRepairThisBatch": true,
-      "status": "needs_hand_ownership_repair",
-      "findings": "独立复审确认E06-12胸襟正面展开时，近右肩接到屏左铃臂、远左肩接到屏右符臂，归属反转；撤销此前归属通过，需重画肩袖-肘腕链。脚向复查结论仍单独保留。",
+      "status": "single_frame_reviewed_sequence_pending",
+      "findings": "当前图实际逐张检查：侧身近侧解剖右肩经前方袖肘腕接五张红符；远侧左肩经后方袖接铜铃；总共两臂两袖。两鞋跟到尖轴均朝右，未见相反方向或V字外撇；保留自然膝弯与透视。单帧通过，整段动态/客户端仍待验。",
       "bounds_alpha_gt16": [
-        164,
-        137,
-        960,
-        934
-      ]
+        203,
+        97,
+        801,
+        965
+      ],
+      "armOwnershipRepaired": true
     },
     {
       "direction": "E",
@@ -597,9 +598,7 @@
     }
   ],
   "handOwnershipCorrection": "独立复审确认E06-12胸襟正面展开时，近右肩接到屏左铃臂、远左肩接到屏右符臂，归属反转；撤销此前归属通过，需重画肩袖-肘腕链。脚向复查结论仍单独保留。",
-  "knownHandOwnershipFailures": [
-    "E11"
-  ],
+  "knownHandOwnershipFailures": [],
   "armChainRepair": {
     "completedFrames": [
       "E06",
@@ -607,12 +606,11 @@
       "E08",
       "E09",
       "E10",
+      "E11",
       "E12",
       "E14"
     ],
-    "remainingFrames": [
-      "E11"
-    ],
+    "remainingFrames": [],
     "pastCorrection": "旧E06–12曾归属反转，旧E14三袖；历史SHA记录保留，当前按新图独立验。",
     "fullSequencePassed": false
   }

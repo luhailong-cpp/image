@@ -21,10 +21,10 @@ for n,(attempt,phase,note) in notes.items():
   old=ROOT/v['replaces']['generationRecord'];o=read(old)
   o['status']='superseded_after_observed_phase_defect'
   o['supersededBy']=p.relative_to(ROOT).as_posix()
-  o['supersessionReason']='Original NE04-06 showed left low trailing leg immediately after NE03 right support; independent redraw fixes actual leg-chain sequence.'
+  o['supersessionReason']=('NE06 attempt04 was rejected in root playback: both knees tuck together and both shoes are nearly level, reading as a two-leg hop.' if n==6 else 'Original NE04-05 showed left low trailing leg immediately after NE03 right support; independent redraw fixes actual leg-chain sequence.')
   save(old,o)
  rows.append({'frame':n,'file':v['export']['file'],'sha256':v['export']['sha256'],'sourceRecord':p.relative_to(ROOT).as_posix(),'phase':phase,'observation':note})
-for n,attempt,reason in [(4,2,'仍为左低长腿、右高折，未修复提前换腿'),(6,3,'右鞋仍明显低于左鞋，未形成衔接07所需空中交换')]:
+for n,attempt,reason in [(4,2,'仍为左低长腿、右高折，未修复提前换腿'),(6,3,'右鞋仍明显低于左鞋，未形成衔接07所需空中交换'),(6,4,'root动态拒稿：双膝并蜷、两鞋并排同高，像并腿跳'),(6,5,'左腿伸距较07更长，未形成所需短前过过渡')]:
  p=ROOT/f'records/run-NE-{n:02}-attempt-{attempt:02}.json';v=read(p);v['visualQA']={'status':'rejected','reviewedAt':now,'reason':reason}
  native=(ROOT/v['native']['file']).resolve()
  allowed=(ROOT/'work/run-NE').resolve()
