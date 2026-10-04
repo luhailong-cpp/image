@@ -1,0 +1,1299 @@
+{
+  "postRepairReview": {
+    "updatedAt": "2026-10-03T20:42:03.432Z",
+    "scope": "5 targeted slots; 6 builtin local edits including one specifically authorized E10 retry",
+    "counts": {
+      "newImages": 6,
+      "propCorrectionsVisuallyConfirmed": 3,
+      "squareCanvasCandidates": 1,
+      "unresolvedPropSlots": 1,
+      "formallyPassed": 0,
+      "toolFailures": 0
+    },
+    "selectedForSequenceReview": [
+      {
+        "slot": "cast-W-03",
+        "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-03-v3.png",
+        "sha256": "af258afb677cb7e987408ed9a22225d26aa52977ba360c1e4bedf9ed0cc2b966",
+        "status": "prop_corrected_pending_sequence",
+        "notes": "唯一笔穗已从笔毫箍移至握拳下方金色笔尾，链连接可见。握笔手指/腕、卷轴、靴轴保持。彩边与整段连续性仍未通过。",
+        "targetedPropPass": true,
+        "formalVisualPass": false,
+        "formalDynamicPass": false
+      },
+      {
+        "slot": "cast-W-04",
+        "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-04-v3.png",
+        "sha256": "bf3eb33237d89d72111239d69010a7a00597bd0fd29cc0f2f0a42e14fc45e94d",
+        "status": "prop_corrected_pending_sequence",
+        "notes": "唯一笔穗已接握拳后下右金色笔尾，上左笔毫箍无穗。原手腕抬笔与双靴朝向保留。彩边及相邻身体转向仍未通过整段验收。",
+        "targetedPropPass": true,
+        "formalVisualPass": false,
+        "formalDynamicPass": false
+      },
+      {
+        "slot": "cast-E-01",
+        "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-01-v3.png",
+        "sha256": "3989b8ad8743156af81250a01ecb9562e99cbc63e586fd6359845263e7b142da",
+        "status": "prop_corrected_pending_sequence",
+        "notes": "后脑错误珠穗删除；青穗珠链从握拳后下左金色笔尾出，经过胸前与衣饰重叠但连接起点可辨。保留握持与靴轴。彩边未通过。",
+        "targetedPropPass": true,
+        "formalVisualPass": false,
+        "formalDynamicPass": false
+      },
+      {
+        "slot": "cast-W-02",
+        "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-02-v3.png",
+        "sha256": "91cf1a4b77d23231c761efdbd686039cc9a8c20f0ae3efcbc2c5b3e1f27c897c",
+        "status": "square_canvas_candidate_pending_scale_review",
+        "notes": "本机实际1254×1254 RGBA，非请求1332×1332。方画幅已达成，原笔尾穗/握持/靴轴保留；不是像素原封扩边，主体alpha128包围比0.72758→0.73875（约1.54%变化），视觉无明显压扁但轻微重描/尺寸变化仍需整段核准，不宣称严格保持源像素。",
+        "squareCanvasPass": true,
+        "strictPixelPreservingOutpaint": false,
+        "formalVisualPass": false,
+        "formalDynamicPass": false
+      },
+      {
+        "slot": "cast-E-10",
+        "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-10-v3.png",
+        "sha256": "9a3859d19f7f8f480671e77ca76691d34f412878a241242c86ff6ead2d64264f",
+        "status": "pending_brush_tassel_connection_repair",
+        "notes": "明确保留v3仅作待修序列参照，未标通过：珠穗从后肩垂下而非握拳后短笔尾。两轮v4/v5均未修对，拒用其最新版本；此缺陷按授权次数停止重试。",
+        "targetedPropPass": false,
+        "formalVisualPass": false,
+        "formalDynamicPass": false
+      }
+    ],
+    "rejectedAttempts": [
+      {
+        "slot": "cast-E-10",
+        "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-10-v4.png",
+        "status": "rejected",
+        "notes": "删掉肩部旧穗，但新链/太极坠接握拳前上方中段笔杆，仍非笔尾。手脚保留。"
+      },
+      {
+        "slot": "cast-E-10",
+        "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-10-v5.png",
+        "status": "rejected",
+        "notes": "中段错误穗删除后，新穗再次落在后肩（约x530/y600）；未画出握拳后下左真实短笔尾连接。再次失败后停止。"
+      }
+    ],
+    "comparison": "review/combat-limb-fixes-comparison.png",
+    "metadata": "review/combat-limb-fixes-metadata.json",
+    "modelEvidence": {
+      "configuredTarget": "gpt-image-2.5-sunburst",
+      "configuredQuality": "max",
+      "actualModel": null,
+      "actualQuality": null,
+      "reason": "Builtin host managed imagegen provides no selector or returned model/quality fields; each exact request and native source receipt saved."
+    },
+    "notes": [
+      "No source PNG pixels modified by local code; review contact sheet only.",
+      "No NE/NW changes, runtime exports, timing edits or final acceptance.",
+      "4 new candidates explicitly selected by visual findings, E10-v3 retained because v4/v5 were visually rejected.",
+      "Saturated red/cyan edge defects remain; alpha presence does not mean edge-clean acceptance."
+    ]
+  },
+  "character": "17_ghost_script_calligrapher_boy",
+  "auditedAt": "2026-10-03T19:33:52.263Z",
+  "scope": "Read-only static limb, shoe-axis, grip and brush-tassel audit of68combat slots. Candidate versions explicitly frozen in combat-limb-selection.json and per-frame SHA below.",
+  "selectionMethod": "hit usesreview-hit explicit selections including2oldpeak refs; attack/cast use highest physically present version at audit start because no current explicit attack selection file exists and cast review is stale. This is inspection input selection, not automatic approval.",
+  "inspection": {
+    "all68": "300px full-canvas contact sheets inspected",
+    "nativeCloseViews": [
+      "attack-W-04-v3",
+      "attack-W-05-v3",
+      "attack-W-07-v1",
+      "cast-W-02-v2",
+      "cast-W-03-v2",
+      "cast-W-04-v2",
+      "cast-E-01-v2",
+      "cast-E-10-v3",
+      "cast-W-13-v1"
+    ],
+    "contactSheets": [
+      "review/combat-hit-E-contact.png",
+      "review/combat-hit-W-contact.png",
+      "review/combat-attack-E-contact.png",
+      "review/combat-attack-W-contact.png",
+      "review/combat-cast-E-contact.png",
+      "review/combat-cast-W-contact.png"
+    ],
+    "sourcePngsChanged": false
+  },
+  "counts": {
+    "auditedSlots": 68,
+    "hit": 12,
+    "attack": 24,
+    "cast": 32,
+    "confirmedShoeAxisHardErrors": 0,
+    "confirmedHandGripAnatomyHardErrors": 0,
+    "targetedPropFixImages": 4,
+    "targetedCanvasFixImages": 1,
+    "totalTargetedRepairImages": 5,
+    "noImmediateLimbOrPropRepaintRequired": 63,
+    "formallyPassed": 0
+  },
+  "principle": "受击/攻击/施法原地站姿允许髋膝自然展开；只有鞋轴与所属膝踝相扭、或移步时鞋尖错误偏离运动方向才计硬错。本次没有将正常站姿透视、弓步支撑脚旋转、跑步蹬离跖屈或腿距较宽自动判为外撇。没有将alpha污染等同于所有姿态错误。",
+  "mustFix": [
+    {
+      "slot": "cast-W-03",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-03-v2.png",
+      "kind": "brush_tassel_wrong_end",
+      "issue": "唯一笔穗链明确从笔毫箍/握拳上方出，刷尾（握拳下方金帽）却无穗。",
+      "repair": "只把链与青穗移到握拳下方金色笔尾，笔毫箍保持无链无穗。",
+      "plannedOneRoundVersion": "cast-W-03-v3"
+    },
+    {
+      "slot": "cast-W-04",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-04-v2.png",
+      "kind": "brush_tassel_wrong_end",
+      "issue": "抬笔时青穗从上左方笔毫箍挂下，金色笔尾在握拳后下右却无穗。",
+      "repair": "只移链穗至握拳后下右笔尾。",
+      "plannedOneRoundVersion": "cast-W-04-v3"
+    },
+    {
+      "slot": "cast-E-01",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-01-v2.png",
+      "kind": "detached_brush_tassel",
+      "issue": "青穗及珠链挂在后脑/发带旁，真实笔尾在握手后下方且无连接。",
+      "repair": "去掉后脑珠穗，唯一笔穗用可见链连接握手后下方笔尾。",
+      "plannedOneRoundVersion": "cast-E-01-v3"
+    },
+    {
+      "slot": "cast-E-10",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-10-v3.png",
+      "kind": "detached_brush_tassel",
+      "issue": "刷穗链沿后肩出现，未连接到握拳后短柄笔尾，像增加肩部饰品。",
+      "repair": "只移后肩刷穗链到握手后笔尾，保留固有衣饰流苏。",
+      "plannedOneRoundVersion": "cast-E-10-v4"
+    },
+    {
+      "slot": "cast-W-02",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-02-v2.png",
+      "kind": "non_square_native_canvas",
+      "issue": "实际PNG1181×1332；人物/手握/笔尾穗本身可保留，非正方形是独立画幅问题。",
+      "repair": "内置编辑扩展左右透明画布为正方形，不拉伸/压扁人物，保持完整原姿态。",
+      "plannedOneRoundVersion": "cast-W-02-v3"
+    }
+  ],
+  "sequenceWatchOnly": [
+    "cast-W03→04右侧靴从朝前视角转向左：无单帧膝踝反拧证据，但连播需确认是身体同步转向，不应只扭鞋尖。",
+    "cast-E02→03、cast-W08→09站宽/身体角度变化，以及cast-W14→15→16卷轴角度跳变属于连续性检查，未凭此把单帧肢体列为必重画。",
+    "hit-W06恢复姿态收腿较快，仍需动作衔接检查。"
+  ],
+  "frames": [
+    {
+      "slot": "hit-E-01",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/hit-E-01-v2.png",
+      "sha256": "81426eef4ac51b197938539cbc70dc9d12fd4c09765f81fdce67a852d12e35c2",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "hit-E-02",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/hit-E-02-v1.png",
+      "sha256": "3d0088a59543cb3c63e7a3e18726147134a5a7e3ed8ba9a949dbd25cc385257b",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "hit-E-03",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/combat-20260929/characters/17_ghost_script_calligrapher_boy/staging/hit-E-03-v3.png",
+      "sha256": "acbd61afb9d60712ce3f0aeca6d9a489f173acf4d634a587ee61e4f831c35234",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "hit-E-04",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/hit-E-04-v1.png",
+      "sha256": "b65ef8b00ceb962a74be901aa3c91daa496cf235ca63195dbb70855ebd622cca",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "hit-E-05",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/hit-E-05-v1.png",
+      "sha256": "43f99fa2c6fb65969e1f66586283a7ca9a74ea45aacad2a2f01eb80db46abf77",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "hit-E-06",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/hit-E-06-v1.png",
+      "sha256": "dbbfb184e4ea02fbc28f899dea82388a1f076bf98e5fa7eefadb25f55ebc2b1a",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "hit-W-01",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/hit-W-01-v1.png",
+      "sha256": "f608a3ba76e301c08490794e2df932755a6d12b331d089bb54952082d3cb892f",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "hit-W-02",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/hit-W-02-v1.png",
+      "sha256": "1e3f476efeaa45dd100266fe7d2cf5eb7871e3335659f12f26a499afe93e0ea9",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "hit-W-03",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/combat-20260929/characters/17_ghost_script_calligrapher_boy/staging/hit-W-03-v2.png",
+      "sha256": "ebf883a5d08e372bb21cb4dc67a1d00e3d6f02cede77d4558322f59d1d78f56c",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "hit-W-04",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/hit-W-04-v1.png",
+      "sha256": "bc84ecda01faa0dc59a1150f72a66c77014443e17ba11daba89032bdbda134b0",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "hit-W-05",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/hit-W-05-v1.png",
+      "sha256": "a193501daa1cf4dc7356d9cb93088bf5dd27a3b95a5476baa266d88da2024928",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "hit-W-06",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/hit-W-06-v2.png",
+      "sha256": "7280e9e74d4a6fb1c490064ef79246ba157dbbd3f03f00d7f307536c99173026",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-E-01",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-E-01-v3.png",
+      "sha256": "37e9cc0058799bbfc2a85cb71a6927854a1b255ced0b94cfd5ecbcece6574e94",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-E-02",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-E-02-v2.png",
+      "sha256": "c213a2b44dfa96eaa38430b700291e54d7ca2f4e3f09d746190f338be6d51f33",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-E-03",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-E-03-v1.png",
+      "sha256": "c5a4c4cbf8ae46c2612bf0512e9e98ee3bcad692be85e14a8e147581de8fa4d4",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-E-04",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-E-04-v2.png",
+      "sha256": "d4ab6491adcc41471588fa60c869ac33fed9087cef3e7d95205a654a78c85781",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-E-05",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-E-05-v2.png",
+      "sha256": "b61b676857c23270f9d5071ff94a42a00a08f1167a3b8308ff2ac63ff1d7ae99",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-E-06",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/combat-20260929/characters/17_ghost_script_calligrapher_boy/staging/attack-E-06-v2.png",
+      "sha256": "2d4cdc6ffdaab73415bbfa2018013342b99d9c367ba32681bd136ad07b9b7c3d",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-E-07",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-E-07-v2.png",
+      "sha256": "ddc44d140ee8926487c4483486ccc0b4147d5a9cec4735cc60144c81fa6814ef",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-E-08",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-E-08-v2.png",
+      "sha256": "b92035f01f8c1ef0a62f564713e520adbdd681c791198f2e5709aac6d41832b0",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-E-09",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-E-09-v2.png",
+      "sha256": "d360446b8a4b842e6f1a62ebb73262218fa8c26663caabee738f625b7b2e7a07",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-E-10",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-E-10-v1.png",
+      "sha256": "aa339782251d2a993f46e1884087e8c755d54d07cc4a813570ce521a77dd470b",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-E-11",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-E-11-v1.png",
+      "sha256": "3e2ce0200dc331b42d927bf977e97a14c1145192c7ca8106c8490031f63ad365",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-E-12",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-E-12-v1.png",
+      "sha256": "04016041518bf1b3782da20faa4aad78fa6d15b2df5ed1186bcfaa616391d322",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-W-01",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-W-01-v2.png",
+      "sha256": "65ab244ef13c861aa7633dfb59ee2f47d710c5646ac8da72043a44eb1eda2426",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-W-02",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-W-02-v5.png",
+      "sha256": "08c4ee7ff9b4e754ec269661a6be43bde7e00930e065d745f42ffc7dea9a5bdf",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-W-03",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-W-03-v2.png",
+      "sha256": "e844d93c864ee38e78c2ac1659929f63a89e2414e9a27d5333a8ed9cd1336e9e",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-W-04",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-W-04-v3.png",
+      "sha256": "e079e574e6eadaadef5d58b686a8689f09e81cd0c213dd5b5ebecc3314774a03",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "原尺寸可见拇指在笔上、四指在笔下包握，无额外手指；后侧鞋向前外侧展开与同侧膝/胫骨一致，是支撑弓步，不应强扭鞋尖或收窄腿。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-W-05",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-W-05-v3.png",
+      "sha256": "59d3161e1d5895c6a8e014c7cbf5c2bcaf3292e528ad393db27e8a13c463cdbc",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "原尺寸托握结构清楚，手指数量/连接无确定错误；笔尾青穗正确，膝踝/鞋轴同向；不需肢体重画。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-W-06",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-W-06-v2.png",
+      "sha256": "e56667be61f7dd1dcdbfd078094becf9587463c7c2f7aab0f48f0f3bbcb5eb8a",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-W-07",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-W-07-v1.png",
+      "sha256": "5baef2bacbe858921a2cd31a65f5c9e41a4fb86cc247e29b0089055e4ebfc427",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "回收笔时拇指与手指夹托笔杆，轻握可成立，不是缺失握持。靴轴符合开放站姿，不需肢体重画。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-W-08",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-W-08-v1.png",
+      "sha256": "0352c76c1c7554f3d80713b4d1d842d84f91d7c194a6ef40584230db31bfc86e",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-W-09",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-W-09-v3.png",
+      "sha256": "47851972e7328c03ca11248cae7c817862533c461dc3de4a1cf4e5879c1a3ac1",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-W-10",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-W-10-v1.png",
+      "sha256": "e7c462e7fc16dc174520aadc003aaaa8305ae1d75c49356c2c2aacc04132583f",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-W-11",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-W-11-v1.png",
+      "sha256": "c3a800df58a789b965c0b232ad43a7208cf67c77ab25f9cc5fa7cc1831924e47",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "attack-W-12",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/attack-W-12-v1.png",
+      "sha256": "c0e352e74228252e5f7d03df844e76eeb7ba202a69b9cdb7eb84c2f70baa2f66",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-E-01",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-01-v2.png",
+      "sha256": "5a1a4fc8c0a19623aef060acec133ad36830ec03fe74dd1931b4bc0fe0e24dd7",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "limbs_preservable_targeted_prop_or_canvas_fix",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": {
+        "kind": "detached_brush_tassel",
+        "issue": "青穗及珠链挂在后脑/发带旁，真实笔尾在握手后下方且无连接。",
+        "repair": "去掉后脑珠穗，唯一笔穗用可见链连接握手后下方笔尾。"
+      },
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-E-02",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-02-v2.png",
+      "sha256": "cd2ebd6aaa063cc7ce8d5e462d0a66e5f45d2a5b2e87f70f62dfd7c7e6c8d719",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-E-03",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-03-v2.png",
+      "sha256": "ed9438bc50f5b54d3c1d8329fd75d5a47e1c8e0f255abd8952296964e0dc85e9",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-E-04",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-04-v2.png",
+      "sha256": "32f5cd96f1453c38cd38aa55baa3c41ed8e9e8f8bb5e473943e2caf269558b02",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-E-05",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-05-v2.png",
+      "sha256": "72578562032064bcbe1273400bc828e0750bec9e30e9e1fac4cda6e9c6d2947c",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-E-06",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-06-v2.png",
+      "sha256": "7bdcfcba4027cd99c823aab0fe0df74cce5f11e90b3ad6d8b3512636436f974b",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-E-07",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-07-v2.png",
+      "sha256": "102e91f7fbfe21977ba7d70b2d54086132d57c381b2d6053e0e597e460d66474",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-E-08",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-08-v2.png",
+      "sha256": "63b46988d1242fa6b3986ed8b41cec7e27d0ff632ddb8d1ab9ef84979b5d19ea",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-E-09",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-09-v2.png",
+      "sha256": "f5484cb3d767b75875e7ba7e39076d49fefc28c5c14280aac55e1328ab70dc9a",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-E-10",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-10-v3.png",
+      "sha256": "9a3859d19f7f8f480671e77ca76691d34f412878a241242c86ff6ead2d64264f",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "limbs_preservable_targeted_prop_or_canvas_fix",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": {
+        "kind": "detached_brush_tassel",
+        "issue": "刷穗链沿后肩出现，未连接到握拳后短柄笔尾，像增加肩部饰品。",
+        "repair": "只移后肩刷穗链到握手后笔尾，保留固有衣饰流苏。"
+      },
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-E-11",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-11-v2.png",
+      "sha256": "ebcbb3289ff24a2d4cf7c4e1e447ba96cc26806b976b08713e1a3558c05fb6f0",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-E-12",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-12-v2.png",
+      "sha256": "8835d7920a81adb7b47da612ae30549ad546af96dfbe15c83feef8bcb1cbb9b0",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-E-13",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-13-v2.png",
+      "sha256": "f644b88488fc31dc2e87a86829fa8062bb20fa43d5258ef3aa9c89e3fe03d5cf",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-E-14",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-14-v2.png",
+      "sha256": "1fbf496f736586090632e8cf1dae799827524e7baecd53927d72b409c570e664",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-E-15",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-15-v2.png",
+      "sha256": "e5166f55934a98b4b86859714cf4d92b3a8a1fbaa01d460c775289d67ab74886",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-E-16",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-E-16-v2.png",
+      "sha256": "6f51d5f259dc9caa6ee48198b17ad405640a093e94d0011ae38fc7da38eac377",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-W-01",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-01-v3.png",
+      "sha256": "17387ebe9d6c0e548a87137ad7c8bd7bdbf5a4cbd6b89d14d388acb668d354b7",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-W-02",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-02-v2.png",
+      "sha256": "78047da7e08daf183214a8f86fac430bc095270552564f428ffba57a6be9204a",
+      "size": [
+        1181,
+        1332
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "limbs_preservable_targeted_prop_or_canvas_fix",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": {
+        "kind": "non_square_native_canvas",
+        "issue": "实际PNG1181×1332；人物/手握/笔尾穗本身可保留，非正方形是独立画幅问题。",
+        "repair": "内置编辑扩展左右透明画布为正方形，不拉伸/压扁人物，保持完整原姿态。"
+      },
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-W-03",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-03-v2.png",
+      "sha256": "03b4a42e44ef5f75c03e6c80295495ce47b81105024b66ea26aafa9e21cbbea2",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "limbs_preservable_targeted_prop_or_canvas_fix",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": {
+        "kind": "brush_tassel_wrong_end",
+        "issue": "唯一笔穗链明确从笔毫箍/握拳上方出，刷尾（握拳下方金帽）却无穗。",
+        "repair": "只把链与青穗移到握拳下方金色笔尾，笔毫箍保持无链无穗。"
+      },
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-W-04",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-04-v2.png",
+      "sha256": "7a44c7eed018ca59c9248e63eb6f27c9a16694b0e3b677d242000fd8066e358f",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "limbs_preservable_targeted_prop_or_canvas_fix",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": {
+        "kind": "brush_tassel_wrong_end",
+        "issue": "抬笔时青穗从上左方笔毫箍挂下，金色笔尾在握拳后下右却无穗。",
+        "repair": "只移链穗至握拳后下右笔尾。"
+      },
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-W-05",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-05-v2.png",
+      "sha256": "83d485343c55d62f2e3bcf3a4b3e0e58d18dea2f998d7e2c6f23d9c34b84ceb6",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-W-06",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-06-v2.png",
+      "sha256": "5c4e324a4bc29c45bf82e37848eec99d46c62978c592b78999ca9d620d7b89de",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-W-07",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-07-v2.png",
+      "sha256": "500ddec440a33a18a1fc37797cb480baff0e6921b785001c011437d2e17df15f",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-W-08",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-08-v2.png",
+      "sha256": "7a2295b8c17bfcc23d9845b367d9a15b4c8a02631a6fb460db2f88c4a61d113f",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-W-09",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-09-v2.png",
+      "sha256": "770d248e2f6cf48a8934255704db4527e9cae8c101f8d51e462f486c00c96c7e",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-W-10",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-10-v3.png",
+      "sha256": "88e0e5962610ec5f2d8b1490202280b93b8b16e2755a24f1473fe95d2c456189",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-W-11",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-11-v1.png",
+      "sha256": "966d326e4e3452491f1d188b94336b1ba7dfbe8596986cf804036cb840aa88c6",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-W-12",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-12-v2.png",
+      "sha256": "732b61c7fff92044043a6d1bac408790fc9cff6bef527606ac1522ed30f9492b",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "v2已把刷穗移到握手后尾端，笔毫箍无穗；静态握持与鞋轴可保留。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-W-13",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-13-v1.png",
+      "sha256": "ad7aeee4e9603b5c457697f05a61351cafebab6789620f9304961fabf017e268",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "回转笔时拇指夹握和手指可辨，笔尾穗正确；两靴向左，未见踝反拧，不需本轮肢体重画。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-W-14",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-14-v1.png",
+      "sha256": "0db7fd072f5035dc9e0c7ed353fb848d613f2c0f103933da9bb10ce412810475",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-W-15",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-15-v2.png",
+      "sha256": "29dd1b656158f1dd8efe0a2fd38290bf9a2ef7e22f82be7910e73729aa6a55c8",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "v2左手已改侧握卷，握持成立；卷轴位置/角度相对14/16仍突变属动态衔接问题，不能用握持正确代替序列通过。",
+      "formalVisualPass": false
+    },
+    {
+      "slot": "cast-W-16",
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/17_ghost_script_calligrapher_boy/staging/cast-W-16-v1.png",
+      "sha256": "60386a137918bfdd9b49261645ef84b05921cf1fbf7b347b4098c9dc6676562c",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "staticLimbFinding": "no_confirmed_limb_repaint_needed",
+      "footAxis": "standing_or_bracing_axis_consistent_with_visible_knee_and_ankle_no_confirmed_twist",
+      "handGrip": "contact_and_grip_readable_no_confirmed_extra_hand_or_missing_grip",
+      "targetedRepair": null,
+      "notes": "接触表中鞋尖/靴口与可见膝胫走向协调，握笔/握卷连接可辨；本轮未见必须重画的肢体硬错。",
+      "formalVisualPass": false
+    }
+  ],
+  "separateUnpassed": [
+    "透明边缘仍有彩色污染；此项不改变正确手脚可以保留的结论。",
+    "各动作根点、比例与完整动态序列未通过；客户端未接入验收。"
+  ],
+  "timing": "No hit/attack/cast timing changed; run timing feedback is not applied to combat."
+}
