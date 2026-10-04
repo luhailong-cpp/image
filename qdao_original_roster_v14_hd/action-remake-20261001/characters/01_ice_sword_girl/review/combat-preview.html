@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>冰剑少女战斗动作复核</title>
+<style>body{font:16px system-ui;background:#18232c;color:#f1f5f9;margin:32px}button,select{font:inherit;padding:8px;margin:4px;background:#334b5d;color:white;border:1px solid #668194;border-radius:6px}.stage{display:flex;gap:24px;align-items:start;margin:24px 0}canvas{background:repeating-conic-gradient(#293c48 0 25%,#243641 0 50%) 0/24px 24px;outline:1px solid #536f82}p{max-width:860px;line-height:1.7}code{color:#a5d8ef}small{color:#a8bbc8}#phase{max-width:580px}#frame{font-weight:bold;color:#bdebd8}</style>
+<h1>冰剑少女 · 战斗动作复核</h1>
+<p>受击 6 帧 × 40ms；普攻 12 帧 × 30ms；施法 16 帧 × 45ms。全部按原始整幅画布显示，可用逐帧检查左右手、脚掌和收招衔接。</p>
+<div><select id="segment" aria-label="动作方向"><option value="hit-E">受击 · 向右</option><option value="hit-W">受击 · 向左</option><option value="attack-E">普攻 · 向右</option><option value="attack-W">普攻 · 向左</option><option value="cast-E" selected>施法 · 向右</option><option value="cast-W">施法 · 向左</option></select>
+<select id="size" aria-label="显示尺寸"><option>128</option><option selected>256</option><option>512</option></select>
+<select id="rate" aria-label="播放倍速"><option value="1">1×</option><option value="0.25">0.25×</option></select>
+<button id="toggle">暂停</button><button id="prev">上一帧</button><button id="next">下一帧</button></div>
+<div class="stage"><canvas id="canvas" width="256" height="256"></canvas><div><p id="frame"></p><p id="phase"></p><small id="source"></small></div></div>
+<p><small>此页用于离线检查。客户端的碰撞、脚点和实际播放尚未在此页验证。正常播放每帧均按动作约定时长推进，无额外尾帧停留。</small></p>
+<script>
+const el=id=>document.getElementById(id),state={selection:null,images:[],drawables:[],frame:0,elapsed:0,playing:true,ready:false,error:null,loadVersion:0};
+function show(){
+ const c=el('canvas'),n=+el('size').value;if(c.width!==n){c.width=c.height=n}const x=c.getContext('2d');x.clearRect(0,0,n,n);if(state.drawables[state.frame])x.drawImage(state.drawables[state.frame],0,0,n,n);
+ if(state.selection){const f=state.selection.frames[state.frame];el('frame').textContent=(state.frame+1)+' / '+state.images.length+' · '+f.durationMs+'ms / 帧';el('phase').textContent=f.actualPhase||f.plannedPhase||'';el('source').textContent=f.path}
+}
+async function load(){
+ state.ready=false;const token=++state.loadVersion;const name=el('segment').value;const s=await fetch('combat-'+name+'-selection.json').then(r=>{if(!r.ok)throw Error(name+' selection');return r.json()});
+ const imgs=await Promise.all(s.frames.map(f=>new Promise((res,rej)=>{const im=new Image();im.onload=()=>im.decode().then(()=>res(im),rej);im.onerror=rej;im.src='../'+f.path+'?sha='+f.sha256})));
+ const drawables=await Promise.all(imgs.map(im=>createImageBitmap(im,{resizeWidth:512,resizeHeight:512,resizeQuality:'high'})));
+ if(token!==state.loadVersion){drawables.forEach(x=>x.close());return}state.drawables.forEach(x=>x.close());state.selection=s;state.images=imgs;state.drawables=drawables;state.frame=0;state.elapsed=0;state.ready=true;show();
+}
+function seek(i){state.frame=(i+state.images.length)%state.images.length;state.elapsed=state.selection.frames.slice(0,state.frame).reduce((a,f)=>a+f.durationMs,0);show()}
+function setTime(ms){if(!state.selection)return;const total=state.selection.frames.reduce((a,f)=>a+f.durationMs,0);state.elapsed=((ms%total)+total)%total;let rest=state.elapsed,j=0;for(;j<state.images.length-1&&rest>=state.selection.frames[j].durationMs;j++)rest-=state.selection.frames[j].durationMs;state.frame=j;show()}
+let last=performance.now();function loop(now){if(state.ready&&state.playing)setTime(state.elapsed+(now-last)*Number(el('rate').value));last=now;requestAnimationFrame(loop)}requestAnimationFrame(loop);
+el('segment').onchange=()=>load().catch(e=>{state.error=String(e);el('phase').textContent=state.error});
+el('size').onchange=show;el('toggle').onclick=()=>{state.playing=!state.playing;el('toggle').textContent=state.playing?'暂停':'播放'};
+for(const [id,step]of [['prev',-1],['next',1]])el(id).onclick=()=>{state.playing=false;el('toggle').textContent='播放';seek(state.frame+step)};
+window.combatReview={state,load,seek,setTime};load().catch(e=>{state.error=String(e);el('phase').textContent=state.error});
+</script></html>

@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "action": "run",
+  "createdAt": "2026-10-04 13:24:13 UTC",
+  "timing": {
+    "frames": 16,
+    "frameMs": 75,
+    "totalMs": 1200
+  },
+  "instruction": "Each support foot remains on ground continuously for eight frames, four spatial positions relative to body, two independently drawn poses per position. No aerial frames; no image duplication or whole-sprite translation.",
+  "positionPairs": [
+    {
+      "frames": [
+        1,
+        2
+      ],
+      "position": "front landing",
+      "relation": "support boot ahead of pelvis, sole down, knee cushions",
+      "E": "near RIGHT",
+      "W": "near LEFT"
+    },
+    {
+      "frames": [
+        3,
+        4
+      ],
+      "position": "body approaches support foot",
+      "relation": "support boot moves closer to pelvis projection, full sole and weight",
+      "E": "near RIGHT",
+      "W": "near LEFT"
+    },
+    {
+      "frames": [
+        5,
+        6
+      ],
+      "position": "body passes support foot",
+      "relation": "support boot beneath then slightly behind pelvis, sole still down",
+      "E": "near RIGHT",
+      "W": "near LEFT"
+    },
+    {
+      "frames": [
+        7,
+        8
+      ],
+      "position": "rear push while contact retained",
+      "relation": "support boot behind pelvis, heel lifts progressively but forefoot stays grounded",
+      "E": "near RIGHT",
+      "W": "near LEFT"
+    },
+    {
+      "frames": [
+        9,
+        10
+      ],
+      "position": "front landing",
+      "relation": "other foot ahead of pelvis, sole down, knee cushions",
+      "E": "far LEFT",
+      "W": "far RIGHT"
+    },
+    {
+      "frames": [
+        11,
+        12
+      ],
+      "position": "body approaches support foot",
+      "relation": "support boot closer to pelvis projection, full sole and weight",
+      "E": "far LEFT",
+      "W": "far RIGHT"
+    },
+    {
+      "frames": [
+        13,
+        14
+      ],
+      "position": "body passes support foot",
+      "relation": "support boot beneath then slightly behind pelvis, sole still down",
+      "E": "far LEFT",
+      "W": "far RIGHT"
+    },
+    {
+      "frames": [
+        15,
+        16
+      ],
+      "position": "rear push while contact retained",
+      "relation": "support boot behind pelvis, heel lifts progressively but forefoot stays grounded",
+      "E": "far LEFT",
+      "W": "far RIGHT"
+    }
+  ],
+  "reuseAfterActualInspection": {
+    "E": [
+      1,
+      2,
+      3,
+      9,
+      10
+    ],
+    "W": [
+      1,
+      2,
+      9
+    ]
+  },
+  "repairSlots": {
+    "E": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "W": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ]
+  },
+  "priorActualMismatches": {
+    "E": "04 is already rear toe push rather than approaching support.06/07/14/15/16 are air;08 lands the wrong support foot.11–13 already pass/rear-push too early.",
+    "W": "03 sole is high.04/05 already rear-push,06 air,07/08 already transfer to right.10–13 already rear-push too early,14/15 air,16 wrong support foot."
+  },
+  "status": "actual_prior_mapping_complete_repairs_pending",
+  "formalAcceptance": false
+}

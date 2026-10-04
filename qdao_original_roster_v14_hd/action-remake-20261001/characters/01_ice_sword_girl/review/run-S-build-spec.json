@@ -6,17 +6,17 @@
     "3": 2,
     "4": 1,
     "5": 2,
-    "6": 2,
-    "7": 1,
-    "8": 1,
+    "6": 3,
+    "7": 3,
+    "8": 3,
     "9": 1,
     "10": 1,
     "11": 1,
     "12": 1,
-    "13": 2,
-    "14": 1,
-    "15": 1,
-    "16": 5
+    "13": 3,
+    "14": 2,
+    "15": 2,
+    "16": 6
   },
   "observations": [
     {
@@ -45,27 +45,27 @@
     },
     {
       "frame": 5,
-      "evidence": "最低为右靴，左靴前抬；最后支撑侧正确，但正面视角后跟抬起仍不够明确",
-      "left": "air",
-      "right": "terminal_support_candidate"
+      "evidence": "本槽改选独立07-v2：右腿由前伸变为较短投影、鞋在体下，左膝前通过；未与07槽重复。",
+      "left": "air_or_precontact_candidate",
+      "right": "support_candidate_unconfirmed"
     },
     {
       "frame": 6,
-      "evidence": "左腿前摆、右腿后折，已减小初版大面积鞋底和前踢，短腾空候选",
-      "left": "air",
-      "right": "air"
+      "evidence": "06-v3：右后腿由蜷起改为伸展，右鞋投影后移，左胫向前；右后跟抬起仍不充分。",
+      "left": "air_or_precontact_candidate",
+      "right": "support_candidate_unconfirmed"
     },
     {
       "frame": 7,
-      "evidence": "左腿前伸下降、右腿后收；左靴仍可见少量底面",
-      "left": "air_or_precontact",
-      "right": "air"
+      "evidence": "07-v3：右后鞋轴朝S，左腿向前下伸；右前掌受力从正面仍不够明确。",
+      "left": "air_or_precontact_candidate",
+      "right": "support_candidate_unconfirmed"
     },
     {
       "frame": 8,
-      "evidence": "左靴接近水平、右膝后收；左初触可能从本帧开始，不能强称下一帧才接触",
-      "left": "initial_contact_candidate",
-      "right": "air"
+      "evidence": "08-v3：修掉08-v2右鞋外扭，右鞋轴恢复朝S；左前鞋降到接触候选附近，不能确认左脚仍完全离地。",
+      "left": "air_or_precontact_candidate",
+      "right": "support_candidate_unconfirmed"
     },
     {
       "frame": 9,
@@ -93,61 +93,113 @@
     },
     {
       "frame": 13,
-      "evidence": "左靴最低、右靴前抬，支撑侧已纠正；后跟抬起角度仍不明确",
-      "left": "terminal_support_candidate",
-      "right": "air"
+      "evidence": "13-v3：左腿继续支撑，鞋向体下回收小幅；右膝向前通过，但与12的空间推进偏小。",
+      "left": "support_candidate_unconfirmed",
+      "right": "air_or_precontact_candidate"
     },
     {
       "frame": 14,
-      "evidence": "右腿前伸、左腿后折，右鞋底较支撑位高，低空候选；剑侧摆角度改变较大",
-      "left": "air",
-      "right": "air"
+      "evidence": "14-v2：后方左腿已由蜷起改为伸展至较低接点，右前鞋抬起；左鞋跟升起不明显。",
+      "left": "support_candidate_unconfirmed",
+      "right": "air_or_precontact_candidate"
     },
     {
       "frame": 15,
-      "evidence": "右前脚近水平下降，左后脚离地；相邻剑角仍需1200ms连播复核",
-      "left": "air",
-      "right": "precontact_candidate"
+      "evidence": "15-v2：左后腿伸展、右前鞋背屈摆动，左鞋轴朝S；左前掌承重仅候选，正面跟抬仍弱。",
+      "left": "support_candidate_unconfirmed",
+      "right": "air_or_precontact_candidate"
     },
     {
       "frame": 16,
-      "evidence": "仅选v5：右前脚已回低空，保留01相近剑臂；v3过高、v4举剑过顶均未选",
-      "left": "air",
-      "right": "precontact_candidate"
+      "evidence": "16-v6：左后腿伸展较原v5增加，右脚前伸；左后脚仍偏高且前掌接触不清楚，不能确认连续8帧成立。",
+      "left": "support_candidate_unconfirmed",
+      "right": "air_or_precontact_candidate"
     }
   ],
   "issues": [
-    "S05/S13 正面鞋跟抬起不够明确；保留最后支撑候选，不把prompt事件当通过。",
-    "S14→15→16 剑腕角变化仍需连播人工复核，S16最终v5消除向下180度翻剑和举剑过头的拒稿问题。",
-    "原生冠顶约2–5%、支撑鞋底约96–98%，与E注册不同；未做整图平移/包围盒缩放或最低脚贴线。",
-    "S01接触及S08初触仍为人工相位候选，尚未客户端验收。"
+    "按最新每脚4空间位置×2连续支撑重绘05–08、13–16；实际前掌受力尚不能全确认，不标通过。",
+    "S07/08及S15/16后跟升起、前掌受力不清；S08前脚可能提前初触，S16后脚偏高。",
+    "S05-v4的另一脚下伸过早未选，S08-v2鞋轴外扭未选；第五槽据实选独立07-v2且其SHA与07槽不同。",
+    "S13与12空间推进偏小；S14→15→16上身剑角仍需1200ms连播复核。",
+    "旧512与09仅作为所看姿态参考，不视为本轮HD或整方向免检通过。"
   ],
   "events": {
-    "kind": "manual_visual_hypotheses_not_runtime_events",
-    "rightContact": {
-      "frame": 1,
-      "confidence": "low_to_medium"
-    },
-    "leftContact": {
-      "frameRange": [
-        8,
-        9
+    "kind": "manual_visual_candidates_not_accepted",
+    "requestedStructure": {
+      "right": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          8
+        ]
       ],
-      "confidence": "medium"
-    },
-    "rightToeOff": {
-      "betweenFrames": [
-        5,
-        6
+      "left": [
+        [
+          9,
+          10
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          15,
+          16
+        ]
       ],
-      "confidence": "low_heel_not_clear"
+      "positions": [
+        "front_landing",
+        "body_approaching_support",
+        "body_passing_support",
+        "rear_push_off"
+      ],
+      "msPerFrame": 75,
+      "msPerPosition": 150
     },
-    "leftToeOff": {
-      "betweenFrames": [
+    "observed": {
+      "rightSupportStrong": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "rightSupportUncertain": [
+        1,
+        6,
+        7,
+        8
+      ],
+      "leftSupportStrong": [
+        9,
+        10,
+        11,
+        12,
         13,
         14
       ],
-      "confidence": "low_heel_not_clear"
-    }
+      "leftSupportUncertain": [
+        15,
+        16
+      ]
+    },
+    "eightConsecutiveSupportVerified": false
+  },
+  "sourceFrames": {
+    "5": 7
   }
 }

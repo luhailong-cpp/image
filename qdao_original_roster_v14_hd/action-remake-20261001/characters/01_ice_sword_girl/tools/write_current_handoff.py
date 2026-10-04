@@ -1,0 +1,44 @@
+"""Write current handoff from the actual inventory, never from an old E-only count."""
+from pathlib import Path
+from datetime import datetime, timezone
+import json
+R=Path(__file__).resolve().parents[1]
+m=json.loads((R/'manifest.json').read_text(encoding='utf-8'))
+seq=m['sequences']
+run=[s for s in seq if s['action']=='run']
+verified=[s['direction'] for s in run if s.get('eightConsecutiveSupportVerified') and s.get('positionPairsVerified')]
+now=datetime.now(timezone.utc).isoformat()
+intro=f"""# 冰剑少女动作 · 当前状态
+
+更新：{now}
+
+实际导出 {m['presentFrameCount']}/196 张1024透明候选；技术检查通过 {m['technicalPassCount']} 张，完整序列 {m['completeSequences']}/14。图像数量与美术验收分开记录。
+八方向最新“两帧一个位置、同脚连续支撑8帧”检查通过方向：{', '.join(verified) if verified else '暂未全部完成验证'}。
+
+[全动作当前预览](preview/all.html) · [逐序列与来源清单](manifest.json) · [最新接地要求](review/paired-position-contact-requirement.json)
+
+跑步固定16帧×75ms＝1.2秒/圈。受击6×40ms，普攻12×30ms，施法16×45ms。
+同一脚依次前落地、身体靠近、身体经过、后蹬，每个位置两张不同关节姿态，然后换脚；不以腾空帧或重复帧补接地。
+"""
+rows='\n'.join(f"| {s['action']}/{s['direction']} | {s['presentFrames']}/{s['expectedFrames']} | {s['frameMs']} | {s['artStatus']} |" for s in seq)
+scope="""
+## 范围和来源
+
+仅修改本角色目录。没有修改其他角色或客户端，没有Git提交、推送。
+实际对照用户确认的09竹弓少女当前同方向动作，只参考姿态、脚轴、手臂链和接地，不复制其人物/服饰/武器。
+冰剑少女始终右手冰剑、左手蓝符；近远侧按各自肩→袖→肘→手追踪。
+斜向地面的投影随深度变化，不用最低透明像素把每帧鞋底强贴到同一水平线。
+所有导出只做完整方形画布等比缩放，无镜像、重复图、姿态插值或整图平移。
+逐图generation记录保存来源、SHA、原生尺寸、实际提示词和工具回执。
+同批配置目标2.5 Sunburst/max；宿主内置image_gen未披露实际型号/质量，实际值均为null，未把提示词当作参数证据。
+
+## 客户端与保留
+
+客户端D:/work/mmorpg-client存在，但本任务未接入或运行客户端。预览的75ms不代表游戏内速度已经改变。
+最终素材与当前引用闭合后清理淘汰图；尚在编辑和验收期间保留所需在制源。
+旧E单向审阅文档和四帧最低接地记录是历史过程，不作为最新完成依据。
+"""
+(R/'STATUS.md').write_text(intro+'\n'+scope,encoding='utf-8')
+(R/'MERGE_HANDOFF.md').write_text(intro+'\n| 动作/方向 | 已导出/目标 | 单帧ms | 当前美术状态 |\n|---|---:|---:|---|\n'+rows+'\n'+scope,encoding='utf-8')
+print(json.dumps({'written':['STATUS.md','MERGE_HANDOFF.md'],'candidateFrames':m['presentFrameCount'],'verifiedRunDirections':verified},ensure_ascii=False))
+

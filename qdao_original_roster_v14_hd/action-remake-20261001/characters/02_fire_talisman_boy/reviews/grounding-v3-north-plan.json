@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-04T11:20:59.918Z",
+  "supersedes": "grounding-v2-north-diagnosis.json 中四帧连续段和最小17张方案已被最新用户8帧同脚要求取代；保留旧记录作历史实图证据。",
+  "userRequirement": "直脚着地两帧，再旁边点两帧，再旁边点两帧，再旁边点俩帧，依次类推",
+  "interpretationFromRoot": "同脚连续接地4个位置段，每段2独立姿态，共8帧，再另一脚8帧。位置沿运动轴从髋下→稍后→更后→后端，不是逐渐张腿/外撇。",
+  "timing": {
+    "cycleMs": 1200,
+    "frameMs": [
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75
+    ]
+  },
+  "plannedSupportGroups": [
+    {
+      "foot": "anatomical_RIGHT",
+      "frames": [
+        "01",
+        "02"
+      ],
+      "position": "1 髋下直脚接地，膝不锁死",
+      "load": "初承重→缓冲"
+    },
+    {
+      "foot": "anatomical_RIGHT",
+      "frames": [
+        "03",
+        "04"
+      ],
+      "position": "2 稍后移承重",
+      "load": "体重经过支撑脚，膝踝屈曲"
+    },
+    {
+      "foot": "anatomical_RIGHT",
+      "frames": [
+        "05",
+        "06"
+      ],
+      "position": "3 更后移支撑",
+      "load": "身体前移而同脚仍实触地，后跟可轻起"
+    },
+    {
+      "foot": "anatomical_RIGHT",
+      "frames": [
+        "07",
+        "08"
+      ],
+      "position": "4 后端蹬离",
+      "load": "前掌/趾持续接触到交接点，不能提前整脚腾空"
+    },
+    {
+      "foot": "anatomical_LEFT",
+      "frames": [
+        "09",
+        "10"
+      ],
+      "position": "1 髋下直脚接地，膝不锁死",
+      "load": "初承重→缓冲"
+    },
+    {
+      "foot": "anatomical_LEFT",
+      "frames": [
+        "11",
+        "12"
+      ],
+      "position": "2 稍后移承重",
+      "load": "体重经过支撑脚，膝踝屈曲"
+    },
+    {
+      "foot": "anatomical_LEFT",
+      "frames": [
+        "13",
+        "14"
+      ],
+      "position": "3 更后移支撑",
+      "load": "身体前移而同脚仍实触地，后跟可轻起"
+    },
+    {
+      "foot": "anatomical_LEFT",
+      "frames": [
+        "15",
+        "16"
+      ],
+      "position": "4 后端蹬离",
+      "load": "前掌/趾持续接触到交接点，不能提前整脚腾空"
+    }
+  ],
+  "directions": {
+    "W": {
+      "motionAxis": "screen left；足位置相对躯干向screen right逐步后移",
+      "retainCandidateSlots": [
+        "03"
+      ],
+      "newPoseSlots": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "existingGroundedCandidate": {
+        "path": "work/grounding-v2/north/W/grounding-v2-W08-a01.png",
+        "possibleNewSlot": "10",
+        "note": "旧计划W08左压缩真生成候选，最新方案可作为左接地第二帧10；需联检后再决定，不能按旧slot08导入。"
+      }
+    },
+    "N": {
+      "motionAxis": "away/N；向后位置沿地面透视逐步朝viewer/screen down，不横向外扩",
+      "retainCandidateSlots": [
+        "01",
+        "02",
+        "03",
+        "09",
+        "10",
+        "11"
+      ],
+      "newPoseSlots": [
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "note": "保留槽只在单图支撑成立；03/11属于第二位置的位移幅度待新邻帧联检，若位置对不足再修，不视为最终8连通过。"
+    },
+    "NW": {
+      "motionAxis": "upper-left；足后移沿地面透视toward lower-right；膝踝鞋尖仍upper-left",
+      "retainCandidateSlots": [
+        "09",
+        "10",
+        "11"
+      ],
+      "newPoseSlots": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16"
+      ],
+      "note": "右脚01–08需建立真实远右髋→膝→踝支撑链。旧01–03近左脚低不能留在右脚半圈。"
+    }
+  },
+  "status": "正在生成各向关键；正式尚未覆盖",
+  "safeguards": [
+    "每帧独立AI姿态，不复制/镜像/扭曲/平移凑数",
+    "只做整画布统一1024下采样，不逐帧贴地",
+    "每次请求附实际看过的02身份/画风/09同向真图",
+    "保留精确5符、右扇左铃与完整肩臂腕连接",
+    "未知actualModel/actualQuality保持null",
+    "正式导入只写北向子inventory、不改根manifest"
+  ]
+}
