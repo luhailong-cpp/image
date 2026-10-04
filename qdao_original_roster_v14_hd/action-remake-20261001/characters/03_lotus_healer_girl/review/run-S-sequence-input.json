@@ -5,7 +5,7 @@
   "direction": "S",
   "status": "candidate_not_accepted",
   "visualAccepted": false,
-  "reviewedOn": "2026-10-03",
+  "reviewedOn": "2026-10-04",
   "root": {
     "native": [
       627,
@@ -26,14 +26,14 @@
   "events": [
     {
       "name": "right_contact",
-      "frame": 16,
-      "timeMs": 1125,
+      "frame": 1,
+      "timeMs": 0,
       "status": "candidate_observed"
     },
     {
-      "name": "right_toe_off",
-      "frame": 6,
-      "timeMs": 375,
+      "name": "right_final_push",
+      "frame": 8,
+      "timeMs": 525,
       "status": "candidate_observed"
     },
     {
@@ -43,9 +43,9 @@
       "status": "candidate_observed"
     },
     {
-      "name": "left_toe_off",
-      "frame": 13,
-      "timeMs": 900,
+      "name": "left_final_push",
+      "frame": 16,
+      "timeMs": 1125,
       "status": "candidate_observed"
     }
   ],
@@ -54,156 +54,198 @@
       "frame": 1,
       "slot": 1,
       "source": "generation/S/01-v2.png",
-      "observedPhase": "右脚前方接触，左腿在后；灯在右侧后摆、瓶在左侧前摆",
-      "issues": [
-        "需连播核对16→01接触高度"
-      ],
-      "durationMs": 75
+      "observedPhase": "右脚前段接地与压缩承重；支撑鞋保持正前方鞋轴，后移以透视深度表现",
+      "issues": [],
+      "durationMs": 75,
+      "sourceSha256": "222058620ddd5e76f9faa4c4a5a9f43f2697d3550a283df23e1a4239535afdeb",
+      "startMs": 0,
+      "supportFoot": "right",
+      "positionPair": 1
     },
     {
       "frame": 2,
       "slot": 2,
       "source": "generation/S/02-v1.png",
-      "observedPhase": "右脚继续承重；左脚回收",
-      "issues": [
-        "膝部压缩幅度偏弱；前鞋比01约低13原生像素"
-      ],
-      "durationMs": 75
+      "observedPhase": "右脚前段接地与压缩承重；支撑鞋保持正前方鞋轴，后移以透视深度表现",
+      "issues": [],
+      "durationMs": 75,
+      "sourceSha256": "b529b7cc906245b8f6bcb606c39beb27aa9d9ef4a702e8c25a78939bbc2120a2",
+      "startMs": 75,
+      "supportFoot": "right",
+      "positionPair": 1
     },
     {
       "frame": 3,
       "slot": 3,
       "source": "generation/S/03-v1.png",
-      "observedPhase": "右脚中支撑；左脚通过，双臂回中位",
-      "issues": [
-        "支撑鞋底比01约低18原生像素"
-      ],
-      "durationMs": 75
+      "observedPhase": "右脚身体下方经过支撑；支撑鞋保持正前方鞋轴，后移以透视深度表现",
+      "issues": [],
+      "durationMs": 75,
+      "sourceSha256": "aa8eb40841a4ad1fb91114a481a6b63ff1de7bb7979be130bd1dd15f17b008fb",
+      "startMs": 150,
+      "supportFoot": "right",
+      "positionPair": 2
     },
     {
       "frame": 4,
       "slot": 4,
       "source": "generation/S/04-v2.png",
-      "observedPhase": "右脚后支撑，左膝前提；灯向前、瓶向后",
-      "issues": [
-        "支撑脚随深度投影提高；不可用统一最低脚贴线"
-      ],
-      "durationMs": 75
+      "observedPhase": "右脚身体下方经过支撑；支撑鞋保持正前方鞋轴，后移以透视深度表现",
+      "issues": [],
+      "durationMs": 75,
+      "sourceSha256": "f46dd81c0d8de482b3bf21331a75516003c0a001a09e6a39ce3aa6c80a74547e",
+      "startMs": 225,
+      "supportFoot": "right",
+      "positionPair": 2
     },
     {
       "frame": 5,
       "slot": 5,
-      "source": "generation/S/05-v1.png",
-      "observedPhase": "右脚末段蹬离，左膝前提",
-      "issues": [
-        "前掌蹬地需与04/06连播核查"
-      ],
-      "durationMs": 75
+      "source": "generation/S/05-paired-v1.png",
+      "observedPhase": "右脚略后方持续支撑，另一腿向前回收；支撑鞋保持正前方鞋轴，后移以透视深度表现",
+      "issues": [],
+      "durationMs": 75,
+      "sourceSha256": "9a5ccd054b31a749e52f47678958f301e342e1ef4c4d04121e9a7f5852b1d63e",
+      "startMs": 300,
+      "supportFoot": "right",
+      "positionPair": 3
     },
     {
       "frame": 6,
       "slot": 6,
-      "source": "generation/S/06-v1.png",
-      "observedPhase": "双脚腾空，左膝在前、右腿后折",
+      "source": "generation/S/06-paired-v1.png",
+      "observedPhase": "右脚略后方持续支撑，另一腿向前回收；支撑鞋保持正前方鞋轴，后移以透视深度表现",
       "issues": [],
-      "durationMs": 75
+      "durationMs": 75,
+      "sourceSha256": "f080d9471931ea1ea7080b548e4b8602371db91cf0ab91d19d44062368082c3c",
+      "startMs": 375,
+      "supportFoot": "right",
+      "positionPair": 3
     },
     {
       "frame": 7,
       "slot": 7,
-      "source": "generation/S/07-from06-v2.png",
-      "observedPhase": "左腿由06前伸至近接触高度，右腿后折；保留06右灯前摆与左瓶后摆，原07灯臂反摆已去除",
-      "issues": [
-        "实测左前鞋底1181，06为1068、08为1174；07已近接触且到08回抬7px，伸腿下降仍集中在06→07，未宣称动态通过"
-      ],
+      "source": "generation/S/07-paired-v1.png",
+      "observedPhase": "右脚后段持续支撑，准备交替另一腿；支撑鞋保持正前方鞋轴，后移以透视深度表现",
+      "issues": [],
       "durationMs": 75,
-      "sourceSha256": "9046001d90bdff6f9e54ae60d1107d4d6ce4dbc66ee0628bf60e670fa9cbc2a2"
+      "sourceSha256": "7aee1911de48987f5a1e36866f7e538ed35fcba4fce1394afa648a1c9c249d68",
+      "startMs": 450,
+      "supportFoot": "right",
+      "positionPair": 4
     },
     {
       "frame": 8,
       "slot": 8,
-      "source": "generation/S/08-v1.png",
-      "observedPhase": "左脚临落地，右腿回收",
-      "issues": [
-        "近接触脚与09仅差数像素，小尺寸不易区分"
-      ],
-      "durationMs": 75
+      "source": "generation/S/08-paired-v1.png",
+      "observedPhase": "右脚后段持续支撑，准备交替另一腿；支撑鞋保持正前方鞋轴，后移以透视深度表现",
+      "issues": [],
+      "durationMs": 75,
+      "sourceSha256": "3490d65d3d9f308708b356f2377d78c0b7c18553714e44143c3b4109579a0ba2",
+      "startMs": 525,
+      "supportFoot": "right",
+      "positionPair": 4
     },
     {
       "frame": 9,
       "slot": 9,
       "source": "generation/S/09-v1.png",
-      "observedPhase": "左脚前方接触，右腿在后；灯在右侧前摆、瓶在左侧后摆",
+      "observedPhase": "左脚前段接地与压缩承重；支撑鞋保持正前方鞋轴，后移以透视深度表现",
       "issues": [],
-      "durationMs": 75
+      "durationMs": 75,
+      "sourceSha256": "9f9a337160c6e2cc6c2ee822815501d4a4e84c075ac978b5780d2a74fa5e500a",
+      "startMs": 600,
+      "supportFoot": "left",
+      "positionPair": 1
     },
     {
       "frame": 10,
       "slot": 10,
       "source": "generation/S/10-v2.png",
-      "observedPhase": "左脚继续承重；修正了v1左右腿交换错误",
-      "issues": [
-        "保持左腿支撑，头顶及左右手方向与09一致"
-      ],
-      "durationMs": 75
+      "observedPhase": "左脚前段接地与压缩承重；支撑鞋保持正前方鞋轴，后移以透视深度表现",
+      "issues": [],
+      "durationMs": 75,
+      "sourceSha256": "5ed3147c0eb3cec66f90e1a7106f4bd0e886c1672451c9707c11196a0bb7d690",
+      "startMs": 675,
+      "supportFoot": "left",
+      "positionPair": 1
     },
     {
       "frame": 11,
       "slot": 11,
       "source": "generation/S/11-v1.png",
-      "observedPhase": "左脚中支撑；双臂回中位",
-      "issues": [
-        "中支撑腿相位变化较小"
-      ],
-      "durationMs": 75
+      "observedPhase": "左脚身体下方经过支撑；支撑鞋保持正前方鞋轴，后移以透视深度表现",
+      "issues": [],
+      "durationMs": 75,
+      "sourceSha256": "7ab0e1cf48e594769cd6fa94f8f1d0dffbbccd893ea8614a4c1bb668af91c90c",
+      "startMs": 750,
+      "supportFoot": "left",
+      "positionPair": 2
     },
     {
       "frame": 12,
       "slot": 12,
       "source": "generation/S/12-v2.png",
-      "observedPhase": "左脚后支撑并抬升身体，右膝前提；灯后摆、瓶前摆",
-      "issues": [
-        "抬身幅度大于另一侧，需核查11→12→13身体起伏"
-      ],
-      "durationMs": 75
+      "observedPhase": "左脚身体下方经过支撑；支撑鞋保持正前方鞋轴，后移以透视深度表现",
+      "issues": [],
+      "durationMs": 75,
+      "sourceSha256": "00e0f466fe13b889ac75a1deee641084bbfe86f17f2b70eb0f05bd64bc3ce1a7",
+      "startMs": 825,
+      "supportFoot": "left",
+      "positionPair": 2
     },
     {
       "frame": 13,
       "slot": 13,
-      "source": "generation/S/13-v1.png",
-      "observedPhase": "双脚腾空，右膝在前、左腿后折",
+      "source": "generation/S/13-paired-v1.png",
+      "observedPhase": "左脚略后方持续支撑，另一腿向前回收；支撑鞋保持正前方鞋轴，后移以透视深度表现",
       "issues": [],
-      "durationMs": 75
+      "durationMs": 75,
+      "sourceSha256": "3caa7961f6a3910c44d184484d3ccd01dddcda76fa878008d799e1b52dfb140c",
+      "startMs": 900,
+      "supportFoot": "left",
+      "positionPair": 3
     },
     {
       "frame": 14,
       "slot": 14,
-      "source": "generation/S/15-v2.png",
-      "observedPhase": "右脚开始下放；按实际鞋底高度使用15-v2",
-      "issues": [
-        "与原文件编号不同，重排的是独立实图，未补帧或复用"
-      ],
-      "durationMs": 75
+      "source": "generation/S/14-paired-v1.png",
+      "observedPhase": "左脚略后方持续支撑，另一腿向前回收；支撑鞋保持正前方鞋轴，后移以透视深度表现",
+      "issues": [],
+      "durationMs": 75,
+      "sourceSha256": "574a75f78c9a8cc520f82876105b899542ae509b9eec015b07b5f8178d4e55eb",
+      "startMs": 975,
+      "supportFoot": "left",
+      "positionPair": 3
     },
     {
       "frame": 15,
       "slot": 15,
-      "source": "generation/S/14-v1.png",
-      "observedPhase": "右小腿进一步前伸；按实际相位使用14-v1",
-      "issues": [
-        "原14-v1右鞋更低于15-v2，归为临接触后一帧"
-      ],
-      "durationMs": 75
+      "source": "generation/S/15-progression-v1.png",
+      "observedPhase": "左脚后段持续支撑，准备交替另一腿；支撑鞋保持正前方鞋轴，后移以透视深度表现",
+      "issues": [],
+      "durationMs": 75,
+      "sourceSha256": "6be38a90a2be80e9ccff93c7f33d8a8e6b1f128e06177ef29fd7f15085027b2c",
+      "startMs": 1050,
+      "supportFoot": "left",
+      "positionPair": 4
     },
     {
       "frame": 16,
       "slot": 16,
-      "source": "generation/S/16-v1.png",
-      "observedPhase": "右鞋已到接触区；实图并非提示词要求的最后腾空",
-      "issues": [
-        "实际已进入接触区，比01鞋底约低9原生像素"
-      ],
-      "durationMs": 75
+      "source": "generation/S/16-paired-v1.png",
+      "observedPhase": "左脚后段持续支撑，准备交替另一腿；支撑鞋保持正前方鞋轴，后移以透视深度表现",
+      "issues": [],
+      "durationMs": 75,
+      "sourceSha256": "992433f280f48471634ea822c09909fed0b45aacd3ee9564ed01cd7722ed6f7b",
+      "startMs": 1125,
+      "supportFoot": "left",
+      "positionPair": 4
     }
+  ],
+  "updatedAt": "2026-10-04T12:25:53.231373-04:00",
+  "issues": [
+    "本轮按连续同脚支撑重画，所有16张独立实图；未以复制帧或画布平移补接地。",
+    "位置两帧一组，组内允许膝踝压缩；末对仍为低跟后支撑，最终游戏连播体验待用户查看。"
   ]
 }
