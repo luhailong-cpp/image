@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-03T19:48:25.784Z",
+  "scope": "player source review and root-authorized fixes; no manifest, final PNG or review.json edits",
+  "status": "fixed_source_and_browser_verified",
+  "sourceSHA256": {
+    "tools/build_manifest_preview.py": "f63976c4adbb6f08045706658052272af371bcdbba1f38fe9feeffc08b7cd093",
+    "tools/preview_template.html": "cef08f79356da11b54bd3222448bebb2360dc8a6bcf0564b056b0ed357a6ccc9",
+    "timing-grounding.html": "8db4fa4e0a1a4c0886fe89e6ed767e1ae0ee4010e0cb38e15079123b4f1c004d",
+    "manifest.json": "1188c992ce7e073f5dd9bd1f722ec8e06c1353f9720145dc7006d66b7dbd6b35"
+  },
+  "verifiedDurationGroups": {
+    "N": 720,
+    "NE": 720,
+    "E": 720,
+    "SE": 720,
+    "S": 720,
+    "SW": 720,
+    "W": 720,
+    "NW": 720
+  },
+  "findings": [
+    {
+      "id": "main-timeout-drift",
+      "before": "递归setTimeout每次show后再安排下一帧，渲染耗时累积。原版注入show2ms后720ms圈在750ms回01。",
+      "fix": "真实经过时间和requestAnimationFrame；按逐帧累计duration定位，预解码当前组，暂停/恢复/逐帧/换速保持时间位置。"
+    },
+    {
+      "id": "comparison-seek-resume",
+      "before": "inspect只改selected而保留elapsed；选择08、elapsed123ms时恢复会跳03。",
+      "fix": "每面板以所选帧累计时长为offset，elapsed归零；四档从所选帧续播。"
+    },
+    {
+      "id": "comparison-stale-load",
+      "before": "旧E grounding fetch延后会把已播放W的phaseReview覆盖为E；失败分支未做版本检查。",
+      "fix": "异步结果局部保存，阶段及catch版本校验，全部图片解码后一次提交当前状态。"
+    }
+  ],
+  "verification": {
+    "method": "Node VM executes actual HTML scripts with controlled performance clock, RAF, image decode and fetch completion order",
+    "passedTests": [
+      "main current-group decode completes before enabling play",
+      "main E weighted boundaries and720ms wrap remain exact with injected2ms show cost",
+      "main pause/resume preserves partial frame time and excludes paused wall time",
+      "main seek/resume starts at inspected frame08",
+      "main speed transition uses old rate until change and new rate immediately",
+      "main stale group decode cannot overwrite current direction",
+      "timing stale E grounding fetch cannot overwrite W durations, phase labels, or images",
+      "timing inspect08/resume keeps all four panels at08 using per-panel offsets",
+      "timing weighted boundaries and720ms wrap use true elapsed"
+    ],
+    "failedTests": [],
+    "browserMeasuredRendering": false
+  },
+  "conclusions": [
+    "builder保持逐帧durationMs，当前8向每圈720ms，无隐藏倍速覆盖。",
+    "速度1使用原duration，0.25为四分之一速度；换速无上一档定时器延迟。",
+    "源码与逻辑用例通过；根任务需统一重建index并在浏览器最终查看。"
+  ],
+  "browserReview": {
+    "reviewedAt": "2026-10-03T20:32:42.683500+00:00",
+    "main": "196导出/196视觉通过可见；定位E08后1/4速恢复，连续到E09；正常/慢速、分组和尺寸控件可用。",
+    "comparison": "切换W后使用W的landing/support_passing相位与45/60ms；四档定位08后按各自时长续播，没有倒跳到旧位置。",
+    "spriteReview": "八方向240px正常播放和480px慢放，所有14动作组静态/离线播放器复核。",
+    "scope": "browser visual behavior checked; timing exactness verified by controlled source tests, not browser hardware FPS measurement"
+  },
+  "finalSourceSHA256": {
+    "tools/preview_template.html": "cef08f79356da11b54bd3222448bebb2360dc8a6bcf0564b056b0ed357a6ccc9",
+    "timing-grounding.html": "76237598cceed2c148c5d3056fef56927bec44307f04f98e039760d05aeac9a4",
+    "index.html": "bb975f5c89a02ab993cc9ef168b8e78b257abedc8b4a2d45bef402d562e13483",
+    "all-directions.html": "4d8bcc1f8d91b434cd6d97328177eaeb746b93855e72c1d6da16d31dad8216fd",
+    "manifest.json": "f63a80e6528dc9f9190c7b8f728073758a6748954a9cd35c61de986dc770968f"
+  },
+  "postAgentChange": "Root changed only comparison status copy from pending to completed offline review after asset approval."
+}
