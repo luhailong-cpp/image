@@ -41,7 +41,8 @@ inventory={'scope':'run NE delegated task only','target':16,'exported':len(allit
 template=(ROOT/'review/run_E_preview.html').read_text(encoding='utf-8-sig')
 html=template.replace('东向','东北向').replace('· E 跑步','· NE 跑步').replace('run/E/','run/NE/').replace('"E / "','"NE / "')
 html=html.replace('16张独立原生帧，统一相机全画布变换。','16张独立原生帧，各原生全画布降采样。')
-html=html.replace('09/10脚向已局部修正，09支撑高度6–9像素残差与循环连续性待动态/客户端滑步复核。','逐图靴轴已局部修正；03蹬尖高度、全组相位与首尾连续性仍待动态和客户端复核。')
+html=html.replace('09/10脚向已局部修正，09支撑高度6–9像素残差与循环连续性待动态/客户端滑步复核。','逐图靴轴已局部修正；03白绑腿异常拉长已收短，保留鞋轴与抬跟。全组相位、首尾连续性和客户端滑步仍待复核。')
+html=html.replace('<div id="stage">','<p><a style="color:#f4d58b" href="NE03_final_correction_20261004.json">03局部修正记录与当前SHA</a></p><div id="stage">')
 (ROOT/'review/run_NE_preview.html').write_text(html,encoding='utf-8')
 print(json.dumps({"NE":len(allitems),"missing":inventory["missing"]},ensure_ascii=False))
 

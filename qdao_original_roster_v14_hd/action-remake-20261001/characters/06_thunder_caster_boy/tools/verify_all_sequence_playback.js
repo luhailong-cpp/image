@@ -17,6 +17,7 @@ let context,server;
  const page=await context.newPage();page.on('pageerror',e=>report.errors.push(String(e)));
  await page.goto('http://127.0.0.1:18607/preview/index.html',{waitUntil:'load'});
  for(const seq of manifest.sequences){
+  if(process.argv[2]&&seq.id!==process.argv[2])continue;
   if(seq.missing.length)continue;
   const row={id:seq.id,sourceBefore:seq.frames.map(f=>({path:f.path,sha256:sha(path.join(ROOT,f.path))})),runs:[]};
   await page.locator('#action').selectOption(seq.action);await page.locator('#direction').selectOption(seq.direction);
