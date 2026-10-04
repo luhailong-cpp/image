@@ -1,7 +1,7 @@
 {
   "character": "04_mountain_guardian_boy",
-  "reviewedAt": "2026-10-03T21:10:54.429367+00:00",
-  "finalizedAt": "2026-10-03T21:15:13.083724+00:00",
+  "reviewedAt": "2026-10-04T07:10:40.594822+00:00",
+  "finalizedAt": "2026-10-04T07:13:42.374730+00:00",
   "generated": 196,
   "exported": 196,
   "staticVisualPassed": 196,
@@ -9,20 +9,20 @@
   "clientIntegration": "not_integrated",
   "clientDynamicAcceptance": "not_run",
   "methods": [
-    "完整14组按序连图逐张查看",
-    "修正前后关键承重与鞋尖原尺寸比较",
-    "浏览器八向720ms承重节奏和0.25倍速总览；640/800对照及旧480入口",
-    "E/W受击、普攻、施法正常及慢放与逐帧检查",
-    "透明棋盘/米白底、256px显示；临边轮廓检查"
+    "根窗口实际查看新11张原生关键帧、N/NE最终连图与其余6方向连图；旧帧保留前核对人工审核SHA。",
+    "09竹弓少女同方向脚轴、膝踝和持物对照；战斗68张保留角色自身杖盾姿态。",
+    "浏览器正常1200ms和0.25倍慢放总览；N/NE最终组正常播放，N02→03及16→01逐帧与256px画布检查。",
+    "确认预览不再先清空src/隐藏当前图再切帧；加载成功后换图，缺帧与错误仍明确显示。"
   ],
   "observations": {
-    "run": "八向两半圈交替，持杖/盾肩肘协调运动；02/03与10/11支撑后蹬，短腾空与异侧落地可读。最后脚向定点修25帧，正确帧保留。W03同脚支撑、NW02支撑高度衔接已修。",
-    "hit": "E/W均具后仰、缓冲与05/06恢复，02–03主要后仰段。",
-    "attack": "E/W蓄力、出手、随动、收势完整；06为建议接触帧。",
-    "cast": "E/W聚势、伸杖释放、收势完整；09–10为释放窗口，10为建议事件点。",
-    "border": "实看attack E05/06、run SE12/13、SW04；尖端与流苏边缘窄但轮廓完整，未见实心平切。SW04右侧余量仅1px，未据低alpha外沿判裁切。",
-    "limits": "独立绘制的衣褶、饰物细纹仍有细小变化；720ms为离线建议，客户端移速与世界脚滑尚未测试。",
-    "goldReference": "月影少女与垂直方向整套正确的判断均已撤回；按本角色实际足轴、小腿、承重判断。"
+    "run": "N01/02/03/09/10/11/16、NE02/03/10/11已改为清楚的近侧后跟和向远侧的鞋尖；保留后摆脚露底、肩肘与盾杖运动。其余117张跑步保留。",
+    "hit": "E/W后仰、缓冲与恢复完整，12张保留。",
+    "attack": "E/W蓄力、出手及收招完整；24张保留，06为建议接触事件。",
+    "cast": "E/W聚势、释放、收势完整；32张保留，10为建议释放事件。",
+    "grounding": "只判断实图中的脚轴、接触与缓冲、支撑到后蹬的连续关系；未用最低alpha贴地或逐帧平移。N02→03支撑靴下缘约差13px/1024，256显示约3px，离线动作连接可读；不将其宣称为客户端物理地面锁定。",
+    "timing": "16帧全部75ms，正常1200ms，无首尾额外停顿；旧480/640/720/800快档与旧run GIF均退出当前预览。",
+    "limits": "独立绘制的衣褶、饰物细纹仍有细小变化；客户端移速、世界脚滑、停步和转向尚未验证。",
+    "reference": "用户最新明确指定09竹弓少女；月影整套/垂直方向默认正确的旧判断不再作为依据。"
   },
   "limits": [
     "1200ms/75ms为用户选定的离线节奏；客户端速度未接入验证。",
@@ -36,7 +36,7 @@
       "direction": "N",
       "frame": 1,
       "path": "frames/run/N/frame_01.png",
-      "sha256": "feb98d5f238e9c5166685fcf009c777bb6fd77da03158c42696e97af1ce996b8",
+      "sha256": "1d6aca5828c0cdb1f410886eb5b55023dd1959166b52b76349a0fb42044045a6",
       "record": "frames/run/N/frame_01.generation.json"
     },
     {
@@ -44,7 +44,7 @@
       "direction": "N",
       "frame": 2,
       "path": "frames/run/N/frame_02.png",
-      "sha256": "10c03eba3edd9b6014b41d133596d101473b1cf1a1162e961907ed11eadb1412",
+      "sha256": "bf783e292ff942d77f6d2594009c84228e9989c20c501ec589ba4a4fcb7122d5",
       "record": "frames/run/N/frame_02.generation.json"
     },
     {
@@ -52,7 +52,7 @@
       "direction": "N",
       "frame": 3,
       "path": "frames/run/N/frame_03.png",
-      "sha256": "c7ba5aef6aca336bf338676b41fd2d8a3d1b75a9410ae8ab9402da28cbcbf603",
+      "sha256": "9a274aaf79a46376f55fa9114339dd33fb8cdea89c91b88544567bbf70104d96",
       "record": "frames/run/N/frame_03.generation.json"
     },
     {
@@ -100,7 +100,7 @@
       "direction": "N",
       "frame": 9,
       "path": "frames/run/N/frame_09.png",
-      "sha256": "b43a375e1228c31c287b2225ff81e85261812ae6d8384bfee2df111affaeb636",
+      "sha256": "055ef268aaef1c5b5058c02f1fb468411dda7c0402b7b097a6cfa179bffe08ae",
       "record": "frames/run/N/frame_09.generation.json"
     },
     {
@@ -108,7 +108,7 @@
       "direction": "N",
       "frame": 10,
       "path": "frames/run/N/frame_10.png",
-      "sha256": "18e7ae64dfb4c57a46e6a5e4dae91fa82250e716e7ca0cd75cd6996dd8ad3c1b",
+      "sha256": "7434a2dd4a8291d66dd2faa20180d0e7cacd75018482cf9178356423d1c0257d",
       "record": "frames/run/N/frame_10.generation.json"
     },
     {
@@ -116,7 +116,7 @@
       "direction": "N",
       "frame": 11,
       "path": "frames/run/N/frame_11.png",
-      "sha256": "a3c7ddbbe80707a0954de193681f4bd695a8a54d74d5b70e4926241fa67b723d",
+      "sha256": "3f1a5efed7cd140c23c6dee7198d7954a4b05d91a2ef50d56fe3f26068adf05d",
       "record": "frames/run/N/frame_11.generation.json"
     },
     {
@@ -156,7 +156,7 @@
       "direction": "N",
       "frame": 16,
       "path": "frames/run/N/frame_16.png",
-      "sha256": "32c4d61640fe95f4cc598947cfb4d3711c24c878cd723290cbf43ac4e4f4955d",
+      "sha256": "d0e3921ecd3f2f5cb94e104e33cdc5b869560216a0359b270489306195969245",
       "record": "frames/run/N/frame_16.generation.json"
     },
     {
@@ -172,7 +172,7 @@
       "direction": "NE",
       "frame": 2,
       "path": "frames/run/NE/frame_02.png",
-      "sha256": "bcf58b1d36ea2470411b2e2eddb1ddc46138f8f056c3925885d0a41366015659",
+      "sha256": "e3d19d5282b422155aa9d0d180ebb54b55a4411dbe09e754f5675dbb613efdb6",
       "record": "frames/run/NE/frame_02.generation.json"
     },
     {
@@ -180,7 +180,7 @@
       "direction": "NE",
       "frame": 3,
       "path": "frames/run/NE/frame_03.png",
-      "sha256": "f79eb77498174980193fddfafc298e398f94faf64a78ed46230776456caae0e6",
+      "sha256": "7e0c588e51e2cabab23c1d077652eb4cd92fca0b0d487385c29d99237d04b4e0",
       "record": "frames/run/NE/frame_03.generation.json"
     },
     {
@@ -236,7 +236,7 @@
       "direction": "NE",
       "frame": 10,
       "path": "frames/run/NE/frame_10.png",
-      "sha256": "5e2a53391d49d9d602781fb7d6459f1da30761b022d982c85010fc151f57b248",
+      "sha256": "059594ac691ffb44d5869b14f007906361802cb148b996916a4cfee18b8eb0d4",
       "record": "frames/run/NE/frame_10.generation.json"
     },
     {
@@ -244,7 +244,7 @@
       "direction": "NE",
       "frame": 11,
       "path": "frames/run/NE/frame_11.png",
-      "sha256": "58d9e5c95180289bf9d04397fac940b7a26c61f299f1d93b55a0cb2af8d9804b",
+      "sha256": "740617148b7d57292112265576a851c631cb6d909bb183dfec65f9cfdc54e427",
       "record": "frames/run/NE/frame_11.generation.json"
     },
     {
@@ -1600,11 +1600,11 @@
       "record": "frames/cast/W/frame_16.generation.json"
     }
   ],
-  "audit": "provenance/audit/final_inventory_audit_20261003.json",
-  "auditSha256": "ed22f2cbced8c4787c517bf5253ca294c30c26bcc34761ad526cd72d87635f05",
+  "audit": "provenance/audit/export_bamboo_precleanup_snapshot_20261003.json",
+  "auditSha256": "f8400517e6efe7170e10ad534f2198e8f9b70a489592264a93711ca2334ea78d",
   "rootVisualApproval": {
-    "path": "provenance/audit/root_visual_approval_20261003.json",
-    "sha256": "203dd53c060b0800d941be228e7bca2693f8d34b259a9f0b7d63800d26179cf6"
+    "path": "provenance/audit/bamboo_final_visual_approval_20261003.json",
+    "sha256": "2191034683eab8097524369f788da626de891bdd5888b7a6fe33e639dacfadbd"
   },
   "timingUpdate": {
     "record": "provenance/audit/run_timing_1200_update_20261003.json",

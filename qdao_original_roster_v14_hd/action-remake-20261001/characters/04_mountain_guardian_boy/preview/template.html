@@ -62,13 +62,12 @@ function render(){
  $('scrub').value=frameIndex;
  $('status').textContent=`${s.label} ${s.direction} · ${frameIndex+1} / ${s.target_count} 帧 · ${frameMs().toFixed(0)}ms / 帧 · ${cycleMs().toFixed(0)}ms / 段${s.action==='run'?'（离线建议；客户端未接入）':''}`;
  $('sequence-summary').textContent=`本组 ${s.frames.filter(f=>f.exists).length} / ${s.target_count} 张已落盘；当前逐图记录中 ${s.frames.filter(f=>f.visual_review==='visual_passed').length} 张视觉复核通过。`;
- frameImage.hidden=true;frameImage.removeAttribute('src');message.hidden=false;
- if(!f.exists){message.textContent=`第 ${frameIndex+1} 帧尚未生成`;}
+ if(!f.exists){frameImage.hidden=true;frameImage.removeAttribute('src');message.hidden=false;message.textContent=`第 ${frameIndex+1} 帧尚未生成`;}
  else{
-   message.textContent='读取帧…';
+   message.textContent='读取帧…';message.hidden=!frameImage.hidden;
    const probe=imageCache.get(f.url)||new Image();
    probe.onload=()=>{if(token!==loadToken)return;frameImage.src=f.url;frameImage.hidden=false;message.hidden=true};
-   probe.onerror=()=>{if(token!==loadToken)return;message.textContent='此帧读取失败；请保留目录结构后重新打开预览。'};
+   probe.onerror=()=>{if(token!==loadToken)return;frameImage.hidden=true;message.hidden=false;message.textContent='此帧读取失败；请保留目录结构后重新打开预览。'};
    if(probe.complete&&probe.naturalWidth){probe.onload()}else{probe.src=f.url}
  }
  const record=f.source;
