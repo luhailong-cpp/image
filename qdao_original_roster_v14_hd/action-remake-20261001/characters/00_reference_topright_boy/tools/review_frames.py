@@ -9,6 +9,7 @@ from hashlib import sha256
 import json
 from pathlib import Path
 import sys
+import time
 from urllib.parse import quote
 from zoneinfo import ZoneInfo
 
@@ -17,11 +18,24 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 REVIEW = ROOT / "review"
 SPECS = {
-    "run": {"directions": ["N", "NE", "E", "SE", "S", "SW", "W", "NW"], "count": 16, "duration_ms": 480},
+    "run": {"directions": ["N", "NE", "E", "SE", "S", "SW", "W", "NW"], "count": 16, "duration_ms": 1200},
     "hit": {"directions": ["E", "W"], "count": 6, "duration_ms": 240},
     "attack": {"directions": ["E", "W"], "count": 12, "duration_ms": 360},
     "cast": {"directions": ["E", "W"], "count": 16, "duration_ms": 720},
 }
+
+
+def write_report(path: Path, contents: str) -> None:
+    temporary = path.with_name(path.name + ".write-tmp")
+    temporary.write_text(contents, encoding="utf-8")
+    for attempt in range(5):
+        try:
+            temporary.replace(path)
+            return
+        except OSError:
+            if attempt == 4:
+                raise
+            time.sleep(0.2 * (attempt + 1))
 
 
 def digest(path: Path) -> str:
@@ -115,6 +129,8 @@ def inspect(sources: dict) -> dict:
     frames, file_hashes, pixel_hashes = [], defaultdict(list), defaultdict(list)
     notes_path = REVIEW / "visual-notes.json"
     notes = json.loads(notes_path.read_text(encoding="utf-8-sig")) if notes_path.is_file() else {"frames": {}, "actions": {}}
+    manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8-sig"))
+    timing = {f["file"].removeprefix("frames/"): f["frameDurationMs"] for f in manifest["frames"]}
     expected = set()
     for action, spec in SPECS.items():
         for direction in spec["directions"]:
@@ -127,6 +143,7 @@ def inspect(sources: dict) -> dict:
                     item["status"] = "missing"
                     frames.append(item)
                     continue
+                item["frame_duration_ms"] = timing[key]
                 item["url"] = "../frames/" + quote(key, safe="/")
                 item["sha256"] = digest(path)
                 file_hashes[item["sha256"]].append(key)
@@ -200,10 +217,10 @@ def inspect(sources: dict) -> dict:
 HTML = r'''<!doctype html>
 <html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>00 金发带道童 · 候选动作审核</title>
 <style>
-:root{font-family:system-ui,"Microsoft YaHei",sans-serif;color-scheme:dark;color:#f0eee7;background:#161918}*{box-sizing:border-box}body{margin:0;padding:24px;max-width:1500px;margin:auto}h1{font-size:24px;margin:0 0 8px}p{line-height:1.6;color:#bfc9c1}button,select,input{font:inherit}button,select{background:#2b3630;border:1px solid #66746b;border-radius:6px;color:inherit;padding:8px 12px}button{cursor:pointer}button.active{background:#445e4d;border-color:#a7d5ae}.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0}.layout{display:grid;grid-template-columns:minmax(360px,700px) minmax(280px,1fr);gap:24px}.stage{width:100%;aspect-ratio:1;position:relative;background-color:#ddd;background-image:linear-gradient(45deg,#c6c6c6 25%,transparent 25%),linear-gradient(-45deg,#c6c6c6 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#c6c6c6 75%),linear-gradient(-45deg,transparent 75%,#c6c6c6 75%);background-size:32px 32px;background-position:0 0,0 16px,16px -16px,-16px 0;overflow:hidden;border:1px solid #69716c}.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#6d2723;background:#f5e8dc;white-space:pre-line;text-align:center;font-size:22px}.stage .label{position:absolute;left:12px;top:12px;background:#111b;color:white;padding:6px 10px;border-radius:4px;font-size:13px}.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.thumb{padding:0;overflow:hidden;font-size:12px}.thumb img{width:100%;display:block;background:#ddd;aspect-ratio:1;object-fit:contain}.thumb .absent{aspect-ratio:1;display:grid;place-content:center;color:#e3b4ac;background:#3b2b29}.thumb span{display:block;padding:5px}.thumb.selected{outline:2px solid #d7ce75}.small{font-size:13px;color:#b9c6bc;overflow-wrap:anywhere}.summary{border-left:4px solid #cfb971;background:#242d26;padding:12px;margin:16px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:320px;overflow:auto;font-size:12px;background:#101411;padding:12px}.slider{width:100%}a{color:#bee1b3}.bad{color:#ffb0a3}@media(max-width:850px){.layout{grid-template-columns:1fr}body{padding:12px}}
+:root{font-family:system-ui,"Microsoft YaHei",sans-serif;color-scheme:dark;color:#f0eee7;background:#161918}*{box-sizing:border-box}body{margin:0;padding:24px;max-width:1500px;margin:auto}h1{font-size:24px;margin:0 0 8px}p{line-height:1.6;color:#bfc9c1}button,select,input{font:inherit}button,select{background:#2b3630;border:1px solid #66746b;border-radius:6px;color:inherit;padding:8px 12px}button{cursor:pointer}button.active{background:#445e4d;border-color:#a7d5ae}.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0}.layout{display:grid;grid-template-columns:minmax(360px,700px) minmax(280px,1fr);gap:24px}.stage{width:var(--display-size,240px);max-width:100%;margin:auto;aspect-ratio:1;position:relative;background-color:#ddd;background-image:linear-gradient(45deg,#c6c6c6 25%,transparent 25%),linear-gradient(-45deg,#c6c6c6 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#c6c6c6 75%),linear-gradient(-45deg,transparent 75%,#c6c6c6 75%);background-size:32px 32px;background-position:0 0,0 16px,16px -16px,-16px 0;overflow:hidden;border:1px solid #69716c}.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#6d2723;background:#f5e8dc;white-space:pre-line;text-align:center;font-size:22px}.stage .label{position:absolute;left:12px;top:12px;background:#111b;color:white;padding:6px 10px;border-radius:4px;font-size:13px}.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.thumb{padding:0;overflow:hidden;font-size:12px}.thumb img{width:100%;display:block;background:#ddd;aspect-ratio:1;object-fit:contain}.thumb .absent{aspect-ratio:1;display:grid;place-content:center;color:#e3b4ac;background:#3b2b29}.thumb span{display:block;padding:5px}.thumb.selected{outline:2px solid #d7ce75}.small{font-size:13px;color:#b9c6bc;overflow-wrap:anywhere}.summary{border-left:4px solid #cfb971;background:#242d26;padding:12px;margin:16px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:320px;overflow:auto;font-size:12px;background:#101411;padding:12px}.slider{width:100%}a{color:#bee1b3}.bad{color:#ffb0a3}@media(max-width:850px){.layout{grid-template-columns:1fr}body{padding:12px}}
 </style>
-<h1>00 金发带道童 · 候选动作审核</h1><p id="scope"></p><div class="summary" id="summary"></div><div class="summary bad" id="artSummary"></div>
-<div class="controls"><label>动作 <select id="action"><option value="run">跑步</option><option value="hit">受击</option><option value="attack">普攻</option><option value="cast">施法</option></select></label><label>方向 <select id="direction"></select></label><button id="normal">正常速度</button><button id="slow">慢速 ¼</button><button id="pause">暂停</button><button id="previous">上一帧</button><button id="next">下一帧</button><label><input id="loop" type="checkbox" checked>循环检查</label></div>
+<h1>00 金发带道童 · 候选动作审核</h1><p>当前八方向跑步每圈1200ms，16帧统一75ms。<a href="timing-grounding/index.html">1200ms 正常与慢放检查</a>。此页按清单逐帧时长播放，默认240px；受击/普攻/施法保持40/30/45ms。</p><p id="scope"></p><div class="summary" id="summary"></div><div class="summary bad" id="artSummary"></div>
+<div class="controls"><label>动作 <select id="action"><option value="run">跑步</option><option value="hit">受击</option><option value="attack">普攻</option><option value="cast">施法</option></select></label><label>方向 <select id="direction"></select></label><label>显示 <select id="display-size"><option value="160">160px</option><option value="240" selected>240px</option><option value="512">512px</option></select></label><button id="normal">正常速度（跑步1200ms）</button><button id="slow">慢速 ¼</button><button id="pause">暂停</button><button id="previous">上一帧</button><button id="next">下一帧</button><label><input id="loop" type="checkbox" checked>循环检查</label></div>
 <div class="layout"><main><div class="stage" id="stage"><img id="frame" alt="实际动作帧"><div class="empty" id="empty"></div><div class="label" id="label"></div></div><input class="slider" id="slider" type="range" aria-label="逐帧滑块" min="1" value="1"><div class="small" id="timing"></div><div class="summary bad" id="visualNotes"></div><p class="small">所有帧使用同一完整画布显示；缺帧保留时间槽并显示文字，不跳过、不补图。页面不进行裁切、镜像、逐帧缩放或脚底对齐。图像浏览器显示缩放不修改源文件。</p><div class="small" id="detail"></div><details><summary>当前帧技术记录</summary><pre id="record"></pre></details></main><aside><div class="thumbs" id="thumbs"></div><p class="small">逐帧点击缩略图检查。独立动作、手脚与道具、整体比例、根锚点、腾空及首尾衔接仍需人工动态验收。</p><a href="technical_report.json">完整技术报告 JSON</a></aside></div>
 <script id="data" type="application/json">__REPORT__</script>
 <script>
@@ -211,17 +228,17 @@ const data=JSON.parse(document.getElementById('data').textContent),$=id=>documen
 let sequence=[],index=0,playing=false,speed=1,last=0,elapsed=0;
 $('scope').textContent=data.scope;
 const s=data.summary;
-$('artSummary').textContent=data.art_review.scope+' 已知关注：hit/W/03 双鞋横移；attack/E/10 鞋底基线；cast/W/02 与 05 手位轨迹；run 全局比例与根锚。整段动态通过 0，客户端未运行。';
+$('artSummary').textContent=data.art_review.scope+' 逐帧问题及修正以当前来源SHA绑定的下方记录为准；run仍需检查全局比例、手脚相位与根锚。整段动态通过 0，客户端未运行。';
 $('summary').textContent=`实际文件 ${s.present}/${s.expected} · 缺帧 ${s.missing} · 文件检查通过 ${s.file_pass} · 文件检查失败 ${s.failed} · 原生单帧尺寸实测通过 ${s.source_measured_pass} · 仅文字证据 ${s.source_documented_only} · 来源未确认/不合格 ${s.source_unconfirmed_or_failed}。以上不代表美术通过。报告：${data.generated_at}`;
 function spec(){return data.specs[$('action').value]}
 function stop(){playing=false;elapsed=0;refreshButtons()}
 function refreshButtons(){$('normal').classList.toggle('active',playing&&speed===1);$('slow').classList.toggle('active',playing&&speed===.25);$('pause').classList.toggle('active',!playing)}
-function render(){const f=sequence[index];if(!f)return;$('slider').value=index+1;$('frame').style.display=f.exists?'block':'none';$('empty').style.display=f.exists?'none':'flex';if(f.exists){$('frame').src=f.url;$('frame').alt=f.key}else{$('frame').removeAttribute('src');$('empty').textContent=`缺帧\n${f.key}\n该时间槽尚无图片`}$('label').textContent=f.key;const ms=spec().duration_ms/spec().count;$('timing').textContent=`第 ${index+1}/${sequence.length} 帧 · 正常 ${ms} ms/帧 · ${spec().duration_ms} ms/段 · 当前${playing?(speed===1?'正常播放':'¼ 速度播放'):'暂停/逐帧'}`;$('detail').textContent=f.exists?`技术文件状态：${f.status}；美术状态：${f.visual_status??'未验收'}；源图证据：${f.source?.status??'unconfirmed'}。${[...f.issues,...(f.source?.issues??[])].join('；')}`:'未导出；无占位图片。';$('detail').classList.toggle('bad',!f.exists||f.status==='failed');$('record').textContent=JSON.stringify(f,null,2);document.querySelectorAll('.thumb').forEach((el,i)=>el.classList.toggle('selected',i===index));$('visualNotes').textContent=f.exists?'候选帧，美术与动态均未通过。'+(f.visual_notes??[]).map(n=>n.message).join('；'):'此槽缺失；完整动作尚不能验收。'}
+function render(){const f=sequence[index];if(!f)return;$('slider').value=index+1;$('frame').style.display=f.exists?'block':'none';$('empty').style.display=f.exists?'none':'flex';if(f.exists){$('frame').src=f.url;$('frame').alt=f.key}else{$('frame').removeAttribute('src');$('empty').textContent=`缺帧\n${f.key}\n该时间槽尚无图片`}$('label').textContent=f.key;const ms=f.frame_duration_ms;$('timing').textContent=`第 ${index+1}/${sequence.length} 帧 · 正常 ${ms} ms/帧 · ${spec().duration_ms} ms/段 · 当前${playing?(speed===1?'正常播放':'¼ 速度播放'):'暂停/逐帧'}`;$('detail').textContent=f.exists?`技术文件状态：${f.status}；美术状态：${f.visual_status??'未验收'}；源图证据：${f.source?.status??'unconfirmed'}。${[...f.issues,...(f.source?.issues??[])].join('；')}`:'未导出；无占位图片。';$('detail').classList.toggle('bad',!f.exists||f.status==='failed');$('record').textContent=JSON.stringify(f,null,2);document.querySelectorAll('.thumb').forEach((el,i)=>el.classList.toggle('selected',i===index));$('visualNotes').textContent=f.exists?'候选帧，美术与动态均未通过。'+(f.visual_notes??[]).map(n=>n.message).join('；'):'此槽缺失；完整动作尚不能验收。'}
 function sequenceChanged(){stop();index=0;sequence=data.frames.filter(f=>f.action===$('action').value&&f.direction===$('direction').value);$('slider').max=sequence.length;$('thumbs').replaceChildren();sequence.forEach((f,i)=>{const button=document.createElement('button');button.className='thumb';button.title=f.key;if(f.exists){const image=document.createElement('img');image.src=f.url;image.alt=f.key;image.loading='lazy';button.append(image)}else{const absent=document.createElement('div');absent.className='absent';absent.textContent='缺帧';button.append(absent)}const caption=document.createElement('span');caption.textContent=String(f.index).padStart(2,'0')+(f.status==='failed'?' · 技术失败':(f.visual_notes?.length?' · 待复核':(f.exists?' · 候选':'')));button.append(caption);button.onclick=()=>{stop();index=i;render()};$('thumbs').append(button)});render()}
 function actionChanged(){const old=$('direction').value;$('direction').replaceChildren();spec().directions.forEach(value=>{const option=document.createElement('option');option.value=value;option.textContent=value;$('direction').append(option)});if(spec().directions.includes(old))$('direction').value=old;sequenceChanged()}
-function play(value){speed=value;playing=true;elapsed=0;last=performance.now();refreshButtons();render()}
-$('action').onchange=actionChanged;$('direction').onchange=sequenceChanged;$('normal').onclick=()=>play(1);$('slow').onclick=()=>play(.25);$('pause').onclick=()=>{stop();render()};$('previous').onclick=()=>{stop();index=(index-1+sequence.length)%sequence.length;render()};$('next').onclick=()=>{stop();index=(index+1)%sequence.length;render()};$('slider').oninput=()=>{stop();index=Number($('slider').value)-1;render()};$('frame').onerror=()=>{$('frame').style.display='none';$('empty').style.display='flex';$('empty').textContent=`图片读取失败\n${sequence[index]?.key??''}\n文件可能在报告生成后更改，请重新运行工具。`};
-function tick(now){if(playing){elapsed+=(now-last)*speed;const step=spec().duration_ms/spec().count;let changed=false;while(elapsed>=step&&playing){elapsed-=step;if(index===sequence.length-1){if($('loop').checked)index=0;else{stop();changed=true;break}}else index++;changed=true}if(changed)render()}last=now;requestAnimationFrame(tick)}
+function play(value){if(!$('loop').checked)index=0;speed=value;playing=true;elapsed=0;last=performance.now();refreshButtons();render()}
+$('display-size').onchange=()=>{$('stage').style.setProperty('--display-size',$('display-size').value+'px')};$('action').onchange=actionChanged;$('direction').onchange=sequenceChanged;$('normal').onclick=()=>play(1);$('slow').onclick=()=>play(.25);$('pause').onclick=()=>{stop();render()};$('previous').onclick=()=>{stop();index=(index-1+sequence.length)%sequence.length;render()};$('next').onclick=()=>{stop();index=(index+1)%sequence.length;render()};$('slider').oninput=()=>{stop();index=Number($('slider').value)-1;render()};$('frame').onerror=()=>{$('frame').style.display='none';$('empty').style.display='flex';$('empty').textContent=`图片读取失败\n${sequence[index]?.key??''}\n文件可能在报告生成后更改，请重新运行工具。`};
+function tick(now){if(playing){elapsed+=(now-last)*speed;let changed=false;while(playing&&elapsed>=sequence[index].frame_duration_ms){elapsed-=sequence[index].frame_duration_ms;if(index===sequence.length-1){if($('loop').checked)index=0;else{stop();changed=true;break}}else index++;changed=true}if(changed)render()}last=now;requestAnimationFrame(tick)}
 document.addEventListener('visibilitychange',()=>{last=performance.now();elapsed=0});actionChanged();requestAnimationFrame(tick);
 </script></html>'''
 
@@ -236,10 +253,10 @@ def main() -> int:
     args = parser.parse_args()
     report = inspect(load_sources(args.sources))
     REVIEW.mkdir(parents=True, exist_ok=True)
-    (REVIEW / "technical_report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    write_report(REVIEW / "technical_report.json", json.dumps(report, ensure_ascii=False, indent=2) + "\n")
     if args.command in ("preview", "all"):
         embedded = json.dumps(report, ensure_ascii=False).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
-        (REVIEW / "index.html").write_text(HTML.replace("__REPORT__", embedded), encoding="utf-8")
+        write_report(REVIEW / "index.html", HTML.replace("__REPORT__", embedded))
     print(json.dumps(report["summary"], ensure_ascii=False, indent=2))
     print(f"报告: {REVIEW / 'technical_report.json'}")
     if args.command in ("preview", "all"):

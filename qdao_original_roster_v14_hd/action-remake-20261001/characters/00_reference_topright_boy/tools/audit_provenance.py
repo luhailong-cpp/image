@@ -2,7 +2,9 @@
 
 Only writes review/provenance-completion.json and the delimited snapshot blocks
 in STATUS.md and MERGE_HANDOFF.md. Counts come from actual files on every run.
+Use --dry-run to inspect counts without writing those snapshots.
 """
+import argparse
 import hashlib
 import json
 import re
@@ -16,7 +18,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 REPO = ROOT.parents[3]
 PYTHON = "C:/Users/luyua/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe"
-SPECS = {"run": (16, ("N", "NE", "E", "SE", "S", "SW", "W", "NW"), 30),
+SPECS = {"run": (16, ("N", "NE", "E", "SE", "S", "SW", "W", "NW"), 75),
          "hit": (6, ("E", "W"), 40), "attack": (12, ("E", "W"), 30),
          "cast": (16, ("E", "W"), 45)}
 DOCUMENTS = ["manifest.json", "sources.json", "review/current-validation.json",
@@ -54,6 +56,15 @@ def png(path):
     return row
 
 
+def native_record(record):
+    """Require generation evidence; a contact sheet/export is not a native source."""
+    if not isinstance(record, dict) or record.get("route") == "derived" or any(
+            record.get(key) for key in ("derivedFrom", "derived_from", "operation")):
+        return False
+    return (record.get("route") in ("builtin", "api", "cli")
+            or record.get("tool") in ("image_gen.imagegen", "image_gen"))
+
+
 def refresh_block(name, lines):
     p = ROOT / name
     if not p.is_file():
@@ -67,7 +78,10 @@ def refresh_block(name, lines):
     p.write_text(updated, encoding="utf-8")
 
 
-def main():
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--dry-run", action="store_true", help="Print counts without updating audit or handoff files.")
+    args = parser.parse_args(argv)
     sys.stdout.reconfigure(encoding="utf-8")
     now = datetime.now(ZoneInfo("America/New_York")).isoformat()
     # Read every complete document, rather than trusting a cached headline count.
@@ -102,21 +116,36 @@ def main():
             if record:
                 row["generationRecordEvidence"] = evidence(record)
                 # Preserve the original record verbatim, including unconfirmed model/quality.
-                row["originalGenerationRecord"] = load(record) if local(record).is_file() else None
+                row["originalGenerationRecord"] = load(local(record)) if local(record).is_file() else None
             if not row["sourceShaMatches"]:
                 issues.append({"file": rel, "issue": "source_missing_or_sha_mismatch"})
         inventory.append(row)
     absent_index_files = [name for name in by_file if not (ROOT / name).is_file()]
     issues.extend({"file": name, "issue": "indexed_export_missing"} for name in absent_index_files)
 
-    generated, request_to_image = [], {}
+    # A legacy native may use a separately named record linked by the manifest.
+    # Never infer native provenance from a PNG filename or a neighbouring request.
+    known_records = {}
+    for row in inventory:
+        origin = (row.get("manifestRecord") or {}).get("derivedFrom", {})
+        if origin.get("file") and origin.get("generationRecord"):
+            known_records[local(origin["file"]).resolve()] = local(origin["generationRecord"])
+    generated, excluded_generated, request_to_image = [], [], {}
     for path in sorted((ROOT / "generation").rglob("*.png")):
-        row = png(path)
         rel = path.relative_to(ROOT).as_posix()
-        row["relativePath"] = rel
         record_path = Path(str(path) + ".generation.json")
-        row["generationRecord"] = evidence(record_path)
+        if not record_path.is_file():
+            record_path = known_records.get(path.resolve(), record_path)
         record = load(record_path) if record_path.is_file() else {}
+        if not native_record(record):
+            excluded_generated.append({**evidence(path), "relativePath": rel,
+                                       "generationRecord": evidence(record_path),
+                                       "reason": "no_native_generation_record" if not record
+                                       else "record_is_derived_or_not_confirmed_native"})
+            continue
+        row = png(path)
+        row["relativePath"] = rel
+        row["generationRecord"] = evidence(record_path)
         row["originalRecord"] = record
         row["shaMatchesRecord"] = row["sha256"] == record.get("sha256")
         row["selectedForExports"] = [x["relativePath"] for x in inventory
@@ -176,9 +205,10 @@ def main():
     for action, (count, directions, duration) in SPECS.items():
         for direction in directions:
             have = [n for n in range(1, count + 1) if f"{action}/{direction}/{n:02}.png" in present]
+            actual_ms=[by_file[f"frames/{action}/{direction}/{n:02}.png"]["frameDurationMs"] for n in have]
             sequences.append({"action": action, "direction": direction, "expected": count,
                               "presentIndices": have, "missingIndices": [n for n in range(1, count + 1) if n not in have],
-                              "frameDurationMs": duration, "sequenceDurationMs": count * duration})
+                              "frameDurationMs": (actual_ms[0] if actual_ms and len(set(actual_ms))==1 else actual_ms), "sequenceDurationMs": sum(actual_ms)})
     failures = [r for r in requests if r["outcome"] == "confirmed_failure"]
     unknowns = [r for r in requests if r["outcome"] == "unknown_no_completion_receipt"]
     old_report = validation["technical"]["present"]
@@ -186,12 +216,15 @@ def main():
               "timezone": "America/New_York", "scope": "磁盘/来源文本审计，不是美术、动态或客户端验收。新增/替换后须重跑。",
               "summary": {"target": sum(n * len(ds) for n, ds, _ in SPECS.values()),
                           "actualCandidateExports": len(actual_files), "missingExportSlots": sum(len(s["missingIndices"]) for s in sequences),
+                          "generationPngsOnDisk": len(generated) + len(excluded_generated),
                           "localGenerationPngs": len(generated), "selectedLocalGenerationPngs": sum(bool(x["selectedForExports"]) for x in generated),
+                          "excludedNonNativeGenerationPngs": len(excluded_generated),
                           "finalVisualApproved": manifest.get("finalVisualApproved", 0),
                           "dynamicArtApproved": validation["art"]["dynamic_art_approved"], "clientIntegrated": False,
                           "confirmedFailureRequests": len(failures), "requestsWithoutCompletionEvidence": len(unknowns)},
               "documentEvidence": document_evidence, "sequences": sequences,
               "frameInventory": inventory, "generationInventory": generated, "requestOutcomes": requests,
+              "excludedGenerationPngs": excluded_generated,
               "configSourcesSupplement": supplements, "indexIssues": issues,
               "validationSnapshot": {"validatedAt": validation.get("validated_at"), "presentAtValidation": old_report,
                                      "countMatchesCurrent": old_report == len(actual_files),
@@ -201,23 +234,23 @@ def main():
               "historicalIncompleteRecords": [r["relativePath"] for r in inventory if r.get("manifestRecord", {}).get("configSnapshot") is None],
               "refreshRequiredAfterGeneration": ["实际PNG与来源证据清单", "manifest/sources与选择表", "技术检查及预览", "新旧SHA绑定的静态/动态美术结论", "STATUS及MERGE_HANDOFF快照"]}
     out = ROOT / "review/provenance-completion.json"
+    if args.dry_run:
+        print(json.dumps({"dryRun": True, "written": None, "summary": report["summary"],
+                          "excludedGenerationPngs": excluded_generated, "indexIssues": issues}, ensure_ascii=False))
+        return report
     out.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     lines = [f"核对时间：{now}（America/New_York）。本段由 tools/audit_provenance.py 实扫更新。", "",
-             f"当前候选导出 **{len(actual_files)}/196**，缺 **{report['summary']['missingExportSlots']}** 槽；本批本角色 generation 实际原图 **{len(generated)}** 张。正式美术通过 **{report['summary']['finalVisualApproved']}**；客户端 **未接入、未运行**。",
+             f"当前候选导出 **{len(actual_files)}/196**，缺 **{report['summary']['missingExportSlots']}** 槽；本批本角色 generation 已关联原生生成记录的原图 **{len(generated)}** 张，另排除 **{len(excluded_generated)}** 张无原生记录或派生 PNG。正式美术通过 **{report['summary']['finalVisualApproved']}**；客户端 **未接入、未运行**。",
              "", "| 动作/方向 | 实际导出帧号 | 缺失帧号 | 帧时长 / 完整段时长 |", "| --- | --- | --- | --- |"]
     for s in sequences:
         fmt = lambda ns: "、".join(f"{n:02}" for n in ns) or "无"
         lines.append(f"| {s['action']}/{s['direction']} | {fmt(s['presentIndices'])} | {fmt(s['missingIndices'])} | {s['frameDurationMs']} / {s['sequenceDurationMs']} ms |")
-    lines.extend(["", "当前本批原图（逐图来源、完整路径及导出链见 [来源审计](review/provenance-completion.json)）：", "",
-                  "| 文件 | SHA-256 | 已关联导出 |", "| --- | --- | --- |"])
-    for row in generated:
-        selected = "、".join(row["selectedForExports"]) or "未导出；待选帧/验收"
-        lines.append(f"| [{row['relativePath']}]({row['relativePath']}) | `{row['sha256']}` | {selected} |")
+    lines.extend(["", "逐图原生PNG、导出对应、完整SHA、配置/回执证据见 [来源审计](review/provenance-completion.json) 的 generationInventory 与 frameInventory。派生联系表单列 excludedGenerationPngs，不计作原生素材。", "", "跑步当前八方向统一1200ms/圈，16帧各75ms；正式预览仅保留正常、慢放、暂停与逐帧，旧快档和旧权重已退出当前配置。客户端速度与滑步未验证。"])
     lines.extend(["", f"已确认失败请求 {len(failures)} 项（原始网络错误证据保留）；无完成证据请求 {len(unknowns)} 项（unknown，不等同于已确认失败）。", ""])
     for row in failures + unknowns:
         lines.append(f"- `{row['relativePath']}` — `{row['outcome']}`；SHA `{row['sha256']}`。")
     lines.extend(["", f"当前索引/源SHA问题 {len(issues)} 项。逐项文件、源PNG、生成记录与回执SHA均在 `review/provenance-completion.json`。",
-                  f"旧 `current-validation.json` 的 {old_report} 张检查仅适用于其原始快照；新增原图、替换及当前动态美术结果须另行刷新。"])
+                  f"`current-validation.json` 当前绑定 {old_report} 张技术快照；新增原图或替换后须重新检查SHA。技术通过不等于动态美术通过。"])
     refresh_block("STATUS.md", lines)
     refresh_block("MERGE_HANDOFF.md", lines)
     print(json.dumps({"written": str(out), "summary": report["summary"], "indexIssues": issues}, ensure_ascii=False))
