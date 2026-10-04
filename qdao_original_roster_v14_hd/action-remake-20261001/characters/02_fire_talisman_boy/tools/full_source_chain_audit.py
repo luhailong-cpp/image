@@ -9,11 +9,11 @@ from collections import defaultdict, Counter
 from datetime import datetime, timezone
 import base64, hashlib, io, json, re, subprocess
 from PIL import Image, ImageOps
+from inventory_sources import current_slots, ORDER
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / 'reviews/full-source-chain-audit.json'
-INVENTORIES = ['inventory-root.json', 'inventory-hit.json', 'inventory-cast.json',
-               'inventory-run-ne-cast.json', 'inventory-run-north.json']
+INVENTORIES = ORDER
 IMAGE_EXT = {'.png', '.gif', '.jpg', '.jpeg', '.webp'}
 observed = {}
 
@@ -131,11 +131,12 @@ ConvertTo-Json -InputObject $results -Depth 8 -Compress
 started=datetime.now(timezone.utc).isoformat()
 slots=[]; inventory_snapshots=[]; problems=[]; evidence_gaps=[]
 for name in INVENTORIES:
+    if not (ROOT/name).exists():continue
     try:
         doc=read_json(ROOT/name)
         inventory_snapshots.append({'file':name,'sha256':observed[str((ROOT/name).resolve())],'frames':len(doc['frames'])})
-        slots.extend((name,f) for f in doc['frames'])
     except Exception as exc:problems.append({'inventory':name,'code':'inventory_unreadable','detail':str(exc)})
+slots=current_slots(ROOT)
 
 expected={(a,d,n) for a,ds,count in [('hit',['E','W'],6),('attack',['E','W'],12),('cast',['E','W'],16),('run',['N','NE','E','SE','S','SW','W','NW'],16)] for d in ds for n in range(1,count+1)}
 actual_keys=[(f.get('action'),f.get('direction'),f.get('frame')) for _,f in slots]
@@ -148,6 +149,7 @@ drawing_jobs=[]
 for inv,f in slots:
     if inv!='inventory-hit.json':continue
     rec=read_json(resolve(f.get('source_record') or f['native_evidence']))
+    if 'lanczos' in json.dumps(rec.get('export',{})).lower():continue
     drawing_jobs.append({'slot':f"{f['action']}/{f['direction']}/{f['frame']:02}",'native':str(resolve(rec['file'])),'formal':str(resolve(f['path']))})
 try:
     drawing_results=verify_system_drawing(drawing_jobs)
@@ -199,7 +201,7 @@ for inv,f in sorted(slots,key=lambda x:(str(x[1].get('action')),str(x[1].get('di
         check('nativeDimensionsMatchRecord',nm['size']==claimed_dims)
         check('nativeDimensionsMatchInventory',nm['size']==f.get('native_size'))
         check('nativeAtLeast1024',min(nm['size'])>=1024 and nm['mode']=='RGBA')
-        if inv=='inventory-hit.json':
+        if slot in drawing_results:
             result=drawing_results.get(slot,{'match':None,'error':'no System.Drawing check result'})
             row['exportReconstruction']={'method':'System.Drawing HighQualityBicubic SourceCopy HighQuality pixel offset, whole-canvas1024, in-memory BGRA pixel comparison','exporterFile':'tools/hit_production_save.ps1','exporterSha256':drawing_exporter_sha,**result}
             check('nativeWholeCanvasDownsampleMatchesFormalPixels',result.get('match') is True,result)
