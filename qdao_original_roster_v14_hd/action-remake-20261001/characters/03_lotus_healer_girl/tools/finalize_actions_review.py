@@ -33,8 +33,11 @@ for group in overview["groups"]:
     if selection.get("eventFrame"):
         frame=selection["eventFrame"]
         events=[dict(type={"hit":"impact","attack":"contact","cast":"release"}.get(action,"event"),frame=frame,timeMs=starts[frame-1],status="offline_candidate_not_client_event")]
-    if action=="run" and direction=="E":
-        events=[dict(type=name,frame=n,timeMs=starts[n-1],status="offline_candidate_not_client_event") for name,n in [("right_contact",16),("right_toe_off",6),("left_contact",9),("left_toe_off",13)]]
+    for event in events:
+        number=event.get("frame",event.get("slot"))
+        if not isinstance(number,int) or number not in range(1,len(starts)+1):
+            raise ValueError(f"Invalid selected event frame: {key} {event}")
+        event.update(frame=number,type=event.get("type") or event.get("name") or event.get("event"),timeMs=starts[number-1])
     event_groups.append(dict(action=action,direction=direction,cycleMs=ms,frameStartsMs=starts,events=events,status="offline_candidate_not_client_event" if events else "event_review_pending"))
     issues=list(selection.get("issues",[]))
     for f in group["frames"]:
@@ -89,6 +92,6 @@ handoff=f"""# 03 莲花医者 · 本机交接
 
 """+"\n\n".join(issue_sections)+"\n\n## 合并与保留\n\n确认当前所需来源与1024候选完整后，按根AGENTS规定清理已淘汰图片，保留逐图文字证据和SHA；旧目录只读。另一电脑合并仅取本角色目录所需成品及配套记录。当前已只读确认 D:/work/mmorpg-client 存在；本任务仍只修改本角色素材，未接入或运行游戏内滑步/命中/释放验证。\n"
 (B/"MERGE_HANDOFF.md").write_text(handoff,encoding="utf-8")
-runtime.update(["manifest.json","validation.json","README.md","MERGE_HANDOFF.md","review/all-actions-selection.json","review/all-actions-technical-verification.json","review/production-status.json","review/slot-inventory.json","review/root-and-timing.json","review/action-events.json","review/source-index.csv","preview/actions.html","preview/actions.js","preview/new-run.html","preview/new-run.js"])
+runtime.update(["manifest.json","validation.json","animation-timing.json","README.md","MERGE_HANDOFF.md","review/all-actions-selection.json","review/all-actions-technical-verification.json","review/production-status.json","review/slot-inventory.json","review/root-and-timing.json","review/action-events.json","review/source-index.csv","preview/actions.html","preview/actions.js","preview/timing.js","preview/index.html","preview/new-run.html","preview/new-run.js"])
 write(B/"review/delivery-integrity.json",dict(checkedAt=stamp,status="candidate_not_accepted",selectedExported=overview["selectedExported"],files=[dict(path=p,sha256=sha(B/p)) for p in sorted(runtime)]))
 print(json.dumps(dict(selectedExported=overview["selectedExported"],nativeSlots=production["presentSlots"],handoff="MERGE_HANDOFF.md",missingSelected=196-overview["selectedExported"])))
