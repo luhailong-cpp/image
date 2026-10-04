@@ -2,24 +2,24 @@
 
 仅准备清单，本工具没有删除功能，本次未删除图片。
 
-计划时间（UTC）：2026-10-03T23:37:12.900435+00:00
+计划时间（UTC）：2026-10-04T22:05:34.764864+00:00
 当前交付技术检查通过：True
 
 ## 执行前置条件
 
-- root 完成最终选帧与实际视觉/动态审阅；不是由本脚本自动认定。
-- 最终运行 build_delivery.py --write --replace 和 render_sequence_previews.py；刷新关键姿态图。
+- root 已完成当前选帧和实际静态审阅；动态未完成时保留当前入选原生设计，不宣称最终动态验收通过。
+- 只从当前 runtime 刷新预览；不要全量重建已清理的旧 sources。
 - 运行 final_delivery_check.py --write-report --write-retention-plan，技术错误清零，所有必要图片存在。
 - 删除前重新核实计划中每条路径仍在角色目录内、SHA 未改变；实际删除由 root 负责。
 - 删除后再次运行核验；历史原图路径允许缺失，但 runtime/当前预览/来源文字必须完整。
 
 ## 当前数量
 
-{"presentImageCount": 240, "historicalAbsentCount": 514, "byDecision": {"keep_current_delivery_preview": 44, "keep_final_runtime": 196}, "candidateDeleteBytes": 0}
+{"presentImageCount": 348, "historicalAbsentCount": 848, "byDecision": {"keep_current_delivery_preview": 44, "keep_final_runtime": 196, "keep_current_design_input": 108}, "candidateDeleteBytes": 0}
 
-196 张 runtime 保留；每组最新 contact、跑步主选 weighted720/slow、战斗 normal/slow、当前关键姿态图保留。均匀节奏比较继续由 HTML 直接读取 runtime，不必保留全部比较 GIF。
+196 张 runtime 保留；每组最新 contact、跑步主选 uniform1200/slow、战斗 normal/slow、当前关键姿态图保留。HTML固定1200ms/圈，保留正常、慢速和逐帧检查。
 
-所有 sources 原图及历史 audit/review 诊断图在最终核验后列为删除候选；JSON 内逐图保存当前 SHA、原生成记录路径及模型/质量/参考文字。引用旧原图路径不构成永久保留像素的理由。
+当前入选且仍在使用的原生设计在最新动态复核完成前保留；淘汰 sources 及历史 audit/review 诊断图列为删除候选。JSON 内逐图保存当前 SHA、原生成记录路径及模型/质量/参考文字。
 
 历史来源文字不改写成“文件仍在”。清理源图后不能再运行依赖原生输入的 build_delivery；成品检查用 final_delivery_check，HTML/GIF可从 runtime 重建。
 

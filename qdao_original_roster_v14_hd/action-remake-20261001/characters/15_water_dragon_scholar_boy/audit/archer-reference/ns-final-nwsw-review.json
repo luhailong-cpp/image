@@ -1,0 +1,40 @@
+{
+  "updatedAt": "2026-10-04T21:08:45.871396+00:00",
+  "selection": "audit/archer-reference/ns-final-nwsw-selection.json",
+  "scope": "Second static review + 3 targeted repairs; runtime/master untouched",
+  "changes": {
+    "run/NW/07": "run-NW-10-supportfix-v2",
+    "run/NW/08": "run-NW-08-supportfix-v4",
+    "run/NW/09": "run-NW-07-supportfix-v4",
+    "run/NW/10": "run-NW-09-supportfix-v1",
+    "run/NW/11": "run-NW-11-final-transition-v2",
+    "run/SW/05": "run-SW-05-final-support-v2",
+    "run/SW/06": "run-SW-06-final-support-v3"
+  },
+  "dynamicPlaybackObserved": false,
+  "clientIntegrated": false,
+  "generation": {
+    "configuredModel": "gpt-image-2.5-sunburst",
+    "configuredQuality": "max",
+    "submittedModel": null,
+    "submittedQuality": null,
+    "actualModel": null,
+    "actualQuality": null,
+    "route": "builtin image_gen"
+  },
+  "rejected": {
+    "run-NW-11-final-transition-v1": "手已经移到左肩前，过渡提前，未使用",
+    "run-SW-05-final-support-v1": "另一只左抬起腿被完全遮没，拒用",
+    "run-SW-06-final-support-v1": "变为左腿支撑，足别交换，拒用"
+  },
+  "staticFindings": [
+    "NW07-10重排减少支撑足09到10回退，近侧空拳与抬起足的微相位变化保留动态核验。",
+    "NW11右扇手在身体远侧自然遮挡，避免原来大扇从右侧直接跳到左侧。",
+    "SW05/06保留右支撑足，左抬起足独立可见，支撑靴改到身体下面偏后侧；平面透视脚底y不强制相同。"
+  ],
+  "pending": [
+    "parent: play 16-frame full cycle at 75ms and 300ms",
+    "parent: observe NW07-12 fan and swinging ankle rotation",
+    "parent: observe SW03-07 support-to-change-foot path"
+  ]
+}
