@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-04T01:16:48.743Z",
+  "scope": "run/W 06→07→08右空手回摆，03→04/11→12/16→01腿部衔接",
+  "authority": "主线程转达最新用户明确认可当前竹弓少女版本；停止继续改帧并保留当前版本。该认可不扩展为所有动态播放或客户端通过。",
+  "method": "直接打开runtime原图逐张观察；未打开本地页面、未浏览器动态实播、未绕过file限制。",
+  "runtimeChanges": 0,
+  "generationCalls": 0,
+  "reviewSelectionChanges": 0,
+  "status": "retained_after_user_acceptance",
+  "observedFramesThisPass": [
+    3,
+    4,
+    6,
+    7,
+    8,
+    11,
+    12
+  ],
+  "hashBoundButNotReopenedThisPass": [
+    1,
+    16
+  ],
+  "frames": [
+    {
+      "frame": 1,
+      "file": "runtime/run/W/01.png",
+      "sha256": "4e6337ac903aaac956240d7c36f624e0b17c6def33990076fa711f2401233624"
+    },
+    {
+      "frame": 3,
+      "file": "runtime/run/W/03.png",
+      "sha256": "42b07d98d16ba6a36c87ef859b84dcd8c9eb0054a896b7804e8595a330dc798a"
+    },
+    {
+      "frame": 4,
+      "file": "runtime/run/W/04.png",
+      "sha256": "41fac05c60b5d9a4f609ebc0ae73cfc86c004ac6820018bcd0eed346fd4dfd39"
+    },
+    {
+      "frame": 6,
+      "file": "runtime/run/W/06.png",
+      "sha256": "094581cf018b76366a5ae7db3127c35c8281f9143bbe6e2a839c5ea863612a13"
+    },
+    {
+      "frame": 7,
+      "file": "runtime/run/W/07.png",
+      "sha256": "ed3a2fb2307abeb147cdccaf44d65ecff39914b15cfb18d826aac17d115bf8d1"
+    },
+    {
+      "frame": 8,
+      "file": "runtime/run/W/08.png",
+      "sha256": "50e2d03573744737badc6dc9238c8e9517b791e63ad9ea0490a8615396c1d5df"
+    },
+    {
+      "frame": 11,
+      "file": "runtime/run/W/11.png",
+      "sha256": "55ee6790708d5e047abaa7abc222958c0a316ec0c4244a6971084a67c8598f64"
+    },
+    {
+      "frame": 12,
+      "file": "runtime/run/W/12.png",
+      "sha256": "c2a76da30d418ef872e517cf4a7c1acb3057c05696a19dcf7d64068dc21ba0eb"
+    },
+    {
+      "frame": 16,
+      "file": "runtime/run/W/16.png",
+      "sha256": "81bd6619e2dc2c008c76be3b8da70c329108923aa3b51ba7421259f0e6310a01"
+    }
+  ],
+  "transitions": [
+    {
+      "frames": [
+        6,
+        7,
+        8
+      ],
+      "verdict": "retain",
+      "observations": [
+        "06右空手在身体后侧伸展，07肘部弯曲回到腰侧，08继续向前下方回摆；三张均能追踪肩→肘→腕，没有换手、额外手或反折腕。",
+        "按1024画布目测，拳心从06约(700,575)移到07约(488,611)，再到08约(458,638)。06→07的位移明显大于07→08，不能称匀速；头/躯干/左持弓手变化较小，所以这个差异主要来自右臂动作。"
+      ],
+      "mustRedraw": false,
+      "reason": "用户已明确认可当前版本，未发现单帧严重结构错误；保留位移差这一观察，不将静态检查冒称正常速度回摆已验收。",
+      "dynamicSmoothness": "not_live_reviewed"
+    },
+    {
+      "frames": [
+        3,
+        4
+      ],
+      "verdict": "retain",
+      "observations": [
+        "03前方可见靴底平落、膝弯曲，另一脚向后收；04前方膝和靴抬高、后方腿展开，后靴脚尖较低。",
+        "两张均为完整两腿两靴，膝踝连续、脚尖顺屏左。03→04姿态幅度较大，但未见脚尖突然向外扭转、踝关节反折或额外脚。"
+      ],
+      "mustRedraw": false,
+      "reason": "未定位可从单帧直接证实的严重结构错误；换腿流畅度没有实际动态播放结论，依用户认可保留。"
+    },
+    {
+      "frames": [
+        11,
+        12
+      ],
+      "verdict": "retain",
+      "observations": [
+        "11前腿屈膝、前靴靠近身体；12该侧靴向屏左前方伸出，另一腿向后延伸并抬跟。",
+        "可追踪前腿从收腿到向前伸展、后腿从支撑末端到蹬离的关系，靴尖都指向屏左或自然向下，无横向外八字或膝踝反折。"
+      ],
+      "mustRedraw": false,
+      "reason": "相邻姿态有可辨的向前伸腿与向后蹬离关系；现图保留。"
+    },
+    {
+      "frames": [
+        16,
+        1
+      ],
+      "verdict": "retain_user_accepted_not_reopened",
+      "observations": [
+        "本轮只读取两帧当前SHA，尚未重新打开完整原图时收到用户认可并停止扩大检查的指令。"
+      ],
+      "mustRedraw": false,
+      "reason": "保留用户认可版本；不为此补写未实际执行的本轮视觉/动态结论。"
+    }
+  ],
+  "finalDecision": "保留所有当前帧，审计到此冻结。未宣告正常速度/慢速动态、客户端接入或全套动画通过。"
+}
