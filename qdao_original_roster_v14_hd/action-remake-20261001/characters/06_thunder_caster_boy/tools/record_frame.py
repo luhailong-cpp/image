@@ -19,6 +19,7 @@ def main():
  ap.add_argument("--action"); ap.add_argument("--direction"); ap.add_argument("--frame",type=int)
  ap.add_argument("--review",default="pending")
  ap.add_argument("--generated-at")
+ ap.add_argument("--references",help="JSON array of actual reference paths and roles")
  args=ap.parse_args()
  source=Path(args.source); dest=safe(ROOT/"work"/(args.stem+".png"))
  dest.parent.mkdir(parents=True,exist_ok=True)
@@ -30,12 +31,17 @@ def main():
  ("qdao_original_roster_v14_hd/recovery-20260921/06-final/runtime/idle/W.png","west camera/proportions"),
  ("designs/jubaozhai-ui/02-characters.png","approved primary painted style")]
  refs=[{"path":str(REPO/p),"role":role,"sha256":sha(REPO/p)} for p,role in refs]
+ if args.references:
+  refs=json.loads(Path(args.references).read_text(encoding="utf-8-sig"))
+  refs=[{**r,"sha256":sha(Path(r["path"]))} for r in refs]
  raw=dest.read_bytes()
  strings=[s.decode("ascii",errors="replace") for s in re.findall(rb"[ -~]{8,}",raw[:100000]) if b"gpt-image" in s or b"ChatGPT" in s or b"2026-10" in s]
  try: now=datetime.now(ZoneInfo("America/New_York")).isoformat()
  except Exception: now=datetime.now(timezone.utc).isoformat()
+ times=re.findall(rb"20[0-9]{2}-[0-9]{2}-[0-9]{2}T[0-9:.]+Z",raw[:100000])
+ actual_time=args.generated_at or (times[0].decode() if times else None)
  record={"schema_version":1,"file":str(dest.relative_to(ROOT)).replace("\\","/"),"sha256":sha(dest),
- "generatedAt":args.generated_at,"recordedAt":now,"width":im.width,"height":im.height,"format":im.format,"mode":im.mode,
+ "generatedAt":actual_time,"recordedAt":now,"width":im.width,"height":im.height,"format":im.format,"mode":im.mode,
  "native":{"width":im.width,"height":im.height,"perFrameWidth":im.width,"perFrameHeight":im.height},
  "tool":"image_gen.imagegen","route":"builtin","configSnapshot":json.loads((REPO/"config/image-generation.json").read_text(encoding="utf-8-sig")),
  "submittedParameters":{"model":None,"quality":None,"transparent_background":True,"referenced_image_paths":[r["path"] for r in refs]},
@@ -57,7 +63,7 @@ def main():
   "native":record["native"],"operation":"Full canvas uniform Lanczos downsample to 1024; no cropping, mirroring, warping or per-frame bbox alignment",
   "actualModel":None,"actualQuality":None,"unverifiedReason":record["unverifiedReason"],"visualReview":args.review,
   "anchor":{"type":"provisional fixed virtual ground/root","x":512,"y":942,"normalizedUnityPivot":[0.5,0.08],"verified":False},
-  "generatedAt":args.generated_at}
+  "generatedAt":actual_time}
   out.with_name(out.name+".generation.json").write_text(json.dumps(derived,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
   record["exported"]=True; record["exportPath"]=out.relative_to(ROOT).as_posix()
   rec.write_text(json.dumps(record,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")

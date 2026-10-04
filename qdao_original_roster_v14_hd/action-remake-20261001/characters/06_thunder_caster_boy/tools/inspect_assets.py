@@ -22,12 +22,13 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 SPECS = {
-    "run": {"directions": ("N", "NE", "E", "SE", "S", "SW", "W", "NW"), "count": 16, "duration_ms": 30},
+    "run": {"directions": ("N", "NE", "E", "SE", "S", "SW", "W", "NW"), "count": 16, "duration_ms": 75},
     "hit": {"directions": ("E", "W"), "count": 6, "duration_ms": 40},
     "attack": {"directions": ("E", "W"), "count": 12, "duration_ms": 30},
     "cast": {"directions": ("E", "W"), "count": 16, "duration_ms": 45},
 }
 NATIVE_KEYS = {
+    "native",
     "nativesourcedimensions", "nativedimensions", "nativesize",
     "nativeframesize", "nativeframesizedimensions", "nativeinputsize",
     "nativeinputdimensions", "originaldimensions", "originalsize",

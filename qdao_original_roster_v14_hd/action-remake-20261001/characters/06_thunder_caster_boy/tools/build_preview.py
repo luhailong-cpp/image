@@ -14,11 +14,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from PIL import Image
+from current_review_state import current_review
 
 
 ROOT = Path(__file__).resolve().parents[1]
 SPECS = {
-    "run": {"label": "跑步", "directions": ["N", "NE", "E", "SE", "S", "SW", "W", "NW"], "count": 16, "duration_ms": 30},
+    "run": {"label": "跑步（1200ms / 圈）", "directions": ["N", "NE", "E", "SE", "S", "SW", "W", "NW"], "count": 16, "duration_ms": 75},
     "hit": {"label": "受击", "directions": ["E", "W"], "count": 6, "duration_ms": 40},
     "attack": {"label": "普攻", "directions": ["E", "W"], "count": 12, "duration_ms": 30},
     "cast": {"label": "施法", "directions": ["E", "W"], "count": 16, "duration_ms": 45},
@@ -80,6 +81,10 @@ def build_manifest(first_frame: int) -> dict:
                 "technical_ok_count": sum(frame["technical_ok"] for frame in frames),
                 "visual_approval": "unreviewed", "client_status": "not_integrated",
             })
+    review=current_review()
+    if review:
+        for sequence in sequences:
+            sequence['visual_approval']='current_frames_reviewed_offline'
     return {
         "schema_version": 1, "character_id": ROOT.name, "title": "06 雷法少年 · 动作预览",
         "generated_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
@@ -87,7 +92,8 @@ def build_manifest(first_frame: int) -> dict:
         "expected_total": sum(sequence["expected_count"] for sequence in sequences),
         "present_total": sum(sequence["present_count"] for sequence in sequences),
         "technical_ok_total": sum(sequence["technical_ok_count"] for sequence in sequences),
-        "visual_approval": "unreviewed", "client_status": "not_integrated",
+        "visual_approval": "current_frames_reviewed_offline" if review else "unreviewed", "client_status": "not_integrated",
+        "review_label": "手脚：当前帧已复核；离线播放已验证" if review else "手脚：复核中",
         "notes": ["只引用已存在的 runtime 帧；缺帧为空，不补帧、不复制、不镜像、不插值。", "技术检查通过不代表美术通过，原生输入分辨率与逐图来源需另行核实。", "预览保留整张画布，不按各帧包围盒缩放或贴地。", "当前未接入客户端。"],
         "sequences": sequences,
     }
@@ -100,7 +106,7 @@ HTML = r'''<!doctype html>
 :root{color-scheme:dark;font-family:system-ui,"Microsoft YaHei",sans-serif;background:#141b27;color:#e8eef4}*{box-sizing:border-box}body{margin:0;padding:24px}main{max-width:1280px;margin:auto}h1{font-size:25px;margin:0 0 8px}p{line-height:1.6;color:#b9c7d5}.status{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}.badge{border:1px solid #455367;padding:9px 13px;border-radius:8px}.layout{display:grid;grid-template-columns:minmax(300px,680px) minmax(270px,1fr);gap:24px}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}select,button{font:inherit;background:#263347;color:inherit;border:1px solid #53647b;border-radius:6px;padding:8px 12px;cursor:pointer}button:hover{background:#35465e}button:disabled{opacity:.4;cursor:default}.stage{position:relative;aspect-ratio:1;width:100%;background:repeating-conic-gradient(#344054 0 25%,#293344 0 50%) 50%/32px 32px;border:1px solid #58697e;overflow:hidden}.stage.light{background:repeating-conic-gradient(#f8f5eb 0 25%,#d2cfc4 0 50%) 50%/32px 32px}.stage img{position:absolute;width:100%;height:100%;object-fit:contain;inset:0}.stage img[hidden]{display:none}.empty{position:absolute;inset:0;display:grid;place-content:center;text-align:center;padding:25px;white-space:pre-line;background:#141b2788;color:white;font-size:20px}.empty[hidden]{display:none}.meta{white-space:pre-line;overflow-wrap:anywhere;line-height:1.6;font-size:14px;background:#1b2534;padding:14px;border-radius:8px}.frames{display:flex;flex-wrap:wrap;gap:5px;margin:12px 0}.frames button{font-size:13px;min-width:43px;padding:7px}.frames button.missing{color:#ffabb0;border-style:dashed}.frames button.issue{color:#ffd28c}.frames button.current{outline:3px solid #65d7d0;outline-offset:1px}table{border-collapse:collapse;width:100%;font-size:14px;margin-top:20px}td,th{border-bottom:1px solid #3e4b60;padding:10px 6px;text-align:left}tr{cursor:pointer}tr:hover{background:#263347}.warning{color:#ffd28c}.fine{color:#73dbc2}small{font-size:12px;color:#b9c7d5}.range{width:100%;margin-top:14px}a{color:#84dfd5}details{margin-top:20px}summary{cursor:pointer}footer{font-size:13px;color:#95a6b9;margin-top:25px}@media(max-width:850px){body{padding:14px}.layout{grid-template-columns:1fr}}
 </style></head><body><main>
 <h1>06 雷法少年 · 动作预览</h1>
-<p>固定整张画布展示。缺少的正式帧保持空缺；文件齐全与技术检查不代表美术验收通过。</p>
+<p>固定整张画布展示。缺帧保持空缺；文件齐全与技术检查不代表美术验收通过。跑步正常1×统一1200ms/圈，16帧各75ms；客户端速度未接入；可查看 <a href="timing-grounding-20261003/index.html">1200ms正常与慢放接地复核</a>。</p>
 <div class="status" id="totals"></div>
 <div class="layout"><section>
 <div class="controls"><label>动作 <select id="action"></select></label><label>方向 <select id="direction"></select></label></div>
@@ -120,7 +126,7 @@ const $=id=>document.getElementById(id);
 let sequence,slot=0,playing=false,lastTime=0,elapsed=0;
 const imageCache=new Map();
 function node(tag,text,cls){const n=document.createElement(tag);n.textContent=text;if(cls)n.className=cls;return n;}
-for(const text of [`已落盘 ${data.present_total} / ${data.expected_total}`,`技术通过 ${data.technical_ok_total} / ${data.expected_total}`,'美术：待验收','客户端：未接入']) $('totals').append(node('span',text,'badge'));
+for(const text of [`已落盘 ${data.present_total} / ${data.expected_total}`,`技术通过 ${data.technical_ok_total} / ${data.expected_total}`,data.review_label,'客户端：未接入']) $('totals').append(node('span',text,'badge'));
 const actionNames=new Map(data.sequences.map(s=>[s.action,s.label]));
 for(const [id,label] of actionNames){const option=node('option',label);option.value=id;$('action').append(option);}
 for(const note of data.notes)$('notes').append(node('li',note));
@@ -128,7 +134,7 @@ $('generated').textContent=`清单生成时间（UTC）：${data.generated_at_ut
 for(const item of data.sequences){const row=document.createElement('tr');row.tabIndex=0;row.append(node('td',`${item.label} ${item.direction}`),node('td',`${item.present_count} / ${item.expected_count}`,item.present_count===item.expected_count?'fine':'warning'),node('td',`${item.technical_ok_count}`));const select=()=>{$('action').value=item.action;setDirections(item.direction);};row.addEventListener('click',select);row.addEventListener('keydown',e=>{if(e.key==='Enter')select();});$('sequence-table').append(row);}
 function setDirections(preferred){$('direction').replaceChildren();for(const s of data.sequences.filter(s=>s.action===$('action').value)){const o=node('option',s.direction);o.value=s.direction;$('direction').append(o);}if([...$('direction').options].some(o=>o.value===preferred))$('direction').value=preferred;selectSequence();}
 function selectSequence(){sequence=data.sequences.find(s=>s.action===$('action').value&&s.direction===$('direction').value);slot=0;elapsed=0;$('timeline').max=sequence.expected_count-1;$('sequence-title').textContent=`${sequence.label} · ${sequence.direction}`;$('sequence-summary').textContent=`${sequence.duration_ms} ms / 帧 · ${sequence.cycle_ms} ms / 段；现有 ${sequence.present_count}/${sequence.expected_count}，技术通过 ${sequence.technical_ok_count}。缺帧：${sequence.missing.length?sequence.missing.map(n=>String(n).padStart(2,'0')).join('、'):'无'}${sequence.unexpected_files.length?'；规格外文件未播放：'+sequence.unexpected_files.join('、'):''}`;$('frames').replaceChildren();for(let i=0;i<sequence.expected_count;i++){const number=sequence.first_frame+i;const record=sequence.frames.find(f=>f.number===number);const b=node('button',String(number).padStart(2,'0'),!record?'missing':record.technical_ok?'':'issue');b.title=!record?'缺帧':record.issues.length?record.issues.join('；'):'技术检查通过，待美术验收';b.addEventListener('click',()=>{pause();slot=i;draw();});$('frames').append(b);}for(const frame of sequence.frames){if(!imageCache.has(frame.url)){const img=new Image();img.src=frame.url;imageCache.set(frame.url,img);}}if(!sequence.present_count)pause();$('play').disabled=!sequence.present_count;draw();}
-function draw(){const number=sequence.first_frame+slot;const frame=sequence.frames.find(f=>f.number===number);$('timeline').value=slot;[...$('frames').children].forEach((b,i)=>b.classList.toggle('current',i===slot));$('sprite').hidden=true;$('sprite').removeAttribute('src');$('empty').hidden=false;if(!frame){$('empty').textContent=`${sequence.label} ${sequence.direction} · ${String(number).padStart(2,'0')}\n缺帧 · 尚未导出`;$('frame-meta').textContent=`帧 ${slot+1} / ${sequence.expected_count}\n路径：runtime/${sequence.action}/${sequence.direction}/${String(number).padStart(2,'0')}.png\n此槽位为空，未生成替代图片。`;return;}$('sprite').src=frame.url;$('sprite').hidden=false;$('empty').hidden=true;$('frame-meta').textContent=`帧 ${slot+1} / ${sequence.expected_count} · 编号 ${String(number).padStart(2,'0')}\n${frame.width??'?'} × ${frame.height??'?'} · ${frame.mode??'无法识别'}\nAlpha 范围：${frame.alpha_extrema?.join('–')??'不可用'}\n${frame.technical_ok?'技术检查通过；美术待验收':'需处理：'+frame.issues.join('；')}\n路径：${frame.path}\nSHA-256：${frame.sha256??'不可用'}`;}
+function draw(){const number=sequence.first_frame+slot;const frame=sequence.frames.find(f=>f.number===number);$('timeline').value=slot;[...$('frames').children].forEach((b,i)=>b.classList.toggle('current',i===slot));if(!frame){$('sprite').hidden=true;$('sprite').removeAttribute('src');$('empty').hidden=false;$('empty').textContent=`${sequence.label} ${sequence.direction} · ${String(number).padStart(2,'0')}\n缺帧 · 尚未导出`;$('frame-meta').textContent=`帧 ${slot+1} / ${sequence.expected_count}\n路径：runtime/${sequence.action}/${sequence.direction}/${String(number).padStart(2,'0')}.png\n此槽位为空，未生成替代图片。`;return;}$('sprite').src=frame.url;$('sprite').hidden=false;$('empty').hidden=true;$('frame-meta').textContent=`帧 ${slot+1} / ${sequence.expected_count} · 编号 ${String(number).padStart(2,'0')}\n${frame.width??'?'} × ${frame.height??'?'} · ${frame.mode??'无法识别'}\nAlpha 范围：${frame.alpha_extrema?.join('–')??'不可用'}\n${frame.technical_ok?'技术检查通过；美术待验收':'需处理：'+frame.issues.join('；')}\n路径：${frame.path}\nSHA-256：${frame.sha256??'不可用'}`;}
 $('sprite').addEventListener('error',()=>{$('sprite').hidden=true;$('empty').hidden=false;$('empty').textContent='图片加载失败\n请重新生成清单，检查文件路径。';});
 function pause(){playing=false;$('play').textContent='播放';elapsed=0;}
 function step(delta){pause();slot=(slot+delta+sequence.expected_count)%sequence.expected_count;draw();}
