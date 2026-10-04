@@ -1,0 +1,49 @@
+{
+  "slot": "run-NE-15",
+  "action": "run",
+  "direction": "NE",
+  "frame": 15,
+  "requestedAt": "2026-10-04T13:34:11.282158+00:00",
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-01",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  },
+  "submittedParameters": {
+    "model": null,
+    "quality": null,
+    "prompt": "Use case: precise-object-edit. Create ONE independent transparent RGBA 1024 square run/NE/15 sprite from image1 (unmodified16), with image2 as later01 and image3 the primary approved painting style. CRITICAL ANATOMY: preserve which leg comes from each shorts opening exactly as image1. The support LEFT thigh emerges from the SCREEN-LEFT shorts opening; this SAME leg extends down to planted boot on SCREEN LEFT of the raised other boot. The RIGHT thigh emerges from SCREEN-RIGHT shorts opening and folds back, showing its raised sole to camera near x655,y785. Do NOT swap legs or put the right-side thigh on the ground. Change only LEFT lower-leg stance subtly into earlier forward contact: LEFT ankle/boot slightly closer to pelvis than image1, about 35px to screen RIGHT and 25px upward relative to its existing boot, keeping boot to LEFT of the airborne right sole. Whole heel and forefoot rest on perspective ground, knee straight-but-soft and aligned to ankle, toe points upper-right into NE depth. Actual new independent anatomical pose for15, not identical16. Preserve head, hair, body, arms, complete left-hand long bamboo bow, empty right hand, right-shoulder quiver, upper body/root/camera/scale exactly. No overall translation, limb mirroring or interchange, extra limbs, floor, shadow, effects, text or background. Real transparency and high-finish ivory green gold chibi painting.",
+    "referenced_image_paths": [
+      "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/09_bamboo_archer_girl/runtime/run/NE/16.png",
+      "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/09_bamboo_archer_girl/runtime/run/NE/01.png",
+      "D:/work/image/designs/jubaozhai-ui/02-characters.png"
+    ],
+    "transparent_background": true
+  },
+  "referenceMetadata": [
+    {
+      "path": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/09_bamboo_archer_girl/runtime/run/NE/16.png",
+      "sha256": "f6fdac0d6598f63f872f03d4de887fe08de28d4e7b651bb1f66b59fd911248df",
+      "role": "edit_target"
+    },
+    {
+      "path": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/09_bamboo_archer_girl/runtime/run/NE/01.png",
+      "sha256": "deb11da64c4254d7af1e6ed41150ba4d32514a348c32b6ad781974547d2222a0",
+      "role": "pose_or_approved_style"
+    },
+    {
+      "path": "D:/work/image/designs/jubaozhai-ui/02-characters.png",
+      "sha256": "7a95140fc3c7a0ae6562ec6dff51d5296edd15116375152a8b22502c7107e879",
+      "role": "pose_or_approved_style"
+    }
+  ],
+  "repairReason": "修正本轮NE15首稿错误：模型交换了左右支撑腿。以未改NE16为解剖参考重新独立画15，左腿必须来自屏左裤管，右腿仍回收。"
+}
