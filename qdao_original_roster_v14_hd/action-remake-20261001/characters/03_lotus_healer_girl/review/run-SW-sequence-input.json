@@ -3,7 +3,7 @@
   "character": "03_lotus_healer_girl",
   "action": "run",
   "direction": "SW",
-  "updatedAt": "2026-10-04T01:05:36.451863-04:00",
+  "updatedAt": "2026-10-04T06:56:32.149142-04:00",
   "nativeRoot": [
     610,
     1171
@@ -102,16 +102,17 @@
     },
     {
       "slot": 4,
-      "source": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SW/04-v2.png",
-      "sourceSha256": "db469248b71bacba1b12eac6f45175a0bd234e02012193ed360ec55b768bb8b9",
+      "source": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SW/04-v3.png",
+      "sourceSha256": "ee2c863f76e8fb098ea5689bfd9a9c7b3de7c63bdc9a14339196058f7cda66aa",
       "durationMs": 75,
       "startMs": 225,
-      "observedPhase": "近左脚移至身体下方后段支撑，远右前膝通过；瓶前灯后",
+      "observedPhase": "近左后鞋降低脚跟，前后底面更完整，膝屈支撑；远右脚保持抬起",
       "observedSupportFoot": "left",
-      "contactType": "late_support",
+      "contactType": "rear_flat_loaded_support",
       "isFlight": false,
       "issues": [
-        "错手04-v1已拒；本帧正确近左瓶/远右灯，但双臂比03提前到反向极值，头向左上漂"
+        "头脸较目标略向左移约30px、头顶43→39；非程序平移",
+        "支撑鞋底1207→1197（10px），上身比例和完整人物保持"
       ],
       "visualAccepted": false,
       "nativeCanvas": [
@@ -119,12 +120,14 @@
         1254
       ],
       "alphaGt8Bounds": [
-        134,
-        43,
-        1237,
-        1208
+        96,
+        39,
+        1232,
+        1198
       ],
-      "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance."
+      "footAxisObservation": "鞋尖沿SW，与支撑小腿方向一致，未见明确外翻",
+      "supportPosition": "rear",
+      "supportReview": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SW/04-v3.review.json"
     },
     {
       "slot": 5,
@@ -310,16 +313,17 @@
     },
     {
       "slot": 12,
-      "source": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SW/12-v2.png",
-      "sourceSha256": "8766c3dfb84b134244f5229f7abef0e7d02f96483e7f6dd023ceacaf6734b206",
+      "source": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SW/12-v3.png",
+      "sourceSha256": "90617c83b22290375f2030bc2a5727af0596054f9c86d93ec0722672987528bd",
       "durationMs": 75,
       "startMs": 825,
-      "observedPhase": "远右后腿伸下支撑、近左前膝屈曲，前鞋回收",
+      "observedPhase": "远右后脚鞋跟降低、底面更平，屈膝踝承重；近左抬脚保留",
       "observedSupportFoot": "right",
-      "contactType": "rear_support",
+      "contactType": "rear_flat_loaded_support",
       "isFlight": false,
       "issues": [
-        "后支撑腿已实际伸下、前脚收起；底1201，12→13后脚移位仍大"
+        "鞋底1201→1198（3px），头顶71→68；原帧边缘余量小仍保留",
+        "11→12后支撑推进较大；本次仅改支撑腿"
       ],
       "visualAccepted": false,
       "nativeCanvas": [
@@ -327,12 +331,14 @@
         1254
       ],
       "alphaGt8Bounds": [
-        19,
-        71,
+        20,
+        68,
         1246,
-        1202
+        1199
       ],
-      "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance."
+      "footAxisObservation": "鞋尖沿SW，未见明确膝踝外翻",
+      "supportPosition": "rear",
+      "supportReview": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SW/12-v3.review.json"
     },
     {
       "slot": 13,
@@ -606,5 +612,57 @@
       "type": "left_contact_roll",
       "timeMs": 1125
     }
-  ]
+  ],
+  "stanceAudit": {
+    "reviewedAt": "2026-10-04T06:56:32.149142-04:00",
+    "interpretation": "current provisional reading: front 01/09; middle 02/03/10/11; rear04/12; four consecutive stance images per foot",
+    "stanceRuns": [
+      {
+        "slots": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "durationMs": 300,
+        "foot": "left"
+      },
+      {
+        "slots": [
+          9,
+          10,
+          11,
+          12
+        ],
+        "durationMs": 300,
+        "foot": "right"
+      }
+    ],
+    "actualGroundedPoseRuns": [
+      [
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        9,
+        10,
+        11,
+        12
+      ]
+    ],
+    "basis": "visible low planted outsole, knee/ankle load chain and opposite folded leg; no relabeling of flight as support",
+    "rearSupportEdits": [
+      4,
+      12
+    ],
+    "exactlyEightGroundedFramesAccepted": false,
+    "spatialDistributionAccepted": false,
+    "remaining": [
+      "02/03/10 early-middle spatial progression is modest and needs full sequence comparison",
+      "SW15/16 retain actual early contact and cannot be counted as flight"
+    ],
+    "visualAccepted": false
+  }
 }
