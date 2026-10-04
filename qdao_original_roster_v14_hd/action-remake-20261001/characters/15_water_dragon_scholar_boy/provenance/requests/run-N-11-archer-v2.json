@@ -1,0 +1,69 @@
+{
+  "key": "run-N-11-archer-v2",
+  "startedAt": "2026-10-04T03:39:28.788Z",
+  "configuredTarget": {
+    "model": "GPT Image 2.5 Sunburst",
+    "quality": "max"
+  },
+  "actualModel": null,
+  "actualQuality": null,
+  "supersedes": {
+    "file": "runtime/run/N/11.png",
+    "sha256": "566d89587042017716021c95b1d00a5e69ebbd6bf30d8245b403ebb5267c588a",
+    "source": "sources/new/run-N-11-v2.png",
+    "sourceSHA256": "e6e927cd84208e49c1e47008200a17833c4aab4b5607738d972e5d1ca2ced831",
+    "generationRecord": "provenance/generation/run-N-11-v2.json",
+    "derivedRecord": "provenance\\derived\\run-N-11.json"
+  },
+  "retainedTransform": {
+    "kind": "uniform_whole_canvas_downsample",
+    "nativeCanvas": [
+      1254,
+      1254
+    ],
+    "outputCanvas": [
+      1024,
+      1024
+    ],
+    "factor": 0.7496012759170654,
+    "offset": [
+      42,
+      49
+    ],
+    "scaledWholeCanvas": [
+      940,
+      940
+    ],
+    "alphaCleanup": "source alpha <= 8 set to 0 uniformly; no anatomy editing",
+    "coordinateSystem": {
+      "canvas": [
+        1024,
+        1024
+      ],
+      "root": [
+        512,
+        942
+      ],
+      "note": "沿用旧run manifest整组固定变换：1254原画归一为940，放置(42,49)，虚拟地面源1191→目标942；不按单帧最低脚或包围盒调整。当前为静态候选接续，完整动画根点待逐组连播验收。",
+      "reviewedBy": "root",
+      "reviewedAt": "2026-10-02T15:26:17.781Z"
+    },
+    "bboxUsedForTransform": false,
+    "perFrameGroundAlignment": false,
+    "poseSynthesis": false,
+    "filter": "Pillow LANCZOS; fixed whole-canvas transform retained from prior run manifest"
+  },
+  "submittedParameters": {
+    "prompt": "Use case: precise-object-edit. Image1 exact1254x1254 BACK/NORTH run frame11 of water-dragon scholar. Repair ONLY anatomical RIGHT shoulder-elbow-wrist and held fan at screenRIGHT so its running swing smoothly rises from the lower backward fan in image5(previousN10) toward its next shoulder-side position. Current target right fan arm extends sideways too far like casting. Bend right elbow closer to ribs; redraw wrist/hand a little lower and inward from current target, aboutsource x950,y680. Fan pivot is securely in that RIGHT hand and fan face is at a diagonal intermediate angle, halfway from downward/side fan(image5) toward shoulder-height. Do not stick arm horizontally sideways. Keep ONE fan and original grip anatomy. Preserve LEFT empty hand exactly, both legs/boots, head/torso/hip position, bun/tassels/robe motion and original canvas scale. Image2 CURRENT09 N03 archer illustrates compact shoulder/elbow front-back running plane ONLY: do NOT copy its left-hand bow or change scholar handedness. Image3 identity and image4 paint finish. Image5 arm arc reference ONLY, never its legs or whole pose. Transparent native1254square. No effects/ground/shadow/text. No global translation/rescale/recenter, no mirror/paste. Only the right arm and fan need the local pose adjustment.",
+    "referenced_image_paths": [
+      "C:\\Users\\luyua\\.codex\\generated_images\\01a100fc-6eae-77c0-96db-3a48a9fe0aa0\\exec-5d5e81b5-1333-4954-9ad8-9b8489555884.png",
+      "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/09_bamboo_archer_girl/runtime/run/N/03.png",
+      "D:/work/image/q_daoist_character_pack_4096/15_water_dragon_scholar_boy_transparent_4096.png",
+      "D:/work/image/designs/jubaozhai-ui/02-characters.png",
+      "C:\\Users\\luyua\\.codex\\generated_images\\01a100fc-6eae-77c0-96db-3a48a9fe0aa0\\exec-20d54a14-6ffe-4243-9d8e-191618fc2646.png"
+    ],
+    "transparent_background": true
+  },
+  "retryOf": "run-N-11-archer-v1",
+  "retryReason": "Host input validation: referenced_image_paths supports at most5, reduce6to5 and retain target,09reference,identity,style,previousN10."
+}
