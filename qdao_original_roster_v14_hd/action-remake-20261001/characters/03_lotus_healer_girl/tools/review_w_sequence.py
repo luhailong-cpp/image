@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw
 import hashlib,json,datetime
 B=Path(__file__).resolve().parents[1]
 G=B/'generation'/'W'; R=B/'review'; R.mkdir(exist_ok=True)
-choices=['01-v1','02-v1','03-v1','04-v1','05-v1','06-v2','08-v5','07-v3','09-v2','10-v2','11-v2','12-v1','13-v1','14-v1','15-v1','16-v1']
+choices=['01-v1','02-v1','03-v1','04-v3','05-v1','06-v2','08-v5','07-v3','09-v2','10-v2','11-v2','12-v1','13-v1','14-v1','15-v1','16-v1']
 phases=[
 '近左前脚足跟接触，远右后脚折叠；瓶近后、灯远前',
 '近左前脚全掌承重，膝屈；远右脚仍在后方',

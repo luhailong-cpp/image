@@ -27,7 +27,12 @@ for action, direction, expected in GROUPS:
     inp = read(inp_path)
     if action == "run":
         inp["timing"] = dict(frameMs=RUN_FRAME_MS, trialCycleMs=RUN_CYCLE_MS, offlineDefaultCycleMs=RUN_CYCLE_MS, mode="uniform", selectedProductionCycleMs=None)
-        for source_frame in inp.get("frames", []): source_frame["durationMs"] = RUN_FRAME_MS
+        for source_frame in inp.get("frames", []):
+            source_frame["durationMs"] = RUN_FRAME_MS
+            if "startMs" in source_frame:
+                source_frame["startMs"] = (int(source_frame.get("frame", source_frame.get("slot")))-1)*RUN_FRAME_MS
+        if inp.get("contactEvents"):
+            inp["events"] = [dict(event, frame=event.get("frame",event.get("slot")), type=event.get("type",event.get("event")), timeMs=(int(event.get("frame",event.get("slot")))-1)*RUN_FRAME_MS) for event in inp["contactEvents"]]
         for event in inp.get("events", []):
             number = event.get("frame", event.get("slot"))
             if number:

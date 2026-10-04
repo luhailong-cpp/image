@@ -3,7 +3,7 @@
   "character": "03_lotus_healer_girl",
   "action": "run",
   "direction": "SE",
-  "updatedAt": "2026-10-04T01:05:36.451863-04:00",
+  "updatedAt": "2026-10-04T02:45:11.499276-04:00",
   "nativeRoot": [
     730,
     1181
@@ -102,17 +102,19 @@
     },
     {
       "slot": 4,
-      "source": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SE/04-v2.png",
-      "sourceSha256": "f9c6add1b0432a40cb9eecf631925c99bc9ee31584085aca98b8942ba5dde17a",
+      "source": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SE/04-v3.png",
+      "sourceSha256": "2590b1901d0baa78c4faae82fcc5ba6eb93d87aa1c5c7e8c596bfab1fb91ab56",
       "durationMs": 75,
       "startMs": 225,
-      "observedPhase": "近右脚移至身体下方后段支撑，远左膝通过；灯到髋侧",
+      "observedPhase": "近右脚回到身下后段支撑、膝稍屈且鞋尖沿SE；远左膝前驱脚折起；近右灯手从05前极值收回髋前，远左瓶仍在后",
       "observedSupportFoot": "right",
       "contactType": "late_support",
       "isFlight": false,
       "issues": [
-        "支撑底1153与邻帧差距较大；04→05灯从髋侧到前极值跨度大",
-        "躯干更正面，前景灯袖近远肩归属有歧义，尚未独立确认，不能仅凭道具不变断言解剖持手正确"
+        "近右支撑鞋实际约x545、底1209；比05的后足底1152低57px，地面锁定仍未整圈通过",
+        "远左摆动鞋最低约1138，回收高度低于请求，但与支撑鞋有明确高度差",
+        "头顶45比来源05的63上移18px，未作程序移动补偿；细微注册不作为本次拒绝理由",
+        "右灯手已收回至髋前，灯体仍偏前；03→04的前后摆切换仍有跨度，需全圈验收"
       ],
       "visualAccepted": false,
       "nativeCanvas": [
@@ -120,10 +122,10 @@
         1254
       ],
       "alphaGt8Bounds": [
-        163,
-        60,
-        1150,
-        1154
+        159,
+        45,
+        1196,
+        1210
       ],
       "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance."
     },
@@ -285,16 +287,16 @@
     },
     {
       "slot": 11,
-      "source": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SE/11-v2.png",
-      "sourceSha256": "fd211eeb439db08fce222d8d6e079fbaaa6e5e846842c76084b663fc7d666987",
+      "source": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SE/11-v3.png",
+      "sourceSha256": "711711a1751a5b0d3e67d7ab4647fdce06ea4ec8243029b4254b82c0b6c5328e",
       "durationMs": 75,
       "startMs": 750,
-      "observedPhase": "远左脚移向身体下方承重、近右膝通过；手臂仍接近前后极值",
+      "observedPhase": "远左脚在身体下方承重、近右膝通过；近右灯臂屈肘回髋侧，远左瓶回胸前中间位",
       "observedSupportFoot": "left",
       "contactType": "mid_support",
       "isFlight": false,
       "issues": [
-        "裸膝已修为完整白裤；头顶19比相邻约60上移约40px；灯仍在前极值"
+        "保持完整白裤，头顶恢复59与邻帧约60一致；灯前极值改为髋侧中间位，支撑底仍约1219"
       ],
       "visualAccepted": false,
       "nativeCanvas": [
@@ -302,9 +304,9 @@
         1254
       ],
       "alphaGt8Bounds": [
-        142,
-        19,
-        1187,
+        83,
+        59,
+        1146,
         1220
       ],
       "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance."
@@ -509,5 +511,89 @@
     "offlineDefaultCycleMs": 1200,
     "mode": "uniform",
     "selectedProductionCycleMs": null
-  }
+  },
+  "latestSE04Update": "04-v3 from correct05-v1 shoulder source; 1 targeted builtin call, one-sided support and correct arms improved; registration remains WIP",
+  "events": [
+    {
+      "slot": 1,
+      "atMs": 0,
+      "event": "right_heel_contact",
+      "basis": "actual selected pose, provisional static reading",
+      "frame": 1,
+      "type": "right_heel_contact",
+      "timeMs": 0
+    },
+    {
+      "slot": 2,
+      "atMs": 75,
+      "event": "right_flat_load",
+      "basis": "actual selected pose, provisional static reading",
+      "frame": 2,
+      "type": "right_flat_load",
+      "timeMs": 75
+    },
+    {
+      "slot": 5,
+      "atMs": 300,
+      "event": "right_forefoot_push_pose",
+      "basis": "actual selected pose, provisional static reading",
+      "frame": 5,
+      "type": "right_forefoot_push_pose",
+      "timeMs": 300
+    },
+    {
+      "slot": 6,
+      "atMs": 375,
+      "event": "right_foot_off",
+      "basis": "actual selected pose, provisional static reading",
+      "frame": 6,
+      "type": "right_foot_off",
+      "timeMs": 375
+    },
+    {
+      "slot": 9,
+      "atMs": 600,
+      "event": "left_heel_contact",
+      "basis": "actual selected pose, provisional static reading",
+      "frame": 9,
+      "type": "left_heel_contact",
+      "timeMs": 600
+    },
+    {
+      "slot": 10,
+      "atMs": 675,
+      "event": "left_flat_load",
+      "basis": "actual selected pose, provisional static reading",
+      "frame": 10,
+      "type": "left_flat_load",
+      "timeMs": 675
+    },
+    {
+      "slot": 12,
+      "atMs": 825,
+      "event": "left_rear_support",
+      "basis": "actual selected pose, provisional static reading",
+      "frame": 12,
+      "type": "left_rear_support",
+      "timeMs": 825
+    },
+    {
+      "slot": 13,
+      "atMs": 900,
+      "event": "left_foot_off",
+      "basis": "actual selected pose, provisional static reading",
+      "frame": 13,
+      "type": "left_foot_off",
+      "timeMs": 900
+    },
+    {
+      "slot": 17,
+      "atMs": 1200,
+      "event": "next_cycle_right_heel_contact",
+      "basis": "actual selected pose, provisional static reading",
+      "frame": 17,
+      "type": "next_cycle_right_heel_contact",
+      "timeMs": 1200
+    }
+  ]
 }

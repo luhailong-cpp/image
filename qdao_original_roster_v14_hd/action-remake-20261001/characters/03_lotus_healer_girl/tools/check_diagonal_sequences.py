@@ -2,11 +2,7 @@ from pathlib import Path
 from PIL import Image
 import json,hashlib,datetime
 B=Path(__file__).resolve().parents[1];R=B/'review'
-note='躯干更正面，前景灯袖近远肩归属有歧义，尚未独立确认，不能仅凭道具不变断言解剖持手正确'
-p=R/'run-SE-sequence-input.json';j=json.loads(p.read_text(encoding='utf-8'));j['frames'][3]['issues'].append(note);p.write_text(json.dumps(j,ensure_ascii=False,indent=2),encoding='utf-8')
-p=R/'run-SE-04-selected-review.json';j=json.loads(p.read_text(encoding='utf-8'));j['issues'].append(note);p.write_text(json.dumps(j,ensure_ascii=False,indent=2),encoding='utf-8')
-p=B/'generation/SE/04-v2.review.json';j=json.loads(p.read_text(encoding='utf-8'));j['issues'].append(note);p.write_text(json.dumps(j,ensure_ascii=False,indent=2),encoding='utf-8')
-p=B/'generation/SE/04-v2.png.generation.json';j=json.loads(p.read_text(encoding='utf-8'));j['review']['issues'].append(note);p.write_text(json.dumps(j,ensure_ascii=False,indent=2),encoding='utf-8')
+# Read current selection only; never mutate selected frame issues during verification.
 proof=dict(checkedAt=datetime.datetime.now().astimezone().isoformat(),visualAccepted=False,clientTested=False,directions={})
 for dr in ['SE','SW']:
  s=json.loads((R/f'run-{dr}-sequence-input.json').read_text(encoding='utf-8'));fs=s['frames'];assert len(fs)==16 and [x['slot'] for x in fs]==list(range(1,17));assert sum(x['durationMs'] for x in fs)==1200 and all(x['durationMs']==75 for x in fs)
