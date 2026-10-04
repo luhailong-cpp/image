@@ -1,0 +1,117 @@
+{
+  "file": "work/cast/cast-E-12-ground-v7-native.png",
+  "generatedAt": "2026-10-03T17:15:00.000-04:00",
+  "generationStartedAt": "2026-10-03 21:05:03 UTC",
+  "timeZone": "America/New_York",
+  "tool": "image_gen.imagegen",
+  "route": "builtin",
+  "intent": "independent pose repaint",
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-01",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  },
+  "submittedParameters": {
+    "model": null,
+    "quality": null,
+    "prompt": "Use case: precise-object-edit. Correct ONLY the lower body registration of edit target input1. Target's feet currently hover too high relative to fixed virtual ground: shoe soles around 876 on a1024square. REPAINT both pants legs below robe with more natural knee extension and longer lower-shin support, bringing BOTH soles down to y920 (90%height) without moving or scaling the upper body at all. Keep head crown hair face arms talisman bell torso robe hips in exactly target position and pixel size. Keep both knees naturally soft, no stretched rubber legs, and keep red-black-gold shoe proportions. Both shoes already correctly face SCREEN RIGHT with heel LEFT toe RIGHT; preserve these parallel axes, no V/outward splay. Do not zoom or resize character, do not shift entire cutout. Only redraw knee-shin-ankle-shoe chain to reach fixed support level, feet stay horizontally in same positions. Image2 portrait identity,3Eidleorientation,4styleonly,5E09 only demonstrates same camera virtual floor height, NOT its pose. Preserve exactly FIVE red cards and correct right fan/left bell unchanged. Single transparent RGBA square >=1024 native. No drawn floor/shadow/text/labels/glow/particles.",
+    "referenced_image_paths": [
+      "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/02_fire_talisman_boy/frames/cast/E/12.png",
+      "D:/work/image/q_daoist_character_pack_4096/02_fire_talisman_boy_transparent_4096.png",
+      "D:/work/image/qdao_original_roster_v13/candidate/02_fire_talisman_boy/idle/E.png",
+      "D:/work/image/designs/jubaozhai-ui/02-characters.png",
+      "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/02_fire_talisman_boy/frames/cast/E/09.png"
+    ],
+    "transparent_background": true
+  },
+  "actualModel": null,
+  "actualQuality": null,
+  "unverifiedReason": "宿主管理；工具无 model/quality 选择器，返回未披露实际版本/质量。",
+  "prompt": "prompts/cast-E-12-20261003-ground-v7.txt",
+  "references": [
+    {
+      "path": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/02_fire_talisman_boy/frames/cast/E/12.png",
+      "sha256": "92378923d89e0053325a1cb9ab6477b28f0823945bf7358904a81f595110fe6c",
+      "role": "当前脚向正确但下肢缩短导致鞋底偏高的待修图，固定头身大小"
+    },
+    {
+      "path": "D:/work/image/q_daoist_character_pack_4096/02_fire_talisman_boy_transparent_4096.png",
+      "sha256": "8df2760a5a80eb54ea21558abace8bcbaeca7f7ae6f64de022b6a8b1919c854a",
+      "role": "已实看权威身份，右手五红符左手铜铃"
+    },
+    {
+      "path": "D:/work/image/qdao_original_roster_v13/candidate/02_fire_talisman_boy/idle/E.png",
+      "sha256": "d88126e0e9bf28e5111af03ee2e45f1a8367f70fb53505375f2f1a8ef0353690",
+      "role": "已实看方向idle相机"
+    },
+    {
+      "path": "D:/work/image/designs/jubaozhai-ui/02-characters.png",
+      "sha256": "7a95140fc3c7a0ae6562ec6dff51d5296edd15116375152a8b22502c7107e879",
+      "role": "已实看主风格画法材质完成度，忽略UI内容"
+    },
+    {
+      "path": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/02_fire_talisman_boy/frames/cast/E/09.png",
+      "sha256": "8dc91c7352681e4f5bf8cb5c31de223e1704855be5ea12e4757f08ebe9a9c4f8",
+      "role": "已实看同相机E09地面约y920，仅虚拟地面参考不复制动作"
+    }
+  ],
+  "evidence": {
+    "receipt": "records/cast-E-12-20261003-ground-v7.receipt.json",
+    "hostOutput": "C:\\Users\\luyua\\.codex\\generated_images\\01a0fd04-92eb-7280-8802-ae6c0722cf70\\exec-88deaf51-4737-4e31-95af-744eccff5b97.png",
+    "submitted": "records/cast-E-12-20261003-ground-v7.submitted.json"
+  },
+  "visualQA": {
+    "status": "needs_hand_ownership_repair",
+    "reviewedAt": "2026-10-03T17:54:42.782472-04:00",
+    "method": "每次工具返回原图目视＋当前完整联系表＋32帧鞋部QA裁片；另复看E01/E09/W04/W11原尺寸图",
+    "singleFrameFindings": "两只鞋的跟到尖轴均朝屏幕右，未见明显V字/相反方向外撇；膝踝鞋连接可读。五张红符与左右持物归属已复核。 本轮重画小腿膝踝延伸至虚拟地面；未移动整张切图或按bbox贴地。",
+    "footAxisPassed": true,
+    "talismanCount": 5,
+    "dynamicPassed": false,
+    "registrationPassed": false,
+    "clientStatus": "not_integrated",
+    "handOwnershipPassed": false,
+    "correction": "独立复审确认E06-12胸襟正面展开时，近右肩接到屏左铃臂、远左肩接到屏右符臂，归属反转；撤销此前归属通过，需重画肩袖-肘腕链。脚向复查结论仍单独保留。"
+  },
+  "sha256": "7dcca7da9207fd8cf0f2927b5ae2d1560a579139ceb8f44863e72bf47aace383",
+  "width": 1254,
+  "height": 1254,
+  "format": "PNG",
+  "mode": "RGBA",
+  "technicalQA": {
+    "nativeSingleFrame": true,
+    "transparentPixels": 1163257,
+    "partialAlphaPixels": 408450,
+    "alphaBounds": [
+      19,
+      21,
+      1218,
+      1214
+    ]
+  },
+  "export": {
+    "file": "frames/cast/E/12.png",
+    "sha256": "4caac3c93851a5d63f8626f7e2191c76ec8ff30f448686b15dd8a4108672d41f",
+    "width": 1024,
+    "height": 1024,
+    "format": "PNG",
+    "mode": "RGBA",
+    "operation": "统一整画布由原生尺寸缩小为1024x1024，Pillow LANCZOS；无裁边、镜像、bbox缩放或逐帧贴地",
+    "derivedFrom": {
+      "file": "work/cast/cast-E-12-ground-v7-native.png",
+      "sha256": "7dcca7da9207fd8cf0f2927b5ae2d1560a579139ceb8f44863e72bf47aace383",
+      "native_size": [
+        1254,
+        1254
+      ]
+    }
+  }
+}

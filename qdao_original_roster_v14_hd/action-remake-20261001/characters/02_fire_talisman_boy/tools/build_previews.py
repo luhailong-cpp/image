@@ -15,9 +15,9 @@ sys.dont_write_bytecode = True
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "preview"
+OUTPUT = ROOT / "previews"
 SPECS = {
-    "run": (16, 30, ["N", "NE", "E", "SE", "S", "SW", "W", "NW"]),
+    "run": (16, 75, ["N", "NE", "E", "SE", "S", "SW", "W", "NW"]),
     "hit": (6, 40, ["E", "W"]),
     "attack": (12, 30, ["E", "W"]),
     "cast": (16, 45, ["E", "W"]),
@@ -80,6 +80,9 @@ def inspect_frame(entry: dict, index: int) -> dict:
         item["errors"].append("槽位为空：未生成，不创建占位图")
         return item
     path = local_path(str(value))
+    required_path = inside(ROOT / "frames" / action / direction / f"{number:02d}.png")
+    if path != required_path:
+        raise ValueError(f"条目 {index}: 正式帧只接受 frames/{action}/{direction}/{number:02d}.png")
     item["path"] = path.relative_to(ROOT).as_posix()
     if path.suffix.lower() != ".png" or not path.is_file():
         item["errors"].append("未找到指定 PNG")
@@ -160,7 +163,9 @@ def make_card(item: dict, sequence: dict, anchor: list[float] | None) -> Image.I
 
 def make_animations(sequence: dict, anchor: list[float] | None) -> dict:
     available = sequence["available"]
-    if not available:
+    # Incomplete sets remain inspectable in HTML, where every missing slot is
+    # retained in the timeline. Never compress an incomplete set into a GIF.
+    if not sequence["complete"]:
         for speed in ["normal", "slow"]:
             stale = inside(OUTPUT / f"{sequence['action']}-{sequence['direction']}-{speed}.gif", OUTPUT)
             if stale.is_file():
@@ -173,7 +178,7 @@ def make_animations(sequence: dict, anchor: list[float] | None) -> dict:
         exact = [sequence["frame_ms"] * factor for _ in cards]
         rounded = gif_durations(exact)
         # Frame label differs even for identical pixels; GIF does not conceal duplicates.
-        path = base.with_name(base.name + f"-{speed}.gif")
+        path = inside(base.with_name(base.name + f"-{speed}.gif"), OUTPUT)
         cards[0].save(path, save_all=True, append_images=cards[1:], duration=rounded,
                       loop=0, disposal=2, optimize=False)
         with Image.open(path) as reopened:
@@ -190,15 +195,15 @@ def make_animations(sequence: dict, anchor: list[float] | None) -> dict:
 HTML = r'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>02 火符少年 · 逐帧动作验收</title><style>
 body{margin:0;background:#10202d;color:#eef3f7;font:15px system-ui,"Microsoft YaHei",sans-serif}main{max-width:1250px;margin:auto;padding:24px}h1{font-size:24px}button,select{font:inherit;background:#263d50;color:white;border:1px solid #657d8e;border-radius:6px;padding:8px;margin:3px;cursor:pointer}button.active{background:#ad541a}small,.note{color:#c8d4db}.layout{display:grid;grid-template-columns:minmax(300px,680px) minmax(260px,1fr);gap:24px}.stage{position:relative;aspect-ratio:1;background:repeating-conic-gradient(#d7dce2 0% 25%,#f0f3f5 0% 50%) 50%/32px 32px;overflow:hidden}.stage img{width:100%;height:100%;object-fit:contain;image-rendering:auto}.stage .empty{display:none;color:#562315;position:absolute;inset:0;place-items:center;font-weight:bold}.cross{position:absolute;color:#0077ba;pointer-events:none;transform:translate(-50%,-50%);font:22px monospace}.badge{padding:12px;background:#5e3617;border-radius:7px;margin:12px 0}.slots{display:flex;flex-wrap:wrap}.slots button{min-width:40px}.slots .missing{opacity:.5;border-style:dashed}.slots .pass{border-color:#5cac91}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#1c3040;padding:12px;font-size:12px}.timeline{width:100%}a{color:#8bceff}.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px}.summary button{text-align:left}@media(max-width:760px){.layout{grid-template-columns:1fr}main{padding:12px}}
-</style><main><h1>02 火符少年 · 动作验收</h1><p class="note">只展示清单中实际存在的图。缺帧显示文字空槽；不插值、不镜像、不重复补帧。固定全画布显示，根锚点仅作参考标记，不自动贴地。</p>
-<div id="total" class="badge"></div><div class="summary" id="summary"></div><div class="layout"><section><h2 id="title"></h2><div class="stage"><img id="frame" alt="当前实际动作帧"><div id="empty" class="empty"></div><div id="cross" class="cross">＋</div></div><div id="state" class="badge"></div><button id="normal">正常速度</button><button id="slow">慢速 ×4</button><button id="stop">暂停</button><button id="previous">上一槽</button><button id="next">下一槽</button><input id="slider" class="timeline" type="range" min="1" step="1"><div id="slots" class="slots"></div></section><aside><h2>来源与技术检查</h2><p class="note">技术通过不代表美术或动态验收通过。正常/慢速播放只跳转实际可加载帧；缺槽在序列下方和覆盖率中明确显示。</p><p id="links"></p><pre id="detail"></pre><p><a href="technical-report.json">完整技术审计 JSON</a></p></aside></div></main><script>
-const report=__REPORT__;let current=0,slot=1,timer=null,factor=1;const byId=x=>document.getElementById(x);const seq=()=>report.sequences[current];
+</style><main><h1>02 火符少年 · 动作验收</h1><p class="note">只展示清单中实际存在的图。缺帧显示文字空槽；不插值、不镜像、不重复补帧。固定全画布显示，根锚点仅作参考标记，不自动贴地。跑步正常1×为1200ms（每帧75ms）；慢放为4800ms。</p>
+<p><a href="run-grounding.html">八方向跑步 · 1200ms正常 / 慢放 / 逐帧</a></p><div id="total" class="badge"></div><div class="summary" id="summary"></div><div class="layout"><section><h2 id="title"></h2><div id="stage" class="stage"><img id="frame" alt="当前实际动作帧"><div id="empty" class="empty"></div><div id="cross" class="cross">＋</div></div><div><button id="bg-checker">棋盘格</button><button id="bg-light">浅底</button><button id="bg-dark">深底</button></div><div id="state" class="badge"></div><button id="normal">正常速度</button><button id="slow">慢速 ×4</button><button id="stop">暂停</button><button id="previous">上一槽</button><button id="next">下一槽</button><input id="slider" class="timeline" type="range" min="1" step="1"><div id="slots" class="slots"></div></section><aside><h2>来源与技术检查</h2><p class="note">技术通过不代表美术或动态验收通过。正常/慢速均保留全部规格槽位与时长；缺帧时播放文字空槽，不跳帧、不复制上一帧。只有槽位齐全时生成 GIF；美术与动态验收另记。</p><p id="links"></p><pre id="detail"></pre><p><a href="technical-report.json">完整技术审计 JSON</a></p></aside></div></main><script>
+const report=__REPORT__;const preloadAll=report.sequences.flatMap(s=>s.available).map(f=>new Promise(resolve=>{const img=new Image();img.onload=()=>resolve(true);img.onerror=()=>resolve(false);img.src='../'+f.path.split('/').map(encodeURIComponent).join('/')+'?sha='+f.sha256}));let current=0,slot=1,timer=null,factor=1;const byId=x=>document.getElementById(x);const seq=()=>report.sequences[current];
 byId('total').textContent=`目标 ${report.target_frames} 帧；实际可预览 ${report.loadable_frames} 帧；技术通过 ${report.technical_pass_frames} 帧。${report.loadable_frames<report.target_frames?'本页为部分成果预览。':'库存已齐，仍需视觉及动态验收。'}`;
 report.sequences.forEach((s,i)=>{const b=document.createElement('button');b.textContent=`${s.action} ${s.direction}：${s.available.length}/${s.expected}`;b.onclick=()=>select(i);byId('summary').append(b)});
-function stop(){clearTimeout(timer);timer=null}
-function show(n){slot=n;const s=seq(),f=s.available.find(x=>x.frame===slot);byId('slider').value=slot;byId('state').textContent=`${s.complete?'库存齐全':'部分预览'} · 槽位 ${slot}/${s.expected} · 单帧 ${s.frame_ms}ms · 缺帧：${s.missing.join(', ')||'无'}`;byId('frame').style.visibility=f?'visible':'hidden';byId('empty').style.display=f?'none':'grid';byId('empty').textContent='此槽位未生成或 PNG 无法读取';if(f){byId('frame').src='../'+f.path.split('/').map(encodeURIComponent).join('/');byId('detail').textContent=JSON.stringify(f,null,2)}else{byId('frame').removeAttribute('src');byId('detail').textContent=JSON.stringify(s.entries.find(x=>x.frame===slot)||{action:s.action,direction:s.direction,frame:slot,status:'未生成；无占位图'},null,2)}Array.from(byId('slots').children).forEach((b,i)=>b.classList.toggle('active',i+1===slot))}
-function select(i){stop();current=i;const s=seq();byId('title').textContent=`${s.action} / ${s.direction}`;byId('slider').max=s.expected;byId('slots').replaceChildren();for(let n=1;n<=s.expected;n++){const f=s.available.find(x=>x.frame===n),b=document.createElement('button');b.textContent=String(n).padStart(2,'0');b.className=f?(f.technical_pass?'pass':''):'missing';b.onclick=()=>{stop();show(n)};byId('slots').append(b)}byId('links').replaceChildren();for(const [key,value] of Object.entries(s.animations)){const a=document.createElement('a');a.href=value.file;a.textContent=key==='normal'?'正常速度 GIF':'慢速 GIF';a.style.marginRight='12px';byId('links').append(a)}const a=report.root_anchor;byId('cross').style.display=a?'block':'none';if(a){byId('cross').style.left=(a[0]/1024*100)+'%';byId('cross').style.top=(a[1]/1024*100)+'%'}show(s.available[0]?.frame||1)}
-function tick(){const available=seq().available;if(!available.length)return;const index=available.findIndex(x=>x.frame===slot);show(available[(index+1)%available.length].frame);timer=setTimeout(tick,seq().frame_ms*factor)}function play(f){stop();factor=f;if(!seq().available.length)return;timer=setTimeout(tick,seq().frame_ms*factor)}byId('normal').onclick=()=>play(1);byId('slow').onclick=()=>play(4);byId('stop').onclick=stop;byId('previous').onclick=()=>{stop();show((slot+seq().expected-2)%seq().expected+1)};byId('next').onclick=()=>{stop();show(slot%seq().expected+1)};byId('slider').oninput=e=>{stop();show(+e.target.value)};select(0);
+let playbackStart=0,playbackSlot=1;function stop(){cancelAnimationFrame(timer);timer=null}
+function show(n){slot=n;const s=seq(),f=s.available.find(x=>x.frame===slot);byId('slider').value=slot;byId('state').textContent=`${s.complete?'库存齐全':'部分预览'} · 槽位 ${slot}/${s.expected} · 单帧 ${s.frame_ms}ms / 整段 ${s.duration_ms}ms · 缺帧：${s.missing.join(', ')||'无'}`;byId('frame').style.visibility=f?'visible':'hidden';byId('empty').style.display=f?'none':'grid';byId('empty').textContent='此槽位未生成或 PNG 无法读取';if(f){byId('frame').src='../'+f.path.split('/').map(encodeURIComponent).join('/')+'?sha='+f.sha256;byId('detail').textContent=JSON.stringify(f,null,2)}else{byId('frame').removeAttribute('src');byId('detail').textContent=JSON.stringify(s.entries.find(x=>x.frame===slot)||{action:s.action,direction:s.direction,frame:slot,status:'未生成；无占位图'},null,2)}Array.from(byId('slots').children).forEach((b,i)=>b.classList.toggle('active',i+1===slot))}
+function select(i){stop();current=i;const s=seq();byId('normal').textContent=s.action==='run'?'正常 1× · 1200ms':'正常速度';byId('title').textContent=`${s.action} / ${s.direction}`;byId('slider').max=s.expected;byId('slots').replaceChildren();for(let n=1;n<=s.expected;n++){const f=s.available.find(x=>x.frame===n),b=document.createElement('button');b.textContent=String(n).padStart(2,'0');b.className=f?(f.technical_pass?'pass':''):'missing';b.onclick=()=>{stop();show(n)};byId('slots').append(b)}byId('links').replaceChildren();for(const [key,value] of Object.entries(s.animations)){const a=document.createElement('a');a.href=value.file;a.textContent=key==='normal'?'正常速度 GIF':'慢速 GIF';a.style.marginRight='12px';byId('links').append(a)}const a=report.root_anchor;byId('cross').style.display=a?'block':'none';if(a){byId('cross').style.left=(a[0]/1024*100)+'%';byId('cross').style.top=(a[1]/1024*100)+'%'}show(s.available[0]?.frame||1)}
+function nextSlot(n,expected){return n%expected+1}function tick(now){const n=(playbackSlot-1+Math.floor((now-playbackStart)/(seq().frame_ms*factor)))%seq().expected+1;if(n!==slot)show(n);timer=requestAnimationFrame(tick)}async function play(f){stop();factor=f;const selected=current;await Promise.all(preloadAll);if(current===selected){playbackSlot=slot;playbackStart=performance.now();timer=requestAnimationFrame(tick)}}byId('bg-checker').onclick=()=>byId('stage').style.background='';byId('bg-light').onclick=()=>byId('stage').style.background='#f6f0e5';byId('bg-dark').onclick=()=>byId('stage').style.background='#182331';byId('normal').onclick=()=>play(1);byId('slow').onclick=()=>play(4);byId('stop').onclick=stop;byId('previous').onclick=()=>{stop();show((slot+seq().expected-2)%seq().expected+1)};byId('next').onclick=()=>{stop();show(slot%seq().expected+1)};byId('slider').oninput=e=>{stop();show(+e.target.value)};select(Math.max(0,report.sequences.findIndex(s=>s.available.length)));
 </script></html>'''
 
 
@@ -225,7 +230,7 @@ def build(manifest_path: Path, anchor_override: list[float] | None) -> dict:
         if len(hashes.get(item.get("sha256", ""), [])) > 1:
             item["errors"].append("多个槽位 SHA256 完全相同，不得以复制帧充数")
             item["technical_pass"] = False
-    OUTPUT.mkdir(parents=True, exist_ok=True)
+    inside(OUTPUT).mkdir(parents=True, exist_ok=True)
     sequences = []
     for action, (expected, ms, directions) in SPECS.items():
         for direction in directions:
@@ -233,7 +238,8 @@ def build(manifest_path: Path, anchor_override: list[float] | None) -> dict:
             available = [x for x in subset if x["loadable"]]
             missing = [n for n in range(1, expected+1) if not any(x["frame"] == n for x in available)]
             sequence = {"action": action, "direction": direction, "expected": expected,
-                        "frame_ms": ms, "complete": not missing, "missing": missing,
+                        "frame_ms": ms, "duration_ms": expected * ms,
+                        "complete": not missing, "missing": missing,
                         "entries": subset, "available": available}
             sequence["animations"] = make_animations(sequence, anchor)
             sequences.append(sequence)
@@ -248,8 +254,11 @@ def build(manifest_path: Path, anchor_override: list[float] | None) -> dict:
               "duplicate_sha256": {h:slots for h,slots in hashes.items() if len(slots)>1},
               "visual_review_note": "文件齐全、原生尺寸声明或 SHA 不同均不代表美术及动态通过；工具不自动判定视觉通过。",
               "sequences": sequences}
-    (OUTPUT / "technical-report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
-    (OUTPUT / "index.html").write_text(HTML.replace("__REPORT__", json.dumps(report, ensure_ascii=False).replace("<", "\\u003c")), encoding="utf-8")
+    inside(OUTPUT / "technical-report.json", OUTPUT).write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    inside(OUTPUT / "index.html", OUTPUT).write_text(HTML.replace("__REPORT__", json.dumps(report, ensure_ascii=False).replace("<", "\\u003c")), encoding="utf-8")
+    template = ROOT / "tools" / "run-grounding-template.html"
+    if template.is_file():
+        (OUTPUT / "run-grounding.html").write_text(template.read_text(encoding="utf-8"), encoding="utf-8")
     return report
 
 
@@ -263,7 +272,7 @@ def self_test() -> None:
     assert native_size({"native_size": [1024, 1536]}) == (1024, 1536)
     assert native_size({"native_width": 2048, "native_height": 2048}) == (2048, 2048)
     assert native_size({}) is None
-    assert inside(ROOT / "preview" / "example.png").parent == OUTPUT
+    assert inside(ROOT / "previews" / "example.png").parent == OUTPUT
     try:
         inside(ROOT.parent / "other_character.png")
     except ValueError:
@@ -297,3 +306,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
