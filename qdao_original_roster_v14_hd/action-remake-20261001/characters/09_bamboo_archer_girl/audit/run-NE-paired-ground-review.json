@@ -1,0 +1,559 @@
+{
+  "schemaVersion": 1,
+  "character": "09_bamboo_archer_girl",
+  "direction": "NE",
+  "reviewedAt": "2026-10-04T17:11:00.387515+00:00",
+  "reviewer": "finish_e_ne",
+  "status": "paired_contact_repairs_saved_pending_dynamic_and_strict_position_review",
+  "latestRequirement": "每支撑脚连续8张独立接触姿态，四个沿行进轴的空间位置，每处两帧；16×75ms=1200ms",
+  "timing": {
+    "frameMs": 75,
+    "frameCount": 16,
+    "cycleMs": 1200,
+    "slowFrameMs": 300
+  },
+  "supportOrder": {
+    "L": [
+      [
+        15,
+        16
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        6
+      ]
+    ],
+    "R": [
+      [
+        7,
+        8
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        11,
+        12
+      ],
+      [
+        13,
+        14
+      ]
+    ]
+  },
+  "supportContactFrames": {
+    "L": [
+      15,
+      16,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "R": [
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  "poseContactInferenceCount": {
+    "L": 8,
+    "R": 8
+  },
+  "worldSpaceContactValidated": false,
+  "coordinatesMethod": "人工视觉近似靴中心；允许约±20px误差；用于对比成对相对位置，非足底追踪、非物理地面标定。",
+  "spatialPairs": [
+    {
+      "supportFoot": "L",
+      "position": 1,
+      "phase": "前位落地",
+      "frames": [
+        15,
+        16
+      ],
+      "durationMs": 150,
+      "actualApproxBootCenters": [
+        [
+          607,
+          950
+        ],
+        [
+          633,
+          950
+        ]
+      ],
+      "meanX": 620.0,
+      "evidence": "按当前全尺寸靴形中心人工近似标注；本组相对前组沿屏左后移，后蹬跟部抬起。不是最低像素对齐，不是世界坐标。",
+      "sameFootRoots": "E按遮挡/裤口追踪；NE左侧裤口为L、右侧裤口为R；本轮已移除换腿根及多靴拒稿。",
+      "twoIndependentPoses": true
+    },
+    {
+      "supportFoot": "L",
+      "position": 2,
+      "phase": "近身承重",
+      "frames": [
+        1,
+        2
+      ],
+      "durationMs": 150,
+      "actualApproxBootCenters": [
+        [
+          548,
+          924
+        ],
+        [
+          550,
+          932
+        ]
+      ],
+      "meanX": 549.0,
+      "evidence": "按当前全尺寸靴形中心人工近似标注；本组相对前组沿屏左后移，后蹬跟部抬起。不是最低像素对齐，不是世界坐标。",
+      "sameFootRoots": "E按遮挡/裤口追踪；NE左侧裤口为L、右侧裤口为R；本轮已移除换腿根及多靴拒稿。",
+      "twoIndependentPoses": true
+    },
+    {
+      "supportFoot": "L",
+      "position": 3,
+      "phase": "身体经过",
+      "frames": [
+        3,
+        4
+      ],
+      "durationMs": 150,
+      "actualApproxBootCenters": [
+        [
+          470,
+          970
+        ],
+        [
+          510,
+          944
+        ]
+      ],
+      "meanX": 490.0,
+      "evidence": "按当前全尺寸靴形中心人工近似标注；本组相对前组沿屏左后移，后蹬跟部抬起。不是最低像素对齐，不是世界坐标。",
+      "sameFootRoots": "E按遮挡/裤口追踪；NE左侧裤口为L、右侧裤口为R；本轮已移除换腿根及多靴拒稿。",
+      "twoIndependentPoses": true
+    },
+    {
+      "supportFoot": "L",
+      "position": 4,
+      "phase": "后位蹬地",
+      "frames": [
+        5,
+        6
+      ],
+      "durationMs": 150,
+      "actualApproxBootCenters": [
+        [
+          398,
+          960
+        ],
+        [
+          398,
+          980
+        ]
+      ],
+      "meanX": 398.0,
+      "evidence": "按当前全尺寸靴形中心人工近似标注；本组相对前组沿屏左后移，后蹬跟部抬起。不是最低像素对齐，不是世界坐标。",
+      "sameFootRoots": "E按遮挡/裤口追踪；NE左侧裤口为L、右侧裤口为R；本轮已移除换腿根及多靴拒稿。",
+      "twoIndependentPoses": true
+    },
+    {
+      "supportFoot": "R",
+      "position": 1,
+      "phase": "前位落地",
+      "frames": [
+        7,
+        8
+      ],
+      "durationMs": 150,
+      "actualApproxBootCenters": [
+        [
+          739,
+          943
+        ],
+        [
+          752,
+          942
+        ]
+      ],
+      "meanX": 745.5,
+      "evidence": "按当前全尺寸靴形中心人工近似标注；本组相对前组沿屏左后移，后蹬跟部抬起。不是最低像素对齐，不是世界坐标。",
+      "sameFootRoots": "E按遮挡/裤口追踪；NE左侧裤口为L、右侧裤口为R；本轮已移除换腿根及多靴拒稿。",
+      "twoIndependentPoses": true
+    },
+    {
+      "supportFoot": "R",
+      "position": 2,
+      "phase": "近身承重",
+      "frames": [
+        9,
+        10
+      ],
+      "durationMs": 150,
+      "actualApproxBootCenters": [
+        [
+          690,
+          948
+        ],
+        [
+          733,
+          948
+        ]
+      ],
+      "meanX": 711.5,
+      "evidence": "按当前全尺寸靴形中心人工近似标注；本组相对前组沿屏左后移，后蹬跟部抬起。不是最低像素对齐，不是世界坐标。",
+      "sameFootRoots": "E按遮挡/裤口追踪；NE左侧裤口为L、右侧裤口为R；本轮已移除换腿根及多靴拒稿。",
+      "twoIndependentPoses": true
+    },
+    {
+      "supportFoot": "R",
+      "position": 3,
+      "phase": "身体经过",
+      "frames": [
+        11,
+        12
+      ],
+      "durationMs": 150,
+      "actualApproxBootCenters": [
+        [
+          620,
+          954
+        ],
+        [
+          672,
+          951
+        ]
+      ],
+      "meanX": 646.0,
+      "evidence": "按当前全尺寸靴形中心人工近似标注；本组相对前组沿屏左后移，后蹬跟部抬起。不是最低像素对齐，不是世界坐标。",
+      "sameFootRoots": "E按遮挡/裤口追踪；NE左侧裤口为L、右侧裤口为R；本轮已移除换腿根及多靴拒稿。",
+      "twoIndependentPoses": true
+    },
+    {
+      "supportFoot": "R",
+      "position": 4,
+      "phase": "后位蹬地",
+      "frames": [
+        13,
+        14
+      ],
+      "durationMs": 150,
+      "actualApproxBootCenters": [
+        [
+          585,
+          974
+        ],
+        [
+          592,
+          972
+        ]
+      ],
+      "meanX": 588.5,
+      "evidence": "按当前全尺寸靴形中心人工近似标注；本组相对前组沿屏左后移，后蹬跟部抬起。不是最低像素对齐，不是世界坐标。",
+      "sameFootRoots": "E按遮挡/裤口追踪；NE左侧裤口为L、右侧裤口为R；本轮已移除换腿根及多靴拒稿。",
+      "twoIndependentPoses": true
+    }
+  ],
+  "frames": [
+    {
+      "frame": 1,
+      "file": "runtime/run/NE/01.png",
+      "sha256": "deb11da64c4254d7af1e6ed41150ba4d32514a348c32b6ad781974547d2222a0",
+      "supportFoot": "L",
+      "position": 2,
+      "phase": "近身承重",
+      "approxSupportBootCenter1024": [
+        548,
+        924
+      ],
+      "inspection": "full-size current PNG or generated native result plus refreshed current contact",
+      "staticContactReading": "平底/跟前掌承重",
+      "staticStatus": "pose_contact_readable_pending_sequence_acceptance"
+    },
+    {
+      "frame": 2,
+      "file": "runtime/run/NE/02.png",
+      "sha256": "ffa95b71d0acecb233fcd93279f279e8b76d8171d93c2d9b61c7fb5ebe4f2fc3",
+      "supportFoot": "L",
+      "position": 2,
+      "phase": "近身承重",
+      "approxSupportBootCenter1024": [
+        550,
+        932
+      ],
+      "inspection": "full-size current PNG or generated native result plus refreshed current contact",
+      "staticContactReading": "平底/跟前掌承重",
+      "staticStatus": "pose_contact_readable_pending_sequence_acceptance"
+    },
+    {
+      "frame": 3,
+      "file": "runtime/run/NE/03.png",
+      "sha256": "8adea2f20873083b363c0096ac9a98b07edbc08f1a6c582c7e6ca5ed0de3c0cb",
+      "supportFoot": "L",
+      "position": 3,
+      "phase": "身体经过",
+      "approxSupportBootCenter1024": [
+        470,
+        970
+      ],
+      "inspection": "full-size current PNG or generated native result plus refreshed current contact",
+      "staticContactReading": "平底/跟前掌承重",
+      "staticStatus": "pose_contact_readable_pending_sequence_acceptance"
+    },
+    {
+      "frame": 4,
+      "file": "runtime/run/NE/04.png",
+      "sha256": "5280ee13b716f1a8fb8506d897fa5bb1de9f99d71b1b726575f910e44d2f0d62",
+      "supportFoot": "L",
+      "position": 3,
+      "phase": "身体经过",
+      "approxSupportBootCenter1024": [
+        510,
+        944
+      ],
+      "inspection": "full-size current PNG or generated native result plus refreshed current contact",
+      "staticContactReading": "平底/跟前掌承重",
+      "staticStatus": "pose_contact_readable_pending_sequence_acceptance"
+    },
+    {
+      "frame": 5,
+      "file": "runtime/run/NE/05.png",
+      "sha256": "95068d16fcf7aff2ae4107647fc1f2693281db409f2d500e60b88931219cc58a",
+      "supportFoot": "L",
+      "position": 4,
+      "phase": "后位蹬地",
+      "approxSupportBootCenter1024": [
+        398,
+        960
+      ],
+      "inspection": "full-size current PNG or generated native result plus refreshed current contact",
+      "staticContactReading": "前掌低位接触、脚跟抬起后蹬",
+      "staticStatus": "pose_contact_readable_pending_sequence_acceptance"
+    },
+    {
+      "frame": 6,
+      "file": "runtime/run/NE/06.png",
+      "sha256": "10ccddb405f74d660bece6889006bc5ac9c8541bdfe97892526411fef905835c",
+      "supportFoot": "L",
+      "position": 4,
+      "phase": "后位蹬地",
+      "approxSupportBootCenter1024": [
+        398,
+        980
+      ],
+      "inspection": "full-size current PNG or generated native result plus refreshed current contact",
+      "staticContactReading": "前掌低位接触、脚跟抬起后蹬",
+      "staticStatus": "pose_contact_readable_pending_sequence_acceptance"
+    },
+    {
+      "frame": 7,
+      "file": "runtime/run/NE/07.png",
+      "sha256": "f5bc205cccce25947ff54762f97128a9633d0aac794ed21fd386e07fdbe90bf8",
+      "supportFoot": "R",
+      "position": 1,
+      "phase": "前位落地",
+      "approxSupportBootCenter1024": [
+        739,
+        943
+      ],
+      "inspection": "full-size current PNG or generated native result plus refreshed current contact",
+      "staticContactReading": "平底/跟前掌承重",
+      "staticStatus": "pose_contact_readable_pending_sequence_acceptance"
+    },
+    {
+      "frame": 8,
+      "file": "runtime/run/NE/08.png",
+      "sha256": "0910b541230cf9688516203541127a5df14783d38841c2cc7d5002c643a75c86",
+      "supportFoot": "R",
+      "position": 1,
+      "phase": "前位落地",
+      "approxSupportBootCenter1024": [
+        752,
+        942
+      ],
+      "inspection": "full-size current PNG or generated native result plus refreshed current contact",
+      "staticContactReading": "平底/跟前掌承重",
+      "staticStatus": "pose_contact_readable_pending_sequence_acceptance"
+    },
+    {
+      "frame": 9,
+      "file": "runtime/run/NE/09.png",
+      "sha256": "8660def7fc4eaee30809523b027caea560bca988f95f8f2254cd1304f2c1cf36",
+      "supportFoot": "R",
+      "position": 2,
+      "phase": "近身承重",
+      "approxSupportBootCenter1024": [
+        690,
+        948
+      ],
+      "inspection": "full-size current PNG or generated native result plus refreshed current contact",
+      "staticContactReading": "平底/跟前掌承重",
+      "staticStatus": "pose_contact_readable_pending_sequence_acceptance"
+    },
+    {
+      "frame": 10,
+      "file": "runtime/run/NE/10.png",
+      "sha256": "83ff0d17becd60b6c9ff9a01e8332e56c7f6a2ed23495dcad7abaaa35b3f1c08",
+      "supportFoot": "R",
+      "position": 2,
+      "phase": "近身承重",
+      "approxSupportBootCenter1024": [
+        733,
+        948
+      ],
+      "inspection": "full-size current PNG or generated native result plus refreshed current contact",
+      "staticContactReading": "平底/跟前掌承重",
+      "staticStatus": "pose_contact_readable_pending_sequence_acceptance"
+    },
+    {
+      "frame": 11,
+      "file": "runtime/run/NE/11.png",
+      "sha256": "15a376b13cc0328da19e63f07a4ce0930711fcb3aa2912663315b99804ccacc2",
+      "supportFoot": "R",
+      "position": 3,
+      "phase": "身体经过",
+      "approxSupportBootCenter1024": [
+        620,
+        954
+      ],
+      "inspection": "full-size current PNG or generated native result plus refreshed current contact",
+      "staticContactReading": "平底/跟前掌承重",
+      "staticStatus": "pose_contact_readable_pending_sequence_acceptance"
+    },
+    {
+      "frame": 12,
+      "file": "runtime/run/NE/12.png",
+      "sha256": "fd3772d330d825bc7fd35b2aa47dc1f24de5c3467b5cc2a0119c228f8e197724",
+      "supportFoot": "R",
+      "position": 3,
+      "phase": "身体经过",
+      "approxSupportBootCenter1024": [
+        672,
+        951
+      ],
+      "inspection": "full-size current PNG or generated native result plus refreshed current contact",
+      "staticContactReading": "平底/跟前掌承重",
+      "staticStatus": "pose_contact_readable_pending_sequence_acceptance"
+    },
+    {
+      "frame": 13,
+      "file": "runtime/run/NE/13.png",
+      "sha256": "9d8fcbe0ef321fbaa061fa196daa4671616f5164a95daa362508b45d066c5eb1",
+      "supportFoot": "R",
+      "position": 4,
+      "phase": "后位蹬地",
+      "approxSupportBootCenter1024": [
+        585,
+        974
+      ],
+      "inspection": "full-size current PNG or generated native result plus refreshed current contact",
+      "staticContactReading": "前掌低位接触、脚跟抬起后蹬",
+      "staticStatus": "pose_contact_readable_pending_sequence_acceptance"
+    },
+    {
+      "frame": 14,
+      "file": "runtime/run/NE/14.png",
+      "sha256": "55516fa49803476caa10ac53f002a453626b1f299464ccda3ba6c32207a8dc48",
+      "supportFoot": "R",
+      "position": 4,
+      "phase": "后位蹬地",
+      "approxSupportBootCenter1024": [
+        592,
+        972
+      ],
+      "inspection": "full-size current PNG or generated native result plus refreshed current contact",
+      "staticContactReading": "前掌低位接触、脚跟抬起后蹬",
+      "staticStatus": "pose_contact_readable_pending_sequence_acceptance"
+    },
+    {
+      "frame": 15,
+      "file": "runtime/run/NE/15.png",
+      "sha256": "0278b08fb95b4d8a817858019b07975e9640a7553360990730cde578a75e541e",
+      "supportFoot": "L",
+      "position": 1,
+      "phase": "前位落地",
+      "approxSupportBootCenter1024": [
+        607,
+        950
+      ],
+      "inspection": "full-size current PNG or generated native result plus refreshed current contact",
+      "staticContactReading": "平底/跟前掌承重",
+      "staticStatus": "pose_contact_readable_pending_sequence_acceptance"
+    },
+    {
+      "frame": 16,
+      "file": "runtime/run/NE/16.png",
+      "sha256": "0d81834c01ade914f0ee558f27b3b29c8a65976cddb5150d79b2fa6091695d4f",
+      "supportFoot": "L",
+      "position": 1,
+      "phase": "前位落地",
+      "approxSupportBootCenter1024": [
+        633,
+        950
+      ],
+      "inspection": "full-size current PNG or generated native result plus refreshed current contact",
+      "staticContactReading": "平底/跟前掌承重",
+      "staticStatus": "pose_contact_readable_pending_sequence_acceptance"
+    }
+  ],
+  "remainingNotPassed": [
+    "03/04、09/10、11/12各对靴中心存在约40–55px差别，方向总体按对后移，但逐帧固定位置尚未通过。",
+    "左脚前位15/16→近身01/02有头髋高度变化；08→09、14→15的鞋面/鞋跟朝向和透视接缝仍需动态核验，未据单帧声称脚轴全通过。",
+    "透明单帧只支持姿态接触推断；真实地面承重/滑步及正常1200ms循环、慢放视觉验收未完成。"
+  ],
+  "dynamic": false,
+  "dynamicVisualAcceptance": false,
+  "clientModified": false,
+  "browserUsed": false,
+  "historicalAcceptanceFileModified": false,
+  "preview": {
+    "contact": "preview/qa/run-NE-contact.png",
+    "pairedContact": "preview/qa/run-NE-paired-contact.png",
+    "normal": "preview/qa/run-NE-normal.apng",
+    "slow": "preview/qa/run-NE-slow.apng",
+    "apngDurationsMs": [
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0
+    ]
+  },
+  "modelEvidence": "每次请求/回执与runtime图旁generation.json；配置目标gpt-image-2.5-sunburst/max，内置实际model/quality均未披露，null。",
+  "prohibitedOperationsPerformed": {
+    "copiedFrame": false,
+    "mirrored": false,
+    "interpolated": false,
+    "wholeFigureTranslation": false,
+    "lowestFootAlignment": false
+  }
+}

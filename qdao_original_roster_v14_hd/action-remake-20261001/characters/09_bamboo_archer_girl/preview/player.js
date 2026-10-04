@@ -66,7 +66,7 @@
     $("slotInfo").replaceChildren();
     if (frame.file) {
       const link = addText($("slotInfo"),"a",frame.file);
-      link.href = "../" + frame.file;link.target = "_blank";
+      link.href = frame.previewUrl || "../" + frame.file;link.target = "_blank";
       addText($("slotInfo"),"span",` · ${frame.runtimeExportExists ? "runtime 文件存在" : "选定在制稿"} · 视觉 ${frame.visualApproval === "passed" ? "通过" : "待验收"} · 动态 ${frame.dynamicApproval === "passed" ? "通过" : "待验收"}${frame.technicalErrors?.length ? " · 技术项：" + frame.technicalErrors.join(", ") : ""}`);
     } else $("slotInfo").textContent = "本槽未生成或未选定，未导出、未验收。";
     const cached = imageCache.get(frame.previewUrl);

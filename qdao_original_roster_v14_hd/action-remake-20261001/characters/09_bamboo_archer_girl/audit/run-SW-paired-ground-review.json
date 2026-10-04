@@ -1,0 +1,394 @@
+{
+  "reviewedAt": "2026-10-04T19:41:05.965328+00:00",
+  "action": "run",
+  "direction": "SW",
+  "requirement": "同脚连续8帧接触，前部落点→身下→近后→更后四个渐变空间位置，每位置两张独立姿态",
+  "timing": {
+    "frameMs": 75,
+    "frameCount": 16,
+    "cycleMs": 1200,
+    "pairMs": 150
+  },
+  "segments": [
+    {
+      "foot": "right",
+      "consecutiveContactFrames": [
+        16,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "supportDurationMs": 600,
+      "positions": [
+        {
+          "frames": [
+            16,
+            1
+          ],
+          "position": "A 前部落点",
+          "durationMs": 150,
+          "independentPoses": true,
+          "evidence": "右脚位于身体前下方，16初接触到01加重，左腿后收；鞋面沿SW行进方向。"
+        },
+        {
+          "frames": [
+            2,
+            3
+          ],
+          "position": "B 身体经过/髋下",
+          "durationMs": 150,
+          "independentPoses": true,
+          "evidence": "右脚转到身体经过位置，02膝部较深缓冲、03较直但未锁膝，左膝进入前摆。"
+        },
+        {
+          "frames": [
+            4,
+            5
+          ],
+          "position": "C 近后支撑",
+          "durationMs": 150,
+          "independentPoses": true,
+          "evidence": "右脚在身后较近处连续承重，04/05左膝前驱、右膝踝保留屈曲，靴底低。"
+        },
+        {
+          "frames": [
+            6,
+            7
+          ],
+          "position": "D 更后蹬地",
+          "durationMs": 150,
+          "independentPoses": true,
+          "evidence": "右脚在更后位置持续支撑，06/07右踝蹬伸、左腿前摆幅度加大，未画成双脚同时飞行。"
+        }
+      ]
+    },
+    {
+      "foot": "left",
+      "consecutiveContactFrames": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "supportDurationMs": 600,
+      "positions": [
+        {
+          "frames": [
+            8,
+            9
+          ],
+          "position": "A 前部落点",
+          "durationMs": 150,
+          "independentPoses": true,
+          "evidence": "左脚从近髋的同一左短裤口向前落下，08/09脚跟与前掌低平；原右腿仍后收，未交换腿归属。"
+        },
+        {
+          "frames": [
+            10,
+            11
+          ],
+          "position": "B 身体经过/髋下",
+          "durationMs": 150,
+          "independentPoses": true,
+          "evidence": "左脚转至身体下方持续承重，10缓冲到11身体经过，右膝前驱；两张膝踝与上肢变化可辨。"
+        },
+        {
+          "frames": [
+            12,
+            13
+          ],
+          "position": "C 近后支撑",
+          "durationMs": 150,
+          "independentPoses": true,
+          "evidence": "左脚在较近后部支撑，12/13左膝保留弹性，13已收回过早伸到末段的左靴。"
+        },
+        {
+          "frames": [
+            14,
+            15
+          ],
+          "position": "D 更后蹬地",
+          "durationMs": 150,
+          "independentPoses": true,
+          "evidence": "左脚在更后位置蹬地，14/15前掌低位、右腿继续向前，15尚未提前改为右脚支撑。"
+        }
+      ]
+    }
+  ],
+  "frames": [
+    {
+      "slot": "run/SW/01",
+      "frame": 1,
+      "file": "runtime/run/SW/01.png",
+      "sha256": "3da787a28be4124dad86634d49bcdd3dbeaedeb8b19300f944a0659b5ceaa831",
+      "status": "static_contact_reviewed_dynamic_pending",
+      "observedSupportFoot": "right",
+      "position": "A 前部落点",
+      "evidence": "右脚位于身体前下方，16初接触到01加重，左腿后收；鞋面沿SW行进方向。",
+      "footOrientation": "沿SW前左下方向，鞋尖随膝踝，无独立侧向外撇。",
+      "staticContact": true,
+      "isFlight": false,
+      "dynamicVisualAcceptance": false
+    },
+    {
+      "slot": "run/SW/02",
+      "frame": 2,
+      "file": "runtime/run/SW/02.png",
+      "sha256": "4d80b3cc2b8d4f96fa8faca5c9145d83a4c0f089e96f3ceb3a1f2e3da87273fb",
+      "status": "static_contact_reviewed_dynamic_pending",
+      "observedSupportFoot": "right",
+      "position": "B 身体经过/髋下",
+      "evidence": "右脚转到身体经过位置，02膝部较深缓冲、03较直但未锁膝，左膝进入前摆。",
+      "footOrientation": "沿SW前左下方向，鞋尖随膝踝，无独立侧向外撇。",
+      "staticContact": true,
+      "isFlight": false,
+      "dynamicVisualAcceptance": false
+    },
+    {
+      "slot": "run/SW/03",
+      "frame": 3,
+      "file": "runtime/run/SW/03.png",
+      "sha256": "9724a88392b1df4f4a42cbbf22a62b85fcfddb94bc9371ecf05933529d8058e6",
+      "status": "static_contact_reviewed_dynamic_pending",
+      "observedSupportFoot": "right",
+      "position": "B 身体经过/髋下",
+      "evidence": "右脚转到身体经过位置，02膝部较深缓冲、03较直但未锁膝，左膝进入前摆。",
+      "footOrientation": "沿SW前左下方向，鞋尖随膝踝，无独立侧向外撇。",
+      "staticContact": true,
+      "isFlight": false,
+      "dynamicVisualAcceptance": false
+    },
+    {
+      "slot": "run/SW/04",
+      "frame": 4,
+      "file": "runtime/run/SW/04.png",
+      "sha256": "662a4b56e308c27c7a972b3f5fb0a295ae0541fb54bb99a97847dea08fffecbc",
+      "status": "static_contact_reviewed_dynamic_pending",
+      "observedSupportFoot": "right",
+      "position": "C 近后支撑",
+      "evidence": "右脚在身后较近处连续承重，04/05左膝前驱、右膝踝保留屈曲，靴底低。",
+      "footOrientation": "沿SW前左下方向，鞋尖随膝踝，无独立侧向外撇。",
+      "staticContact": true,
+      "isFlight": false,
+      "dynamicVisualAcceptance": false
+    },
+    {
+      "slot": "run/SW/05",
+      "frame": 5,
+      "file": "runtime/run/SW/05.png",
+      "sha256": "3daad5903b1aaecbb4a99ceab0ae6fa06d6b47e3570355175bfcc82019531439",
+      "status": "static_contact_reviewed_dynamic_pending",
+      "observedSupportFoot": "right",
+      "position": "C 近后支撑",
+      "evidence": "右脚在身后较近处连续承重，04/05左膝前驱、右膝踝保留屈曲，靴底低。",
+      "footOrientation": "沿SW前左下方向，鞋尖随膝踝，无独立侧向外撇。",
+      "staticContact": true,
+      "isFlight": false,
+      "dynamicVisualAcceptance": false
+    },
+    {
+      "slot": "run/SW/06",
+      "frame": 6,
+      "file": "runtime/run/SW/06.png",
+      "sha256": "915509c49be036e965f343a101fb3ef2dadbc84a37c91e5e60c3bc5956ba1004",
+      "status": "static_contact_reviewed_dynamic_pending",
+      "observedSupportFoot": "right",
+      "position": "D 更后蹬地",
+      "evidence": "右脚在更后位置持续支撑，06/07右踝蹬伸、左腿前摆幅度加大，未画成双脚同时飞行。",
+      "footOrientation": "沿SW前左下方向，鞋尖随膝踝，无独立侧向外撇。",
+      "staticContact": true,
+      "isFlight": false,
+      "dynamicVisualAcceptance": false
+    },
+    {
+      "slot": "run/SW/07",
+      "frame": 7,
+      "file": "runtime/run/SW/07.png",
+      "sha256": "892ffa8185c94b6b1d8aa906e4ae98e5871500f8e07bfc192c6594fcbc7c1a28",
+      "status": "static_contact_reviewed_dynamic_pending",
+      "observedSupportFoot": "right",
+      "position": "D 更后蹬地",
+      "evidence": "右脚在更后位置持续支撑，06/07右踝蹬伸、左腿前摆幅度加大，未画成双脚同时飞行。",
+      "footOrientation": "沿SW前左下方向，鞋尖随膝踝，无独立侧向外撇。",
+      "staticContact": true,
+      "isFlight": false,
+      "dynamicVisualAcceptance": false
+    },
+    {
+      "slot": "run/SW/08",
+      "frame": 8,
+      "file": "runtime/run/SW/08.png",
+      "sha256": "d96a0f18da99a4fd43829760da8ca9b9a5723e9f3812b788870eb97dd990b02a",
+      "status": "static_contact_reviewed_dynamic_pending",
+      "observedSupportFoot": "left",
+      "position": "A 前部落点",
+      "evidence": "左脚从近髋的同一左短裤口向前落下，08/09脚跟与前掌低平；原右腿仍后收，未交换腿归属。",
+      "footOrientation": "沿SW前左下方向，鞋尖随膝踝，无独立侧向外撇。",
+      "staticContact": true,
+      "isFlight": false,
+      "dynamicVisualAcceptance": false
+    },
+    {
+      "slot": "run/SW/09",
+      "frame": 9,
+      "file": "runtime/run/SW/09.png",
+      "sha256": "3431426a2eadc1843e19f5b8380b131902c4827a0567cb9172f53a4c0fb14b39",
+      "status": "static_contact_reviewed_dynamic_pending",
+      "observedSupportFoot": "left",
+      "position": "A 前部落点",
+      "evidence": "左脚从近髋的同一左短裤口向前落下，08/09脚跟与前掌低平；原右腿仍后收，未交换腿归属。",
+      "footOrientation": "沿SW前左下方向，鞋尖随膝踝，无独立侧向外撇。",
+      "staticContact": true,
+      "isFlight": false,
+      "dynamicVisualAcceptance": false
+    },
+    {
+      "slot": "run/SW/10",
+      "frame": 10,
+      "file": "runtime/run/SW/10.png",
+      "sha256": "9067f6c67f2c012937a6c85f7fa17e9e7be4593e115f995a0381ea9c961660cd",
+      "status": "static_contact_reviewed_dynamic_pending",
+      "observedSupportFoot": "left",
+      "position": "B 身体经过/髋下",
+      "evidence": "左脚转至身体下方持续承重，10缓冲到11身体经过，右膝前驱；两张膝踝与上肢变化可辨。",
+      "footOrientation": "沿SW前左下方向，鞋尖随膝踝，无独立侧向外撇。",
+      "staticContact": true,
+      "isFlight": false,
+      "dynamicVisualAcceptance": false
+    },
+    {
+      "slot": "run/SW/11",
+      "frame": 11,
+      "file": "runtime/run/SW/11.png",
+      "sha256": "3090e42b6b82afde2823c23c7a47173143a0fa9a0f1eac7635fa73cbd98e3ec6",
+      "status": "static_contact_reviewed_dynamic_pending",
+      "observedSupportFoot": "left",
+      "position": "B 身体经过/髋下",
+      "evidence": "左脚转至身体下方持续承重，10缓冲到11身体经过，右膝前驱；两张膝踝与上肢变化可辨。",
+      "footOrientation": "沿SW前左下方向，鞋尖随膝踝，无独立侧向外撇。",
+      "staticContact": true,
+      "isFlight": false,
+      "dynamicVisualAcceptance": false
+    },
+    {
+      "slot": "run/SW/12",
+      "frame": 12,
+      "file": "runtime/run/SW/12.png",
+      "sha256": "482b2f64fcf282b4a27cdb78ce6036a6321e01c2cfc783444cd68c483d720ff1",
+      "status": "static_contact_reviewed_dynamic_pending",
+      "observedSupportFoot": "left",
+      "position": "C 近后支撑",
+      "evidence": "左脚在较近后部支撑，12/13左膝保留弹性，13已收回过早伸到末段的左靴。",
+      "footOrientation": "沿SW前左下方向，鞋尖随膝踝，无独立侧向外撇。",
+      "staticContact": true,
+      "isFlight": false,
+      "dynamicVisualAcceptance": false
+    },
+    {
+      "slot": "run/SW/13",
+      "frame": 13,
+      "file": "runtime/run/SW/13.png",
+      "sha256": "d33b1d49a81e58e3e3a86672e3fa98267b5d73d9142489afd51e10da9ed4ce8a",
+      "status": "static_contact_reviewed_dynamic_pending",
+      "observedSupportFoot": "left",
+      "position": "C 近后支撑",
+      "evidence": "左脚在较近后部支撑，12/13左膝保留弹性，13已收回过早伸到末段的左靴。",
+      "footOrientation": "沿SW前左下方向，鞋尖随膝踝，无独立侧向外撇。",
+      "staticContact": true,
+      "isFlight": false,
+      "dynamicVisualAcceptance": false
+    },
+    {
+      "slot": "run/SW/14",
+      "frame": 14,
+      "file": "runtime/run/SW/14.png",
+      "sha256": "844ac619348f18737ee1570d42d000eeced6d4806e2043eef3beee650dcb9c67",
+      "status": "static_contact_reviewed_dynamic_pending",
+      "observedSupportFoot": "left",
+      "position": "D 更后蹬地",
+      "evidence": "左脚在更后位置蹬地，14/15前掌低位、右腿继续向前，15尚未提前改为右脚支撑。",
+      "footOrientation": "沿SW前左下方向，鞋尖随膝踝，无独立侧向外撇。",
+      "staticContact": true,
+      "isFlight": false,
+      "dynamicVisualAcceptance": false
+    },
+    {
+      "slot": "run/SW/15",
+      "frame": 15,
+      "file": "runtime/run/SW/15.png",
+      "sha256": "600c8ae8157252b975028a0ac1853690db70f4b760e0ffce6aa56427a7617de3",
+      "status": "static_contact_reviewed_dynamic_pending",
+      "observedSupportFoot": "left",
+      "position": "D 更后蹬地",
+      "evidence": "左脚在更后位置蹬地，14/15前掌低位、右腿继续向前，15尚未提前改为右脚支撑。",
+      "footOrientation": "沿SW前左下方向，鞋尖随膝踝，无独立侧向外撇。",
+      "staticContact": true,
+      "isFlight": false,
+      "dynamicVisualAcceptance": false
+    },
+    {
+      "slot": "run/SW/16",
+      "frame": 16,
+      "file": "runtime/run/SW/16.png",
+      "sha256": "9e257355722302532036cbd295ab6143cb3a010764ba9f9bd2c7e3618f89b7c6",
+      "status": "static_contact_reviewed_dynamic_pending",
+      "observedSupportFoot": "right",
+      "position": "A 前部落点",
+      "evidence": "右脚位于身体前下方，16初接触到01加重，左腿后收；鞋面沿SW行进方向。",
+      "footOrientation": "沿SW前左下方向，鞋尖随膝踝，无独立侧向外撇。",
+      "staticContact": true,
+      "isFlight": false,
+      "dynamicVisualAcceptance": false
+    }
+  ],
+  "evidenceFiles": [
+    "audit/SW-finish-contact.png",
+    "audit/SW-finish-legs.png",
+    "audit/SW-finish-75ms.apng",
+    "audit/SW-finish-technical.json"
+  ],
+  "technical": {
+    "uniqueSha256": 16,
+    "all1024Rgba": true,
+    "apngFrames": 16,
+    "apngDurationsMs": [
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0,
+      75.0
+    ],
+    "wholeCanvasExportOnly": true,
+    "noMirrorDuplicateInterpolationOrLowestFootAlignment": true
+  },
+  "staticPairedGroundStatus": "passed_static_pose_review",
+  "dynamicVisualAcceptance": false,
+  "clientModified": false,
+  "remainingIssues": [
+    "正常75ms动态顺滑、根锚点连续与首尾循环尚未通过动态观看验收。",
+    "未接入客户端或运行引擎验收。"
+  ],
+  "reviewLimit": "已实际查看原图、最终整圈连图和下肢裁切；APNG仅验证结构和时长，未冒称已观看动态。",
+  "actualModel": null,
+  "actualQuality": null,
+  "unverifiedReason": "内置宿主管理，工具无型号/画质选择器且返回未披露。逐图请求/回执/来源均已保存。"
+}
