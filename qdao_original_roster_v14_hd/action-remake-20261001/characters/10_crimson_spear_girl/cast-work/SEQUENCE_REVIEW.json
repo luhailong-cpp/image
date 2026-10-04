@@ -1,0 +1,79 @@
+{
+  "reviewedAt": "2026-10-03",
+  "reviewMode": "full-canvas contact sheets plus native frame inspections",
+  "nativeSlots": 32,
+  "fullSequencePassed": false,
+  "registrationApplied": false,
+  "staticAnatomySummary": "No obvious extra hands/legs in contact review. Same spear and two grips generally readable; this is not a full dynamic pass.",
+  "fixedW06W07": "Spear tips complete in current stable native files; old images removed after replacement verification; source records retained.",
+  "timingMs": 720,
+  "frameMs": 45,
+  "targetRoot": [
+    512,
+    942
+  ],
+  "clientTested": false,
+  "nativeIssueHistory": [
+    {
+      "frames": [
+        "E04",
+        "E06"
+      ],
+      "issue": "Narrow stance interrupts wide-foot E03/E05/E07, creating repeated foot-width changes.",
+      "requires": "native pose correction preserving planted-foot positions",
+      "currentResolution": "targeted native repair selected; see SELECTED_REPAIRS_20261003.json"
+    },
+    {
+      "frames": [
+        "E07",
+        "E08"
+      ],
+      "issue": "Abrupt high-to-forward spear angle, missing visible downward transition.",
+      "requires": "native transitional pole and linked shoulder/elbow correction",
+      "currentResolution": "targeted native repair selected; see SELECTED_REPAIRS_20261003.json"
+    },
+    {
+      "frames": [
+        "W07",
+        "W08"
+      ],
+      "issue": "Abrupt high-to-forward spear angle; W06/W07 tip margin repaired but this separate pose-continuity issue remains.",
+      "requires": "native transition correction",
+      "currentResolution": "targeted native repair selected; see SELECTED_REPAIRS_20261003.json"
+    },
+    {
+      "frames": [
+        "E11",
+        "E12"
+      ],
+      "issue": "Recovery stance closes abruptly.",
+      "requires": "native foot/hip recovery correction",
+      "currentResolution": "targeted native repair selected; see SELECTED_REPAIRS_20261003.json"
+    },
+    {
+      "frames": [
+        "E15",
+        "E16"
+      ],
+      "issue": "E15 feet close together then separate again at E16; late recovery footwork is discontinuous.",
+      "requires": "native E15 stance correction",
+      "currentResolution": "targeted native repair selected; see SELECTED_REPAIRS_20261003.json"
+    },
+    {
+      "frames": [
+        "all"
+      ],
+      "issue": "Some frame-to-frame head/body size and position variation persists. Fixed-direction registration not yet validated.",
+      "requires": "single direction calibration, then redraw actual proportion drift; never per-frame bbox scaling or minimum-foot snapping",
+      "currentResolution": "root exported constant per-direction registration; full dynamic pass remains unclaimed"
+    }
+  ],
+  "currentOutstanding": [
+    "root full fixed-registration playback verification",
+    "some native head/body drift may remain; only evidenced local corrections permitted, no per-frame scaling/lowest-foot snapping"
+  ],
+  "additionalRepairs": [
+    "E05/E07 rear toe direction corrected; stance width retained",
+    "W15 recovered ground support through native leg extension; small returned head shift recorded"
+  ]
+}
