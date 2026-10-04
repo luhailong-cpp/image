@@ -7,10 +7,10 @@
   "animations": [
     {
       "file": "preview/run-W-uniform1200.gif",
-      "sha256": "a18e1084bbbffb1aba25d5bf90666161eccf1b2796460857cc7c4223bc95bf26",
+      "sha256": "e0569111ab85bf5f58d0c4042f449c967600812ebc577180e7a4c8cadfb294f6",
       "label": "1200ms 正常跑步 · 每帧75ms",
       "profile": "uniform1200",
-      "timingStatus": "candidate_pending_archer_reference_review",
+      "timingStatus": "pending_final_dynamic_review",
       "playbackSpeed": 1.0,
       "originalFrameDurationsMs": [
         75,
@@ -74,10 +74,10 @@
     },
     {
       "file": "preview/run-W-slow.gif",
-      "sha256": "69359091197523449ccf0fe48888b60508c76995b514715636fc717f536dc5d4",
-      "label": "1200ms 正常节奏（姿态待复核） · 0.25×",
+      "sha256": "f9ef87c0faa89d382397a6c92e982d28229c6b4a86a39d2d01c0aa688f948339",
+      "label": "1200ms 正常跑步 · 每帧75ms · 0.25×",
       "profile": "uniform1200",
-      "timingStatus": "candidate_pending_root_final_review",
+      "timingStatus": "pending_final_dynamic_review",
       "playbackSpeed": 0.25,
       "originalFrameDurationsMs": [
         75,
@@ -143,19 +143,26 @@
   "operation": "preview thumbnails and GIF on neutral backdrop; no pose synthesis or per-frame anchoring",
   "manifest": {
     "file": "manifest.json",
-    "sha256": "ce1a351f09dfe296cdc30ad0914bb097dfcfdd9585e53b154540f7ea11aecb2b"
+    "sha256": "1763cff136176f0b25ecb93e5792dfb1874844c831b1552e36506c7933ef539c"
   },
   "expectedFrames": 16,
   "actualFrames": 16,
   "previewTiming": {
     "file": "audit/run-timing.json",
-    "sha256": "8bb46052c3b1b6634f3c7c564b0bd839edf5db0e1b43bb886cb6c7bfe09e1580",
+    "sha256": "a3eb2175e29002393f0fdf815a67887389444ccd9f225376e3345cc233e10605",
     "defaultProfile": "uniform1200",
-    "status": "candidate_pending_archer_reference_review",
+    "status": "pending_final_dynamic_review",
     "legacyBaselineCycleMs": 480,
     "clientIntegration": "not_integrated"
   },
-  "animationApproval": "pending_visual_dynamic_review",
+  "animationApproval": "pending_final_dynamic_review",
+  "staticReview": {
+    "record": "audit/current-static-review.json",
+    "sha256": "d9c4f4a8b4afda1f9119a37f5170b464def5035aa398ad1a0bec2f94d14da521",
+    "reviewer": "root",
+    "reviewedAt": "2026-10-04T21:35:01.303235+00:00",
+    "scope": "static_sequence_and_provenance_only"
+  },
   "offlineReview": null,
   "clientIntegration": "not_integrated",
   "clientRuntimeAcceptance": "not_tested",
@@ -171,23 +178,23 @@
     },
     {
       "file": "runtime/run/W/03.png",
-      "sha256": "d0f61501f8310292d6f932c2c00daee21456d03f78b8f561c8ab6c502da950e5"
+      "sha256": "5ef988101dceece9b18a6e72394b54e158a51e95848b1626431c63a367adec35"
     },
     {
       "file": "runtime/run/W/04.png",
-      "sha256": "ba081392d0c50763bc28bc1bc5341f600b391683589d9331c32d714e2c283233"
+      "sha256": "fd8f0370fb1651a948bc8565dc2af6ecad269bef6aad674b253a0495409ee31c"
     },
     {
       "file": "runtime/run/W/05.png",
-      "sha256": "a369afda181389a1cc5f9c027fd604e772b841fe7fd0201add73654aba210777"
+      "sha256": "1ca6596143741eae0a891253420fb756ee1af73d4c0bdf47a642856432916262"
     },
     {
       "file": "runtime/run/W/06.png",
-      "sha256": "2360c1261dc524262e084a414db0674b1ffcd6e0bac53338f0345217b7763554"
+      "sha256": "b3f00ff598c860617fa04d44237a3d37735b6893006c7d3650da10072b6b5c1a"
     },
     {
       "file": "runtime/run/W/07.png",
-      "sha256": "86fcafb6f1fe074ad7d62ae52ef966b9de1d0a25786302030bb59fa05b42e39b"
+      "sha256": "7ddc1e70ab38eaca475714be4b6edfaf7386c0abe3734bd08a23639d8b4e3016"
     },
     {
       "file": "runtime/run/W/08.png",
@@ -203,27 +210,27 @@
     },
     {
       "file": "runtime/run/W/11.png",
-      "sha256": "ad9c1fbb5404811ef2905b630ca5f2925ad3d9f23ef81cef5bb706bde8b09be6"
+      "sha256": "078fa4ddfa88a4118871512b2d0aaed3b23a7b3a7d4c7f686e36e8a4ff646df5"
     },
     {
       "file": "runtime/run/W/12.png",
-      "sha256": "892bdfd18050e281a45b8dbf24ff00f15a2de6008e8f5b9a2aba8bf80454b193"
+      "sha256": "c67ecb50fe3ac5582f7dcc000a2281aa9443ed3ed156543015ca4da6b94eebc0"
     },
     {
       "file": "runtime/run/W/13.png",
-      "sha256": "c34051c9e47ad788bbb07aff34721a1e8623b476e574bd762c93b663fc289944"
+      "sha256": "418337bb63b792f714f618029e4f82070c555305d1533a6d967d36ec8fcce5b5"
     },
     {
       "file": "runtime/run/W/14.png",
-      "sha256": "36d7c46668875b098bf6f85806358b94afb4d979dc7ce6a0eceb32f2916aabe9"
+      "sha256": "7d20fbdbeecb765846405d92d2b5c75dbbf1fb478536d44143ba2da4cbc0fe3e"
     },
     {
       "file": "runtime/run/W/15.png",
-      "sha256": "cd3b95a404ac0cb75a89312254cd3ca5ecdc0196b0bf5e29affb176e6403b19e"
+      "sha256": "6784ca5e5880467e1906a1e65b7cb57d135ee6674ad4fe1e44041243760fcea7"
     },
     {
       "file": "runtime/run/W/16.png",
-      "sha256": "6a7be13cd1f77d64c58e39fcea5f3f4fb96252ce8668254597b440d1144c5411"
+      "sha256": "b42b83d568a575345e4a39d8495a7118fc4b1c1de19975cc8996d59e011617c2"
     }
   ]
 }
