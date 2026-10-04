@@ -34,7 +34,7 @@ $resolvedTargets = foreach ($entry in $plan.items) {
     foreach ($allowedRoot in $allowedRoots) {
         if ($candidatePath.StartsWith($allowedRoot, [StringComparison]::OrdinalIgnoreCase)) { $insideAllowed = $true }
     }
-    if (-not $insideAllowed -or [IO.Path]::GetExtension($candidatePath) -ne '.png') { throw "Unsafe cleanup target: $candidatePath" }
+    if (-not $insideAllowed -or [IO.Path]::GetExtension($candidatePath).ToLowerInvariant() -notin @('.png','.jpg','.jpeg','.webp','.gif')) { throw "Unsafe cleanup target: $candidatePath" }
     $item = Get-Item -LiteralPath $candidatePath
     if ($item.Attributes -band [IO.FileAttributes]::ReparsePoint) { throw "Refusing link target: $candidatePath" }
     if ((Get-FileHash -LiteralPath $candidatePath -Algorithm SHA256).Hash.ToLowerInvariant() -ne $entry.sha256) { throw "Changed candidate: $candidatePath" }
@@ -45,7 +45,7 @@ foreach ($candidatePath in $resolvedTargets) { Remove-Item -LiteralPath $candida
 $result = [ordered]@{
     completedAt = [DateTime]::UtcNow.ToString('o')
     status = 'completed'
-    removedPNGCount = $resolvedTargets.Count
+    removedImageCount = $resolvedTargets.Count
     removedBytes = $plan.bytes
     retainedRuntimePNGCount = @(Get-ChildItem -LiteralPath (Join-Path $taskRoot 'runtime') -Filter '*.png' -File -Recurse).Count
     retainedPreviewPNGCount = @(Get-ChildItem -LiteralPath (Join-Path $taskRoot 'preview') -Filter '*.png' -File).Count
@@ -53,4 +53,4 @@ $result = [ordered]@{
     removed = $plan.items
 }
 $result | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath (Join-Path $batchPath 'cleanup-result.json') -Encoding utf8
-$result | Select-Object status,removedPNGCount,removedBytes,retainedRuntimePNGCount,retainedPreviewPNGCount | ConvertTo-Json
+[pscustomobject]$result | Select-Object status,removedImageCount,removedBytes,retainedRuntimePNGCount,retainedPreviewPNGCount | ConvertTo-Json

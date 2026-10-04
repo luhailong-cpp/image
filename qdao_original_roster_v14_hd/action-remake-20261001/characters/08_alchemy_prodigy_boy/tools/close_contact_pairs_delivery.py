@@ -90,11 +90,11 @@ items = []
 for category in ['generation', 'provenance']:
     for folder in ['contact4-20261004', 'contact-pairs-20261004']:
         directory = ROOT / category / folder
-        for p in sorted(directory.rglob('*.png')):
+        for p in sorted(p for p in directory.rglob('*') if p.is_file() and p.suffix.lower() in ['.png', '.jpg', '.jpeg', '.webp', '.gif']):
             assert p.resolve().is_relative_to(directory.resolve())
             items.append({'file': p.relative_to(ROOT).as_posix(), 'sha256': sha(p), 'bytes': p.stat().st_size})
 write(BATCH / 'cleanup-plan.json', {'createdAt': now, 'status': 'ready_after_technical_verification',
     'reason': 'User authorized removal of exported originals, rejects and intermediate images; retain every text record.',
     'manifestSha256': sha(ROOT / 'manifest.json'), 'items': items,
     'count': len(items), 'bytes': sum(i['bytes'] for i in items)})
-print(json.dumps({'selected': len(selection), 'lineageRecords': len(lineage), 'cleanupPNGCount': len(items)}))
+print(json.dumps({'selected': len(selection), 'lineageRecords': len(lineage), 'cleanupImageCount': len(items)}))
