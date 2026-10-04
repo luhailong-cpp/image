@@ -2,7 +2,7 @@
   "schema": 1,
   "character": "20_star_formation_master_girl",
   "scope": "本机素材视觉与离线预览；不代表客户端或用户最终验收",
-  "reviewMethod": "原生图/逐帧联系表实看，浏览器正常及4倍慢放抽看和逐帧控制。未使用帧数/SHA代替美术判断。",
+  "reviewMethod": "当前128跑步逐图/联系表检查腿髋连接、同脚接地与四空间位置；正常与慢放浏览器抽看和逐帧检查以browserEvidence为准。旧68战斗保留已完成的审核。帧数/SHA只作技术校验。",
   "groups": [
     {
       "action": "hit",
@@ -81,10 +81,10 @@
       "direction": "N",
       "frames": 16,
       "staticReviewed": true,
-      "retained": "原独立16帧；05采用既有修正源",
-      "repaired": "补齐八相位与相反半圈，保持已正确纵向靴轴",
-      "footDirection": "正北背面，支撑跟顺N；后折靴自然露底",
-      "pose": "左右支撑互换，摆臂盘卡不换手",
+      "retained": "原槽保留[1, 2, 3, 9, 10, 11]；既有独立帧改相位[]",
+      "repaired": "局部AI修正[4, 5, 6, 7, 8, 12, 13, 14, 15, 16]",
+      "footDirection": "背面纵向跟轴朝N，接地点随身体经过向画面下方推进；露底只属于折起的摆腿。",
+      "pose": "同一支撑脚连续8帧，四个空间位置各2张独立姿态；另一脚抬起前摆，09换脚，16→01衔接。",
       "browserNormalSlowObserved": true,
       "displaySizesPx": [
         128,
@@ -93,21 +93,168 @@
       "frameMs": 75,
       "loopMs": 1200,
       "loopBoundaryStepsObserved": [
+        15,
         16,
         1,
         2
       ],
-      "offlineVisualAccepted": true
+      "offlineVisualAccepted": true,
+      "grounding4": {
+        "latestRequirement": "同一脚连续8张独立接地姿态，前落/身下/后侧/后蹬各2帧，再换脚。",
+        "staticReviewed": true,
+        "offlineReviewed": true,
+        "contactSegments": [
+          {
+            "supportFoot": "left",
+            "frames": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "durationMs": 600
+          },
+          {
+            "supportFoot": "right",
+            "frames": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "durationMs": 600
+          }
+        ],
+        "positionPairs": [
+          {
+            "frames": [
+              1,
+              2
+            ],
+            "supportFoot": "left",
+            "position": "front_landing",
+            "description": "前方直脚落地",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "supportFoot": "left",
+            "position": "under_hip",
+            "description": "身体经过支撑脚上方",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "supportFoot": "left",
+            "position": "behind_hip",
+            "description": "支撑脚相对身体进入后侧",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "supportFoot": "left",
+            "position": "rear_push",
+            "description": "后方前掌承重准备换脚",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              9,
+              10
+            ],
+            "supportFoot": "right",
+            "position": "front_landing",
+            "description": "前方直脚落地",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              11,
+              12
+            ],
+            "supportFoot": "right",
+            "position": "under_hip",
+            "description": "身体经过支撑脚上方",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              13,
+              14
+            ],
+            "supportFoot": "right",
+            "position": "behind_hip",
+            "description": "支撑脚相对身体进入后侧",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              15,
+              16
+            ],
+            "supportFoot": "right",
+            "position": "rear_push",
+            "description": "后方前掌承重准备换脚",
+            "durationMs": 150
+          }
+        ],
+        "replacementFrames": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "retainedFrames": [
+          1,
+          2,
+          3,
+          9,
+          10,
+          11
+        ],
+        "rephasedFrames": [],
+        "spatialInterpretation": "背面纵向跟轴朝N，接地点随身体经过向画面下方推进；露底只属于折起的摆腿。",
+        "sourcePlan": "grounding4/N/selected.json",
+        "appliedRecord": "provenance/grounding-pairs-applied.json",
+        "normalLoopMs": 1200,
+        "frameMs": 75,
+        "mirrored": false,
+        "interpolated": false,
+        "repeatedImages": false
+      }
     },
     {
       "action": "run",
       "direction": "NE",
       "frames": 16,
       "staticReviewed": true,
-      "retained": "01/02/04/08/10/11/14/16及已有关键稿",
-      "repaired": "03/05–07相位，09异侧支撑，12/13/15手持物；05/06按实际相位重排",
-      "footDirection": "靴轴随NE，支撑鞋后跟与地面对应",
-      "pose": "短腾空后异侧落地，手别保持",
+      "retained": "原槽保留[]；既有独立帧改相位[4, 11, 12]",
+      "repaired": "局部AI修正[1, 2, 3, 5, 6, 7, 8, 9, 10, 13, 14, 15, 16]",
+      "footDirection": "后斜视NE，接地点向屏幕左后方逐段推进，非横向外八。",
+      "pose": "同一支撑脚连续8帧，四个空间位置各2张独立姿态；另一脚抬起前摆，09换脚，16→01衔接。",
       "browserNormalSlowObserved": true,
       "displaySizesPx": [
         128,
@@ -116,21 +263,168 @@
       "frameMs": 75,
       "loopMs": 1200,
       "loopBoundaryStepsObserved": [
+        15,
         16,
         1,
         2
       ],
-      "offlineVisualAccepted": true
+      "offlineVisualAccepted": true,
+      "grounding4": {
+        "latestRequirement": "同一脚连续8张独立接地姿态，前落/身下/后侧/后蹬各2帧，再换脚。",
+        "staticReviewed": true,
+        "offlineReviewed": true,
+        "contactSegments": [
+          {
+            "supportFoot": "right",
+            "frames": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "durationMs": 600
+          },
+          {
+            "supportFoot": "left",
+            "frames": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "durationMs": 600
+          }
+        ],
+        "positionPairs": [
+          {
+            "frames": [
+              1,
+              2
+            ],
+            "supportFoot": "right",
+            "position": "front_landing",
+            "description": "前方直脚落地",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "supportFoot": "right",
+            "position": "under_hip",
+            "description": "身体经过支撑脚上方",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "supportFoot": "right",
+            "position": "behind_hip",
+            "description": "支撑脚相对身体进入后侧",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "supportFoot": "right",
+            "position": "rear_push",
+            "description": "后方前掌承重准备换脚",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              9,
+              10
+            ],
+            "supportFoot": "left",
+            "position": "front_landing",
+            "description": "前方直脚落地",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              11,
+              12
+            ],
+            "supportFoot": "left",
+            "position": "under_hip",
+            "description": "身体经过支撑脚上方",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              13,
+              14
+            ],
+            "supportFoot": "left",
+            "position": "behind_hip",
+            "description": "支撑脚相对身体进入后侧",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              15,
+              16
+            ],
+            "supportFoot": "left",
+            "position": "rear_push",
+            "description": "后方前掌承重准备换脚",
+            "durationMs": 150
+          }
+        ],
+        "replacementFrames": [
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          13,
+          14,
+          15,
+          16
+        ],
+        "retainedFrames": [],
+        "rephasedFrames": [
+          4,
+          11,
+          12
+        ],
+        "spatialInterpretation": "后斜视NE，接地点向屏幕左后方逐段推进，非横向外八。",
+        "sourcePlan": "grounding4/NE/selected.json",
+        "appliedRecord": "provenance/grounding-pairs-applied.json",
+        "normalLoopMs": 1200,
+        "frameMs": 75,
+        "mirrored": false,
+        "interpolated": false,
+        "repeatedImages": false
+      }
     },
     {
       "action": "run",
       "direction": "E",
       "frames": 16,
       "staticReviewed": true,
-      "retained": "13个先前正确候选",
-      "repaired": "04/05/12局部修承重蹬地和短腾空",
-      "footDirection": "双靴沿E；脚踝不外拧",
-      "pose": "两次接触/缓冲/蹬地，盘臂相反协调摆动",
+      "retained": "原槽保留[1, 2, 3, 9, 10, 11]；既有独立帧改相位[]",
+      "repaired": "局部AI修正[4, 5, 6, 7, 8, 12, 13, 14, 15, 16]",
+      "footDirection": "侧视E，支撑从屏幕右前方经过髋下移向屏幕左后方，鞋尖均朝右。",
+      "pose": "同一支撑脚连续8帧，四个空间位置各2张独立姿态；另一脚抬起前摆，09换脚，16→01衔接。",
       "browserNormalSlowObserved": true,
       "displaySizesPx": [
         128,
@@ -139,21 +433,168 @@
       "frameMs": 75,
       "loopMs": 1200,
       "loopBoundaryStepsObserved": [
+        15,
         16,
         1,
         2
       ],
-      "offlineVisualAccepted": true
+      "offlineVisualAccepted": true,
+      "grounding4": {
+        "latestRequirement": "同一脚连续8张独立接地姿态，前落/身下/后侧/后蹬各2帧，再换脚。",
+        "staticReviewed": true,
+        "offlineReviewed": true,
+        "contactSegments": [
+          {
+            "supportFoot": "right",
+            "frames": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "durationMs": 600
+          },
+          {
+            "supportFoot": "left",
+            "frames": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "durationMs": 600
+          }
+        ],
+        "positionPairs": [
+          {
+            "frames": [
+              1,
+              2
+            ],
+            "supportFoot": "right",
+            "position": "front_landing",
+            "description": "前方直脚落地",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "supportFoot": "right",
+            "position": "under_hip",
+            "description": "身体经过支撑脚上方",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "supportFoot": "right",
+            "position": "behind_hip",
+            "description": "支撑脚相对身体进入后侧",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "supportFoot": "right",
+            "position": "rear_push",
+            "description": "后方前掌承重准备换脚",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              9,
+              10
+            ],
+            "supportFoot": "left",
+            "position": "front_landing",
+            "description": "前方直脚落地",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              11,
+              12
+            ],
+            "supportFoot": "left",
+            "position": "under_hip",
+            "description": "身体经过支撑脚上方",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              13,
+              14
+            ],
+            "supportFoot": "left",
+            "position": "behind_hip",
+            "description": "支撑脚相对身体进入后侧",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              15,
+              16
+            ],
+            "supportFoot": "left",
+            "position": "rear_push",
+            "description": "后方前掌承重准备换脚",
+            "durationMs": 150
+          }
+        ],
+        "replacementFrames": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "retainedFrames": [
+          1,
+          2,
+          3,
+          9,
+          10,
+          11
+        ],
+        "rephasedFrames": [],
+        "spatialInterpretation": "侧视E，支撑从屏幕右前方经过髋下移向屏幕左后方，鞋尖均朝右。",
+        "sourcePlan": "grounding4/E/selected.json",
+        "appliedRecord": "provenance/grounding-pairs-applied.json",
+        "normalLoopMs": 1200,
+        "frameMs": 75,
+        "mirrored": false,
+        "interpolated": false,
+        "repeatedImages": false
+      }
     },
     {
       "action": "run",
       "direction": "SE",
       "frames": 16,
       "staticReviewed": true,
-      "retained": "05–09/11共6帧",
-      "repaired": "01–04/10/12–16共10帧鞋踝/短前掌",
-      "footDirection": "支撑与前伸靴顺SE，缩短外撇长前掌",
-      "pose": "屏右前腿与屏左前腿交替；04→05、12→13与16→01已抽看",
+      "retained": "原槽保留[1, 2, 3, 4, 9, 10]；既有独立帧改相位[]",
+      "repaired": "局部AI修正[5, 6, 7, 8, 11, 12, 13, 14, 15, 16]",
+      "footDirection": "前斜视SE，支撑从前伸经过身下再落到后侧；鞋掌顺SE不横撇。",
+      "pose": "同一支撑脚连续8帧，四个空间位置各2张独立姿态；另一脚抬起前摆，09换脚，16→01衔接。",
       "browserNormalSlowObserved": true,
       "displaySizesPx": [
         128,
@@ -162,21 +603,168 @@
       "frameMs": 75,
       "loopMs": 1200,
       "loopBoundaryStepsObserved": [
+        15,
         16,
         1,
         2
       ],
-      "offlineVisualAccepted": true
+      "offlineVisualAccepted": true,
+      "grounding4": {
+        "latestRequirement": "同一脚连续8张独立接地姿态，前落/身下/后侧/后蹬各2帧，再换脚。",
+        "staticReviewed": true,
+        "offlineReviewed": true,
+        "contactSegments": [
+          {
+            "supportFoot": "left",
+            "frames": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "durationMs": 600
+          },
+          {
+            "supportFoot": "right",
+            "frames": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "durationMs": 600
+          }
+        ],
+        "positionPairs": [
+          {
+            "frames": [
+              1,
+              2
+            ],
+            "supportFoot": "left",
+            "position": "front_landing",
+            "description": "前方直脚落地",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "supportFoot": "left",
+            "position": "under_hip",
+            "description": "身体经过支撑脚上方",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "supportFoot": "left",
+            "position": "behind_hip",
+            "description": "支撑脚相对身体进入后侧",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "supportFoot": "left",
+            "position": "rear_push",
+            "description": "后方前掌承重准备换脚",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              9,
+              10
+            ],
+            "supportFoot": "right",
+            "position": "front_landing",
+            "description": "前方直脚落地",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              11,
+              12
+            ],
+            "supportFoot": "right",
+            "position": "under_hip",
+            "description": "身体经过支撑脚上方",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              13,
+              14
+            ],
+            "supportFoot": "right",
+            "position": "behind_hip",
+            "description": "支撑脚相对身体进入后侧",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              15,
+              16
+            ],
+            "supportFoot": "right",
+            "position": "rear_push",
+            "description": "后方前掌承重准备换脚",
+            "durationMs": 150
+          }
+        ],
+        "replacementFrames": [
+          5,
+          6,
+          7,
+          8,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "retainedFrames": [
+          1,
+          2,
+          3,
+          4,
+          9,
+          10
+        ],
+        "rephasedFrames": [],
+        "spatialInterpretation": "前斜视SE，支撑从前伸经过身下再落到后侧；鞋掌顺SE不横撇。",
+        "sourcePlan": "grounding4/SE/selected.json",
+        "appliedRecord": "provenance/grounding-pairs-applied.json",
+        "normalLoopMs": 1200,
+        "frameMs": 75,
+        "mirrored": false,
+        "interpolated": false,
+        "repeatedImages": false
+      }
     },
     {
       "action": "run",
       "direction": "S",
       "frames": 16,
       "staticReviewed": true,
-      "retained": "02/10；其余保留上身及原腿相位作局部编辑",
-      "repaired": "14帧鞋踝朝向，04错误支撑拒选；13/14收低脚与裤腿修正",
-      "footDirection": "双靴纵向朝S，鞋面为主，减少大底朝镜头",
-      "pose": "左右接触与缓冲对应，未变为双脚外八高抬腿",
+      "retained": "原槽保留[1, 2, 3, 4, 9, 10, 11, 12]；既有独立帧改相位[]",
+      "repaired": "局部AI修正[5, 6, 7, 8, 13, 14, 15, 16]",
+      "footDirection": "正面S，左腿屏右、右腿屏左；前落在近处，后侧在较高纵深，同脚不提前换支撑。",
+      "pose": "同一支撑脚连续8帧，四个空间位置各2张独立姿态；另一脚抬起前摆，09换脚，16→01衔接。",
       "browserNormalSlowObserved": true,
       "displaySizesPx": [
         128,
@@ -185,21 +773,168 @@
       "frameMs": 75,
       "loopMs": 1200,
       "loopBoundaryStepsObserved": [
+        15,
         16,
         1,
         2
       ],
-      "offlineVisualAccepted": true
+      "offlineVisualAccepted": true,
+      "grounding4": {
+        "latestRequirement": "同一脚连续8张独立接地姿态，前落/身下/后侧/后蹬各2帧，再换脚。",
+        "staticReviewed": true,
+        "offlineReviewed": true,
+        "contactSegments": [
+          {
+            "supportFoot": "left",
+            "frames": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "durationMs": 600
+          },
+          {
+            "supportFoot": "right",
+            "frames": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "durationMs": 600
+          }
+        ],
+        "positionPairs": [
+          {
+            "frames": [
+              1,
+              2
+            ],
+            "supportFoot": "left",
+            "position": "front_landing",
+            "description": "前方直脚落地",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "supportFoot": "left",
+            "position": "under_hip",
+            "description": "身体经过支撑脚上方",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "supportFoot": "left",
+            "position": "behind_hip",
+            "description": "支撑脚相对身体进入后侧",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "supportFoot": "left",
+            "position": "rear_push",
+            "description": "后方前掌承重准备换脚",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              9,
+              10
+            ],
+            "supportFoot": "right",
+            "position": "front_landing",
+            "description": "前方直脚落地",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              11,
+              12
+            ],
+            "supportFoot": "right",
+            "position": "under_hip",
+            "description": "身体经过支撑脚上方",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              13,
+              14
+            ],
+            "supportFoot": "right",
+            "position": "behind_hip",
+            "description": "支撑脚相对身体进入后侧",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              15,
+              16
+            ],
+            "supportFoot": "right",
+            "position": "rear_push",
+            "description": "后方前掌承重准备换脚",
+            "durationMs": 150
+          }
+        ],
+        "replacementFrames": [
+          5,
+          6,
+          7,
+          8,
+          13,
+          14,
+          15,
+          16
+        ],
+        "retainedFrames": [
+          1,
+          2,
+          3,
+          4,
+          9,
+          10,
+          11,
+          12
+        ],
+        "rephasedFrames": [],
+        "spatialInterpretation": "正面S，左腿屏右、右腿屏左；前落在近处，后侧在较高纵深，同脚不提前换支撑。",
+        "sourcePlan": "grounding4/S/selected.json",
+        "appliedRecord": "provenance/grounding-pairs-applied.json",
+        "normalLoopMs": 1200,
+        "frameMs": 75,
+        "mirrored": false,
+        "interpolated": false,
+        "repeatedImages": false
+      }
     },
     {
       "action": "run",
       "direction": "SW",
       "frames": 16,
       "staticReviewed": true,
-      "retained": "02/03/04/05/10/11共6帧",
-      "repaired": "10帧脚向；末次01-v4/16-v3修过长前胫和接触突跳",
-      "footDirection": "脚轴随SW，前掌短、鞋底向地",
-      "pose": "末次16/01/02靴区底界1162/1166/1161原生px；实际看接触到缓冲，无旧长胫跳高",
+      "retained": "原槽保留[1, 2, 9]；既有独立帧改相位[7, 15]",
+      "repaired": "局部AI修正[3, 4, 5, 6, 8, 10, 11, 12, 13, 14, 16]",
+      "footDirection": "前斜视SW，支撑前落→身下→右后方推进，缩短外伸前掌，鞋尖顺SW。",
+      "pose": "同一支撑脚连续8帧，四个空间位置各2张独立姿态；另一脚抬起前摆，09换脚，16→01衔接。",
       "browserNormalSlowObserved": true,
       "displaySizesPx": [
         128,
@@ -208,21 +943,169 @@
       "frameMs": 75,
       "loopMs": 1200,
       "loopBoundaryStepsObserved": [
+        15,
         16,
         1,
         2
       ],
-      "offlineVisualAccepted": true
+      "offlineVisualAccepted": true,
+      "grounding4": {
+        "latestRequirement": "同一脚连续8张独立接地姿态，前落/身下/后侧/后蹬各2帧，再换脚。",
+        "staticReviewed": true,
+        "offlineReviewed": true,
+        "contactSegments": [
+          {
+            "supportFoot": "right",
+            "frames": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "durationMs": 600
+          },
+          {
+            "supportFoot": "left",
+            "frames": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "durationMs": 600
+          }
+        ],
+        "positionPairs": [
+          {
+            "frames": [
+              1,
+              2
+            ],
+            "supportFoot": "right",
+            "position": "front_landing",
+            "description": "前方直脚落地",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "supportFoot": "right",
+            "position": "under_hip",
+            "description": "身体经过支撑脚上方",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "supportFoot": "right",
+            "position": "behind_hip",
+            "description": "支撑脚相对身体进入后侧",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "supportFoot": "right",
+            "position": "rear_push",
+            "description": "后方前掌承重准备换脚",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              9,
+              10
+            ],
+            "supportFoot": "left",
+            "position": "front_landing",
+            "description": "前方直脚落地",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              11,
+              12
+            ],
+            "supportFoot": "left",
+            "position": "under_hip",
+            "description": "身体经过支撑脚上方",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              13,
+              14
+            ],
+            "supportFoot": "left",
+            "position": "behind_hip",
+            "description": "支撑脚相对身体进入后侧",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              15,
+              16
+            ],
+            "supportFoot": "left",
+            "position": "rear_push",
+            "description": "后方前掌承重准备换脚",
+            "durationMs": 150
+          }
+        ],
+        "replacementFrames": [
+          3,
+          4,
+          5,
+          6,
+          8,
+          10,
+          11,
+          12,
+          13,
+          14,
+          16
+        ],
+        "retainedFrames": [
+          1,
+          2,
+          9
+        ],
+        "rephasedFrames": [
+          7,
+          15
+        ],
+        "spatialInterpretation": "前斜视SW，支撑前落→身下→右后方推进，缩短外伸前掌，鞋尖顺SW。",
+        "sourcePlan": "grounding4/SW/selected.json",
+        "appliedRecord": "provenance/grounding-pairs-applied.json",
+        "normalLoopMs": 1200,
+        "frameMs": 75,
+        "mirrored": false,
+        "interpolated": false,
+        "repeatedImages": false
+      }
     },
     {
       "action": "run",
       "direction": "W",
       "frames": 16,
       "staticReviewed": true,
-      "retained": "竹弓同方向对照后16真实原生帧保留",
-      "repaired": "沿用先前局部修正及独立续帧；本次对照未额外重画",
-      "footDirection": "鞋尖沿W，后靴自然折回",
-      "pose": "近远腿交替，盘卡原手别，15→16→01已抽看",
+      "retained": "原槽保留[1, 2, 9, 10, 11]；既有独立帧改相位[7]",
+      "repaired": "局部AI修正[3, 4, 5, 6, 8, 12, 13, 14, 15, 16]",
+      "footDirection": "侧视W，支撑由屏左前方经过髋下向屏右后方推进，脚尖朝左。",
+      "pose": "同一支撑脚连续8帧，四个空间位置各2张独立姿态；另一脚抬起前摆，09换脚，16→01衔接。",
       "browserNormalSlowObserved": true,
       "displaySizesPx": [
         128,
@@ -231,21 +1114,169 @@
       "frameMs": 75,
       "loopMs": 1200,
       "loopBoundaryStepsObserved": [
+        15,
         16,
         1,
         2
       ],
-      "offlineVisualAccepted": true
+      "offlineVisualAccepted": true,
+      "grounding4": {
+        "latestRequirement": "同一脚连续8张独立接地姿态，前落/身下/后侧/后蹬各2帧，再换脚。",
+        "staticReviewed": true,
+        "offlineReviewed": true,
+        "contactSegments": [
+          {
+            "supportFoot": "left",
+            "frames": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "durationMs": 600
+          },
+          {
+            "supportFoot": "right",
+            "frames": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "durationMs": 600
+          }
+        ],
+        "positionPairs": [
+          {
+            "frames": [
+              1,
+              2
+            ],
+            "supportFoot": "left",
+            "position": "front_landing",
+            "description": "前方直脚落地",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "supportFoot": "left",
+            "position": "under_hip",
+            "description": "身体经过支撑脚上方",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "supportFoot": "left",
+            "position": "behind_hip",
+            "description": "支撑脚相对身体进入后侧",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "supportFoot": "left",
+            "position": "rear_push",
+            "description": "后方前掌承重准备换脚",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              9,
+              10
+            ],
+            "supportFoot": "right",
+            "position": "front_landing",
+            "description": "前方直脚落地",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              11,
+              12
+            ],
+            "supportFoot": "right",
+            "position": "under_hip",
+            "description": "身体经过支撑脚上方",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              13,
+              14
+            ],
+            "supportFoot": "right",
+            "position": "behind_hip",
+            "description": "支撑脚相对身体进入后侧",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              15,
+              16
+            ],
+            "supportFoot": "right",
+            "position": "rear_push",
+            "description": "后方前掌承重准备换脚",
+            "durationMs": 150
+          }
+        ],
+        "replacementFrames": [
+          3,
+          4,
+          5,
+          6,
+          8,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "retainedFrames": [
+          1,
+          2,
+          9,
+          10,
+          11
+        ],
+        "rephasedFrames": [
+          7
+        ],
+        "spatialInterpretation": "侧视W，支撑由屏左前方经过髋下向屏右后方推进，脚尖朝左。",
+        "sourcePlan": "grounding4/W/selected.json",
+        "appliedRecord": "provenance/grounding-pairs-applied.json",
+        "normalLoopMs": 1200,
+        "frameMs": 75,
+        "mirrored": false,
+        "interpolated": false,
+        "repeatedImages": false
+      }
     },
     {
       "action": "run",
       "direction": "NW",
       "frames": 16,
       "staticReviewed": true,
-      "retained": "01–11正确源与相反支撑关键稿",
-      "repaired": "12–14-v2及15/16-v3修后半圈重复左腿",
-      "footDirection": "靴轴NW，后折露底与着地鞋跟区分",
-      "pose": "01右支撑、09左支撑、15/16回右支撑；16→01收腿转踝可辨，无重复左腿",
+      "retained": "原槽保留[1, 2, 9, 10]；既有独立帧改相位[]",
+      "repaired": "局部AI修正[3, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16]",
+      "footDirection": "后斜视NW，支撑由较前方经过髋下向屏右后方推进，后跟与抬起的鞋底区分。",
+      "pose": "同一支撑脚连续8帧，四个空间位置各2张独立姿态；另一脚抬起前摆，09换脚，16→01衔接。",
       "browserNormalSlowObserved": true,
       "displaySizesPx": [
         128,
@@ -254,11 +1285,158 @@
       "frameMs": 75,
       "loopMs": 1200,
       "loopBoundaryStepsObserved": [
+        15,
         16,
         1,
         2
       ],
-      "offlineVisualAccepted": true
+      "offlineVisualAccepted": true,
+      "grounding4": {
+        "latestRequirement": "同一脚连续8张独立接地姿态，前落/身下/后侧/后蹬各2帧，再换脚。",
+        "staticReviewed": true,
+        "offlineReviewed": true,
+        "contactSegments": [
+          {
+            "supportFoot": "right",
+            "frames": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "durationMs": 600
+          },
+          {
+            "supportFoot": "left",
+            "frames": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "durationMs": 600
+          }
+        ],
+        "positionPairs": [
+          {
+            "frames": [
+              1,
+              2
+            ],
+            "supportFoot": "right",
+            "position": "front_landing",
+            "description": "前方直脚落地",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "supportFoot": "right",
+            "position": "under_hip",
+            "description": "身体经过支撑脚上方",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "supportFoot": "right",
+            "position": "behind_hip",
+            "description": "支撑脚相对身体进入后侧",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "supportFoot": "right",
+            "position": "rear_push",
+            "description": "后方前掌承重准备换脚",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              9,
+              10
+            ],
+            "supportFoot": "left",
+            "position": "front_landing",
+            "description": "前方直脚落地",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              11,
+              12
+            ],
+            "supportFoot": "left",
+            "position": "under_hip",
+            "description": "身体经过支撑脚上方",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              13,
+              14
+            ],
+            "supportFoot": "left",
+            "position": "behind_hip",
+            "description": "支撑脚相对身体进入后侧",
+            "durationMs": 150
+          },
+          {
+            "frames": [
+              15,
+              16
+            ],
+            "supportFoot": "left",
+            "position": "rear_push",
+            "description": "后方前掌承重准备换脚",
+            "durationMs": 150
+          }
+        ],
+        "replacementFrames": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "retainedFrames": [
+          1,
+          2,
+          9,
+          10
+        ],
+        "rephasedFrames": [],
+        "spatialInterpretation": "后斜视NW，支撑由较前方经过髋下向屏右后方推进，后跟与抬起的鞋底区分。",
+        "sourcePlan": "grounding4/NW/selected.json",
+        "appliedRecord": "provenance/grounding-pairs-applied.json",
+        "normalLoopMs": 1200,
+        "frameMs": 75,
+        "mirrored": false,
+        "interpolated": false,
+        "repeatedImages": false
+      }
     }
   ],
   "clientIntegrated": false,
@@ -266,6 +1444,8 @@
   "userFinalAcceptance": false,
   "browserEvidence": {
     "page": "preview/run-E-grounding.html",
+    "currentRevision": "2026-10-04_position_pairs",
+    "observed": true,
     "allImagesLoaded": "128/128",
     "controlsObserved": [
       "normal1200",
@@ -276,10 +1456,11 @@
       "size256"
     ],
     "timingBoundaryTechnicalCheck": "provenance/run-playback-uniform-check.json",
-    "observationScope": "正常/慢放抽看＋原生与逐帧联系表复核；不是全程视频检测，不等同游戏内速度及滑步验收。"
+    "observationScope": "正常/慢放抽样与逐帧图像观察；不是游戏内移动速度或滑步验收。"
   },
   "remaining": [
     "用户最终观感验收",
     "客户端接入和移动位移/根点验收"
-  ]
+  ],
+  "updatedAt": "2026-10-04T22:08:50.251884+00:00"
 }
