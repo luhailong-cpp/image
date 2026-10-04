@@ -5,7 +5,7 @@
     "SE",
     "SW"
   ],
-  "status": "48_static_candidates_ready_for_independent_review",
+  "status": "current_selection_static_evidence_independent_report_authoritative",
   "technical": {
     "count": 48,
     "uniqueNativeSourceSha256": 48,
@@ -145,7 +145,10 @@
     "SW/07-v5": "头身比例放大",
     "SW/08-v5": "仍处于前侧支撑，不能作后撑",
     "SW/08-v6": "头身放大",
-    "SW/08-v7": "实际1133x1388错误尺寸，禁止缩放为1254冒充原生"
+    "SW/08-v7": "实际1133x1388错误尺寸，禁止缩放为1254冒充原生",
+    "SW/07-v6": "错误左腿后撑，已替换",
+    "SW/08-v8": "错误左腿后撑，已替换",
+    "SW/07-v7": "髋连接修正但整体放大，已拒绝"
   },
   "frames": [
     {
@@ -988,45 +991,45 @@
       "action": "run",
       "direction": "SW",
       "frame": 7,
-      "source": "generation/run/SW/07-v6.png",
-      "sourceSha256": "ee4b569a454aede4ab53f01148392feb5aedc9d87f94c487538ec25c54a27350",
+      "source": "generation/run/SW/07-v8.png",
+      "sourceSha256": "bd685f32e91f30890b485e27b3eaff112ea4854f5d2fbc8fc90ab9472bbf7aea",
       "supportFoot": "right",
       "position": "rear",
       "spatialPair": 4,
       "durationMs": 75,
-      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "status": "root_static_reviewed_independent_recheck_pending",
       "nativeSize": [
         1254,
         1254
       ],
-      "observation": "右后撑脚在身体右后方、左腿前摆在前遮挡。",
+      "observation": "近左大腿从葫芦侧髋横跨到前景左前悬空膝，遮挡远右大腿；远右腿伸向后侧支撑，左膝比08更弯、前摆较收回。头身尺度恢复为相邻帧尺度。",
       "dynamicVerified": false,
       "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
       "actualModel": null,
       "actualQuality": null,
-      "generationRecord": "generation/run/SW/07-v6.png.generation.json"
+      "generationRecord": "generation/run/SW/07-v8.png.generation.json"
     },
     {
       "action": "run",
       "direction": "SW",
       "frame": 8,
-      "source": "generation/run/SW/08-v8.png",
-      "sourceSha256": "515de92e3d71593802b71fec308625eff9741f35ec9b5136060787b65c9788dd",
+      "source": "generation/run/SW/08-v9.png",
+      "sourceSha256": "01c56971060ca8194d5be3da8498a98144c00ee5bf87072a82e8ecb24acae5ce",
       "supportFoot": "right",
       "position": "rear",
       "spatialPair": 4,
       "durationMs": 75,
-      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "status": "root_static_reviewed_independent_recheck_pending",
       "nativeSize": [
         1254,
         1254
       ],
-      "observation": "右前掌后撑，左摆腿比07更向左下伸出。",
+      "observation": "近左大腿横跨前景，远右腿在后侧支撑；左悬空鞋比07更向前伸。原错误髋连接已重画，支撑身份恢复右脚。",
       "dynamicVerified": false,
       "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
       "actualModel": null,
       "actualQuality": null,
-      "generationRecord": "generation/run/SW/08-v8.png.generation.json"
+      "generationRecord": "generation/run/SW/08-v9.png.generation.json"
     },
     {
       "action": "run",
@@ -1204,5 +1207,7 @@
       "actualQuality": null,
       "generationRecord": "generation/run/SW/16-v4.png.generation.json"
     }
-  ]
+  ],
+  "updatedAtUtc": "2026-10-04T17:26:35.511084+00:00",
+  "independentReport": "S-SE-SW-independent-static-review.json"
 }

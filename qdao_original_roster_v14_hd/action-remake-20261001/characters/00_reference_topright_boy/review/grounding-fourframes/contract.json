@@ -1,9 +1,7 @@
 {
   "atUtc": "2026-10-04T08:35:45.594590+00:00",
-  "status": "middle4_each_side2_native_pose_repair_in_progress",
+  "status": "native_repairs_exported_static_reviewed_dynamic_pending",
   "latestUserRequirement": "应该是要着中间地四帧，旁边地各两帧",
-  "minimumConsecutiveContactFrames": 4,
-  "minimumContactMs": 300,
   "normalFrameMs": 75,
   "cycleFrames": 16,
   "cycleMs": 1200,
@@ -1026,7 +1024,7 @@
     "timingUnchanged": "16 x 75ms =1200ms",
     "priorFourContactOnlyPlanIsNotFinalAcceptance": true
   },
-  "allocationInterpretation": "每脚半圈8帧：沿跑向前侧2，中间身体下方4，后侧2。16帧75ms均匀。每帧独立真实姿态。",
+  "allocationInterpretation": "每脚8帧：前侧2→中间前段2→中间后段2→后侧2；中间合计4帧。每对均为两张独立姿态，不复制延长。",
   "allocationIsAssistantExecutionInterpretation": true,
   "activeFramePlan": [
     {
@@ -1035,19 +1033,29 @@
         2
       ],
       "supportFoot": "right",
-      "position": "front_side_landing",
-      "ms": 150
+      "positionPair": 1,
+      "position": "front_landing",
+      "durationMs": 150
     },
     {
       "frames": [
         3,
-        4,
+        4
+      ],
+      "supportFoot": "right",
+      "positionPair": 2,
+      "position": "middle_early",
+      "durationMs": 150
+    },
+    {
+      "frames": [
         5,
         6
       ],
       "supportFoot": "right",
-      "position": "middle_under_body_weight_bearing",
-      "ms": 300
+      "positionPair": 3,
+      "position": "middle_late",
+      "durationMs": 150
     },
     {
       "frames": [
@@ -1055,8 +1063,9 @@
         8
       ],
       "supportFoot": "right",
-      "position": "rear_side_push_off",
-      "ms": 150
+      "positionPair": 4,
+      "position": "rear_push_off",
+      "durationMs": 150
     },
     {
       "frames": [
@@ -1064,19 +1073,29 @@
         10
       ],
       "supportFoot": "left",
-      "position": "front_side_landing",
-      "ms": 150
+      "positionPair": 1,
+      "position": "front_landing",
+      "durationMs": 150
     },
     {
       "frames": [
         11,
-        12,
+        12
+      ],
+      "supportFoot": "left",
+      "positionPair": 2,
+      "position": "middle_early",
+      "durationMs": 150
+    },
+    {
+      "frames": [
         13,
         14
       ],
       "supportFoot": "left",
-      "position": "middle_under_body_weight_bearing",
-      "ms": 300
+      "positionPair": 3,
+      "position": "middle_late",
+      "durationMs": 150
     },
     {
       "frames": [
@@ -1084,8 +1103,17 @@
         16
       ],
       "supportFoot": "left",
-      "position": "rear_side_push_off",
-      "ms": 150
+      "positionPair": 4,
+      "position": "rear_push_off",
+      "durationMs": 150
     }
-  ]
+  ],
+  "historicalMinimumOnlyPlan": {
+    "minimumConsecutiveContactFrames": 4,
+    "minimumContactMs": 300
+  },
+  "updatedAt": "2026-10-04T17:42:57.704787+00:00",
+  "latestClarification": "直脚着地两帧，再旁边点两帧，依次过渡",
+  "currentEvidence": "current-static-delivery.json",
+  "currentSelectionSha256": "6232dda436ab38b15edab34d8b7c37aecc815a3bb95fd98368c004f0b868700e"
 }

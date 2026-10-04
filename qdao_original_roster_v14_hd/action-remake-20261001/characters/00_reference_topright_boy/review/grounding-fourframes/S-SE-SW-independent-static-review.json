@@ -354,7 +354,7 @@
     },
     "SW": {
       "selection": "generation/run/SW/selection-middle4-side2-20261004.json",
-      "selectionSha256": "26e3d68642d574437394157b4af81582776e38ccbd5df7c6996dec97ac7cd309",
+      "selectionSha256": "ca99d1920fbd046f6cbbc4efc17e3b1008876d90b6478c33d417de6cb3d6cfc6",
       "frames": [
         {
           "frame": 1,
@@ -418,22 +418,22 @@
         },
         {
           "frame": 7,
-          "source": "generation/run/SW/07-v6.png",
-          "sourceSha256": "ee4b569a454aede4ab53f01148392feb5aedc9d87f94c487538ec25c54a27350",
+          "source": "generation/run/SW/07-v8.png",
+          "sourceSha256": "bd685f32e91f30890b485e27b3eaff112ea4854f5d2fbc8fc90ab9472bbf7aea",
           "expectedSupportFoot": "right",
-          "observedSupportFoot": "left",
+          "observedSupportFoot": "right",
           "position": "rear",
-          "status": "FAIL: wrong support-foot identity",
+          "status": "no hard static defect identified",
           "durationMs": 75
         },
         {
           "frame": 8,
-          "source": "generation/run/SW/08-v8.png",
-          "sourceSha256": "515de92e3d71593802b71fec308625eff9741f35ec9b5136060787b65c9788dd",
+          "source": "generation/run/SW/08-v9.png",
+          "sourceSha256": "01c56971060ca8194d5be3da8498a98144c00ee5bf87072a82e8ecb24acae5ce",
           "expectedSupportFoot": "right",
-          "observedSupportFoot": "left",
+          "observedSupportFoot": "right",
           "position": "rear",
-          "status": "FAIL: wrong support-foot identity",
+          "status": "no hard static defect identified",
           "durationMs": 75
         },
         {
@@ -517,38 +517,74 @@
           "durationMs": 75
         }
       ],
-      "hardFindings": [
-        {
-          "frame": 7,
-          "source": "generation/run/SW/07-v6.png",
-          "sha256": "ee4b569a454aede4ab53f01148392feb5aedc9d87f94c487538ec25c54a27350",
-          "confidence": "high",
-          "issue": "Expected right rear support, but actual grounded posterior leg connects to near anatomical left hip on screen-right/gourd side. Foreground advanced leg connects to far anatomical right hip on screen-left.",
-          "impact": "Premature switch from right support at06 to left support at07-08; violates eight continuous right support frames and causes incorrect limb phase.",
-          "repair": "Far anatomical right leg from screen-left hip must extend rearward behind the foreground left thigh, with forefoot contact; near left leg advances airborne, producing natural crossing/occlusion. Do not relabel or mirror."
-        },
-        {
-          "frame": 8,
-          "source": "generation/run/SW/08-v8.png",
-          "sha256": "515de92e3d71593802b71fec308625eff9741f35ec9b5136060787b65c9788dd",
-          "confidence": "high",
-          "issue": "Expected right rear support, but actual grounded posterior leg connects to near anatomical left hip on screen-right/gourd side. Foreground advanced leg connects to far anatomical right hip on screen-left.",
-          "impact": "Premature switch from right support at06 to left support at07-08; violates eight continuous right support frames and causes incorrect limb phase.",
-          "repair": "Far anatomical right leg from screen-left hip must extend rearward behind the foreground left thigh, with forefoot contact; near left leg advances airborne, producing natural crossing/occlusion. Do not relabel or mirror."
-        }
-      ],
+      "hardFindings": [],
       "hands": "Left hand holds gourd in all16; right hand empty; no new swapped-hand hard defect observed.",
       "shoeAxes": "No high-confidence sudden outward shoe-axis rotation found in selected sprites.",
       "notes": [
-        "SW07-v6 and08-v8 inspected natively and rejected for actual LEFT rather than RIGHT rear support.",
-        "SW15 source12-v1 and SW16 source16-v4 inspected natively: rear leg remains near anatomical left/gourd-side hip; no side swap.16 has a short foreshortened posterior limb and downward toe tip consistent with possible forefoot contact; world-ground contact height cannot be proven from alpha image alone."
+        "Latest07-v8/08-v9 inspected at native size alongside06-v6 and slot09 source08-v4. Foreground near anatomical LEFT thigh upper edge runs from gourd/bell side across toward image-left forward knee. Far anatomical RIGHT rear-support leg emerges behind it; previous wrong separate left-hip support connection is corrected.",
+        "07-v8 maintains native upper-body size of08-v9, with head top approximately217; forward knee slightly retracted relative08 and rear forefoot retained.",
+        "06 right-middle support transitions to07/08 right-rear support, then09 left support. All retain left-held gourd and empty forward right fist; no high-confidence new static limb/hand defect identified.",
+        "SW15 source12-v1 and16-v4 left hip continuity remains as previously inspected. Foreshortened rear toe contact is inferred from drawn form; exact world plane is not measured.",
+        "Sequence still requires actual motion playback to judge stride displacement, support slip and perceived smoothness; this is static source acceptance only."
       ],
-      "decision": "requires targeted repair"
+      "decision": "no hard static defect found; dynamic unverified",
+      "repairEvidence": {
+        "nativeImagesInspected": [
+          {
+            "source": "generation/run/SW/06-v6.png",
+            "sha256": "46574fae1a7d15d60c484fdb5deebf1f744787306703756f6b335737bdb270f3"
+          },
+          {
+            "source": "generation/run/SW/07-v8.png",
+            "sha256": "bd685f32e91f30890b485e27b3eaff112ea4854f5d2fbc8fc90ab9472bbf7aea"
+          },
+          {
+            "source": "generation/run/SW/08-v9.png",
+            "sha256": "01c56971060ca8194d5be3da8498a98144c00ee5bf87072a82e8ecb24acae5ce"
+          },
+          {
+            "source": "generation/run/SW/08-v4.png",
+            "sha256": "7648ce91cdc3a3ec3c0702841d2eef7219c89ffb77838f808fd265502ead3295"
+          }
+        ],
+        "currentHardFindings": 0,
+        "approvedOnlyAfterNativeInspection": true
+      }
     }
   },
   "limitations": [
     "No browser/client playback inspected.",
     "Static drawn sole, ankle, knee and overlap evidence does not measure world-ground plane or runtime slip.",
     "Snapshot hashes bind these findings to the selected native files at review time."
-  ]
+  ],
+  "historicalRejections": [
+    {
+      "frame": 7,
+      "source": "generation/run/SW/07-v6.png",
+      "sha256": "ee4b569a454aede4ab53f01148392feb5aedc9d87f94c487538ec25c54a27350",
+      "confidence": "high",
+      "issue": "Expected right rear support, but actual grounded posterior leg connects to near anatomical left hip on screen-right/gourd side. Foreground advanced leg connects to far anatomical right hip on screen-left.",
+      "impact": "Premature switch from right support at06 to left support at07-08; violates eight continuous right support frames and causes incorrect limb phase.",
+      "repair": "Far anatomical right leg from screen-left hip must extend rearward behind the foreground left thigh, with forefoot contact; near left leg advances airborne, producing natural crossing/occlusion. Do not relabel or mirror."
+    },
+    {
+      "frame": 8,
+      "source": "generation/run/SW/08-v8.png",
+      "sha256": "515de92e3d71593802b71fec308625eff9741f35ec9b5136060787b65c9788dd",
+      "confidence": "high",
+      "issue": "Expected right rear support, but actual grounded posterior leg connects to near anatomical left hip on screen-right/gourd side. Foreground advanced leg connects to far anatomical right hip on screen-left.",
+      "impact": "Premature switch from right support at06 to left support at07-08; violates eight continuous right support frames and causes incorrect limb phase.",
+      "repair": "Far anatomical right leg from screen-left hip must extend rearward behind the foreground left thigh, with forefoot contact; near left leg advances airborne, producing natural crossing/occlusion. Do not relabel or mirror."
+    },
+    {
+      "frame": 7,
+      "source": "generation/run/SW/07-v7.png",
+      "sha256": "c8fc77fa8a025342b4480c51695351ea40c770ece97c6115155aa2bbbda1cc21",
+      "confidence": "high",
+      "issue": "Anatomical overlap improved, but entire upper body enlarged; head top approximately153 versus217 native in adjacent original images; face/gourd scaled too.",
+      "resolution": "Rejected;07-v8 was generated as local predecessor pose of08-v9 with restored native upper body size."
+    }
+  ],
+  "updatedAt": "2026-10-04T17:34:38.365519+00:00",
+  "hardFindings": []
 }
