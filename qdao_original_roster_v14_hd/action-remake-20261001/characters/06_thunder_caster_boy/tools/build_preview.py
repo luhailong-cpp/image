@@ -15,6 +15,7 @@ from pathlib import Path
 
 from PIL import Image
 from current_review_state import current_review
+from current_run_pairs import current_run_pairs
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -56,6 +57,7 @@ def inspect_frame(path: Path) -> dict:
 
 def build_manifest(first_frame: int) -> dict:
     sequences = []
+    pairs=current_run_pairs()
     for action, spec in SPECS.items():
         for direction in spec["directions"]:
             folder = ROOT / "runtime" / action / direction
@@ -65,7 +67,9 @@ def build_manifest(first_frame: int) -> dict:
             for number in expected:
                 path = folder / f"{number:02d}.png"
                 if path.is_file():
-                    frames.append({"number": number, **inspect_frame(path)})
+                    frame={"number": number, **inspect_frame(path)}
+                    if frame['path'] in pairs:frame['contactPosition']=pairs[frame['path']]
+                    frames.append(frame)
                 else:
                     missing.append(number)
             expected_names = {f"{number:02d}.png" for number in expected}
@@ -134,7 +138,7 @@ $('generated').textContent=`清单生成时间（UTC）：${data.generated_at_ut
 for(const item of data.sequences){const row=document.createElement('tr');row.tabIndex=0;row.append(node('td',`${item.label} ${item.direction}`),node('td',`${item.present_count} / ${item.expected_count}`,item.present_count===item.expected_count?'fine':'warning'),node('td',`${item.technical_ok_count}`));const select=()=>{$('action').value=item.action;setDirections(item.direction);};row.addEventListener('click',select);row.addEventListener('keydown',e=>{if(e.key==='Enter')select();});$('sequence-table').append(row);}
 function setDirections(preferred){$('direction').replaceChildren();for(const s of data.sequences.filter(s=>s.action===$('action').value)){const o=node('option',s.direction);o.value=s.direction;$('direction').append(o);}if([...$('direction').options].some(o=>o.value===preferred))$('direction').value=preferred;selectSequence();}
 function selectSequence(){sequence=data.sequences.find(s=>s.action===$('action').value&&s.direction===$('direction').value);slot=0;elapsed=0;$('timeline').max=sequence.expected_count-1;$('sequence-title').textContent=`${sequence.label} · ${sequence.direction}`;$('sequence-summary').textContent=`${sequence.duration_ms} ms / 帧 · ${sequence.cycle_ms} ms / 段；现有 ${sequence.present_count}/${sequence.expected_count}，技术通过 ${sequence.technical_ok_count}。缺帧：${sequence.missing.length?sequence.missing.map(n=>String(n).padStart(2,'0')).join('、'):'无'}${sequence.unexpected_files.length?'；规格外文件未播放：'+sequence.unexpected_files.join('、'):''}`;$('frames').replaceChildren();for(let i=0;i<sequence.expected_count;i++){const number=sequence.first_frame+i;const record=sequence.frames.find(f=>f.number===number);const b=node('button',String(number).padStart(2,'0'),!record?'missing':record.technical_ok?'':'issue');b.title=!record?'缺帧':record.issues.length?record.issues.join('；'):'技术检查通过，待美术验收';b.addEventListener('click',()=>{pause();slot=i;draw();});$('frames').append(b);}for(const frame of sequence.frames){if(!imageCache.has(frame.url)){const img=new Image();img.src=frame.url;imageCache.set(frame.url,img);}}if(!sequence.present_count)pause();$('play').disabled=!sequence.present_count;draw();}
-function draw(){const number=sequence.first_frame+slot;const frame=sequence.frames.find(f=>f.number===number);$('timeline').value=slot;[...$('frames').children].forEach((b,i)=>b.classList.toggle('current',i===slot));if(!frame){$('sprite').hidden=true;$('sprite').removeAttribute('src');$('empty').hidden=false;$('empty').textContent=`${sequence.label} ${sequence.direction} · ${String(number).padStart(2,'0')}\n缺帧 · 尚未导出`;$('frame-meta').textContent=`帧 ${slot+1} / ${sequence.expected_count}\n路径：runtime/${sequence.action}/${sequence.direction}/${String(number).padStart(2,'0')}.png\n此槽位为空，未生成替代图片。`;return;}$('sprite').src=frame.url;$('sprite').hidden=false;$('empty').hidden=true;$('frame-meta').textContent=`帧 ${slot+1} / ${sequence.expected_count} · 编号 ${String(number).padStart(2,'0')}\n${frame.width??'?'} × ${frame.height??'?'} · ${frame.mode??'无法识别'}\nAlpha 范围：${frame.alpha_extrema?.join('–')??'不可用'}\n${frame.technical_ok?'技术检查通过；美术待验收':'需处理：'+frame.issues.join('；')}\n路径：${frame.path}\nSHA-256：${frame.sha256??'不可用'}`;}
+function draw(){const number=sequence.first_frame+slot;const frame=sequence.frames.find(f=>f.number===number);$('timeline').value=slot;[...$('frames').children].forEach((b,i)=>b.classList.toggle('current',i===slot));if(!frame){$('sprite').hidden=true;$('sprite').removeAttribute('src');$('empty').hidden=false;$('empty').textContent=`${sequence.label} ${sequence.direction} · ${String(number).padStart(2,'0')}\n缺帧 · 尚未导出`;$('frame-meta').textContent=`帧 ${slot+1} / ${sequence.expected_count}\n路径：runtime/${sequence.action}/${sequence.direction}/${String(number).padStart(2,'0')}.png\n此槽位为空，未生成替代图片。`;return;}$('sprite').src=frame.url;$('sprite').hidden=false;$('empty').hidden=true;const cp=frame.contactPosition;const contact=cp?('支撑：'+cp.supportLeg+' · '+cp.positionPhase+' · 配对 '+(cp.pairFrames??[]).map(n=>String(n).padStart(2,'0')).join('/')+'（150ms）\n'):'';$('frame-meta').textContent=contact+`帧 ${slot+1} / ${sequence.expected_count} · 编号 ${String(number).padStart(2,'0')}\n${frame.width??'?'} × ${frame.height??'?'} · ${frame.mode??'无法识别'}\nAlpha 范围：${frame.alpha_extrema?.join('–')??'不可用'}\n${frame.technical_ok?'技术检查通过；美术待验收':'需处理：'+frame.issues.join('；')}\n路径：${frame.path}\nSHA-256：${frame.sha256??'不可用'}`;}
 $('sprite').addEventListener('error',()=>{$('sprite').hidden=true;$('empty').hidden=false;$('empty').textContent='图片加载失败\n请重新生成清单，检查文件路径。';});
 function pause(){playing=false;$('play').textContent='播放';elapsed=0;}
 function step(delta){pause();slot=(slot+delta+sequence.expected_count)%sequence.expected_count;draw();}

@@ -2,8 +2,10 @@
 import json,hashlib
 from pathlib import Path
 from PIL import Image,ImageDraw,ImageFont
+from current_run_pairs import current_run_pairs
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'preview'/'timing-grounding-20261003';OUT.mkdir(parents=True,exist_ok=True)
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+pairs=current_run_pairs()
 data={'character':'06 雷法少年','status':'正常1×1200ms已采用；手脚接地继续复核','normalCycleMs':1200,'slowCycleMs':4800,'selectedNormalCycleMs':1200,'defaultCycleMs':1200,'durationsMs':[75]*16,'client':'未接入、未验证位移速度与滑步','viewSizePx':240,'viewSizeNote':'离线240像素对照，实际客户端显示尺寸待接入确认','referenceGround':{'y':942,'verified':False,'note':'仅原清单诊断参考，不是已标定脚底'},'sequences':{}}
 for d in ['N','NE','E','SE','S','SW','W','NW']:
  paths=[ROOT/f'runtime/run/{d}/{i:02d}.png' for i in range(16)]
@@ -16,6 +18,11 @@ for d in ['N','NE','E','SE','S','SW','W','NW']:
   indexed={f['index']:f for f in phase.get('frames',[])}
   data['sequences'][d]['observedPhases']=[{'index':i,'phase':indexed.get(i,{}).get('observedPhase','未审'),'evidence':indexed.get(i,{}).get('pixelEvidence',''),'note':indexed.get(i,{}).get('note',''),'matchesCurrentFrame':indexed.get(i,{}).get('sha256')==refs[i]['sha256']} for i in range(16)]
   data['sequences'][d]['phaseRecord']=phase_file.relative_to(ROOT).as_posix()
+ current=[pairs.get(f['file']) for f in refs]
+ if all(current):
+  data['sequences'][d]['observedPhases']=[{'index':i,'phase':c['supportLeg']+' · '+c['positionPhase'],'evidence':'配对帧 '+('/'.join(f'{n:02d}' for n in c['pairFrames']))+'，两张独立姿态共150ms','note':'脚位沿运动方向与透视推进；客户端未标定','matchesCurrentFrame':True} for i,c in enumerate(current)]
+  data['sequences'][d]['phaseStatus']='已按当前实图列出每两帧位置与支撑脚，待用户最终动态观感确认'
+  data['sequences'][d]['phaseRecord']=sorted({c['sourceReview'] for c in current})
  for cycle in [1200,4800]:
   frames=[]
   for i,p in enumerate(paths):
