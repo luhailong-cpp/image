@@ -48,7 +48,7 @@ else:
         p.unlink()
     # Work previews load removed native drafts; keep the working text, but route old HTML entry points to current preview.
     for p in R.rglob('*.html'):
-        if p.parent==R/'preview' and p.name in {'index.html','timing-grounding.html'}:continue
+        if p.parent==R/'preview' and p.name in {'index.html','timing-grounding.html','all-directions.html'}:continue
         if p.is_relative_to(R/'tools'):continue
         import os
         target=os.path.relpath(R/'preview/index.html',p.parent).replace('\\','/')

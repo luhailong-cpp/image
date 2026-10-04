@@ -1,12 +1,166 @@
 {
-  "status": "reopened_additional_four_frame_contact_requirement",
-  "reopenedAt": "2026-10-04T01:22:18.772735+00:00",
-  "reference": "../09_bamboo_archer_girl/runtime/run",
+  "schemaVersion": 2,
+  "status": "passed_offline_after_user_feedback_and_bamboo_reference_repair",
+  "reviewedAt": "2026-10-04T20:24:39.749300+00:00",
+  "count": 196,
+  "runCount": 128,
+  "changedRunCount": 106,
+  "changedFrames": {
+    "NE": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "NW": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "W": [
+      1,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "E": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "N": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      13,
+      14,
+      15,
+      16
+    ],
+    "S": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "SE": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "SW": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      12,
+      13,
+      14,
+      15,
+      16
+    ]
+  },
+  "reference": "../09_bamboo_archer_girl/runtime/run (read-only actual images, not metadata approval)",
   "userFeedback": "其他方向还是不对，参照弓足少女，那个是对的",
-  "remainingKnownArtFixes": [
-    "N: refactor front/back leg boot surfaces and approach phase; maintain N01 head/body scale; N03/10 prior scale differences also in scope",
-    "S05/S13,SW05/SW12/SW13,SE13: reject current enlarged/saturated redraws; preserve corrected legs while restoring neighbor head/body/color",
-    "All8 directions: document two actual contact periods each with4+ continuous distinct frames, fix inadequate stance and remaining foot turnout; normal1200ms and frame-step recheck"
+  "reopenedAt": "2026-10-04T01:22:18.772735+00:00",
+  "scope": [
+    "all16 contact-sheet sequences in all8 directions",
+    "actual09 reference comparison",
+    "selected full-resolution hands, feet and identity-scale checks",
+    "normal240px and quarter-speed browser previews with representative screenshots and loop stepping",
+    "SHA-bound independent anatomy/source reviews"
+  ],
+  "playback": {
+    "normalCycleMs": 1200,
+    "frameCount": 16,
+    "frameDurationMs": 75,
+    "uniform": true,
+    "quarterSpeedCycleMs": 4800,
+    "hardwareFpsMeasured": false
+  },
+  "ground": [
+    512,
+    942
+  ],
+  "identityScale": 0.8,
+  "registrationEvidence": "per-frame .generation.json; direct registered edits preserve original scale without second0.8",
+  "rootAcceptance": "audit/bamboo-root-acceptance.json",
+  "records": "review.json",
+  "technicalAudit": "audit/technical-qa.json",
+  "remainingKnownArtFixes": [],
+  "clientValidated": false,
+  "limitations": [
+    "Offline review only; game world velocity, world-root, shadow and event integration untested.",
+    "Robe and held fox intentionally occlude some limb segments; continuity reviewed across neighboring frames."
   ],
   "previousOfflineReview": {
     "reviewedAt": "2026-10-03T19:29:39.815449+00:00",
@@ -33,18 +187,938 @@
     ],
     "records": "review.json"
   },
-  "clientValidated": false,
-  "updatedAt": "2026-10-04T06:37:55.135151+00:00",
-  "acceptedCurrentDirections": [
-    "NE",
-    "E",
-    "W",
-    "NW"
-  ],
-  "acceptanceEvidence": "audit/bamboo-root-acceptance.json (SHA bound; NE/NW metadata closeout pending)",
   "additionalUserFeedback": [
     "脚着地应该要四帧以上，现在一帧都看不出来",
     "有些方向还是脚腿脚掌不够笔直，还是外翻了一下"
   ],
-  "additionalRequirementAt": "2026-10-04T07:47:41.794589+00:00"
+  "spatialContactRequirement": {
+    "source": "audit/spatial-contact-requirement.json",
+    "positionsPerSupportFoot": 4,
+    "distinctPosesPerPosition": 2,
+    "continuousContactFramesPerSupportFoot": 8,
+    "durationPerPositionMs": 150,
+    "frameDurationMs": 75,
+    "contactsByDirection": {
+      "NE": [
+        {
+          "frames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "supportLeg": "left",
+          "observations": "同一实体左腿由前侧落地连续经过髋下、稍后负重至后侧前掌蹬离，右腿在空中回收。"
+        },
+        {
+          "frames": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "supportLeg": "right",
+          "observations": "同一实体右腿由前侧落地连续经过髋下、稍后负重至后侧前掌蹬离，左腿在空中回收。"
+        }
+      ],
+      "NW": [
+        {
+          "supportLeg": "left",
+          "frames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "observations": [
+            "01 LEFT P1: 近左前景大腿连续接低位支撑靴，远右腿藏后并高收；左脚在前侧初接触，鞋掌朝西北，左抱狐右托晶。",
+            "02 LEFT P1: 同一近左脚前侧承重，支撑膝比01屈曲，远右膝折得更紧、后靴更高；两腿没有互换连接。",
+            "03 LEFT P2: 近左脚移到髋下，前景大腿到胫骨、靴连贯；远右回收靴在右后方，保持离地。",
+            "04 LEFT P2: 近左脚在髋下继续经过、支撑链更斜，遠右靴后收并露鞋底；右晶掌随袖向后摆。",
+            "05 LEFT P3: 近左腿转向身后承重，后跟开始抬，前掌保持低位；远右小腿收在其后，上方小靴露鞋面。",
+            "06 LEFT P3: 近左支撑膝更展开，靴向后推进并以掌趾承重；远右回收靴略前摆，和05有不同膝踝角度。",
+            "07 LEFT P4: 近左长腿后伸、后跟抬起、靴尖前掌为接触区；远右膝前摆且靴高收，露鞋面和局部底边。",
+            "08 LEFT P4: 同一近左后掌趾继续蹬推，远右小靴比07稍下降、前送以准备换脚；没有双鞋底并排支撑。"
+          ]
+        },
+        {
+          "supportLeg": "right",
+          "frames": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "observations": [
+            "09 RIGHT P1: 近左前景大腿折向右后的高靴，遮挡远右大腿；远右小腿从后穿出接前方低靴，右脚初落地。",
+            "10 RIGHT P1: 远右前脚承重继续，右膝比09压缩、低靴更近身体；近左后收膝靴维持在前景，左右腿身份不反转。",
+            "11 RIGHT P2: 远右脚到髋下承重；近左前景大腿折向高位后靴，远右支撑胫骨在其后穿出，区别于03左侧支撑链。",
+            "12 RIGHT P2: 远右脚继续髋下经过、膝稍展开、鞋掌更平；近左腿开始前摆，抬起小靴在画面左侧。",
+            "13 RIGHT P3: 远右腿向后承重，低靴移到髋后；近左膝向前抬、靴悬空，髋部前后遮挡保持。",
+            "14 RIGHT P3: 远右支撑膝展开、后靴更后；近左小腿进一步前摆并改变踝角，仍高于支撑区。",
+            "15 RIGHT P4: 远右后腿延伸、后跟抬起、前掌趾端接地；近左前摆靴抬高，不与后脚并列落地。",
+            "16 RIGHT P4: 同一远右脚后侧趾掌最后蹬推，近左靴转回露上表面准备下一01接触；左狐右晶连接保持。"
+          ]
+        }
+      ],
+      "W": [
+        {
+          "supportLeg": "left",
+          "anatomicalSide": "near in W view",
+          "frames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "observations": [
+            "近左脚在髋前平掌接触，左膝已有缓冲；远右腿折在身后，右手雪晶前摆、近左臂抱狐。",
+            "近左脚仍在前侧承重，左膝进一步屈曲、身体进入支撑；远右靴继续后收，雪晶掌向内经过。",
+            "近左脚到髋下承担体重，远右膝向前抬起、靴尖收在膝下；雪晶手绕向髋后。",
+            "近左脚在髋下继续经过，支撑膝略展开；远右膝更前送、靴仍悬空，雪晶掌保持后摆。",
+            "近左脚转到髋后，前掌承重、后跟开始升起；远右腿仍屈膝前抬，区别于04的髋下支撑。",
+            "近左脚在更后位置承重，膝更展开、踝屈曲；远右小腿开始前伸、鞋仍高于支撑脚。",
+            "近左腿到后侧蹬推，后跟抬起、前掌触地；远右鞋向前送，鞋跟仍离地。",
+            "近左脚后侧前掌保持最后蹬推；远右鞋继续前送准备09换脚，前鞋高于后支撑前掌。"
+          ]
+        },
+        {
+          "supportLeg": "right",
+          "anatomicalSide": "far in W view",
+          "frames": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "observations": [
+            "远右脚在髋前平掌接触并缓冲，近左腿折向身后；右晶掌仍后摆，近左臂抱狐。",
+            "远右脚仍在前侧承重，右膝进一步压缩；近左后腿屈膝回收，右晶手向身体侧面经过。",
+            "远右脚在髋下后缘承重，膝踝屈曲、后跟略起；近左膝抬向前，左靴悬空。",
+            "远右脚继续髋下经过，右膝比11更展开、鞋底更平；近左膝前抬更明确，右掌雪晶前摆。",
+            "远右脚转到髋后承重，膝开始伸展、脚跟微起；近左腿维持前屈膝、靴不接地。",
+            "远右脚更后侧承重，右膝打开；近左小腿向前展开、鞋尖上抬，区别于13的收腿。",
+            "远右脚在后侧前掌蹬推，修正小腿后前掌继续落地；近左鞋前送悬空，头身未通过整帧移动补偿。",
+            "远右后脚保持前掌蹬推，近左鞋向前送、准备下一帧01接触；两腿身份延续，左抱狐右托晶。"
+          ]
+        }
+      ],
+      "E": [
+        {
+          "supportLeg": "anatomical_left_far",
+          "frames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "observations": "01–08由远左脚前落、髋下、髋后到后前掌蹬地，近右腿摆动。"
+        },
+        {
+          "supportLeg": "anatomical_right_near",
+          "frames": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "observations": "09–16由近右脚持续接地完成同一空间顺序，远左腿摆动。"
+        }
+      ],
+      "N": [
+        {
+          "frames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "supportLeg": "left",
+          "observations": "同一实体左腿由前侧落地连续经过髋下、稍后负重至后侧前掌蹬离，右腿在空中回收。"
+        },
+        {
+          "frames": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "supportLeg": "right",
+          "observations": "同一实体右腿由前侧落地连续经过髋下、稍后负重至后侧前掌蹬离，左腿在空中回收。"
+        }
+      ],
+      "S": [
+        {
+          "supportLeg": "anatomical_left_screen_right",
+          "frames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "observations": "01–08屏幕右侧左腿前落、髋下、髋后到后前掌蹬地，右腿摆动。"
+        },
+        {
+          "supportLeg": "anatomical_right_screen_left",
+          "frames": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "observations": "09–16屏幕左侧右腿持续接地完成同一空间顺序，左腿摆动。"
+        }
+      ],
+      "SE": [
+        {
+          "frames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "supportLeg": "left",
+          "observations": "Left support chain: front landing -> under pelvis -> slightly behind -> rear forefoot, two independent poses at every position. Hip/thigh continuity read with phase sequence; skirt partially occludes proximal joints."
+        },
+        {
+          "frames": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "supportLeg": "right",
+          "observations": "Opposite right support chain at four spatial positions. Swing limb stays separate from support; rear forefoot contact is judged from ankle/heel/toe geometry, not minimum image pixel."
+        }
+      ],
+      "SW": [
+        {
+          "frames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "supportLeg": "left",
+          "observations": "Left support chain: front landing -> under pelvis -> slightly behind -> rear forefoot, two independent poses at every position. Hip/thigh continuity read with phase sequence; skirt partially occludes proximal joints."
+        },
+        {
+          "frames": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "supportLeg": "right",
+          "observations": "Opposite right support chain at four spatial positions. Swing limb stays separate from support; rear forefoot contact is judged from ankle/heel/toe geometry, not minimum image pixel."
+        }
+      ]
+    },
+    "positionPairsByDirection": {
+      "NE": [
+        {
+          "frames": [
+            1,
+            2
+          ],
+          "position": "P1",
+          "supportLeg": "left",
+          "observations": "01左前侧落地；02同一左脚负重后段，膝打开且支撑点向髋下推进，两幅是独立姿态。"
+        },
+        {
+          "frames": [
+            3,
+            4
+          ],
+          "position": "P2",
+          "supportLeg": "left",
+          "observations": "03左脚髋下支撑；04同脚继续通过，左膝和右回收脚角度改变。"
+        },
+        {
+          "frames": [
+            5,
+            6
+          ],
+          "position": "P3",
+          "supportLeg": "left",
+          "observations": "05左脚稍后负重；06同脚稍后负重，膝踝打开、回收右脚折叠程度不同。"
+        },
+        {
+          "frames": [
+            7,
+            8
+          ],
+          "position": "P4",
+          "supportLeg": "left",
+          "observations": "07左前掌后侧蹬地，后跟抬起；08同脚伸踝更充分，右膝更收，未换腿。"
+        },
+        {
+          "frames": [
+            9,
+            10
+          ],
+          "position": "P1",
+          "supportLeg": "right",
+          "observations": "09右脚前侧落地；10同脚承重后段，膝和对侧脚底俯仰变化。"
+        },
+        {
+          "frames": [
+            11,
+            12
+          ],
+          "position": "P2",
+          "supportLeg": "right",
+          "observations": "11右脚髋下支撑；12同脚继续通过，左回收靴角度和右膝改变。"
+        },
+        {
+          "frames": [
+            13,
+            14
+          ],
+          "position": "P3",
+          "supportLeg": "right",
+          "observations": "13/14右脚均在髋后持续支撑，膝踝与遮挡关系不同；髋后幅度适中，右胫骨连接清楚。"
+        },
+        {
+          "frames": [
+            15,
+            16
+          ],
+          "position": "P4",
+          "supportLeg": "right",
+          "observations": "15右前掌后侧蹬地，16同脚更后伸并伸踝；后移较大但腿链可追踪，未横叉或换错脚。"
+        }
+      ],
+      "NW": [
+        {
+          "frames": [
+            1,
+            2
+          ],
+          "position": "P1",
+          "supportLeg": "left",
+          "observations": [
+            "01 LEFT P1: 近左前景大腿连续接低位支撑靴，远右腿藏后并高收；左脚在前侧初接触，鞋掌朝西北，左抱狐右托晶。",
+            "02 LEFT P1: 同一近左脚前侧承重，支撑膝比01屈曲，远右膝折得更紧、后靴更高；两腿没有互换连接。"
+          ]
+        },
+        {
+          "frames": [
+            3,
+            4
+          ],
+          "position": "P2",
+          "supportLeg": "left",
+          "observations": [
+            "03 LEFT P2: 近左脚移到髋下，前景大腿到胫骨、靴连贯；远右回收靴在右后方，保持离地。",
+            "04 LEFT P2: 近左脚在髋下继续经过、支撑链更斜，遠右靴后收并露鞋底；右晶掌随袖向后摆。"
+          ]
+        },
+        {
+          "frames": [
+            5,
+            6
+          ],
+          "position": "P3",
+          "supportLeg": "left",
+          "observations": [
+            "05 LEFT P3: 近左腿转向身后承重，后跟开始抬，前掌保持低位；远右小腿收在其后，上方小靴露鞋面。",
+            "06 LEFT P3: 近左支撑膝更展开，靴向后推进并以掌趾承重；远右回收靴略前摆，和05有不同膝踝角度。"
+          ]
+        },
+        {
+          "frames": [
+            7,
+            8
+          ],
+          "position": "P4",
+          "supportLeg": "left",
+          "observations": [
+            "07 LEFT P4: 近左长腿后伸、后跟抬起、靴尖前掌为接触区；远右膝前摆且靴高收，露鞋面和局部底边。",
+            "08 LEFT P4: 同一近左后掌趾继续蹬推，远右小靴比07稍下降、前送以准备换脚；没有双鞋底并排支撑。"
+          ]
+        },
+        {
+          "frames": [
+            9,
+            10
+          ],
+          "position": "P1",
+          "supportLeg": "right",
+          "observations": [
+            "09 RIGHT P1: 近左前景大腿折向右后的高靴，遮挡远右大腿；远右小腿从后穿出接前方低靴，右脚初落地。",
+            "10 RIGHT P1: 远右前脚承重继续，右膝比09压缩、低靴更近身体；近左后收膝靴维持在前景，左右腿身份不反转。"
+          ]
+        },
+        {
+          "frames": [
+            11,
+            12
+          ],
+          "position": "P2",
+          "supportLeg": "right",
+          "observations": [
+            "11 RIGHT P2: 远右脚到髋下承重；近左前景大腿折向高位后靴，远右支撑胫骨在其后穿出，区别于03左侧支撑链。",
+            "12 RIGHT P2: 远右脚继续髋下经过、膝稍展开、鞋掌更平；近左腿开始前摆，抬起小靴在画面左侧。"
+          ]
+        },
+        {
+          "frames": [
+            13,
+            14
+          ],
+          "position": "P3",
+          "supportLeg": "right",
+          "observations": [
+            "13 RIGHT P3: 远右腿向后承重，低靴移到髋后；近左膝向前抬、靴悬空，髋部前后遮挡保持。",
+            "14 RIGHT P3: 远右支撑膝展开、后靴更后；近左小腿进一步前摆并改变踝角，仍高于支撑区。"
+          ]
+        },
+        {
+          "frames": [
+            15,
+            16
+          ],
+          "position": "P4",
+          "supportLeg": "right",
+          "observations": [
+            "15 RIGHT P4: 远右后腿延伸、后跟抬起、前掌趾端接地；近左前摆靴抬高，不与后脚并列落地。",
+            "16 RIGHT P4: 同一远右脚后侧趾掌最后蹬推，近左靴转回露上表面准备下一01接触；左狐右晶连接保持。"
+          ]
+        }
+      ],
+      "W": [
+        {
+          "frames": [
+            1,
+            2
+          ],
+          "position": "P1",
+          "supportLeg": "left",
+          "observations": [
+            "近左脚在髋前平掌接触，左膝已有缓冲；远右腿折在身后，右手雪晶前摆、近左臂抱狐。",
+            "近左脚仍在前侧承重，左膝进一步屈曲、身体进入支撑；远右靴继续后收，雪晶掌向内经过。"
+          ]
+        },
+        {
+          "frames": [
+            3,
+            4
+          ],
+          "position": "P2",
+          "supportLeg": "left",
+          "observations": [
+            "近左脚到髋下承担体重，远右膝向前抬起、靴尖收在膝下；雪晶手绕向髋后。",
+            "近左脚在髋下继续经过，支撑膝略展开；远右膝更前送、靴仍悬空，雪晶掌保持后摆。"
+          ]
+        },
+        {
+          "frames": [
+            5,
+            6
+          ],
+          "position": "P3",
+          "supportLeg": "left",
+          "observations": [
+            "近左脚转到髋后，前掌承重、后跟开始升起；远右腿仍屈膝前抬，区别于04的髋下支撑。",
+            "近左脚在更后位置承重，膝更展开、踝屈曲；远右小腿开始前伸、鞋仍高于支撑脚。"
+          ]
+        },
+        {
+          "frames": [
+            7,
+            8
+          ],
+          "position": "P4",
+          "supportLeg": "left",
+          "observations": [
+            "近左腿到后侧蹬推，后跟抬起、前掌触地；远右鞋向前送，鞋跟仍离地。",
+            "近左脚后侧前掌保持最后蹬推；远右鞋继续前送准备09换脚，前鞋高于后支撑前掌。"
+          ]
+        },
+        {
+          "frames": [
+            9,
+            10
+          ],
+          "position": "P1",
+          "supportLeg": "right",
+          "observations": [
+            "远右脚在髋前平掌接触并缓冲，近左腿折向身后；右晶掌仍后摆，近左臂抱狐。",
+            "远右脚仍在前侧承重，右膝进一步压缩；近左后腿屈膝回收，右晶手向身体侧面经过。"
+          ]
+        },
+        {
+          "frames": [
+            11,
+            12
+          ],
+          "position": "P2",
+          "supportLeg": "right",
+          "observations": [
+            "远右脚在髋下后缘承重，膝踝屈曲、后跟略起；近左膝抬向前，左靴悬空。",
+            "远右脚继续髋下经过，右膝比11更展开、鞋底更平；近左膝前抬更明确，右掌雪晶前摆。"
+          ]
+        },
+        {
+          "frames": [
+            13,
+            14
+          ],
+          "position": "P3",
+          "supportLeg": "right",
+          "observations": [
+            "远右脚转到髋后承重，膝开始伸展、脚跟微起；近左腿维持前屈膝、靴不接地。",
+            "远右脚更后侧承重，右膝打开；近左小腿向前展开、鞋尖上抬，区别于13的收腿。"
+          ]
+        },
+        {
+          "frames": [
+            15,
+            16
+          ],
+          "position": "P4",
+          "supportLeg": "right",
+          "observations": [
+            "远右脚在后侧前掌蹬推，修正小腿后前掌继续落地；近左鞋前送悬空，头身未通过整帧移动补偿。",
+            "远右后脚保持前掌蹬推，近左鞋向前送、准备下一帧01接触；两腿身份延续，左抱狐右托晶。"
+          ]
+        }
+      ],
+      "E": [
+        {
+          "frames": [
+            1,
+            2
+          ],
+          "position": "P1",
+          "supportLeg": "anatomical_left_far",
+          "observations": "远左脚在骨盆前下方落地，01较伸展，02膝自然屈曲缓冲；近右腿在后回收，右托晶臂从后向中间摆。"
+        },
+        {
+          "frames": [
+            3,
+            4
+          ],
+          "position": "P2",
+          "supportLeg": "anatomical_left_far",
+          "observations": "远左支撑脚经过髋下，03近右脚仍回收，04近右膝抬到身前；左小腿连续承重，右手从中间向前托晶。"
+        },
+        {
+          "frames": [
+            5,
+            6
+          ],
+          "position": "P3",
+          "supportLeg": "anatomical_left_far",
+          "observations": "远左支撑脚位于髋后，05近右膝高抬，06近右小腿前送；后支撑膝踝连续，前掌保持接触。"
+        },
+        {
+          "frames": [
+            7,
+            8
+          ],
+          "position": "P4",
+          "supportLeg": "anatomical_left_far",
+          "observations": "远左脚在后侧抬跟，07/08前脚掌与趾持续蹬地；近右脚从前摆到准备落脚仍离地，08比07更前送。"
+        },
+        {
+          "frames": [
+            9,
+            10
+          ],
+          "position": "P1",
+          "supportLeg": "anatomical_right_near",
+          "observations": "近右脚前侧落脚，09大腿较前伸，10膝屈曲开始承重；远左腿后侧回收，右掌仍前托。"
+        },
+        {
+          "frames": [
+            11,
+            12
+          ],
+          "position": "P2",
+          "supportLeg": "anatomical_right_near",
+          "observations": "近右脚髋下承重，11左膝抬起、12左小腿回收更明显；右手自然由中间摆到后方，左臂持续抱狐。"
+        },
+        {
+          "frames": [
+            13,
+            14
+          ],
+          "position": "P3",
+          "supportLeg": "anatomical_right_near",
+          "observations": "近右脚向身后推进，13较屈膝平掌支撑，14后腿进一步伸展、脚跟轻抬；远左小腿向前送但仍离地。"
+        },
+        {
+          "frames": [
+            15,
+            16
+          ],
+          "position": "P4",
+          "supportLeg": "anatomical_right_near",
+          "observations": "近右后脚前掌持续接地蹬离，15到16脚跟保持抬起且后腿伸展；远左前鞋明确高于支撑脚，衔接01换左脚。"
+        }
+      ],
+      "N": [
+        {
+          "frames": [
+            1,
+            2
+          ],
+          "position": "P1",
+          "supportLeg": "left",
+          "observations": "01左足前侧初落，02仍同足前侧承重并推进接近髋下；01→02的膝展开和足底深度不同，两幅独立生成。"
+        },
+        {
+          "frames": [
+            3,
+            4
+          ],
+          "position": "P2",
+          "supportLeg": "left",
+          "observations": "03左脚在髋下中支撑；04同脚继续通过，膝踝/右回收脚高度改变。"
+        },
+        {
+          "frames": [
+            5,
+            6
+          ],
+          "position": "P3",
+          "supportLeg": "left",
+          "observations": "05左脚位于髋后少许，06同脚后侧负重时膝更展开；双臂呈低摆到中摆连续。"
+        },
+        {
+          "frames": [
+            7,
+            8
+          ],
+          "position": "P4",
+          "supportLeg": "left",
+          "observations": "07左前掌在后侧支撑、后跟抬起；08同脚踝伸进一步并右膝更收，未错误换脚。"
+        },
+        {
+          "frames": [
+            9,
+            10
+          ],
+          "position": "P1",
+          "supportLeg": "right",
+          "observations": "09右脚前侧初落；10同脚向髋下推进但仍较11前，两帧膝和对侧鞋底投影不同。"
+        },
+        {
+          "frames": [
+            11,
+            12
+          ],
+          "position": "P2",
+          "supportLeg": "right",
+          "observations": "11右脚髋下支撑；12同脚继续通过，左回收脚角度/右膝改变。"
+        },
+        {
+          "frames": [
+            13,
+            14
+          ],
+          "position": "P3",
+          "supportLeg": "right",
+          "observations": "13右脚稍后负重；14同脚继续后侧负重，膝伸与左脚回收程度不同。"
+        },
+        {
+          "frames": [
+            15,
+            16
+          ],
+          "position": "P4",
+          "supportLeg": "right",
+          "observations": "15右前掌后侧蹬地；16同脚踝伸更明显，与下一循环左脚前落衔接。"
+        }
+      ],
+      "S": [
+        {
+          "frames": [
+            1,
+            2
+          ],
+          "position": "P1",
+          "supportLeg": "anatomical_left_screen_right",
+          "observations": "屏幕右侧解剖左腿在前侧落脚，01较伸展、02微屈膝缓冲；屏幕左侧右腿后收，托晶手从前向中间摆。"
+        },
+        {
+          "frames": [
+            3,
+            4
+          ],
+          "position": "P2",
+          "supportLeg": "anatomical_left_screen_right",
+          "observations": "屏幕右侧左腿在髋下承重，03右腿高回收，04右膝进入抬起阶段；托晶掌继续向后摆。"
+        },
+        {
+          "frames": [
+            5,
+            6
+          ],
+          "position": "P3",
+          "supportLeg": "anatomical_left_screen_right",
+          "observations": "屏幕右侧左腿在髋后较短透视持续支撑，05右脚折后回收、06右膝带小腿前送；两个姿态各有连续的膝踝链。"
+        },
+        {
+          "frames": [
+            7,
+            8
+          ],
+          "position": "P4",
+          "supportLeg": "anatomical_left_screen_right",
+          "observations": "屏幕右侧左后脚缩短纵深并抬跟，以鞋面与向下前掌表示后侧蹬地；07/08右前鞋摆到镜头方向并露底但仍悬空，08前摆更伸。"
+        },
+        {
+          "frames": [
+            9,
+            10
+          ],
+          "position": "P1",
+          "supportLeg": "anatomical_right_screen_left",
+          "observations": "屏幕左侧解剖右腿前侧落脚，09鞋跟先前伸、10膝缓冲下压；左腿在屏幕右侧回收，晶体由右掌承托。"
+        },
+        {
+          "frames": [
+            11,
+            12
+          ],
+          "position": "P2",
+          "supportLeg": "anatomical_right_screen_left",
+          "observations": "屏幕左侧右腿经过髋下承重，11/12左膝高抬且小腿回收角度不同；左臂连续抱狐，右掌前摆托晶。"
+        },
+        {
+          "frames": [
+            13,
+            14
+          ],
+          "position": "P3",
+          "supportLeg": "anatomical_right_screen_left",
+          "observations": "屏幕左侧右脚随躯干越过进入髋后，13平掌微屈膝，14左前腿开始送出、右后腿透视更短；位置变化为纵深而非横叉。"
+        },
+        {
+          "frames": [
+            15,
+            16
+          ],
+          "position": "P4",
+          "supportLeg": "anatomical_right_screen_left",
+          "observations": "屏幕左侧右后脚抬跟前掌压地，15/16后支撑鞋面可见、前摆左鞋露底；16左脚前伸准备01落脚，两条腿连接和换脚方向清楚。"
+        }
+      ],
+      "SE": [
+        {
+          "frames": [
+            1,
+            2
+          ],
+          "position": "P1",
+          "supportLeg": "left",
+          "observations": "左脚在髋前伸出，鞋尖沿右下方向，后腿屈曲回收；前靴跟部先承接。 左支撑鞋掌放平、膝角加深，脚相对髋的位置比01更近，右腿仍后收。"
+        },
+        {
+          "frames": [
+            3,
+            4
+          ],
+          "position": "P2",
+          "supportLeg": "left",
+          "observations": "左支撑靴到髋下，胫骨较直，右膝折起；鞋轴没有横向翻转。 同一髋下支撑腿保持，另一靴开始由后向前通过；支撑膝比03略压低。"
+        },
+        {
+          "frames": [
+            5,
+            6
+          ],
+          "position": "P3",
+          "supportLeg": "left",
+          "observations": "左承重腿后移到髋后偏左位置，前摆右靴露底悬起，双腿前后分开。 左承重踝继续后伸，右膝向右下前送、露底面积增加；后侧靴掌持续着地。"
+        },
+        {
+          "frames": [
+            7,
+            8
+          ],
+          "position": "P4",
+          "supportLeg": "left",
+          "observations": "左后腿延伸到后侧，脚跟抬起由前掌支撑；右摆动膝上提，前靴收在身下。 左后掌继续压地且脚跟抬高，右摆腿膝角打开向前下送，前靴与后支撑明显分离。"
+        },
+        {
+          "frames": [
+            9,
+            10
+          ],
+          "position": "P1",
+          "supportLeg": "right",
+          "observations": "换右腿前落；支撑腿从另一髋链向前送，前靴沿右下伸出，左腿折回。 右脚掌变平并缓冲，另一腿继续折回，支撑膝比09弯曲。"
+        },
+        {
+          "frames": [
+            11,
+            12
+          ],
+          "position": "P2",
+          "supportLeg": "right",
+          "observations": "右支撑靴经过髋下，左膝从前方交叠提起；靴轴仍顺前进方向。 右支撑继续在髋下，左摆动靴从后向前收过，双靴分开；与11膝踝角有区别。"
+        },
+        {
+          "frames": [
+            13,
+            14
+          ],
+          "position": "P3",
+          "supportLeg": "right",
+          "observations": "右支撑靴移到稍后方，左腿前送、鞋底朝前可见，后腿的踝部仍承接。 右腿在髋后更伸展，左膝提高并缩短回收，后靴掌平压，非双脚腾空。"
+        },
+        {
+          "frames": [
+            15,
+            16
+          ],
+          "position": "P4",
+          "supportLeg": "right",
+          "observations": "右腿再后伸进入前掌蹬地，后鞋跟抬高，左腿在前露底悬起。 右后前掌保留接触且脚跟进一步提高，左小腿向右下前送准备换脚，接01前落。"
+        }
+      ],
+      "SW": [
+        {
+          "frames": [
+            1,
+            2
+          ],
+          "position": "P1",
+          "supportLeg": "left",
+          "observations": "左支撑腿保留画面右侧髋口及膝位，小腿向左下前探，前靴跟部承接、鞋尖稍抬；右膝仍在画面左侧收起。 同一左支撑髋膝不变，前掌放平并增加踝部缓冲，靴相对01收近；右回收膝与靴仍悬起。"
+        },
+        {
+          "frames": [
+            3,
+            4
+          ],
+          "position": "P2",
+          "supportLeg": "left",
+          "observations": "左支撑靴经过髋下，右膝向前屈起；可见左右髋口连接与01/02连续。 左腿继续髋下承重并稍压膝，右回收靴比03下垂更多；两姿态独立。"
+        },
+        {
+          "frames": [
+            5,
+            6
+          ],
+          "position": "P3",
+          "supportLeg": "left",
+          "observations": "左支撑脚位于髋后偏画面右侧，整掌承接，右腿前摆且鞋底露出；前后两靴分开。 左承重腿继续向后伸、踝角打开，右膝提得更高并屈曲回收，后靴掌仍向地面。"
+        },
+        {
+          "frames": [
+            7,
+            8
+          ],
+          "position": "P4",
+          "supportLeg": "left",
+          "observations": "左后支撑腿伸到后侧，后鞋跟抬高、前掌压地；右前摆膝提高并折小腿。 左后掌持续支撑，右摆动小腿向前打开、靴悬起准备右脚前落；与07膝角明显不同。"
+        },
+        {
+          "frames": [
+            9,
+            10
+          ],
+          "position": "P1",
+          "supportLeg": "right",
+          "observations": "换右腿前落，近侧右大腿自画面左侧髋口伸出，前靴沿左下方向，左腿后收。 同一右脚掌变平缓冲，膝角加深；左腿仍折回，两脚没有倒换。"
+        },
+        {
+          "frames": [
+            11,
+            12
+          ],
+          "position": "P2",
+          "supportLeg": "right",
+          "observations": "右支撑靴在髋下，左摆动膝于前方交叠；近侧右髋与支撑小腿保持连接。 右支撑继续髋下，左膝更收拢，回收靴位置较11升高；手持晶与抱狐两袖连接正常。"
+        },
+        {
+          "frames": [
+            13,
+            14
+          ],
+          "position": "P3",
+          "supportLeg": "right",
+          "observations": "右腿由近髋向后伸，并在左摆腿后方经过；右靴在髋稍后承接，左膝前摆并悬靴。 右支撑更后伸、足掌仍承重，左摆动膝在前形成明确交叉遮挡，抬靴角度与13不同。"
+        },
+        {
+          "frames": [
+            15,
+            16
+          ],
+          "position": "P4",
+          "supportLeg": "right",
+          "observations": "右后腿延伸到蹬地方位，鞋跟抬起、后前掌承担支撑；左膝在前收起。 右后前掌保留接触、踝伸更大，左小腿向左下打开待落，回接01的远左腿前落。"
+        }
+      ]
+    }
+  }
 }

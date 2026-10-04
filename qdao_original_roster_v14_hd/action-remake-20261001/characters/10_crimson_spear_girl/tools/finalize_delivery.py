@@ -24,6 +24,7 @@ for group, frames in groups.items():
         box=solid.getbbox()
         assert box and box[0]>0 and box[1]>0 and box[2]<1024 and box[3]<1024, str(p)
         native=meta['nativeEvidence']; native_record=R/native['generationRecord']
+        native_meta=json.loads(native_record.read_text(encoding='utf-8-sig'))
         assert native['size']==[1254,1254] and native['sha256']==f['nativeSHA']
         assert sha(native_record)==native['recordSHA256'], str(native_record)
         assert meta['sourceFrame']==f['sourceFrame'] and meta['playbackFrame']==f['frame']
@@ -31,7 +32,7 @@ for group, frames in groups.items():
         pixel_sha=hashlib.sha256(im.tobytes()).hexdigest()
         assert pixel_sha not in pixels and f['sha256'] not in file_shas, group
         pixels.add(pixel_sha);file_shas.add(f['sha256'])
-        slots.append({'action':action,'direction':direction,**f,'status':'production-art-export','size':[1024,1024],'mode':'RGBA','pixelSHA256':pixel_sha,'alpha32BBox':list(box)})
+        slots.append({'action':action,'direction':direction,**f,'status':'production-art-export','size':[1024,1024],'mode':'RGBA','pixelSHA256':pixel_sha,'alpha32BBox':list(box),'nativeGenerationRecord':native['generationRecord'],'promptReferenceFromNativeRecord':native_meta.get('prompt')})
 assert len(slots)==196 and len(groups)==14
 for action,(directions,n,ms) in expected.items():
     assert sum(k.startswith(action+'/') for k in groups)==directions
@@ -73,11 +74,11 @@ handoff='''# 赤枪少女 · 成品交接
 
 跑步8方向均匀16×75ms，无阶段加权、无圈尾停顿；已移除480/640/720/800跑步档位。普攻第06帧为接触标记，施法第09帧为释放标记。运行目录编号01起已是最终播放顺序，不可再次应用旧N/S源帧重排；sourceFrame仅用于来源追溯。
 
-所有成品为1024×1024 RGBA。原生证据为1254×1254，整画布统一缩放至860，再按动作/方向固定平移。虚拟根点(512,942)用于离线配准；没有逐帧按最低脚贴线、镜像补方向、复制帧或插值补数。接入时仍需验证游戏世界坐标与地面层级。
+所有成品为1024×1024 RGBA。原生证据为1254×1254。既有成品保留原配准；本次基于已配准成品重绘的新图整画布1254→1024，不重复旧缩放。个别生成时发生整体缩放漂移的独立新姿势，按头饰、髋部、枪身锚点作有记录的等比配准；未按脚底最低点贴线。每张成品的实际处理见对应generation.json。没有镜像补方向、复制帧或插值补数。接入时仍需验证游戏世界坐标与地面层级。
 
 当前全动作预览 `preview/index.html`，八方向跑步 `preview/timing-grounding.html`；支持正常1×、慢放¼、暂停、逐帧。14张当前联系表及四动作概览均从runtime生成。像素与来源校验见 `validation.json`，时序测试见 `preview/timing-verification.json`，美术检查范围见 `FINAL_REVIEW.md`。
 
-本轮逐方向参照用户确认的09竹弓少女：核对脚尖方向、左右腿承重交换、腾空与回落，修正手数/握枪与枪尖完整性。角色身份、红白金服饰和双手长枪保留。本轮正确帧保留，明确错误处定向修订。
+本轮逐方向参照用户确认的09竹弓少女，按最新要求修订支撑序列：同一只脚连续支撑8帧，沿运动轴相对髋部逐步向后推进4个空间位置，每处2张独立姿势；随后换另一脚8帧。最后位置允许真实前掌支撑。核对脚尖方向、腿部轴线、手数、握枪和枪尖完整性。角色身份、红白金服饰和双手长枪保留，正确帧保留。各方向的起止播放位见RUN_CONTACT_PLAN.json；本次来源和重排记录见run-contact-revision-20261004/publish-report.json。
 
 按用户素材保留要求，成品验证后清理本角色目录的原生、拒稿和加工中间图片；清理清单见 `retention-report.json`。提示词、提交参数、回执、原生SHA及逐图生成文字记录保留。历史文档中的native源文件路径仅作出处证据，不是当前加载依赖。当前正式引用只使用runtime和preview文件。外部原角色idle/旧walk、09参照和全局设计图均未更改。
 

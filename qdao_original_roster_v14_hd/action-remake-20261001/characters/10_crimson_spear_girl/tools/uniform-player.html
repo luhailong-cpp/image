@@ -2,7 +2,7 @@
 <main><h1>赤枪少女 · 动作检查</h1><p class="warn">正在参照已确认的弓足少女逐向修正，图片仍在复查。</p>
 <select id="group"></select><button id="play">暂停</button><button id="restart">从头播放</button><button id="prev">上一帧</button><button id="next">下一帧</button><br>
 <select id="size"><option value="normal">256px 常规</option><option value="small">128px</option><option value="large">512px 放大</option></select><select id="speed"><option value="1">正常1×</option><option value="4">慢放¼</option></select><button id="ground">隐藏地线</button><button id="bg">切换底色</button>
-<div id="stage" class="stage"><canvas id="cv" width="1024" height="1024"></canvas><div class="notes"><p id="label"></p><p id="timing"></p><p id="count"></p><p>跑步：16帧 × 75ms = 1200ms。首尾不额外停顿。缺帧方向禁播整圈，可逐槽检查。</p><small>受击40ms/帧、普攻30ms/帧、施法45ms/帧。固定方向配准，不逐帧按最低脚贴线。地线只供检查；离线预览不等于客户端验收。</small></div></div><p><a href="index.html">全部动作</a> · <a href="timing-grounding.html">八方向跑步</a></p></main>
+<div id="stage" class="stage"><canvas id="cv" width="1024" height="1024"></canvas><div class="notes"><p id="label"></p><p id="timing"></p><p id="count"></p><p>跑步：16帧 × 75ms = 1200ms。首尾不额外停顿。缺帧方向禁播整圈，可逐槽检查。</p><small>受击40ms/帧、普攻30ms/帧、施法45ms/帧。固定方向配准，不逐帧按最低脚贴线。地线只供检查；离线预览不等于客户端验收。</small></div></div><p><a href="all-directions.html">八方向同屏</a> · <a href="index.html">全部动作</a> · <a href="timing-grounding.html">八方向跑步</a></p></main>
 <script>
 const DATA=__DATA__,onlyRun=__RUN_ONLY__;
 const group=document.querySelector('#group'),cv=document.querySelector('#cv'),ctx=cv.getContext('2d'),play=document.querySelector('#play');

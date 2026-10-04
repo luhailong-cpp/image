@@ -21,6 +21,16 @@ for name in ['index.html','timing-grounding.html']:
     for href in re.findall(r'href="([^"#]+)"',text):
         if '://' not in href:assert (p.parent/href).exists(),href
     checks.append({'page':p.relative_to(R).as_posix(),'runtimeReferences':count,'brokenReferences':0})
+p=R/'preview/all-directions.html'
+overview=p.read_text(encoding='utf-8')
+groups=json.loads(overview.split('const GROUPS=',1)[1].split(',PLAN=',1)[0])
+assert len(groups)==8 and all(len(urls)==16 for urls in groups.values())
+for urls in groups.values():
+    for url in urls:
+        target=(p.parent/url.split('?',1)[0]).resolve()
+        assert target.is_relative_to((R/'runtime').resolve()) and target.exists()
+        assert sha(target)==current[target.relative_to(R.resolve()).as_posix()]
+checks.append({'page':p.relative_to(R).as_posix(),'runtimeReferences':128,'brokenReferences':0})
 for p in (R/'preview').glob('*-contact.jpg.generation.json'):
     if not Path(str(p).removesuffix('.generation.json')).exists():continue
     rec=json.loads(p.read_text(encoding='utf-8'))

@@ -33,11 +33,10 @@ for group,frames in data['groups'].items():
   if not fresh:raise ValueError('Cannot mix unregistered native into registered sequence: '+group)
   f['candidateUrl']='../'+p.relative_to(R).as_posix()+'?v='+cm['sha256'][:12]
 template=(R/'tools/uniform-player.html').read_text(encoding='utf-8')
-if is_final:template=template.replace('正在参照已确认的弓足少女逐向修正，图片仍在复查。','196张动作制作版已导出；跑步16帧×75ms。本机预览已检查，客户端尚未接入。')
+if is_final:template=template.replace('正在参照已确认的弓足少女逐向修正，图片仍在复查。','八方向跑步已按四个位置、每处两帧修订；16×75ms。本机预览已检查，客户端尚未接入。')
 for name,only in [('index.html',False),('timing-grounding.html',True)]:
  (R/'preview'/name).write_text(template.replace('__DATA__',json.dumps(data,ensure_ascii=False)).replace('__RUN_ONLY__',str(only).lower()),encoding='utf-8')
 (R/'preview/timing-review-data.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 timing={'run':{'frameMs':75,'cycleMs':1200,'frameCount':16,'phaseWeightsApplied':False,'timingStatus':'user_requested_offline_default','incompleteSequencePolicy':'block complete playback; preserve16 time slots for stepping','extraLoopPauseMs':0},'hit':{'frameMs':40,'cycleMs':240},'attack':{'frameMs':30,'cycleMs':360,'contactFrame':6},'cast':{'frameMs':45,'cycleMs':720,'releaseFrame':9},'clientIntegrated':False,'clientRuntimeTested':False}
 (R/'animation-timing.json').write_text(json.dumps(timing,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(json.dumps({'runCycleMs':1200,'runFrameMs':75,'oldSpeedOptions':False,'incompleteRunGroups':[k for k,v in data['groups'].items() if k.startswith('run/') and len(v)!=16]}))
-
