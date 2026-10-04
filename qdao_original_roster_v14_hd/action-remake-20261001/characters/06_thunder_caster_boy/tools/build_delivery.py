@@ -30,7 +30,7 @@ def main():
     for n in present:
      im=Image.open(R/"runtime"/a/d/f"{n:02d}.png").convert("RGBA").resize((640,640),Image.Resampling.LANCZOS)
      bg=Image.new("RGBA",(640,684),(32,42,55,255));bg.alpha_composite(im,(0,0))
-     draw=ImageDraw.Draw(bg);draw.text((18,652),f"{labels[a]} {d}  {n:02d}/{count-1:02d} | {ms}毫秒 | 候选·待动态验收",font=font,fill=(230,230,230))
+     draw=ImageDraw.Draw(bg);draw.text((18,652),f"{labels[a]} {d}  {n:02d}/{count-1:02d} | 原帧{ms}毫秒 | 本机素材",font=font,fill=(230,230,230))
      sequence.append(bg.convert("RGB"))
     for suffix,factor in [("normal",1),("slow",4)]:
      out=R/"preview"/f"{a}_{d}_{suffix}.webp"
@@ -65,6 +65,8 @@ def main():
   lines += ['', '## 当前离线验收', '', '[八方向正常动态图](preview/run-eight-directions-1200.webp) · [四分之一慢放](preview/run-eight-directions-4800.webp) · [全部动作正常/慢放/逐帧](preview/index.html)。', '', '最新完整播放器证据：['+review['playbackEvidence']+']('+review['playbackEvidence']+')。记录14段正常及慢放、暂停与逐帧首尾，绑定196张当前SHA。自动时序检查不替代用户最终动态观感确认。']
  lines += ['', '## 2026-10-04 最新接地位置安排', '', '用户解释为“直脚着地两帧，再旁边点两帧，再旁边点两帧，再旁边点俩帧，依次类推”。当前按同一支撑脚从前端落地、前侧承重、身体经过、后侧蹬离的四个相对位置段推进，每段两张独立姿态，共八张，然后另一脚交替；位置沿各方向运动与透视变化，鞋尖不向外撇。此条替代旧中间四帧分配及旧固定腾空索引。', '', '各向为了保留可用姿态采用不同相位起点。当前逐帧对应支撑脚、位置段与来源见 STATUS.json 中 events.run.currentFramePositionObservations；只有与当前 PNG 的 SHA 一致的复核记录才进入此表。播放器暂停逐帧也显示同一信息。']
  (R/"MERGE_HANDOFF.md").write_text("\n".join(lines)+"\n",encoding="utf-8")
+ from write_final_handoff import write_handoff
+ write_handoff(out)
  print(json.dumps({"exportedCandidates":len(frames),"completeSequences":sum(not s["missing"] for s in seq),"animatedPreviews":len(preview),"dynamicApproved":0},ensure_ascii=False))
 if __name__=="__main__":main()
 

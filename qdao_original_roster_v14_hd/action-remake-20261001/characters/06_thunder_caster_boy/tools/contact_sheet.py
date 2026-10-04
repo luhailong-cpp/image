@@ -11,11 +11,11 @@ for n in range(count):
  if p.exists():
   im=Image.open(p).convert("RGBA").resize((w,w),Image.Resampling.LANCZOS);out.paste(im,(x,y),im)
   sources.append({"file":p.relative_to(R).as_posix(),"sha256":hashlib.sha256(p.read_bytes()).hexdigest(),"generationRecord":p.relative_to(R).as_posix()+".generation.json"})
-  label=f"{labels[args.action]} {args.direction} {n:02d} · 候选"
+  label=f"{labels[args.action]} {args.direction} {n:02d} · 当前帧"
  else:label=f"{n:02d} 未生成";draw.rectangle((x,y,x+w-1,y+h-1),fill=(200,202,200))
  draw.text((x+12,y+w+3),label,font=font,fill=(40,50,50))
 p=R/"review"/f"{args.action}_{args.direction}_contact.png";out.save(p)
-r={"file":p.relative_to(R).as_posix(),"sha256":hashlib.sha256(p.read_bytes()).hexdigest(),"derivedFrom":sources,"operation":"完整画布等比缩小至320方图并排，仅用于候选逐帧检查；空槽明确显示未生成，不构成游戏帧","actualModel":None,"actualQuality":None}
+r={"file":p.relative_to(R).as_posix(),"sha256":hashlib.sha256(p.read_bytes()).hexdigest(),"derivedFrom":sources,"operation":"完整画布等比缩小至320方图并排，仅用于当前帧逐帧检查；空槽明确显示未生成，不构成游戏帧","actualModel":None,"actualQuality":None}
 p.with_name(p.name+".generation.json").write_text(json.dumps(r,ensure_ascii=False,indent=2),encoding="utf-8")
 print(str(p))
 
