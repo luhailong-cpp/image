@@ -5,6 +5,7 @@ m=json.loads((R/'manifest.json').read_text(encoding='utf-8'))
 base=json.loads((R/'audit/bamboo-baseline.json').read_text(encoding='utf-8'))['frames']
 changed={d:[n for n in range(1,17) if hashlib.sha256((R/'run'/d/f'{n:02d}.png').read_bytes()).hexdigest()!=base[f'run/{d}/{n:02d}']['sha256']] for d in ['N','NE','E','SE','S','SW','W','NW']}
 complete=m['visualPassed']==m['exported']==196
+spatial_requirement='最新要求：同一支撑脚依次经过前落脚、髋下承重、稍后支撑、后侧前掌蹬地四个位置，每位置两张不同姿态。01–08为第一只脚持续接地，09–16为另一只脚持续接地；脚位随运动与透视推进，不能向外撇脚。每对150ms，整圈1200ms。'
 contacts={}
 for d in changed:
  p=R/'audit'/f'contact-{d}-review.json'
@@ -20,7 +21,9 @@ summary=f"""# 14 唤雪少女 · {status}
 
 跑步八方向统一1200ms/圈、16帧各75ms；正常预览仅保留此速度，另有¼慢速、暂停和逐帧。受击40ms、普攻30ms、施法45ms每帧不变。
 
-新增验收要求：每只脚每次落地至少连续4张不同承重姿态，共300ms；膝、踝和脚掌朝向连贯，无外翻。实际接地帧段：
+新增验收要求按成品实图逐对核对；膝、踝和脚掌朝向连贯，无外翻。当前接地帧段及审核状态：
+
+{spatial_requirement}
 
 {contact_text}
 
@@ -54,7 +57,8 @@ text=f"""# 14 唤雪少女 · 资源交接
 
 """
 text+='\n'.join(f"- {d}："+('、'.join(f'{n:02d}' for n in ns) if ns else '保留16张，经本轮审核状态见review.json') for d,ns in changed.items())
-text+='\n\n## 连续四帧实际接地\n\n每只脚每次落地至少连续4张不同接触、缓冲与承重姿态，16→01可跨圈连续；每帧75ms，连续4帧共300ms。依据成品实图标注，不照搬09帧号。禁止复制、插值、加长单帧或整图平移凑接地。逐方向证据及当前SHA在audit/contact-方向-review.json。\n\n'+contact_text
+text+='\n\n## 四个连续支撑位置，每位置两帧\n\n同一脚接地8帧，四位置各2张独立姿态；第9帧换另一脚。每帧75ms、每对150ms、整圈1200ms。依据成品实图标注，不照搬09帧号。禁止复制、插值、加长单帧或整图平移凑接地。逐方向证据、各对空间观察及当前SHA在audit/contact-方向-review.json。\n\n'+contact_text
+text+='\n\n'+spatial_requirement+'\n\n要求和最终对应帧号见audit/spatial-contact-requirement.json。'
 text+="""
 
 原反馈前SHA和历史审核保存在audit/bamboo-baseline.json；本轮逐方向诊断、候选与最终SHA见audit/bamboo-*-review.json。review.json只对当前成品SHA生效；run/方向/grounding-review.json保存当前相位、时长和观察。历史通过记录不替代本轮审核。
@@ -75,7 +79,7 @@ run-timing.json为权威时长：每方向16×75ms=1200ms，¼慢放为4800ms。
 
 tools/verify_delivery.py核对196成品、审核SHA、注册、相位、预览来源和实际WebP时长；tools/technical_qa.py核对尺寸、Alpha、原生来源与独立性。tools/verify_uniform_timing.cjs验证播放器帧边界、1200ms循环及预览脚本语法。检查通过不等于已运行游戏客户端。
 
-配置目标GPT Image 2.5 Sunburst/max。宿主管理的内置工具未提供型号/质量参数，实际值未披露；逐图保留为未确认，绝不把提示词或配置当作返回证据。成品.generation.json关联原生记录、SHA、请求和回执。历史cast E06/E07中断恢复映射无法逐一确认，来源记录已明确标记。
+配置目标GPT Image 2.5 Sunburst/max。宿主管理的内置工具未提供型号/质量参数，实际值未披露；逐图保留为未确认，绝不把提示词或配置当作返回证据。成品.generation.json关联原生记录、SHA、请求和回执。历史cast E06/E07中断恢复映射无法逐一确认，来源记录已明确标记。本轮NE部分回图在中断后依据文件时间与画面恢复关联；最终仍采用推断关联的帧及SHA单列在audit/north-ground2-recovery-evidence.json，未改写为确切逐图回执。
 
 按用户2026-09-23素材保留要求，确认正式成品、预览和引用完整后，删除工作目录里的原图、拒稿和加工中间图，不另存图片备份；逐图文字来源保留。清理明细在audit/cleanup-result.json和本轮bamboo清理记录。本角色外参考、正式设计和宿主缓存未动。旧源图路径是历史标识，不是游戏运行依赖；清理后不要重跑需要源图的旧制作工具。
 
@@ -84,5 +88,4 @@ tools/verify_delivery.py核对196成品、审核SHA、注册、相位、预览�
 本轮没有接入或运行D:/work/mmorpg-client。1200ms为离线动作播放参数，未修改游戏移动配置。客户端接入后仍需结合世界位移速度复核滑步、根点、阴影平面及受击/攻击/施法事件。
 """
 (R/'MERGE_HANDOFF.md').write_text(text,encoding='utf-8')
-print(json.dumps({'status':status,'changedCount':count,'changedFrames':changed},ensure_ascii=False))
-
+print(json.dumps({'status':status,'changedCount':count,'changedFrames':changed}))

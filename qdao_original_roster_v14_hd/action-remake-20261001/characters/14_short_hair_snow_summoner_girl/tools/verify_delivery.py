@@ -24,7 +24,7 @@ assert len(preview['files'])==42
 for f in preview['files']:
  assert (R/f['file']).exists()
  assert all(sha(R/s['path'])==s['sha256'] for s in f['sources'])
- if f['file'].endswith('-normal.webp'):
+ if f['file'].endswith(('-normal.webp','-slow.webp')):
   im=Image.open(R/f['file']);actual=[]
   for n in range(im.n_frames):im.seek(n);im.load();actual.append(im.info.get('duration'))
   assert actual==f['durationsMs'],(f['file'],actual,f['durationsMs'])

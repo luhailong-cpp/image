@@ -30,6 +30,17 @@ for preview in pvs['files']:
  assert (R/preview['file']).exists()
  assert all(sha(R/x['path'])==x['sha256'] for x in preview['sources'])
 paths={x['file']:x for x in candidates}
+for direction in ['N','NE','E','SE','S','SW','W','NW']:
+ cp=R/'audit'/f'contact-{direction}-review.json';contact=read(cp)
+ assert contact['status']=='passed_offline_four_spatial_pairs'
+ historical=[]
+ for evidence in contact.get('visualEvidence',[]):
+  if evidence in paths:
+   historical.append({'file':evidence,'sha256':paths[evidence]['sha256'],'bitmapDisposition':'removed_after_final_delivery_verification','retentionRecord':'audit/bamboo-cleanup.json'})
+ if historical:
+  contact['reviewedProcessEvidence']=historical
+  contact['visualEvidence']=[f'preview/run-{direction}-sheet.jpg']
+  save(cp,contact)
 for f in m['frames']:
  mp=R/f['generationRecord'];o=read(mp);origin=o.get('derivedFrom',{})
  source=Path(origin.get('file',''));source=source if source.is_absolute() else R/source
@@ -52,4 +63,3 @@ for entry in candidates:
  p.unlink()
 assert not any(p.is_file() and p.suffix.lower() in {'.png','.jpg','.jpeg','.webp','.gif'} for p in S.rglob('*'))
 print(json.dumps({'removedCount':len(candidates),'formalFramesRetained':196,'textEvidenceRetained':True}))
-
