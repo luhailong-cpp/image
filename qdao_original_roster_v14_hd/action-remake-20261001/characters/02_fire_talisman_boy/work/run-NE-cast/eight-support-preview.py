@@ -5,7 +5,9 @@ B=Path(__file__).resolve().parents[2];W=B/'work/run-NE-cast'
 versions={1:('eight-support',12),2:('eight-support',12),3:('eight-support',12),4:('eight-support',13),5:('eight-support',11),6:('eight-support',12),7:('eight-support',13),8:('eight-support',11),9:('eight-support',11),12:('eight-support',11),13:('eight-support',11),14:('eight-support',11),15:('eight-support',11)}
 entries=[];frames=[]
 for f in range(1,17):
-    if f in versions:
+    if f in (7,15):
+        rec=f'records/run-NE-{f:02d}-finish-transition-v2.generation.json';r=json.loads((B/rec).read_text(encoding='utf-8-sig'));src=B/r['file'];im=Image.open(src).convert('RGBA').resize((1024,1024),Image.Resampling.LANCZOS);status=r.get('visualQA',{}).get('status','not_reviewed')
+    elif f in versions:
         phase,v=versions[f];rec=f'records/run-NE-{f:02d}-cast-20261004-{phase}-v{v}.generation.json';r=json.loads((B/rec).read_text(encoding='utf-8-sig'));src=B/r['file'];im=Image.open(src).convert('RGBA').resize((1024,1024),Image.Resampling.LANCZOS);status=r.get('visualQA',{}).get('status','not_reviewed')
     else:
         rec=next(x['source_record'] for x in json.loads((B/'inventory-run-ne-cast.json').read_text(encoding='utf-8-sig'))['frames'] if x['frame']==f);src=B/f'frames/run/NE/{f:02d}.png';im=Image.open(src).convert('RGBA');status='retained_existing'
