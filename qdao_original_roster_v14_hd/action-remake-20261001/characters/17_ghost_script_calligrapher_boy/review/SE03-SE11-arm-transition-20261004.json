@@ -1,0 +1,56 @@
+{
+  "character": "17_ghost_script_calligrapher_boy",
+  "reviewedAt": "2026-10-04T07:40:38.324Z",
+  "scope": "SE03 and SE11 one targeted builtin edit each; do not alter root review-run-SE.json",
+  "timing": {
+    "cycleMs": 1200,
+    "frameMs": 75
+  },
+  "inspection": [
+    "native1254 RGBA originals and outputs",
+    "240px full-canvas side-by-side",
+    "native shoulder/brush detail comparison",
+    "alpha edge scan"
+  ],
+  "actualModel": null,
+  "actualQuality": null,
+  "unverifiedReason": "Builtin tool does not expose model/quality selectors or return those fields.",
+  "frames": [
+    {
+      "slot": "run/SE/03",
+      "source": "staging/run-SE-03-v1.png",
+      "candidate": "staging/run-SE-03-v2.png",
+      "sha256": "1ef1c791de52f8df9b6cf96a3247d474e8d865bcc564d8b2015294631d20bff2",
+      "request": "provenance/run-SE-03-v2.request.json",
+      "toolResult": "provenance/run-SE-03-v2.tool-result.json",
+      "decision": "select_v2_for_neighbor_transition_review",
+      "observations": [
+        "Right brush wrist visibly advanced from lower-left into chest region, approximately x600 y700; shoulder-to-hand connection preserved.",
+        "Left scroll grip moved inward to approximately x860 y675, less than requested x760. This is an actual partial improvement, not a full target match.",
+        "Head, torso/hem and existing knees/boots visually retained; no extra limbs; brush is axial with one readable butt tassel; two cyan spirits remain within canvas."
+      ],
+      "remaining": "Compare with root's new04 at75ms; left scroll return still limited. No additional generation in this scoped attempt.",
+      "edgeAlphaMax": 0,
+      "edgePixelsAbove16": 0
+    },
+    {
+      "slot": "run/SE/11",
+      "source": "staging/run-SE-11-v1.png",
+      "candidate": "staging/run-SE-11-v2.png",
+      "sha256": "f92d05014514094260b0d3aa246c7beda5e6662e6c5744a46234a5cc5bb35bd5",
+      "request": "provenance/run-SE-11-v2.request.json",
+      "toolResult": "provenance/run-SE-11-v2.tool-result.json",
+      "decision": "reject_v2_retain_v1",
+      "observations": [
+        "Left scroll wrist advances to approximately x440 y640, only around100px, rather than target550; right brush wrist retracts only slightly.",
+        "The previously visible teal brush-butt tassel is no longer readable; only the gold hanging point remains clear in native comparison. The new robe/collar teal ornament is not evidence of a brush tassel.",
+        "Raised scroll sleeve hides/replaces the previously readable near rounded shoulder silhouette; brush-arm shoulder tracing becomes less clear. This is a clarity regression, not a proven assertion of swapped anatomical ownership.",
+        "Head, legs and boots largely retained; two spirits retained; no third limb or crop."
+      ],
+      "remaining": "Original11 remains selected. Root's12 change may still reduce the hand discontinuity. No retries authorized for this scoped attempt.",
+      "edgeAlphaMax": 1,
+      "edgePixelsAbove16": 0
+    }
+  ],
+  "writes": "Only these two candidates, their exact requests/tool receipts/registration records and this independent review. Root selection JSON untouched."
+}
