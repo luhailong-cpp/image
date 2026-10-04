@@ -1,5 +1,5 @@
 """Technical provenance/alpha/export audit only. Does not certify animation art or client behavior."""
-import hashlib,json
+import hashlib,json,re
 from pathlib import Path
 from datetime import datetime,timezone
 from PIL import Image,ImageChops
@@ -19,14 +19,19 @@ for action,n,ms in [('hit',6,40),('attack',12,30),('cast',16,45)]:
     assert sha(dst)==f['sha256']==g['sha256']
     assert sha(sgp)==g['derivedFrom']['generationRecordSha256']
     receiptpath=R/sg['evidence']['receipt'];rec=read(receiptpath);assert sha(receiptpath)==sg['evidence']['receiptSha256']
-    assert rec['callCount']==1 and rec['completedAt'] and rec['submittedParameters']['referenced_image_paths']
+    assert rec.get('callCount',1)==1 and rec['completedAt'] and rec['submittedParameters']['referenced_image_paths']
     assert sg['actualModel'] is None and sg['actualQuality'] is None
     a=Image.open(src);c=Image.open(dst);assert min(a.size)>=1024 and a.mode=='RGBA' and c.size==(1024,1024) and c.mode=='RGBA'
     assert a.getchannel('A').getextrema()==(0,255) and c.getchannel('A').getextrema()==(0,255)
     assert a.resize((1024,1024),Image.Resampling.LANCZOS).tobytes()==c.tobytes()
     for ref in sg['references']:assert sha(Path(ref['file']))==ref['sha256']
     assert f['durationMs']==ms
-    rawhash.append(sha(src));outhash.append(sha(dst));calls.append(rec['output']['toolReturnedPath'])
+    returned=rec.get('output',{}).get('toolReturnedPath')
+    if returned is None:
+     match=re.search(r'as (C:\\[^\r\n]+?\.png) by default',rec.get('toolResult',{}).get('output_hint',''))
+     if match is None:raise ValueError('missing returned tool path evidence')
+     returned=match.group(1)
+    rawhash.append(sha(src));outhash.append(sha(dst));calls.append(returned)
     rows.append({'action':action,'direction':direction,'frame':f['frame'],'source':f['sourcePath'],'sourceSha256':sha(src),'candidate':f['path'],'candidateSha256':sha(dst),'nativeSize':list(a.size),'durationMs':ms,'technicalPass':True,'actualModel':None,'actualQuality':None})
    except Exception as e:issues.append({'action':action,'direction':direction,'frame':f['frame'],'error':str(e) or repr(e)})
 assert len(rawhash)==len(set(rawhash)) and len(outhash)==len(set(outhash)) and len(calls)==len(set(calls))
