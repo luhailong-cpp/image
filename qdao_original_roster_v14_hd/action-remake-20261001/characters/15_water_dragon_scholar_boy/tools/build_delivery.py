@@ -11,11 +11,11 @@ sources-index.json 的 frames 是人工逐帧选表，accepted=true 才有资格
 选表缺失合法：产生 196 个空槽，绝不填图。每帧必须是至少 1024 的方形
 原生单帧 RGBA PNG；nativeSingleFrame=true 是人工核实声明，不由尺寸推定。
 generationRecord 指向本角色内原始逐图回执/其保真副本；内容整段保留于派生记录。
-coordinateSystem.root 是 1024 全局画布坐标中的虚拟根锚点，必须人工确认。
-全局坐标只允许整幅画布等比降采样至 1024，不裁主体、不逐帧平移/缩放/贴脚。
+coordinateSystem.root 是 1024 全局画布坐标中的虚拟根锚点，必须主审离线复核。
+全局坐标只允许整幅画布等比降采样至 940 并固定放入 1024 画布(42,49)，不逐帧贴脚。
 索引不接受逐帧变换。没有生成、重画、镜像、补帧、插值或修改源图的功能。
 
---write 仅可写本角色 runtime/、provenance/derived/、manifest.json、preview/index.html。
+--write 仅可写本角色 runtime/、provenance/derived/、manifest.json 及 preview 的两个离线 HTML。
 既有 runtime 含未选槽时直接失败，不擅自删除旧资源。预检和写出均不把导出、
 播放或像素唯一性当成动作/美术验收通过。客户端状态始终记录未接入/未测试。
 """
@@ -30,12 +30,15 @@ from pathlib import Path
 import sys
 
 from PIL import Image, ImageOps
+from render_review_board import TIMELINE_JS, json_for_html, load_run_timing, render_review_board, review_notice
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_DIRS = (ROOT / 'sources/new', ROOT / 'sources/reused')
 SIZE = 1024
+CONTENT_SIZE = 940
+CONTENT_OFFSET = (42, 49)
 SPECS = {
-    'run': (('N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'), 16, 30),
+    'run': (('N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'), 16, 75),
     'hit': (('E', 'W'), 6, 40),
     'attack': (('E', 'W'), 12, 30),
     'cast': (('E', 'W'), 16, 45),
@@ -139,7 +142,7 @@ def slots() -> list[dict]:
             for number in range(1, count + 1):
                 result.append({'slot': f'{action}-{direction}-{number:02d}',
                                'action': action, 'direction': direction, 'frame': number,
-                               'durationMs': duration, 'source': None, 'output': None,
+                               'durationMs': duration, 'timingStatus': 'user_requested_not_client' if action == 'run' else 'planned', 'source': None, 'output': None,
                                'status': 'missing', 'visualApproval': 'not_reviewed',
                                'derivedFrom': None, 'sha256': None, 'event': None})
     return result
@@ -208,7 +211,11 @@ def prepare() -> tuple[dict, list[tuple[Path, bytes]]]:
             raise ValueError(f'原始回执与源图 SHA 不匹配: {slot}')
         image, geometry = inspect(path)
         native_size = image.width
-        output = image.copy() if native_size == SIZE else image.resize((SIZE, SIZE), Image.Resampling.LANCZOS)
+        image.putalpha(image.getchannel('A').point(lambda value: 0 if value <= 8 else value))
+        content = image.resize((CONTENT_SIZE, CONTENT_SIZE), Image.Resampling.LANCZOS)
+        output = Image.new('RGBA', (SIZE, SIZE), (0, 0, 0, 0))
+        output.alpha_composite(content, CONTENT_OFFSET)
+        content.close()
         image.close()
         key = pixel_sha(output)
         mirror_key = pixel_sha(ImageOps.mirror(output))
@@ -227,10 +234,12 @@ def prepare() -> tuple[dict, list[tuple[Path, bytes]]]:
                         'generationRecordSha256': digest(receipt_bytes)}
         transform = {'kind': 'uniform_whole_canvas_downsample',
                      'nativeCanvas': [native_size, native_size], 'outputCanvas': [SIZE, SIZE],
-                     'factor': SIZE / native_size, 'offset': [0, 0],
+                     'factor': CONTENT_SIZE / native_size, 'offset': list(CONTENT_OFFSET),
+                     'scaledWholeCanvas': [CONTENT_SIZE, CONTENT_SIZE],
+                     'alphaCleanup': 'source alpha <= 8 set to 0 uniformly; no anatomy editing',
                      'coordinateSystem': coordinate, 'bboxUsedForTransform': False,
                      'perFrameGroundAlignment': False, 'poseSynthesis': False,
-                     'filter': 'identity' if native_size == SIZE else 'Pillow LANCZOS'}
+                     'filter': 'Pillow LANCZOS; fixed whole-canvas transform retained from prior run manifest'}
         record = {'schemaVersion': 1, 'character': ROOT.name, 'slot': slot,
                   'file': relative(out_path), 'sha256': digest(png), 'derivedAt': now,
                   'derivedFrom': derived_from, 'sourceKind': available[source_rel]['sourceKind'],
@@ -256,6 +265,8 @@ def prepare() -> tuple[dict, list[tuple[Path, bytes]]]:
             present = sum(row['output'] is not None for row in group)
             groups.append({'action': action, 'direction': direction, 'expected': count,
                            'accepted': present, 'durationMs': duration, 'cycleMs': count * duration,
+                           'timingStatus': 'user_requested_not_client' if action == 'run' else 'planned',
+                           'trialCyclesMs': [] if action == 'run' else None,
                            'missing': [row['frame'] for row in group if row['output'] is None],
                            'animationApproval': 'pending' if present == count else 'incomplete_not_reviewable'})
     manifest = {'schemaVersion': 1, 'character': ROOT.name, 'builtAt': now,
@@ -276,20 +287,30 @@ def encode_json(value: dict) -> bytes:
 
 HTML = r'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>15 水龙书生 · 四动作进度预览</title><style>[hidden]{display:none!important}
-*{box-sizing:border-box}body{background:#101c28;color:#e8f1f8;font:16px/1.55 system-ui,"Microsoft YaHei",sans-serif;margin:24px}main{max-width:1160px;margin:auto}h1{font-size:26px}button,select{font:inherit;padding:7px;margin:3px;background:#e5eef5;border:0;border-radius:5px}input{width:100%}.layout{display:grid;grid-template-columns:minmax(300px,650px) 1fr;gap:24px}.stage{aspect-ratio:1;position:relative;background:repeating-conic-gradient(#dce6ee 0 25%,#edf3f7 0 50%) 50%/32px 32px;border:1px solid #75899b}.stage.dark{background:#0a0f15}.stage.white{background:#fff}.stage img{width:100%;height:100%;object-fit:contain}.empty{position:absolute;inset:0;display:grid;place-content:center;text-align:center;color:#32465a;background:#d9e2eacc;font-size:24px}.tag{background:#3c3020;border-left:4px solid #dcaf68;padding:12px}.slots{display:flex;gap:5px;flex-wrap:wrap}.slots button{font-size:13px;background:#576374;color:#fff}.slots button.ok{background:#246e5a}.slots button.current{outline:3px solid #ffd170}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;max-height:320px;overflow:auto}.meta{color:#bccede}.root{position:absolute;width:16px;height:16px;border:1px solid #f05b5b;border-radius:100%;transform:translate(-50%,-50%);pointer-events:none}.root:after{content:"";position:absolute;inset:7px -7px;border-top:1px solid #f05b5b}@media(max-width:860px){.layout{grid-template-columns:1fr}}</style>
-<main><h1>15 水龙书生 · 四动作本地预览</h1><p id="summary"></p><p class="tag">缺帧保持空槽，播放会真实显示缺口。已导出不等于动态验收通过。未接入客户端，未做客户端运行验收。</p><div class="layout"><section><div id="stage" class="stage"><img id="sprite" alt="" hidden><div id="empty" class="empty"></div><div id="root" class="root" hidden></div></div><p id="counter"></p><button id="play">播放</button><button id="pause">暂停</button><button id="previous">上一帧</button><button id="next">下一帧</button><input id="scrub" type="range" min="1" max="16" value="1"><div id="slots" class="slots"></div></section><aside><label>动作与方向 <select id="group"></select></label><p><label>速度 <select id="speed"><option value="1">1× 正常</option><option value="0.25">0.25× 慢速</option></select></label></p><button id="background">切换背景</button><label><input id="anchor" type="checkbox" style="width:auto">显示全局虚拟根</label><p id="timing"></p><p id="status" class="tag"></p><p class="meta">逐帧检查：两手两脚、扇子握持、玉佩侧别、膝踝与远近腿、支撑与腾空、比例与首尾接续。红色根标记来自人工统一坐标；不会按每张图的脚底调整。</p><details><summary>本槽来源与验收记录</summary><pre id="details"></pre></details></aside></div></main>
-<script id="data" type="application/json">__DATA__</script><script>
-'use strict';const m=JSON.parse(document.getElementById('data').textContent),$=id=>document.getElementById(id),names={run:'跑步',hit:'受击',attack:'普攻',cast:'施法'};let gi=0,fi=0,playing=false,raf=0,start=0,bg=0;const loaded=new Map();
-const groups=m.groups.map(g=>({...g,frames:m.frames.filter(f=>f.action===g.action&&f.direction===g.direction)}));
-$('summary').textContent=`已导出 ${m.exported}/196；未导出 ${196-m.exported}；完整动态验收：${m.animationApproval==='incomplete_not_reviewable'?'缺帧，尚不具备验收条件':'待人工审阅'}`;
+*{box-sizing:border-box}body{background:#101c28;color:#e8f1f8;font:16px/1.55 system-ui,"Microsoft YaHei",sans-serif;margin:24px}main{max-width:1160px;margin:auto}h1{font-size:26px}button,select{font:inherit;padding:7px;margin:3px;background:#e5eef5;border:0;border-radius:5px}input{width:100%}.layout{display:grid;grid-template-columns:minmax(300px,650px) 1fr;gap:24px}.stage{aspect-ratio:1;position:relative;background:repeating-conic-gradient(#dce6ee 0 25%,#edf3f7 0 50%) 50%/32px 32px;border:1px solid #75899b}.stage.dark{background:#0a0f15}.stage.white{background:#fff}.stage #sprite{width:100%;height:100%;object-fit:contain}.empty{position:absolute;inset:0;display:grid;place-content:center;text-align:center;color:#32465a;background:#d9e2eacc;font-size:24px}.tag{background:#3c3020;border-left:4px solid #dcaf68;padding:12px}.slots{display:flex;gap:5px;flex-wrap:wrap}.slots button{font-size:13px;background:#576374;color:#fff}.slots button.ok{background:#246e5a}.slots button.current{outline:3px solid #ffd170}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;max-height:320px;overflow:auto}.meta{color:#bccede}.root{position:absolute;width:16px;height:16px;border:1px solid #f05b5b;border-radius:100%;transform:translate(-50%,-50%);pointer-events:none}.root:after{content:"";position:absolute;inset:7px -7px;border-top:1px solid #f05b5b}@media(max-width:860px){.layout{grid-template-columns:1fr}}</style>
+<main><h1>15 水龙书生 · 四动作本地预览</h1><p id="summary"></p><p><a href="all-directions.html" style="color:#b6dfff">打开八方向跑步与六组战斗同播</a></p><p class="tag">__REVIEW_NOTICE__ 缺帧保持空槽，播放会真实显示缺口。</p><div class="layout"><section><div id="stage" class="stage"><canvas id="sprite" width="1024" height="1024" hidden></canvas><div id="empty" class="empty"></div><div id="root" class="root" hidden></div></div><p id="counter"></p><button id="play">播放</button><button id="pause">暂停</button><button id="previous">上一帧</button><button id="next">下一帧</button><input id="scrub" type="range" min="1" max="16" value="1"><div id="slots" class="slots"></div></section><aside><label>动作与方向 <select id="group"></select></label><p><label>速度 <select id="speed"><option value="1">1× 当前节奏</option><option value="0.25">0.25× 慢速</option></select></label></p><p><label>跑步试播 <select id="runCycle"></select></label></p><p><label>画布显示 <select id="displaySize"><option value="240">240px 游戏尺寸参考</option><option value="384">384px 放大复核</option><option value="520">520px 细节</option></select></label></p><button id="background">切换背景</button><label><input id="anchor" type="checkbox" style="width:auto">显示全局虚拟根</label><p id="timing"></p><p id="status" class="tag"></p><p class="meta">逐帧检查：两手两脚、扇子握持、玉佩侧别、膝踝与远近腿、支撑与腾空、比例与首尾接续。红色根标记来自人工统一坐标；不会按每张图的脚底调整。</p><details><summary>本槽来源与验收记录</summary><pre id="details"></pre></details></aside></div></main>
+<script id="data" type="application/json">__DATA__</script><script id="timingData" type="application/json">__TIMING__</script><script>
+'use strict';
+__TIMELINE_JS__
+const timing=JSON.parse(document.getElementById('timingData').textContent);const m=JSON.parse(document.getElementById('data').textContent),$=id=>document.getElementById(id),names={run:'跑步',hit:'受击',attack:'普攻',cast:'施法'};let gi=0,fi=0,playing=false,raf=0,start=0,bg=0;const loaded=new Map();
+const groups=m.groups.map(g=>({...g,frames:m.frames.filter(f=>f.action===g.action&&f.direction===g.direction).sort((a,b)=>a.frame-b.frame)}));
+for(const profile of timing.profiles){const option=document.createElement('option');option.value=profile.id;option.textContent=profileLabel(profile);$('runCycle').append(option)}$('runCycle').value=timing.defaultProfile;
+$('summary').textContent=`已导出 ${m.exported}/196；本地动态已审 ${groups.filter(offlineGroup).length}/14组；${m.animationApproval==='offline_reviewed'?'本聊天主审离线复核完成；用户尚未验收，未接入客户端':m.animationApproval==='incomplete_not_reviewable'?'缺帧，尚不具备整组验收条件':'待完整主审离线复核'}`;
 groups.forEach((g,i)=>{let o=document.createElement('option');o.value=i;o.textContent=`${names[g.action]} ${g.direction} · ${g.accepted}/${g.expected}`;$('group').append(o)});
+function durations(g){return groupDurations(g,timing,$('runCycle').value)}
 function stop(){playing=false;cancelAnimationFrame(raf)}
-function show(){const g=groups[gi],f=g.frames[fi];$('counter').textContent=`${names[g.action]} ${g.direction} · ${fi+1}/${g.expected} · ${f.output?'已导出':'缺帧'}`;$('scrub').max=g.expected;$('scrub').value=fi+1;$('sprite').hidden=true;$('sprite').removeAttribute('src');$('empty').hidden=false;$('empty').textContent=f.output?'读取图片…':`缺帧 ${f.slot}\n当前槽位为空`;if(f.output){const url='../'+f.output;const image=loaded.get(url);if(image&&image.complete&&image.naturalWidth===1024){$('sprite').src=url;$('sprite').hidden=false;$('empty').hidden=true}else if(image&&image.complete){$('empty').textContent='图片读取失败：'+f.slot;}}
- $('timing').textContent=`正常 ${g.durationMs} ms/帧，${g.cycleMs} ms/段；当前 ${Number($('speed').value)}×`;$('status').textContent=g.accepted<g.expected?`缺 ${g.expected-g.accepted} 帧；目前只可看单帧及时间线缺口，不能判定整段动画通过。`:'本段帧已齐；正常/慢速播放及逐帧美术验收仍待人工确认。';$('details').textContent=JSON.stringify(f,null,2);$('slots').replaceChildren();g.frames.forEach((x,i)=>{const b=document.createElement('button');b.textContent=String(i+1).padStart(2,'0');b.className=(x.output?'ok ':'')+(i===fi?'current':'');b.onclick=()=>{stop();fi=i;show()};$('slots').append(b)});const root=m.coordinateSystem?.root;$('root').hidden=!root||!$('anchor').checked;if(root){$('root').style.left=(root[0]/1024*100)+'%';$('root').style.top=(root[1]/1024*100)+'%';}}
-function tick(now){if(!playing)return;const g=groups[gi];const next=Math.floor((now-start)/(g.durationMs/Number($('speed').value)))%g.expected;if(next!==fi){fi=next;show()}raf=requestAnimationFrame(tick)}
-$('play').onclick=()=>{stop();playing=true;start=performance.now()-fi*groups[gi].durationMs/Number($('speed').value);raf=requestAnimationFrame(tick)};$('pause').onclick=stop;$('previous').onclick=()=>{stop();fi=(fi-1+groups[gi].expected)%groups[gi].expected;show()};$('next').onclick=()=>{stop();fi=(fi+1)%groups[gi].expected;show()};$('scrub').oninput=()=>{stop();fi=Number($('scrub').value)-1;show()};$('group').onchange=()=>{stop();gi=Number($('group').value);fi=0;show()};$('speed').onchange=()=>{stop();show()};$('background').onclick=()=>{$('stage').className='stage '+['','dark','white'][++bg%3]};$('anchor').onchange=show;document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
+function show(){const g=groups[gi],f=g.frames[fi];$('counter').textContent=`${names[g.action]} ${g.direction} · ${fi+1}/${g.expected} · ${f.output?'已导出':'缺帧'}`;$('scrub').max=g.expected;$('scrub').value=fi+1;$('sprite').hidden=true;$('sprite').getContext('2d').clearRect(0,0,1024,1024);$('empty').hidden=false;$('empty').textContent=f.output?'读取图片…':`缺帧 ${f.slot}\n当前槽位为空`;if(f.output){const url='../'+f.output;const image=loaded.get(url);if(image&&image.complete&&image.naturalWidth===1024){$('sprite').getContext('2d').drawImage(image,0,0,1024,1024);$('sprite').hidden=false;$('empty').hidden=true}else if(image&&image.complete){$('empty').textContent='图片读取失败：'+f.slot;}}
+ const values=durations(g),speed=Number($('speed').value);$('runCycle').disabled=g.action!=='run';$('timing').textContent=`${g.action==='run'?profileLabel(runProfile(timing,$('runCycle').value)):'原战斗方案'} · 本帧 ${values[fi]}ms；原始周期 ${durationTotal(values)}ms；${speed}× 播放周期 ${durationTotal(values)/speed}ms${g.action==='run'?' · '+timingReviewLabel(runProfile(timing,$('runCycle').value)):''}`;$('status').textContent=g.accepted<g.expected?`缺 ${g.expected-g.accepted} 帧；目前只可看单帧及时间线缺口，不能判定整段动画通过。`:offlineGroup(g)?'本段已由本聊天主审完成离线静态、正常/慢速动态复核；用户尚未验收，未接入客户端。':'本段帧已齐；正常/慢速播放及逐帧美术验收仍待主审离线复核。';$('details').textContent=JSON.stringify(f,null,2);$('slots').replaceChildren();g.frames.forEach((x,i)=>{const b=document.createElement('button');b.textContent=String(i+1).padStart(2,'0');b.className=(x.output?'ok ':'')+(i===fi?'current':'');b.onclick=()=>{stop();fi=i;show()};$('slots').append(b)});const root=m.coordinateSystem?.root;$('root').hidden=!root||!$('anchor').checked;if(root){$('root').style.left=(root[0]/1024*100)+'%';$('root').style.top=(root[1]/1024*100)+'%';}}
+function tick(now){if(!playing)return;const g=groups[gi];const next=frameAt(durations(g),(now-start)*Number($('speed').value));if(next!==fi){fi=next;show()}raf=requestAnimationFrame(tick)}
+$('play').onclick=()=>{stop();playing=true;start=performance.now()-frameStart(durations(groups[gi]),fi)/Number($('speed').value);raf=requestAnimationFrame(tick)};$('pause').onclick=stop;$('previous').onclick=()=>{stop();fi=(fi-1+groups[gi].expected)%groups[gi].expected;show()};$('next').onclick=()=>{stop();fi=(fi+1)%groups[gi].expected;show()};$('scrub').oninput=()=>{stop();fi=Number($('scrub').value)-1;show()};$('group').onchange=()=>{stop();gi=Number($('group').value);fi=0;show()};$('speed').onchange=()=>{stop();show()};$('runCycle').onchange=()=>{stop();show()};$('displaySize').onchange=()=>{$('stage').style.width=$('displaySize').value+'px';show()};$('stage').style.width='240px';$('background').onclick=()=>{$('stage').className='stage '+['','dark','white'][++bg%3]};$('anchor').onchange=show;document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
 for(const f of m.frames){if(!f.output)continue;const url='../'+f.output,im=new Image();loaded.set(url,im);im.onload=show;im.onerror=show;im.src=url}show();
 </script></html>'''
+
+
+def render_main_preview(manifest: dict, timing: dict) -> str:
+    return (HTML.replace('__DATA__', json_for_html(manifest))
+            .replace('__TIMING__', json_for_html(timing)).replace('__TIMELINE_JS__', TIMELINE_JS)
+            .replace('__REVIEW_NOTICE__', review_notice(manifest, timing)))
 
 
 def write_file(path: Path, content: bytes) -> None:
@@ -309,11 +330,12 @@ def main() -> int:
         return 0
     if args.replace and not args.write:
         parser.error('--replace 必须配合 --write')
+    timing = load_run_timing()
     manifest, pending = prepare()
     if args.write:
         for path, content in pending:
             if path.suffix == '.png' and path.exists() and path.read_bytes() != content and not args.replace:
-                raise ValueError(f'成品已有不同内容，需人工确认后 --replace: {relative(path)}')
+                raise ValueError(f'成品已有不同内容，需主审离线复核后 --replace: {relative(path)}')
         # Preflight completed before any write. Source and selection remain read-only.
         for path, content in pending:
             write_file(path, content)
@@ -322,10 +344,10 @@ def main() -> int:
                 row['status'] = 'exported'
         manifest['exported'] = manifest['accepted']
         write_file(safe_path('manifest.json'), encode_json(manifest))
-        data = json.dumps(manifest, ensure_ascii=False).replace('<', '\\u003c').replace('&', '\\u0026')
-        write_file(safe_path('preview/index.html'), HTML.replace('__DATA__', data).encode('utf-8'))
+        write_file(safe_path('preview/index.html'), render_main_preview(manifest, timing).encode('utf-8'))
+        write_file(safe_path('preview/all-directions.html'), render_review_board(manifest, timing).encode('utf-8'))
     print(json.dumps({k: manifest[k] for k in ('character', 'expected', 'accepted', 'exported', 'missing', 'animationApproval', 'clientIntegration')}, ensure_ascii=False, indent=2))
-    print('已写出 runtime/、provenance/derived/、manifest.json、preview/index.html' if args.write else '只读预检完成；未写出。用 --write 生成当前真实进度预览。')
+    print('已写出 runtime/、provenance/derived/、manifest.json、preview/index.html 与 all-directions.html' if args.write else '只读预检完成；未写出。用 --write 生成当前真实进度预览。')
     return 0
 
 
