@@ -1,11 +1,11 @@
 {
-  "reviewedAt": "2026-10-04T20:09:39.420788+00:00",
+  "reviewedAt": "2026-10-04T21:17:48.834578+00:00",
   "reviewer": "se_complete",
   "scope": [
     "run/S",
     "run/SW"
   ],
-  "status": "static_review_complete_dynamic_review_by_parent_pending",
+  "status": "static_review_complete_browser_depth_corrections_applied_dynamic_recheck_by_parent_pending",
   "timing": {
     "frameDurationMs": [
       75,
@@ -128,8 +128,8 @@
   ],
   "residuals": [
     "Existing S07 andS12 upperbody scale differs from neighboring source frames; these are source characteristics, not new forced global resizing.",
-    "S04-to05 and06-to07 projected contact depth should be checked in full animation; this report does not convert static image review into dynamic acceptance.",
-    "Contact judged from foot top/forefoot edge and connected load-bearing leg, not bottommost pixel alone; no uniform contact-y across perspective depth is required."
+    "Contact judged from foot top/forefoot edge and connected load-bearing leg, not bottommost pixel alone; no uniform contact-y across perspective depth is required.",
+    "Final S04/05 contact bottoms approximately950/919.5 runtime,06/07 approximately922.7/905; previous75px sudden stance-foot rise removed. S13/14/15 approximately917/913.8/912.9. Parent final playback recheck pending."
   ],
   "frames": [
     {
@@ -206,9 +206,9 @@
     },
     {
       "key": "run/S/05",
-      "source": "generation/contact-pairs-20261004/S/05-v3.png",
+      "source": "generation/contact-pairs-20261004/S/05-v4.png",
       "retained": false,
-      "sha256": "7e167a1cd7f4cda1dbca37b1698ad870bc8a891ae0e9591d15d643c4deec4794",
+      "sha256": "ccc859308bead949a7b9c283e7b94ff1294ac38abf73299d5b5eac22dcea9b82",
       "size": [
         1254,
         1254
@@ -224,9 +224,9 @@
     },
     {
       "key": "run/S/06",
-      "source": "generation/contact-pairs-20261004/S/06-v3.png",
+      "source": "generation/contact-pairs-20261004/S/06-v4.png",
       "retained": false,
-      "sha256": "e9f911774fc81b5e177ad86b5fd83e7ab0139503a664160ec953f108ad8fa715",
+      "sha256": "670a3f8c97913246c9926a93dec98e3e1d1a8688d72445e678c39727656ebdc9",
       "size": [
         1254,
         1254
@@ -386,9 +386,9 @@
     },
     {
       "key": "run/S/15",
-      "source": "generation/contact-pairs-20261004/S/15-v1.png",
+      "source": "generation/contact-pairs-20261004/S/15-v2.png",
       "retained": false,
-      "sha256": "4da050c35bab6fbf2a687d80852518ec130da5c5958e309238206da33f74ba29",
+      "sha256": "ff03d97cfb615f4e5794d633e9fbcd2ab1d47f6e18109e7ea05f184f269e37d9",
       "size": [
         1254,
         1254
@@ -707,6 +707,71 @@
       "supportFoot": "RIGHT",
       "feetAxis": "SW lower-left",
       "armsProps": "anatomical RIGHT cauldron; LEFT bottle; no observed hand/prop exchange"
+    }
+  ],
+  "browserDepthCorrection": [
+    {
+      "frame": 5,
+      "oldVersion": 3,
+      "version": 4,
+      "supportRoi": [
+        450,
+        930,
+        600,
+        1230
+      ],
+      "supportBBox": [
+        450,
+        930,
+        599,
+        1126
+      ],
+      "nativeBottom": 1126,
+      "runtimeBottom": 919.48,
+      "upperbodyAlphaIoUAgainstInput": 0.98975,
+      "sha256": "ccc859308bead949a7b9c283e7b94ff1294ac38abf73299d5b5eac22dcea9b82"
+    },
+    {
+      "frame": 6,
+      "oldVersion": 3,
+      "version": 4,
+      "supportRoi": [
+        430,
+        930,
+        600,
+        1230
+      ],
+      "supportBBox": [
+        430,
+        930,
+        595,
+        1130
+      ],
+      "nativeBottom": 1130,
+      "runtimeBottom": 922.74,
+      "upperbodyAlphaIoUAgainstInput": 0.98913,
+      "sha256": "670a3f8c97913246c9926a93dec98e3e1d1a8688d72445e678c39727656ebdc9"
+    },
+    {
+      "frame": 15,
+      "oldVersion": 1,
+      "version": 2,
+      "supportRoi": [
+        680,
+        960,
+        850,
+        1230
+      ],
+      "supportBBox": [
+        680,
+        960,
+        834,
+        1118
+      ],
+      "nativeBottom": 1118,
+      "runtimeBottom": 912.94,
+      "upperbodyAlphaIoUAgainstInput": 0.93519,
+      "sha256": "ff03d97cfb615f4e5794d633e9fbcd2ab1d47f6e18109e7ea05f184f269e37d9"
     }
   ]
 }
