@@ -37,7 +37,7 @@ for group in overview["groups"]:
         number=event.get("frame",event.get("slot"))
         if not isinstance(number,int) or number not in range(1,len(starts)+1):
             raise ValueError(f"Invalid selected event frame: {key} {event}")
-        event.update(frame=number,type=event.get("type") or event.get("name") or event.get("event"),timeMs=starts[number-1])
+        event.update(frame=number,type=event.get("type") or event.get("name") or event.get("event"),timeMs=starts[number-1]+event.get("cycleOffset",0)*ms)
     event_groups.append(dict(action=action,direction=direction,cycleMs=ms,frameStartsMs=starts,events=events,status="offline_candidate_not_client_event" if events else "event_review_pending"))
     issues=list(selection.get("issues",[]))
     for f in group["frames"]:
@@ -49,7 +49,7 @@ write(B/"review/root-and-timing.json",dict(schemaVersion=2,updatedAt=stamp,statu
 write(B/"review/action-events.json",dict(schemaVersion=1,updatedAt=stamp,groups=event_groups))
 write(B/"validation.json",technical)
 shutil.copyfile(B/"review/selected-source-index.csv",B/"review/source-index.csv")
-summary=f"当前已选入并导出 **{overview['selectedExported']}/196 帧** 1024×1024 RGBA 候选；库存另含尚未选入的原生在制稿。实际已有图片的槽位为 {production['presentSlots']}/196；重试版本不重复计作槽位。美术与动态尚未全部通过，客户端未接入/未运行。"
+summary=f"本轮动作修订已导出 **{overview['selectedExported']}/196 帧** 1024×1024 RGBA：八方向跑步128帧，东西方向受击、普攻和施法68帧。按竹弓少女同方向姿态校正脚掌朝向、连续承重及持物；跑步正常1×调整为1200ms。逐图选择与残余观察项有记录，供用户查看；不代表用户验收或游戏客户端验收，客户端尚未接入。"
 table_text="| 动作 | 方向 | 已选/目标 | 试播时长 ms | 状态 |\n| --- | --- | ---: | ---: | --- |\n"+"\n".join(table)
 readme=f"""# 03 莲花医者 · 动作修复
 
@@ -76,7 +76,7 @@ handoff=f"""# 03 莲花医者 · 本机交接
 
 ## 预览与来源
 
-[全部动作](preview/actions.html)读取[选帧清单](review/all-actions-selection.json)，每槽指向真实独立原生来源及SHA。导出只做完整原生画布1254→1024等比缩小，translation=(0,0)，保留透明度；没有镜像、复制、形变或插值填槽。旧E01/E05的复用保留旧来源记录，旧512 walk未冒充新的高清run。
+[全部动作](preview/actions.html)读取[选帧清单](review/all-actions-selection.json)，每槽指向真实独立原生来源及SHA。导出只做完整原生画布1254→1024等比缩小，translation=(0,0)，保留透明度；没有镜像、复制、形变或插值填槽。复用的历史帧保留原来源记录，以当前逐帧清单为准；旧512 walk未冒充新的高清run。
 
 逐图实际模型和质量未披露即null，逐图prompt/job/receipt/generation记录保存目标、实际参数、回执与SHA。[source-index.csv](review/source-index.csv)列出当前选中来源；[技术检查](review/all-actions-technical-verification.json)仅证明文件/尺寸/唯一性，不能替代动作验收。
 

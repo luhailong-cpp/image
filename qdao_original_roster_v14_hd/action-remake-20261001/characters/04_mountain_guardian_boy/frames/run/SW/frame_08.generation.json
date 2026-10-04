@@ -134,7 +134,15 @@
     "alphaExtrema": [
       0,
       255
-    ]
+    ],
+    "precleanupSnapshot": {
+      "path": "provenance/audit/export_stancepairs_precleanup_snapshot_20261004.json",
+      "sha256": "5da4a6d3eada36ebe4742dbc56853b17e07d2bad9f7f06c09b4ef9a17ad4ab59"
+    },
+    "fileRetained": false,
+    "deletedAt": "2026-10-04T21:03:29.943842+00:00",
+    "retentionRecord": "provenance/audit/stancepairs_image_retention_20261004.json",
+    "retentionNote": "本轮实际删除成功后登记；证据见SHA绑定的新清理前快照。"
   },
   "derivedFrom": [
     {
@@ -147,7 +155,11 @@
       "alphaExtrema": [
         0,
         255
-      ]
+      ],
+      "fileRetained": false,
+      "deletedAt": "2026-10-04T21:03:29.943842+00:00",
+      "retentionRecord": "provenance/audit/stancepairs_image_retention_20261004.json",
+      "retentionNote": "本轮实际删除成功后登记；证据见SHA绑定的新清理前快照。"
     }
   ],
   "operation": {
@@ -181,13 +193,50 @@
   },
   "frameDurationMs": 75,
   "review": {
-    "status": "candidate_pending_visual",
+    "status": "visual_passed",
     "automaticallyApproved": false,
-    "note": "尺寸与哈希登记不等于美术通过；review-status 是调用者显式声明。"
+    "reviewedAt": "2026-10-04T20:50:35.472527+00:00",
+    "scope": "当前196张离线素材人工视觉核准。跑步八向每支撑脚连续8帧，每2张真实独立姿态推进一个相对位置段，16×75ms=1200ms。战斗68张E/W保留原时序。客户端未接入。",
+    "reviewer": "04山岳守卫专属根窗口，结合角色内分工制作与独立复核",
+    "priorReview": {
+      "status": "candidate_pending_visual",
+      "automaticallyApproved": false,
+      "note": "尺寸与哈希登记不等于美术通过；review-status 是调用者显式声明。"
+    },
+    "sourceBoundSha256": "5fb61a7a042f1df6dc4d03155e293d9039626f87bb830537bee72f11eac06e5f",
+    "clientDynamicStatus": "not_integrated",
+    "approvalRecord": "provenance/audit/stancepairs_final_visual_approval_20261004.json",
+    "approvalSha256": "4dbe4a34779edf3bd5f727d14cab8bc4f369edde82d7e54e68ae275923053632",
+    "independentPoseObserved": true,
+    "observation": "SW08：解剖右/屏左脚维持支撑，另一腿前摆；两帧一段沿西南行進透视推进，无明显鞋掌横向外翻，杖盾手部归属连续。全16帧最终连图已实际核验。"
   },
   "clientIntegration": "not_integrated",
   "replacement": {
     "oldFrameSha256": "6991b839b352ba11e2fa79070a53deb2bffeb95f1096ae2c68ce75cab5542090",
     "retiredRecord": "provenance/run/SW_08_retired_6991b839b352.generation.json"
+  },
+  "runTiming": {
+    "offlinePreviewDefaultLoopMs": 1200,
+    "offlinePreviewFrameMs": 75,
+    "offlinePreviewFrameDurationsMs": [
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75
+    ],
+    "clientApprovedLoopMs": null,
+    "status": "user_selected_offline_1200_client_unconfirmed"
   }
 }

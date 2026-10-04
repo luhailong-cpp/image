@@ -3,7 +3,7 @@
   "character": "03_lotus_healer_girl",
   "action": "run",
   "direction": "SW",
-  "updatedAt": "2026-10-04T01:05:36.451863-04:00",
+  "updatedAt": "2026-10-04T17:58:28.532755-04:00",
   "nativeRoot": [
     610,
     1171
@@ -47,6 +47,7 @@
         1172
       ],
       "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance.",
+      "plannedSupportPosition": "front",
       "frame": 1,
       "file": "candidate/run/SW/01.png",
       "sha256": "7f534b1c436a5ff1cc66d47d9efec98bc57bec9e464f8b94032288b1cb6d1a34",
@@ -108,6 +109,7 @@
         1196
       ],
       "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance.",
+      "plannedSupportPosition": "front",
       "frame": 2,
       "file": "candidate/run/SW/02.png",
       "sha256": "84f1cd94c2af2ab694bf8a7d9a848ad782c0b55b56e338d8eec33cba521508bd",
@@ -146,16 +148,16 @@
     },
     {
       "slot": 3,
-      "source": "generation/SW/03-v3.png",
-      "sourceSha256": "61dca6b227d9f55650987088ad5b2c8cc6ca4f799764dafadcf436366c88434a",
+      "source": "generation/SW/03-midstance-v1.png",
+      "sourceSha256": "c6e1a97ccdd13de87147d7c1981835efcd68697ed1d1bf5e83b030e8ac26563a",
       "durationMs": 75,
       "startMs": 150,
-      "observedPhase": "近左脚承重、远右腿回收；近左瓶臂跨胸，远右灯臂由背后回至髋旁中间位置",
+      "observedPhase": "近左支撑腿收至身体下方，鞋底保持原地面高度，鞋尖顺西南行进轴；远右腿回收。原有正确持物与上身保留。",
       "observedSupportFoot": "left",
       "contactType": "flat_support",
       "isFlight": false,
       "issues": [
-        "灯已从原前极值收至后髋中间位，接04幅度缩小；02→03仍有较大摆幅，鞋底1216低于01"
+        "中支撑脚已向身下收，减小03到04变化；保留原生画布，尚无客户端位移验证。"
       ],
       "visualAccepted": false,
       "nativeCanvas": [
@@ -163,26 +165,27 @@
         1254
       ],
       "alphaGt8Bounds": [
-        163,
-        56,
-        1229,
-        1217
+        162,
+        55,
+        1232,
+        1220
       ],
       "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance.",
+      "plannedSupportPosition": "under_body",
       "frame": 3,
       "file": "candidate/run/SW/03.png",
-      "sha256": "99abeb331a6b69750bb709da36832ba3f4fc3808377759b829a8b6924d7ade80",
+      "sha256": "59cccadc5aa92eb9f9124715826228fbc17ae10e7131d12da2105e2c29fc27fa",
       "generationRecord": "candidate/run/SW/03.png.generation.json",
-      "sourceGenerationRecord": "generation/SW/03-v3.png.generation.json",
+      "sourceGenerationRecord": "generation/SW/03-midstance-v1.png.generation.json",
       "sourceDimensions": [
         1254,
         1254
       ],
       "nativeBoundsAlphaGt8": [
-        163,
-        56,
-        1229,
-        1217
+        162,
+        55,
+        1232,
+        1220
       ],
       "exportTransform": {
         "type": "full_canvas_uniform_downscale",
@@ -207,16 +210,17 @@
     },
     {
       "slot": 4,
-      "source": "generation/SW/04-v2.png",
-      "sourceSha256": "db469248b71bacba1b12eac6f45175a0bd234e02012193ed360ec55b768bb8b9",
+      "source": "generation/SW/04-v3.png",
+      "sourceSha256": "ee2c863f76e8fb098ea5689bfd9a9c7b3de7c63bdc9a14339196058f7cda66aa",
       "durationMs": 75,
       "startMs": 225,
-      "observedPhase": "近左脚移至身体下方后段支撑，远右前膝通过；瓶前灯后",
+      "observedPhase": "近左后鞋降低脚跟，前后底面更完整，膝屈支撑；远右脚保持抬起",
       "observedSupportFoot": "left",
-      "contactType": "late_support",
+      "contactType": "rear_flat_loaded_support",
       "isFlight": false,
       "issues": [
-        "错手04-v1已拒；本帧正确近左瓶/远右灯，但双臂比03提前到反向极值，头向左上漂"
+        "头脸较目标略向左移约30px、头顶43→39；非程序平移",
+        "支撑鞋底1207→1197（10px），上身比例和完整人物保持"
       ],
       "visualAccepted": false,
       "nativeCanvas": [
@@ -224,26 +228,29 @@
         1254
       ],
       "alphaGt8Bounds": [
-        134,
-        43,
-        1237,
-        1208
+        96,
+        39,
+        1232,
+        1198
       ],
-      "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance.",
+      "footAxisObservation": "鞋尖沿SW，与支撑小腿方向一致，未见明确外翻",
+      "supportPosition": "rear",
+      "supportReview": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SW/04-v3.review.json",
+      "plannedSupportPosition": "under_body",
       "frame": 4,
       "file": "candidate/run/SW/04.png",
-      "sha256": "62ba3213ba97fc03cac82fa2a9ba48cc898df2b383f6f741e0c4d7bcf2806fe6",
+      "sha256": "23315870153b9beddd816dd54eb9b6e0e3bbd4fe58e483d42bc59a4030b95258",
       "generationRecord": "candidate/run/SW/04.png.generation.json",
-      "sourceGenerationRecord": "generation/SW/04-v2.png.generation.json",
+      "sourceGenerationRecord": "generation/SW/04-v3.png.generation.json",
       "sourceDimensions": [
         1254,
         1254
       ],
       "nativeBoundsAlphaGt8": [
-        134,
-        43,
-        1237,
-        1208
+        96,
+        39,
+        1232,
+        1198
       ],
       "exportTransform": {
         "type": "full_canvas_uniform_downscale",
@@ -268,16 +275,16 @@
     },
     {
       "slot": 5,
-      "source": "generation/SW/05-v2.png",
-      "sourceSha256": "9aaa8d89f7166cb5b117728e474cf27189b4fac9708ce0b5ab427ddbbb29e97a",
+      "source": "generation/SW/05-v3.png",
+      "sourceSha256": "2136d604df9c8307b27e6f96f35acb028abb107d5e21f48eae8b2ed13a23b69a",
       "durationMs": 75,
       "startMs": 300,
-      "observedPhase": "近左后腿前掌蹬离姿、远右前膝屈曲；瓶前灯后",
+      "observedPhase": "近左后腿实际伸下承重；另一腿前摆抬起；双腿完整白裤",
       "observedSupportFoot": "left",
-      "contactType": "forefoot_push_pose",
+      "contactType": "loaded_rear_support",
       "isFlight": false,
       "issues": [
-        "错手05-v1已拒；本帧正确肩袖，后鞋最低1169；灯右侧余量约20px"
+        "后近左脚全掌落下，底1220低于04约23px；无程序贴地"
       ],
       "visualAccepted": false,
       "nativeCanvas": [
@@ -285,26 +292,29 @@
         1254
       ],
       "alphaGt8Bounds": [
-        155,
-        50,
-        1234,
-        1170
+        143,
+        47,
+        1240,
+        1221
       ],
-      "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance.",
+      "footAxisObservation": "鞋纵轴随SW行进方向，未见明确膝踝外翻；未以露底等同外八",
+      "supportPosition": "slightly_rear",
+      "supportReview": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SW/05-v3.review.json",
+      "plannedSupportPosition": "slightly_rear",
       "frame": 5,
       "file": "candidate/run/SW/05.png",
-      "sha256": "80965d5535c25bc60898946afaf5dbdefae03df40328b4b24ff784480500f062",
+      "sha256": "9cad1fb769ee57f3db7cbf73b52c34bb6c649e84781b00d6b838a132035eefc4",
       "generationRecord": "candidate/run/SW/05.png.generation.json",
-      "sourceGenerationRecord": "generation/SW/05-v2.png.generation.json",
+      "sourceGenerationRecord": "generation/SW/05-v3.png.generation.json",
       "sourceDimensions": [
         1254,
         1254
       ],
       "nativeBoundsAlphaGt8": [
-        155,
-        50,
-        1234,
-        1170
+        143,
+        47,
+        1240,
+        1221
       ],
       "exportTransform": {
         "type": "full_canvas_uniform_downscale",
@@ -329,16 +339,16 @@
     },
     {
       "slot": 6,
-      "source": "generation/SW/06-v1.png",
-      "sourceSha256": "1fe4e800df25b5b9f17f126a7068f70222b6499debe758bd1165b22f6a391f32",
+      "source": "generation/SW/06-v2.png",
+      "sourceSha256": "147ba5fe81a9bcc187bb980759f4348af3e3dbe812dd2b2aeb096a79d5668104",
       "durationMs": 75,
       "startMs": 375,
-      "observedPhase": "近左后腿折叠，远右前腿离地展开；两足短暂离地",
-      "observedSupportFoot": "none",
-      "contactType": "short_flight",
-      "isFlight": true,
+      "observedPhase": "近左后腿实际伸下承重；另一腿前摆抬起；双腿完整白裤",
+      "observedSupportFoot": "left",
+      "contactType": "loaded_rear_support",
+      "isFlight": false,
       "issues": [
-        "前鞋最低1176，按同腿09接触1203判断约27px离地；灯距右边仅2px，需动态边缘检查"
+        "后近左脚落下，前右脚抬高；支撑底1222，注册不同"
       ],
       "visualAccepted": false,
       "nativeCanvas": [
@@ -346,26 +356,29 @@
         1254
       ],
       "alphaGt8Bounds": [
-        125,
-        45,
-        1252,
-        1177
+        106,
+        46,
+        1250,
+        1223
       ],
-      "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance.",
+      "footAxisObservation": "鞋纵轴随SW行进方向，未见明确膝踝外翻；未以露底等同外八",
+      "supportPosition": "slightly_rear",
+      "supportReview": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SW/06-v2.review.json",
+      "plannedSupportPosition": "slightly_rear",
       "frame": 6,
       "file": "candidate/run/SW/06.png",
-      "sha256": "5851407a94f3304fc6ab934ef5fa4f64e49d8c434740487e4eec797df1859b75",
+      "sha256": "52c7abfbaab14cd3196057567f0f27b40e65f8e62c8de9057ea212ce58a8c9f8",
       "generationRecord": "candidate/run/SW/06.png.generation.json",
-      "sourceGenerationRecord": "generation/SW/06-v1.png.generation.json",
+      "sourceGenerationRecord": "generation/SW/06-v2.png.generation.json",
       "sourceDimensions": [
         1254,
         1254
       ],
       "nativeBoundsAlphaGt8": [
-        125,
-        45,
-        1252,
-        1177
+        106,
+        46,
+        1250,
+        1223
       ],
       "exportTransform": {
         "type": "full_canvas_uniform_downscale",
@@ -390,16 +403,17 @@
     },
     {
       "slot": 7,
-      "source": "generation/SW/07-v2.png",
-      "sourceSha256": "17f3df8c0ddf6da096f2b0e33e5be63ac0dafd6ad7ab190ab119f0067bae3efe",
+      "source": "generation/SW/07-v6.png",
+      "sourceSha256": "92941c883db26d10305a8b72a64cf497b58eabea60155cc1067e682f16745fb7",
       "durationMs": 75,
       "startMs": 450,
-      "observedPhase": "远右前膝回收较高、近左后腿折叠；两足腾空顶点",
-      "observedSupportFoot": "none",
-      "contactType": "flight_recovery",
-      "isFlight": true,
+      "observedPhase": "近左支撑腿从身下伸向髋后，鞋向viewer-right后移、低跟前掌承重；远右前脚仍抬起",
+      "observedSupportFoot": "left",
+      "contactType": "rear_forefoot_loaded_pose",
+      "isFlight": false,
       "issues": [
-        "源07-v2保留真实膝回收，鞋底1068，比08约高97px；短腾空观感仍需实播，右边缘仅4px"
+        "支撑鞋约后移190px，底1208→1175；后侧透视深度改变，非整图平移",
+        "05/06→07原向身下回收问题已改善，鞋轴仍沿SW"
       ],
       "visualAccepted": false,
       "nativeCanvas": [
@@ -407,26 +421,29 @@
         1254
       ],
       "alphaGt8Bounds": [
-        200,
+        186,
         46,
-        1250,
-        1069
+        1237,
+        1176
       ],
-      "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance.",
+      "footAxisObservation": "鞋纵轴随SW行进方向，未见明确膝踝外翻；未以露底等同外八",
+      "supportPosition": "rear_terminal",
+      "supportReview": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SW/07-v6.review.json",
+      "plannedSupportPosition": "rear_terminal",
       "frame": 7,
       "file": "candidate/run/SW/07.png",
-      "sha256": "31221880f0e9ad7502eb4d0476f961e344cce2d6fec476a0a081af1146ed0b75",
+      "sha256": "1e8a41189d8ec9cb2e26869fbf698ce837d39e5504975a9d1acbdb75bc84c7f3",
       "generationRecord": "candidate/run/SW/07.png.generation.json",
-      "sourceGenerationRecord": "generation/SW/07-v2.png.generation.json",
+      "sourceGenerationRecord": "generation/SW/07-v6.png.generation.json",
       "sourceDimensions": [
         1254,
         1254
       ],
       "nativeBoundsAlphaGt8": [
-        200,
+        186,
         46,
-        1250,
-        1069
+        1237,
+        1176
       ],
       "exportTransform": {
         "type": "full_canvas_uniform_downscale",
@@ -451,16 +468,17 @@
     },
     {
       "slot": 8,
-      "source": "generation/SW/08-v1.png",
-      "sourceSha256": "72209654506d11856c65be432bafe11b8607e4f93753220b496e879bedcc7439",
+      "source": "generation/SW/08-v3.png",
+      "sourceSha256": "d36aa37343340c16595c82df7ee55690aaf8f7ccdb430e8eea732ba91549ad7f",
       "durationMs": 75,
       "startMs": 525,
-      "observedPhase": "远右前小腿展开下降，近左后腿折叠；两足离地",
-      "observedSupportFoot": "none",
-      "contactType": "flight_descent",
-      "isFlight": true,
+      "observedPhase": "近左腿继续伸向后下方，抬跟以前掌作末支撑；远右前脚维持前伸准备换脚",
+      "observedSupportFoot": "left",
+      "contactType": "rear_forefoot_loaded_pose",
+      "isFlight": false,
       "issues": [
-        "前鞋最低1165，按09同腿接触约38px间隙；头较09上移约17px"
+        "支撑鞋约向viewer-right后移240px，底1170→1162；略高8px不单独认定腾空",
+        "比07再向后约30px、踝伸展更明显，头脸约左移20px；正确持物链保持"
       ],
       "visualAccepted": false,
       "nativeCanvas": [
@@ -468,26 +486,29 @@
         1254
       ],
       "alphaGt8Bounds": [
-        211,
-        65,
-        1245,
-        1166
+        186,
+        63,
+        1228,
+        1163
       ],
-      "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance.",
+      "footAxisObservation": "鞋纵轴随SW行进方向，未见明确膝踝外翻；未以露底等同外八",
+      "supportPosition": "rear_terminal",
+      "supportReview": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SW/08-v3.review.json",
+      "plannedSupportPosition": "rear_terminal",
       "frame": 8,
       "file": "candidate/run/SW/08.png",
-      "sha256": "8d7cee4a4a29741c54bb571f17ef17a5d515dd43900c9b5e85ea612628ba0983",
+      "sha256": "611a34176d74f08edb112f7039562562a65e9e2bdb4114bf8161bf936d78559d",
       "generationRecord": "candidate/run/SW/08.png.generation.json",
-      "sourceGenerationRecord": "generation/SW/08-v1.png.generation.json",
+      "sourceGenerationRecord": "generation/SW/08-v3.png.generation.json",
       "sourceDimensions": [
         1254,
         1254
       ],
       "nativeBoundsAlphaGt8": [
-        211,
-        65,
-        1245,
-        1166
+        186,
+        63,
+        1228,
+        1163
       ],
       "exportTransform": {
         "type": "full_canvas_uniform_downscale",
@@ -535,6 +556,7 @@
         1204
       ],
       "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance.",
+      "plannedSupportPosition": "front",
       "frame": 9,
       "file": "candidate/run/SW/09.png",
       "sha256": "eb315ace2057534a674c0ad7dfe7c9946c08e776c380ed82a8eaee1cdcf3df26",
@@ -596,6 +618,7 @@
         1205
       ],
       "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance.",
+      "plannedSupportPosition": "front",
       "frame": 10,
       "file": "candidate/run/SW/10.png",
       "sha256": "3d12ebe61a54245ed921cbdb5935f048377e4a5557c7e0c099d3c54992e42129",
@@ -657,6 +680,7 @@
         1177
       ],
       "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance.",
+      "plannedSupportPosition": "under_body",
       "frame": 11,
       "file": "candidate/run/SW/11.png",
       "sha256": "fe3052e58c7da329e6772c540767cbb3c9b2bfd3e4da253e9874ddf57dba3214",
@@ -695,16 +719,17 @@
     },
     {
       "slot": 12,
-      "source": "generation/SW/12-v2.png",
-      "sourceSha256": "8766c3dfb84b134244f5229f7abef0e7d02f96483e7f6dd023ceacaf6734b206",
+      "source": "generation/SW/12-v3.png",
+      "sourceSha256": "90617c83b22290375f2030bc2a5727af0596054f9c86d93ec0722672987528bd",
       "durationMs": 75,
       "startMs": 825,
-      "observedPhase": "远右后腿伸下支撑、近左前膝屈曲，前鞋回收",
+      "observedPhase": "远右后脚鞋跟降低、底面更平，屈膝踝承重；近左抬脚保留",
       "observedSupportFoot": "right",
-      "contactType": "rear_support",
+      "contactType": "rear_flat_loaded_support",
       "isFlight": false,
       "issues": [
-        "后支撑腿已实际伸下、前脚收起；底1201，12→13后脚移位仍大"
+        "鞋底1201→1198（3px），头顶71→68；原帧边缘余量小仍保留",
+        "11→12后支撑推进较大；本次仅改支撑腿"
       ],
       "visualAccepted": false,
       "nativeCanvas": [
@@ -712,26 +737,29 @@
         1254
       ],
       "alphaGt8Bounds": [
-        19,
-        71,
+        20,
+        68,
         1246,
-        1202
+        1199
       ],
-      "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance.",
+      "footAxisObservation": "鞋尖沿SW，未见明确膝踝外翻",
+      "supportPosition": "rear",
+      "supportReview": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SW/12-v3.review.json",
+      "plannedSupportPosition": "under_body",
       "frame": 12,
       "file": "candidate/run/SW/12.png",
-      "sha256": "a70c20fca868cae51fab0f9d2b8a2d679edca43caad1fa9932d9710250623184",
+      "sha256": "a12c4f1d6629154c00927a96b9254d487c3164513821724b138cf74e9612497d",
       "generationRecord": "candidate/run/SW/12.png.generation.json",
-      "sourceGenerationRecord": "generation/SW/12-v2.png.generation.json",
+      "sourceGenerationRecord": "generation/SW/12-v3.png.generation.json",
       "sourceDimensions": [
         1254,
         1254
       ],
       "nativeBoundsAlphaGt8": [
-        19,
-        71,
+        20,
+        68,
         1246,
-        1202
+        1199
       ],
       "exportTransform": {
         "type": "full_canvas_uniform_downscale",
@@ -756,16 +784,16 @@
     },
     {
       "slot": 13,
-      "source": "generation/SW/13-v1.png",
-      "sourceSha256": "44f188cbc382b67fcdbee9a4d068068bf9db026fc6f707816713df6925455a6d",
+      "source": "generation/SW/13-v2.png",
+      "sourceSha256": "461fbcfc74a24538beb3ac0fbcccb87f87d8e22318aa2b55211122defd8430d3",
       "durationMs": 75,
       "startMs": 900,
-      "observedPhase": "远右后脚前掌蹬地、近左前膝展开；瓶后灯前",
+      "observedPhase": "远右后腿实际伸下承重；另一腿前摆抬起；双腿完整白裤",
       "observedSupportFoot": "right",
-      "contactType": "forefoot_push",
+      "contactType": "loaded_rear_support",
       "isFlight": false,
       "issues": [
-        "远右后脚仍有接触，实际是末段蹬地而非飞行；前鞋露底不等于外撇"
+        "远右后脚降跟承重，近左脚前摆；与12较接近"
       ],
       "visualAccepted": false,
       "nativeCanvas": [
@@ -773,26 +801,29 @@
         1254
       ],
       "alphaGt8Bounds": [
-        16,
-        73,
-        1246,
-        1177
+        17,
+        70,
+        1247,
+        1189
       ],
-      "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance.",
+      "footAxisObservation": "鞋纵轴随SW行进方向，未见明确膝踝外翻；未以露底等同外八",
+      "supportPosition": "slightly_rear",
+      "supportReview": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SW/13-v2.review.json",
+      "plannedSupportPosition": "slightly_rear",
       "frame": 13,
       "file": "candidate/run/SW/13.png",
-      "sha256": "234877690e05e3f3271d3f146d5215cbf28bed44b17cb656d622b642b6380bbe",
+      "sha256": "fd9ec69c515e4b88375687fe4f99b6043cf444e61c4cec283516a8f8e1f683c5",
       "generationRecord": "candidate/run/SW/13.png.generation.json",
-      "sourceGenerationRecord": "generation/SW/13-v1.png.generation.json",
+      "sourceGenerationRecord": "generation/SW/13-v2.png.generation.json",
       "sourceDimensions": [
         1254,
         1254
       ],
       "nativeBoundsAlphaGt8": [
-        16,
-        73,
-        1246,
-        1177
+        17,
+        70,
+        1247,
+        1189
       ],
       "exportTransform": {
         "type": "full_canvas_uniform_downscale",
@@ -817,16 +848,16 @@
     },
     {
       "slot": 14,
-      "source": "generation/SW/14-v3.png",
-      "sourceSha256": "795c23b29a2b492c32244beb390326dd9e845b216ba3bb39cceb5b5cc349f1b5",
+      "source": "generation/SW/14-v4.png",
+      "sourceSha256": "273872a81f26e3307986c2e7d0aad747f10233a8b31685cccb1bf819dec6cc83",
       "durationMs": 75,
       "startMs": 975,
-      "observedPhase": "双脚收起的短腾空回收，近左膝领先",
-      "observedSupportFoot": "none",
-      "contactType": "flight_recovery",
-      "isFlight": true,
+      "observedPhase": "远右后腿实际伸下承重；另一腿前摆抬起；双腿完整白裤",
+      "observedSupportFoot": "right",
+      "contactType": "loaded_rear_support",
+      "isFlight": false,
       "issues": [
-        "root修复发梢/衣带裁边；最低整体像素为灯流苏，不可当鞋底"
+        "远右后腿伸下、近左前膝折起；同脚承重"
       ],
       "visualAccepted": false,
       "nativeCanvas": [
@@ -835,25 +866,28 @@
       ],
       "alphaGt8Bounds": [
         15,
-        69,
+        67,
         1239,
-        1139
+        1187
       ],
-      "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance.",
+      "footAxisObservation": "鞋纵轴随SW行进方向，未见明确膝踝外翻；未以露底等同外八",
+      "supportPosition": "slightly_rear",
+      "supportReview": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SW/14-v4.review.json",
+      "plannedSupportPosition": "slightly_rear",
       "frame": 14,
       "file": "candidate/run/SW/14.png",
-      "sha256": "88ad3d572163dfc2874a3276b4903fb37183d59e9170f45f9788c5a4c1a4c852",
+      "sha256": "bc413f413efe98c0f73ef55fd0425521892079c29c6cd5cec9bbccb8b3200c7a",
       "generationRecord": "candidate/run/SW/14.png.generation.json",
-      "sourceGenerationRecord": "generation/SW/14-v3.png.generation.json",
+      "sourceGenerationRecord": "generation/SW/14-v4.png.generation.json",
       "sourceDimensions": [
         1254,
         1254
       ],
       "nativeBoundsAlphaGt8": [
         15,
-        69,
+        67,
         1239,
-        1139
+        1187
       ],
       "exportTransform": {
         "type": "full_canvas_uniform_downscale",
@@ -878,16 +912,16 @@
     },
     {
       "slot": 15,
-      "source": "generation/SW/15-v1.png",
-      "sourceSha256": "3e710c3ee2d357944bec0fd14b9fea25970de46ba04a374fdf40f27d10b098b4",
+      "source": "generation/SW/15-v2.png",
+      "sourceSha256": "780e489b2b6d5f2dc49566e109f995976078685320dc1c4b227714cb2c40fe09",
       "durationMs": 75,
       "startMs": 1050,
-      "observedPhase": "近左前跟已下降到接触高度，远右腿后折；初接触姿",
-      "observedSupportFoot": "left",
-      "contactType": "initial_contact",
+      "observedPhase": "远右后腿实际伸下承重；另一腿前摆抬起；双腿完整白裤",
+      "observedSupportFoot": "right",
+      "contactType": "loaded_rear_support",
       "isFlight": false,
       "issues": [
-        "近左前跟实际到1170接触高度，不能记录为腾空；初接触时间提前到1050ms"
+        "远右后腿伸下，近左前脚离地；支撑底1165略高，透视注册仍有变化"
       ],
       "visualAccepted": false,
       "nativeCanvas": [
@@ -896,25 +930,28 @@
       ],
       "alphaGt8Bounds": [
         43,
-        73,
+        71,
         1211,
-        1171
+        1166
       ],
-      "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance.",
+      "footAxisObservation": "鞋纵轴随SW行进方向，未见明确膝踝外翻；未以露底等同外八",
+      "supportPosition": "rear_terminal",
+      "supportReview": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SW/15-v2.review.json",
+      "plannedSupportPosition": "rear_terminal",
       "frame": 15,
       "file": "candidate/run/SW/15.png",
-      "sha256": "2d48e6c6bb6bd4112af28f8d7146da32e6816155038a618a7241dff2e1da3c28",
+      "sha256": "63f48343bdbf1b8f8c46d4e759b25b542622859e4fa4af921db8ffc3ce5b4301",
       "generationRecord": "candidate/run/SW/15.png.generation.json",
-      "sourceGenerationRecord": "generation/SW/15-v1.png.generation.json",
+      "sourceGenerationRecord": "generation/SW/15-v2.png.generation.json",
       "sourceDimensions": [
         1254,
         1254
       ],
       "nativeBoundsAlphaGt8": [
         43,
-        73,
+        71,
         1211,
-        1171
+        1166
       ],
       "exportTransform": {
         "type": "full_canvas_uniform_downscale",
@@ -939,16 +976,16 @@
     },
     {
       "slot": 16,
-      "source": "generation/SW/16-v1.png",
-      "sourceSha256": "1ac80a52fabd3a8af40e75e0f89309a3e5a525f96773e6492b64fd28ef866604",
+      "source": "generation/SW/16-v2.png",
+      "sourceSha256": "de6d4206a25816973350e82e9742732e3712c13c54dac4294fb1db10eda48b7e",
       "durationMs": 75,
       "startMs": 1125,
-      "observedPhase": "近左前脚接触滚动/加载，远右腿仍后折；回接01",
-      "observedSupportFoot": "left",
-      "contactType": "contact_roll",
+      "observedPhase": "远右后腿实际伸下承重；另一腿前摆抬起；双腿完整白裤",
+      "observedSupportFoot": "right",
+      "contactType": "loaded_rear_support",
       "isFlight": false,
       "issues": [
-        "实际接触/滚动，不能记晚腾空；16→01瓶与灯臂摆幅、头部位置仍需实播"
+        "远右后腿伸下；前左鞋已接近后鞋高度，可能双支撑交接，不能宣称纯单脚"
       ],
       "visualAccepted": false,
       "nativeCanvas": [
@@ -956,26 +993,29 @@
         1254
       ],
       "alphaGt8Bounds": [
-        43,
-        79,
+        41,
+        78,
         1229,
-        1170
+        1186
       ],
-      "footAxisObservation": "Same-direction hip/knee/ankle/shoe chain inspected; flight soles may be visible. No blanket toe-axis acceptance.",
+      "footAxisObservation": "鞋纵轴随SW行进方向，未见明确膝踝外翻；未以露底等同外八",
+      "supportPosition": "rear_terminal",
+      "supportReview": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/03_lotus_healer_girl/generation/SW/16-v2.review.json",
+      "plannedSupportPosition": "rear_terminal",
       "frame": 16,
       "file": "candidate/run/SW/16.png",
-      "sha256": "1ec836db51097828768cda31471a437ff0b079e78a3b3fcc78c6222c3c1fe749",
+      "sha256": "67cd6be97bdb367d090a4cde8555bb3d4d950bb1a2cf15421eba4d4cf6809e51",
       "generationRecord": "candidate/run/SW/16.png.generation.json",
-      "sourceGenerationRecord": "generation/SW/16-v1.png.generation.json",
+      "sourceGenerationRecord": "generation/SW/16-v2.png.generation.json",
       "sourceDimensions": [
         1254,
         1254
       ],
       "nativeBoundsAlphaGt8": [
-        43,
-        79,
+        41,
+        78,
         1229,
-        1170
+        1186
       ],
       "exportTransform": {
         "type": "full_canvas_uniform_downscale",
@@ -1003,70 +1043,63 @@
     {
       "slot": 1,
       "atMs": 0,
-      "event": "left_heel_contact",
-      "basis": "actual selected pose, provisional static reading"
+      "event": "first_foot_front_contact",
+      "basis": "current actual planted pose; exact four-position spacing under review"
     },
     {
-      "slot": 2,
-      "atMs": 75,
-      "event": "left_flat_load",
-      "basis": "actual selected pose, provisional static reading"
+      "slot": 3,
+      "atMs": 150,
+      "event": "first_foot_underbody_support",
+      "basis": "current actual planted pose; exact four-position spacing under review"
     },
     {
       "slot": 5,
       "atMs": 300,
-      "event": "left_forefoot_push_pose",
-      "basis": "actual selected pose, provisional static reading"
+      "event": "first_foot_rear_load",
+      "basis": "current actual planted pose; exact four-position spacing under review"
     },
     {
-      "slot": 6,
-      "atMs": 375,
-      "event": "left_foot_off",
-      "basis": "actual selected pose, provisional static reading"
+      "slot": 7,
+      "atMs": 450,
+      "event": "first_foot_terminal_load",
+      "basis": "current actual planted pose; exact four-position spacing under review"
     },
     {
       "slot": 9,
       "atMs": 600,
-      "event": "right_heel_contact",
-      "basis": "actual selected pose, provisional static reading"
+      "event": "opposite_foot_front_contact",
+      "basis": "current actual planted pose; exact four-position spacing under review"
     },
     {
-      "slot": 10,
-      "atMs": 675,
-      "event": "right_flat_load",
-      "basis": "actual selected pose, provisional static reading"
+      "slot": 11,
+      "atMs": 750,
+      "event": "opposite_foot_underbody_support",
+      "basis": "current actual planted pose; exact four-position spacing under review"
     },
     {
       "slot": 13,
       "atMs": 900,
-      "event": "right_forefoot_push",
-      "basis": "actual selected pose, provisional static reading"
-    },
-    {
-      "slot": 14,
-      "atMs": 975,
-      "event": "right_foot_off",
-      "basis": "actual selected pose, provisional static reading"
+      "event": "opposite_foot_rear_load",
+      "basis": "current actual planted pose; exact four-position spacing under review"
     },
     {
       "slot": 15,
       "atMs": 1050,
-      "event": "left_initial_contact",
-      "basis": "actual selected pose, provisional static reading"
+      "event": "opposite_foot_terminal_load",
+      "basis": "current actual planted pose; exact four-position spacing under review"
     },
     {
-      "slot": 16,
-      "atMs": 1125,
-      "event": "left_contact_roll",
-      "basis": "actual selected pose, provisional static reading"
+      "slot": 17,
+      "atMs": 1200,
+      "event": "next_cycle_contact",
+      "basis": "current actual planted pose; exact four-position spacing under review"
     }
   ],
   "issues": [
-    "All native canvases kept unchanged; fixed root is a diagnostic baseline, not confirmed ground registration.",
-    "Perspective-depth support feet need not share one y line; contact events are static pose interpretations, pending actual playback.",
-    "Head/torso horizontal and vertical registration and rigid prop size are not fully stable.",
-    "Known wrong-hand and clothing-corrupted variants are excluded, but complete shoulder/hip occlusion continuity remains unaccepted.",
-    "No client playback test; native RGBA/source completeness does not imply dynamic acceptance."
+    "独立原生1254 RGBA完整；每槽75ms，总1200ms",
+    "最新连续8张同脚支撑图已齐，四位置跨度不完全均匀",
+    "头身/道具注册仍有少量变动，已知手交换图均排除",
+    "离线像素和来源完整，不以技术检查替代动态验收"
   ],
   "timing": {
     "frameMs": 75,
@@ -1079,94 +1112,130 @@
     {
       "slot": 1,
       "atMs": 0,
-      "event": "left_heel_contact",
-      "basis": "actual selected pose, provisional static reading",
+      "event": "first_foot_front_contact",
+      "basis": "current actual planted pose; exact four-position spacing under review",
       "frame": 1,
-      "type": "left_heel_contact",
+      "type": "first_foot_front_contact",
       "timeMs": 0
     },
     {
-      "slot": 2,
-      "atMs": 75,
-      "event": "left_flat_load",
-      "basis": "actual selected pose, provisional static reading",
-      "frame": 2,
-      "type": "left_flat_load",
-      "timeMs": 75
+      "slot": 3,
+      "atMs": 150,
+      "event": "first_foot_underbody_support",
+      "basis": "current actual planted pose; exact four-position spacing under review",
+      "frame": 3,
+      "type": "first_foot_underbody_support",
+      "timeMs": 150
     },
     {
       "slot": 5,
       "atMs": 300,
-      "event": "left_forefoot_push_pose",
-      "basis": "actual selected pose, provisional static reading",
+      "event": "first_foot_rear_load",
+      "basis": "current actual planted pose; exact four-position spacing under review",
       "frame": 5,
-      "type": "left_forefoot_push_pose",
+      "type": "first_foot_rear_load",
       "timeMs": 300
     },
     {
-      "slot": 6,
-      "atMs": 375,
-      "event": "left_foot_off",
-      "basis": "actual selected pose, provisional static reading",
-      "frame": 6,
-      "type": "left_foot_off",
-      "timeMs": 375
+      "slot": 7,
+      "atMs": 450,
+      "event": "first_foot_terminal_load",
+      "basis": "current actual planted pose; exact four-position spacing under review",
+      "frame": 7,
+      "type": "first_foot_terminal_load",
+      "timeMs": 450
     },
     {
       "slot": 9,
       "atMs": 600,
-      "event": "right_heel_contact",
-      "basis": "actual selected pose, provisional static reading",
+      "event": "opposite_foot_front_contact",
+      "basis": "current actual planted pose; exact four-position spacing under review",
       "frame": 9,
-      "type": "right_heel_contact",
+      "type": "opposite_foot_front_contact",
       "timeMs": 600
     },
     {
-      "slot": 10,
-      "atMs": 675,
-      "event": "right_flat_load",
-      "basis": "actual selected pose, provisional static reading",
-      "frame": 10,
-      "type": "right_flat_load",
-      "timeMs": 675
+      "slot": 11,
+      "atMs": 750,
+      "event": "opposite_foot_underbody_support",
+      "basis": "current actual planted pose; exact four-position spacing under review",
+      "frame": 11,
+      "type": "opposite_foot_underbody_support",
+      "timeMs": 750
     },
     {
       "slot": 13,
       "atMs": 900,
-      "event": "right_forefoot_push",
-      "basis": "actual selected pose, provisional static reading",
+      "event": "opposite_foot_rear_load",
+      "basis": "current actual planted pose; exact four-position spacing under review",
       "frame": 13,
-      "type": "right_forefoot_push",
+      "type": "opposite_foot_rear_load",
       "timeMs": 900
-    },
-    {
-      "slot": 14,
-      "atMs": 975,
-      "event": "right_foot_off",
-      "basis": "actual selected pose, provisional static reading",
-      "frame": 14,
-      "type": "right_foot_off",
-      "timeMs": 975
     },
     {
       "slot": 15,
       "atMs": 1050,
-      "event": "left_initial_contact",
-      "basis": "actual selected pose, provisional static reading",
+      "event": "opposite_foot_terminal_load",
+      "basis": "current actual planted pose; exact four-position spacing under review",
       "frame": 15,
-      "type": "left_initial_contact",
+      "type": "opposite_foot_terminal_load",
       "timeMs": 1050
     },
     {
-      "slot": 16,
-      "atMs": 1125,
-      "event": "left_contact_roll",
-      "basis": "actual selected pose, provisional static reading",
-      "frame": 16,
-      "type": "left_contact_roll",
-      "timeMs": 1125
+      "slot": 17,
+      "atMs": 1200,
+      "event": "next_cycle_contact",
+      "basis": "current actual planted pose; exact four-position spacing under review",
+      "frame": 1,
+      "type": "next_cycle_contact",
+      "timeMs": 1200,
+      "cycleOffset": 1
     }
   ],
+  "stanceAudit": {
+    "reviewedAt": "2026-10-04T16:45:40.462725-04:00",
+    "requirement": "same support foot continuously grounded eight independent frames, four positions each two poses, then alternate",
+    "stanceRuns": [
+      {
+        "slots": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "foot": "left",
+        "durationMs": 600
+      },
+      {
+        "slots": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "foot": "right",
+        "durationMs": 600
+      }
+    ],
+    "continuousLoadedPoseReading": true,
+    "fourPositionSpatialProgressionAccepted": false,
+    "remaining": [
+      "SE03相对02推进小；04/12较早进入后侧，各位置跨度不均",
+      "SE15/16、SW07/08末段后伸已实际改善；后鞋深度/注册上移8–33px保留记录",
+      "SW16前鞋接近后鞋高度，可能双支撑交接；单帧髋遮挡使全圈腿归属仍需动态核对"
+    ],
+    "visualAccepted": false,
+    "revisionStatus": "stable_for_root_rebuild",
+    "terminalProgressionImproved": true
+  },
   "root": {
     "native": [
       610,
@@ -1183,5 +1252,5 @@
   "exportCanvas": 1024,
   "status": "candidate_not_accepted",
   "clientAccepted": false,
-  "exportedAt": "2026-10-04T03:13:21.947032-04:00"
+  "exportedAt": "2026-10-04T19:13:40.591400-04:00"
 }

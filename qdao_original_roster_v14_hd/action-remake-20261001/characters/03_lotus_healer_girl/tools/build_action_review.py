@@ -36,9 +36,13 @@ for action, direction, expected in GROUPS:
         for event in inp.get("events", []):
             number = event.get("frame", event.get("slot"))
             if number:
+                event_type = event.get("type") or event.get("name") or event.get("event")
+                if number == expected + 1 and event_type == "next_cycle_contact":
+                    number = 1
+                    event["cycleOffset"] = 1
                 event["frame"] = number
-                event["type"] = event.get("type") or event.get("name") or event.get("event")
-                event["timeMs"] = (number-1)*RUN_FRAME_MS
+                event["type"] = event_type
+                event["timeMs"] = (number-1)*RUN_FRAME_MS + event.get("cycleOffset",0)*RUN_CYCLE_MS
                 if "startMs" in event: event["startMs"] = event["timeMs"]
         if "durationMs" in inp: inp["durationMs"] = RUN_CYCLE_MS
         if "totalDurationMs" in inp: inp["totalDurationMs"] = RUN_CYCLE_MS
