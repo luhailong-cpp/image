@@ -1,5 +1,5 @@
 {
-  "operation": "whole-canvas scaled display and background composite; previews only",
+  "operation": "whole canvas thumbnails ordered by support pairs; no runtime image changes",
   "sources": [
     {
       "file": "runtime/run/S/01.png",
@@ -66,8 +66,5 @@
       "sha256": "0623189f5491734e66b9a1e37f02a01f4716d318593b057c52cbcdf81ae19e8b"
     }
   ],
-  "complete": true,
-  "intendedMsPerFrame": 75,
-  "runTimingStatus": "1200ms / uniform75ms applied to preview; client unchanged",
-  "note": "Run APNG and HTML use exact75ms; run slow300ms. Combat GIF45ms uses alternating40/50ms, unchanged. No frame duplication, interpolation, root shift or automatic approval."
+  "dynamicApproval": false
 }
