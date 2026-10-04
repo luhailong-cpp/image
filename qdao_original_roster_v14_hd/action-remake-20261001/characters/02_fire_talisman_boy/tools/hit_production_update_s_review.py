@@ -24,11 +24,17 @@ for f in j['frames']:
     if f['frame'] in (8,16):
         side='右' if f['frame']==8 else '左'
         f.update(actual_phase=side+'脚落地承重压缩',contact_evidence='a2前鞋平底，支撑膝及踝弯曲；后脚收起，双膝鞋尖顺S；真实AI局部重画非下移贴地',review_status='新承重局部实看，动态连接待主代理复核')
+    if f['frame'] in (1,9):
+        side='左' if f['frame']==1 else '右'
+        attempt='a3' if f['frame']==1 else 'a5'
+        f.update(actual_phase=side+'脚承重延续',contact_evidence=attempt+'实际附09动作参考，前鞋平底延续上一帧承重，后鞋悬空；不再抬前掌重复落地。主代理全尺寸实看鞋平、两腿不串位、持手正确。',review_status='主代理独立单图接受；完整序列待主代理复核')
+    if f['frame'] in (7,8,15,16):
+        f['review_status']='主代理独立确认双腿和落平动作成立；完整序列待主代理复核'
     f['suggested_duration_ms']=75
 j['timing']={'status':'用户最新明确要求，素材预览采用；客户端未接入','cycle_ms':1200,'frame_ms':75,'durations_ms':[75]*16,'phase_weights_applied':False,'fast_presets_removed':True,'slow_playback':'0.25x'}
 j['updatedAt']=datetime.datetime.now(ZoneInfo('America/New_York')).isoformat()
-j['userCriterion']='逐图检查 heel-to-toe 轴，只修真实外撇；用户最新授权09竹弓少女当前版本作动作参照，已只读查看且实际附入8张落地修订；未附07。'
-j['unresolved']=['全段头/身尺度与物理起伏、四肢连续轨迹尚待主代理正常尺寸及慢速实播','接触/承重/蹬离点已静态补强，但需实播验证相邻支点连续、不能只凭一张图判接地通过','S14/S15鞋底后端轮廓待动态确认','本机无客户端，位移速度/滑步未验收']
+j['userCriterion']='逐图检查 heel-to-toe 轴，只修真实外撇；用户最新授权09竹弓少女当前版本作动作参照，已只读查看且实际附入S/SW共11张落地及承重延续修订；未附07。'
+j['unresolved']=['完整1200ms循环、慢放及四肢连续轨迹由主代理最终实播复核','S01新结果单图通过但整体略放大，须对照16→01→02；不自动再生或像素配准','本分工未接入或运行客户端验收，位移速度/滑步未验收']
 p.write_text(json.dumps(j,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(json.dumps({'updated':str(p),'count':len(j['frames']),'sum_ms':sum(j['timing']['durations_ms'])},ensure_ascii=False))
 
