@@ -1,3 +1,5 @@
+"""Retired one-shot migration; retained below only as historical text."""
+raise SystemExit('该旧迁移已退役；请运行build_delivery.py，正常跑步1200ms/75ms。')
 from pathlib import Path
 R=Path(__file__).resolve().parents[1]
 p=R/'tools/build_delivery.py'

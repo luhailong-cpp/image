@@ -1637,5 +1637,393 @@
     "review/run_N_headless_2026-10-03T23-14-19-424Z/"
   ],
   "historicalNote": "Old timing recordings are history only, not evidence of the current1200ms speed. Root performs unified actual playback verification of the final stable source.",
-  "report": "review/attack_N_final_review_20261004.md"
+  "report": "review/attack_N_final_review_20261004.md",
+  "eventSuggestions": {
+    "reviewedAt": "2026-10-04T06:44:46.497073+00:00",
+    "runtimeImagesModified": false,
+    "notClientApproved": true,
+    "attack": {
+      "E": {
+        "indexBase": 0,
+        "suggestedContactFrame": 6,
+        "maxArmExtensionFrame": 6,
+        "frameStartMs": 180,
+        "frameIntervalMs": [
+          180,
+          210
+        ],
+        "confidence": "medium-high for visible extension; unconfirmed for game collision",
+        "basis": "重新实看05/06/07：05杖轴仍斜向出手，06肩肘达到最明确直臂前伸，07保持延伸但腕/杖已下降随动。以肩肘姿态判断，不以杖尖在画布上的最外像素判断。",
+        "adjacentViewedFrames": [
+          {
+            "index": 5,
+            "file": "runtime/attack/E/05.png",
+            "sha256": "c3ecbd526bf0c883de1b91f255a050ca744da44492d8f2ec52e8199babd4eafe"
+          },
+          {
+            "index": 6,
+            "file": "runtime/attack/E/06.png",
+            "sha256": "60f3564d743c10c7d3d661cca08d8fed6d5232249fc3d2b1feacdd4b026777d9"
+          },
+          {
+            "index": 7,
+            "file": "runtime/attack/E/07.png",
+            "sha256": "486837e67265001b441c7f172e3b55beb7e4895d6e664d33c0267a4bf9c8e307"
+          }
+        ],
+        "uncertainty": [
+          "06/07之间有姿势与相机投影差，07杖尖可能更外但不是肘伸最大",
+          "没有目标/碰撞或客户端时间轴，接触帧为视觉事件建议，不是实测命中判定"
+        ]
+      },
+      "W": {
+        "indexBase": 0,
+        "suggestedContactFrame": 6,
+        "maxArmExtensionFrame": 6,
+        "frameStartMs": 180,
+        "frameIntervalMs": [
+          180,
+          210
+        ],
+        "confidence": "medium-high for visible extension; unconfirmed for game collision",
+        "basis": "重新实看05/06/07：05杖轴仍斜向出手，06肩肘达到最明确直臂前伸，07保持延伸但腕/杖已下降随动。以肩肘姿态判断，不以杖尖在画布上的最外像素判断。",
+        "adjacentViewedFrames": [
+          {
+            "index": 5,
+            "file": "runtime/attack/W/05.png",
+            "sha256": "2e82a410e304330400958be82b4a412489b569bcfecb3ff164c471e910326a40"
+          },
+          {
+            "index": 6,
+            "file": "runtime/attack/W/06.png",
+            "sha256": "f86d688d9fec46c95ec9217d4c6c95ee710e719216e5614720cb40cf15398921"
+          },
+          {
+            "index": 7,
+            "file": "runtime/attack/W/07.png",
+            "sha256": "427b315d08bf74b7018d799fe5f2edd1a5b86e122627e29764efde3bc3cea88f"
+          }
+        ],
+        "uncertainty": [
+          "06/07之间有姿势与相机投影差，07杖尖可能更外但不是肘伸最大",
+          "没有目标/碰撞或客户端时间轴，接触帧为视觉事件建议，不是实测命中判定"
+        ]
+      }
+    },
+    "runN": {
+      "indexBase": 0,
+      "normalCycleMs": 1200,
+      "frameMs": 75,
+      "basis": "16张当前N实图先前逐张重开，本次重新看固定画布16格联系表；依据承重腿伸展、跟部翻起和双足离地轮廓判读。没有用原计划00/08/04/12自动分配。",
+      "supportWindows": [
+        {
+          "side": "right",
+          "inclusiveIndices": [
+            [
+              13,
+              15
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "wrapsCycle": true,
+          "mainWeightBearingIndices": [
+            14,
+            15,
+            0,
+            1,
+            2
+          ],
+          "toeOffCandidate": 3,
+          "landingCandidate": 13,
+          "confidence": "medium;13落地边界未标定"
+        },
+        {
+          "side": "left",
+          "inclusiveIndices": [
+            [
+              6,
+              11
+            ]
+          ],
+          "wrapsCycle": false,
+          "mainWeightBearingIndices": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "toeOffCandidate": 11,
+          "landingCandidate": 6,
+          "confidence": "medium;06落地边界未标定"
+        }
+      ],
+      "flightWindows": [
+        {
+          "inclusiveIndices": [
+            [
+              4,
+              5
+            ]
+          ],
+          "confidence": "medium-high",
+          "basis": "双腿均收离支撑位；05左腿开始下降但仍明显高于06承重位"
+        },
+        {
+          "inclusiveIndices": [
+            [
+              12,
+              12
+            ]
+          ],
+          "confidence": "medium",
+          "basis": "左腿收回、右腿前下伸而鞋跟尚高；13已呈右承重轮廓，不能算确定腾空"
+        }
+      ],
+      "visibleLandingCandidates": [
+        {
+          "side": "left",
+          "index": 6,
+          "frameStartMs": 450
+        },
+        {
+          "side": "right",
+          "index": 13,
+          "frameStartMs": 975
+        }
+      ],
+      "plannedIndicesNotVerified": [
+        0,
+        8
+      ],
+      "doNotTreatAsFootstepEventsYet": true,
+      "confidence": "Static observed phase suggestions only",
+      "uncertainty": [
+        "06/13作为首次接触候选与原计划08/00不同；不能从文件名确定接触事件",
+        "右承重跨循环，当前两半落地候选相隔7/9帧，并非已验证的均匀8/8节拍",
+        "03/11仅能看到前掌蹬离形，透明图没有地面证明实际接触",
+        "12→13与05→06下降幅度、15→00接缝仍需1200ms正常/慢放和客户端地面验证"
+      ],
+      "frameBindings": [
+        {
+          "index": 0,
+          "file": "runtime/run/N/00.png",
+          "sha256": "b55f7e15afb760f51402dcad4423fa5919d468a33e04ab0c395c3bcc4f087322"
+        },
+        {
+          "index": 1,
+          "file": "runtime/run/N/01.png",
+          "sha256": "2dd95eef3b514564959cb52854856b1d7a29c235858e79646cd3e1d243cfc19c"
+        },
+        {
+          "index": 2,
+          "file": "runtime/run/N/02.png",
+          "sha256": "d90b9385a1045ff787c53051edcaa35e3e55463370798e84a85ca79c65f3063a"
+        },
+        {
+          "index": 3,
+          "file": "runtime/run/N/03.png",
+          "sha256": "f4e580778e0572ddd80fe306ce2387f45cc6c411fffe85e94bc6c4863fbbe9cd"
+        },
+        {
+          "index": 4,
+          "file": "runtime/run/N/04.png",
+          "sha256": "292668485492565bed05f9f53cc70b2a8fbf49089c86d002b9d1ac35b25b7743"
+        },
+        {
+          "index": 5,
+          "file": "runtime/run/N/05.png",
+          "sha256": "514ccea743ffb6647bc7b56b2e2860c95e7dd377e795741bd9f315bbbb826c0c"
+        },
+        {
+          "index": 6,
+          "file": "runtime/run/N/06.png",
+          "sha256": "2eca159042cf2625ede7b95494110c9b26bfa64bf604add368ea9e157401c2fd"
+        },
+        {
+          "index": 7,
+          "file": "runtime/run/N/07.png",
+          "sha256": "e61e156fb1a3bc433c34f00483d7454d7d42f77533348c16568bbd6ed330e0e8"
+        },
+        {
+          "index": 8,
+          "file": "runtime/run/N/08.png",
+          "sha256": "7ffd00ea193fa8b480a090ccb16b36718b307801dd303ae60c79b0dd896963e6"
+        },
+        {
+          "index": 9,
+          "file": "runtime/run/N/09.png",
+          "sha256": "a01a5f376b3f858fd964efb797a506db44d942872108dc991851cda5229878ef"
+        },
+        {
+          "index": 10,
+          "file": "runtime/run/N/10.png",
+          "sha256": "d04167516f2e1d6a493e5c2150983aa38d2e813ebe83ff3e6cd101b106dee8be"
+        },
+        {
+          "index": 11,
+          "file": "runtime/run/N/11.png",
+          "sha256": "7d0fa8ce856d511b1d53628de8adc6bb19c21bcbc24704a9088ec0a24edcd648"
+        },
+        {
+          "index": 12,
+          "file": "runtime/run/N/12.png",
+          "sha256": "8afd7e6606d6c0175a76414d461e1e925e536253fc5ae6dfb3564b6df7638f19"
+        },
+        {
+          "index": 13,
+          "file": "runtime/run/N/13.png",
+          "sha256": "db40cb4e321f1a104eebad951a325a74441cafe33b7343fc2e72c542f91135e2"
+        },
+        {
+          "index": 14,
+          "file": "runtime/run/N/14.png",
+          "sha256": "3f4e9689d61c90e735014cd77734b58b85fa6697855ffadf9328f4b0e3032a11"
+        },
+        {
+          "index": 15,
+          "file": "runtime/run/N/15.png",
+          "sha256": "3e6cafc17536229c473b1792212c0b666eb4b241675fe4c079782761c1e72022"
+        }
+      ]
+    },
+    "hitAndCast": "out of this child audit scope; not modified"
+  },
+  "effectiveTimingAudit": {
+    "reviewedAt": "2026-10-04T06:44:46.497073+00:00",
+    "sourceReviewCompleted": true,
+    "effectiveRunFastDefaultsFound": false,
+    "normalCycleMs": 1200,
+    "normalFrameMs": 75,
+    "mainAndTimingSlowMs": 4800,
+    "NHelperSlowMs": [
+      3600,
+      4800
+    ],
+    "manifestRunSequences": [
+      {
+        "direction": "N",
+        "frameDurationMs": 75,
+        "cycleMs": 1200
+      },
+      {
+        "direction": "NE",
+        "frameDurationMs": 75,
+        "cycleMs": 1200
+      },
+      {
+        "direction": "E",
+        "frameDurationMs": 75,
+        "cycleMs": 1200
+      },
+      {
+        "direction": "SE",
+        "frameDurationMs": 75,
+        "cycleMs": 1200
+      },
+      {
+        "direction": "S",
+        "frameDurationMs": 75,
+        "cycleMs": 1200
+      },
+      {
+        "direction": "SW",
+        "frameDurationMs": 75,
+        "cycleMs": 1200
+      },
+      {
+        "direction": "W",
+        "frameDurationMs": 75,
+        "cycleMs": 1200
+      },
+      {
+        "direction": "NW",
+        "frameDurationMs": 75,
+        "cycleMs": 1200
+      }
+    ],
+    "auditedFiles": [
+      {
+        "file": "tools/build_preview.py",
+        "sha256": "34040f3a7af10c5a36587b3a779e8c402615619d4f4c38e6ad767777f1b53176"
+      },
+      {
+        "file": "tools/build_delivery.py",
+        "sha256": "982058301715a84631bf2ee8773560da3ef6744add8389052b203ae79418406e"
+      },
+      {
+        "file": "tools/build_run_board.py",
+        "sha256": "84bb9fb919a3c4f1f06152d3ae95e579c480ef7001ad2904dc3dd0b738b7f0c9"
+      },
+      {
+        "file": "tools/build_timing_grounding.py",
+        "sha256": "5af4bb710a45da5f7e6fa7fe892f2ad6f0c96c709e6d8311f4265aca484cd157"
+      },
+      {
+        "file": "tools/timing_grounding_template.html",
+        "sha256": "30e9411288178d6705eeb908dae70d46b132a920b5d45afbf947037a4fde485d"
+      },
+      {
+        "file": "tools/build_run_N_review.py",
+        "sha256": "2e2382f68d7ac6cf1ac963b47bf7058c1907e5eee7ff04da77a410e4ea92e569"
+      },
+      {
+        "file": "tools/verify_headless_run_N.js",
+        "sha256": "75652b28b1bb7b634a1637ab8356bfbc909584dea21e859f5fd3dbf278a8bce2"
+      },
+      {
+        "file": "tools/verify_headless_grounding.js",
+        "sha256": "3f3d59f94e7ae8330d9e2a61d61a9ee3845f0e99ba5f811b17aabbb39555e4a0"
+      },
+      {
+        "file": "tools/verify_all_sequence_playback.js",
+        "sha256": "9f98eace790f4739e5c962a989374db21d81299894103e3276d262ca7458fe68"
+      },
+      {
+        "file": "tools/apply_run_1200ms.py",
+        "sha256": "554bc50d1f96a759601c87e3265e38d2077cc093ebd0e2e295331cc00c0e23e4"
+      },
+      {
+        "file": "tools/update_delivery_wording.py",
+        "sha256": "43bc586a53ae37a3209355d17b02dce34bdbd23de9e753922ef999262d7f18af"
+      },
+      {
+        "file": "preview/index.html",
+        "sha256": "7d659264156f5436193503154f2c9b8ca31782095e38d651c5397eadf823a0a7"
+      },
+      {
+        "file": "preview/manifest.json",
+        "sha256": "ac401ee4a641cf40e8067e82e1316cc3112fc9a792a12da6f8160d86c2266af1"
+      },
+      {
+        "file": "preview/timing-grounding-20261003/index.html",
+        "sha256": "ab285cfb5cc23c5f88380103286ce756caeba257fa5ac966f2dc84dc1a483570"
+      },
+      {
+        "file": "review/run_N_playback/index.html",
+        "sha256": "af23e3c26dd18f9ac1cbc0587c1a12a1dd70d7a5b0797dcef6d33f5e2fbd51b0"
+      },
+      {
+        "file": "review/run_N_playback/review-data.json",
+        "sha256": "dce93841d3f710e1b61f0b07fe4ea82dfb132cff95916b726e58e7e6664ef2d5"
+      }
+    ],
+    "ownHelperChange": "N builder now asserts shared template/headless normal timing is1200 and emits only [1200,3600,4800] sampling options; regenerated own N page/helper. No runtime changes.",
+    "nonIssues": [
+      "640 in build_delivery is preview pixel width, not timing",
+      "720 in main preview is cast duration, unchanged by run requirement",
+      "Old numeric strings in apply_run_1200ms are only old-text inputs converted upward to1200",
+      "Historical WebP/records under timing-grounding and old headless evidence are excluded from effective defaults"
+    ],
+    "otherPotentialStaleText": [
+      {
+        "file": "tools/update_delivery_wording.py",
+        "line": 5,
+        "finding": "Its replacement output contains a legacy720 trial sentence, but current build_delivery lacks that old match; no current speed default changed. Root may retire this one-off wording script."
+      }
+    ]
+  }
 }
