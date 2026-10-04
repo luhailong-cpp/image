@@ -9,6 +9,10 @@ const {chromium}=require('C:/Users/luyua/.cache/codex-runtimes/codex-primary-run
  const options=await page.locator('#rate option').evaluateAll(es=>es.map(e=>Number(e.value)));
  if(JSON.stringify(options)!=='[1,0.25]')throw Error('Unexpected playback options');
  const checks=[];
+ // A step during async image loading must never poison the next sequence index.
+ await page.evaluate(()=>{window.animationReview.select('run','E');window.animationReview.step(1)});
+ await page.waitForFunction(()=>window.animationReview.getState().loaded===16);
+ if(!await page.evaluate(()=>Number.isFinite(window.animationReview.getState().index)))throw Error('Loading step corrupted index');
  for(const s of sequences){
   await page.evaluate(([a,d])=>window.animationReview.select(a,d),[s.action,s.direction]);
   await page.waitForFunction(n=>window.animationReview.getState().loaded===n,s.expectedFrames);

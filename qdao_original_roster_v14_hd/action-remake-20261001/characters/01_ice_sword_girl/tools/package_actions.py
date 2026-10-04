@@ -6,6 +6,10 @@ import json,hashlib,argparse,copy
 R=Path(__file__).resolve().parents[1]
 m=json.loads((R/'manifest.json').read_text(encoding='utf-8'))
 assert m['presentFrameCount']==196 and m['technicalPassCount']==196 and not m['errors'], 'Incomplete technical inventory'
+proof=json.loads((R/'review/delivery-provenance.json').read_text(encoding='utf-8'))
+assert proof['passed'] and proof['checked']==196,'Final provenance audit incomplete'
+playback=json.loads((R/'preview/verification-all.json').read_text(encoding='utf-8'))
+assert len(playback['checks'])==14 and not playback['pageErrors'],'Final playback check incomplete'
 p=argparse.ArgumentParser();p.add_argument('--require-art',action='store_true');args=p.parse_args()
 run=[s for s in m['sequences'] if s['action']=='run']
 if args.require_art:
@@ -30,7 +34,7 @@ with ZipFile(target,'w',compression=ZIP_DEFLATED,compresslevel=6) as z:
    q['frames'].append({'frame':f['frame'],'path':rel,'sha256':sha,'durationMs':f['durationMs']})
   d['sequences'].append(q)
   if s.get('selection'):z.write(R/s['selection'],s['selection'])
- for fn in ['animation-timing.json','MERGE_HANDOFF.md','review/paired-position-contact-requirement.json','review/combat-final-continuity-review.md','preview/verification-all.json']:
+ for fn in ['animation-timing.json','MERGE_HANDOFF.md','review/paired-position-contact-requirement.json','review/combat-final-continuity-review.md','preview/verification-all.json','review/final-artwork-review.json','review/delivery-provenance.json','review/NW-final-independent-review.json','review/south-final-independent-review.json','review/south-completion-handoff.json','review/combat-final-independent-review.json','review/retired-image-sources.json']:
   if (R/fn).exists():z.write(R/fn,fn)
  for folder in ['sources','drafts']:
   for evidence in (R/folder).rglob('*'):
