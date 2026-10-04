@@ -24,10 +24,11 @@ import struct
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote
+from timing_profile import RUN_NORMAL_DURATIONS
 
 ROOT = Path(__file__).resolve().parents[1]
 SPECS = {
-    "run": {"label": "跑步", "directions": ["N", "NE", "E", "SE", "S", "SW", "W", "NW"], "count": 16, "frame_ms": 30},
+    "run": {"label": "跑步", "directions": ["N", "NE", "E", "SE", "S", "SW", "W", "NW"], "count": 16, "frame_ms": 75},
     "hit": {"label": "受击", "directions": ["E", "W"], "count": 6, "frame_ms": 40},
     "attack": {"label": "普攻", "directions": ["E", "W"], "count": 12, "frame_ms": 30},
     "cast": {"label": "施法", "directions": ["E", "W"], "count": 16, "frame_ms": 45},
@@ -129,6 +130,63 @@ def source_info(frame: Path) -> dict:
     return result
 
 
+def verified_deleted_native(frame: dict, native: dict) -> tuple[bool, str]:
+    """A declaration that a source was deleted is insufficient without bound evidence."""
+    def require(condition, message):
+        if not condition:
+            raise ValueError(message)
+
+    def evidence_path(value):
+        require(isinstance(value, str) and bool(value), "缺少证据路径")
+        relative_path = Path(value)
+        require(not relative_path.is_absolute() and ".." not in relative_path.parts, "证据必须是角色内相对路径")
+        path = (ROOT / relative_path).resolve()
+        require(path.is_relative_to(ROOT / "provenance" / "audit"), "证据越过本角色审计目录")
+        return path
+
+    def is_sha256(value):
+        return isinstance(value, str) and len(value) == 64 and all(c in "0123456789abcdef" for c in value)
+
+    try:
+        binding = native.get("precleanupSnapshot")
+        require(isinstance(binding, dict), "缺少清理前快照绑定")
+        snapshot_path = evidence_path(binding.get("path"))
+        require(file_sha256(snapshot_path) == binding.get("sha256"), "清理前快照 SHA 不匹配")
+        snapshot = json.loads(snapshot_path.read_text(encoding="utf-8-sig"))
+        require(snapshot.get("schema") == "qdao-export-precleanup-snapshot-v1"
+                and snapshot.get("character") == ROOT.name, "清理前快照 schema/角色不符")
+        entries = snapshot.get("entries")
+        require(isinstance(entries, list) and len(entries) == 196
+                and all(isinstance(entry, dict) for entry in entries), "清理前快照不是完整196行")
+        require(len({entry.get("file") for entry in entries}) == 196, "清理前快照有重复槽")
+        matches = [entry for entry in entries if entry.get("file") == frame["path"]]
+        require(len(matches) == 1, "清理前快照缺少对应正式槽")
+        row = matches[0]
+        export = row.get("export", {})
+        measured = row.get("native", {})
+        require(is_sha256(measured.get("sha256")) and is_sha256(measured.get("rgbaPixelSha256"))
+                and is_sha256(export.get("rgbaPixelSha256")), "快照缺少有效的原生/像素 SHA")
+        require(row.get("sha256") == frame["sha256"] == export.get("sha256")
+                and (export.get("width"), export.get("height"), export.get("mode"), export.get("format"))
+                == (1024, 1024, "RGBA", "PNG"), "清理前快照正式SHA/规格不匹配")
+        require(row.get("wholeCanvasResizePixelMatch") is True, "快照没有整画布导出像素匹配证据")
+        require(all(measured.get(key) == native.get(key) for key in ("path", "sha256", "width", "height", "mode", "format")),
+                "清理前快照原生路径/SHA/规格不匹配")
+        require(measured.get("width", 0) >= 1024 and measured.get("height", 0) >= 1024
+                and measured.get("mode") == "RGBA" and measured.get("format") == "PNG", "快照实测原生规格不合格")
+        ledger_path = evidence_path(native.get("retentionRecord"))
+        ledger = json.loads(ledger_path.read_text(encoding="utf-8-sig"))
+        require(ledger.get("schema") == "qdao-image-retention-v2" and ledger.get("character") == ROOT.name
+                and ledger.get("precleanupSnapshot") == binding, "删除记录没有绑定同一快照")
+        deleted = [item for item in ledger.get("files", []) if isinstance(item, dict)
+                   and item.get("path") == native.get("path") and item.get("sha256") == native.get("sha256")]
+        require(len(deleted) == 1 and deleted[0].get("status") == "deleted" and deleted[0].get("deletedAt"),
+                "原生没有实际删除成功记录")
+        return True, "sha_bound_precleanup_measurement_and_successful_deletion_ledger"
+    except (OSError, ValueError, TypeError, KeyError) as error:
+        return False, str(error)
+
+
 def inspect(index_base: int, anchor_x: float | None, anchor_y: float | None) -> dict:
     sequences = []
     hash_paths: dict[str, list[str]] = {}
@@ -142,7 +200,7 @@ def inspect(index_base: int, anchor_x: float | None, anchor_y: float | None) -> 
                     "ordinal": ordinal + 1, "file_index": index, "path": relative(path),
                     "exists": path.is_file(), "sha256": None, "png": None,
                     "source": None, "technical_issues": [],
-                    "canvas_rgba_matches": False, "visual_review": "not_assessed_by_tool",
+                    "canvas_rgba_matches": False, "visual_review": "missing",
                     "native_single_frame_minimum_1024_verified": None,
                     "independent_pose_verified": None,
                 }
@@ -150,6 +208,36 @@ def inspect(index_base: int, anchor_x: float | None, anchor_y: float | None) -> 
                     frame["sha256"] = file_sha256(path)
                     hash_paths.setdefault(frame["sha256"], []).append(relative(path))
                     frame["source"] = source_info(path)
+                    declared = frame["source"].get("declared_record") or {}
+                    if not isinstance(declared, dict):
+                        declared = {}
+                    bound_sha = declared.get("sha256") == frame["sha256"]
+                    frame["visual_review"] = (declared.get("review") or {}).get("status", "not_assessed") if bound_sha else "unbound_record"
+                    visual = declared.get("review") or {}
+                    if (bound_sha and visual.get("sourceBoundSha256") == frame["sha256"]
+                            and visual.get("automaticallyApproved") is False
+                            and visual.get("status") == "visual_passed"):
+                        frame["independent_pose_verified"] = visual.get("independentPoseObserved")
+                    native = declared.get("nativeSource") or {}
+                    try:
+                        native_path = (ROOT / native.get("path", "")).resolve()
+                        if bound_sha and native_path.is_relative_to(ROOT) and native_path.is_file() and file_sha256(native_path) == native.get("sha256"):
+                            native_info = png_info(native_path)
+                            frame["native_single_frame_minimum_1024_verified"] = (native_info["width"] >= 1024 and native_info["height"] >= 1024
+                                and native_info["color_mode"] == "RGBA" and native_info["decoder_verified"])
+                            frame["native_verification_basis"] = "live_native_png_sha_and_dimensions"
+                        elif bound_sha and native_path.is_relative_to(ROOT) and not native_path.exists() and native.get("fileRetained") is False:
+                            verified, basis = verified_deleted_native(frame, native)
+                            frame["native_single_frame_minimum_1024_verified"] = verified
+                            frame["native_verification_basis"] = basis
+                            if not verified:
+                                frame["technical_issues"].append(f"已删除原生的证据验证失败：{basis}")
+                        else:
+                            frame["technical_issues"].append("原生路径、SHA、正式来源绑定或保留状态未能验证")
+                    except (OSError, ValueError, TypeError, AttributeError, SyntaxError) as error:
+                        frame["technical_issues"].append(f"原生无法检查：{error}")
+                    if not bound_sha:
+                        frame["technical_issues"].append("逐图记录SHA未绑定当前正式PNG")
                     try:
                         info = png_info(path)
                         frame["png"] = info
@@ -173,6 +261,9 @@ def inspect(index_base: int, anchor_x: float | None, anchor_y: float | None) -> 
                 "action": action, "label": spec["label"], "direction": direction,
                 "target_count": spec["count"], "frame_ms": spec["frame_ms"],
                 "duration_ms": spec["count"] * spec["frame_ms"], "frames": frames,
+                "timing_status": "user_selected_offline_1200_client_unconfirmed" if action == "run" else "specified_not_client_tested",
+                "offline_normal_durations_ms": RUN_NORMAL_DURATIONS if action == "run" else [spec["frame_ms"]] * spec["count"],
+                "client_approved_loop_ms": None,
             })
     all_frames = [frame for sequence in sequences for frame in sequence["frames"]]
     duplicate_groups = [paths for paths in hash_paths.values() if len(paths) > 1]
@@ -196,7 +287,10 @@ def inspect(index_base: int, anchor_x: float | None, anchor_y: float | None) -> 
             "canvas_rgba_matching_frames": sum(f["canvas_rgba_matches"] for f in all_frames),
             "decoder_verified_frames": sum(bool(f["png"] and f["png"]["decoder_verified"]) for f in all_frames),
             "bound_source_records": sum(bool(f["source"] and not f["source"]["record_error"] and f["source"]["binding"] in ("individual_sidecar", "shared_frame_entry")) for f in all_frames),
-            "visual_pass_count": None, "client_integration_status": "not_checked_by_tool",
+            "visual_pass_count": sum(f["visual_review"] == "visual_passed" for f in all_frames),
+            "needs_revision_count": sum(f["visual_review"] == "needs_revision" for f in all_frames),
+            "candidate_pending_visual_count": sum(f["exists"] and f["visual_review"] not in ("needs_revision", "visual_passed") for f in all_frames),
+            "client_integration_status": "not_integrated",
         },
         "duplicate_sha_groups": duplicate_groups, "unexpected_png_files": unexpected,
         "sequences": sequences,
@@ -226,7 +320,7 @@ def main() -> None:
         preview_report = json.loads(json.dumps(report))
         for sequence in preview_report["sequences"]:
             for frame in sequence["frames"]:
-                frame["url"] = quote(os.path.relpath(ROOT / frame["path"], preview_path.parent).replace("\\", "/"), safe="/:")
+                frame["url"] = quote(os.path.relpath(ROOT / frame["path"], preview_path.parent).replace("\\", "/"), safe="/:") + ("?sha=" + frame["sha256"][:16] if frame["sha256"] else "")
         payload = json.dumps(preview_report, ensure_ascii=False).replace("<", "\\u003c").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
         template = (ROOT / "preview" / "template.html").read_text(encoding="utf-8")
         preview_path.write_text(template.replace("__FRAME_MANIFEST_JSON__", payload), encoding="utf-8")

@@ -1,0 +1,693 @@
+{
+  "schemaVersion": 1,
+  "character": "04_mountain_guardian_boy",
+  "reviewedAt": "2026-10-03T16:37:52.924Z",
+  "scope": "read_only_static_pose_phase_and_event_mapping",
+  "method": "实际查看当前6张接触表并核对来源SHA全部与当前PNG一致；另外原尺寸查看hit02/03/04、attack05/06/07、cast09/10/11的E/W，结合本窗口已查看的受击起末帧。只新增本报告，未修改PNG/source/sidecar。",
+  "clientIntegration": "not_integrated",
+  "clientAbsenceBlocksAssetReview": false,
+  "summary": "E/W三动作均可读为起势→作用→收势；attack06接触、cast10释放、hit03主要后仰在姿态阶段上成立。事件绑定不是凭空认定已有客户端命中/法术效果。",
+  "events": [
+    {
+      "action": "hit",
+      "directions": [
+        "E",
+        "W"
+      ],
+      "eventFrame": 3,
+      "eventName": "main_recoil",
+      "verdict": "supported_with_peak_window_qualification",
+      "phases": [
+        {
+          "frames": [
+            1
+          ],
+          "name": "初始命中反应",
+          "evidence": "双向01惊讶表情、重心后移，杖盾握持保持。"
+        },
+        {
+          "frames": [
+            2,
+            3
+          ],
+          "name": "主要后仰/受击保持",
+          "evidence": "闭眼咬牙，胸肩和头向后移，支撑脚与另一脚分开。03仍处于明显后仰段。"
+        },
+        {
+          "frames": [
+            4
+          ],
+          "name": "缓冲",
+          "evidence": "E04头肩下收、膝弯缓冲；W04眼已睁开且胸肩开始前回，均离开主要后仰。"
+        },
+        {
+          "frames": [
+            5,
+            6
+          ],
+          "name": "恢复收势",
+          "evidence": "双向睁眼回稳，站距收窄，杖回到防守/站立持姿。"
+        }
+      ],
+      "qualification": "02和03形成后仰峰值区间，03可作为主要后仰事件帧；不能仅凭静态图声称03是唯一且精确测量的最大角度。"
+    },
+    {
+      "action": "attack",
+      "directions": [
+        "E",
+        "W"
+      ],
+      "eventFrame": 6,
+      "eventName": "contact",
+      "verdict": "supported_by_pose",
+      "phases": [
+        {
+          "frames": [
+            1,
+            2
+          ],
+          "name": "预备",
+          "evidence": "近身斜持杖，双脚站稳，盾保持护身。"
+        },
+        {
+          "frames": [
+            3,
+            4
+          ],
+          "name": "蓄力/起手",
+          "evidence": "E方向降杖至前方横向、沉髋；W方向抬杖并拉出斜向攻击轨迹、弯膝准备。"
+        },
+        {
+          "frames": [
+            5
+          ],
+          "name": "出手",
+          "evidence": "前腿进入弓步承重，持杖手向面朝方向推出。"
+        },
+        {
+          "frames": [
+            6
+          ],
+          "name": "接触事件",
+          "evidence": "双向前脚承重、后腿支撑展开，杖臂伸展，杖首沿运动方向送出，06明显属于攻击作用段。"
+        },
+        {
+          "frames": [
+            7,
+            8
+          ],
+          "name": "随动和开始回收",
+          "evidence": "07保持推出余势，08开始回撤/抬杖，和后续收势方向一致。"
+        },
+        {
+          "frames": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "name": "回收收势",
+          "evidence": "握杖手收回、杖恢复斜持，双腿由弓步向较稳的防守站姿收回。"
+        }
+      ],
+      "qualification": "06是合理的动作接触事件点，07仍有随动延展；无目标物/碰撞特效的单人动作图本身不证明游戏命中已触发。"
+    },
+    {
+      "action": "cast",
+      "directions": [
+        "E",
+        "W"
+      ],
+      "eventFrame": 10,
+      "eventName": "release",
+      "verdict": "supported_with_release_window_qualification",
+      "phases": [
+        {
+          "frames": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "name": "站立转蓄势",
+          "evidence": "双向由较窄站姿转为屈膝分腿，杖在身前竖/斜持。"
+        },
+        {
+          "frames": [
+            5,
+            6,
+            7
+          ],
+          "name": "蓄力上提",
+          "evidence": "握杖手上提并建立更明确的弓步，肩肘准备向前送。"
+        },
+        {
+          "frames": [
+            8,
+            9,
+            10
+          ],
+          "name": "送出与释放保持",
+          "evidence": "08开始向面朝方向前送，09已明显前伸，10保持伸杖和稳定承重，位于开始回收前的释放窗口末拍。"
+        },
+        {
+          "frames": [
+            11,
+            12,
+            13,
+            14
+          ],
+          "name": "释放后回收",
+          "evidence": "11握杖手已明显回落/收近，之后杖逐渐回立，站距与肩肘恢复。"
+        },
+        {
+          "frames": [
+            15,
+            16
+          ],
+          "name": "收势回稳",
+          "evidence": "双脚接近站姿，杖盾恢复稳态持姿，动作段结束可读。"
+        }
+      ],
+      "qualification": "10可绑定释放事件，但09已经达到前伸高点；应称09–10释放窗口内的选定事件点，不应称10是图像唯一首次释放。当前素材不含法术特效，未伪称客户端效果已接入。"
+    }
+  ],
+  "frames": [
+    {
+      "action": "hit",
+      "direction": "E",
+      "frame": 1,
+      "file": "frames/hit/E/frame_01.png",
+      "sha256": "0e600c1050559305e28e2d0bf393b8739488382d484059af8c7698e7d55ba275"
+    },
+    {
+      "action": "hit",
+      "direction": "E",
+      "frame": 2,
+      "file": "frames/hit/E/frame_02.png",
+      "sha256": "656c856290a2ce41a82a2abe02e9e3ac4e8de165009726af02a22bf73c4233e7"
+    },
+    {
+      "action": "hit",
+      "direction": "E",
+      "frame": 3,
+      "file": "frames/hit/E/frame_03.png",
+      "sha256": "272204657c7439d886b5b14ae0dab0e3d1b19738042e42c64414fdfaf0a57e0a"
+    },
+    {
+      "action": "hit",
+      "direction": "E",
+      "frame": 4,
+      "file": "frames/hit/E/frame_04.png",
+      "sha256": "e0a51bdaa5b548c4508beb4f2d9b876780acf356013b1d225eb9472b15e27b63"
+    },
+    {
+      "action": "hit",
+      "direction": "E",
+      "frame": 5,
+      "file": "frames/hit/E/frame_05.png",
+      "sha256": "de555cc55f0de1c420f1a64f1ee829d36b90484c5e9934d3926211a671c00932"
+    },
+    {
+      "action": "hit",
+      "direction": "E",
+      "frame": 6,
+      "file": "frames/hit/E/frame_06.png",
+      "sha256": "e3057b6dd3a28cedc0d2056e3c2c916ee2116e250f7992b672c159f6c59dd786"
+    },
+    {
+      "action": "hit",
+      "direction": "W",
+      "frame": 1,
+      "file": "frames/hit/W/frame_01.png",
+      "sha256": "8135b27ad25089b20c81a7e69b7155f22728582c790cf77101b613c2ecd4d53e"
+    },
+    {
+      "action": "hit",
+      "direction": "W",
+      "frame": 2,
+      "file": "frames/hit/W/frame_02.png",
+      "sha256": "1b1c513b46fcf0e58c6b35613e64ddc9825d843cf049633c2b4d5b2ce1e0e613"
+    },
+    {
+      "action": "hit",
+      "direction": "W",
+      "frame": 3,
+      "file": "frames/hit/W/frame_03.png",
+      "sha256": "336623219992306b74a46672c6beffceb1fcaa84feb02bfce4eb5a6e2f6f156c"
+    },
+    {
+      "action": "hit",
+      "direction": "W",
+      "frame": 4,
+      "file": "frames/hit/W/frame_04.png",
+      "sha256": "6c70a4462d45abc3bc224ca7040fb956cf37f5fb3a87fb324ff8c877aa128600"
+    },
+    {
+      "action": "hit",
+      "direction": "W",
+      "frame": 5,
+      "file": "frames/hit/W/frame_05.png",
+      "sha256": "714c9c39cf41b49611f2fbfccb4178838f5bda9b2ba4e8529a42348e6fc6d9f0"
+    },
+    {
+      "action": "hit",
+      "direction": "W",
+      "frame": 6,
+      "file": "frames/hit/W/frame_06.png",
+      "sha256": "3cf2a85eb36eb70f78443d6ec879c31d11ded75618906b8db1e6ab8d7e1687c9"
+    },
+    {
+      "action": "attack",
+      "direction": "E",
+      "frame": 1,
+      "file": "frames/attack/E/frame_01.png",
+      "sha256": "6fa0b33c448a6965340e5c086ac67366efd7d137cfed8bdaab264a2ca5f45c43"
+    },
+    {
+      "action": "attack",
+      "direction": "E",
+      "frame": 2,
+      "file": "frames/attack/E/frame_02.png",
+      "sha256": "cebd507d111774b1ecb2a29b82acde3de8579baa499c199c453fac9a9afd3206"
+    },
+    {
+      "action": "attack",
+      "direction": "E",
+      "frame": 3,
+      "file": "frames/attack/E/frame_03.png",
+      "sha256": "da7f69a4cbc6c11842893f4d6acf2536adc027489c7dc8ed5e9cbab91b9c1298"
+    },
+    {
+      "action": "attack",
+      "direction": "E",
+      "frame": 4,
+      "file": "frames/attack/E/frame_04.png",
+      "sha256": "6e84ea53d071156a52e3051e4a320be3c579c3c63e52d73dc1446c760ab391c1"
+    },
+    {
+      "action": "attack",
+      "direction": "E",
+      "frame": 5,
+      "file": "frames/attack/E/frame_05.png",
+      "sha256": "3f033f87e487aeb12b0ad29378d344b5f14452d613f992b8281a6658b3f1df2b"
+    },
+    {
+      "action": "attack",
+      "direction": "E",
+      "frame": 6,
+      "file": "frames/attack/E/frame_06.png",
+      "sha256": "b5d5519e71c7b9a9d556b60f21326c2ba2526c888beb0ddf4eb335387b926550"
+    },
+    {
+      "action": "attack",
+      "direction": "E",
+      "frame": 7,
+      "file": "frames/attack/E/frame_07.png",
+      "sha256": "3271e8d10eadc774329421a1d4978a8f219b7165bf6d636c765ee1dfa3288a7a"
+    },
+    {
+      "action": "attack",
+      "direction": "E",
+      "frame": 8,
+      "file": "frames/attack/E/frame_08.png",
+      "sha256": "cdb7986f3e3012e38b3f6821d63e0b9a0cb623691a036469a18742dd65b8078b"
+    },
+    {
+      "action": "attack",
+      "direction": "E",
+      "frame": 9,
+      "file": "frames/attack/E/frame_09.png",
+      "sha256": "bb5b2c5a314563ee0f9dfb11d91302af6b46750410cc2b192261689bc83a3141"
+    },
+    {
+      "action": "attack",
+      "direction": "E",
+      "frame": 10,
+      "file": "frames/attack/E/frame_10.png",
+      "sha256": "1a74b218f63eda5870684cf349433e9ea58d820a7f2271feb947ab54eae5902d"
+    },
+    {
+      "action": "attack",
+      "direction": "E",
+      "frame": 11,
+      "file": "frames/attack/E/frame_11.png",
+      "sha256": "60ee307d072d26bbb3416863d5217c732a19a24484570b70bfadfd0bb3a58b5b"
+    },
+    {
+      "action": "attack",
+      "direction": "E",
+      "frame": 12,
+      "file": "frames/attack/E/frame_12.png",
+      "sha256": "3c485eb4802220d88b8cdadbdc1cad02224ec3267d272f371784a40f6c62e6ec"
+    },
+    {
+      "action": "attack",
+      "direction": "W",
+      "frame": 1,
+      "file": "frames/attack/W/frame_01.png",
+      "sha256": "4e864532494f4a9f1b1cdca0052a9fb112583f248fc547fe9353d503933ee620"
+    },
+    {
+      "action": "attack",
+      "direction": "W",
+      "frame": 2,
+      "file": "frames/attack/W/frame_02.png",
+      "sha256": "752934ef7300cfca289bedd60d774378d996954cbe3120497df1974bafad4673"
+    },
+    {
+      "action": "attack",
+      "direction": "W",
+      "frame": 3,
+      "file": "frames/attack/W/frame_03.png",
+      "sha256": "a614719a1d569b32d462c50484806da5cfdbcb806434b5696ba6486313ed5dcd"
+    },
+    {
+      "action": "attack",
+      "direction": "W",
+      "frame": 4,
+      "file": "frames/attack/W/frame_04.png",
+      "sha256": "57d2b133062a5f5825c20631caa305f32a460ae43b0134c41d39fd3b64f39991"
+    },
+    {
+      "action": "attack",
+      "direction": "W",
+      "frame": 5,
+      "file": "frames/attack/W/frame_05.png",
+      "sha256": "d85765325120c300100d6282b97b7a5b1d0d2ae3a9e4428ff9082c372c4b9147"
+    },
+    {
+      "action": "attack",
+      "direction": "W",
+      "frame": 6,
+      "file": "frames/attack/W/frame_06.png",
+      "sha256": "4d72c4bcc2f4ceed87ce41c70fe752eb928f9e1042d3bccfb489b1401e85b557"
+    },
+    {
+      "action": "attack",
+      "direction": "W",
+      "frame": 7,
+      "file": "frames/attack/W/frame_07.png",
+      "sha256": "65530b543572abe508b1c37a9c2be6912f1842c7966b601de44776876b6ef5b9"
+    },
+    {
+      "action": "attack",
+      "direction": "W",
+      "frame": 8,
+      "file": "frames/attack/W/frame_08.png",
+      "sha256": "cf129127d96bbddc4c475dab8353646ca0d571418552660c83bfae3314cf7be6"
+    },
+    {
+      "action": "attack",
+      "direction": "W",
+      "frame": 9,
+      "file": "frames/attack/W/frame_09.png",
+      "sha256": "7bbe68b82724a7a13dc6bcf449a7ac795ce798aecc59052c3d67fe32bdc5c4c9"
+    },
+    {
+      "action": "attack",
+      "direction": "W",
+      "frame": 10,
+      "file": "frames/attack/W/frame_10.png",
+      "sha256": "36108442a4c6a4237cd55f335b54635541180c792f800f2272b3e2bbbde81770"
+    },
+    {
+      "action": "attack",
+      "direction": "W",
+      "frame": 11,
+      "file": "frames/attack/W/frame_11.png",
+      "sha256": "f35aeb8ee87ef3df074fdefaf36130385a6d6427c51a7f73ed4ac164c451b1cd"
+    },
+    {
+      "action": "attack",
+      "direction": "W",
+      "frame": 12,
+      "file": "frames/attack/W/frame_12.png",
+      "sha256": "f98e5bc61ca4d17637c1892192688424bb0156160e1569af58543d8f4c46cbb1"
+    },
+    {
+      "action": "cast",
+      "direction": "E",
+      "frame": 1,
+      "file": "frames/cast/E/frame_01.png",
+      "sha256": "7f21b0c902bc6d14aff89e02c13a81147281ea360c6347f860b05da0c53fafa6"
+    },
+    {
+      "action": "cast",
+      "direction": "E",
+      "frame": 2,
+      "file": "frames/cast/E/frame_02.png",
+      "sha256": "7d7a78f98e5c000365b30909e16df898841539f0937406c9dfa08642bbe7c182"
+    },
+    {
+      "action": "cast",
+      "direction": "E",
+      "frame": 3,
+      "file": "frames/cast/E/frame_03.png",
+      "sha256": "64afe9c6f083ec4846b9c33028ca3f0e6adea6c8a7a6261b222ea4305be584fc"
+    },
+    {
+      "action": "cast",
+      "direction": "E",
+      "frame": 4,
+      "file": "frames/cast/E/frame_04.png",
+      "sha256": "84c2b73f5a03fcc4d7b889a68bb4291e5a357289d44a354a673e3d436cf9747f"
+    },
+    {
+      "action": "cast",
+      "direction": "E",
+      "frame": 5,
+      "file": "frames/cast/E/frame_05.png",
+      "sha256": "748d6b21496be6545b13cb9268502b9812acc6b2bafdac12bc38653f9d95f95a"
+    },
+    {
+      "action": "cast",
+      "direction": "E",
+      "frame": 6,
+      "file": "frames/cast/E/frame_06.png",
+      "sha256": "7612f92d7cffb7de42a17e580baaa65e6f83a8328f89a22ab1f2bb588c513151"
+    },
+    {
+      "action": "cast",
+      "direction": "E",
+      "frame": 7,
+      "file": "frames/cast/E/frame_07.png",
+      "sha256": "352f04699d02655df1384b69e2e3a05a79f423d8c1a3fba9bc90b08e7c2a3e44"
+    },
+    {
+      "action": "cast",
+      "direction": "E",
+      "frame": 8,
+      "file": "frames/cast/E/frame_08.png",
+      "sha256": "e55c8d9d05cf5c0a5f6e811c4b9a05c1a5feb3d2396a17cff0bac1932a51debc"
+    },
+    {
+      "action": "cast",
+      "direction": "E",
+      "frame": 9,
+      "file": "frames/cast/E/frame_09.png",
+      "sha256": "89beb273602c26c26a82753379fc0fa1e65f4ae820c2594cc595babff75f2dec"
+    },
+    {
+      "action": "cast",
+      "direction": "E",
+      "frame": 10,
+      "file": "frames/cast/E/frame_10.png",
+      "sha256": "5a833cf3a28910d2c4446625a03cd04f2f20efdcf2e1f42cd3efe5cdac127289"
+    },
+    {
+      "action": "cast",
+      "direction": "E",
+      "frame": 11,
+      "file": "frames/cast/E/frame_11.png",
+      "sha256": "3099289b5d4497bdd369e7d11e0eabf73cd90dea83f5ccb163370050e220cf9c"
+    },
+    {
+      "action": "cast",
+      "direction": "E",
+      "frame": 12,
+      "file": "frames/cast/E/frame_12.png",
+      "sha256": "903d3536372612a92f06026ca809ccb4636be293fa2c5e7a3a8b49e48ebff04c"
+    },
+    {
+      "action": "cast",
+      "direction": "E",
+      "frame": 13,
+      "file": "frames/cast/E/frame_13.png",
+      "sha256": "b6aad8bf14f99b7a28c4cf713ffd81cf15721243e9a6b5c600ea0d2fa0a5187b"
+    },
+    {
+      "action": "cast",
+      "direction": "E",
+      "frame": 14,
+      "file": "frames/cast/E/frame_14.png",
+      "sha256": "a9e56f57dca4cc66f1aea665e4300b6ae0e227a789ac20c1b82910d5b6422fc3"
+    },
+    {
+      "action": "cast",
+      "direction": "E",
+      "frame": 15,
+      "file": "frames/cast/E/frame_15.png",
+      "sha256": "ab24d39c470130d840b0a3f83d8c94aa226648853ac4740b00938835a656e1c5"
+    },
+    {
+      "action": "cast",
+      "direction": "E",
+      "frame": 16,
+      "file": "frames/cast/E/frame_16.png",
+      "sha256": "80b939a16dc4f200e4e9e3f03a70d22b1ff3fd230755909426ef73ac102368d4"
+    },
+    {
+      "action": "cast",
+      "direction": "W",
+      "frame": 1,
+      "file": "frames/cast/W/frame_01.png",
+      "sha256": "ac011c0db2320a23e5eead239bed63831f7749a83324c40b0bd366010bbf16d8"
+    },
+    {
+      "action": "cast",
+      "direction": "W",
+      "frame": 2,
+      "file": "frames/cast/W/frame_02.png",
+      "sha256": "f8e4dca0d7523d39c0c2f2a36841176f2e6347fa266a6d669bcee46dfc86b927"
+    },
+    {
+      "action": "cast",
+      "direction": "W",
+      "frame": 3,
+      "file": "frames/cast/W/frame_03.png",
+      "sha256": "3bb48d134f7aa565c8c5c4a5c486012fdba9c7226b053cf6ef78f900d122f6d0"
+    },
+    {
+      "action": "cast",
+      "direction": "W",
+      "frame": 4,
+      "file": "frames/cast/W/frame_04.png",
+      "sha256": "76a7058fe22d489fc8a84d68453f364640f07d25f93ecf50ab8c11271892b23b"
+    },
+    {
+      "action": "cast",
+      "direction": "W",
+      "frame": 5,
+      "file": "frames/cast/W/frame_05.png",
+      "sha256": "a478de495d3564a2a59f72a77b9271e5294cb9fae341e5aefce4298d76b811d3"
+    },
+    {
+      "action": "cast",
+      "direction": "W",
+      "frame": 6,
+      "file": "frames/cast/W/frame_06.png",
+      "sha256": "aa255ff8234ec7e0fce76cfd4fff2213233f55400055f76290475b44d4ab418f"
+    },
+    {
+      "action": "cast",
+      "direction": "W",
+      "frame": 7,
+      "file": "frames/cast/W/frame_07.png",
+      "sha256": "b8bd91d1eab50a85bbea029b11805296d755a827a3fd4c9254a5df7493e64a4a"
+    },
+    {
+      "action": "cast",
+      "direction": "W",
+      "frame": 8,
+      "file": "frames/cast/W/frame_08.png",
+      "sha256": "ba0731ff09f9d1f19fcd05164b54d3ed516ce0a188410c5793ed780dd3183bcd"
+    },
+    {
+      "action": "cast",
+      "direction": "W",
+      "frame": 9,
+      "file": "frames/cast/W/frame_09.png",
+      "sha256": "9f34545e05419bb8e1fb8483dac8ad6c23b97317c9eebe28e91222163b293880"
+    },
+    {
+      "action": "cast",
+      "direction": "W",
+      "frame": 10,
+      "file": "frames/cast/W/frame_10.png",
+      "sha256": "eaf7e704793bf2ba42312a302f4a0095cb7137077ac4bdbe1ddffd497b595124"
+    },
+    {
+      "action": "cast",
+      "direction": "W",
+      "frame": 11,
+      "file": "frames/cast/W/frame_11.png",
+      "sha256": "6ce4a072c720e60b646b01b47e1ea184fa72abde8f80d5c3bbdd289bc3557038"
+    },
+    {
+      "action": "cast",
+      "direction": "W",
+      "frame": 12,
+      "file": "frames/cast/W/frame_12.png",
+      "sha256": "edfa38c7610b650eb7295d381b0f7c066600310a668e8f70e59d8f97e24747f0"
+    },
+    {
+      "action": "cast",
+      "direction": "W",
+      "frame": 13,
+      "file": "frames/cast/W/frame_13.png",
+      "sha256": "d4f8a334629265dbeac9f287f33b9dcafdb9e98a0bff5921822d7fda5f7217bd"
+    },
+    {
+      "action": "cast",
+      "direction": "W",
+      "frame": 14,
+      "file": "frames/cast/W/frame_14.png",
+      "sha256": "e92c9bc292c6607200680e3dcabad4d5cc172dec371c77a39a70ee6870d71c72"
+    },
+    {
+      "action": "cast",
+      "direction": "W",
+      "frame": 15,
+      "file": "frames/cast/W/frame_15.png",
+      "sha256": "58fa2eff0b08e8303c2fac542989342d3c3b10ee8956819811d380031b0f5f5c"
+    },
+    {
+      "action": "cast",
+      "direction": "W",
+      "frame": 16,
+      "file": "frames/cast/W/frame_16.png",
+      "sha256": "7923ee6cf88e4f6b94f04610383ff964acf2f772f09712d39b50ad1b7be4a40d"
+    }
+  ],
+  "contacts": [
+    {
+      "file": "preview/hit_E_contact.png",
+      "sha256": "5da4f35573b0292762c4285a4f908e145ead81aa3a9b3621251b4a7cc49b09f4"
+    },
+    {
+      "file": "preview/hit_W_contact.png",
+      "sha256": "78850c2141c3bab0238a5395629cf798b766663f6b3eb387a32b0772f651dc37"
+    },
+    {
+      "file": "preview/attack_E_contact.png",
+      "sha256": "f378ea963d89d72a00ae7c1c44087264d0ccd410147f65fdf15fd85298387627"
+    },
+    {
+      "file": "preview/attack_W_contact.png",
+      "sha256": "527b2d9011c737abb0d3f88136a3e8df4202528c27d740e475ce81036e64eb80"
+    },
+    {
+      "file": "preview/cast_E_contact.png",
+      "sha256": "474a83b3a2fb6678b0d17110d133267b55ebb907b927622baeeabf09deb82681"
+    },
+    {
+      "file": "preview/cast_W_contact.png",
+      "sha256": "ddd4019ad7551aca90dbc6a3741d9b4a6f07258f9dde78380b15362e9a2c12dd"
+    }
+  ],
+  "limitations": [
+    "本报告验收动作阶段可读性与事件帧对应，不替代主窗口正常/0.25倍速的时间连续性终验。",
+    "未改计时、动作PNG、原生来源、sidecar或全局预览。"
+  ],
+  "footAxisReview": {
+    "reviewedAt": "2026-10-03T19:16:23.859943+00:00",
+    "scope": "read_only_static_contact_sheets_and_key_frames",
+    "method": "重新实看hit/attack/cast E/W六组接触表；全尺寸复看hit E/W03、attack E/W06、cast E10/W08/W10，结合先前phase原尺寸帧。",
+    "frameBindings": "本报告frames中68张当前SHA经再次校验未改变。",
+    "decision": "retain_combat_frames_no_confirmed_pathological_ankle_yaw",
+    "reason": "前掌顺出手/受击朝向，后脚适度外开与宽弓步或马步对应的膝向一致，未确认脚踝相对胫骨反拧。战斗稳定站距不按跑步收窄，也不强行让双靴平行。",
+    "qualification": "这是一轮静态脚向判断，不冒称68张都在本次重新全尺寸逐张查看；全组以当前contact覆盖，关键与可疑脚掌另用全尺寸确认。动态和客户端仍由主窗口处理。",
+    "pngChanged": false
+  }
+}

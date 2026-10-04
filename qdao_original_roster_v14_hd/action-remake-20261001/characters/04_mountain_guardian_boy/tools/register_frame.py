@@ -22,7 +22,7 @@ WORKSPACE = ROOT.parents[3]
 PROVENANCE = ROOT / "provenance"
 CONFIG = WORKSPACE / "config" / "image-generation.json"
 SPECS = {
-    "run": (16, ("N", "NE", "E", "SE", "S", "SW", "W", "NW"), 30),
+    "run": (16, ("N", "NE", "E", "SE", "S", "SW", "W", "NW"), 75),
     "hit": (6, ("E", "W"), 40),
     "attack": (12, ("E", "W"), 30),
     "cast": (16, ("E", "W"), 45),
@@ -137,8 +137,19 @@ def register(args) -> dict:
     frame_name = f"frame_{args.frame:02d}"
     output = local_path(ROOT / "frames" / args.action / args.direction / f"{frame_name}.png", ROOT, must_exist=False)
     sidecar = output.with_suffix(".generation.json")
+    replacement = None
     if output.exists() or sidecar.exists():
-        raise ValueError(f"拒绝覆盖已有登记，请先人工确认该帧用途: {output}")
+        if not args.replace_sha256 or not output.is_file() or not sidecar.is_file():
+            raise ValueError(f"拒绝覆盖已有登记，须显式提供经核对的旧 SHA: {output}")
+        if digest(output) != args.replace_sha256:
+            raise ValueError("旧帧 SHA 已变化，拒绝替换")
+        previous = read_json(sidecar)
+        if previous.get("sha256") != args.replace_sha256:
+            raise ValueError("旧帧来源记录与像素 SHA 不一致")
+        retired = PROVENANCE / args.action / f"{args.direction}_{args.frame:02d}_retired_{args.replace_sha256[:12]}.generation.json"
+        replacement = {"oldFrameSha256": args.replace_sha256, "retiredRecord": relative(retired)}
+    elif args.replace_sha256:
+        raise ValueError("提供了替换 SHA 但旧帧不存在")
     native_path = source if inside_provenance else local_path(PROVENANCE / args.action / f"{args.direction}_{args.frame:02d}_native_{source_sha[:12]}.png", PROVENANCE, must_exist=False)
     if native_path != source and native_path.exists() and digest(native_path) != source_sha:
         raise ValueError(f"宿主源复制目的地已有不同文件: {native_path}")
@@ -168,11 +179,17 @@ def register(args) -> dict:
         "frameDurationMs": duration,
         "review": {"status": args.review_status, "automaticallyApproved": False, "note": "尺寸与哈希登记不等于美术通过；review-status 是调用者显式声明。"},
         "clientIntegration": "not_integrated",
+        "replacement": replacement,
     }
     # Validate every input before making the first write.
     if native_path != source and not native_path.exists():
         native_path.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, native_path)
+    if replacement:
+        retired.parent.mkdir(parents=True, exist_ok=True)
+        if retired.exists() and digest(retired) != digest(sidecar):
+            raise ValueError("退役文字记录冲突，拒绝覆盖")
+        shutil.copy2(sidecar, retired)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_bytes(output_bytes)
     sidecar.write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -188,6 +205,7 @@ def main() -> None:
     parser.add_argument("--prompt", required=True)
     parser.add_argument("--receipt", required=True)
     parser.add_argument("--review-status", default="candidate_pending_visual", choices=("candidate_pending_visual", "needs_revision", "visual_passed"))
+    parser.add_argument("--replace-sha256", help="明确核对的被替换帧 SHA；先读取所有参考后再写新帧，保留旧来源文字记录")
     args = parser.parse_args()
     try:
         print(json.dumps(register(args), ensure_ascii=False, indent=2))

@@ -1,0 +1,126 @@
+{
+  "character": "04_mountain_guardian_boy",
+  "frameIndexBase": 1,
+  "canvas": [
+    1024,
+    1024
+  ],
+  "mode": "RGBA",
+  "layoutAnchor": {
+    "x": 512,
+    "y": 928,
+    "status": "historical_layout_target_not_measured_ground"
+  },
+  "clientRootAnchor": null,
+  "clientIntegration": "not_integrated",
+  "run": {
+    "directions": [
+      "N",
+      "NE",
+      "E",
+      "SE",
+      "S",
+      "SW",
+      "W",
+      "NW"
+    ],
+    "framesPerDirection": 16,
+    "phaseMarkers": {
+      "1": "第一侧接触",
+      "2": "承重缓冲",
+      "3": "中支撑",
+      "4": "后蹬/交换",
+      "5": "蹬地收尾",
+      "6": "短腾空",
+      "7": "下降",
+      "8": "异侧预接触",
+      "9": "异侧接触",
+      "10": "异侧承重缓冲",
+      "11": "异侧中支撑",
+      "12": "反向后蹬/交换",
+      "13": "反向蹬地收尾",
+      "14": "短腾空",
+      "15": "下降",
+      "16": "回接第一侧"
+    },
+    "frameMs": 75,
+    "offlineDefaultLoopMs": 1200,
+    "offlineFrameDurationsMs": [
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75
+    ],
+    "clientApprovedLoopMs": null,
+    "status": "user_selected_offline_1200_client_unconfirmed",
+    "timingRationale": "用户指定16帧均匀75ms；完整1200ms循环，首尾不额外停顿，当前预览移除旧快档。",
+    "previewEncoding": "APNG",
+    "previewFrameDurationsMs": [
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75
+    ]
+  },
+  "hit": {
+    "directions": [
+      "E",
+      "W"
+    ],
+    "framesPerDirection": 6,
+    "frameMs": 40,
+    "durationMs": 240,
+    "loopInGame": false
+  },
+  "attack": {
+    "directions": [
+      "E",
+      "W"
+    ],
+    "framesPerDirection": 12,
+    "frameMs": 30,
+    "durationMs": 360,
+    "contactFrame": 6,
+    "contactTimeMsFromStart": 150,
+    "loopInGame": false
+  },
+  "cast": {
+    "directions": [
+      "E",
+      "W"
+    ],
+    "framesPerDirection": 16,
+    "frameMs": 45,
+    "durationMs": 720,
+    "releaseFrame": 10,
+    "releaseTimeMsFromStart": 405,
+    "loopInGame": false
+  },
+  "eventTimingNote": "一基帧号，事件在指定帧开始触发；仅素材建议标记，实际命中/弹道由客户端处理。",
+  "transformPolicy": "整画布统一缩放；无单帧平移、脚底贴线、bbox缩放、镜像、复制或补帧。",
+  "timingUpdatedAt": "2026-10-04T02:08:12.550142+00:00"
+}
