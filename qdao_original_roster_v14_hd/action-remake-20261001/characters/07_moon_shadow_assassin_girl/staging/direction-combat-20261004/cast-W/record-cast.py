@@ -19,7 +19,7 @@ if mode=='init':
 elif mode=='prepare':
     stem=sys.argv[2]
     data=json.loads((OUT/f'{stem}.args.json').read_text(encoding='utf-8-sig'))
-    n=int(stem[:2]); rs=refs(n)
+    n=int(stem[:2]); rs=[dict(path=p,sha256=sha(p),role=('edit_target_actual_input' if i==0 else 'direction_or_style_reference')) for i,p in enumerate(data['referenced_image_paths'])]
     write(OUT/f'{stem}.request.json',dict(requestedAt=datetime.now(timezone.utc).isoformat(),tool='image_gen.imagegen',parameters=data,configSnapshot=CONFIG,references=rs,editSource=dict(path=rs[0]['path'],sha256=rs[0]['sha256'],generationRecord=rs[0]['path']+'.generation.json')))
     print(stem+' request captured before image generation')
 elif mode=='save':
