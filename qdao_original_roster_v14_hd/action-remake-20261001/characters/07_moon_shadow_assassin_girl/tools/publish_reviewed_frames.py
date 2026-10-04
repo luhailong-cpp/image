@@ -17,6 +17,7 @@ def publish(revision):
     assert m['timing']['runCycleMs'] == 1200 and m['timing']['runFrameMs'] == 75
     assert set(chosen) <= set(before)
     assert all(sha(ROOT / f['path']) == before[f['id']]['sha256'] for f in m['frames'])
+    external_updates = {}
     for key, rel in chosen.items():
         src = scoped(rel)
         nr = read(str(src) + '.generation.json')
@@ -25,14 +26,34 @@ def publish(revision):
             assert im.size == (1254,1254) and im.mode == 'RGBA' and im.getextrema()[3] == (0,255)
             a = im.getchannel('A')
             assert all(a.crop(b).getextrema()[1] <= 8 for b in ((0,0,1254,1),(0,1253,1254,1254),(0,0,1,1254),(1253,0,1254,1254)))
-        for ref in nr['references']:
-            assert sha(Path(ref['path'])) == ref['sha256'], (key, ref['path'])
+        for ri, ref in enumerate(nr['references']):
+            ref_path = Path(ref['path']).resolve()
+            observed = sha(ref_path) if ref_path.is_file() else None
+            if observed == ref['sha256']: continue
+            # Other character work can replace a reference after this native was
+            # generated. Preserve its recorded digest rather than relabel it.
+            assert not ref_path.is_relative_to(ROOT), (key, ref['path'])
+            request_path = src.with_suffix('.request.json')
+            request = read(request_path)
+            submitted = {Path(p).resolve() for p in request['submittedParameters']['referenced_image_paths']}
+            assert ref_path in submitted, (key, 'reference absent from actual request')
+            frozen = next((r.get('sha256') for r in request.get('references',[]) if Path(r['path']).resolve()==ref_path), None)
+            if frozen is not None: assert frozen == ref['sha256'], (key, 'frozen reference digest differs')
+            external_updates[(key,ri)] = {'id':key,'path':ref['path'],'recordedSHA256':ref['sha256'],
+                'observedCurrentSHA256':observed,'frozenRequestSHA256':frozen,'request':str(request_path),
+                'digestEvidence':'matches pre-call request snapshot' if frozen else 'recorded at native receipt/export; request records path but no pre-call digest'}
         assert not (rev / 'superseded-records' / (key+'.json')).exists()
     replacements = []
     for f in m['frames']:
         if f['id'] in chosen:
             src = scoped(chosen[f['id']]); dst = scoped(f['path'])
             record_path = Path(str(src)+'.generation.json'); nr = read(record_path)
+            for ri, ref in enumerate(nr['references']):
+                if (f['id'],ri) in external_updates:
+                    evidence = external_updates[(f['id'],ri)]
+                    ref['historicalPath'] = ref.pop('path'); ref['historicalSource'] = True
+                    ref['disposition'] = 'external reference changed after recorded generation evidence; original digest retained; external file untouched'
+                    ref['digestEvidence'] = evidence['digestEvidence']
             archived = rev / 'superseded-records' / (f['id']+'.json')
             save(archived, read(ROOT / f['sourceRecord']))
             with Image.open(src) as im:
@@ -53,6 +74,7 @@ def publish(revision):
     m.update({'formalAccepted':False,'updatedAt':now(),'currentReview':{'status':'exported_sequence_and_run_grounding_review_pending','record':(rev/'selection.json').relative_to(ROOT).as_posix(),'replacedFrames':sorted(chosen),'client':'not_tested'}})
     save(ROOT/'manifest.json',m)
     save(rev/'replacement-ledger.json',{'at':now(),'replacements':replacements})
+    save(rev/'publish-external-reference-history.json',{'at':now(),'entries':list(external_updates.values())})
     save(ROOT/'review/final-visual-review.json',{'reviewedAt':now(),'offlineAccepted':False,'scope':'Latest combat direction revision and run grounding review pending','pendingFrames':[f['id'] for f in m['frames']],'clientTested':False})
     save(ROOT/'preview/progress.json',{'frames':196,'offlineAccepted':0,'clientIntegrated':0})
     (ROOT/'SHA256SUMS.txt').write_text(''.join(f"{f['sha256']}  {f['path']}\n" for f in m['frames']),encoding='utf-8')

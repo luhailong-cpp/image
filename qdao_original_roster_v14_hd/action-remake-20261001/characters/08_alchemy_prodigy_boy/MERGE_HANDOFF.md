@@ -1,56 +1,47 @@
 # 08 炼丹童子 · 当前动作交接
 
-2026-10-04。本目录是本角色当前交付入口。按用户认可的09竹弓少女核对八方向下肢姿态，并更新1200ms配时。本轮已完成34张修正帧的最终合并，替换清单以grounding-selection.json为准。早期选表及静态报告保留为历史证据，以本文件、manifest.json、grounding-selection.json和run-timing.json为准。
+2026-10-04。本角色八方向跑步接地修正已导出并完成离线复核；本轮 85 张替换以 contact-pairs-selection.json 为准。当前权威入口为 manifest.json、run-timing.json 和 runtime；此前选表与审阅记录仅作为历史来源证据。
 
 ## 正式资源
 
-| 动作 | 方向 | 帧数 | 时长 |
+| 动作 | 方向 | 帧数 | 正常配时 |
 | --- | --- | --- | --- |
-| run | N/NE/E/SE/S/SW/W/NW | 各16，共128 | 各1200ms，每帧均匀75ms |
-| hit | E/W | 各6，共12 | 各240ms，40ms/帧 |
-| attack | E/W | 各12，共24 | 各360ms，30ms/帧 |
-| cast | E/W | 各16，共32 | 各720ms，45ms/帧 |
+| run | N/NE/E/SE/S/SW/W/NW | 各 16，共 128 | 各 1200 ms，每帧 75 ms |
+| hit | E/W | 各 6，共 12 | 各 240 ms，每帧 40 ms |
+| attack | E/W | 各 12，共 24 | 各 360 ms，每帧 30 ms |
+| cast | E/W | 各 16，共 32 | 各 720 ms，每帧 45 ms |
 
-runtime为196张1024透明RGBA。E/W独立生成，没有镜像、复制帧或插值补槽。manifest记录SHA、逐图来源、导出操作、相位及previewDurationMs；PNG相邻的generation.json保存同条记录。run-timing.json给出八方向完整16项75ms时长数组，1200÷16=75；旧快速档已移除。
+共 196 张 1024×1024 透明 RGBA，196 个不同图像 SHA 与独立来源 SHA。PNG 相邻 generation.json 与 manifest 对应，记录来源、导出操作、相位和时长。战斗动作仅交付 E/W；本轮保留原 68 张战斗图片及配时。
 
-preview/index.html支持正常1×、0.25×、逐帧、128/256小视图与背景切换。默认1200ms、均匀75ms；640/720/480/800ms等旧快档已从正式预览移除。普攻命中标记仍为06（150ms）；施法E09（360ms）、W10（405ms）。战斗节奏未因本次跑步反馈整体减速。
+preview/index.html 提供正常 1×、0.25×、暂停逐帧、128/256 显示、背景切换及联系表。正式页面仅引用 runtime，不依赖已经清理的原图。普攻事件标记为 06（150 ms）；施法 E09（360 ms）、W10（405 ms），客户端尚未验证事件接入。
 
-## 本轮修图
+## 本轮修正
 
-- E02增加屈膝承重。E04–10把近侧后靴从整块棕色鞋底朝外，改为沿右向跑步平面的侧面；E10保留落地压重。
-- NE08/16补平底初次接触，NE09反向鞋尖改向右上；NE10/11原本方向正确，保留。
-- N04、NW04改善蹬离，N11最终v6把浮起的平掌支撑补回相邻帧接触带。
-- NW按竹弓少女修正小腿、踝和靴形透视，让前后摆腿沿NW行进平面。全16帧的最终来源见选表。
-- S04/12改善正向前掌蹬离，SW02从朝W侧靴转为朝SW的承重靴；SW06/07前摆鞋尖从右下改朝左下，保留屈膝到渐伸背屈的先后关系。
-- 其余正确帧保留。左右受击、普攻、施法全部联系表重新核查，未发现同等级反脚；持物归属为解剖右手丹炉、左手药瓶。
+本轮替换 N 9、NE 8、E 11、SE 12、S 11、SW 12、W 10、NW 12，共 85 张；其他 43 张跑步帧保持。以用户认可的 09 竹弓少女核对方向和膝踝关系，修复脚掌外撇、反向鞋尖、提前抬起支撑足和错换支撑足。解剖右手持丹炉、左手持药瓶，随视角遮挡但不交换。
 
-替换列表与理由见grounding-selection.json。原始提示词、来源及模型证据在generation/grounding-20261003和generation/bamboo-reference-20261003的文字记录，连续编辑链在provenance/grounding-20261003/edit-lineage.json。竹弓参照修正的逐槽选择和独立审阅在provenance/bamboo-reference-20261003。
+最新接地顺序是同一支撑脚每位置两个独立姿态：右足 16/01→02/03→04/05→06/07，左足 08/09→10/11→12/13→14/15。依次为身体前方初接触、身体下承重、稍后承重、更后前掌推蹬，每对 150 ms。旧的中间四帧解释和 05/13 腾空标签不再适用。详见 RUN_PHASES.md。
 
 ## 画布与根点
 
-未修帧沿用原1254画布统一缩至940、放到1024画布(42,50)的初始导出。此次修图输入已经是注册好的runtime，故新1254编辑结果只做完整画布统一缩至1024、偏移0；不能再套一次940+(42,50)。每帧operation是权威参数。
+本轮以已注册 runtime 为编辑输入，原生 1254 画布只做完整画布统一缩至 1024、偏移 0。不要再次应用旧的 940+(42,50)。未修历史帧的原始导出可能保留该旧参数，以每帧 operation 为准。
 
-逻辑根点仍为(512,942)，用于摆放，不是所有透视脚底的接触线。没有逐帧包围盒适配、整身贴脚平移或图像扭曲。远近脚、摆腿和支撑必须结合相邻相位判断。
+逻辑根点仍为 (512,942)，用于摆放，并非所有透视脚底的接触线。无逐帧包围盒适配、整身贴脚平移或扭曲。少量发梢和上身轮廓仍有绘画差异，不宣称像素级一致。
 
-## 验证与边界
+## 验证
 
-196文件、独立来源、1024RGBA、透明通道、来源记录SHA、14组预览引用及8组1200ms数组已通过tools/verify_delivery.py。浏览器正常与慢速采样、128/256显示及战斗资源加载已复核；脚向与承重配时反馈已落实。截图采样和逐帧联系表不是连续游戏录像，因此dynamicAccepted不冒充完整游戏动态认证。
+- tools/verify_delivery.py：196 文件、不同图像与来源 SHA、1024 RGBA、透明通道、来源记录 SHA、14 组预览引用和 8 组 1200 ms 配时通过。
+- tools/verify_preview_timing.cjs：执行正式页面时钟逻辑，14 组×正常/慢放共 28 项通过，循环无额外停顿。
+- 浏览器：14 组、196 张全部成功解码为 1024；正常/慢放采样、重点接触帧与 128/256 小图检查完成。
+- 全部八方向联系表经逐帧及支撑半圈复核；独立文件审计确认选择、配时与引用闭合。
 
-N11旧版约10px的浮脚差异已由v6替换，最终支撑底位于相邻帧接触带。S12为晚蹬离，前掌投影约高11px；E/NE部分发梢及躯干轮廓仍有小幅绘画差异。没有逐帧平移整身掩盖差异。最新结论见provenance/grounding-20261003/review-result.json。
+最终审阅记录为 provenance/contact-pairs-20261004/review-result.json。技术与时钟报告分别为 provenance/delivery-technical-verification.json、provenance/preview-timing-verification.json。
 
-本机无D:/work/mmorpg-client，未运行或覆盖客户端。实际位移速度、滑步、跨方向与idle过渡、命中和特效同步仍需游戏接入验证。受击/普攻/施法交付范围是E/W，不应误报为八方向。
+本机未运行客户端。连续游戏位移、滑步、跨方向与 idle 过渡、命中及特效同步尚未验收；dynamicAccepted/clientValidated 保持 false，不将离线截图采样当作完整游戏动态认证。
 
 ## 来源与清理
 
-配置目标GPT Image 2.5 Sunburst/max；内置imagegen无型号/质量选择器，也未披露实际返回值，记录null/未确认。没有使用收费API或CLI。保留逐图文本证据，不将配置目标或提示词当作已锁定实际模型。
+本批使用内置 image_gen。配置目标 gpt-image-2.5-sunburst / max；入口未提供型号或质量参数，返回也未披露，实际值记录 null/未确认。未使用计费 API/CLI。完整提示词、原调用与逐图记录保留在 generation/contact4-20261004 和 generation/contact-pairs-20261004；159 条生成记录的来源链见 provenance/contact-pairs-20261004/edit-lineage.json。
 
-按用户素材保留规则，正式导出及引用闭合后清理原图、拒稿和加工中间图，保留196张runtime、14张当前联系表及所有文字记录。早期清单为provenance/cleanup-images-20261003.json；一次被自动审批阻止的旧尝试保留在provenance/grounding-20261003/cleanup-result.json。最终本轮清理结果记录于provenance/bamboo-reference-20261003/cleanup-result.json。历史来源图路径不是运行依赖。
+按用户规则，已删除本轮 188 张原图、拒稿及加工中间图，共 202,832,603 字节，无图片备份。目录仅余 196 张 runtime 和 14 张当前联系表；全部来源文字和配套设计/接入文件保留。清单与结果位于 provenance/contact-pairs-20261004/cleanup-plan.json 和 cleanup-result.json。来源记录中的历史图片路径用于追溯，不是运行依赖。
 
-tools/rebuild_runtime_preview.py从当前runtime重建预览，可运行。tools/verify_delivery.py可核验当前交付。旧build_preview.py、export_delivery.py及本轮apply_grounding_revision.py依赖清理前原图，保留为制作记录，清理后不要重跑。以后修图以当前runtime作为输入建立新的来源链。
-
-
-本轮最终合并、浏览器复核和素材清理已完成：删除75张源图/拒稿/中间图（84,511,609字节），保留196张runtime与14张当前联系表。全部文字证据保留；详见STATUS.md及最新cleanup-result.json。
-
-最终NW14采用generation/bamboo-reference-20261003/NW/14-v5.png的导出：直接以编辑前runtime14锁定构图，只取v1的靴方向参考，去除串入绿坠。v2–v4为构图改变的拒稿。最终源选择与SHA见provenance/bamboo-reference-20261003/NW/selection-final14.json。原PNG已按规则清理，逐图记录仍在。
-
-播放时钟验证：tools/verify_preview_timing.cjs实际执行当前预览的durations/tick函数，14组动作×2档共28例通过，完整16帧回到首帧，无额外循环停顿。浏览器检查记录：provenance/bamboo-reference-20261003/browser-final-review.json。
+可运行 tools/rebuild_runtime_preview.py 从当前 runtime 重建预览，或运行 verify_delivery.py 和 verify_preview_timing.cjs。原生图已清理，制作历史中的 export_delivery.py、apply_grounding_revision.py、apply_contact_pairs.py、close_contact_pairs_delivery.py 及候选工作页生成脚本不要重跑。临时 contact-pairs-work.html/data.js 已删除。以后修图以当前 runtime 为输入建立新来源链。
