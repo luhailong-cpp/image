@@ -1,0 +1,76 @@
+{
+  "file": "runtime/run/NE/15.png",
+  "sha256": "d822ccc7ab1302612935e43495c16a3e6701a81253c88154b90a93664b3632b2",
+  "generatedAt": "2026-10-03T12:15:27.207611+00:00",
+  "tool": "image_gen",
+  "route": "builtin",
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-01",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  },
+  "submittedParameters": {
+    "model": null,
+    "quality": null,
+    "prompt": "Use case precise-object-edit. Image1 is EXACT NE01. Image2 approved STYLE only. Preserve image1 BOTH LEG IDENTITIES AND PLACEMENTS: its lowest boot is at SCREENLEFT below pelvis (roughly540,930), its raised boot sole is at SCREENRIGHT beside the knee (roughly680,820). DO NOT swap or cross the legs. Do not create a planted boot at screenright. Preserve exact head/hair/torso/camera/costume/longbow/quiver and fullcanvas scale.\nChange ONLY the screenLEFT low boot and its leg a small amount: prepare contact, LEFTMOST boot extends a little forward and is8px above its image1 position with soft knee, toes remain almost horizontal. Other rightmost boot remains folded and raised with sole visible. Empty right forearm moves5degrees back from image1, small animation progression; bow remains in identical far left hand, exactly two hands. This is a tiny change, not a new stride. No zoom/crop/wholeimage translation, no mirror. One trueRGBA transparent native1024square or larger, warm clean detailed chibi painting, no text/shadow/floor/effects.",
+    "referenced_image_paths": [
+      "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/09_bamboo_archer_girl/runtime/run/NE/01.png",
+      "D:/work/image/designs/jubaozhai-ui/02-characters.png"
+    ],
+    "transparent_background": true
+  },
+  "actualModel": null,
+  "actualQuality": null,
+  "unverifiedReason": "宿主管理，工具无型号/质量选择器，返回未披露型号与质量。",
+  "evidence": {
+    "request": "provenance/run-north/run-NE-15-attempt-3.request.json",
+    "receipt": "provenance/run-north/run-NE-15-attempt-3.receipt.json"
+  },
+  "prompt": "provenance/run-north/run-NE-15-attempt-3.request.json",
+  "references": [
+    {
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/09_bamboo_archer_girl/runtime/run/NE/01.png",
+      "sha256": "deb11da64c4254d7af1e6ed41150ba4d32514a348c32b6ad781974547d2222a0",
+      "role": "identity/camera"
+    },
+    {
+      "file": "D:/work/image/designs/jubaozhai-ui/02-characters.png",
+      "sha256": "7a95140fc3c7a0ae6562ec6dff51d5296edd15116375152a8b22502c7107e879",
+      "role": "style"
+    }
+  ],
+  "width": 1024,
+  "height": 1024,
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceNativeSize": [
+    1254,
+    1254
+  ],
+  "format": "PNG/RGBA",
+  "derivedFrom": {
+    "file": "C:\\Users\\luyua\\.codex\\generated_images\\01a10157-d18c-7391-9f28-35f6b1fd48d2\\exec-7b96672d-d311-459e-b518-cccc6061d013.png",
+    "sha256": "2b2e8f173cf983b7a3e116685e447fc884cef25efaca3217ee1171dc741a6aa1",
+    "width": 1254,
+    "height": 1254,
+    "generationReceipt": "provenance/run-north/run-NE-15-attempt-3.receipt.json"
+  },
+  "operation": "Native alpha<=2 pixels set RGBA=0, then whole-canvas 1024x1024 Lanczos resize, then alpha<=2 reset RGBA=0; no crop, bbox normalization, ground alignment, mirroring or pose interpolation.",
+  "alphaNoiseCleanup": {
+    "thresholdInclusive": 2,
+    "stage": "native-and-after-whole-canvas-resize",
+    "rgbReset": true,
+    "higherAlphaPixelsChanged": false
+  },
+  "sourceRetention": "Host native image remains pending final reference cleanup; project selected PNG is this whole-canvas derivative."
+}

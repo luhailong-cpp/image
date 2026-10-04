@@ -1,0 +1,82 @@
+{
+  "file": "runtime/run/E/04.png",
+  "sha256": "3f1b10587c8475c054af0823e27d49499e4f6ce05d1ace5b82b7cb04751b64b4",
+  "generatedAt": "2026-10-03T10:44:50.946157+00:00",
+  "tool": "image_gen",
+  "route": "builtin",
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-01",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  },
+  "submittedParameters": {
+    "model": null,
+    "quality": null,
+    "prompt": "Use case: precise-object-edit. Repair only the arm transition of sprite image1 E04. Image1 is edit target; image2 approved painting STYLE; image3 previous frame E03 for continuity. Preserve image1 exact head, face, hair, clothing, legs and both boot poses, body scale, camera and framing. Right-facing E run, quiver fixed anatomical RIGHT shoulder.\nImage1 bow leaps too far forward compared with image3. Redraw FAR anatomical LEFT arm so its bent elbow is near waist, LEFT gripping hand now near (600,630) on normalized1024, BETWEEN its image3 rear position and image1 forward position. Original complete LONG bamboo bow follows left wrist, near-vertical tilted only15deg, same object about650px tip-to-tip, centered in grip, never a shortbow. Upper section may be naturally occluded by far side of torso/hair; do not slice or truncate bow. LEFT shoulder genuinely rotates forward, elbow bent, hand ownership stays far LEFT.\nNear anatomical RIGHT empty arm swings backward only moderately: empty fist near(600,590), elbow behind shoulder; no weapon or arrow in right hand. Exactly two arms, don't add duplicated hand at old bow position. Full character and whole bow safely within1024canvas margins, true transparent background. No camera zoom or entire character relocation; do not alter legs. Warm clean jade ivory gold chibi hand painting. No shadow/floor/text/effects.",
+    "referenced_image_paths": [
+      "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/09_bamboo_archer_girl/runtime/run/E/04.png",
+      "D:/work/image/designs/jubaozhai-ui/02-characters.png",
+      "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/09_bamboo_archer_girl/runtime/run/E/03.png"
+    ],
+    "transparent_background": true
+  },
+  "actualModel": null,
+  "actualQuality": null,
+  "unverifiedReason": "宿主管理，工具无型号/质量选择器，返回未披露型号与质量。",
+  "evidence": {
+    "request": "provenance/run-north/run-E-04-attempt-4.request.json",
+    "receipt": "provenance/run-north/run-E-04-attempt-4.receipt.json"
+  },
+  "prompt": "provenance/run-north/run-E-04-attempt-4.request.json",
+  "references": [
+    {
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/09_bamboo_archer_girl/runtime/run/E/04.png",
+      "sha256": "630ea4efbad7e62cb2ff4282ed8cab2a6e65ecf4774fcc104aa8d80a0baa6408",
+      "role": "identity/camera"
+    },
+    {
+      "file": "D:/work/image/designs/jubaozhai-ui/02-characters.png",
+      "sha256": "7a95140fc3c7a0ae6562ec6dff51d5296edd15116375152a8b22502c7107e879",
+      "role": "style"
+    },
+    {
+      "file": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/09_bamboo_archer_girl/runtime/run/E/03.png",
+      "sha256": "d2c3e05f1bf75fdf08880e1c0d289d48dd93e000ea37d0669a9c3f921864a546",
+      "role": "fixed running continuity anchor"
+    }
+  ],
+  "width": 1024,
+  "height": 1024,
+  "nativeSize": [
+    1254,
+    1254
+  ],
+  "sourceNativeSize": [
+    1254,
+    1254
+  ],
+  "format": "PNG/RGBA",
+  "derivedFrom": {
+    "file": "C:\\Users\\luyua\\.codex\\generated_images\\01a10157-d18c-7391-9f28-35f6b1fd48d2\\exec-ba76a289-6d02-4a76-8ccd-a4f6d2504c27.png",
+    "sha256": "84fecfaefa45a5a7f1766c4475f32f03506c4a911dd5aa3d7c48632d768254e5",
+    "width": 1254,
+    "height": 1254,
+    "generationReceipt": "provenance/run-north/run-E-04-attempt-4.receipt.json"
+  },
+  "operation": "Native alpha<=2 pixels set RGBA=0, then whole-canvas 1024x1024 Lanczos resize, then alpha<=2 reset RGBA=0; no crop, bbox normalization, ground alignment, mirroring or pose interpolation.",
+  "alphaNoiseCleanup": {
+    "thresholdInclusive": 2,
+    "stage": "native-and-after-whole-canvas-resize",
+    "rgbReset": true,
+    "higherAlphaPixelsChanged": false
+  },
+  "sourceRetention": "Host native image remains pending final reference cleanup; project selected PNG is this whole-canvas derivative."
+}
