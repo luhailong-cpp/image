@@ -1,10 +1,8 @@
 from pathlib import Path
 import json,hashlib
+from inventory_sources import current_slots
 ROOT=Path(__file__).resolve().parents[1]
-frames=[]
-for p in sorted(ROOT.glob("inventory-*.json")):
-    data=json.loads(p.read_text(encoding="utf-8-sig"))
-    frames.extend(data.get("frames",[]))
+frames=[dict(f, inventory_source=name) for name,f in current_slots(ROOT)]
 slots=[(x["action"],x["direction"],x["frame"]) for x in frames]
 if len(slots)!=len(set(slots)):raise ValueError("duplicate frame slots")
 review_path=ROOT/'reviews/final-review.json'
@@ -16,7 +14,7 @@ for f in frames:
         f['visual_status']='offline_directional_review_complete_client_pending'
         f['final_review']='reviews/final-review.json'
     elif f['action']=='run':
-        f['visual_status']='four_frame_grounding_revision_pending'
+        f['visual_status']='two_frame_position_grounding_revision_pending'
         f.pop('final_review',None)
 complete=len(frames)==196 and all(reviewed.get(f['path'])==hashlib.sha256((ROOT/f['path']).read_bytes()).hexdigest() for f in frames) and not review.get('knownUnresolvedArtFailures',['pending'])
 manifest={"character":"02_fire_talisman_boy","root_anchor":[512,920],"anchor_status":"target coordinates; full sequence visual verification pending","target_frames":196,"timing":{"run":{"frameMs":75,"cycleMs":1200,"uniform":True,"clientConfirmed":False},"hit":{"frameMs":40,"cycleMs":240},"attack":{"frameMs":30,"cycleMs":360},"cast":{"frameMs":45,"cycleMs":720}},"frames":sorted(frames,key=lambda x:(x["action"],x["direction"],x["frame"]))}
