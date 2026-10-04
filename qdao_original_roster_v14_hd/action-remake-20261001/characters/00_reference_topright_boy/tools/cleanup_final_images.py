@@ -63,6 +63,9 @@ def inspect(sw_finalized):
                 direction = row.get("direction", path.parent.name)
                 assert selected_slots[("run", direction, row["frame"])] == native, "Direction selections are not merged; do not finalize cleanup"
     for path in sorted(GEN.rglob("*.png")):
+        if path.is_symlink():
+            skipped.append({"file": path.relative_to(ROOT).as_posix(), "reason": "Symbolic link requires manual review"})
+            continue
         absolute = path.resolve()
         assert absolute.is_relative_to(GEN) and absolute.is_relative_to(ROOT)
         if absolute in current:
@@ -92,6 +95,8 @@ def save(path, value):
 
 
 def main():
+    if not __debug__:
+        raise RuntimeError("Do not run cleanup with Python optimization; safety assertions must remain enabled")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--save-plan", action="store_true", help="Save current read-only plan to review/final-cleanup-plan.json")
     parser.add_argument("--apply", action="store_true", help="Apply the existing exact plan after all snapshot and file checks pass")
@@ -113,7 +118,10 @@ def main():
         result = {"atUtc": datetime.now(timezone.utc).isoformat(), "snapshot": plan["snapshot"], "removed": [], "status": "in_progress"}
         save(RESULT, result)
         for item in plan["proposed"]:
-            resolve(item["file"]).unlink()
+            assert plan["snapshot"] == {name: sha(ROOT / name) for name in SNAPSHOTS}, "Indices changed during deletion; stop"
+            target = resolve(item["file"])
+            assert target.is_relative_to(GEN) and sha(target) == item["sha256"], "Target changed; stop"
+            target.unlink()
             result["removed"].append(item)
             save(RESULT, result)
         result["status"] = "complete"

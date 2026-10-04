@@ -1,9 +1,9 @@
 # 冰剑少女动作 · 当前状态
 
-更新：2026-10-04T14:11:00.824160+00:00
+更新：2026-10-04T17:29:45.395602+00:00
 
-实际导出 164/196 张1024透明候选；技术检查通过 164 张，完整序列 12/14。图像数量与美术验收分开记录。
-八方向最新“两帧一个位置、同脚连续支撑8帧”检查通过方向：暂未全部完成验证。
+实际导出 180/196 张1024透明候选；技术检查通过 180 张，完整序列 13/14。图像数量与美术验收分开记录。
+八方向最新“两帧一个位置、同脚连续支撑8帧”检查通过方向：NW。
 
 [全动作当前预览](preview/all.html) · [逐序列与来源清单](manifest.json) · [最新接地要求](review/paired-position-contact-requirement.json)
 
@@ -14,18 +14,18 @@
 |---|---:|---:|---|
 | run/S | 16/16 | 75 | needs_sequence_review |
 | run/SE | 16/16 | 75 | needs_sequence_review |
-| run/E | 16/16 | 75 | needs_sequence_correction |
+| run/E | 16/16 | 75 | paired_support_static_reviewed_dynamic_review_pending |
 | run/NE | 16/16 | 75 | new_contact_4_positions_x2_frames_revision_in_progress |
 | run/N | 16/16 | 75 | new_contact_4_positions_x2_frames_revision_in_progress |
-| run/NW | 0/16 | 75 | not_yet_reviewed |
+| run/NW | 16/16 | 75 | paired_support_static_verified_playback_pending |
 | run/W | 16/16 | 75 | static_inspected_sequence_review_pending |
 | run/SW | 0/16 | 75 | not_yet_reviewed |
 | hit/E | 6/6 | 40 | candidate_segment_complete_needs_motion_grounding_review |
-| hit/W | 6/6 | 40 | candidate_segment_complete_with_grounding_variation |
+| hit/W | 6/6 | 40 | static_sequence_reviewed_last_local_repairs_applied |
 | attack/E | 12/12 | 30 | candidate_segment_complete_pending_motion_review |
-| attack/W | 12/12 | 30 | candidate_segment_complete_pending_motion_review |
+| attack/W | 12/12 | 30 | static_sequence_reviewed_last_local_repairs_applied |
 | cast/E | 16/16 | 45 | candidate_segment_complete_static_reviewed_pending_motion_review |
-| cast/W | 16/16 | 45 | candidate_segment_complete_static_reviewed_pending_motion_review |
+| cast/W | 16/16 | 45 | static_sequence_reviewed_last_local_repairs_applied |
 
 ## 范围和来源
 

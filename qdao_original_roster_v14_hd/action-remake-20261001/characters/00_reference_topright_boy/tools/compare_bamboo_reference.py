@@ -24,6 +24,24 @@ def main():
     bamboo = read(REFERENCE / 'manifest.json')
     reference_timing = read(REFERENCE / 'animation-timing.json')
     current_timing = read(ROOT / 'run-timing.json')
+    mismatches = []
+    for seq in bamboo['sequences']:
+        for row in seq['frames']:
+            path = REFERENCE / row['file']
+            actual = sha(path) if path.is_file() else None
+            if actual != row['sha256']:
+                mismatches.append({'file': row['file'], 'manifestSha256': row['sha256'], 'actualSha256': actual})
+    if mismatches:
+        context = {'atUtc': datetime.now(timezone.utc).isoformat(),
+                   'status': 'reference_snapshot_changed_comparison_unavailable',
+                   'reference': REFERENCE.as_posix(), 'referenceModifiedByThisTask': False,
+                   'manifestSha256': {'boy': sha(ROOT / 'manifest.json'), 'bamboo': sha(REFERENCE / 'manifest.json')},
+                   'mismatches': mismatches, 'hashesVerified': False, 'dynamicVisualPlaybackVerified': False,
+                   'currentBoyPreview': '../index.html'}
+        (OUT / 'context.json').write_text(json.dumps(context, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+        (OUT / 'index.html').write_text('<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>参照文件已更新</title><h1>参照文件已更新</h1><p>只读参照角色的图片与其清单暂不一致，对照页暂停展示旧记录。道童当前素材不受影响。</p><p><a href="../index.html">打开道童当前全部动作预览</a></p></html>', encoding='utf-8')
+        print(json.dumps({'comparisonAvailable': False, 'referenceMismatches': len(mismatches), 'boyDeliveryChanged': False}))
+        return
     groups = {}
     for row in boy['frames']:
         _, action, direction, name = row['file'].split('/')

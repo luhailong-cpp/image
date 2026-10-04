@@ -5,7 +5,7 @@
 当前196槽资源已收齐，八方向128帧的新接地选表已合入。运行资源以manifest.json中的frames[].file为准；selected-new.json是本角色新增/替换原生选帧的唯一导出入口，局部selection是交接记录，不能按最高版本自动选图。静态修复、技术检查与整段动态/客户端通过分别统计。
 
 <!-- CURRENT_SNAPSHOT_START -->
-核对时间：2026-10-03T22:08:32.037915-04:00（America/New_York）。本段由 tools/audit_provenance.py 实扫更新。
+核对时间：2026-10-04T13:54:19.719870-04:00（America/New_York）。本段由 tools/audit_provenance.py 实扫更新。
 
 当前候选导出 **196/196**，缺 **0** 槽；本批本角色 generation 已关联原生生成记录的原图 **145** 张，另排除 **0** 张无原生记录或派生 PNG。正式美术通过 **0**；客户端 **未接入、未运行**。
 
@@ -30,7 +30,7 @@
 
 跑步当前八方向统一1200ms/圈，16帧各75ms；正式预览仅保留正常、慢放、暂停与逐帧，旧快档和旧权重已退出当前配置。客户端速度与滑步未验证。
 
-已确认失败请求 11 项（原始网络错误证据保留）；无完成证据请求 10 项（unknown，不等同于已确认失败）。
+已确认失败请求 11 项（原始网络错误证据保留）；无完成证据请求 13 项（unknown，不等同于已确认失败）。
 
 - `generation/combat/attack/W/03-v2.request.json` — `confirmed_failure`；SHA `741a1d4b9b5cfc0f9b1444db3f88538c1865026f8e7d56ec70bb1ecb4768f5e1`。
 - `generation/combat/attack/W/06-v1.request.json` — `confirmed_failure`；SHA `46b18acd30cdc2e76aab1eb552faa90e3a9cefb054396a9ba700a871a8f424ab`。
@@ -53,6 +53,9 @@
 - `generation/combat/attack/W/12-v1.request.json` — `unknown_no_completion_receipt`；SHA `0337b1e1c2d8940740fb5b5625fe11ceb128879c907ef119cd6b7fd572ecbe15`。
 - `generation/run/E/09-v2.request.json` — `unknown_no_completion_receipt`；SHA `65b205d98eb8e51761d040eb5f6a4a50020cee35ea04f4537da01db2866eda03`。
 - `generation/run/N/01-v3.request.json` — `unknown_no_completion_receipt`；SHA `68659a615a528a35f695bc357bb30c97903a2771d499d906e005de1241a05eff`。
+- `generation/run/S/16-v3.request.json` — `unknown_no_completion_receipt`；SHA `ee2a2d437af57302e5c52ed9d50438295f90a6839299c5f07018c1621444d24b`。
+- `generation/run/SE/13-v6.request.json` — `unknown_no_completion_receipt`；SHA `94d6fd8760779bc67a1d12052c9d438fa230947bffdbf79133df0e9cec318b0f`。
+- `generation/run/SE/15-v4.request.json` — `unknown_no_completion_receipt`；SHA `a02f2dcf2658df61ec8fa4e2eda653ec66f06cb4895e18aca7ee9966b143a08d`。
 
 当前索引/源SHA问题 0 项。逐项文件、源PNG、生成记录与回执SHA均在 `review/provenance-completion.json`。
 `current-validation.json` 当前绑定 196 张技术快照；新增原图或替换后须重新检查SHA。技术通过不等于动态美术通过。
