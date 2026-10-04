@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "action": "attack",
+  "direction": "W",
+  "candidateFrames": 12,
+  "nativeFormat": "1254x1254 RGBA single independently generated image each",
+  "timing": {
+    "cycleMs": 360,
+    "frameMs": 30,
+    "changed": false
+  },
+  "selection": "provenance/attack/selection-W.json",
+  "contactSheet": "provenance/attack/W-review-contact-current.jpg",
+  "pixelAudit": "provenance/attack/W-pixel-audit-current.json",
+  "actualModel": null,
+  "actualQuality": null,
+  "route": "builtin_host_managed",
+  "reviewStatus": "static_candidate_not_dynamic_passed",
+  "staticFindings": [
+    "12个候选完整原生落盘，均为独立单帧；没有镜像/复制/变形/插值补帧。",
+    "逐图和整段连图已目视。采用W01v2,W02v3,W03v1,W04v1,W05v2,W06v1,W07v1,W08v1,W09v3,W10v2,W11v1,W12v1。",
+    "近左肩—肘—腕跨琴到上端握持，远右手在琴下弦拨奏/随势；错误接臂版本未选。",
+    "所有采用帧画布边缘最大alpha<=5；极少量低alpha彩边可见，未做盲剪或重设透明阈值。",
+    "W07左琴穗与右发丝距边较近但不出现高alpha实物截断；W08头冠较W01高，恢复直立使上身较高，需实播连续性复核。",
+    "W10v1曾身高/地面偏移，已用W01固定比例重画v2；正式导出尚未完成。",
+    "W09v3已修复远RIGHT靴朝镜头外撇；原生图复看，鞋尖改向W，正确近靴/手臂保留。"
+  ],
+  "phases": [
+    {
+      "frame": 1,
+      "phase": "预备",
+      "evidence": "双足软膝、右手弦面静置。"
+    },
+    {
+      "frame": 2,
+      "phase": "身体蓄力",
+      "evidence": "膝软屈、琴靠近躯干；双臂连接保持。"
+    },
+    {
+      "frame": 3,
+      "phase": "抬腕蓄力",
+      "evidence": "远右腕上提至宽袖后侧，手指屈起。"
+    },
+    {
+      "frame": 4,
+      "phase": "最大蓄力",
+      "evidence": "右腕维持高位，琴颈收近，口微张。"
+    },
+    {
+      "frame": 5,
+      "phase": "拨弦接触",
+      "evidence": "右指触琴下段弦面，左手撑稳琴颈，身体前压。"
+    },
+    {
+      "frame": 6,
+      "phase": "释放随势",
+      "evidence": "右手下摆过弦，手指离开弦面。"
+    },
+    {
+      "frame": 7,
+      "phase": "随势极点",
+      "evidence": "远右手低位、前压膝弯，左袖前送。"
+    },
+    {
+      "frame": 8,
+      "phase": "减速回收",
+      "evidence": "右腕回升琴尾，身体抬回。"
+    },
+    {
+      "frame": 9,
+      "phase": "早期恢复",
+      "evidence": "躯干恢复，右手回弦上。"
+    },
+    {
+      "frame": 10,
+      "phase": "后期恢复",
+      "evidence": "按W01固定尺寸重画，右腕松落。"
+    },
+    {
+      "frame": 11,
+      "phase": "末段收势",
+      "evidence": "肩肘松回，右手轻触下弦。"
+    },
+    {
+      "frame": 12,
+      "phase": "完成恢复",
+      "evidence": "接近W01的预备站姿、衣带收势。"
+    }
+  ],
+  "contactMarker": {
+    "frame": 5,
+    "basis": "实图右手触下弦"
+  },
+  "releaseMarker": {
+    "frame": 6,
+    "basis": "实图右手下摆离弦"
+  },
+  "unresolved": [
+    "整段固定根1024导出后的正常360ms/段动态及真实合成由根代理复核。",
+    "未在本审阅中验证客户端命中时刻和世界移动同步。"
+  ],
+  "reviewedAt": "2026-10-03T19:49:05.824044+00:00",
+  "forceAccentMarker": {
+    "frame": 5,
+    "basis": "明确触下弦并扩步前压；06已离弦随势。"
+  },
+  "shaBoundStaticReview": "provenance/EW-visible-anatomy-foot-heading-review-20261003.json"
+}
