@@ -61,6 +61,8 @@ def offline_reviewed(manifest: dict, timing: dict) -> bool:
 def review_notice(manifest: dict, timing: dict) -> str:
     if offline_reviewed(manifest, timing):
         return '本聊天主审已按所引复核记录完成196帧、14组动作的离线静态与动态复核。用户尚未验收。跑步采用1200ms/圈、每帧75ms（本地）。客户端未接入、未运行验收。'
+    if manifest.get('staticReview') and all(r.get('visualApproval') == 'static_sequence_reviewed' for r in manifest['frames']):
+        return '修复版196帧已导出并完成静态逐帧检查；跑步每圈1200ms、每帧75ms。最新正常/慢速动态观感待验收；客户端未接入。'
     return '用户指出其他方向仍有问题，现参照竹弓少女重修；文件齐全不代表通过。跑步已按最新要求改为1200ms/圈、每帧75ms。客户端未接入、未运行验收。'
 
 

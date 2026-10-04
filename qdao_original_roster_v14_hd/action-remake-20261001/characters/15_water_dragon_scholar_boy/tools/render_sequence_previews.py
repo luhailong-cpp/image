@@ -15,6 +15,7 @@ def main():
     manifest_sha = hashlib.sha256(manifest_path.read_bytes()).hexdigest()
     timing = load_run_timing()
     fully_reviewed = offline_reviewed(manifest, timing)
+    static_reviewed = bool(manifest.get('staticReview')) and all(r.get('visualApproval') == 'static_sequence_reviewed' for r in manifest['frames'])
     font = ImageFont.truetype('C:/Windows/Fonts/msyh.ttc', 19)
     names = {'run': '跑步', 'hit': '受击', 'attack': '普攻', 'cast': '施法'}
     (ROOT / 'preview').mkdir(parents=True, exist_ok=True)
@@ -53,9 +54,9 @@ def main():
                              'candidate_pending_root_final_review' if p['status'] == 'offline_selected_not_client' and not fully_reviewed else p['status'])
                             for p in timing['profiles']]
                 default_profile = next(profile for profile in timing['profiles'] if profile['id'] == timing['defaultProfile'])
-                slow_label = default_profile['label'] if fully_reviewed else '1200ms 正常节奏（姿态待复核）'
+                slow_label = default_profile['label'] if fully_reviewed or static_reviewed else '1200ms 正常节奏（姿态待复核）'
                 variants.append(('slow', timing['defaultProfile'], 4, slow_label + ' · 0.25×',
-                                 timing['status'] if fully_reviewed else 'candidate_pending_root_final_review'))
+                                 timing['status'] if fully_reviewed or static_reviewed else 'candidate_pending_root_final_review'))
             else:
                 status = 'offline_reviewed_not_client' if fully_reviewed else 'planned'
                 variants = [('normal', None, 1, '原战斗方案 · 1×', status), ('slow', None, 4, '原战斗方案 · 0.25×', status)]
@@ -86,7 +87,8 @@ def main():
                                      'defaultProfile': timing['defaultProfile'], 'status': timing['status'],
                                      'legacyBaselineCycleMs': 480, 'clientIntegration': 'not_integrated'} if action == 'run'
                                     else {'status': 'offline_reviewed_not_client' if fully_reviewed else 'planned', 'frameDurationsMs': frame_durations(group, rows, timing), 'unchangedCombatTiming': True}),
-                  'animationApproval': 'offline_reviewed' if fully_reviewed else 'pending_visual_dynamic_review',
+                  'animationApproval': 'offline_reviewed' if fully_reviewed else ('pending_final_dynamic_review' if static_reviewed else 'pending_visual_dynamic_review'),
+                  'staticReview': manifest.get('staticReview') if static_reviewed else None,
                   'offlineReview': manifest.get('offlineReview') if fully_reviewed else None,
                   'clientIntegration': 'not_integrated', 'clientRuntimeAcceptance': 'not_tested',
                   'userAcceptance': 'not_reviewed_by_user',

@@ -192,7 +192,7 @@ def check_delivery() -> dict:
             original = derived['originalGenerationRecord']
             require(original.get('sha256') == origin.get('sha256'), 'embedded_source_sha_mismatch', origin, slot)
             require(bool(original.get('generatedAt')) and original.get('tool') == 'image_gen.imagegen'
-                    and original.get('route') == 'builtin', 'generation_time_or_route_missing', relative(derived_path), slot)
+                    and original.get('route') in ('builtin', 'builtin_host_managed'), 'generation_time_or_route_missing', relative(derived_path), slot)
             require(original.get('width', 0) >= 1024 and original.get('height', 0) >= 1024
                     and original.get('format') == 'PNG' and original.get('mode') == 'RGBA',
                     'embedded_native_spec_invalid', {k: original.get(k) for k in ['width', 'height', 'format', 'mode']}, slot)
@@ -394,6 +394,8 @@ def retention_plan(check: dict) -> dict:
                     'references': original.get('references'), 'evidence': original.get('evidence')}
                 if original.get('sha256') != entry['sha256']:
                     entry.update(decision='hold_source_provenance_gap', reason='当前源 SHA 与记录不符；先补真实来源文字，禁止改历史 SHA 掩盖。')
+                elif file in selected and manifest.get('animationApproval') != OFFLINE:
+                    entry.update(decision='keep_current_design_input', reason='当前入选原生设计，最新动态复核尚未完成；保留用于当前修订，不是图片备份。')
             else:
                 entry.update(decision='hold_source_provenance_gap', reason='未按已知命名找到生成文字，需人工定位或补当前真实核验说明。')
         else:
@@ -413,8 +415,8 @@ def retention_plan(check: dict) -> dict:
             'status': 'plan_only_no_deletion_performed', 'workspaceBoundary': ROOT.as_posix(),
             'manifestSha256': sha(ROOT / 'manifest.json'), 'timingSha256': sha(ROOT / 'audit/run-timing.json'),
             'policy': '依据用户 AGENTS.md 2026-09-23：最终成品与当前引用核实后只保留最终游戏图片、必要设计与接入文件；删除原图/回退/拒稿/中间图，保留逐图来源文字。',
-            'prerequisites': ['root 完成最终选帧与实际视觉/动态审阅；不是由本脚本自动认定。',
-                              '最终运行 build_delivery.py --write --replace 和 render_sequence_previews.py；刷新关键姿态图。',
+            'prerequisites': ['root 已完成当前选帧和实际静态审阅；动态未完成时保留当前入选原生设计，不宣称最终动态验收通过。',
+                              '只从当前 runtime 刷新预览；不要全量重建已清理的旧 sources。',
                               '运行 final_delivery_check.py --write-report --write-retention-plan，技术错误清零，所有必要图片存在。',
                               '删除前重新核实计划中每条路径仍在角色目录内、SHA 未改变；实际删除由 root 负责。',
                               '删除后再次运行核验；历史原图路径允许缺失，但 runtime/当前预览/来源文字必须完整。'],
@@ -459,7 +461,7 @@ def main() -> int:
                  '## 执行前置条件', ''] + [f'- {item}' for item in plan['prerequisites']]
         lines += ['', '## 当前数量', '', json.dumps(plan['summary'], ensure_ascii=False), '',
                   '196 张 runtime 保留；每组最新 contact、跑步主选 uniform1200/slow、战斗 normal/slow、当前关键姿态图保留。HTML固定1200ms/圈，保留正常、慢速和逐帧检查。', '',
-                  '所有 sources 原图及历史 audit/review 诊断图在最终核验后列为删除候选；JSON 内逐图保存当前 SHA、原生成记录路径及模型/质量/参考文字。引用旧原图路径不构成永久保留像素的理由。', '',
+                  '当前入选且仍在使用的原生设计在最新动态复核完成前保留；淘汰 sources 及历史 audit/review 诊断图列为删除候选。JSON 内逐图保存当前 SHA、原生成记录路径及模型/质量/参考文字。', '',
                   '历史来源文字不改写成“文件仍在”。清理源图后不能再运行依赖原生输入的 build_delivery；成品检查用 final_delivery_check，HTML/GIF可从 runtime 重建。', '',
                   '仅处理本角色目录，不处理宿主缓存、共享参考或其他角色。保留全部逐图 JSON、提示词、清理文字、交接文档与必要脚本。', '',
                   '## 缺少的必要图片', '']

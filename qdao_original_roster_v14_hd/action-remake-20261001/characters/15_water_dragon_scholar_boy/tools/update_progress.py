@@ -15,6 +15,15 @@ ROOT = Path(__file__).resolve().parents[1]
 def build_progress(manifest: dict, review: dict | None, review_sha: str | None) -> dict:
     frames = manifest.get('frames', [])
     groups = manifest.get('groups', [])
+    static_path = ROOT / 'audit/current-static-review.json'
+    static_count = 0
+    if static_path.is_file():
+        static_bytes = static_path.read_bytes()
+        static_review = json.loads(static_bytes.decode('utf-8-sig'))
+        current = {r['slot']: (r['derivedFrom']['sha256'], r['sha256']) for r in frames}
+        observed = {r['slot']: (r['sourceSha256'], r['outputSha256']) for r in static_review.get('frames', [])}
+        if current == observed and manifest.get('staticReview', {}).get('sha256') == hashlib.sha256(static_bytes).hexdigest():
+            static_count = len(observed)
     review_state, review_error = 'missing', None
     if review is not None:
         try:
@@ -35,6 +44,8 @@ def build_progress(manifest: dict, review: dict | None, review_sha: str | None) 
             'reusedSelected': sum(r.get('sourceKind') == 'reused' for r in frames),
             'newSelected': sum(r.get('sourceKind') == 'new' for r in frames),
             'newSlotsAreNotApprovedCount': True,
+            'staticReviewedFrames': static_count,
+            'staticReviewRecord': 'audit/current-static-review.json' if static_count else None,
             'dynamicAccepted': len(reviewed_groups), 'dynamicAcceptedUnit': 'offline_groups',
             'offlineReviewedGroups': len(reviewed_groups), 'expectedGroups': 14,
             'offlineReviewedFrames': len(reviewed_frames), 'offlineReviewRecordStatus': review_state,
@@ -84,6 +95,7 @@ def render_key_poses(manifest: dict, payload: dict, manifest_sha: str) -> None:
                         'sourceSha256': row['derivedFrom']['sha256']})
     complete = payload['offlineReviewedFrames'] == 196 and payload['offlineReviewedGroups'] == 14
     footer = ('本聊天主审离线复核完成；跑步1200ms正常节奏、75ms/帧（本地）；用户尚未验收，客户端未接入。' if complete
+              else '196帧素材已导出；静态逐帧检查完成，最新动态播放观感待验收；客户端未接入。' if payload.get('staticReviewedFrames') == 196
               else '当前为关键姿态预览；本地完整序列审核尚未完成，客户端未接入、未运行验收。')
     draw.text((14, 459), footer, fill='#6b3740', font=font)
     (ROOT / 'preview').mkdir(exist_ok=True)
@@ -124,9 +136,9 @@ def main() -> None:
     render_key_poses(manifest, payload, manifest_sha)
     (ROOT / 'progress.json').write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     complete = payload['offlineReviewedFrames'] == 196 and payload['offlineReviewedGroups'] == 14
-    status = '本聊天主审离线复核完成，用户尚未验收；未接入客户端' if complete else '当前成品继续审核中，未接入客户端'
+    status = '本聊天主审离线复核完成，用户尚未验收；未接入客户端' if complete else '当前修复版已导出并完成静态逐帧检查；最新动态观感待验收，未接入客户端' if payload.get('staticReviewedFrames') == 196 else '当前成品继续审核中，未接入客户端'
     lines = ['# 15 水龙书生 · 当前制作进度', '', status, '', f"更新：{payload['updatedAt']}", '',
-             f"- 当前真实导出 {payload['exported']}/196；本聊天离线复核 {payload['offlineReviewedGroups']}/14 组，逐帧已审 {payload['offlineReviewedFrames']}/196；播放按正常/慢速网页抽查，方法见 audit/final-review.json。",
+             f"- 当前真实导出 {payload['exported']}/196；当前静态逐帧检查 {payload['staticReviewedFrames']}/196；最新完整动态通过 {payload['offlineReviewedGroups']}/14 组。静态证据见 audit/current-static-review.json；旧 final-review 已撤回，不复用旧通过结论。",
              f"- 当前选择：本机生成/定向编辑 {payload['newSelected']} 张、旧图复用 {payload['reusedSelected']} 张；历史生成记录 {payload['newAttempts']} 份。",
              f"- 本聊天最终复核记录状态：{payload['offlineReviewRecordStatus']}。",
              '- 来源与当前成品：manifest.json、provenance/derived；两份预览：preview/index.html、preview/all-directions.html。',
@@ -136,7 +148,7 @@ def main() -> None:
     if complete:
         lines.append('- 跑步采用1200ms正常节奏、75ms/帧（本地），逐帧时长见 audit/run-timing.json；480ms仅旧基线。')
     else:
-        lines.append('- 跑步1200ms/圈、75ms/帧已按用户要求生效；姿态按竹弓少女重新复核，未判整组通过。')
+        lines.append('- 跑步1200ms/圈、75ms/帧已按用户要求生效；196张完成静态逐帧复核，最新动态观感待验收。')
     lines += ['- 以上为本聊天/主审离线复核记录，用户尚未验收；客户端未接入、未进行客户端运行验收。', '',
               '目标 GPT Image 2.5 Sunburst / max；实际型号、质量和来源按每图真实记录，宿主未披露项保持 null。', '']
     (ROOT / 'STATUS.md').write_text('\n'.join(lines), encoding='utf-8')
