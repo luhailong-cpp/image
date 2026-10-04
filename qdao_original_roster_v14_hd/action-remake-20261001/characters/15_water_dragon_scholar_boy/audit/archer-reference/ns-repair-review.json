@@ -1,0 +1,118 @@
+{
+  "reviewedAt": "2026-10-04T04:43:27.122698+00:00",
+  "reviewer": "continue_cast",
+  "status": "10_static_candidates_ready_for_parent_review",
+  "formalRuntimeWritten": false,
+  "userAcceptance": false,
+  "visualEvidence": {
+    "individuallyViewed": "所有新候选生成返回均实际完整查看；10个旧原生host目标均实际查看；09N/S正式连图及64张runtime构建对照全部查看",
+    "finalSequenceContactViewed": [
+      "ns-N-updated-contact.png",
+      "ns-S-updated-contact.png",
+      "ns-N-updated-feet.png",
+      "ns-S-updated-feet.png"
+    ]
+  },
+  "passes": [
+    "N07→08→09：屏右脚从少量后底转成鞋跟朝后/脚掌朝地，旧08整底突然翻到09的问题已明显减小",
+    "N13→14→15→16：左脚下降预落地、右腿后摆关系清楚；不再15整块左底向后再16突然翻面",
+    "N10→11→12：11持扇臂已收回身体附近，扇的角度连接低后摆与肩侧回摆，未换手",
+    "S01→02→03→04和09→10→11→12：02/03/10/11支撑足不再大块露底，膝踝连接到朝S平底，后腿抬膝保留",
+    "S13→14→15：14屏左后足长轴从向左斜甩变成沿S纵向，仍有腾空间隙",
+    "角色身份、右手扇、左空手保留；未人为逐帧挪根或按bbox缩放"
+  ],
+  "selectedNativeFootBottoms": [
+    {
+      "slot": "N07",
+      "alphaBBoxBottomExclusive": 1154,
+      "deltaFrom1191": -37
+    },
+    {
+      "slot": "N08",
+      "alphaBBoxBottomExclusive": 1176,
+      "deltaFrom1191": -15
+    },
+    {
+      "slot": "N11",
+      "alphaBBoxBottomExclusive": 1203,
+      "deltaFrom1191": 12
+    },
+    {
+      "slot": "N14",
+      "alphaBBoxBottomExclusive": 1140,
+      "deltaFrom1191": -51
+    },
+    {
+      "slot": "N15",
+      "alphaBBoxBottomExclusive": 1191,
+      "deltaFrom1191": 0
+    },
+    {
+      "slot": "S02",
+      "alphaBBoxBottomExclusive": 1192,
+      "deltaFrom1191": 1
+    },
+    {
+      "slot": "S03",
+      "alphaBBoxBottomExclusive": 1185,
+      "deltaFrom1191": -6
+    },
+    {
+      "slot": "S10",
+      "alphaBBoxBottomExclusive": 1196,
+      "deltaFrom1191": 5
+    },
+    {
+      "slot": "S11",
+      "alphaBBoxBottomExclusive": 1199,
+      "deltaFrom1191": 8
+    },
+    {
+      "slot": "S14",
+      "alphaBBoxBottomExclusive": 1101,
+      "deltaFrom1191": -90
+    }
+  ],
+  "remainingObservations": [
+    "N07/N08底界为1154/1176，距参考地面37/15px；N14为1140距51px，N15已到1191，可视作提前接近/初接触而不是继续宣称全腾空。父线程应按实图复核相位停留。",
+    "S02/S03/S10/S11底界1192/1185/1196/1199，约-6到+8px小高差；S14底界1101仍有90px腾空间隙，不应自动贴地。",
+    "N02/N10的支撑屈膝/压低仍偏轻；N05—10左臂停留较长，N11左腕回收再接12的摆幅仍可在实际播放时观察。本轮未扩大改图范围。",
+    "S01/09保留初接触露底，S15/16保留后半空中过渡；如播放仍显前踢，优先审这些直接相邻槽，不可据单帧露底将全部空中帧判错。",
+    "局部生成带来少量发/脸/衣缘轮廓变化，未用程序平移或缩放掩盖；不宣称像素级完全不变。",
+    "实际动态播放本代理未执行。本次可证明静态连续结构与文件完整性，最终1200ms播放与用户验收由主窗口进行。"
+  ],
+  "animations": [
+    {
+      "file": "ns-N-1200ms.apng",
+      "frames": 16,
+      "totalMs": 1200.0
+    },
+    {
+      "file": "ns-N-slow.apng",
+      "frames": 16,
+      "totalMs": 4800.0
+    },
+    {
+      "file": "ns-S-1200ms.apng",
+      "frames": 16,
+      "totalMs": 1200.0
+    },
+    {
+      "file": "ns-S-slow.apng",
+      "frames": 16,
+      "totalMs": 4800.0
+    }
+  ],
+  "model": {
+    "configuredTarget": "GPT Image 2.5 Sunburst / max",
+    "actualModel": null,
+    "actualQuality": null,
+    "route": "builtin host-managed",
+    "evidence": "各张request/prompt/receipt/generation记录完整，未披露实际版本/质量"
+  },
+  "discardedCandidates": {
+    "run-S-02-archer-v1": "支撑底界1176略高，v3更接近地面",
+    "run-S-02-archer-v2": "延伸过多到底界1212，v3改为1192",
+    "run-N-11-archer-v1": "输入参考超过5张，未生成图；v2使用5张成功"
+  }
+}

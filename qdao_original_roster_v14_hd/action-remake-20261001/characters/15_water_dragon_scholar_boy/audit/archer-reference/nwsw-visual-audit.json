@@ -1,0 +1,650 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-04T01:38:13.997Z",
+  "reviewer": "/root/finish_attack_diagonals",
+  "character": "15_water_dragon_scholar_boy",
+  "scope": [
+    "run/NW/01..16",
+    "run/SW/01..16"
+  ],
+  "mode": "只读视觉对照审计；未生图、未改选表/manifest/runtime",
+  "reference": {
+    "character": "09_bamboo_archer_girl",
+    "basis": "用户2026-10-03明确指定当前版本为观感参照；以实际runtime和QA接触图为主，参考文字只辅助相位定位",
+    "timing": {
+      "cycleMs": 720,
+      "frameMs": 45,
+      "formalClientTimingConfirmed": false
+    },
+    "limits": "09 manifest动态通过数仍为0；本审计不把用户观感指定扩写为09所有工程/客户端项已通过。09左手持弓，15右手持扇，不能机械复制同侧持物或要求同帧号对应同一解剖腿。"
+  },
+  "method": {
+    "actualViewedContacts": [
+      "09/preview/qa/run-NW-contact.png",
+      "09/preview/qa/run-SW-contact.png",
+      "15/preview/run-NW-contact.png",
+      "15/preview/run-SW-contact.png"
+    ],
+    "actualViewedComparisons": [
+      "compare-NW-01-04.png",
+      "compare-NW-05-08.png",
+      "compare-NW-09-12.png",
+      "compare-NW-13-16.png",
+      "compare-SW-01-04.png",
+      "compare-SW-05-08.png",
+      "compare-SW-09-12.png",
+      "compare-SW-13-16.png"
+    ],
+    "additionalFullRuntimeViewed": [
+      "09/run/NW/09",
+      "15/run/NW/09",
+      "09/run/SW/05",
+      "15/run/SW/05",
+      "09/run/SW/12",
+      "15/run/SW/12",
+      "09/run/SW/09",
+      "15/run/SW/01",
+      "15/run/NW/03",
+      "15/run/NW/12"
+    ],
+    "checks": [
+      "沿髋→膝→踝→鞋尖完整链判断运动方向，不以屏幕左右等同解剖左右",
+      "检查前膝驱动、小腿回收、下降、支撑缓冲与后蹬，不以鞋底可见单判外八",
+      "检查同侧腿与臂反向摆动及连续肩肘弧线；不同武器保留本角色持手",
+      "只看当前实际图，不继承旧static passed文字"
+    ],
+    "dynamicPlaybackPerformed": false,
+    "noGeometryEdited": true
+  },
+  "findings": [
+    {
+      "id": "NW-L01",
+      "priority": "high",
+      "slots": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "problem": "远右腿领先/支撑半周期的整腿路径向右外侧展开；脚尖朝左也仍呈横向分腿。",
+      "evidence": "当前NW09完整原图：右髋→右膝→右靴持续朝画面右下；09对应右支撑图的右腿经过身下到左前，近左腿回收跨后。",
+      "repair": "从右髋开始安排膝前驱、踝下降与承重点；保留正确鞋头作基础，不能只旋转靴或缩窄脚距。"
+    },
+    {
+      "id": "NW-A01",
+      "priority": "high",
+      "slots": [
+        1,
+        2,
+        3,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "problem": "近左空臂在全周期几乎固定前下；左腿领先段两臂同时在前，反向摆臂不成立。",
+      "evidence": "01/02/13/14/15/16均右扇在脸前且左空拳仍前下，05–10也基本同一左臂轮廓。",
+      "repair": "以05–10左前摆为可用基础，补左腿领先半周期的左臂后摆以及过渡，保留右持扇。"
+    },
+    {
+      "id": "NW-P01",
+      "priority": "high",
+      "slots": [
+        3,
+        4,
+        11,
+        12,
+        13,
+        14
+      ],
+      "problem": "经过相位膝前驱不足，后面直接横向打开；扇臂过渡只有前/后几个定势，缺肩肘反扭。",
+      "repair": "优先解决03/11经过、04/12后蹬和下一短飞行，再检查扇臂连续。"
+    },
+    {
+      "id": "SW-L01",
+      "priority": "high",
+      "slots": [
+        1,
+        2,
+        3,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "problem": "左腿领先半周期的膝踝长期向右下外侧，而SW鞋头只是局部转向左下。",
+      "evidence": "当前SW01与09SW09同为左腿加载：15左膝/踝明显向髋右方支出；13/14靴头虽修正，整腿下降路径仍在右外侧。",
+      "repair": "让左大腿沿SW前下驱动并经过身下，再布置膝踝支撑；保留13/14已正确的鞋头细节。"
+    },
+    {
+      "id": "SW-P01",
+      "priority": "high",
+      "slots": [
+        3,
+        4,
+        5,
+        6,
+        11,
+        12
+      ],
+      "problem": "支撑后直接伸腿踢出，未建立膝先前驱、小腿回收、短飛行再下降的过程。",
+      "evidence": "04–06连续大幅伸右小腿露整片靴底，12同样外展左膝并前踢；09相近阶段以膝前驱、小腿收回为主。",
+      "repair": "不把露鞋底全部抹掉；修前驱腿在周期中的屈伸时机、髋膝路径与另一脚后蹬。"
+    },
+    {
+      "id": "SW-A01",
+      "priority": "medium",
+      "slots": [
+        7,
+        8,
+        9,
+        10,
+        15,
+        16
+      ],
+      "problem": "空左手在胸前拳、外伸拳、后张掌之间来回切换，过渡方向不随连续半周期单向变化。",
+      "repair": "先以腿相位定肩肘位置，再保留合理手形，避免只把所有张掌换成拳头。"
+    }
+  ],
+  "reuseGuidance": {
+    "NW": "01/02/15/16左支撑的靴轴和腿部形态可作修稿基础，05–10左前/右后摆臂关系可复用；全组身份、服装、右持扇保留。",
+    "SW": "07–10右腿下降/支撑的脚轴和腿部形态相对可用；13/14刚转正的鞋头、15已修出画的扇边保留。需要改其相邻运动链时只做必要局部重画。",
+    "doNot": "不因本轮发现大段步态问题就全量重画；先修必要关键姿态，按实际连续性决定其余帧是否需要补过渡。"
+  },
+  "frames": [
+    {
+      "slot": "run/NW/01",
+      "runtime": "runtime/run/NW/01.png",
+      "recommendation": "保留腿部作为基础，补空左臂后摆",
+      "legsObserved": "左靴前下平支撑、右靴后折，脚轴可保留。",
+      "armsObserved": "左脚在前时，右扇在前；近左空手也一直伸向左前下，缺反向后摆。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/NW/01",
+        "run/NW/02",
+        "run/NW/15",
+        "run/NW/16"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/NW/02",
+      "runtime": "runtime/run/NW/02.png",
+      "recommendation": "保留支撑靴，增强真实缓冲并接手臂",
+      "legsObserved": "与01膝、髋和靴位变化很小；有微屈，但与09可见压低相比承重缓冲偏弱。",
+      "armsObserved": "近左拳仍停前下，右扇仍前，非两臂反向交换。",
+      "confidence": "medium",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/NW/01",
+        "run/NW/02"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/NW/03",
+      "runtime": "runtime/run/NW/03.png",
+      "recommendation": "补远右膝经过与近左臂相位",
+      "legsObserved": "左靴仍在原地平放，远右腿仅小幅后收；到04/05前缺明显膝先向前经过。",
+      "armsObserved": "右扇由脸前突然缩到背后露小块，左臂几乎无变化。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/NW/02",
+        "run/NW/03",
+        "run/NW/04"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/NW/04",
+      "runtime": "runtime/run/NW/04.png",
+      "recommendation": "重做蹬离到右腿前驱的衔接",
+      "legsObserved": "左前掌/抬跟本身可读；远右膝仍在身体右后，未为05远右腿向NW前送建立路径。",
+      "armsObserved": "左臂在前可作右腿前驱时的基础；右扇后摆幅度从03骤增。",
+      "confidence": "medium",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/NW/03",
+        "run/NW/04",
+        "run/NW/05"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/NW/05",
+      "runtime": "runtime/run/NW/05.png",
+      "recommendation": "修髋膝踝整条右腿前送轨迹",
+      "legsObserved": "右腿向画面右下张开、左腿留左侧；两腿横向分区，未像09右膝经过身下向左前。鞋尖转左不能修正这条轨迹。",
+      "armsObserved": "近左前摆与右扇后摆可保留作此半周期基础。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/NW/04",
+        "run/NW/05",
+        "run/NW/06"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/NW/06",
+      "runtime": "runtime/run/NW/06.png",
+      "recommendation": "修整腿轨迹，保留已转正鞋头",
+      "legsObserved": "两膝虽抬起，右膝/右踝仍落在身体右外侧，整体似横向收腿跳；v6已转左的右鞋头可保留，不需要再单独转鞋。",
+      "armsObserved": "与05同一基本摆臂，可保留；需随躯干小幅反扭。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/NW/04",
+        "run/NW/05",
+        "run/NW/06"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/NW/07",
+      "runtime": "runtime/run/NW/07.png",
+      "recommendation": "修远右腿的前向下降路径",
+      "legsObserved": "右腿朝右下展开、左脚在左后露底；对照09对应右腿下降/接触，相反的前后投影令人读成侧跨。",
+      "armsObserved": "手姿可作右腿领先半周期基础，不能据此判整帧通过。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/NW/05",
+        "run/NW/06",
+        "run/NW/07"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/NW/08",
+      "runtime": "runtime/run/NW/08.png",
+      "recommendation": "修右落脚点和膝踝受力线",
+      "legsObserved": "右靴虽底趋平，仍在髋右外侧；从05至08只在右侧上落，未经过身下进入NW向前支撑。",
+      "armsObserved": "左前/右后基本关系可复用，需与新腿路径一起连播。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/NW/06",
+        "run/NW/07",
+        "run/NW/08"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/NW/09",
+      "runtime": "runtime/run/NW/09.png",
+      "recommendation": "优先修右支撑整腿",
+      "legsObserved": "右大腿从右髋一直伸向右下，右靴在身体右外侧；09右支撑靴在身下/左前、近左腿跨回后方。当前是鞋尖左转但整腿向右外迈。",
+      "armsObserved": "近左前、右扇后基本相位可复用。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/NW/07",
+        "run/NW/08",
+        "run/NW/09",
+        "run/NW/10"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/NW/10",
+      "runtime": "runtime/run/NW/10.png",
+      "recommendation": "优先修右缓冲整腿",
+      "legsObserved": "延续09的右外侧支撑线，髋与右膝缺向支撑点加载；只屈膝不足以解决沿错误路径侧踩。",
+      "armsObserved": "两臂仍与09近同，可保留作此段基础。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/NW/07",
+        "run/NW/09",
+        "run/NW/10"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/NW/11",
+      "runtime": "runtime/run/NW/11.png",
+      "recommendation": "补近左膝经过并修右腿支撑",
+      "legsObserved": "右支撑仍侧向；近左膝没有清楚从身下向NW前驱，到12直接高抬。",
+      "armsObserved": "右扇开始回落，但近左臂仍一直在前下，应开始后摆。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/NW/10",
+        "run/NW/11",
+        "run/NW/12"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/NW/12",
+      "runtime": "runtime/run/NW/12.png",
+      "recommendation": "重做前掌后蹬与异侧膝前驱",
+      "legsObserved": "右腿沿右下伸到脚尖，后跟抬起虽清楚，近左腿却收在左外侧，未形成连续的向前提膝与后腿蹬离路径。",
+      "armsObserved": "近左臂仍朝前下，和下一段左腿领先同侧，需后摆。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/NW/11",
+        "run/NW/12",
+        "run/NW/13"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/NW/13",
+      "runtime": "runtime/run/NW/13.png",
+      "recommendation": "修左膝前驱和后右腿路径，补左臂后摆",
+      "legsObserved": "双腿在画面左右大幅打开；近左靴横向伸出、右后腿低拖，缺09中左膝先收后伸的紧凑相位。",
+      "armsObserved": "右扇回脸前，左空手仍前下，两臂一起在前。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/NW/12",
+        "run/NW/13",
+        "run/NW/14"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/NW/14",
+      "runtime": "runtime/run/NW/14.png",
+      "recommendation": "修下降而非继续横向开腿",
+      "legsObserved": "近左小腿/靴横伸左侧，右腿留右侧；01前可用落脚方向已有，但大腿路径及收放节奏需要重建。",
+      "armsObserved": "左空手需随左腿领先退到后侧，当前仍前下。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/NW/13",
+        "run/NW/14",
+        "run/NW/15"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/NW/15",
+      "runtime": "runtime/run/NW/15.png",
+      "recommendation": "保留左靴支撑形态，修手臂并核接触相位",
+      "legsObserved": "左靴低位平底、右腿后折，腿脚形态可作为左接触基础；不宜沿旧文字直接叫flight_falling。",
+      "armsObserved": "右扇前、左空手也前下；需补左后摆。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/NW/14",
+        "run/NW/15",
+        "run/NW/16"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/NW/16",
+      "runtime": "runtime/run/NW/16.png",
+      "recommendation": "保留左靴方向，补缓冲与闭环手摆",
+      "legsObserved": "腿形接近15和01，左靴落脚方向可用；应明确是初触/缓冲哪一相位，不能单靠旧precontact标记。",
+      "armsObserved": "近左空手仍前下，16→01的反向回摆周期未建立。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/NW/15",
+        "run/NW/16",
+        "run/NW/01"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/SW/01",
+      "runtime": "runtime/run/SW/01.png",
+      "recommendation": "保留已正鞋头，修左腿沿SW前下加载",
+      "legsObserved": "解剖左膝/踝向画面右下支出，左靴落在髋右侧；对照09同为左腿加载的09，膝踝应沿身下到前下，不能只转左鞋尖。",
+      "armsObserved": "右持扇、左空手归属正确；手姿可作左腿领先时基础。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/SW/08",
+        "run/SW/09",
+        "run/SW/10"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/SW/02",
+      "runtime": "runtime/run/SW/02.png",
+      "recommendation": "修左腿缓冲受力线",
+      "legsObserved": "仍沿01右下外侧路径，膝屈变化较小，重心加载读感弱；保留靴尖前偏左，改髋膝到踝的链条。",
+      "armsObserved": "持扇归属正确，左手垂落幅度和01略变，可保留。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/SW/09",
+        "run/SW/10",
+        "run/SW/11"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/SW/03",
+      "runtime": "runtime/run/SW/03.png",
+      "recommendation": "补右膝经过并修左支撑",
+      "legsObserved": "左腿还停在右侧低位，右腿仍折在后；04突然伸向前，缺膝先前驱/小腿后收的经过姿态。",
+      "armsObserved": "左空手由低处抬拳可作过渡，但应由完整肩肘弧线连接。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/SW/10",
+        "run/SW/11",
+        "run/SW/12"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/SW/04",
+      "runtime": "runtime/run/SW/04.png",
+      "recommendation": "优先改前驱腿，保留后靴蹬离设计",
+      "legsObserved": "右小腿提前伸直前踢并展示大片鞋底，后左腿蹬离不与重心前送连成跑步；09相近后支撑期是前膝领先、小腿收在膝下。",
+      "armsObserved": "右扇退后/左拳在前的反向关系可保留。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/SW/04",
+        "run/SW/05",
+        "run/SW/12",
+        "run/SW/13"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/SW/05",
+      "runtime": "runtime/run/SW/05.png",
+      "recommendation": "优先改伸腿踢出为屈膝短飞行",
+      "legsObserved": "右腿长伸、脚板大面积朝镜头，连04–06连续保持踢腿轮廓；09短飞行主要是膝前送、脚踝收近身下，不能因本帧鞋底可见就单判外八。",
+      "armsObserved": "左右持握正确，空左拳在前可作新姿态基础。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/SW/06",
+        "run/SW/07",
+        "run/SW/14"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/SW/06",
+      "runtime": "runtime/run/SW/06.png",
+      "recommendation": "优先改短飞行的腿部收放",
+      "legsObserved": "与05仍近同长伸前踢，缺最高阶段收小腿后的下降变化，前脚掌方向本身不是主要错误。",
+      "armsObserved": "此帧手姿可与05连，之后07空手位置突变需处理。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/SW/06",
+        "run/SW/07",
+        "run/SW/14"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/SW/07",
+      "runtime": "runtime/run/SW/07.png",
+      "recommendation": "腿脚可作下降基础；修空手过渡",
+      "legsObserved": "右靴向SW左下下降、左腿后收，当前鞋轴可保留；前驱小腿仍偏长，待04–06修后调衔接。",
+      "armsObserved": "空左拳从06近胸前突到画面右前外伸，08同态、09又缩胸，反复摆动无对应完整步相。",
+      "confidence": "medium",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/SW/07",
+        "run/SW/08"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/SW/08",
+      "runtime": "runtime/run/SW/08.png",
+      "recommendation": "腿脚可作初触基础；明确接触与手摆",
+      "legsObserved": "前右靴已低位、膝踝朝SW，保留脚轴；与09区别较小，应由真实鞋跟/前掌而非precontact字样判是否触地。",
+      "armsObserved": "同07空拳外伸，09再次收胸，需顺一条摆臂弧线。",
+      "confidence": "medium",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/SW/07",
+        "run/SW/08",
+        "run/SW/09"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/SW/09",
+      "runtime": "runtime/run/SW/09.png",
+      "recommendation": "保留右支撑腿作为基础，调整相邻手摆",
+      "legsObserved": "右腿向左前下、靴底承重，左后腿收回，整体腿方向比左支撑半周期合理，可复用。",
+      "armsObserved": "左拳在胸前，与08外伸和10再外伸构成来回跳，不是一次持续回摆。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/SW/01",
+        "run/SW/02",
+        "run/SW/03"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/SW/10",
+      "runtime": "runtime/run/SW/10.png",
+      "recommendation": "保留右脚轴；增强缓冲并顺手摆",
+      "legsObserved": "右膝略屈但重心缓冲幅度不充分；右腿方向和鞋面可复用，不需再转鞋。",
+      "armsObserved": "左拳又向画面右前外伸，和09胸前拳的反复切换需修。",
+      "confidence": "medium",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/SW/01",
+        "run/SW/02",
+        "run/SW/03"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/SW/11",
+      "runtime": "runtime/run/SW/11.png",
+      "recommendation": "补左膝经过，腿/手一起衔接12",
+      "legsObserved": "右支撑仍维持近09姿态，左腿在后；12直接大幅提膝前踢，缺经过与前驱的中间相位。",
+      "armsObserved": "左手从10外伸拳落到身侧，右扇回前，须配合新左膝前送形成反向摆臂。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/SW/03",
+        "run/SW/04",
+        "run/SW/11",
+        "run/SW/12"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/SW/12",
+      "runtime": "runtime/run/SW/12.png",
+      "recommendation": "优先重做左膝前驱与右脚后蹬",
+      "legsObserved": "左膝/左靴向画面右前大开、鞋底正对镜头，右腿伸向左下；整条左腿仍是外侧踢，不能用此前右脚尖修正作为整帧通过。",
+      "armsObserved": "手的归属正确；右扇在前左手回后可作为左腿领先基础。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/SW/04",
+        "run/SW/05",
+        "run/SW/12",
+        "run/SW/13"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/SW/13",
+      "runtime": "runtime/run/SW/13.png",
+      "recommendation": "保留转正鞋头，修左前驱腿的身下轨迹",
+      "legsObserved": "领先左靴已朝左下，但左膝/踝仍在身体右侧，整腿路径延续12外侧迈；鞋头局部修正不等于步态已修。",
+      "armsObserved": "空左手张掌向后外伸，15后又改拳；手形本身可自然变化，整段肩肘位置必须连续。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/SW/13",
+        "run/SW/14"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/SW/14",
+      "runtime": "runtime/run/SW/14.png",
+      "recommendation": "保留靴轴，修左腿下降路径",
+      "legsObserved": "领先左靴已转左下，却仍在髋右外侧下降；应在髋膝层级把落脚引向SW前下，不能仅缩小两脚间距。",
+      "armsObserved": "与13手势近同可作为后摆基础，但须接15/16连续。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/SW/14",
+        "run/SW/15"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/SW/15",
+      "runtime": "runtime/run/SW/15.png",
+      "recommendation": "保留靴轴/未出画扇，修左支撑路径和左臂衔接",
+      "legsObserved": "左脚低位且鞋尖向左下可保留；膝踝仍侧落右方，髋向支撑脚加载关系需修。旧left_precontact文字不能替代图上受力判断。",
+      "armsObserved": "左张掌在后侧，下一格突然变右前拳；要补真实肘肩前后弧。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/SW/15",
+        "run/SW/16",
+        "run/SW/01"
+      ],
+      "wholeFrameApproved": false
+    },
+    {
+      "slot": "run/SW/16",
+      "runtime": "runtime/run/SW/16.png",
+      "recommendation": "修左腿加载线与闭环手摆",
+      "legsObserved": "左靴方向可留，膝踝到右下的外侧落脚仍未纠正；应接01形成明确初触→缓冲。",
+      "armsObserved": "左空手由15后张掌跳成前伸拳，再到01低拳，闭环摆臂方向不连贯。",
+      "confidence": "high",
+      "referenceCharacter": "09_bamboo_archer_girl",
+      "referencePhaseSlots": [
+        "run/SW/16",
+        "run/SW/01",
+        "run/SW/02"
+      ],
+      "wholeFrameApproved": false
+    }
+  ],
+  "limitations": [
+    "本次仅静态逐格、连图与关键原尺寸实查，不宣称已动态播放通过",
+    "透明runtime无实体地面；接触/受力是结合膝踝与靴底姿态的视觉判断，不是引擎接触测量",
+    "旧15 audit中全组静态通过结论不足以覆盖此轮指定参照标准，本文件明确撤回该推断",
+    "未恢复已清理sources，未触碰09文件，也未改15当前选表、manifest或runtime"
+  ]
+}

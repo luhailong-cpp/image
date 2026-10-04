@@ -1,0 +1,108 @@
+{
+  "character": "15_water_dragon_scholar_boy",
+  "reviewedAt": "2026-10-03T17:37:44.060Z",
+  "reviewer": "continue_cast",
+  "scope": "N/S run32 native candidates",
+  "status": "complete_static_candidates_dynamic_pending",
+  "footDirectionReview": {
+    "method": "全部原图生成回图逐张目检，再核对完整4x4连图；追踪膝—踝—鞋跟—鞋尖，不以两腿距离判断外八。",
+    "N": "右手持扇屏右，左手空屏左，左右腿可连续追踪。未见明显鞋尖横向外撇，保留当前16帧。后摆鞋底的透视倾斜未误当作外八。",
+    "S": "右手持扇屏左，左空手及左腰玉屏右。前伸鞋与膝踝同轴，支撑鞋没有左右叉向外侧，保留当前16帧。S14后摆腿向屏左收回属于整体腿摆动，不能仅因其斜线判鞋尖外撇。"
+  },
+  "passes": [
+    "32张原生独立透明单帧，全部1254×1254RGBA，32个唯一SHA；未镜像、复制、插值凑帧。",
+    "扇子始终在解剖右手；双手双腿可辨；左右触地半周期已区分。",
+    "第二轮改正了N05-08手臂相位、N11错误支撑腿、S03过早换腿、S09画幅、S10手臂相位、S12蹬离、S14腾空；按实际相位复用其它可用候选。"
+  ],
+  "openConcerns": [
+    {
+      "frames": "N01-04、N09-12",
+      "severity": "dynamic_review",
+      "note": "接触、缓冲与蹬离轮廓存在，但N02/N10重心下压较弱；需以240px和384px、640/720/800ms对比确认落地停留。"
+    },
+    {
+      "frames": "N05-08、N13-16",
+      "severity": "dynamic_review",
+      "note": "N第一腾空高度较浅，N15/16已接近地面且约比1191参考线低10余原生像素；脚掌方向可用，但不能机械声称15/16仍为明确腾空。"
+    },
+    {
+      "frames": "N10-12",
+      "severity": "dynamic_review",
+      "note": "N11扇子向外上方摆的幅度较大，需确认连续播放是否弹跳。"
+    },
+    {
+      "frames": "S04",
+      "severity": "ground_review",
+      "note": "后方支撑靴底低于1191参考线约20余原生像素；未为贴线平移整图。需与实际踝足透视和全组统一根点复核。"
+    },
+    {
+      "frames": "S05-08、S13-16",
+      "severity": "dynamic_review",
+      "note": "已按脚底真实高度重选序，仍需正常大小播放确认幅度与循环接缝。"
+    }
+  ],
+  "actualPhaseMap": {
+    "N": {
+      "12": "右前掌蹬离",
+      "01": "左脚接触",
+      "02-03": "左支撑/缓冲",
+      "04": "左前掌蹬离",
+      "05-07": "两脚短暂腾空、右脚准备前伸",
+      "08": "右脚近触地",
+      "09": "右脚接触",
+      "10-11": "右支撑/缓冲",
+      "13-14": "左脚向下一接触推进/腾空",
+      "15-16": "左脚近触地/提前进入接触范围"
+    },
+    "S": {
+      "10": "右支撑缓冲",
+      "11": "右支撑、左膝前摆",
+      "12": "右前掌蹬离",
+      "13": "刚离地",
+      "14": "第二腾空高点",
+      "15": "下降左腿前伸",
+      "16": "左脚近触地",
+      "01": "左脚接触",
+      "02": "左支撑缓冲",
+      "03": "左支撑、右膝前摆",
+      "04": "左前掌蹬离",
+      "05": "初腾空、右膝前伸",
+      "06": "第一腾空相对高点",
+      "07-08": "下降接触准备",
+      "09": "右脚接触"
+    }
+  },
+  "reselection": {
+    "S06": "sources/new/run-S-07-v2.png",
+    "S07": "sources/new/run-S-08-v2.png",
+    "S08": "sources/new/run-S-06-v2.png",
+    "S13": "sources/new/run-S-12-v1.png",
+    "S14": "sources/new/run-S-14-v2.png",
+    "S15": "sources/new/run-S-13-v1.png",
+    "S16": "sources/new/run-S-14-v1.png"
+  },
+  "playback": {
+    "performed": false,
+    "reason": "CUA createBrowserTab(iab)返回Browser is not available；cua.getState()返回apps=[]、browsers=[]。导出APNG/GIF不能冒充动态目检。",
+    "artifacts": "audit/ns-review/",
+    "comparisonsMs": [
+      480,
+      640,
+      720,
+      800
+    ],
+    "apngFrameMs": 45,
+    "slowApngFrameMs": 180,
+    "displaySizes": [
+      240,
+      384
+    ],
+    "clientVerified": false
+  },
+  "model": {
+    "configuredTarget": "GPT Image 2.5 Sunburst / max",
+    "actualModel": null,
+    "actualQuality": null,
+    "note": "宿主管理内置入口没有型号/质量选择器，按实际提交与回执记录，未确认实际型号和质量。"
+  }
+}
