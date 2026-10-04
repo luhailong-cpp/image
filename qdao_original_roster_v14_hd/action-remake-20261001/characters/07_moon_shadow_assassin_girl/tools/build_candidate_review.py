@@ -5,7 +5,9 @@ from PIL import Image,ImageDraw
 R=Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('selection');p.add_argument('--group');args=p.parse_args()
 doc=json.loads((R/args.selection).read_text(encoding='utf-8-sig'))
-selected=doc['selected'];groups={}
+selected=doc['selected']
+if isinstance(selected,list):selected={f['id']:f['selected'] for f in selected}
+groups={}
 for key,rel in selected.items():
     action,direction,num=key.split('_');groups.setdefault((action,direction),{})[num]=rel
 for (action,direction),seq in groups.items():
