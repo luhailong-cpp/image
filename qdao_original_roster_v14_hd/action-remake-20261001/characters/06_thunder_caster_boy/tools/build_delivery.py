@@ -47,6 +47,7 @@ def main():
  out['anchor']['policy']='fixed full canvas, preserve authored stance and motion; no per-frame lowest-pixel alignment'
  out['runTimingReview']={'requestDate':'2026-10-04','selectedNormalCycleMs':1200,'uniformFrameMs':75,'durationsMs':[75]*16,'speedOptions':[1,0.25],'oldFastOptionsRemoved':True,'status':'同一支撑脚持续接地、相对位置每两张独立姿态推进；16帧均匀75ms，客户端未接入','preview':'preview/timing-grounding-20261003/index.html','referenceGroundVerified':False,'clientVerified':False}
  if review:
+  if 'retentionCleanup' in review:out['retentionCleanup']=review['retentionCleanup']
   out.update(complete=review.get('localWorkComplete',False),completionScope='本机素材、手脚逐帧复核、离线预览、逐图来源与合并交接；不含客户端接入或用户最终观感批准',staticReviewedFrames=196,offlinePlaybackVerifiedSequences=14,currentReview='review/CURRENT_REVIEW.json',userFinalApproved=False)
   for f in frames:f['review']='当前手脚逐帧复核完成，离线正常/慢放和逐帧功能已验证，客户端未接入'
   for s in seq:s['dynamicReview']='offline_playback_verified; user/client acceptance pending'

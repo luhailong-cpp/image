@@ -40,6 +40,9 @@ def write_handoff(status):
     if review:lines+=['','[当前播放证据]('+review['playbackEvidence']+')。']
     lines+=['','尚未通过的接入项：客户端根点与位移速度、游戏内滑步、命中/释放触发时刻；用户最终观感确认。当前没有凭客户端状态冒称全部游戏内验收完成。','',
       '最终PNG与当前预览确认后，按用户素材保留规则清理本目录已淘汰/中间图，保留完整来源文字与删除清单。临时Edge配置/缓存的清理曾被自动审批拒绝（仅返回 blocked by policy），因此保留，不绕过。']
+    if status.get('retentionCleanup',{}).get('state')=='blocked_by_automatic_approval':
+        lines[-1]='最终PNG及当前预览已验证。清理本目录487张原生重复图、拒稿和旧复核图时，自动审批拒绝启动删除命令（仅返回 blocked by policy），没有执行删除；这些图和全部来源文字仍保留。具体路径和SHA见 [清理清单](records/final_retention_plan_20261004.json)。此前临时Edge配置/缓存删除也被自动审批拒绝，仍保留，未绕过。素材制作与离线验证已完成，清理项因上述限制未完成。'
+    lines += ['', '游戏图片取 runtime/ 的196张PNG及对应来源JSON；查看效果取 preview/。保留提示词和文字来源记录。work/ 中原生重复图、拒稿及旧复核图不作为游戏资源。']
     (R/'MERGE_HANDOFF.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
 if __name__=='__main__':write_handoff(json.loads((R/'STATUS.json').read_text(encoding='utf-8-sig')))
 

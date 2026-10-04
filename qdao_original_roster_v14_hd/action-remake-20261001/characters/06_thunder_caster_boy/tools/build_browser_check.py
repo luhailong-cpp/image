@@ -1,5 +1,6 @@
 """Build a local, visible playback QA page, operated through the actual app browser."""
 from pathlib import Path
+import json,hashlib
 R=Path(__file__).resolve().parents[1]
 HTML=r'''<!doctype html><html lang="zh-CN"><meta charset="utf-8">
 <title>06 动作播放检查</title><style>body{font:16px system-ui;background:#182332;color:#eef3f7;margin:20px}button{font:inherit;padding:10px}iframe{width:100%;height:850px;border:1px solid #657081}pre{white-space:pre-wrap;font-size:12px}a{color:#7bddd1}</style>
@@ -39,4 +40,7 @@ try{
 publish();};
 </script></html>'''
 (R/'preview/browser-check.html').write_text(HTML,encoding='utf-8')
+m=json.loads((R/'preview/manifest.json').read_text(encoding='utf-8'))
+snapshot={'generatedAt':m['generated_at_utc'],'manifestSha256':hashlib.sha256((R/'preview/manifest.json').read_bytes()).hexdigest(),'frames':[{'path':f['path'],'sha256':f['sha256']} for s in m['sequences'] for f in s['frames']]}
+(R/'records/browser_check_source_snapshot_20261004.json').write_text(json.dumps(snapshot,ensure_ascii=False,indent=2),encoding='utf-8')
 print('preview/browser-check.html')
