@@ -14,7 +14,7 @@ HTML=r'''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="vie
 <div class="bar"><button id="prev" disabled>上一帧</button><input id="frame" type="range" min="1" max="16" value="1" disabled><button id="next" disabled>下一帧</button><output id="frameValue">01 / 16</output><label><input id="showGround" type="checkbox">诊断参考线</label><label>高度<select id="ground"><option value="92.105">92.105%（旧提示目标）</option><option value="93.301">93.301%（E 鞋底观察附近）</option><option value="94">94%</option></select></label></div>
 <p id="status">正在加载16张图片</p><div class="cards" id="cards"></div>
 <div class="review"><h2>逐帧观察</h2><p>依据可见鞋底、膝踝和近远腿遮挡判断，均为待复核候选。参考线不等于地面标定；两脚在透视中也不必处于同一水平线。</p><ol id="notes"></ol>
-<p class="note">验收重点：左右脚是否交替承重，鞋尖是否沿运动方向，肩肘与手中道具是否连接自然，承重→前掌推离→短腾空→落地是否连续。八个方向分别审查，并与用户确认的竹弓少女同方向对照。</p>
+<p class="note">验收重点：同一脚连续支撑半周期，前侧、身下、后侧第一位置、后侧第二位置各两帧，然后换脚。鞋尖沿运动方向，肩肘与手中道具连接自然；八个方向与用户确认的竹弓少女同方向对照。</p>
 <p><a href="index.html">全部动作预览</a> · <a href="run-current-1200ms.webp">当前完整方向1200ms离线动图</a> · <a href="timing-grounding-data.json">本页来源与待审记录</a></p></div></main>
 <script id="data" type="application/json">__DATA__</script>
 <script>
@@ -42,13 +42,12 @@ document.addEventListener('keydown',e=>{if(['INPUT','SELECT','BUTTON'].includes(
 load();
 </script></html>'''
 m=json.loads((BASE/'preview/manifest-preview.json').read_text(encoding='utf-8'))
-e=json.loads((BASE/'review-run-E.json').read_text(encoding='utf-8'))
 seqs={}
 for d in m['actions']['run']['directions']:
     seq=[s for s in m['slots'] if s['action']=='run' and s['direction']==d]
     if len(seq)==16 and all(s['selected'] for s in seq):
         seqs[d]=[dict(s['selected']) for s in seq]
-data={'character':BASE.name,'built_at':datetime.now(timezone.utc).isoformat(),'source':'manifest-preview.json','cycles_ms':[1200],'frame_ms':75,'adopted_preview_cycle_ms':1200,'adopted_runtime_cycle_ms':None,'formal_timing_changed':False,'client_tested':False,'sequences':seqs,'notes':{str(i+1):r['notes'] for i,r in enumerate(e['reviewed'])},'grounding':e['grounding'],'method':'Same full canvas and selected PNGs; uniform75ms x16, normal1x1200ms; no bbox fit, no root shifts, no generated in-betweens.'}
+data={'character':BASE.name,'built_at':datetime.now(timezone.utc).isoformat(),'source':'manifest-preview.json','cycles_ms':[1200],'frame_ms':75,'adopted_preview_cycle_ms':1200,'adopted_runtime_cycle_ms':None,'formal_timing_changed':False,'client_tested':False,'sequences':seqs,'contactRequirement':'../review/contact-pairs-current-20261004.json','method':'Same full canvas and selected PNGs; uniform75ms x16, normal1x1200ms; no bbox fit, no root shifts, no generated in-betweens.'}
 data['notes_by_direction']={d:{str(i+1):f.get('review_notes','') for i,f in enumerate(seq)} for d,seq in seqs.items()}
 (BASE/'preview/timing-grounding-data.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 html=HTML.replace('__DATA__',json.dumps(data,ensure_ascii=False).replace('</','<\\/'))

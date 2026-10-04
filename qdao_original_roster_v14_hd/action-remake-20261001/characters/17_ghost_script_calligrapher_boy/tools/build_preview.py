@@ -73,7 +73,7 @@ def build():
         extra=review_by_file.get(item["key"]+".png")
         if extra:
             item["review_status"]=extra.get("status",item["review_status"])
-            item["review_notes"]=extra.get("notes") or extra.get("review") or extra.get("visualNotes") or "；".join(x for x in [extra.get("handConnection"),extra.get("groundingObservation"),"；".join(extra.get("issues",[]))] if x)
+            item["review_notes"]=extra.get("notes") or extra.get("review") or extra.get("visualNotes") or extra.get("actualObservation") or "；".join(x for x in [extra.get("handConnection"),extra.get("groundingObservation"),"；".join(extra.get("issues",[]))] if x)
     by_slot={}
     for item in prior+inventory:
         by_slot.setdefault(item["slot"],[]).append(item)
