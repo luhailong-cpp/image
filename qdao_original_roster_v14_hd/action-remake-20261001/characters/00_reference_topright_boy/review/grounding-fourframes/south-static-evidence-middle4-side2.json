@@ -1,0 +1,1208 @@
+{
+  "createdAtUtc": "2026-10-04T15:53:13.652418+00:00",
+  "scope": [
+    "S",
+    "SE",
+    "SW"
+  ],
+  "status": "48_static_candidates_ready_for_independent_review",
+  "technical": {
+    "count": 48,
+    "uniqueNativeSourceSha256": 48,
+    "allNative1254RGBA": true,
+    "allHaveGenerationRecord": true,
+    "frameMs": 75,
+    "cycleMs": 1200,
+    "noDuplicatedSource": true
+  },
+  "contactFramesByDirection": {
+    "S": {
+      "right": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "left": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    "SE": {
+      "right": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "left": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    "SW": {
+      "right": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "left": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    }
+  },
+  "pairLayout": {
+    "right": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "left": [
+      [
+        9,
+        10
+      ],
+      [
+        11,
+        12
+      ],
+      [
+        13,
+        14
+      ],
+      [
+        15,
+        16
+      ]
+    ]
+  },
+  "reviewNotes": [
+    "中段4帧分为两个连续2帧姿态段，既有正确原生帧保留且单源只用一次。",
+    "S中段摆腿次序已将垂足收腿放在前摆之前；SE左支撑中段将后收腿放在前摆之前。",
+    "SW后撑透视中前摆腿遮挡后撑腿上端，不能把画面左右固定当作解剖左右。",
+    "仅静态候选建议；实际动态播放、循环观感及客户端地面接触未验证。",
+    "现有01/02及部分相位头部有自然/历史轻微差异；没有使用逐帧缩放拟合消除。"
+  ],
+  "remainingUnverified": [
+    "normal-speed visual playback",
+    "client world-ground/locomotion sync"
+  ],
+  "rejectedCandidates": {
+    "SE/16-v4": "头身放大，头顶由158上移83，拒用",
+    "SE/15-v5": "支撑脚未后移，不能作为后撑段",
+    "SE/13-v4": "第三只靴，拒用",
+    "SE/05-v2": "头身放大/步幅异常",
+    "SE/06-v2": "头身放大/步幅异常",
+    "SW/05-v4": "头身放大",
+    "SW/05-v5": "头身放大",
+    "SW/06-v5": "头身放大且支撑侧异常",
+    "SW/07-v4": "头身比例放大",
+    "SW/07-v5": "头身比例放大",
+    "SW/08-v5": "仍处于前侧支撑，不能作后撑",
+    "SW/08-v6": "头身放大",
+    "SW/08-v7": "实际1133x1388错误尺寸，禁止缩放为1254冒充原生"
+  },
+  "frames": [
+    {
+      "action": "run",
+      "direction": "S",
+      "frame": 1,
+      "source": "generation/run/S/01-v4.png",
+      "sourceSha256": "967e6fd91bcf4fbc65ed19808021a90f5299cc8c41ef8b91161b74b039703e7b",
+      "supportFoot": "right",
+      "position": "front",
+      "spatialPair": 1,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右脚在前初触，另一腿后折，右空臂后侧。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/S/01-v4.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "S",
+      "frame": 2,
+      "source": "generation/run/S/02-v5.png",
+      "sourceSha256": "d18d3ba147d71485ca00709e991c142f3bdef6b2f28be4bab12ec47851551167",
+      "supportFoot": "right",
+      "position": "front",
+      "spatialPair": 1,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右膝屈曲缓冲，鞋尖朝前、鞋掌向下。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/S/02-v5.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "S",
+      "frame": 3,
+      "source": "generation/run/S/05-v2.png",
+      "sourceSha256": "1a96217203ad812743e159edba5134d06b2fe296fd2087f03f25784a6b4c56c8",
+      "supportFoot": "right",
+      "position": "middle",
+      "spatialPair": 2,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右脚在髋下，左摆腿膝上提、鞋仍垂直。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/S/05-v2.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "S",
+      "frame": 4,
+      "source": "generation/run/S/04-v3.png",
+      "sourceSha256": "adbdde92727e10ce80be64221fc74b10b9b622cc04bde9a6dc04627a3b201ee3",
+      "supportFoot": "right",
+      "position": "middle",
+      "spatialPair": 2,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右脚全掌支撑，左腿由收腿转向前摆。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/S/04-v3.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "S",
+      "frame": 5,
+      "source": "generation/run/S/04-v2.png",
+      "sourceSha256": "5349cc6c79d7dd914c28885b4f571d23c7e3a454f889af0ec34d1c0e5b5f1a74",
+      "supportFoot": "right",
+      "position": "middle",
+      "spatialPair": 3,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右腿继续支撑，左膝前抬、鞋底朝前下。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/S/04-v2.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "S",
+      "frame": 6,
+      "source": "generation/run/S/06-v2.png",
+      "sourceSha256": "3163751bfa13025a63f8d8d5c393e32892d8c6e758ec6358012cdb5d205d73d3",
+      "supportFoot": "right",
+      "position": "middle",
+      "spatialPair": 3,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右踝继续受力，左前摆腿进一步伸出。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/S/06-v2.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "S",
+      "frame": 7,
+      "source": "generation/run/S/07-v3.png",
+      "sourceSha256": "c98e1f234586c2512b699108930fde85f3083955630ca4bd548be4e6ddf2c4ad",
+      "supportFoot": "right",
+      "position": "rear",
+      "spatialPair": 4,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右脚后移并屈踝，左腿前摆，右空臂前摆。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/S/07-v3.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "S",
+      "frame": 8,
+      "source": "generation/run/S/08-v2.png",
+      "sourceSha256": "6f1d411b72e7f4522f1564900a58fd7a8aa178bbf2ec6c8d128f4a7d8e0c4dd0",
+      "supportFoot": "right",
+      "position": "rear",
+      "spatialPair": 4,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右脚在身后保留前掌接触，左腿向前待落地。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/S/08-v2.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "S",
+      "frame": 9,
+      "source": "generation/run/S/09-v1.png",
+      "sourceSha256": "6ce048a1faebf22311650e48d53cee92bb2afcbb8e8e7bb1316feadb1eea15a8",
+      "supportFoot": "left",
+      "position": "front",
+      "spatialPair": 1,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚在前初触，右腿后折。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/S/09-v1.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "S",
+      "frame": 10,
+      "source": "generation/run/S/10-v1.png",
+      "sourceSha256": "84edeee17f8a4881e5a5e88f525b1be6e529b3d59f11fdc044e7828e5262b472",
+      "supportFoot": "left",
+      "position": "front",
+      "spatialPair": 1,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左膝缓冲，脚掌压实朝前，右空臂开始后摆。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/S/10-v1.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "S",
+      "frame": 11,
+      "source": "generation/run/S/13-v2.png",
+      "sourceSha256": "9c2d65b194fd751a2575a0d25f547d5e3e863dc06767cfc78b1efaaf8e6d7f63",
+      "supportFoot": "left",
+      "position": "middle",
+      "spatialPair": 2,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚髋下承重，右膝上抬、鞋仍垂直。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/S/13-v2.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "S",
+      "frame": 12,
+      "source": "generation/run/S/11-v2.png",
+      "sourceSha256": "55d8dc76e62e5e598243ae20828cfd8d52adda3c10c733f50056891f6ad5e06a",
+      "supportFoot": "left",
+      "position": "middle",
+      "spatialPair": 2,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚全掌支撑，右腿开始前伸。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/S/11-v2.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "S",
+      "frame": 13,
+      "source": "generation/run/S/12-v3.png",
+      "sourceSha256": "f5f570883d2b648b668a413b988d9e5f21a5f16f479a7f0c69e9a55954e8f603",
+      "supportFoot": "left",
+      "position": "middle",
+      "spatialPair": 3,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左踝持续承重，右腿前摆鞋底可见。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/S/12-v3.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "S",
+      "frame": 14,
+      "source": "generation/run/S/14-v2.png",
+      "sourceSha256": "d112608b6d772ac3f6efc70273221f985c611bdb10733bc2241a1c9355715cd0",
+      "supportFoot": "left",
+      "position": "middle",
+      "spatialPair": 3,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚髋下偏后承重，右腿继续前摆。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/S/14-v2.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "S",
+      "frame": 15,
+      "source": "generation/run/S/15-v3.png",
+      "sourceSha256": "acdd2ed807cb336946e85ffcfcd240731e900ce5cdb06ed682d24d359b9edd68",
+      "supportFoot": "left",
+      "position": "rear",
+      "spatialPair": 4,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚后方支撑，右膝前抬。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/S/15-v3.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "S",
+      "frame": 16,
+      "source": "generation/run/S/16-v2.png",
+      "sourceSha256": "990c5ddb441efc32f682dbfbada83738bba2b11b0c471ecab4c48243d7de92c8",
+      "supportFoot": "left",
+      "position": "rear",
+      "spatialPair": 4,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚后推保留前掌，右腿前摆准备下一圈。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/S/16-v2.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SE",
+      "frame": 1,
+      "source": "generation/run/SE/01-v5.png",
+      "sourceSha256": "c74d6431c12ba3f05b51492651372af3a7313248a77dc164b32502ab53bdd983",
+      "supportFoot": "right",
+      "position": "front",
+      "spatialPair": 1,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右脚在人物前方初触，鞋尖朝右下。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SE/01-v5.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SE",
+      "frame": 2,
+      "source": "generation/run/SE/02-v3.png",
+      "sourceSha256": "daa9f5050f42e655deaffb93bd95e3035004d793e2868fc880e63738e6c86064",
+      "supportFoot": "right",
+      "position": "front",
+      "spatialPair": 1,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右膝缓冲，鞋掌朝下，另一腿后收。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SE/02-v3.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SE",
+      "frame": 3,
+      "source": "generation/run/SE/03-v1.png",
+      "sourceSha256": "5e3645817c8c40b76f2e3a1e0acfd13094f1502a2de3545b4b339e85564b9f5f",
+      "supportFoot": "right",
+      "position": "middle",
+      "spatialPair": 2,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右腳髋下承重，左腿抬起通过。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SE/03-v1.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SE",
+      "frame": 4,
+      "source": "generation/run/SE/04-v3.png",
+      "sourceSha256": "b5fd0e548bd6571f96c109b8624981114e17f6ee1b89e781f732eea5e93652bb",
+      "supportFoot": "right",
+      "position": "middle",
+      "spatialPair": 2,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右膝更弯、左腿前摆，右空臂从后向前。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SE/04-v3.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SE",
+      "frame": 5,
+      "source": "generation/run/SE/05-v3.png",
+      "sourceSha256": "d0bcc8eca0133eda3abe7595661728d2ae7cdd2420359c20cea92d9450096e45",
+      "supportFoot": "right",
+      "position": "middle",
+      "spatialPair": 3,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右脚中撑，左腿前伸、露少量鞋底。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SE/05-v3.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SE",
+      "frame": 6,
+      "source": "generation/run/SE/06-v3.png",
+      "sourceSha256": "02c1a0b64bc95a62a39d5d5ee12c3803bdf6c2cb55a7edd7e461c633b8331fd5",
+      "supportFoot": "right",
+      "position": "middle",
+      "spatialPair": 3,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右脚略后撑，左腿更伸展，鞋长轴顺右下。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SE/06-v3.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SE",
+      "frame": 7,
+      "source": "generation/run/SE/07-v2.png",
+      "sourceSha256": "a312bfd1e0dd6338d1562e566c3a34d74053989bea86f55ac530103c0b6be92f",
+      "supportFoot": "right",
+      "position": "rear",
+      "spatialPair": 4,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右脚在画面左后方前掌支撑，左腿前摆。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SE/07-v2.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SE",
+      "frame": 8,
+      "source": "generation/run/SE/08-v2.png",
+      "sourceSha256": "44c57812a8efcb48d78e60bbab419d9f92530009ebf3ac780c30ae37d17a6202",
+      "supportFoot": "right",
+      "position": "rear",
+      "spatialPair": 4,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右前掌后撑，左腿向右下伸出待落地。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SE/08-v2.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SE",
+      "frame": 9,
+      "source": "generation/run/SE/09-v2.png",
+      "sourceSha256": "99dda708ee8de53aae7f96f4a34d1d971eafa4f208825514fd05ffa77a48624c",
+      "supportFoot": "left",
+      "position": "front",
+      "spatialPair": 1,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚前触，右腿后收，右空臂前侧。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SE/09-v2.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SE",
+      "frame": 10,
+      "source": "generation/run/SE/10-v1.png",
+      "sourceSha256": "34ad43cd648581ca9065e60857ac40b607961496e7e51aea9bba747d0b006dd7",
+      "supportFoot": "left",
+      "position": "front",
+      "spatialPair": 1,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左腿缓冲承重，右腿开始回摆。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SE/10-v1.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SE",
+      "frame": 11,
+      "source": "generation/run/SE/12-v5.png",
+      "sourceSha256": "c4182b5e009eaffeb5420fd26ddca43a4e7166fb444d7d9cc6e241d519b15d38",
+      "supportFoot": "left",
+      "position": "middle",
+      "spatialPair": 2,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚中撑，右腿屈膝后收。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SE/12-v5.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SE",
+      "frame": 12,
+      "source": "generation/run/SE/14-v3.png",
+      "sourceSha256": "487b5ef75109350bc81b21c5a8c719c44a16af6e265e8f9642b12798570d9b1f",
+      "supportFoot": "left",
+      "position": "middle",
+      "spatialPair": 2,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚继续中撑，右膝上提准备通过。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SE/14-v3.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SE",
+      "frame": 13,
+      "source": "generation/run/SE/11-v3.png",
+      "sourceSha256": "7a666f95bb60ad680dd33f122dbacc035152b7abdbe55854f5684b110062c14d",
+      "supportFoot": "left",
+      "position": "middle",
+      "spatialPair": 3,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚中撑，右腿由屈曲转向前摆。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SE/11-v3.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SE",
+      "frame": 14,
+      "source": "generation/run/SE/13-v5.png",
+      "sourceSha256": "e01273ad964b9d1106633a2b487a6d0d3a9891604140f2ae1b2040d93a76b7f0",
+      "supportFoot": "left",
+      "position": "middle",
+      "spatialPair": 3,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚略后撑，右腿前摆可见鞋底。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SE/13-v5.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SE",
+      "frame": 15,
+      "source": "generation/run/SE/15-v6.png",
+      "sourceSha256": "3bfec3134ea19f9996f7ef42968e0e8501287f3f39b927363213c758d92fb527",
+      "supportFoot": "left",
+      "position": "rear",
+      "spatialPair": 4,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚在左后方压地、膝微屈，右腿前摆。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SE/15-v6.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SE",
+      "frame": 16,
+      "source": "generation/run/SE/16-v5.png",
+      "sourceSha256": "b0a98aab0ec60babbaeb6d7ad590f13ab285bc6911ed10741170d49d1e8c3ecb",
+      "supportFoot": "left",
+      "position": "rear",
+      "spatialPair": 4,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚后推前掌接触，右腿进一步向右下伸出。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SE/16-v5.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SW",
+      "frame": 1,
+      "source": "generation/run/SW/01-v1.png",
+      "sourceSha256": "6d6360b56e1be271413bd6eaebbc87df2a9f9b6581fd93e2b7a8f62fc9318e93",
+      "supportFoot": "right",
+      "position": "front",
+      "spatialPair": 1,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右脚前触，鞋尖朝左下，左腿后折。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SW/01-v1.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SW",
+      "frame": 2,
+      "source": "generation/run/SW/02-v2.png",
+      "sourceSha256": "aeefd03be5b6d49a49f455c63bec0fc8fdb984714f5a9405f68036de3200ee5b",
+      "supportFoot": "right",
+      "position": "front",
+      "spatialPair": 1,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右腿前撑缓冲，鞋底朝地面。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SW/02-v2.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SW",
+      "frame": 3,
+      "source": "generation/run/SW/03-v4.png",
+      "sourceSha256": "8a07e561121458e09782126ceb48ed94336951b49d4b315fcf5d822ab0718675",
+      "supportFoot": "right",
+      "position": "middle",
+      "spatialPair": 2,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右脚在髋下承重，左腿收膝。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SW/03-v4.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SW",
+      "frame": 4,
+      "source": "generation/run/SW/04-v4.png",
+      "sourceSha256": "b68a4e90860aaa52b6ff1c91d8443ca676ffbacb58f6c6f7fd434341c1ef1d5a",
+      "supportFoot": "right",
+      "position": "middle",
+      "spatialPair": 2,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右膝弯曲缓冲，左腿向前回收。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SW/04-v4.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SW",
+      "frame": 5,
+      "source": "generation/run/SW/05-v6.png",
+      "sourceSha256": "5bebf92f05d6fc70aba6d992de8638d7ec6b3d68c2bd9c9aecf106d4907ab578",
+      "supportFoot": "right",
+      "position": "middle",
+      "spatialPair": 3,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右脚中撑，另一膝抬高通过，右空臂前摆。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SW/05-v6.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SW",
+      "frame": 6,
+      "source": "generation/run/SW/06-v6.png",
+      "sourceSha256": "46574fae1a7d15d60c484fdb5deebf1f744787306703756f6b335737bdb270f3",
+      "supportFoot": "right",
+      "position": "middle",
+      "spatialPair": 3,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右脚中撑末段，脚踝仍承重。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SW/06-v6.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SW",
+      "frame": 7,
+      "source": "generation/run/SW/07-v6.png",
+      "sourceSha256": "ee4b569a454aede4ab53f01148392feb5aedc9d87f94c487538ec25c54a27350",
+      "supportFoot": "right",
+      "position": "rear",
+      "spatialPair": 4,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右后撑脚在身体右后方、左腿前摆在前遮挡。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SW/07-v6.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SW",
+      "frame": 8,
+      "source": "generation/run/SW/08-v8.png",
+      "sourceSha256": "515de92e3d71593802b71fec308625eff9741f35ec9b5136060787b65c9788dd",
+      "supportFoot": "right",
+      "position": "rear",
+      "spatialPair": 4,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "右前掌后撑，左摆腿比07更向左下伸出。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SW/08-v8.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SW",
+      "frame": 9,
+      "source": "generation/run/SW/08-v4.png",
+      "sourceSha256": "7648ce91cdc3a3ec3c0702841d2eef7219c89ffb77838f808fd265502ead3295",
+      "supportFoot": "left",
+      "position": "front",
+      "spatialPair": 1,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚前触接棒，右腿后折。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SW/08-v4.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SW",
+      "frame": 10,
+      "source": "generation/run/SW/09-v4.png",
+      "sourceSha256": "0c7a8007c3592f3f3f6a3a26e0b8c94fb7d8329f90aa07ecd479ad41f1aae8c1",
+      "supportFoot": "left",
+      "position": "front",
+      "spatialPair": 1,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左膝缓冲，鞋前掌朝左下。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SW/09-v4.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SW",
+      "frame": 11,
+      "source": "generation/run/SW/10-v2.png",
+      "sourceSha256": "80f7633bf3a2c015e14ca31ec1ee43a92d991c81056a52fca7ec41cc3edf13eb",
+      "supportFoot": "left",
+      "position": "middle",
+      "spatialPair": 2,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚髋下承重，右腿折膝回收。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SW/10-v2.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SW",
+      "frame": 12,
+      "source": "generation/run/SW/11-v2.png",
+      "sourceSha256": "4b423d3ed7293a6ccf3b150d91d9232692fda9eb6bb8cc89d7b5b6a1bc583b93",
+      "supportFoot": "left",
+      "position": "middle",
+      "spatialPair": 2,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚中撑，右膝前通过。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SW/11-v2.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SW",
+      "frame": 13,
+      "source": "generation/run/SW/13-v4.png",
+      "sourceSha256": "4b9832ce2c4a7b5fa6662291808a39d9d442e51e82b9a0530489a2e0ae31cf93",
+      "supportFoot": "left",
+      "position": "middle",
+      "spatialPair": 3,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚继续支撑，右腿由回收到前摆。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SW/13-v4.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SW",
+      "frame": 14,
+      "source": "generation/run/SW/14-v4.png",
+      "sourceSha256": "3acd121b8593bb90f61ab85cfa0c0925c1becd7bd017103c1f536ef41af7cdb4",
+      "supportFoot": "left",
+      "position": "middle",
+      "spatialPair": 3,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚中撑末段，右鞋向前摆出。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SW/14-v4.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SW",
+      "frame": 15,
+      "source": "generation/run/SW/12-v1.png",
+      "sourceSha256": "4f5c47af83524cf60cab116e0743c8b0175b3d1d8adaffb1ec49a161e0295c47",
+      "supportFoot": "left",
+      "position": "rear",
+      "spatialPair": 4,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚后撑，右腿前摆鞋底可见。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SW/12-v1.png.generation.json"
+    },
+    {
+      "action": "run",
+      "direction": "SW",
+      "frame": 16,
+      "source": "generation/run/SW/16-v4.png",
+      "sourceSha256": "733df23b86eda6b49c848d429c3eed7c2e33c1d29c326fc8d5dcf0614026e0eb",
+      "supportFoot": "left",
+      "position": "rear",
+      "spatialPair": 4,
+      "durationMs": 75,
+      "status": "static_reviewed_candidate_recommended_with_limitations",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "observation": "左脚后方前掌接触，右腿更向前伸出。",
+      "dynamicVerified": false,
+      "contactEvidence": "支撑膝踝、鞋掌朝向、前后姿态静态形状证据；无客户端世界地面标定。",
+      "actualModel": null,
+      "actualQuality": null,
+      "generationRecord": "generation/run/SW/16-v4.png.generation.json"
+    }
+  ]
+}

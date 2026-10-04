@@ -77,7 +77,7 @@ def main():
                     "combat_frame_ms": {"hit": 40, "attack": 30, "cast": 45}},
         "art": {"fully_approved_sequences": 0, "final_approved_frames": 0, "dynamic_art_approved": False,
                 "client_run": False, "static_findings": notes["frames"], "run_review": notes["actions"]["run"],
-                "pending": ["当前静态记录指出的剩余问题", "正常显示尺寸的接地、首尾和跨方向连续性", "可信根点与世界地面校准", "客户端位移速度和滑步检查"]},
+                "pending": ["正常显示尺寸的接地、摆臂、首尾和跨方向连续性实播", "可信根点与世界地面校准", "客户端位移速度和滑步检查"]},
         "notes": ["196个槽位齐全与美术完成分别统计。", "新修订为内置图像工具原生编辑；导出仅每方向固定整画布变换。", "未披露模型和质量继续为null；不按配置推定实际返回。", ("本机客户端目录现已存在；本素材任务未接入、未运行。" if Path('D:/work/mmorpg-client').exists() else "本机未发现客户端目录；未接入、未运行。")]
     }
     target = ROOT / "review/current-validation.json"

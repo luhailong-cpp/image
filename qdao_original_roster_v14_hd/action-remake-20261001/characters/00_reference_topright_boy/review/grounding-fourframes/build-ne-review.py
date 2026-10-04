@@ -1,7 +1,7 @@
 from PIL import Image,ImageDraw
 from pathlib import Path
 r=Path(r"D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/00_reference_topright_boy")
-names=['16-v1','01-v1','02-v2','03-v2','05-v8','06-v4','07-v2','08-v4','09-v5','08-v3','10-v2','11-v1','13-v4','14-v2','15-v2','16-v2']
+names=['16-v1','01-v1','02-v2','03-v2','05-v8','06-v4','07-v2','08-v4','09-v10','10-v7','10-v2','11-v1','13-v4','14-v2','15-v3','16-v3']
 for lower in [False,True]:
  w,h=(314,370) if not lower else (400,330)
  canvas=Image.new('RGB',(4*w,4*h),(234,233,226));draw=ImageDraw.Draw(canvas)
@@ -13,4 +13,5 @@ for lower in [False,True]:
   canvas.paste(im,(x,y),im);draw.text(((i%4)*w+8,(i//4)*h+8),f'{i+1:02} {n} '+('R' if i<8 else 'L')+' '+(['front','front','middle','middle','middle','middle','rear','rear'][i%8]),fill=(0,0,0))
  target=r/'review/grounding-fourframes'/('NE-candidate-'+('legs' if lower else 'full')+'.jpg');canvas.save(target,quality=93)
 print('derived review only')
+
 
