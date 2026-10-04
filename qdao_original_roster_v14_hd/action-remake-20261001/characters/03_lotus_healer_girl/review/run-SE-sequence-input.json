@@ -20,7 +20,7 @@
   "visualAccepted": false,
   "clientTested": false,
   "durationMs": 1200,
-  "timingBasis": "User latest instruction: uniform75ms perframe, 16 frames=1200ms; no phase weighting.",
+  "timingBasis": "1200ms per cycle; 16 independent frames at uniform75ms; offline default, client unconfirmed",
   "frames": [
     {
       "slot": 1,
@@ -111,7 +111,8 @@
       "contactType": "late_support",
       "isFlight": false,
       "issues": [
-        "支撑底1153与邻帧差距较大；04→05灯从髋侧到前极值跨度大"
+        "支撑底1153与邻帧差距较大；04→05灯从髋侧到前极值跨度大",
+        "躯干更正面，前景灯袖近远肩归属有歧义，尚未独立确认，不能仅凭道具不变断言解剖持手正确"
       ],
       "visualAccepted": false,
       "nativeCanvas": [
@@ -501,5 +502,12 @@
     "Head/torso horizontal and vertical registration and rigid prop size are not fully stable.",
     "Known wrong-hand and clothing-corrupted variants are excluded, but complete shoulder/hip occlusion continuity remains unaccepted.",
     "No client playback test; native RGBA/source completeness does not imply dynamic acceptance."
-  ]
+  ],
+  "timing": {
+    "frameMs": 75,
+    "trialCycleMs": 1200,
+    "offlineDefaultCycleMs": 1200,
+    "mode": "uniform",
+    "selectedProductionCycleMs": null
+  }
 }

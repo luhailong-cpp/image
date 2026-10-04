@@ -20,7 +20,7 @@
   "visualAccepted": false,
   "clientTested": false,
   "durationMs": 1200,
-  "timingBasis": "User latest instruction: uniform75ms perframe, 16 frames=1200ms; no phase weighting.",
+  "timingBasis": "1200ms per cycle; 16 independent frames at uniform75ms; offline default, client unconfirmed",
   "frames": [
     {
       "slot": 1,
@@ -507,5 +507,12 @@
     "Head/torso horizontal and vertical registration and rigid prop size are not fully stable.",
     "Known wrong-hand and clothing-corrupted variants are excluded, but complete shoulder/hip occlusion continuity remains unaccepted.",
     "No client playback test; native RGBA/source completeness does not imply dynamic acceptance."
-  ]
+  ],
+  "timing": {
+    "frameMs": 75,
+    "trialCycleMs": 1200,
+    "offlineDefaultCycleMs": 1200,
+    "mode": "uniform",
+    "selectedProductionCycleMs": null
+  }
 }
