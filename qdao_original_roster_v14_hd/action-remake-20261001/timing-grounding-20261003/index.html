@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>跑步节奏与接地对比</title>
+<style>
+:root{font-family:system-ui,"Microsoft YaHei",sans-serif;color:#254c41;background:#f4efdf;font-size:15px}*{box-sizing:border-box}body{margin:0}main{max-width:1000px;margin:auto;padding:24px}h1{font-size:24px;margin:0 0 8px}p{line-height:1.6;margin:8px 0 16px}.note{color:#5e695f}.bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0}button,select{font:inherit;padding:8px 12px;border:1px solid #c0b282;border-radius:8px;background:#fffbed;color:#254c41;cursor:pointer}button[aria-pressed=true],button.primary{background:#27594b;color:#fffbed}button:disabled{opacity:.45;cursor:default}label{display:inline-flex;align-items:center;gap:8px}input[type=range]{accent-color:#27594b}output{font-variant-numeric:tabular-nums}.panels{display:grid;grid-template-columns:1fr 1fr;gap:16px}.panel{background:#fffaf0;border:1px solid #c6b88e;border-radius:14px;padding:16px}.panel h2{font-size:18px;font-weight:600;margin:0}.stage{position:relative;width:240px;max-width:100%;aspect-ratio:1;margin:16px auto 0;overflow:hidden;background:repeating-conic-gradient(#e1e4dd 0 25%,#f7f7f0 0 50%) 0/24px 24px;border:1px solid #d5d8ca;border-radius:8px}.large .stage{width:384px}.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.ground{position:absolute;left:0;right:0;top:92%;border-top:1px dashed #ae5649;pointer-events:none}.ground span{position:absolute;right:4px;top:2px;font-size:11px;color:#8d463c;background:#fffaf0d9}.meta{display:flex;justify-content:space-between;gap:8px;margin-top:12px;font-variant-numeric:tabular-nums}.framebar input{flex:1;min-width:160px}#status{min-height:24px;color:#566b5b}#status.error{color:#9a352c}.legend{border-top:1px solid #d6c9a7;margin-top:20px;padding-top:14px}.preset{padding:6px 9px}.callout{font-size:13px;color:#677064}.titleline{display:flex;justify-content:space-between;align-items:baseline}.titleline span{font-size:13px;color:#6c725e}@media(max-width:620px){main{padding:14px}.panels{grid-template-columns:1fr}.stage{width:240px}.large .stage{width:320px}}
+</style>
+</head>
+<body><main>
+<h1>跑步节奏与接地对比</h1>
+<p class="note">使用同一组现有16帧，只比较播放节奏。右侧先试每圈0.72秒；脚掌承重和蹬地姿态仍需单独修正。</p>
+<div class="bar">
+<label>角色 <select id="character"><option value="07">07 月影少女 · 向东</option><option value="00">00 金发带道童 · 向东</option></select></label>
+<button id="play" class="primary" disabled>播放对比</button>
+<button id="reset" disabled>从头对比</button>
+<label><input type="checkbox" id="size">放大查看</label>
+</div>
+<div class="bar">
+<label>试播周期 <input id="cycle" type="range" min="480" max="960" step="16" value="720"><output id="cycleValue">0.72秒</output></label>
+<button class="preset" data-cycle="640">0.64秒</button><button class="preset" data-cycle="720" aria-pressed="true">0.72秒</button><button class="preset" data-cycle="800">0.80秒</button><button class="preset" data-cycle="960">0.96秒</button>
+</div>
+<div class="bar"><label>试播方式 <select id="timingMode"><option value="uniform">全部帧均匀放慢</option><option value="support">月影：承重帧多停留</option></select></label><span class="callout" id="supportNote">承重试验仅依据月影E02/03、E10/11的逐帧检查。</span></div>
+<div id="panels" class="panels">
+<section class="panel"><div class="titleline"><h2>原速度</h2><span>每圈0.48秒</span></div><div class="stage"><img id="leftImage" alt="原速度的跑步帧" hidden><div class="ground"><span>未校准参考线</span></div></div><div class="meta"><span id="leftFrame">等待图片</span><span>30毫秒 / 帧</span></div></section>
+<section class="panel"><div class="titleline"><h2>调整后试播</h2><span id="rightTitle">每圈0.72秒</span></div><div class="stage"><img id="rightImage" alt="调整速度后的同组跑步帧" hidden><div class="ground"><span>未校准参考线</span></div></div><div class="meta"><span id="rightFrame">等待图片</span><span id="rightDuration">45毫秒 / 帧</span></div></section>
+</div>
+<p id="status" role="status" aria-live="polite">正在检查16张图片……</p>
+<div class="bar framebar"><button id="previous" disabled>上一帧</button><input id="frame" type="range" min="1" max="16" value="1" aria-label="同步逐帧查看" disabled><button id="next" disabled>下一帧</button><output id="frameValue">01 / 16</output></div>
+<div class="bar"><label><input id="showGround" type="checkbox" checked>显示参考线</label><label>参考线高度 <select id="ground"><option value="92">92%（当前清单）</option><option value="94">94%（07旧相位记录）</option></select></label></div>
+<p class="callout">逐帧时两侧显示同一张图。参考线只用于查偏差，切换它不会移动角色，也不能证明脚已正确接地。</p>
+<div class="legend"><p class="note">看清四件事：脚掌落地 → 膝踝承重、身体压低 → 前掌蹬离 → 短暂腾空后换脚。当前未修改原图片、正式时长或客户端。</p></div>
+</main>
+<script>
+'use strict';
+const rootPaths={
+ '07':'../characters/07_moon_shadow_assassin_girl/candidate/run/E/',
+ '00':'../characters/00_reference_topright_boy/frames/run/E/'
+};
+const $=id=>document.getElementById(id);
+const pad=n=>String(n).padStart(2,'0');
+const supportWeights=[1,1.65,1.65,1,1,1,1,1,1,1.65,1.65,1,1,1,1,1];
+let images=[],ready=false,playing=false,origin=0,elapsed=0,raf=0,loadVersion=0,lastLeft=-1,lastRight=-1,inspectIndex=0;
+function frameAt(t,cycle){return Math.floor((((t%cycle)+cycle)%cycle)*16/cycle)%16;}
+function supportFrameAt(t,cycle){const total=supportWeights.reduce((a,b)=>a+b,0);const phase=(((t%cycle)+cycle)%cycle)/cycle*total;let boundary=0;for(let i=0;i<16;i++){boundary+=supportWeights[i];if(phase<boundary)return i;}return 15;}
+function paint(left,right){
+ if(!ready)return;
+ if(left!==lastLeft){$('leftImage').src=images[left].src;lastLeft=left;}
+ if(right!==lastRight){$('rightImage').src=images[right].src;lastRight=right;}
+ $('leftFrame').textContent=`第 ${pad(left+1)} / 16 帧`;
+ $('rightFrame').textContent=`第 ${pad(right+1)} / 16 帧`;
+ $('frame').value=right+1;$('frameValue').textContent=`${pad(right+1)} / 16`;inspectIndex=right;
+}
+function tick(now){if(!playing||!ready)return;elapsed=now-origin;const cycle=Number($('cycle').value);const right=$('timingMode').value==='support'?supportFrameAt(elapsed,cycle):frameAt(elapsed,cycle);paint(frameAt(elapsed,480),right);raf=requestAnimationFrame(tick);}
+function pause(){if(playing)elapsed=performance.now()-origin;playing=false;cancelAnimationFrame(raf);$('play').textContent='播放对比';}
+function start(){if(!ready)return;playing=true;origin=performance.now()-elapsed;$('play').textContent='暂停';raf=requestAnimationFrame(tick);}
+function reset(){pause();elapsed=0;paint(0,0);}
+function inspect(index){pause();elapsed=0;index=(index+16)%16;paint(index,index);$('status').textContent='逐帧检查：对照两脚、膝踝和身体高度。';}
+function setCycle(ms){
+ const resume=playing;pause();$('cycle').value=ms;ms=Number($('cycle').value);
+ const seconds=(ms/1000).toFixed(2);$('cycleValue').textContent=seconds+'秒';$('rightTitle').textContent='每圈'+seconds+'秒';$('rightDuration').textContent=$('timingMode').value==='support'?'承重帧约'+(ms*1.65/18.6).toFixed(1)+'毫秒':(ms/16).toFixed(0)+'毫秒 / 帧';
+ document.querySelectorAll('[data-cycle]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.cycle)===ms)));
+ elapsed=0;paint(0,0);if(resume)start();
+}
+async function loadCharacter(){
+ const version=++loadVersion;pause();ready=false;images=[];lastLeft=-1;lastRight=-1;elapsed=0;
+ if($('character').value!=='07')$('timingMode').value='uniform';
+ $('timingMode').disabled=$('character').value!=='07';
+ $('supportNote').textContent=$('character').value==='07'?'承重试验仅依据月影E02/03、E10/11的逐帧检查。':'道童的承重相位尚未逐帧标定，此处只比较均匀节奏。';
+ setCycle(Number($('cycle').value));
+ ['play','reset','previous','next','frame'].forEach(id=>$(id).disabled=true);
+ $('leftImage').hidden=true;$('rightImage').hidden=true;$('status').className='';$('status').textContent='正在检查16张图片……';
+ const base=rootPaths[$('character').value];
+ try{
+  const loaded=await Promise.all(Array.from({length:16},async(_,i)=>{
+   const img=new Image();img.src=base+pad(i+1)+'.png';await img.decode();
+   if(img.naturalWidth!==1024||img.naturalHeight!==1024)throw new Error(pad(i+1)+'画布不是1024×1024');return img;
+  }));
+  if(version!==loadVersion)return;
+  images=loaded;ready=true;$('leftImage').hidden=false;$('rightImage').hidden=false;
+  ['play','reset','previous','next','frame'].forEach(id=>$(id).disabled=false);
+  $('status').textContent='16张图片已就绪。先看步频，再暂停检查接地。';paint(0,0);start();
+ }catch(error){
+  if(version!==loadVersion)return;
+  $('status').className='error';$('status').textContent='图片未全部加载，已停止播放；不会跳过缺失帧。'+error.message;
+ }
+}
+$('play').addEventListener('click',()=>playing?pause():start());
+$('reset').addEventListener('click',()=>{reset();start();});
+$('character').addEventListener('change',loadCharacter);
+$('timingMode').addEventListener('change',()=>setCycle(Number($('cycle').value)));
+$('cycle').addEventListener('input',()=>setCycle(Number($('cycle').value)));
+document.querySelectorAll('[data-cycle]').forEach(b=>b.addEventListener('click',()=>setCycle(Number(b.dataset.cycle))));
+$('frame').addEventListener('input',()=>inspect(Number($('frame').value)-1));
+$('previous').addEventListener('click',()=>inspect(inspectIndex-1));$('next').addEventListener('click',()=>inspect(inspectIndex+1));
+$('size').addEventListener('change',()=>$('panels').classList.toggle('large',$('size').checked));
+function ground(){document.querySelectorAll('.ground').forEach(line=>{line.style.top=$('ground').value+'%';line.hidden=!$('showGround').checked;});}
+$('showGround').addEventListener('change',ground);$('ground').addEventListener('change',ground);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
+document.addEventListener('keydown',e=>{if(['INPUT','SELECT','BUTTON'].includes(e.target.tagName)||!ready)return;if(e.code==='Space'){e.preventDefault();playing?pause():start();}if(e.key==='ArrowLeft')inspect(inspectIndex-1);if(e.key==='ArrowRight')inspect(inspectIndex+1);});
+setCycle(720);ground();loadCharacter();
+</script>
+</body></html>

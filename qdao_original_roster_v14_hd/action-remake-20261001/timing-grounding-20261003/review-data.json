@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-03",
+  "timezone": "America/New_York",
+  "status": "timing_comparison_ready; pose_and_client_acceptance_pending",
+  "preview": "timing-grounding-20261003/index.html",
+  "characters": [
+    "00_reference_topright_boy",
+    "07_moon_shadow_assassin_girl"
+  ],
+  "direction": "E",
+  "frame_count": 16,
+  "old_cycle_ms": 480,
+  "trial_cycle_ms": 720,
+  "trial_choices_ms": [
+    640,
+    720,
+    800,
+    960
+  ],
+  "uniform_trial_frame_ms": 45,
+  "optional_support_trial": {
+    "character": "07_moon_shadow_assassin_girl",
+    "observed_support_frames": [
+      2,
+      3,
+      10,
+      11
+    ],
+    "weights": [
+      1,
+      1.65,
+      1.65,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1.65,
+      1.65,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "total_weight": 18.6,
+    "cycle_ms": 720,
+    "each_support_frame_ms": 63.87096774193548,
+    "each_other_frame_ms": 38.70967741935483,
+    "support_pair_ms": 127.74193548387096,
+    "meaning": "Trial timing only; not visual acceptance and not new image generation."
+  },
+  "visual_review": {
+    "viewed": [
+      "07/preview/run-E-contact.jpg",
+      "07/candidate/run/E/02.png",
+      "07/candidate/run/E/03.png",
+      "07/candidate/run/E/10.png",
+      "07/candidate/run/E/11.png"
+    ],
+    "observed": "Ground-contact silhouettes exist at E02/E03 and E10/E11. Their pairs previously display for only 60ms. E11 leg silhouettes overlap; contact and loading are harder to read at game size.",
+    "priorities": [
+      {
+        "frames": [
+          2,
+          10
+        ],
+        "action": "After timing review, strengthen impact absorption if needed, keeping opposing support-leg identity."
+      },
+      {
+        "frames": [
+          11
+        ],
+        "action": "Clarify support-leg versus recovering-leg contour if needed."
+      },
+      {
+        "frames": [
+          3
+        ],
+        "action": "Preserve unless adjacent pose changes create mismatched compression."
+      }
+    ]
+  },
+  "validation": {
+    "javascript_syntax": "passed",
+    "source_pngs_present": 32,
+    "source_png_canvas": "all 1024x1024",
+    "cycle_wrap_and_periodicity": "passed at 480,640,720,800,960ms",
+    "browser_visual_test": "not verified; in-app local browser navigation returned ERR_BLOCKED_BY_CLIENT",
+    "client_playtest": "not performed"
+  },
+  "original_pngs_modified": false,
+  "character_manifests_modified": false,
+  "new_ai_images": 0
+}

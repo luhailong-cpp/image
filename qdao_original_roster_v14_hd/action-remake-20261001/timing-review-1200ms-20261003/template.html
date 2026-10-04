@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>角色跑步预览 · 1200 ms</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,"Microsoft YaHei",sans-serif;background:#111c24;color:#e5eff4;--canvas:256px}*{box-sizing:border-box}body{margin:0}main{max-width:1100px;margin:auto;padding:32px 24px}h1{font-size:26px;margin:8px 0 12px}p{line-height:1.65;margin:8px 0;color:#acbfca}small,.eyebrow{color:#82bcb3}.controls{display:flex;gap:16px;flex-wrap:wrap;align-items:end;padding:18px 0}label{display:grid;gap:7px;font-size:13px;color:#b4c8d0}select,button{font:inherit;color:#e8f1f5;background:#263a46;border:1px solid #426071;border-radius:8px;padding:9px 12px}button{cursor:pointer}button:hover{background:#36505e}button:disabled{opacity:.45;cursor:default}select{max-width:100%}.panels{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{min-width:0;background:#192a35;border:1px solid #38505d;border-radius:14px;padding:18px}.panel.proposed{border-color:#65bcaa}.panel h2{font-size:18px;margin:0 0 6px}.canvas-wrap{overflow:auto;display:grid;justify-items:center;padding:18px 0}.canvas{width:var(--canvas);height:var(--canvas);position:relative;background:repeating-conic-gradient(#243a43 0% 25%,#2a404a 0% 50%) 50% / 24px 24px;flex-shrink:0;overflow:hidden}.canvas img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;visibility:hidden}.canvas img.visible{visibility:visible}.frame{text-align:center;font-variant-numeric:tabular-nums;color:#d2e7e3}.playback{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0}.playback label{display:flex;align-items:center;flex:1;min-width:210px}input[type=range]{flex:1;accent-color:#74cdb5}.status{white-space:pre-wrap;padding:13px 16px;background:#1e333f;border-radius:8px;color:#d2e5ef;font-size:14px;line-height:1.6}.status.error{border:1px solid #f0aa82;color:#ffd5b8}details{margin:16px 0;padding:14px 16px;border:1px solid #344b59;border-radius:9px}summary{cursor:pointer;color:#aac9cc}.inventory{line-height:1.8;font-size:13px;white-space:pre-wrap}.footnote{font-size:12px;color:#93aab5}.badge{color:#92d3bd}.source{font-size:12px;word-break:break-all;min-height:38px;color:#97adba}@media(max-width:640px){main{padding:20px 12px}.panels{gap:8px}.panel{padding:10px}.panel h2{font-size:15px}.controls{gap:10px}}
+</style>
+<main>
+<div class="eyebrow">15 个角色 · 完整 16 帧 · 统一正常速度</div>
+<h1>1200 ms / 圈 · 每帧 75 ms</h1>
+<p>1200 ÷ 16 = 75，整圈精确整除。左边查看正常尺寸，右边同步放大；两侧始终显示同一帧。脚掌外撇、承重与接地仍须按实图判断，缺失帧不会跳过或填补。</p>
+<div class="controls">
+<label>角色<select id="character"></select></label>
+<label>方向<select id="direction"></select></label>
+<label>正常画布<select id="size"><option value="128">128 px</option><option value="256" selected>256 px</option></select></label>
+<label>播放倍率<select id="speed"><option value="1" selected>1× · 正常 · 1200 ms</option><option value="0.5">0.5× · 慢放</option><option value="0.25">0.25× · 慢放</option></select></label>
+</div>
+<div id="status" class="status" role="status" aria-live="polite">正在读取当前帧清单…</div>
+<div class="panels" style="margin-top:18px">
+<section class="panel"><h2>正常尺寸</h2><small>完整画布 128 / 256 px · 正常 1× 为 1200 ms / 圈</small><div class="canvas-wrap"><div class="canvas" id="leftCanvas"></div></div><div class="frame" id="leftFrame">第 — / 16 帧</div><p class="source" id="leftSource"></p></section>
+<section class="panel proposed"><h2>同步放大 <span class="badge">同一帧</span></h2><small>完整画布 384 px · 检查手脚与落脚姿态</small><div class="canvas-wrap"><div class="canvas" id="rightCanvas" style="width:384px;height:384px"></div></div><div class="frame" id="rightFrame">第 — / 16 帧</div><p class="source" id="rightSource"></p></section>
+</div>
+<div class="playback"><button id="play" disabled>播放</button><button id="reset" disabled>同时从首帧播放</button><button id="previous" disabled>上一帧</button><button id="next" disabled>下一帧</button><label>逐帧<input id="scrub" type="range" min="1" max="16" step="1" value="1" disabled><output id="scrubValue">01</output></label></div>
+<p class="footnote">两侧始终同步。切换标签页自动暂停。显示尺寸指完整画布，角色实际占比取决于原图；此页不改变原图位置、比例或脚底高度。</p>
+<details><summary>当前完整方向与缺帧</summary><div id="inventory" class="inventory"></div></details>
+<details><summary>版本与检查范围</summary><p id="provenance" class="footnote"></p><p class="footnote">页面使用当前 manifest 明确选择且实际存在的 PNG。未凑齐 16 帧的方向不会播放，也不会使用其他帧填空。角色窗口继续更新时，刷新网页会重新读图；清单与版本记录更新需重新运行本目录的 build.mjs。此页是独立跑步预览，不等于客户端动态验收，不会修改受击、普攻或施法速度。</p></details>
+</main>
+<script>
+'use strict';
+const DATA = /*__DATA__*/;
+const directions = ['N','NE','E','SE','S','SW','W','NW'];
+const labels = {N:'北 N',NE:'东北 NE',E:'东 E',SE:'东南 SE',S:'南 S',SW:'西南 SW',W:'西 W',NW:'西北 NW'};
+const $ = id => document.getElementById(id);
+const character = $('character'), direction = $('direction');
+let requestId = 0, loaded = false, playing = false, elapsed = 0, start = 0, raf = 0, shown = [-1,-1], slots = [], banks = [[],[]], speed = 1;
+function frameAt(elapsed, cycle) { return Math.floor(((elapsed % cycle) + cycle) % cycle / (cycle / 16)); }
+function selectedCharacter() { return DATA.characters.find(c => c.id === character.value); }
+function currentElapsed() { return playing ? elapsed + (performance.now() - start) * speed : elapsed; }
+function controls(enabled) { for (const id of ['play','reset','previous','next','scrub']) $(id).disabled = !enabled; }
+function updateButton() { $('play').textContent = playing ? '暂停' : '播放'; }
+function show(left,right) {
+  if (!loaded) return;
+  for (const [side,index] of [[0,left],[1,right]]) {
+    if (shown[side] !== index) {
+      if (shown[side] >= 0) banks[side][shown[side]].classList.remove('visible');
+      banks[side][index].classList.add('visible'); shown[side] = index;
+    }
+    const name = side ? 'right' : 'left';
+    $(name+'Frame').textContent = `第 ${String(index+1).padStart(2,'0')} / 16 帧`;
+    $(name+'Source').textContent = slots[index].url;
+  }
+  $('scrub').value = String(right+1); $('scrubValue').textContent = String(right+1).padStart(2,'0');
+}
+function tick() { if (!playing || !loaded) return; const index = frameAt(currentElapsed(),1200); show(index,index); raf=requestAnimationFrame(tick); }
+function pause() { if (playing) elapsed=currentElapsed(); playing=false; cancelAnimationFrame(raf); updateButton(); }
+function play() { if (!loaded || playing || document.hidden) return; start=performance.now(); playing=true; updateButton(); tick(); }
+function loadImage(frame) {
+  return new Promise((resolve,reject) => {
+    const image = new Image(); image.decoding='async'; image.alt='角色跑步帧';
+    image.onload = async () => {
+      try { await image.decode(); if(image.naturalWidth!==frame.width || image.naturalHeight!==frame.height) throw new Error('尺寸与快照不同，请重新生成清单'); resolve(image); } catch(error) { reject(new Error(frame.url+'：'+error.message)); }
+    };
+    image.onerror=()=>reject(new Error('图片读取失败：'+frame.url)); image.src=frame.url;
+  });
+}
+async function loadSequence() {
+  const ticket=++requestId; pause(); loaded=false; elapsed=0; shown=[-1,-1]; controls(false);
+  $('leftCanvas').replaceChildren(); $('rightCanvas').replaceChildren();
+  for(const side of ['left','right']) { $(side+'Frame').textContent='第 — / 16 帧'; $(side+'Source').textContent=''; }
+  const c=selectedCharacter(), d=c.directions[direction.value];
+  $('status').classList.toggle('error',!d.complete);
+  if(!d.complete) { $('status').textContent=`${c.name} · ${labels[direction.value]}：目前 ${d.available}/16 帧，禁止残缺循环。\n${d.errors.join('\n')}`; return; }
+  $('status').textContent=`${c.name} · ${labels[direction.value]}：预载 16 帧中…`;
+  try {
+    const images=await Promise.all(d.frames.map(loadImage));
+    if(ticket!==requestId) return;
+    slots=d.frames; banks=[images,images.map(image=>image.cloneNode())];
+    for(let i=0;i<2;i++) $(i?'rightCanvas':'leftCanvas').replaceChildren(...banks[i]);
+    loaded=true; controls(true); show(0,0);
+    $('status').classList.remove('error'); $('status').textContent=`${c.name} · ${labels[direction.value]} · 16/16 帧已载入。${c.status}。\n正常 1×：1200 ms / 圈，75 ms / 帧；两侧同帧同步。`;
+    play();
+  } catch(error) {
+    if(ticket!==requestId) return;
+    $('status').classList.add('error'); $('status').textContent=error.message+'\n当前方向停止播放；请刷新重试或更新清单。';
+  }
+}
+function selectCharacter() {
+  const c=selectedCharacter(), prior=direction.value;
+  direction.replaceChildren(...directions.map(d=>new Option(`${labels[d]} · ${c.directions[d].available}/16${c.directions[d].complete?'':' · 未齐'}`,d)));
+  direction.value=c.directions[prior]?.complete ? prior : c.directions.E.complete ? 'E' : directions.find(d=>c.directions[d].complete)||'E';
+  loadSequence();
+}
+character.replaceChildren(...DATA.characters.map(c=>new Option(c.id.slice(0,2)+' '+c.name,c.id)));
+character.value=DATA.characters.find(c=>c.id.startsWith('09_'))?.id||DATA.characters[0].id;
+character.addEventListener('change',selectCharacter); direction.addEventListener('change',loadSequence);
+$('size').addEventListener('change',()=>document.documentElement.style.setProperty('--canvas',$('size').value+'px'));
+$('speed').addEventListener('change',()=>{const resume=playing;pause();speed=Number($('speed').value);if(resume)play();});
+$('play').addEventListener('click',()=>playing?pause():play());
+$('reset').addEventListener('click',()=>{pause();elapsed=0;show(0,0);play();});
+function stepTo(n) { pause(); const index=(n+16)%16; elapsed=index*75; show(index,index); }
+$('previous').addEventListener('click',()=>stepTo(shown[1]-1)); $('next').addEventListener('click',()=>stepTo(shown[1]+1));
+$('scrub').addEventListener('input',()=>stepTo(Number($('scrub').value)-1));
+document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
+$('inventory').textContent=DATA.characters.map(c=>`${c.id.slice(0,2)} ${c.name}：`+directions.map(d=>`${d} ${c.directions[d].available}/16`).join(' · ')).join('\n');
+$('provenance').textContent=`清单生成时间：${DATA.generatedAt}。${DATA.totals.characters} 个角色，${DATA.totals.completeDirections}/${DATA.totals.expectedDirections} 个完整方向。已检查 PNG 引用、尺寸、JavaScript 语法和循环边界；未进行此页浏览器动态目检或客户端验收。逐图来源、修改时间与校验值见 evidence.json。`;
+selectCharacter();
+</script>
+</html>
