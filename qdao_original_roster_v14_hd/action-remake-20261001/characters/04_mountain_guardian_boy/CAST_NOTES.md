@@ -1,6 +1,12 @@
 # 04 山岳守卫施法续做记录
 
-2026-10-02（America/New_York）。施法 E 0/16、W 0/16；无本轮图片导出、视觉通过或动态通过。两次真实内置调用均未提供可保存图片，不能把提示词、空槽位或来源记录计作完成。
+2026-10-03（America/New_York）当前实物：E/W各16帧，共32张正式1024 RGBA。E13第2版/E14第3版已补连续收脚；本次补W13第2版中間收腳，再第3版恢复下段杖长，W06/W12第2版定向修短杖。32帧已按最新連圖与关键原尺寸图做静态审阅，单帧通过，整段动态仍待本角色主审浏览器复核，未接入客户端。旧段落的E16/W1或全缺槽位均为历史状态。
+
+当前静态审阅：provenance/cast/E_static_review_20261003.json及W_static_review_20261003.json，均绑定正式帧SHA；对应E_current_contact.png/W_current_contact.png为确定性连图预览。每向16×45ms=720ms；释放峰值按实图为10帧，09为前送、11为延续，12开始回收，13/14逐渐收脚，15/16接近idle。声明根点(512,928)，未进行逐帧脚底或包围盒对齐。
+
+2026-10-03清理：cast与SE共25张已淘汰原图已删除，当前正式图、current nativeSource及当前调用输入仍保留供动态主审；来源文字与SHA未删除。完整记录provenance/run/SE_cast_cleanup_completed.json。
+
+2026-10-02（America/New_York）最新：E01–16全部16张独立候选已真实生成及1024导出，W10关键姿态已生成导出。长杖/实心背盘问题已定向重画；所有候选pending整段动态，当前E16/16、W1/16，动态通过0、未接入客户端。重点复核01→02下沉、11→12杖投影及跨帧身高/盾面转动。下文保留早先失败证据与规划，不作为当前库存。
 
 ## 真实阻碍
 首轮 E frame_10 调用失败，非标准异常的 name/message/stack 不存在，首轮捕获只得到空对象，未保留原始值，因此不推断具体错误。
@@ -44,4 +50,6 @@
 - provenance/cast/E_frame_10_attempt_01.prompt.txt：两轮真实共用提示词。
 - provenance/cast/E_frame_10_attempt_01.result.json：首轮输入和失败捕获局限。
 - provenance/cast/E_frame_10_attempt_02.result.json：第二轮完整参数、参考 SHA 与原始网络错误。
+
+
 

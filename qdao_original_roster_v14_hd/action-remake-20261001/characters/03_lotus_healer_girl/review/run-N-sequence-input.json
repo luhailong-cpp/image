@@ -1,0 +1,487 @@
+{
+  "schemaVersion": 1,
+  "character": "03_lotus_healer_girl",
+  "action": "run",
+  "direction": "N",
+  "status": "candidate_not_accepted",
+  "visualAccepted": false,
+  "reviewedOn": "2026-10-03",
+  "nativeRoot": [
+    627,
+    1164
+  ],
+  "canvas": [
+    1254,
+    1254
+  ],
+  "root": {
+    "native": [
+      627,
+      1164
+    ],
+    "nativeCanvas": 1254,
+    "definition": "用户最新指定的固定虚拟身体诊断轴；北向鞋点随纵深投影变化。N01右鞋实际1144仅代表该落脚深度，不是逐帧贴地线。",
+    "status": "provisional_not_client_approved",
+    "alignmentApplied": false
+  },
+  "timing": {
+    "frameMs": 75,
+    "trialCycleMs": 1200,
+    "defaultPreviewCycleMs": 1200,
+    "selectedProductionCycleMs": null,
+    "phaseWeightsApplied": false,
+    "uniformComparisonMs": [
+      1200
+    ],
+    "trialMeaning": "Latest explicit user instruction: uniform75ms/frame,1200ms/cycle; client unconfirmed."
+  },
+  "frames": [
+    {
+      "slot": 1,
+      "frame": 1,
+      "source": "generation/N/01-v1.png",
+      "observedPhase": "右足落地候选；左腿后收",
+      "issues": [
+        "Right-contact native mother; exact game-space root and contact require dynamic/client review."
+      ],
+      "durationMs": 75,
+      "sourceSha256": "6cb919bc1b7f98025c16bcd113b8ad67c6ea92092f3b2dccfe609f6ba60a6db4",
+      "review": "generation/N/01-v1.review.json",
+      "nativeAlphaGt8Bounds": [
+        280,
+        85,
+        1133,
+        1145
+      ],
+      "visualAccepted": false
+    },
+    {
+      "slot": 2,
+      "frame": 2,
+      "source": "generation/N/02-v3.png",
+      "observedPhase": "右足固定接触，右膝局部承重压缩；头注册保持",
+      "issues": [
+        "Compression is modest and visible chiefly in right knee/cloth; do not infer full dynamic loading from one frame."
+      ],
+      "durationMs": 75,
+      "sourceSha256": "7278bf34f6dd1aef0fab6960fb1073287078e5a8086b9c6f5705b17f9716599a",
+      "review": "generation/N/02-v3.review.json",
+      "nativeAlphaGt8Bounds": [
+        279,
+        84,
+        1135,
+        1147
+      ],
+      "visualAccepted": false,
+      "measurements": {
+        "headTopY": 84,
+        "shoeLowestY": 1146,
+        "alphaBounds": [
+          279,
+          84,
+          1135,
+          1147
+        ],
+        "mother": {
+          "headTopY": 85,
+          "shoeLowestY": 1144,
+          "alphaBounds": [
+            280,
+            85,
+            1133,
+            1145
+          ]
+        },
+        "shoeLiftFromMother": -2
+      }
+    },
+    {
+      "slot": 3,
+      "frame": 3,
+      "source": "generation/N/03-v1.png",
+      "observedPhase": "右支撑，左脚下放通过",
+      "issues": [
+        "Arm middle pose is incomplete; flask remains forward/high. Head top remains near prior raised head, do not claim requested head height locked."
+      ],
+      "durationMs": 75,
+      "sourceSha256": "cfc6d818b3fcda02220822022c5607df871945cd9b90aba5f19599860f790110",
+      "review": "generation/N/03-v1.review.json",
+      "nativeAlphaGt8Bounds": [
+        272,
+        58,
+        1134,
+        1161
+      ],
+      "visualAccepted": false
+    },
+    {
+      "slot": 4,
+      "frame": 4,
+      "source": "generation/N/04-v2.png",
+      "observedPhase": "右腿低位后伸、左腿高位前摆；接触未确认",
+      "issues": [
+        "Rear right sole is broad and exact toe-contact event is ambiguous; preserve as late support/toe-off candidate rather than assert planted pixels. Head remains higher than N01."
+      ],
+      "durationMs": 75,
+      "sourceSha256": "9203473dc8092c18e12a486cb73d23a9f3ebfdf764b39ea7bd54d0328272592b",
+      "review": "generation/N/04-v2.review.json",
+      "nativeAlphaGt8Bounds": [
+        250,
+        52,
+        1107,
+        1186
+      ],
+      "visualAccepted": false
+    },
+    {
+      "slot": 5,
+      "frame": 5,
+      "source": "generation/N/05-v1.png",
+      "observedPhase": "右后伸、左膝前提；蹬离不清晰",
+      "issues": [
+        "Requested toe-off and shortening of trailing right leg are not clear: right foot remains very low and upper body is lower, not rising. Treat as uncertain late-support/toe-off, not confirmed flight."
+      ],
+      "durationMs": 75,
+      "sourceSha256": "463e56dfcf35c8a6fad655275c79e767b338483d6bcc1a4da5efa5978b186029",
+      "review": "generation/N/05-v1.review.json",
+      "nativeAlphaGt8Bounds": [
+        239,
+        75,
+        1104,
+        1191
+      ],
+      "visualAccepted": false
+    },
+    {
+      "slot": 6,
+      "frame": 6,
+      "source": "generation/N/06-v1.png",
+      "observedPhase": "右腿收起、双膝屈曲的短腾空",
+      "issues": [
+        "Lamp and bottle both spread laterally more than prior frame; retain as candidate but compare arm path and apparent prop scale in cycle."
+      ],
+      "durationMs": 75,
+      "sourceSha256": "8ab7f3e3888558a09be82861b64cda71744bea29a480a5fc8f7c3c20420fa3ca",
+      "review": "generation/N/06-v1.review.json",
+      "nativeAlphaGt8Bounds": [
+        173,
+        56,
+        1169,
+        1115
+      ],
+      "visualAccepted": false
+    },
+    {
+      "slot": 7,
+      "frame": 7,
+      "source": "generation/N/07-v2.png",
+      "observedPhase": "左前鞋空中下降前段，较08更高；右腿回收",
+      "issues": [
+        "Requested25px became a larger actual lift; use returned shoe metrics.",
+        "Need06→07→08 review after selection."
+      ],
+      "durationMs": 75,
+      "sourceSha256": "46720f6c45ade8dccad78815a19faf7a6c3d46293719f0d4b73d3d817f7b476d",
+      "review": "generation/N/07-v2.review.json",
+      "nativeAlphaGt8Bounds": [
+        227,
+        62,
+        1105,
+        1118
+      ],
+      "visualAccepted": false
+    },
+    {
+      "slot": 8,
+      "frame": 8,
+      "source": "generation/N/08-v3.png",
+      "observedPhase": "左鞋从09接触母图抬起，实际临落地候选",
+      "issues": [
+        "Lift exceeds requested25px; exact measured gap is recorded separately. Earlier07→08 transition still needs full-cycle review."
+      ],
+      "durationMs": 75,
+      "sourceSha256": "6daa9990135d31f46593ec65d33cf4c69a3602e056718ed7743c1a66b4323dc5",
+      "review": "generation/N/08-v3.review.json",
+      "nativeAlphaGt8Bounds": [
+        234,
+        63,
+        1101,
+        1115
+      ],
+      "visualAccepted": false,
+      "measurements": {
+        "headTopY": 63,
+        "shoeLowestY": 1092,
+        "alphaBounds": [
+          234,
+          63,
+          1101,
+          1115
+        ],
+        "mother": {
+          "headTopY": 62,
+          "shoeLowestY": 1145,
+          "alphaBounds": [
+            234,
+            62,
+            1100,
+            1146
+          ]
+        },
+        "shoeLiftFromMother": 53
+      }
+    },
+    {
+      "slot": 9,
+      "frame": 9,
+      "source": "generation/N/09-v2.png",
+      "observedPhase": "左足支撑候选、右腿后折",
+      "issues": [
+        "Cleanup also changed framing/body extent and lowered left support shoe from prior1091 to roughly1144; do not claim all locked geometry preserved. No clipping/toe-out observed."
+      ],
+      "durationMs": 75,
+      "sourceSha256": "5bf482cfe3f87ba2fcc0f0d98eb69bd437b3f62aaf6e30c3de27f181170aef68",
+      "review": "generation/N/09-v2.review.json",
+      "nativeAlphaGt8Bounds": [
+        234,
+        62,
+        1100,
+        1146
+      ],
+      "visualAccepted": false
+    },
+    {
+      "slot": 10,
+      "frame": 10,
+      "source": "generation/N/10-v1.png",
+      "observedPhase": "左足承重压缩候选、右腿回收",
+      "issues": [
+        "Right recovery sole remains strongly exposed with only small positional progression. Lamp vertical step is substantial and needs cycle review."
+      ],
+      "durationMs": 75,
+      "sourceSha256": "30ac734748671e831ea67311e25da555ba2de4e3446929a4d881a01330032eb0",
+      "review": "generation/N/10-v1.review.json",
+      "nativeAlphaGt8Bounds": [
+        236,
+        70,
+        1116,
+        1160
+      ],
+      "visualAccepted": false
+    },
+    {
+      "slot": 11,
+      "frame": 11,
+      "source": "generation/N/11-v1.png",
+      "observedPhase": "左支撑、右脚部分展开通过",
+      "issues": [
+        "Right passing foot did not descend as much as requested; this reads early passing rather than a fully established mid-support. Arm transition from10 is fairly large."
+      ],
+      "durationMs": 75,
+      "sourceSha256": "8c1ebe10e7d664cc518fc22ce12dec144480036f3125b0f20f5581664cd516c0",
+      "review": "generation/N/11-v1.review.json",
+      "nativeAlphaGt8Bounds": [
+        282,
+        62,
+        1106,
+        1147
+      ],
+      "visualAccepted": false
+    },
+    {
+      "slot": 12,
+      "frame": 12,
+      "source": "generation/N/12-v1.png",
+      "observedPhase": "左腿低位后伸、右膝前摆；接触未确认",
+      "issues": [
+        "Exact toe contact is ambiguous from full exposed left sole; left foot is low and body rises a lot versus11. Do not claim precise grounding or late-support duration."
+      ],
+      "durationMs": 75,
+      "sourceSha256": "db45537f036a6beb817ffb6c7a163c61e90469c90034acd2e283c5e0d5186a9b",
+      "review": "generation/N/12-v1.review.json",
+      "nativeAlphaGt8Bounds": [
+        274,
+        59,
+        1106,
+        1196
+      ],
+      "visualAccepted": false
+    },
+    {
+      "slot": 13,
+      "frame": 13,
+      "source": "generation/N/13-v1.png",
+      "observedPhase": "双膝收起的初腾空",
+      "issues": [
+        "Head rises notably versus12 and prop/body position shifts; the trajectory needs cycle review. No clipping or toe-out observed."
+      ],
+      "durationMs": 75,
+      "sourceSha256": "ea49ef47f80fd1b8a07acc3266c557296ea63cd03002aef5d037503e79f756b2",
+      "review": "generation/N/13-v1.review.json",
+      "nativeAlphaGt8Bounds": [
+        250,
+        44,
+        1139,
+        1102
+      ],
+      "visualAccepted": false
+    },
+    {
+      "slot": 14,
+      "frame": 14,
+      "source": "generation/N/14-v2.png",
+      "observedPhase": "右前鞋空中下降初段，较15更高；左腿回收",
+      "issues": [
+        "Exact requested20px not assumed; resulting14→15 descent is small.",
+        "13→14 prop/upper movement still deserves playback review."
+      ],
+      "durationMs": 75,
+      "sourceSha256": "c27db1f6fc117a9b1ed80066c672720639438bce5fefaf8137805001e095868d",
+      "review": "generation/N/14-v2.review.json",
+      "nativeAlphaGt8Bounds": [
+        277,
+        82,
+        1135,
+        1029
+      ],
+      "visualAccepted": false
+    },
+    {
+      "slot": 15,
+      "frame": 15,
+      "source": "generation/N/15-v2.png",
+      "observedPhase": "右前鞋空中下降中段，接16后至01落脚",
+      "issues": [
+        "Requested25px became a larger actual lift; use actual metric.",
+        "Need14→15→16 review, not only15→16."
+      ],
+      "durationMs": 75,
+      "sourceSha256": "3ec912948a34091f22da6b49d7ef658abfa2fec271acd7ebcf6f1b0995357581",
+      "review": "generation/N/15-v2.review.json",
+      "nativeAlphaGt8Bounds": [
+        277,
+        82,
+        1136,
+        1043
+      ],
+      "visualAccepted": false
+    },
+    {
+      "slot": 16,
+      "frame": 16,
+      "source": "generation/N/16-v3.png",
+      "observedPhase": "右鞋从01接触母图抬起，保留后跟方向的实际临落地候选",
+      "issues": [
+        "Lift exceeds requested25px; gap recorded separately. Earlier15→16 body/arm transition still needs cycle review."
+      ],
+      "durationMs": 75,
+      "sourceSha256": "285e3f25c22baa7bcde981c9f7bf9c85737fa20b53431d4ec717926560cf4d28",
+      "review": "generation/N/16-v3.review.json",
+      "nativeAlphaGt8Bounds": [
+        278,
+        81,
+        1135,
+        1107
+      ],
+      "visualAccepted": false,
+      "measurements": {
+        "headTopY": 81,
+        "shoeLowestY": 1106,
+        "alphaBounds": [
+          278,
+          81,
+          1135,
+          1107
+        ],
+        "mother": {
+          "headTopY": 85,
+          "shoeLowestY": 1144,
+          "alphaBounds": [
+            280,
+            85,
+            1133,
+            1145
+          ]
+        },
+        "shoeLiftFromMother": 38
+      }
+    }
+  ],
+  "summaryIssues": [
+    "N02-v3修复头上跳并保持右足接触，但02→03身体与灯臂过渡仍需核对。",
+    "N03→04灯臂上移跨度大，中间手臂姿态仍不足。",
+    "N04/05与N12的精确前掌接触不确定；不能以最低像素宣称贴地。",
+    "N08-v3/16-v3已从正确接触母图抬指定鞋修掉末端回跳；实际抬幅大于请求，07→08和15→16须动态复核。",
+    "N13→14右腿展开过快，N15中间腾空目标未实现，实际继续后段下降。",
+    "N13→14→15瓶臂高度反向波动。"
+  ],
+  "footDirectionFinding": "16选图未见明确左右外撇；露鞋底主要来自踝俯仰和纵深回收。",
+  "armFinding": "已有清楚的右灯前/左瓶后与右灯后/左瓶前交替，非16帧全持物展示；但若干中间过渡跨度和闭环仍待修。",
+  "actualModel": null,
+  "actualQuality": null,
+  "events": [
+    {
+      "name": "right_contact",
+      "event": "right_contact_candidate",
+      "frame": 1,
+      "slot": 1,
+      "timeMs": 0,
+      "startMs": 0,
+      "status": "candidate_observed",
+      "evidence": "Actual16→01 leading right-shoe descent and support orientation; not prompt phase only."
+    },
+    {
+      "name": "right_liftoff",
+      "event": "right_liftoff_interval",
+      "frame": 6,
+      "slot": 6,
+      "timeMs": 375,
+      "startMs": 375,
+      "status": "observed_interval_05_to_06",
+      "evidence": "Recovery knee flexion after low trailing right shoe; exact subframe release unresolved."
+    },
+    {
+      "name": "left_contact",
+      "event": "left_contact_candidate",
+      "frame": 9,
+      "slot": 9,
+      "timeMs": 600,
+      "startMs": 600,
+      "status": "candidate_observed",
+      "evidence": "Actual07→08→09 leading left shoe descends progressively into contact mother."
+    },
+    {
+      "name": "left_liftoff",
+      "event": "left_liftoff_interval",
+      "frame": 13,
+      "slot": 13,
+      "timeMs": 900,
+      "startMs": 900,
+      "status": "observed_interval_12_to_13",
+      "evidence": "Rear left knee flexes and shoe raises after12; depth-dependent ground provisional."
+    }
+  ],
+  "referenceUpdate": {
+    "character": "09_bamboo_archer_girl",
+    "scope": "Current runtime user-approved reference; reviewed N/NW actual32 frames and manifest/animation-timing/MERGE_HANDOFF. Only action mechanics borrowed, no identity or mirrored frames.",
+    "timing": "09 old720ms is not copied; current user instruction1200ms applies to03."
+  },
+  "cycleIssues": [
+    "Previous07→08 and15→16 return-lift corrected by07-v2/15-v2;14-v2 prevents moving the defect one frame earlier.",
+    "03→04 and13→14 lamp-arm motion remains relatively large; needs normal-size playback judgment.",
+    "Ground contacts are candidate image observations; no game-world displacement calibration."
+  ],
+  "verification": {
+    "selectedFrames": 16,
+    "uniqueSourceSha256": 16,
+    "allSelectedSourceRecordsExist": true,
+    "nativeActualPngCount": 26,
+    "actualModel": null,
+    "actualQuality": null
+  },
+  "loopClosureReview": {
+    "basis": "Native images and contact sheet; browser playback next after root build.",
+    "dynamicPlaybackReviewed": false,
+    "visualAccepted": false
+  }
+}
