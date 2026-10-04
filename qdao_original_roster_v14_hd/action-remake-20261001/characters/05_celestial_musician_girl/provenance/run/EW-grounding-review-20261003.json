@@ -1,0 +1,315 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-03T11:28:25.815Z",
+  "reviewScope": "原生单图＋全16帧灰蓝底静态连图实看，非动态通过",
+  "nativeCanvas": [
+    1254,
+    1254
+  ],
+  "targetExportRoot": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "x": 512,
+    "groundY": 942,
+    "applied": false
+  },
+  "timing": {
+    "oldCycleMs": 480,
+    "comparisonCycleMs": [
+      640,
+      720,
+      800
+    ],
+    "suggestedDefaultComparisonMs": 720,
+    "approvedClientValue": null,
+    "weights": null
+  },
+  "method": "按实际鞋掌姿态、膝踝屈曲、近远腿遮挡标定，不照抄提示词。native y仅作诊断；未逐帧缩放/平移/最低脚贴地。全图bbox并非根点证据。",
+  "directionGroundObservations": {
+    "E": {
+      "flatContactBandPx": [
+        1173,
+        1188
+      ],
+      "diagnosticRepresentativePx": 1184,
+      "notes": "据实际多张平掌支撑推测的比较线，不是已经确认的世界地面；E03/E12原候选超出，E01/E09轻接触高度略高。"
+    },
+    "W": {
+      "flatContactBandPx": [
+        1198,
+        1208
+      ],
+      "diagnosticRepresentativePx": 1202,
+      "notes": "W01/02/03/08/09/11平掌支撑大致重复此高度。W10v5减轻浮脚但仍约高6–11px。方向间原生地面不同，正式全局配准仍需由相机/躯干共同比例确认。"
+    }
+  },
+  "frames": [
+    {
+      "direction": "E",
+      "frame": 1,
+      "actualPhase": "右近脚初接触",
+      "supportLeg": "R_near",
+      "visibleEvidence": "鞋跟较低、前掌轻翘；后左远腿折收。",
+      "concern": "轻接触比多数平掌约高10px，接触后需要承重过渡。"
+    },
+    {
+      "direction": "E",
+      "frame": 2,
+      "actualPhase": "右近脚承重缓冲",
+      "supportLeg": "R_near",
+      "visibleEvidence": "平掌、膝屈曲，远左脚后收。",
+      "concern": "头顶变化小，明显下沉不强；支撑较E01低10px。"
+    },
+    {
+      "direction": "E",
+      "frame": 3,
+      "actualPhase": "右近脚中支撑，左远腿穿过",
+      "supportLeg": "R_near",
+      "visibleEvidence": "v3重画后支持鞋底1188/1254，已消除旧1205异常下探；右近腿前景支撑、左远腿折收过髋。",
+      "concern": "静态改善，仍待正常尺寸动态与换腿连续性。"
+    },
+    {
+      "direction": "E",
+      "frame": 4,
+      "actualPhase": "右近脚蹬离",
+      "supportLeg": "R_near",
+      "visibleEvidence": "后方腿伸展、踝跖屈，前方左膝抬起。",
+      "concern": "头顶反而较E03下降，上身弹跳相位仍需动态判断。"
+    },
+    {
+      "direction": "E",
+      "frame": 5,
+      "actualPhase": "左远腿前摆，初腾空",
+      "supportLeg": null,
+      "visibleEvidence": "两靴离开诊断地面，左前腿前摆、右后腿屈。",
+      "concern": "与E06腾空区分较小。"
+    },
+    {
+      "direction": "E",
+      "frame": 6,
+      "actualPhase": "左远腿前摆，腾空",
+      "supportLeg": null,
+      "visibleEvidence": "前靴前伸，后靴高收，头身上升。",
+      "concern": "腾空上升幅度较E05明显，待试播。"
+    },
+    {
+      "direction": "E",
+      "frame": 7,
+      "actualPhase": "左远脚开始接触",
+      "supportLeg": "L_far",
+      "visibleEvidence": "前靴鞋跟已到约1182、脚尖上翘。",
+      "concern": "按实图是接触起点，不能继续标下降腾空。"
+    },
+    {
+      "direction": "E",
+      "frame": 8,
+      "actualPhase": "左远脚平掌承重",
+      "supportLeg": "L_far",
+      "visibleEvidence": "前掌落下，脚底1186、膝软屈。",
+      "concern": "接触已发生；膝缓冲仍应在动态确认。"
+    },
+    {
+      "direction": "E",
+      "frame": 9,
+      "actualPhase": "左远脚承重缓冲",
+      "supportLeg": "L_far",
+      "visibleEvidence": "v3将前掌滚落画为平掌，脚底1179/1254，膝屈曲和近右后腿遮挡保持。",
+      "concern": "已缓解旧1174浮脚，距1184诊断线仍约5px；待动态。"
+    },
+    {
+      "direction": "E",
+      "frame": 10,
+      "actualPhase": "左远脚支撑恢复",
+      "supportLeg": "L_far",
+      "visibleEvidence": "平掌1188，近右腿开始回摆。",
+      "concern": "重心较E09上升，不能照旧标为刚接触。"
+    },
+    {
+      "direction": "E",
+      "frame": 11,
+      "actualPhase": "左远脚中支撑，右近腿前摆",
+      "supportLeg": "L_far",
+      "visibleEvidence": "近右大腿朝前并盖住远左支撑腿，两个靴清楚。",
+      "concern": "相位优于旧v1；整段换腿仍待动态。"
+    },
+    {
+      "direction": "E",
+      "frame": 12,
+      "actualPhase": "左远脚蹬离",
+      "supportLeg": "L_far",
+      "visibleEvidence": "v2后左远足跖屈，前掌末次触点1179/1254；前右近腿屈膝。",
+      "concern": "旧1197下探已消除，触点较诊断线高约5px；待动态。"
+    },
+    {
+      "direction": "E",
+      "frame": 13,
+      "actualPhase": "右近腿前摆，初腾空",
+      "supportLeg": null,
+      "visibleEvidence": "两靴腾空，前右膝高，远左腿向后。",
+      "concern": "头身高点连贯性待动态。"
+    },
+    {
+      "direction": "E",
+      "frame": 14,
+      "actualPhase": "右近腿前伸，腾空",
+      "supportLeg": null,
+      "visibleEvidence": "右靴前伸脚尖上翘、左靴后收。",
+      "concern": "与E13不同腿姿；无需复制。"
+    },
+    {
+      "direction": "E",
+      "frame": 15,
+      "actualPhase": "右近脚下降近地",
+      "supportLeg": null,
+      "visibleEvidence": "前靴下伸至1170，后腿屈曲。",
+      "concern": "在1184诊断线仍有约14px间隔。"
+    },
+    {
+      "direction": "E",
+      "frame": 16,
+      "actualPhase": "右近脚接触起始",
+      "supportLeg": "R_near",
+      "visibleEvidence": "前靴已接近平掌1181，后左腿折收。",
+      "concern": "应按接触段看待而非提示词预接触；首尾1/16需确认缓冲顺序。"
+    },
+    {
+      "direction": "W",
+      "frame": 1,
+      "actualPhase": "右远脚初接触",
+      "supportLeg": "R_far",
+      "visibleEvidence": "前靴接近全掌1200、近左后腿屈收。",
+      "concern": "髋遮挡与后续W03可跟踪近左腿；未做动态通过。"
+    },
+    {
+      "direction": "W",
+      "frame": 2,
+      "actualPhase": "右远脚承重缓冲",
+      "supportLeg": "R_far",
+      "visibleEvidence": "sole1203近固定，冠顶下降约11px、支撑膝弯。",
+      "concern": "有相对可信承重段，不应称完全无着地。"
+    },
+    {
+      "direction": "W",
+      "frame": 3,
+      "actualPhase": "右远脚中支撑，左近腿过髋",
+      "supportLeg": "R_far",
+      "visibleEvidence": "近左大腿膝跨前景、靴高收，远右靴1198支撑。",
+      "concern": "鞋底在同一诊断带。"
+    },
+    {
+      "direction": "W",
+      "frame": 4,
+      "actualPhase": "右远脚蹬离",
+      "supportLeg": "R_far",
+      "visibleEvidence": "后方右脚踝伸展，前左膝抬高。",
+      "concern": "近边发带间距很小但非主要承重问题。"
+    },
+    {
+      "direction": "W",
+      "frame": 5,
+      "actualPhase": "左近腿前摆，腾空",
+      "supportLeg": null,
+      "visibleEvidence": "两靴高于地面，左前靴抬起。",
+      "concern": "腾空轮廓可读。"
+    },
+    {
+      "direction": "W",
+      "frame": 6,
+      "actualPhase": "左近腿前伸，腾空高点",
+      "supportLeg": null,
+      "visibleEvidence": "前靴1108、头冠更高，后脚屈。",
+      "concern": "空中段不应加长停留。"
+    },
+    {
+      "direction": "W",
+      "frame": 7,
+      "actualPhase": "左近脚下降近地",
+      "supportLeg": null,
+      "visibleEvidence": "前靴1181，较诊断线仍约21px间隔。",
+      "concern": "还未平掌落地。"
+    },
+    {
+      "direction": "W",
+      "frame": 8,
+      "actualPhase": "左近脚初接触",
+      "supportLeg": "L_near",
+      "visibleEvidence": "前靴已到1208，前掌趋平、膝屈。",
+      "concern": "真实接触比原计划W09提前。"
+    },
+    {
+      "direction": "W",
+      "frame": 9,
+      "actualPhase": "左近脚承重缓冲",
+      "supportLeg": "L_near",
+      "visibleEvidence": "冠顶下沉约12px、平掌1205。",
+      "concern": "W08–W09为可信落地/缓冲段。"
+    },
+    {
+      "direction": "W",
+      "frame": 10,
+      "actualPhase": "左近脚较深缓冲，右远腿回收",
+      "supportLeg": "L_near",
+      "visibleEvidence": "v5近左支撑脚平掌1195/1254、支撑膝深屈，右远腿后收；发带完整。",
+      "concern": "较v1原1179改善16px，仍高于W09/W11约5–10px；不得宣告动态通过。"
+    },
+    {
+      "direction": "W",
+      "frame": 11,
+      "actualPhase": "左近脚中支撑，右远腿过髋",
+      "supportLeg": "L_near",
+      "visibleEvidence": "支撑脚1200，远右膝前移，左近大腿前景。",
+      "concern": "与W03相反遮挡，交换可读但仍需动态。"
+    },
+    {
+      "direction": "W",
+      "frame": 12,
+      "actualPhase": "左近脚蹬离",
+      "supportLeg": "L_near",
+      "visibleEvidence": "后左腿伸展踝跖屈到1203，右远膝前抬。",
+      "concern": "v2已修右缘裁带，根点仍未导出。"
+    },
+    {
+      "direction": "W",
+      "frame": 13,
+      "actualPhase": "右远腿前摆，腾空",
+      "supportLeg": null,
+      "visibleEvidence": "两靴脱离地面，近左后腿弯。",
+      "concern": "腿间负形清楚。"
+    },
+    {
+      "direction": "W",
+      "frame": 14,
+      "actualPhase": "右远腿前伸，腾空",
+      "supportLeg": null,
+      "visibleEvidence": "右前脚尖翘，左后脚高收。",
+      "concern": "与W13头部高度差小，待动态。"
+    },
+    {
+      "direction": "W",
+      "frame": 15,
+      "actualPhase": "右远脚下降",
+      "supportLeg": null,
+      "visibleEvidence": "前靴1163，后腿屈。",
+      "concern": "距离1202约39px。"
+    },
+    {
+      "direction": "W",
+      "frame": 16,
+      "actualPhase": "右远脚接触前",
+      "supportLeg": "R_far_pending",
+      "visibleEvidence": "前靴1176、后左靴高收，仍有约26px间隔。",
+      "concern": "W16→W01需试播确认下落幅度；不是已承重。"
+    }
+  ],
+  "unresolved": [
+    "完整E/W静态相位已复核，候选均有支撑/缓冲/蹬离/腾空，但正常尺寸动态尚未审过。",
+    "E03/E09/E12与W10已原生重画改善地面跳变，仍有约5–10px原生接触带差，需试播确认。",
+    "E04相对E03上身下沉、E05/E06高点先后与首尾接触衔接需动态重点看。",
+    "W10以固定全局W01/W02尺寸重画，局部脸部/发丝幅度有差，需动态连续性复核。",
+    "E与W原生地面带差异不能以单帧最低像素校准；全局导出根点仍未实际确认。",
+    "客户端位移速度/滑步/运行效果未验。"
+  ],
+  "latestSelection": "provenance/run/selection-EW.json"
+}

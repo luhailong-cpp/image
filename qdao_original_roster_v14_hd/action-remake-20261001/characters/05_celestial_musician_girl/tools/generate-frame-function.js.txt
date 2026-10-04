@@ -1,0 +1,24 @@
+(async function generateFrame(label,args) {
+const root="D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/05_celestial_musician_girl";
+const m=label.match(/^(hit|run|cast)-([A-Z]+)-(\d+)-v(\d+)$/);
+if(!m)throw new Error("Invalid label");
+const [,a,d,f,v]=m, asset=a==="run"?"staging/run/"+d+"/"+f+"-v"+v+".native.png":"staging/"+a+"/"+d+"-"+f+"-v"+v+".png";
+const record=a==="run"?"provenance/run/"+d+f+"-v"+v+".generation.json":asset+".generation.json";
+const stem=root+"/provenance/receipts/"+label, startedAt=new Date().toISOString();
+const q=s=>"'"+s.replace(/'/g,"''")+"'";
+const save=async(path,obj)=>tools.apply_patch("*** Begin Patch\n*** Add File: "+path+"\n+"+JSON.stringify(obj,null,2).split("\n").join("\n+")+"\n*** End Patch");
+const guard=await tools.exec_command({cmd:"if (Test-Path -LiteralPath "+q(stem+"-request.json")+") { throw 'Attempt already exists; use a new version.' }",max_output_tokens:300});
+if(guard.exit_code!==0)throw new Error(guard.output);
+await save(stem+"-request.json",{startedAt,parameters:args,model:null,quality:null});
+try {
+const r=await tools.image_gen__imagegen(args);
+const safe=typeof r==="string"?r:JSON.stringify(r,(k,v)=>k==="image_url"||k==="data"?"[binary omitted]":v);
+await save(stem+"-result.json",{startedAt,completedAt:new Date().toISOString(),rawToolResult:safe});
+const found=(r?.output_hint||"").match(/as (C:\\[^\r\n]+?\.png) by default/);
+if(!found)throw new Error("Returned image path not parsed");
+const folder=asset.slice(0,asset.lastIndexOf("/"));
+text(await tools.exec_command({cmd:"New-Item -ItemType Directory -Force -Path "+q(root+"/"+folder)+" | Out-Null; Copy-Item -LiteralPath "+q(found[1])+" -Destination "+q(root+"/"+asset)+"; & 'C:/Users/luyua/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe' "+q(root+"/tools/record-generated.py")+" "+q(asset)+" "+q("provenance/receipts/"+label+"-request.json")+" "+q("provenance/receipts/"+label+"-result.json")+" 'pending_visual_review' "+q(record),max_output_tokens:600}));
+if(r?.image_url)generatedImage(r);
+return {success:true,file:asset};
+}catch(e){await save(stem+"-error.json",{startedAt,failedAt:new Date().toISOString(),error:String(e)});text({label,error:String(e)});return {success:false};}
+})

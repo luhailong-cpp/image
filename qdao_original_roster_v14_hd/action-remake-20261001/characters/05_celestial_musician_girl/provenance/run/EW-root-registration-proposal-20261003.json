@@ -1,0 +1,66 @@
+{
+  "status": "proposal_not_applied",
+  "scope": "all directions/all actions",
+  "target": {
+    "canvas": [
+      1024,
+      1024
+    ],
+    "root": [
+      512,
+      942
+    ]
+  },
+  "transform": "output_xy = common_scale * (native_xy - fixed_native_root[direction]) + [512,942]",
+  "rules": [
+    "全角色只用一个统一比例common_scale；每方向一个固定nativeRoot，方向内所有帧和动作复用。",
+    "根锚由相机中的骨盆/髋中心地面投影定义，不由头发、乐器、全图bbox中心或某一帧最低脚定义。",
+    "先在近远腿对称支撑相位各至少2帧人工标髋中心/躯干轴/承重脚接触点，注明遮挡和不确定区间，再取完整循环的稳定中轴与相机投影。不可把每帧髋或脚都拉回同一位置，需保留真实起伏。",
+    "支撑带只是共同地面的交叉证据；N与斜向有深度透视、前后落脚投影差，不能把全部脚底当同一y。",
+    "仅导出时统一等比缩放+同方向固定平移；不剪掉实体、不镜像、不重建帧、不局部变形。"
+  ],
+  "verticalDiagnostics": [
+    {
+      "direction": "E",
+      "nativeSupportBandEstimate": 1184,
+      "source": "EW-grounding-review-20261003.json"
+    },
+    {
+      "direction": "W",
+      "nativeSupportBandEstimate": 1202,
+      "source": "EW-grounding-review-20261003.json"
+    },
+    {
+      "direction": "N",
+      "nativeSupportBandEstimate": 1180,
+      "source": "N-grounding-review-20261003.json"
+    }
+  ],
+  "nominalCanvasScale": 0.8165869218500797,
+  "verticalOnlyExamplesAtNominalScale": [
+    {
+      "direction": "E",
+      "offsetY": -24.838915470494385
+    },
+    {
+      "direction": "W",
+      "offsetY": -39.5374800637959
+    },
+    {
+      "direction": "N",
+      "offsetY": -21.572567783094087
+    }
+  ],
+  "warning": "以上只是固定y配准试值，不是已证实根锚。x不能默认627：侧面E髋明显偏画面右侧，W较偏左；按真正髋根居中后，1024/1254的全画布比例可能裁到E后摆头发。不要为保留大尺寸伪称画布中心就是根。",
+  "horizontalCalibration": {
+    "required": "对选定E/W/N成对支撑帧标盆骨中心位置，而非绿色腰结/琴中心；记录nativeX、confidence和referenceFrames。其余方向同法。",
+    "unmeasuredDirectionX": null
+  },
+  "globalScaleDecision": "完成固定根标定后，拿全部已选帧在这些根下的最大真实边界距离只做统一画布容纳检查。若当前common_scale导致触边，整个角色统一一次降低比例（不为单帧或单方向按bbox拟合）；否则保留既定比例。不能在没有关键点标注和全方向检查前公布新的精确比例。",
+  "validation": [
+    "固定十字根与水平/深度地面网格上切换8方向，检查身体是否围绕同一地面投影转向；武器/头发偏重不能拉走根。",
+    "每方向正常尺寸/放大完整循环检查身体起伏保留、真实脚掌接触连续、无头发实体截边。",
+    "客户端加入角色世界位移后检查承重脚的世界坐标滑动；纯原地预览不能证实无滑步。"
+  ],
+  "imageTransformsApplied": false
+}

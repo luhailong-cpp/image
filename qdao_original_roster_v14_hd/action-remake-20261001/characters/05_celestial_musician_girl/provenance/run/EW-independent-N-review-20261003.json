@@ -1,0 +1,101 @@
+{
+  "reviewer": "finish_ew",
+  "reviewedAt": "2026-10-03",
+  "action": "run",
+  "direction": "N",
+  "selection": "provenance/run/selection-N.json",
+  "method": "实际查看当前16帧4x4连图，并逐张查看1254 RGBA原图；静态独立复核。未改变图片、N选帧、根status或preview。",
+  "status": "static_review_complete_dynamic_pending",
+  "mandatoryRedrawsFromStaticReview": [],
+  "legIdentity": "背面N：画面左=解剖左，画面右=解剖右。01–04右支撑；05–06飞行；07–12左支撑；13–14飞行；15右下降；16右接触。未见左右腿直接交换或第三肢。",
+  "correctedKeyFrames": [
+    {
+      "frame": 1,
+      "file": "staging/run/N/01-v2.native.png",
+      "finding": "右靴后跟/平掌可读，左腿后收露鞋底；比原预接触标法更适合作右接触。"
+    },
+    {
+      "frame": 2,
+      "file": "staging/run/N/02-v2.native.png",
+      "finding": "右膝承重、左脚继续后摆，左右归属连续；右靴下缘与01相近。"
+    },
+    {
+      "frame": 7,
+      "file": "staging/run/N/07-v2.native.png",
+      "finding": "左靴后跟接触可辨，右腿屈曲后摆，右带尖已在画内。"
+    },
+    {
+      "frame": 8,
+      "file": "staging/run/N/08-v2.native.png",
+      "finding": "左靴继续承重，右腿鞋底可见；没有从07到08换腿。"
+    }
+  ],
+  "phaseChecks": [
+    {
+      "frames": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "finding": "右支撑→右后跟升起→右后腿鞋底展示→双腿收拢→左接触，左右归属可追踪。"
+    },
+    {
+      "frames": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "finding": "左支撑→左后跟升起→左后腿离地→双腿收拢→右腿伸下→右接触，可读第二半循环。14右靴鞋底变大仍可解释为屈膝收小腿；静态不足以判定腿交换。"
+    }
+  ],
+  "hands": {
+    "visible": "左高握手在琴上端，袖口/手腕可见，选帧没有明显第三手或断手。",
+    "occluded": "背后长发遮住肩、上臂、右手大部分，不能把遮挡区域声明为全部骨骼验证通过。",
+    "watch": "09琴角度与上身偏转显著于08/10，正常尺寸连播检查是否弹跳；未单凭此认定穿帮。"
+  },
+  "pending": [
+    {
+      "frames": [
+        8,
+        9,
+        10
+      ],
+      "severity": "dynamic_check",
+      "finding": "09琴/躯干相对前后帧转动，应在速度比较页检查瞬间跳动。"
+    },
+    {
+      "frames": [
+        13,
+        14,
+        15
+      ],
+      "severity": "dynamic_check",
+      "finding": "14右靴鞋底展示变大，需要慢放检查前摆→屈膝→伸腿连续；当前无强制重画依据。"
+    },
+    {
+      "frames": [
+        1,
+        2,
+        7,
+        8,
+        10,
+        14
+      ],
+      "severity": "minor_design_consistency",
+      "finding": "鞋底纹样在花纹底与素紫横纹底之间变化；不影响左右腿识别，待正常尺寸看是否明显，不为此反复生成。"
+    },
+    {
+      "frames": [
+        10
+      ],
+      "severity": "registration_evidence",
+      "finding": "y约1170在图像坐标上高于1185约15px，现有N文档“低于”应理解为数值较低。不能逐帧平移补齐。"
+    }
+  ],
+  "registration": "provenance/run/EW-root-registration-proposal-20261003.json"
+}
