@@ -156,7 +156,7 @@ except Exception as exc:
     drawing_results={j['slot']:{'match':None,'error':str(exc)} for j in drawing_jobs}
     drawing_exporter_sha=None
 
-frames=[]; full_pixels=defaultdict(list); mirrored_pixels={}; file_hashes=defaultdict(list)
+frames=[]; full_pixels=defaultdict(list); mirrored_pixels={}; file_hashes=defaultdict(list); native_hashes=defaultdict(list)
 current_records={}; current_paths=set(); current_natives=set(); protected_reasons=defaultdict(set)
 for inv,f in sorted(slots,key=lambda x:(str(x[1].get('action')),str(x[1].get('direction')),x[1].get('frame',0))):
     slot=f"{f.get('action')}/{f.get('direction')}/{f.get('frame'):02}"
@@ -180,6 +180,7 @@ for inv,f in sorted(slots,key=lambda x:(str(x[1].get('action')),str(x[1].get('di
         recp=resolve(rec_name);check('recordInsideCharacter',recp.is_relative_to(ROOT))
         if not recp.is_relative_to(ROOT):raise ValueError('record outside character')
         rec=read_json(recp);current_records[recp]=(slot,rec);row['record']={'file':label(recp),'sha256':observed[str(recp)]}
+        row['record']['generationTimeEvidence']={k:rec[k] for k in ['submittedAt','startedAt','generationStartedAt','generatedAt','endedAt','generatedAtEvidence','generatedAtMeaning','registeredAt'] if k in rec}
         row['modelQuality']=model_evidence(rec)
         exp=rec.get('export',{})
         check('recordExportShaMatchesActual',exp.get('sha256')==meta['sha256'])
@@ -191,6 +192,7 @@ for inv,f in sorted(slots,key=lambda x:(str(x[1].get('action')),str(x[1].get('di
         nsha=native.get('sha256') or rec.get('sha256')
         np=resolve(npath);current_natives.add(np);protected_reasons[np].add('current_native_source_and_pending_global_registration')
         nm,nim=image_info(np);row['native']=nm
+        native_hashes[nm['sha256']].append(slot)
         claimed_dims=[native.get('width'),native.get('height')] if native else ([rec.get('nativeDimensions',{}).get('width'),rec.get('nativeDimensions',{}).get('height')] if rec.get('nativeDimensions') else [rec.get('width'),rec.get('height')])
         row['native']['recordDimensions']=claimed_dims
         check('nativeShaMatchesRecord',nm['sha256']==nsha)
@@ -249,6 +251,7 @@ for inv,f in sorted(slots,key=lambda x:(str(x[1].get('action')),str(x[1].get('di
 
 pixel_duplicates=[s for s in full_pixels.values() if len(s)>1]
 byte_duplicates=[s for s in file_hashes.values() if len(s)>1]
+native_duplicates=[s for s in native_hashes.values() if len(s)>1]
 mirror_pairs=set()
 for slot,mh in mirrored_pixels.items():
     for other in full_pixels.get(mh,[]):
@@ -329,12 +332,12 @@ report={'schema':1,'character':'02_fire_talisman_boy','startedAtUtc':started,'fi
  'inputInventories':inventory_snapshots,'expectedSlots':196,'actualInventoryEntries':len(slots),'missingSlots':missing_slots,'duplicateSlots':duplicate_slots,'unexpectedSlots':unexpected_slots,
  'summary':{'fileSourceChainPassCount':sum(f['fileSourceChainPass'] for f in frames),'rawReceiptChainVerifiedCount':sum(f.get('rawReceiptChainVerified',False) for f in frames),'adjacentSidecarPresentCount':sum(bool(f.get('sidecars')) for f in frames),'actualModelAndQualityUnconfirmedCount':sum(f.get('recordModelQualityUnconfirmed',False) for f in frames),'problemCount':len(problems),'evidenceGapCount':len(evidence_gaps),'snapshotStable':not changed,'cleanupCandidateCount':len(cleanup),'cleanupCandidateBytes':sum(p['bytes'] for p in cleanup)},
  'receiptEvidenceGrades':dict(Counter(f.get('receiptGrade','not_reached') for f in frames)),
- 'pass':not problems and not changed and len(slots)==196 and not pixel_duplicates and not mirror_pairs,
+ 'pass':not problems and not changed and len(slots)==196 and not pixel_duplicates and not mirror_pairs and not native_duplicates,
  'rawReceiptMappingComplete':len(frames)==196 and all(f.get('rawReceiptChainVerified',False) for f in frames),
  'adjacentSidecarsComplete':len(frames)==196 and all(f.get('sidecars') for f in frames),
  'passMeaning':'Actual file/record/source integrity only. Does not mean every raw receipt was retained, sidecars all exist, anatomy passes, model/quality confirmed or client integration complete.',
  'frames':frames,'problems':problems,'evidenceGaps':evidence_gaps,'inputsChangedDuringAudit':changed,
- 'duplicateDiagnostics':{'method':'Exact complete1024canvas premultiplied RGBA pixels; zero-alpha hidden RGB ignored. Horizontal mirror is evaluated only in memory, no file written. No approximate pose/mirror inference.','byteIdenticalGroups':byte_duplicates,'pixelIdenticalGroups':pixel_duplicates,'horizontalPixelMirrorPairs':[list(x) for x in sorted(mirror_pairs)]},
+ 'duplicateDiagnostics':{'method':'Exact complete1024canvas premultiplied RGBA pixels; zero-alpha hidden RGB ignored. Horizontal mirror is evaluated only in memory, no file written. Native SHA reuse across different current slots is also checked. No approximate pose/mirror inference.','byteIdenticalGroups':byte_duplicates,'pixelIdenticalGroups':pixel_duplicates,'horizontalPixelMirrorPairs':[list(x) for x in sorted(mirror_pairs)],'sharedNativeShaGroups':native_duplicates},
  'cleanup':{'mode':'candidate_list_only_no_deletion','requiresRootReviewAndFreshAudit':True,'rules':['Only resolved paths inside02 are considered.','Current formal frames, current native sources, previews, known review visuals and possible unique work in progress are excluded.','Only prior generation images with explicit rejection/supersession or an exported replacement in a currently verified slot are suggested.','Unknown images are retained; text provenance is never listed for deletion.','Do not execute from a stale snapshot; active generation can add references after the scan.'],'candidates':cleanup,'heldNonFormalImages':held,'recordScanErrors':record_scan_errors},
  'limitations':['Host file hashes verify saved bytes; original raw output_hint is separately graded and never reconstructed.','N09 inferred recovery, if still current, remains explicitly distinguishable from a receipt-verified call.','No server-side model/quality claim is inferred from configured target or prompt.','No client is launched and no visual or dynamic approval is issued.']}
 OUTPUT.parent.mkdir(parents=True,exist_ok=True)

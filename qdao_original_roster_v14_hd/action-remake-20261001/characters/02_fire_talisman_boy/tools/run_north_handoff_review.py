@@ -56,6 +56,8 @@ for direction in ("W","N","NW","NE"):
         row["singleFrameCriteria"]=review["criteria"]
         row["trialDurationMs"]=75
         row["durationMs"]=75
+        if row.get("action")=="shorten_trial":
+            row["action"]="review_flight_pose_at_uniform_75ms"
         allrows.append({"direction":direction,**row})
     doc["timing"]={"status":"user_requested_uniform_1200ms_client_unconfirmed","cycleMs":1200,"frameMs":75,"durationsMs":[75]*16,"phaseWeightsApplied":False,"reason":"用户最新明确统一正常1200ms；删除旧快档与非均匀权重。时长不代替接地姿态验收。"}
     for row in doc["frames"]:

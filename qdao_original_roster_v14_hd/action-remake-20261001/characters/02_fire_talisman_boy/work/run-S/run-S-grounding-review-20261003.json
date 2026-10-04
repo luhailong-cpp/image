@@ -15,33 +15,30 @@
     "registration": "仅整1254画布统一下采样1024；尺度修订来自新AI图，无逐帧后处理配准"
   },
   "timing": {
-    "status": "仅候选试播参数，未改正式manifest/客户端",
-    "cycle_ms": 720,
+    "status": "用户最新明确要求，素材预览采用；客户端未接入",
+    "cycle_ms": 1200,
+    "frame_ms": 75,
     "durations_ms": [
-      50,
       75,
-      65,
-      45,
-      40,
-      25,
-      25,
-      35,
-      50,
       75,
-      65,
-      45,
-      40,
-      25,
-      25,
-      35
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75
     ],
-    "compare_cycles_ms": [
-      480,
-      640,
-      720,
-      800
-    ],
-    "note": "实际候选权重从本角色接触/承重更长、飞行更短推导；不是07权重。主代理可按总时长归一化，此处原权重合计720。"
+    "phase_weights_applied": false,
+    "fast_presets_removed": true,
+    "slow_playback": "0.25x"
   },
   "frames": [
     {
@@ -62,7 +59,7 @@
       "actual_phase": "左脚初接触/承重前段",
       "contact_evidence": "左脚viewer右前，右脚viewer左后；左鞋顶与细底边可见",
       "review_status": "静态候选，连续性及比例待主代理实播",
-      "suggested_duration_ms": 50,
+      "suggested_duration_ms": 75,
       "toe_axis_review": "前鞋鞋尖向画面下方，未见明确左右外八；后脚因抬跟可见鞋顶，单帧暂未见明显反向"
     },
     {
@@ -104,7 +101,7 @@
       "actual_phase": "左脚单腿支撑，右腿过腿",
       "contact_evidence": "左鞋底平，右膝在viewer左抬起通过；右符臂较中立",
       "review_status": "静态候选，连续性及比例待主代理实播",
-      "suggested_duration_ms": 65,
+      "suggested_duration_ms": 75,
       "toe_axis_review": "前鞋鞋尖向画面下方，未见明确左右外八；后脚因抬跟可见鞋顶，单帧暂未见明显反向"
     },
     {
@@ -125,7 +122,7 @@
       "actual_phase": "左腿后方支撑到蹬地、右腿前摆",
       "contact_evidence": "a2 后左鞋前掌下指、后跟抬起；右前鞋底朝镜头悬空；比上一版支点更清楚",
       "review_status": "已重画晚支撑，动态承重与相邻帧需实播",
-      "suggested_duration_ms": 45,
+      "suggested_duration_ms": 75,
       "toe_axis_review": "前鞋鞋尖向画面下方，未见明确左右外八；后脚因抬跟可见鞋顶，单帧暂未见明显反向"
     },
     {
@@ -146,7 +143,7 @@
       "actual_phase": "左脚后伸蹬离候选",
       "contact_evidence": "viewer右后鞋前掌朝下、跟抬起；右前鞋腾空",
       "review_status": "静态候选，连续性及比例待主代理实播",
-      "suggested_duration_ms": 40,
+      "suggested_duration_ms": 75,
       "toe_axis_review": "前鞋鞋尖向画面下方，未见明确左右外八；后脚因抬跟可见鞋顶，单帧暂未见明显反向"
     },
     {
@@ -167,13 +164,13 @@
       "actual_phase": "短飞行：右前左后",
       "contact_evidence": "两脚离地，五符已修，画幅由AI修回",
       "review_status": "静态候选，连续性及比例待主代理实播",
-      "suggested_duration_ms": 25,
+      "suggested_duration_ms": 75,
       "toe_axis_review": "前鞋鞋尖向画面下方，未见明确左右外八；后脚因抬跟可见鞋顶，单帧暂未见明显反向"
     },
     {
-      "source_record": "records/run-S-07-20261003.generation.json",
+      "source_record": "records/run-S-07-20261003-attempt2.generation.json",
       "action": "run",
-      "native_path": "work/run-S/S-07-20261003-native.png",
+      "native_path": "work/run-S/S-07-20261003-attempt2-native.png",
       "direction": "S",
       "visual_status": "candidate_visual_review_pending",
       "path": "frames/run/S/07.png",
@@ -182,13 +179,13 @@
         1254,
         1254
       ],
-      "native_sha256": "7dd4d16b805271a11100f198731a4097875c15da558e67d7636292e464c81b0d",
-      "native_evidence": "records/run-S-07-20261003.generation.json",
-      "sha256": "066dc1465fd6ddbdc2cb209db84d8262ee3bce5f9650989ce38d15c6c100a4e6",
-      "actual_phase": "右脚下降",
-      "contact_evidence": "右前腿降低，左后脚回收",
-      "review_status": "静态候选，连续性及比例待主代理实播",
-      "suggested_duration_ms": 25,
+      "native_sha256": "e7218d201ae67a154449ca19a2de7dab136d90b43f5401c00c14da6e4eca4e49",
+      "native_evidence": "records/run-S-07-20261003-attempt2.generation.json",
+      "sha256": "84782a0dea2247fd0cbe43a63126f84ce6d1baa533d5400da512da17e3264254",
+      "actual_phase": "右脚初接触",
+      "contact_evidence": "a2实际附09对应动作参考，前鞋由大块鞋底朝镜头改为窄金底边/近乎平底，后脚仍悬空；脚尖正前，膝踝连贯",
+      "review_status": "新接触局部实看，动态连接待主代理复核",
+      "suggested_duration_ms": 75,
       "toe_axis_review": "前鞋鞋尖向画面下方，未见明确左右外八；后脚因抬跟可见鞋顶，单帧暂未见明显反向"
     },
     {
@@ -197,19 +194,19 @@
         1254
       ],
       "frame": 8,
-      "sha256": "5b24477e74b1003776193feaabb330bb15b09c9e24808994ca7c18bf994e65da",
-      "native_sha256": "de39af344f9f4ed1ed0671b9822f31db7d1e1ca816d8ddbd873b4744fadf3cf8",
+      "sha256": "d3ee3a969c583d5ae896f3aa2b486687e975a34d6e131adda5740def65178c60",
+      "native_sha256": "f28c2a09cb82d64f94d4a20d7b6357b0e6f95c1355af3ebd4989a93cfccd99d8",
       "path": "frames/run/S/08.png",
-      "native_evidence": "records/run-S-08-20261003.generation.json",
+      "native_evidence": "records/run-S-08-20261003-attempt2.generation.json",
       "visual_status": "candidate_visual_review_pending",
       "direction": "S",
       "action": "run",
-      "native_path": "work/run-S/S-08-20261003-native.png",
-      "source_record": "records/run-S-08-20261003.generation.json",
-      "actual_phase": "右脚触地前",
-      "contact_evidence": "右鞋前伸，鞋底朝向仍略大",
-      "review_status": "静态候选，连续性及比例待主代理实播",
-      "suggested_duration_ms": 35,
+      "native_path": "work/run-S/S-08-20261003-attempt2-native.png",
+      "source_record": "records/run-S-08-20261003-attempt2.generation.json",
+      "actual_phase": "右脚落地承重压缩",
+      "contact_evidence": "a2前鞋平底，支撑膝及踝弯曲；后脚收起，双膝鞋尖顺S；真实AI局部重画非下移贴地",
+      "review_status": "新承重局部实看，动态连接待主代理复核",
+      "suggested_duration_ms": 75,
       "toe_axis_review": "前鞋鞋尖向画面下方，未见明确左右外八；后脚因抬跟可见鞋顶，单帧暂未见明显反向"
     },
     {
@@ -230,7 +227,7 @@
       "actual_phase": "右脚初接触",
       "contact_evidence": "右鞋跟朝下、前掌抬起；左脚在后",
       "review_status": "静态候选，连续性及比例待主代理实播",
-      "suggested_duration_ms": 50,
+      "suggested_duration_ms": 75,
       "toe_axis_review": "前鞋鞋尖向画面下方，未见明确左右外八；后脚因抬跟可见鞋顶，单帧暂未见明显反向"
     },
     {
@@ -272,7 +269,7 @@
       "actual_phase": "右脚支撑，左腿过腿",
       "contact_evidence": "右鞋平、左膝过腿；符手已向前，铃回后",
       "review_status": "静态候选，连续性及比例待主代理实播",
-      "suggested_duration_ms": 65,
+      "suggested_duration_ms": 75,
       "toe_axis_review": "前鞋鞋尖向画面下方，未见明确左右外八；后脚因抬跟可见鞋顶，单帧暂未见明显反向"
     },
     {
@@ -293,7 +290,7 @@
       "actual_phase": "右腿后方支撑到蹬地、左腿前摆",
       "contact_evidence": "a2 后右鞋位于 viewer 左下且前掌下指；左前鞋抬起；两鞋不再互相外岔",
       "review_status": "已重画晚支撑，动态承重与相邻帧需实播",
-      "suggested_duration_ms": 45,
+      "suggested_duration_ms": 75,
       "toe_axis_review": "前鞋鞋尖向画面下方，未见明确左右外八；后脚因抬跟可见鞋顶，单帧暂未见明显反向"
     },
     {
@@ -314,7 +311,7 @@
       "actual_phase": "右脚后伸蹬离候选",
       "contact_evidence": "a3 后右鞋由向 viewer 左外撇改成鞋尖向正前下方，前左鞋悬空；后前掌朝下",
       "review_status": "鞋向静态通过，蹬离力度与过渡待实播",
-      "suggested_duration_ms": 40,
+      "suggested_duration_ms": 75,
       "toe_axis_review": "后鞋外撇已局部修正；两鞋长轴均朝前，无横向外岔"
     },
     {
@@ -335,28 +332,28 @@
       "actual_phase": "短飞行：左前右后",
       "contact_evidence": "两脚悬空，前鞋底后缘有突起",
       "review_status": "鞋底后端轮廓为可解释的鞋跟投影，未见多脚；动态轮廓连续性仍待实播",
-      "suggested_duration_ms": 25,
+      "suggested_duration_ms": 75,
       "toe_axis_review": "前鞋鞋尖向画面下方，未见明确左右外八；后脚因抬跟可见鞋顶，单帧暂未见明显反向"
     },
     {
       "action": "run",
       "path": "frames/run/S/15.png",
       "visual_status": "candidate_visual_review_pending",
-      "sha256": "6e39400cf5c75a61689b7eefa4feaef1c2cddd54cc314f20b8cc30c8a5671f2d",
-      "native_evidence": "records/run-S-15-20261003.generation.json",
-      "native_path": "work/run-S/S-15-20261003-native.png",
-      "native_sha256": "235beef46ad3a6bcf46b9f5171bac2b12601b2f55f31929f7dee35bac844205a",
+      "sha256": "50640b52f0dc618c7ea0ea2f3f8040da8a627c1d1e05c7c57cc7a5e65a1f6cf7",
+      "native_evidence": "records/run-S-15-20261003-attempt2.generation.json",
+      "native_path": "work/run-S/S-15-20261003-attempt2-native.png",
+      "native_sha256": "0b199bf79212cedd1099d25c8f7ecf59df2cef7652be212c04ece3a7c3fe656c",
       "frame": 15,
-      "source_record": "records/run-S-15-20261003.generation.json",
+      "source_record": "records/run-S-15-20261003-attempt2.generation.json",
       "native_size": [
         1254,
         1254
       ],
       "direction": "S",
-      "actual_phase": "左脚下降",
-      "contact_evidence": "左前腿降低、右脚收后，前鞋底后缘突起",
-      "review_status": "鞋底后端轮廓为可解释的鞋跟投影，未见多脚；动态轮廓连续性仍待实播",
-      "suggested_duration_ms": 25,
+      "actual_phase": "左脚初接触",
+      "contact_evidence": "a2实际附09对应动作参考，前鞋由大块鞋底朝镜头改为窄金底边/近乎平底，后脚仍悬空；脚尖正前，膝踝连贯",
+      "review_status": "新接触局部实看，动态连接待主代理复核",
+      "suggested_duration_ms": 75,
       "toe_axis_review": "前鞋鞋尖向画面下方，未见明确左右外八；后脚因抬跟可见鞋顶，单帧暂未见明显反向"
     },
     {
@@ -365,19 +362,19 @@
         1254,
         1254
       ],
-      "native_sha256": "e60dec06a578160bf0d329ae47f67d1fd28964936f9fdca9939b3632ae49802b",
-      "sha256": "f0ebe49105cf39589da05b778b4e307b5b824fc93bc7d42e329eb3a6dbf8a56e",
+      "native_sha256": "cce1550c25f4b30726855b84a216dbf2bf16f2a457515cf368cac33eb23e14ea",
+      "sha256": "11ac7eb097d8bd7f6de67c9949cfb7a8a6f7f56b18e9105480b44a21ddd4fee4",
       "path": "frames/run/S/16.png",
       "frame": 16,
       "action": "run",
-      "source_record": "records/run-S-16-20261003.generation.json",
-      "native_path": "work/run-S/S-16-20261003-native.png",
+      "source_record": "records/run-S-16-20261003-attempt2.generation.json",
+      "native_path": "work/run-S/S-16-20261003-attempt2-native.png",
       "direction": "S",
-      "native_evidence": "records/run-S-16-20261003.generation.json",
-      "actual_phase": "左脚触地前",
-      "contact_evidence": "左前鞋降低、右脚后收",
-      "review_status": "静态候选，连续性及比例待主代理实播",
-      "suggested_duration_ms": 35,
+      "native_evidence": "records/run-S-16-20261003-attempt2.generation.json",
+      "actual_phase": "左脚落地承重压缩",
+      "contact_evidence": "a2前鞋平底，支撑膝及踝弯曲；后脚收起，双膝鞋尖顺S；真实AI局部重画非下移贴地",
+      "review_status": "新承重局部实看，动态连接待主代理复核",
+      "suggested_duration_ms": 75,
       "toe_axis_review": "前鞋鞋尖向画面下方，未见明确左右外八；后脚因抬跟可见鞋顶，单帧暂未见明显反向"
     }
   ],
@@ -388,6 +385,6 @@
     "本机无客户端，位移速度/滑步未验收"
   ],
   "combat": "受击及其他战斗动作时长保持原规格",
-  "updatedAt": "2026-10-03T14:34:37.192940-04:00",
-  "userCriterion": "没有整套已通过样板；逐图检查 heel-to-toe 轴，只修实际向外的脚掌，不能用缩腿间距代替鞋向修正。未附07为生图参考。"
+  "updatedAt": "2026-10-04T00:09:21.352284-04:00",
+  "userCriterion": "逐图检查 heel-to-toe 轴，只修真实外撇；用户最新授权09竹弓少女当前版本作动作参照，已只读查看且实际附入8张落地修订；未附07。"
 }

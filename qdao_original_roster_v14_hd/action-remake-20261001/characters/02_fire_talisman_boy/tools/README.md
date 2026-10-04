@@ -35,11 +35,11 @@ $character = 'D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/c
 & $privatePython -B "$character/tools/build_previews.py" --manifest "$character/inventory.json"
 ```
 
-输出 `previews/index.html` 与 `previews/technical-report.json`。HTML 支持正常速度、慢速 ×4、暂停、上一槽/下一槽、逐槽按钮和滑杆，展示每槽的来源与技术检查。自动播放保留全部规格槽位：缺帧显示文字空槽，并占用相同单帧时长，不跳过缺帧、不延用上一张实图。例如只有 run/E/01 时，02–16 都明确为空，整圈仍为 480ms；不会伪造成单张高速循环。
+输出 `previews/index.html` 与 `previews/technical-report.json`。HTML 支持正常速度、慢速 ×4、暂停、上一槽/下一槽、逐槽按钮和滑杆，展示每槽的来源与技术检查。自动播放保留全部规格槽位：缺帧显示文字空槽，并占用相同单帧时长，不跳过缺帧、不延用上一张实图。例如只有 run/E/01 时，02–16 都明确为空，整圈仍为 1200ms；不会伪造成单张高速循环。
 
 只有某动作方向全部槽位可加载时才生成 `run-E-normal.gif` / `run-E-slow.gif` 等；不完整序列不生成 GIF，并清除该方向已过期的工具生成 GIF。不会扫描目录自动导入旧图。动画标注库存数量；库存完整仍不等于视觉通过。HTML 可切换棋盘格、浅底、深底以检查透明边缘；视觉结论需由美术验收者逐项记录。
 
-正常时长：run 30ms、hit 40ms、attack 30ms、cast 45ms；慢速为 4 倍。GIF 只能存储 10ms 精度，所以 cast 正常 GIF 用 50/40ms 交替，完整 16 帧仍为 720ms。HTML 使用 45ms 规格计时（浏览器调度可能有偏差）。技术报告保存 GIF 重读后的真实帧数/时长。
+正常时长：run 75ms（1200ms/圈）、hit 40ms、attack 30ms、cast 45ms；慢速为 4 倍。GIF 只能存储 10ms 精度，所以 run 正常 GIF 用 80/70ms 交替，总计1200ms；cast 正常 GIF 用 50/40ms 交替，完整 16 帧仍为 720ms。HTML 使用 45ms 规格计时（浏览器调度可能有偏差）。技术报告保存 GIF 重读后的真实帧数/时长。
 
 技术审计包含尺寸、模式、SHA256、透明/半透明像素数、透明 bbox（仅诊断）、边缘像素警告、原生尺寸声明、重复 SHA、现有/缺失槽位。非 1024×1024 的图不进入固定画布预览；非 RGBA、原生尺寸未知/不足、SHA 不符、无透明背景、多个槽位 SHA 完全相同等会报告失败。缺帧和视觉未验收分别保留，技术通过不等于美术通过。SHA 检查不能替代手脚、握持和动作连续性检查。
 
