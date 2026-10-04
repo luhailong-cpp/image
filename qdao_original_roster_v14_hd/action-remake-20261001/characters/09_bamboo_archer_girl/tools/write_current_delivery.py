@@ -66,7 +66,7 @@ text=f"""# 09竹弓少女 · 当前修订交付
 
 本批配置目标GPT Image2.5 Sunburst/max，使用宿主内置image_gen。工具未提供型号/质量选择器及实际返回值，实际model/quality均按null未确认记录；配置或提示词不是已锁定型号的证据。逐图请求、回执、参考SHA、生成时间、原生尺寸与来源路径均保留。
 
-导出为原生完整画布等比缩至1024，无逐帧包围盒缩放、整图位移或最低脚对齐；仅透明度≤2/255的噪点归零。预览地面线是诊断线，不是已完成的游戏地面标定。原稿和拒稿仅保留来源文字记录，当前正式图片与必要预览/接入文件保留。
+导出为原生完整画布等比缩至1024，无逐帧包围盒缩放、整图位移或最低脚对齐；仅透明度≤2/255的噪点归零。预览地面线是诊断线，不是已完成的游戏地面标定。本角色目录内原稿和拒稿仅保留来源文字记录，当前正式图片与必要预览/接入文件保留；宿主生成缓存位于本目录之外，本轮未删除。
 """
 (ROOT/'MERGE_HANDOFF.md').write_text(text,encoding='utf-8')
 receipt={'atUtc':datetime.now(timezone.utc).isoformat(),'runtimeFrames':196,'changedSinceHistoricalAcceptance':changed,'historicalAcceptanceRewritten':False,'latestRequirementFile':'audit/latest-grounding-requirement.json','pairedReviewFile':'audit/eight-direction-paired-grounding.json','preview':'preview/index.html','technicalChecksPassed':counts['technicalChecksPassed'],'dynamicVisualAcceptance':False,'clientIntegration':'not_integrated'}

@@ -24,6 +24,13 @@ assert len(sources)==196 and len(set(sources))==196
 overview=json.loads((ROOT/'preview/qa/run-eight-directions.sources.json').read_text())
 for row in overview['sources']:assert hashlib.sha256((ROOT/row['file']).read_bytes()).hexdigest()==row['sha256']
 assert sum(overview['durationsMs'])==1200 and len(overview['sources'])==128
+paired=0
+for p in sorted((ROOT/'preview/qa').glob('*-paired-contact.sources.json')):
+ rows=json.loads(p.read_text())['sources']
+ assert len(rows)==16
+ for row in rows:assert hashlib.sha256((ROOT/row['file']).read_bytes()).hexdigest()==row['sha256']
+ paired+=1
+assert paired==8
 out={'currentSourceReferences':196,'sourceHashMatches':True,'previewGifChecks':gifs,'eightDirectionOverviewCurrent':True,'dynamicVisualApproval':False}
 (ROOT/'audit/preview-delivery-check.json').write_text(json.dumps(out,indent=2),encoding='utf-8')
 print(json.dumps({'currentSourceReferences':196,'normalAndSlowAnimationsVerified':len(gifs),'eightDirectionOverviewCurrent':True,'dynamicVisualApproval':False}))
