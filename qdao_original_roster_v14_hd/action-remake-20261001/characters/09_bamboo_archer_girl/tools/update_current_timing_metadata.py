@@ -21,10 +21,10 @@ for p in (ROOT/'review-parts').glob('*.json'):
   if 'timing' in d:d['timing']=timing
   d['currentTiming']=timing;write(p,d)
 for rel in ['provenance/run-north/timing-current.json','provenance/run-south/current-timing.json','provenance/run-SW/current-timing.json']:
- write(ROOT/rel,{**timing,'currentPreview':'preview/index.html','note':'Latest user request: exactly16 frames at75ms; old fast options removed. Accepted PNG unchanged.'})
+ write(ROOT/rel,{**timing,'currentPreview':'preview/index.html','note':'Latest user request: exactly16 frames at75ms; old fast options removed. Subsequent four-contact grounding repairs are tracked separately from historical acceptance.'})
 accepted=read(ROOT/'accepted-version.json')
-for row in accepted['frames']:assert hashlib.sha256((ROOT/row['file']).read_bytes()).hexdigest()==row['sha256']
-write(ROOT/'audit/run-timing-1200-update.json',{'atUtc':now,'sourceThreadId':'01a0f76f-0056-7c23-a688-10733b6b89e3','request':'1200ms整圈、16帧均匀75ms；正式预览删除480/640/720/800档，保留慢放和逐帧。','timing':timing,'approvedRuntimeImagesUnchanged':196,'imageSetSha256':accepted['imageSetSha256'],'clientModified':False,'visualDynamicApproval':False})
+changed=[{'file':row['file'],'historicalSha256':row['sha256'],'currentSha256':hashlib.sha256((ROOT/row['file']).read_bytes()).hexdigest()} for row in accepted['frames'] if hashlib.sha256((ROOT/row['file']).read_bytes()).hexdigest()!=row['sha256']]
+write(ROOT/'audit/run-timing-1200-update.json',{'atUtc':now,'sourceThreadId':'01a0f76f-0056-7c23-a688-10733b6b89e3','request':'1200ms整圈、16帧均匀75ms；正式预览删除480/640/720/800档，保留慢放和逐帧。','timing':timing,'historicallyAcceptedImagesUnchanged':len(accepted['frames'])-len(changed),'historicalImageSetSha256':accepted['imageSetSha256'],'subsequentGroundingRepairs':changed,'historicalAcceptanceRewritten':False,'clientModified':False,'visualDynamicApproval':False})
 for rel in ['manifest.json','preview/data.js']:
  p=ROOT/rel;raw=p.read_text(encoding='utf-8-sig')
  d=json.loads(raw.removeprefix('window.BAMBOO_PREVIEW = ').strip().removesuffix(';')) if p.suffix=='.js' else json.loads(raw)
@@ -34,4 +34,4 @@ for rel in ['manifest.json','preview/data.js']:
   else:assert seq['ms']=={'hit':40,'attack':30,'cast':45}[seq['action']]
  if p.suffix=='.js':p.write_text('window.BAMBOO_PREVIEW = '+json.dumps(d,ensure_ascii=False).replace('<','\\u003c')+';\n',encoding='utf-8')
  else:write(p,d)
-print('Current review timing updated;196 approved PNG hashes unchanged.')
+print(f'Current review timing updated; {len(changed)} subsequent grounding repairs recorded without rewriting historical acceptance.')

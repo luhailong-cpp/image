@@ -1,0 +1,549 @@
+{
+  "reviewedAt": "2026-10-04T08:10:24.022670+00:00",
+  "action": "run",
+  "direction": "SW",
+  "scope": "每只脚每次落地至少连续4张独立、可辨接触/缓冲/承重；全部16张膝踝与鞋掌朝向复核。",
+  "minimumFourContactStaticStatus": "passed_preserve_existing_frames",
+  "decision": "两脚各有4张明确连续接触/承重帧。保留16张已认可图，不作无必要AI重画。",
+  "imagegenCallsThisReview": 0,
+  "runtimeFilesChanged": [],
+  "timing": {
+    "frameDurationsMs": [
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75
+    ],
+    "cycleMs": 1200,
+    "uniform": true,
+    "extraLoopPauseMs": 0
+  },
+  "method": "先实看preview/qa/run-SW-contact.png，再逐张实看16张runtime原图；根据膝屈、踝角、鞋底承重朝向、前后腿和重心关系判断，不使用最低像素、旧相位标签或SHA差异作为动作成立证据。SHA仅绑定本次实际观察版本。",
+  "contactSegments": [
+    {
+      "foot": "right",
+      "frames": [
+        16,
+        1,
+        2,
+        3
+      ],
+      "count": 4,
+      "crossesLoopBoundary": true,
+      "phases": [
+        "initial_contact",
+        "loading",
+        "knee_flexion_compression",
+        "mid_support"
+      ],
+      "durationMs": 300
+    },
+    {
+      "foot": "left",
+      "frames": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "count": 4,
+      "crossesLoopBoundary": false,
+      "phases": [
+        "initial_contact",
+        "loading",
+        "knee_flexion_compression",
+        "mid_support"
+      ],
+      "durationMs": 300
+    }
+  ],
+  "excludedFromMinimumCount": {
+    "late_support": [
+      4,
+      12
+    ],
+    "forefoot_push_off": [
+      5,
+      13
+    ],
+    "flight_or_descent": [
+      6,
+      7,
+      14,
+      15
+    ]
+  },
+  "identityObserved": "棕高马尾、玉叶金饰、绿眼、绿白金短袍短靴；左手握完整长竹弓、右手空手、箭筒解剖右肩。",
+  "staticFootDirectionResult": "16张未发现需要重画的明确鞋掌外撇、踝外翻或承重锁膝。",
+  "groundCalibration": "未标定；不把历史y=940或任何最低像素视作实际世界地面。",
+  "stillUnverified": [
+    "1200ms正常速度的浏览器/客户端动态实播观感",
+    "客户端世界地面、根点、角色位移与步频/滑步匹配"
+  ],
+  "localBrowserAttempted": false,
+  "dynamicPlaybackPassed": false,
+  "clientModified": false,
+  "sourceMetadataPolicy": "没有新图；原有模型/质量/来源记录保留，未按当前配置回填历史实际型号。",
+  "frames": [
+    {
+      "frame": 1,
+      "slot": "run/SW/01",
+      "file": "runtime/run/SW/01.png",
+      "sha256": "3da787a28be4124dad86634d49bcdd3dbeaedeb8b19300f944a0659b5ceaa831",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sourceNativeSize": [
+        1254,
+        1254
+      ],
+      "generationRecord": "provenance/run-SW/run-SW-01.generation.json",
+      "generationRecordSha256": "5724601f404af57b8c0fcf554584df1384161c74973d774337a7c08364844fdd",
+      "selectionShaMatches": true,
+      "generationRecordShaMatchesSelection": true,
+      "existingSourceRecordRetained": true,
+      "pixelsChangedThisReview": false,
+      "observedSupportFoot": "right",
+      "countedInMinimumFourContactSegment": true,
+      "visualObservation": "右前靴已压平，右膝较16进入加载；左腿仍屈膝后收。右膝、胫骨和鞋尖共同朝前偏左，未出现独立踝外旋。",
+      "staticToeKneeAnkleCheck": "passed",
+      "reviewMethod": "original_runtime_png_view_image_and_contact_sheet"
+    },
+    {
+      "frame": 2,
+      "slot": "run/SW/02",
+      "file": "runtime/run/SW/02.png",
+      "sha256": "23846e882682edce2f054abf3b82bb500aacee1e219a74dbdf396739e8b69f1e",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sourceNativeSize": [
+        1254,
+        1254
+      ],
+      "generationRecord": "provenance/run-SW/run-SW-02.generation.json",
+      "generationRecordSha256": "eff2859016fdbf1ffa691d545f804168bb9b9c553ace537ce718db7513c842c9",
+      "selectionShaMatches": true,
+      "generationRecordShaMatchesSelection": true,
+      "existingSourceRecordRetained": true,
+      "pixelsChangedThisReview": false,
+      "observedSupportFoot": "right",
+      "countedInMinimumFourContactSegment": true,
+      "visualObservation": "右膝明显屈曲，右脚跟与前掌共同承重，躯干前倾进入缓冲；左脚仍后收。鞋面朝向随胫骨，未将两腿变窄当作脚向修正。",
+      "staticToeKneeAnkleCheck": "passed",
+      "reviewMethod": "original_runtime_png_view_image_and_contact_sheet"
+    },
+    {
+      "frame": 3,
+      "slot": "run/SW/03",
+      "file": "runtime/run/SW/03.png",
+      "sha256": "9724a88392b1df4f4a42cbbf22a62b85fcfddb94bc9371ecf05933529d8058e6",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sourceNativeSize": [
+        1254,
+        1254
+      ],
+      "generationRecord": "provenance/run-SW/run-SW-03.generation.json",
+      "generationRecordSha256": "ed3fb0954d784070874d8aa2074541076ef9d47186b02f6a2b7b3044f2c72838",
+      "selectionShaMatches": true,
+      "generationRecordShaMatchesSelection": true,
+      "existingSourceRecordRetained": true,
+      "pixelsChangedThisReview": false,
+      "observedSupportFoot": "right",
+      "countedInMinimumFourContactSegment": true,
+      "visualObservation": "右脚在髋下保持全掌承重，左膝前驱、右膝仍保留屈曲；右靴鞋面向前下且无整片鞋底朝镜头。与02的屈膝缓冲姿态不同。",
+      "staticToeKneeAnkleCheck": "passed",
+      "reviewMethod": "original_runtime_png_view_image_and_contact_sheet"
+    },
+    {
+      "frame": 4,
+      "slot": "run/SW/04",
+      "file": "runtime/run/SW/04.png",
+      "sha256": "52d05748db7822c9dda539d7bb839a7f3b07ffe582cdcc2f51e57398238aa67c",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sourceNativeSize": [
+        1254,
+        1254
+      ],
+      "generationRecord": "provenance/run-SW/run-SW-04.generation.json",
+      "generationRecordSha256": "a698608062dc3ed68d6d28e64075c02e461b82d6dcf6ffe10182a29ccdf53255",
+      "selectionShaMatches": true,
+      "generationRecordShaMatchesSelection": true,
+      "existingSourceRecordRetained": true,
+      "pixelsChangedThisReview": false,
+      "observedSupportFoot": "right",
+      "countedInMinimumFourContactSegment": false,
+      "visualObservation": "右腿进入后段支撑，左腿前驱；膝踝鞋面仍相连。此帧虽可读为支撑，为保守计数不纳入四帧最小承重段。",
+      "staticToeKneeAnkleCheck": "passed",
+      "reviewMethod": "original_runtime_png_view_image_and_contact_sheet"
+    },
+    {
+      "frame": 5,
+      "slot": "run/SW/05",
+      "file": "runtime/run/SW/05.png",
+      "sha256": "2f93cb02d3437f3fd1951aecfcca7c5d9374a2a1a42944881429d9c6ad4f08e8",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sourceNativeSize": [
+        1254,
+        1254
+      ],
+      "generationRecord": "provenance/run-SW/run-SW-05.generation.json",
+      "generationRecordSha256": "730c3c69fc127db1ec0af395a7b981db122c91f894a563c1b8fddaf0d0447fe1",
+      "selectionShaMatches": true,
+      "generationRecordShaMatchesSelection": true,
+      "existingSourceRecordRetained": true,
+      "pixelsChangedThisReview": false,
+      "observedSupportFoot": "right",
+      "countedInMinimumFourContactSegment": false,
+      "visualObservation": "右腿后伸、前掌蹬离，左膝领先；后脚踝沿腿向前下，不计入完整四帧承重段。",
+      "staticToeKneeAnkleCheck": "passed",
+      "reviewMethod": "original_runtime_png_view_image_and_contact_sheet"
+    },
+    {
+      "frame": 6,
+      "slot": "run/SW/06",
+      "file": "runtime/run/SW/06.png",
+      "sha256": "914e300883339c31bfa09aca84132631dc6ed6b9e3c857d47260841e155ff157",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sourceNativeSize": [
+        1254,
+        1254
+      ],
+      "generationRecord": "provenance/run-SW/run-SW-06.generation.json",
+      "generationRecordSha256": "cbc00a4fbf77dba52468099ea0d4a7e914d31c4fef8f8136bfc66f2ef48bdde9",
+      "selectionShaMatches": true,
+      "generationRecordShaMatchesSelection": true,
+      "existingSourceRecordRetained": true,
+      "pixelsChangedThisReview": false,
+      "observedSupportFoot": "none",
+      "countedInMinimumFourContactSegment": false,
+      "visualObservation": "双腿屈曲收起，左膝在前、右腿在后；短飞行，不算接地。",
+      "staticToeKneeAnkleCheck": "passed",
+      "reviewMethod": "original_runtime_png_view_image_and_contact_sheet"
+    },
+    {
+      "frame": 7,
+      "slot": "run/SW/07",
+      "file": "runtime/run/SW/07.png",
+      "sha256": "718f0a83daef1852f690eff048f137493b7493dfb3f8625265d7cb1fd938d4c1",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sourceNativeSize": [
+        1254,
+        1254
+      ],
+      "generationRecord": "provenance/run-SW/run-SW-07.generation.json",
+      "generationRecordSha256": "899589cd0956bc9720960ed91cabc39e10efd70a498745c96c673421427df485",
+      "selectionShaMatches": true,
+      "generationRecordShaMatchesSelection": true,
+      "existingSourceRecordRetained": true,
+      "pixelsChangedThisReview": false,
+      "observedSupportFoot": "none",
+      "countedInMinimumFourContactSegment": false,
+      "visualObservation": "左腿伸向下个接触点，鞋底大片朝向镜头且未压平；为下落，不算接地。",
+      "staticToeKneeAnkleCheck": "passed",
+      "reviewMethod": "original_runtime_png_view_image_and_contact_sheet"
+    },
+    {
+      "frame": 8,
+      "slot": "run/SW/08",
+      "file": "runtime/run/SW/08.png",
+      "sha256": "bc3a2149024503235c43968f43754ec53765e06abf08e78d3aaac623629b6f5c",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sourceNativeSize": [
+        1254,
+        1254
+      ],
+      "generationRecord": "provenance/run-SW/run-SW-08.generation.json",
+      "generationRecordSha256": "25b0fda9652838118f49f21cd081bc7ddc3c4247d3ecf4c813b32e120ed92e61",
+      "selectionShaMatches": true,
+      "generationRecordShaMatchesSelection": true,
+      "existingSourceRecordRetained": true,
+      "pixelsChangedThisReview": false,
+      "observedSupportFoot": "left",
+      "countedInMinimumFourContactSegment": true,
+      "visualObservation": "左前靴由07的展示鞋底转为鞋面向前、靴底压平的初接触；左膝微屈，右腿屈膝后收。",
+      "staticToeKneeAnkleCheck": "passed",
+      "reviewMethod": "original_runtime_png_view_image_and_contact_sheet"
+    },
+    {
+      "frame": 9,
+      "slot": "run/SW/09",
+      "file": "runtime/run/SW/09.png",
+      "sha256": "4d3479c1b472e779b79c726f07ecfca395573e2b4e62e5e1da2e0b832a1e437d",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sourceNativeSize": [
+        1254,
+        1254
+      ],
+      "generationRecord": "provenance/run-SW/run-SW-09.generation.json",
+      "generationRecordSha256": "2ea72c203b1d82dfa4c61afa4b5e7a43473b21031535a62465915078ba5f466c",
+      "selectionShaMatches": true,
+      "generationRecordShaMatchesSelection": true,
+      "existingSourceRecordRetained": true,
+      "pixelsChangedThisReview": false,
+      "observedSupportFoot": "left",
+      "countedInMinimumFourContactSegment": true,
+      "visualObservation": "左脚加载时保持靴底平面，左膝比08更收屈、髋稍前移；右脚后收位置和左臂摆位独立变化。",
+      "staticToeKneeAnkleCheck": "passed",
+      "reviewMethod": "original_runtime_png_view_image_and_contact_sheet"
+    },
+    {
+      "frame": 10,
+      "slot": "run/SW/10",
+      "file": "runtime/run/SW/10.png",
+      "sha256": "9067f6c67f2c012937a6c85f7fa17e9e7be4593e115f995a0381ea9c961660cd",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sourceNativeSize": [
+        1254,
+        1254
+      ],
+      "generationRecord": "provenance/run-SW/run-SW-10.generation.json",
+      "generationRecordSha256": "a7189fac4ed05d101af091e69037bc1c12aabe36d26ceae539de139a3e267285",
+      "selectionShaMatches": true,
+      "generationRecordShaMatchesSelection": true,
+      "existingSourceRecordRetained": true,
+      "pixelsChangedThisReview": false,
+      "observedSupportFoot": "left",
+      "countedInMinimumFourContactSegment": true,
+      "visualObservation": "左膝进一步屈曲缓冲，靴面沿胫骨朝前偏左，鞋跟与前掌承重；右脚后收。没有横撇或锁膝。",
+      "staticToeKneeAnkleCheck": "passed",
+      "reviewMethod": "original_runtime_png_view_image_and_contact_sheet"
+    },
+    {
+      "frame": 11,
+      "slot": "run/SW/11",
+      "file": "runtime/run/SW/11.png",
+      "sha256": "3090e42b6b82afde2823c23c7a47173143a0fa9a0f1eac7635fa73cbd98e3ec6",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sourceNativeSize": [
+        1254,
+        1254
+      ],
+      "generationRecord": "provenance/run-SW/run-SW-11.generation.json",
+      "generationRecordSha256": "426328313060c212938763f75dfaf4d74aa4f80c7e2ade60eb083f013e791461",
+      "selectionShaMatches": true,
+      "generationRecordShaMatchesSelection": true,
+      "existingSourceRecordRetained": true,
+      "pixelsChangedThisReview": false,
+      "observedSupportFoot": "left",
+      "countedInMinimumFourContactSegment": true,
+      "visualObservation": "左脚在髋下承重，左膝仍有弯曲，右膝已明显前驱；靴底仍平，没有提前提踵凑满第四张。",
+      "staticToeKneeAnkleCheck": "passed",
+      "reviewMethod": "original_runtime_png_view_image_and_contact_sheet"
+    },
+    {
+      "frame": 12,
+      "slot": "run/SW/12",
+      "file": "runtime/run/SW/12.png",
+      "sha256": "482b2f64fcf282b4a27cdb78ce6036a6321e01c2cfc783444cd68c483d720ff1",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sourceNativeSize": [
+        1254,
+        1254
+      ],
+      "generationRecord": "provenance/run-SW/run-SW-12.generation.json",
+      "generationRecordSha256": "f5bdf5564da0fb066e2829569b2edc4a0704bb7901ff499eb82d46ba6b58280b",
+      "selectionShaMatches": true,
+      "generationRecordShaMatchesSelection": true,
+      "existingSourceRecordRetained": true,
+      "pixelsChangedThisReview": false,
+      "observedSupportFoot": "left",
+      "countedInMinimumFourContactSegment": false,
+      "visualObservation": "左腿进入后段支撑，右膝前驱；仍保持膝踝连续。为保守计数不纳入四帧最小承重段。",
+      "staticToeKneeAnkleCheck": "passed",
+      "reviewMethod": "original_runtime_png_view_image_and_contact_sheet"
+    },
+    {
+      "frame": 13,
+      "slot": "run/SW/13",
+      "file": "runtime/run/SW/13.png",
+      "sha256": "0224d3c13ec2f5b8666500c80474b9159d8061ccf61c62ea5d0cc09fa82af840",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sourceNativeSize": [
+        1254,
+        1254
+      ],
+      "generationRecord": "provenance/run-SW/run-SW-13.generation.json",
+      "generationRecordSha256": "d2f8130579ad3505688add384b4729d01c16cefb6ef15db2432ff2b04261eb73",
+      "selectionShaMatches": true,
+      "generationRecordShaMatchesSelection": true,
+      "existingSourceRecordRetained": true,
+      "pixelsChangedThisReview": false,
+      "observedSupportFoot": "left",
+      "countedInMinimumFourContactSegment": false,
+      "visualObservation": "左后靴明确提踵，前掌蹬离；脚尖跟随小腿前下，无踝突然外翻。不计入四帧承重段。",
+      "staticToeKneeAnkleCheck": "passed",
+      "reviewMethod": "original_runtime_png_view_image_and_contact_sheet"
+    },
+    {
+      "frame": 14,
+      "slot": "run/SW/14",
+      "file": "runtime/run/SW/14.png",
+      "sha256": "d1e08cb9658aaa7907dd446f5d2e5db0be1a8fd6398f3d99acd378f1e87d5672",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sourceNativeSize": [
+        1254,
+        1254
+      ],
+      "generationRecord": "provenance/run-SW/run-SW-14.generation.json",
+      "generationRecordSha256": "0cbec58fa5771b247039838d2bbc5792a4d537007dda98d621941da1e298a784",
+      "selectionShaMatches": true,
+      "generationRecordShaMatchesSelection": true,
+      "existingSourceRecordRetained": true,
+      "pixelsChangedThisReview": false,
+      "observedSupportFoot": "none",
+      "countedInMinimumFourContactSegment": false,
+      "visualObservation": "右膝领先、双腿收起形成短飞行；不算接地。",
+      "staticToeKneeAnkleCheck": "passed",
+      "reviewMethod": "original_runtime_png_view_image_and_contact_sheet"
+    },
+    {
+      "frame": 15,
+      "slot": "run/SW/15",
+      "file": "runtime/run/SW/15.png",
+      "sha256": "68ef107c57594b76e32ee7308130a5a57b86ffad31843056f7681d023f7e539e",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sourceNativeSize": [
+        1254,
+        1254
+      ],
+      "generationRecord": "provenance/run-SW/run-SW-15.generation.json",
+      "generationRecordSha256": "72371c2793d4cd5ca77dc71e072540e0205a72ce9dac978f98dcd0407c8fa334",
+      "selectionShaMatches": true,
+      "generationRecordShaMatchesSelection": true,
+      "existingSourceRecordRetained": true,
+      "pixelsChangedThisReview": false,
+      "observedSupportFoot": "none",
+      "countedInMinimumFourContactSegment": false,
+      "visualObservation": "右腿向前下伸展，前靴仍保持下落姿态；保守不计接触，等待16明确初接触。",
+      "staticToeKneeAnkleCheck": "passed",
+      "reviewMethod": "original_runtime_png_view_image_and_contact_sheet"
+    },
+    {
+      "frame": 16,
+      "slot": "run/SW/16",
+      "file": "runtime/run/SW/16.png",
+      "sha256": "0997cc5be4b0d1157462707d84f5ef6f96b2c33d615fbdcd1e0522ffdbf508bd",
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sourceNativeSize": [
+        1254,
+        1254
+      ],
+      "generationRecord": "provenance/run-SW/run-SW-16.generation.json",
+      "generationRecordSha256": "9dfdb3a9df0d74a20ab9d7e231afdf9017d114bf3481417ad799793767225a2a",
+      "selectionShaMatches": true,
+      "generationRecordShaMatchesSelection": true,
+      "existingSourceRecordRetained": true,
+      "pixelsChangedThisReview": false,
+      "observedSupportFoot": "right",
+      "countedInMinimumFourContactSegment": true,
+      "visualObservation": "右前脚初接触，鞋尖朝前偏左、鞋底开始落平；右膝微屈而非锁直，左腿收后。下一帧01继续加载，形成跨循环连续段。",
+      "staticToeKneeAnkleCheck": "passed",
+      "reviewMethod": "original_runtime_png_view_image_and_contact_sheet"
+    }
+  ]
+}
