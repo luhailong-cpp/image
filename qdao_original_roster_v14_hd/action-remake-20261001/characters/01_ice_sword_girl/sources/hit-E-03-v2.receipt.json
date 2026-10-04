@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "action": "hit",
+  "direction": "E",
+  "frame": 3,
+  "version": 2,
+  "draftPath": "drafts/hit/E/03-v2.png",
+  "promptFile": "sources/hit-E-03-v2.prompt.txt",
+  "plannedPhase": "maximum recoil / knees absorb incoming force from right",
+  "startedAt": "2026-10-04T02:16:07.049Z",
+  "completedAt": "2026-10-04T02:18:54.827Z",
+  "completionTimeEvidence": "UTC clock after tool result; not service metadata.",
+  "tool": "image_gen__imagegen",
+  "route": "builtin",
+  "submittedParameters": {
+    "model": null,
+    "quality": null,
+    "prompt": "Use case: precise-object-edit.\nOne native1254x1254 RGBA HIT EAST frame03, maximum recoil. Image1 is the existing ice girl's peak hit pose; preserve her right-facing head, squeezed-shut eyes, open small mouth, backward lean to screen LEFT from force on screen RIGHT, flowing hair and compressed knees. Correct two concrete faults: (1) the foreground anatomical RIGHT arm connected to the near ornamented shoulder must hold her ONE ice sword, retracted defensively at chest level; the far anatomical LEFT arm instead holds the small blue talisman near her chest. Maintain two visibly connected shoulder-elbow-wrist-hand chains, exactly two hands, no prop swapping. (2) redraw the legs below the hips into the fixed planted boot positions of Image2, preserving recoil flexion: rear/near boot around x480 with sole near y1215, front/far boot around x865 sole near y1205, native1254 coordinates. Both long shoe axes point EAST/right, soles planted, knees flex to absorb impact. Do not slide the feet together or turn a toe toward the camera.\nImage2 is current HIT E01 registration and identity: keep exactly its overall head/body scale, camera, costume, sword proportions and fixed canvas. Upper body can bend/lean in-place; do not translate the whole sprite or recenter by silhouette. This peak pose must be stronger than E01 and will recover afterward.\nImage3 is original identity and right ice sword/left talisman reference only. Image4 is approved bright clean rounded Taoist chibi painting/material finish only, no UI. Image5 is user-approved09 EAST hit peak phase solely as movement/grounded-feet reference, not an identity, outfit, bow, face or pixel source. Remain blue-white-gold brocade girl with high dark bun, silver-blue ornaments and boots.\nTrue transparent background. Keep full hair and straight complete sword inside canvas, no large impact flash, particles, floor, shadow, labels, second weapon, duplicated limb, mirrored image or merged hands. One independent frame only.",
+    "referenced_image_paths": [
+      "D:/work/image/qdao_original_roster_v14_hd/combat-20260929/characters/01_ice_sword_girl/staging/hit-E-03-v1.png",
+      "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/01_ice_sword_girl/drafts/hit/E/01-v2.png",
+      "D:/work/image/q_daoist_character_pack_4096/01_ice_sword_girl_transparent_4096.png",
+      "D:/work/image/designs/jubaozhai-ui/02-characters.png",
+      "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/09_bamboo_archer_girl/runtime/hit/E/03.png"
+    ],
+    "transparent_background": true
+  },
+  "referenceRoles": [
+    "old native peak recoil edit target; preserve expression and recoil concept, repair prop ownership",
+    "current HIT E planted boot/canvas/identity registration",
+    "original character identity and props",
+    "confirmed painted material style only",
+    "09 same-direction peak recoil and grounded knees only"
+  ],
+  "actualModel": null,
+  "actualQuality": null,
+  "unverifiedReason": "Host-managed tool has no model/quality selector and did not disclose actual model/quality.",
+  "callCount": 1,
+  "output": {
+    "returnedFields": [
+      "image_url",
+      "output_hint"
+    ],
+    "toolReturnedPath": "C:/Users/luyua/.codex/generated_images/01a1017b-e0cf-7f21-b1fb-5751bbe60a8d/exec-49855542-5e51-4b06-aa61-f37d52dafea7.png",
+    "output_hint": "Generated images are saved to C:\\Users\\luyua\\.codex\\generated_images\\01a1017b-e0cf-7f21-b1fb-5751bbe60a8d as C:\\Users\\luyua\\.codex\\generated_images\\01a1017b-e0cf-7f21-b1fb-5751bbe60a8d\\exec-49855542-5e51-4b06-aa61-f37d52dafea7.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "sha256": "3e57461158468460c60240872da14230bafd9e3f65e05b2850b2e6342bb08cc6",
+    "nativeFrameSize": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alphaExtrema": [
+      0,
+      255
+    ]
+  },
+  "noPostprocessing": true,
+  "visualReview": {
+    "status": "rejected_prop_ownership",
+    "findings": [
+      "Actual image still puts blue talisman in the foreground sleeve linked to near shoulder and sword in the far hand. Prompt intent did not correct anatomical ownership. Do not select."
+    ],
+    "clientRuntimeVerified": false
+  }
+}
