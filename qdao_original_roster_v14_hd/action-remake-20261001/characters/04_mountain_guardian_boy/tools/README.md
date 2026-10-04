@@ -13,7 +13,7 @@
 
 verify_delivery.py读取review.json.rootVisualApproval中的当前核准路径与SHA，兼容首轮交付和本轮补修所用的同一绑定字段；验证196张当前PNG/sidecar/核准SHA、当前预览来源及GIF/APNG实际编码帧时长，输出provenance/audit/final_delivery_verification.json，不自动判断美术。正常跑步APNG和浏览器播放器均为精确、均匀75ms；0.25×慢放APNG逐帧300ms。旧跑步GIF的来源文字移入provenance/retired-previews/timing1200/，图片删除结果另有SHA审计。
 
-本轮源码、时序及预览同步复核由根窗口进行，当前状态见上级STATUS.md。浏览器保留正常速度、慢放、暂停与逐帧。09竹弓少女是用户确认的最新动作参照，只比较同向脚掌轴线、膝踝和相位，不照抄弓箭手手部或武器操作。
+本轮源码、时序及预览同步复核已完成，最终48项播放器逻辑检查通过，当前状态见上级STATUS.md。浏览器保留正常速度、慢放、暂停与逐帧。09竹弓少女是用户确认的最新动作参照，只比较同向脚掌轴线、膝踝和相位，不照抄弓箭手手部或武器操作。
 
 本机存在D:/work/mmorpg-client；本角色未接入、未运行客户端验收。制作与预览工具的通过不等于客户端运行通过。
 
