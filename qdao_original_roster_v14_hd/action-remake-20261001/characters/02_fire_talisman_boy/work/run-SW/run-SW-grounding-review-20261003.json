@@ -2,44 +2,41 @@
   "schema": 1,
   "action": "run",
   "direction": "SW",
-  "updatedAt": "2026-10-03T21:03:54.544779-04:00",
+  "updatedAt": "2026-10-04T00:09:22.013760-04:00",
   "reviewMethod": "逐帧实际查看生成结果和整画布联系表；未将提示词当验收；最终正常/慢速播放由主代理完成",
-  "userCriterion": "没有整套已通过方向；逐图判断真实鞋跟到鞋尖轴向，只改外转，不仅缩腿距。未附07参考图。",
+  "userCriterion": "逐图检查 heel-to-toe 轴，只修真实外撇；用户最新授权09竹弓少女当前版本作动作参照，已只读查看且实际附入8张落地修订；未附07。",
   "root": {
     "declared": [
       512,
       920
     ],
-    "registration": "仅整1254画布统一1024导出，无bbox裁切缩放及最低脚对齐。局部编辑造成的意外放大另以AI纯相机修订，未与鞋向目标混在同次调用。"
+    "registration": "完整原生1254画布统一导出1024；无bbox/最低脚贴地。九张90%试版经实看后已撤回；07/08/15/16随后按09动作参照真实局部重画。"
   },
   "timing": {
-    "status": "本角色实画相位的候选时长，非正式manifest/客户端设置",
-    "cycle_ms": 720,
+    "status": "用户最新明确要求，素材预览采用；客户端未接入",
+    "cycle_ms": 1200,
+    "frame_ms": 75,
     "durations_ms": [
-      50,
       75,
-      65,
-      45,
-      40,
-      25,
-      25,
-      35,
-      50,
       75,
-      65,
-      45,
-      40,
-      25,
-      25,
-      35
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75,
+      75
     ],
-    "compare_cycles_ms": [
-      480,
-      640,
-      720,
-      800
-    ],
-    "note": "与S周期相同基于本角色交替支撑，接触承重更长、短飞更短；未复制07参数。"
+    "phase_weights_applied": false,
+    "fast_presets_removed": true,
+    "slow_playback": "0.25x"
   },
   "frames": [
     {
@@ -61,7 +58,7 @@
       "contact_evidence": "近左腿前伸、前鞋跟较低而前掌略抬；远右腿后收",
       "toe_axis_review": "鞋跟与鞋尖方向已实看；当前以左下前进方向为主，未见此前后鞋明显朝右下反向外转",
       "review_status": "静态候选；连续性、尺度、接地感待主代理实播",
-      "suggested_duration_ms": 50
+      "suggested_duration_ms": 75
     },
     {
       "action": "run",
@@ -103,7 +100,7 @@
       "contact_evidence": "近左腿在身体下支撑，远右膝在viewer左抬过；鞋头沿SW",
       "toe_axis_review": "鞋跟与鞋尖方向已实看；当前以左下前进方向为主，未见此前后鞋明显朝右下反向外转",
       "review_status": "静态候选；连续性、尺度、接地感待主代理实播",
-      "suggested_duration_ms": 65
+      "suggested_duration_ms": 75
     },
     {
       "source_record": "records/run-SW-04-20261003-attempt2.generation.json",
@@ -124,7 +121,7 @@
       "contact_evidence": "a2真实重画远右腿向前；近左后鞋前掌朝下，前远右鞋悬空",
       "toe_axis_review": "鞋跟与鞋尖方向已实看；当前以左下前进方向为主，未见此前后鞋明显朝右下反向外转",
       "review_status": "静态候选；连续性、尺度、接地感待主代理实播",
-      "suggested_duration_ms": 45
+      "suggested_duration_ms": 75
     },
     {
       "action": "run",
@@ -145,7 +142,7 @@
       "contact_evidence": "a2后近左腿伸展、前掌向下蹬离；远右鞋前伸亮出鞋底",
       "toe_axis_review": "鞋跟与鞋尖方向已实看；当前以左下前进方向为主，未见此前后鞋明显朝右下反向外转",
       "review_status": "静态候选；连续性、尺度、接地感待主代理实播",
-      "suggested_duration_ms": 40
+      "suggested_duration_ms": 75
     },
     {
       "visual_status": "candidate_visual_review_pending",
@@ -166,49 +163,49 @@
       "contact_evidence": "近左后踝重建后，后鞋跟在右上鞋尖左下；前远右鞋也朝SW",
       "toe_axis_review": "鞋跟与鞋尖方向已实看；当前以左下前进方向为主，未见此前后鞋明显朝右下反向外转",
       "review_status": "静态候选；连续性、尺度、接地感待主代理实播",
-      "suggested_duration_ms": 25
+      "suggested_duration_ms": 75
     },
     {
-      "frame": 7,
+      "native_path": "work/run-SW/SW-07-20261003-attempt5-native.png",
+      "source_record": "records/run-SW-07-20261003-attempt5.generation.json",
+      "action": "run",
+      "visual_status": "candidate_visual_review_pending",
+      "sha256": "3836d4d0ecfc171289f24dc0633f1deb5393975f8e4984051435303741d41930",
+      "native_evidence": "records/run-SW-07-20261003-attempt5.generation.json",
+      "native_size": [
+        1254,
+        1254
+      ],
       "path": "frames/run/SW/07.png",
-      "sha256": "5cbf15e09aedb5b2e3db570f2261fa56a2d3d690800e25f2b63d229cc39fa40e",
-      "native_size": [
-        1254,
-        1254
-      ],
-      "native_evidence": "records/run-SW-07-20261003-attempt3.generation.json",
-      "action": "run",
-      "source_record": "records/run-SW-07-20261003-attempt3.generation.json",
-      "native_sha256": "6ffbba5c43dd888d31ed4aee76bca417f43a9e9d42320c61baa7e466023e057a",
-      "visual_status": "candidate_visual_review_pending",
-      "native_path": "work/run-SW/SW-07-20261003-attempt3-native.png",
+      "frame": 7,
+      "native_sha256": "9645ee20c7883ab64a548836daf08f89bf897ac9fbed25212ef67dceec1ebd91",
       "direction": "SW",
-      "actual_phase": "右腿下降",
-      "contact_evidence": "远右前腿在下落，后近左腿收起，后鞋已从右下外转改为前掌左下",
+      "actual_phase": "右脚初接触",
+      "contact_evidence": "a5实际附09动作参照，前远右鞋由露整块鞋底改为近乎平底接触，后近左脚保持悬空；两鞋顺SW",
       "toe_axis_review": "鞋跟与鞋尖方向已实看；当前以左下前进方向为主，未见此前后鞋明显朝右下反向外转",
       "review_status": "静态候选；连续性、尺度、接地感待主代理实播",
-      "suggested_duration_ms": 25
+      "suggested_duration_ms": 75
     },
     {
+      "frame": 8,
+      "native_path": "work/run-SW/SW-08-20261003-attempt5-native.png",
+      "direction": "SW",
+      "action": "run",
+      "source_record": "records/run-SW-08-20261003-attempt5.generation.json",
+      "visual_status": "candidate_visual_review_pending",
       "native_size": [
         1254,
         1254
       ],
-      "source_record": "records/run-SW-08-20261003-attempt3.generation.json",
-      "direction": "SW",
-      "visual_status": "candidate_visual_review_pending",
-      "native_evidence": "records/run-SW-08-20261003-attempt3.generation.json",
-      "native_path": "work/run-SW/SW-08-20261003-attempt3-native.png",
       "path": "frames/run/SW/08.png",
-      "sha256": "eb087013b8251915e408adaea4e4016997bfc4f34711776134669d197819351b",
-      "action": "run",
-      "native_sha256": "0f764656913f22fff0d69ae4248ece37e694b61e3a0c0d0d8f8c308bf2a643be",
-      "frame": 8,
-      "actual_phase": "右脚触地前",
-      "contact_evidence": "远右前鞋降低、仍见窄底；近左后鞋脚跟在右上",
+      "sha256": "bf4d8ae2c57c1cc9017dee520ea5115fa2ee439508eaa057fd65bd191a613f98",
+      "native_sha256": "d05556016972352a25b7b83ab5a84bde9aba518656ca3a58371bc388dbec17b5",
+      "native_evidence": "records/run-SW-08-20261003-attempt5.generation.json",
+      "actual_phase": "右脚落地承重压缩",
+      "contact_evidence": "a5前远右鞋平底、膝踝弯曲，后近左脚悬空；非下移贴地，头位稍高待连续复核",
       "toe_axis_review": "鞋跟与鞋尖方向已实看；当前以左下前进方向为主，未见此前后鞋明显朝右下反向外转",
       "review_status": "静态候选；连续性、尺度、接地感待主代理实播",
-      "suggested_duration_ms": 35
+      "suggested_duration_ms": 75
     },
     {
       "native_size": [
@@ -229,7 +226,7 @@
       "contact_evidence": "前远右鞋已近于平底，后近左腿收；初接触与10压缩对比待实播",
       "toe_axis_review": "鞋跟与鞋尖方向已实看；当前以左下前进方向为主，未见此前后鞋明显朝右下反向外转",
       "review_status": "静态候选；连续性、尺度、接地感待主代理实播",
-      "suggested_duration_ms": 50
+      "suggested_duration_ms": 75
     },
     {
       "native_size": [
@@ -272,7 +269,7 @@
       "contact_evidence": "a3真实重画：近左大腿从viewer右髋向前抬膝，前景鞋悬空；远右腿在骨盆下单支撑。主代理已独立实看局部修正通过。",
       "toe_axis_review": "鞋跟与鞋尖方向已实看；当前以左下前进方向为主，未见此前后鞋明显朝右下反向外转",
       "review_status": "静态候选；连续性、尺度、接地感待主代理实播",
-      "suggested_duration_ms": 65
+      "suggested_duration_ms": 75
     },
     {
       "sha256": "c8f24f910e2c088579493d19e470c706963164de7a49beb10205c9af395a0326",
@@ -293,7 +290,7 @@
       "contact_evidence": "a2近左大腿从viewer右髋向左前穿过，远右后鞋前掌下指支撑",
       "toe_axis_review": "鞋跟与鞋尖方向已实看；当前以左下前进方向为主，未见此前后鞋明显朝右下反向外转",
       "review_status": "静态候选；连续性、尺度、接地感待主代理实播",
-      "suggested_duration_ms": 45
+      "suggested_duration_ms": 75
     },
     {
       "visual_status": "candidate_visual_review_pending",
@@ -314,7 +311,7 @@
       "contact_evidence": "a2远右腿在后伸展，前掌下指；近左前鞋抬起可见底",
       "toe_axis_review": "鞋跟与鞋尖方向已实看；当前以左下前进方向为主，未见此前后鞋明显朝右下反向外转",
       "review_status": "静态候选；连续性、尺度、接地感待主代理实播",
-      "suggested_duration_ms": 40
+      "suggested_duration_ms": 75
     },
     {
       "frame": 14,
@@ -335,49 +332,49 @@
       "contact_evidence": "近左腿前伸、远右后腿收起；后踝联动修正成鞋头左下",
       "toe_axis_review": "鞋跟与鞋尖方向已实看；当前以左下前进方向为主，未见此前后鞋明显朝右下反向外转",
       "review_status": "静态候选；连续性、尺度、接地感待主代理实播",
-      "suggested_duration_ms": 25
+      "suggested_duration_ms": 75
     },
     {
-      "direction": "SW",
-      "action": "run",
-      "frame": 15,
-      "native_evidence": "records/run-SW-15-20261003-attempt4.generation.json",
-      "sha256": "85fe04503a3a63d3b86647b37ff2763ece010e8e91774065f6c3d746a65eadb3",
-      "native_path": "work/run-SW/SW-15-20261003-attempt4-native.png",
-      "source_record": "records/run-SW-15-20261003-attempt4.generation.json",
-      "native_size": [
-        1254,
-        1254
-      ],
-      "visual_status": "candidate_visual_review_pending",
-      "native_sha256": "dea4ddde29e525147f11bc399770fa4eda8a2c5c7f788f7a6ea596f62626a2f2",
       "path": "frames/run/SW/15.png",
-      "actual_phase": "左腿下降",
-      "contact_evidence": "近左前鞋向下、远右鞋后收；a3修后踝、a4清理左边孤立杂片",
-      "toe_axis_review": "鞋跟与鞋尖方向已实看；当前以左下前进方向为主，未见此前后鞋明显朝右下反向外转",
-      "review_status": "静态候选；连续性、尺度、接地感待主代理实播",
-      "suggested_duration_ms": 25
-    },
-    {
-      "source_record": "records/run-SW-16-20261003-attempt2.generation.json",
+      "direction": "SW",
+      "action": "run",
+      "native_evidence": "records/run-SW-15-20261003-attempt6.generation.json",
+      "source_record": "records/run-SW-15-20261003-attempt6.generation.json",
+      "native_path": "work/run-SW/SW-15-20261003-attempt6-native.png",
+      "frame": 15,
+      "visual_status": "candidate_visual_review_pending",
+      "sha256": "3e51d6dbd52124eb3ccbf5088f00c2b5f05aa4fea1a2cd61a2febfdf08b9e21e",
+      "native_sha256": "1f651541d25ac4dc209e6ec8a1472deb34430ce1e469eb78a5c57aa2a1185bde",
       "native_size": [
         1254,
         1254
       ],
-      "native_path": "work/run-SW/SW-16-20261003-attempt2-native.png",
-      "path": "frames/run/SW/16.png",
-      "native_evidence": "records/run-SW-16-20261003-attempt2.generation.json",
-      "visual_status": "candidate_visual_review_pending",
-      "sha256": "d0480a72f87272adba3cb801310ca6017ac6271602888093d51d1ff02458eff7",
-      "frame": 16,
-      "native_sha256": "5e6d46de0c132bce18b38252099e6fc21e4b59b817556fd719f3d1050d9eaa18",
-      "direction": "SW",
-      "action": "run",
-      "actual_phase": "左脚触地前",
-      "contact_evidence": "近左前鞋下降准备回到01，远右后鞋跟在右上脚尖向左下",
+      "actual_phase": "左脚初接触",
+      "contact_evidence": "a6实际附09动作参照，前近左鞋近乎平底接触、仅见窄金边；远右后脚仍悬空，鞋尖顺SW",
       "toe_axis_review": "鞋跟与鞋尖方向已实看；当前以左下前进方向为主，未见此前后鞋明显朝右下反向外转",
       "review_status": "静态候选；连续性、尺度、接地感待主代理实播",
-      "suggested_duration_ms": 35
+      "suggested_duration_ms": 75
+    },
+    {
+      "native_sha256": "ec4f4f950f8f2c15e0971798fe3d90f2cecf88ff6e7991ef141f7d17ddad4d93",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "path": "frames/run/SW/16.png",
+      "native_evidence": "records/run-SW-16-20261003-attempt4.generation.json",
+      "action": "run",
+      "sha256": "6d67f888b62b721b20f085f9bea6de46f8cec19cca1549b657c82b75ac036d76",
+      "frame": 16,
+      "direction": "SW",
+      "native_path": "work/run-SW/SW-16-20261003-attempt4-native.png",
+      "visual_status": "candidate_visual_review_pending",
+      "source_record": "records/run-SW-16-20261003-attempt4.generation.json",
+      "actual_phase": "左脚落地承重压缩",
+      "contact_evidence": "a4前近左鞋平底且膝踝承重，后远右脚收起；两鞋顺SW，非下移贴地",
+      "toe_axis_review": "鞋跟与鞋尖方向已实看；当前以左下前进方向为主，未见此前后鞋明显朝右下反向外转",
+      "review_status": "静态候选；连续性、尺度、接地感待主代理实播",
+      "suggested_duration_ms": 75
     }
   ],
   "unresolved": [
