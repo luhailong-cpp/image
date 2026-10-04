@@ -285,6 +285,10 @@ def export(plan):
             })
         data = {"schemaVersion": 1, "character": CHARACTER, "exportedAt": timestamp,
                 "status": plan.status, "automaticApproval": False, "canvas": [SIZE, SIZE],
+                "alignment": {"method": "unchanged_full_canvas", "perFrameTranslation": [0, 0],
+                              "perFrameBboxFit": False, "clientPivotCalibrated": False,
+                              "previewReferenceTopLeftNormalized": [0.5104, 0.92105],
+                              "referenceIsPhysicalGroundMeasurement": False},
                 "counts": {"expectedSlots": 196, "exportedRuntimeSlots": 196,
                            "technicalChecksPassed": 196,
                            "visualPassedSlots": 196 if plan.status == "passed" else 0,
@@ -340,4 +344,3 @@ def main(argv=None):
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

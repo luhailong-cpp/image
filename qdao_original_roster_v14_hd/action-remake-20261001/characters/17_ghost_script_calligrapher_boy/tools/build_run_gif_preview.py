@@ -4,9 +4,14 @@ import json, hashlib
 from PIL import Image, ImageDraw
 
 BASE = Path(__file__).resolve().parents[1]
-manifest = json.loads((BASE/'preview/manifest-preview.json').read_text(encoding='utf-8'))
-directions = [d for d in ['N','NE','E','SE','S','SW','W','NW'] if all(s['selected'] for s in manifest['slots'] if s['action']=='run' and s['direction']==d)]
-sequences = {d: [s['selected'] for s in manifest['slots'] if s['action']=='run' and s['direction']==d] for d in directions}
+if (BASE/'manifest.json').exists():
+    manifest = json.loads((BASE/'manifest.json').read_text(encoding='utf-8'))
+    directions = [d for d in ['N','NE','E','SE','S','SW','W','NW'] if any(s['action']=='run' and s['direction']==d for s in manifest['sequences'])]
+    sequences = {d:[{'key':f"run-{d}-{f['frame']:02d}",'path':'../'+f['file'],'sha256':f['sha256']} for f in next(s for s in manifest['sequences'] if s['action']=='run' and s['direction']==d)['frames']] for d in directions}
+else:
+    manifest = json.loads((BASE/'preview/manifest-preview.json').read_text(encoding='utf-8'))
+    directions = [d for d in ['N','NE','E','SE','S','SW','W','NW'] if all(s['selected'] for s in manifest['slots'] if s['action']=='run' and s['direction']==d)]
+    sequences = {d: [s['selected'] for s in manifest['slots'] if s['action']=='run' and s['direction']==d] for d in directions}
 assert all(len(v)==16 and all(v) for v in sequences.values())
 frames=[]
 for n in range(16):
