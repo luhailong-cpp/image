@@ -1,0 +1,153 @@
+{
+  "direction": "S",
+  "versions": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "5": 2,
+    "6": 2,
+    "7": 1,
+    "8": 1,
+    "9": 1,
+    "10": 1,
+    "11": 1,
+    "12": 1,
+    "13": 2,
+    "14": 1,
+    "15": 1,
+    "16": 5
+  },
+  "observations": [
+    {
+      "frame": 1,
+      "evidence": "右脚前伸，踝背屈、可见深色鞋底，接触候选但不能确认全掌承重",
+      "left": "air",
+      "right": "initial_contact_candidate"
+    },
+    {
+      "frame": 2,
+      "evidence": "右靴已改为鞋面朝前、鞋底薄边，右膝开始受载；左靴后收",
+      "left": "air",
+      "right": "support_candidate"
+    },
+    {
+      "frame": 3,
+      "evidence": "右鞋面及平底边清楚，左膝向前通过；剑臂已进入中位",
+      "left": "air",
+      "right": "support_candidate"
+    },
+    {
+      "frame": 4,
+      "evidence": "右腿支撑样态，左膝前抬；右靴底边仍有轻微倾角，末支撑待动态核对",
+      "left": "air",
+      "right": "support_candidate"
+    },
+    {
+      "frame": 5,
+      "evidence": "最低为右靴，左靴前抬；最后支撑侧正确，但正面视角后跟抬起仍不够明确",
+      "left": "air",
+      "right": "terminal_support_candidate"
+    },
+    {
+      "frame": 6,
+      "evidence": "左腿前摆、右腿后折，已减小初版大面积鞋底和前踢，短腾空候选",
+      "left": "air",
+      "right": "air"
+    },
+    {
+      "frame": 7,
+      "evidence": "左腿前伸下降、右腿后收；左靴仍可见少量底面",
+      "left": "air_or_precontact",
+      "right": "air"
+    },
+    {
+      "frame": 8,
+      "evidence": "左靴接近水平、右膝后收；左初触可能从本帧开始，不能强称下一帧才接触",
+      "left": "initial_contact_candidate",
+      "right": "air"
+    },
+    {
+      "frame": 9,
+      "evidence": "左靴全掌样态更明确，右腿后收；右剑前摆、左符后摆可见",
+      "left": "support_candidate",
+      "right": "air"
+    },
+    {
+      "frame": 10,
+      "evidence": "左膝压缩、右腿后折，躯干略低；左靴轻微底边角度需连播核对",
+      "left": "support_candidate",
+      "right": "air"
+    },
+    {
+      "frame": 11,
+      "evidence": "左支撑鞋面和平底边清楚，右膝向前；两臂向中位回收",
+      "left": "support_candidate",
+      "right": "air"
+    },
+    {
+      "frame": 12,
+      "evidence": "左腿末支撑样态，右膝更前；近中位剑腕，未换手",
+      "left": "support_candidate",
+      "right": "air"
+    },
+    {
+      "frame": 13,
+      "evidence": "左靴最低、右靴前抬，支撑侧已纠正；后跟抬起角度仍不明确",
+      "left": "terminal_support_candidate",
+      "right": "air"
+    },
+    {
+      "frame": 14,
+      "evidence": "右腿前伸、左腿后折，右鞋底较支撑位高，低空候选；剑侧摆角度改变较大",
+      "left": "air",
+      "right": "air"
+    },
+    {
+      "frame": 15,
+      "evidence": "右前脚近水平下降，左后脚离地；相邻剑角仍需1200ms连播复核",
+      "left": "air",
+      "right": "precontact_candidate"
+    },
+    {
+      "frame": 16,
+      "evidence": "仅选v5：右前脚已回低空，保留01相近剑臂；v3过高、v4举剑过顶均未选",
+      "left": "air",
+      "right": "precontact_candidate"
+    }
+  ],
+  "issues": [
+    "S05/S13 正面鞋跟抬起不够明确；保留最后支撑候选，不把prompt事件当通过。",
+    "S14→15→16 剑腕角变化仍需连播人工复核，S16最终v5消除向下180度翻剑和举剑过头的拒稿问题。",
+    "原生冠顶约2–5%、支撑鞋底约96–98%，与E注册不同；未做整图平移/包围盒缩放或最低脚贴线。",
+    "S01接触及S08初触仍为人工相位候选，尚未客户端验收。"
+  ],
+  "events": {
+    "kind": "manual_visual_hypotheses_not_runtime_events",
+    "rightContact": {
+      "frame": 1,
+      "confidence": "low_to_medium"
+    },
+    "leftContact": {
+      "frameRange": [
+        8,
+        9
+      ],
+      "confidence": "medium"
+    },
+    "rightToeOff": {
+      "betweenFrames": [
+        5,
+        6
+      ],
+      "confidence": "low_heel_not_clear"
+    },
+    "leftToeOff": {
+      "betweenFrames": [
+        13,
+        14
+      ],
+      "confidence": "low_heel_not_clear"
+    }
+  }
+}
