@@ -1,0 +1,51 @@
+{
+  "file": "generation/contact-pairs-20261004/S/04-v2.png",
+  "prompt": "generation/contact-pairs-20261004/S/04-v2.prompt.txt",
+  "promptText": "PRECISE SPRITE EDIT. Image1 is the PRIMARY image to preserve. Keep its complete ORIGINAL UPPERBODY, head/hair, face, arms/hands, cauldron, bottle, ribbons/backpack and orange robe outlines EXACTLY registered to the fullcanvas. Image2 shows desired LOWERBODY only; its head has been accidentally enlarged and lifted, so DO NOT COPY image2 head or upperbody. Image3 is painting style only. Output native1254x1254 transparent RGBA; image1 is1024 so preserve its coordinates multiplied by1254/1024. On1254 canvas the TOP of original hair is y115; KEEP that top margin, do NOT move top hair to y40-70. Keep original head width and chin position fromimage1. Copy all upperbody abovebelt from image1 with only proportional wholecanvas1024to1254 resolution increase; do NOT zoom or recenter. Only redraw connected legs below belt to the desired phase shown by image2. RIGHT anatomical foot, screen-left, is the sole grounded support. LEFT foot at screen-right swings raised with visible underside. Right support foot is just behind pelvis; soft knee and broadly flat sole. Left knee folds forward. Right support contact should stay near the lower margin, aroundy1140-1160 for04/05 andy1100for06, not dangling at y1000.  Feet both face SOUTH toward viewer along natural hip/knee/ankle axes, no outwardV, no shoe rotation to the side. No changed upperbody pose or scale, no wholeimage shift, no shadows or ground marks, no new adornments, no mirrored anatomy, exactoriginalmaterials and fine bright chibi painting.",
+  "references": [
+    {
+      "path": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/08_alchemy_prodigy_boy/runtime/run/S/04.png",
+      "sha256": "51356f15be890c6fc0b7a31da178a40c7b39b39df7b5bb9ffb179a156153592d",
+      "role": "exact original runtime fullcanvas registration and upperbody size"
+    },
+    {
+      "path": "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/08_alchemy_prodigy_boy/generation/contact-pairs-20261004/S/04-v1.png",
+      "sha256": "6cb1a1b0534e64d69b1ba2517262f2ff00555211ef7a94e007daf3bbd3ba555c",
+      "role": "candidate LOWERBODY pose ONLY; upperbody enlarged incorrectly must not copy its head"
+    },
+    {
+      "path": "D:/work/image/designs/jubaozhai-ui/02-characters.png",
+      "sha256": "7a95140fc3c7a0ae6562ec6dff51d5296edd15116375152a8b22502c7107e879",
+      "role": "approved painting style"
+    }
+  ],
+  "imagegenInput": {
+    "prompt": "PRECISE SPRITE EDIT. Image1 is the PRIMARY image to preserve. Keep its complete ORIGINAL UPPERBODY, head/hair, face, arms/hands, cauldron, bottle, ribbons/backpack and orange robe outlines EXACTLY registered to the fullcanvas. Image2 shows desired LOWERBODY only; its head has been accidentally enlarged and lifted, so DO NOT COPY image2 head or upperbody. Image3 is painting style only. Output native1254x1254 transparent RGBA; image1 is1024 so preserve its coordinates multiplied by1254/1024. On1254 canvas the TOP of original hair is y115; KEEP that top margin, do NOT move top hair to y40-70. Keep original head width and chin position fromimage1. Copy all upperbody abovebelt from image1 with only proportional wholecanvas1024to1254 resolution increase; do NOT zoom or recenter. Only redraw connected legs below belt to the desired phase shown by image2. RIGHT anatomical foot, screen-left, is the sole grounded support. LEFT foot at screen-right swings raised with visible underside. Right support foot is just behind pelvis; soft knee and broadly flat sole. Left knee folds forward. Right support contact should stay near the lower margin, aroundy1140-1160 for04/05 andy1100for06, not dangling at y1000.  Feet both face SOUTH toward viewer along natural hip/knee/ankle axes, no outwardV, no shoe rotation to the side. No changed upperbody pose or scale, no wholeimage shift, no shadows or ground marks, no new adornments, no mirrored anatomy, exactoriginalmaterials and fine bright chibi painting.",
+    "referenced_image_paths": [
+      "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/08_alchemy_prodigy_boy/runtime/run/S/04.png",
+      "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/08_alchemy_prodigy_boy/generation/contact-pairs-20261004/S/04-v1.png",
+      "D:/work/image/designs/jubaozhai-ui/02-characters.png"
+    ],
+    "transparent_background": true
+  },
+  "submittedParameters": {
+    "model": null,
+    "quality": null,
+    "transparent_background": true,
+    "referenced_image_paths": [
+      "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/08_alchemy_prodigy_boy/runtime/run/S/04.png",
+      "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/characters/08_alchemy_prodigy_boy/generation/contact-pairs-20261004/S/04-v1.png",
+      "D:/work/image/designs/jubaozhai-ui/02-characters.png"
+    ]
+  },
+  "framePlan": {
+    "direction": "S",
+    "frame": 4,
+    "supportFoot": "RIGHT",
+    "otherFoot": "LEFT",
+    "stage": "rear1"
+  },
+  "editInputSnapshot": "provenance/contact-pairs-20261004/before-manifest.json",
+  "exportNote": "Parent wholecanvas to1024 offset0; no bboxfit/warp/wholecharacter translation.",
+  "iterationReason": "restore original upperbody registration; S14 also correct lateral foot rebound"
+}
