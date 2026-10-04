@@ -14,12 +14,13 @@ function draw(){
 }
 function pause(){playing=false;$('play').textContent='播放'}
 async function select(s){
- const own=++request;sequence=s;images=[];index=0;elapsed=0;pause();draw();
+ const own=++request;sequence=s;for(const old of images)old?.close?.();images=[];index=0;elapsed=0;pause();draw();
+ $('play').disabled=true;$('prev').disabled=true;$('next').disabled=true;
  document.querySelectorAll('#sequences button').forEach(b=>b.classList.toggle('active',b.dataset.key===s.action+'/'+s.direction));
  $('status').textContent=names[s.action]+' · '+directions[s.direction]+'：正在加载';
  $('record').textContent=JSON.stringify(s,null,2);
- const loaded=await Promise.all(s.frames.map(f=>new Promise(resolve=>{const im=new Image;im.onload=()=>resolve(im);im.onerror=()=>resolve(null);im.src='../'+f.path+'?sha='+f.sha256})));
- if(own!==request)return;images=loaded;
+ const loaded=await Promise.all(s.frames.map(f=>new Promise(resolve=>{const im=new Image;im.onload=async()=>{try{await im.decode();resolve(await createImageBitmap(im,{resizeWidth:512,resizeHeight:512,resizeQuality:'high'}))}catch{resolve(null)}};im.onerror=()=>resolve(null);im.src='../'+f.path+'?sha='+f.sha256})));
+ if(own!==request){for(const item of loaded)item?.close?.();return}images=loaded;
  const ok=s.complete&&loaded.every(Boolean);
  $('play').disabled=!ok;$('prev').disabled=!ok;$('next').disabled=!ok;
  $('status').textContent=ok?'完整序列已加载。画面与接地以播放检查为准。':'序列尚未齐全，暂不播放缺帧动作。';
@@ -27,7 +28,7 @@ async function select(s){
 }
 for(const s of data.sequences){const b=document.createElement('button');b.textContent=names[s.action]+' '+directions[s.direction]+' '+s.presentFrames+'/'+s.expectedFrames;b.dataset.key=s.action+'/'+s.direction;b.disabled=s.presentFrames===0;b.onclick=()=>select(s);$('sequences').appendChild(b)}
 $('play').onclick=()=>{playing=!playing;$('play').textContent=playing?'暂停':'播放';elapsed=0};
-function step(delta){if(!sequence?.complete)return;pause();index=(index+delta+images.length)%images.length;elapsed=0;draw()}
+function step(delta){if(!sequence?.complete||!images.length||!images.every(Boolean))return;pause();index=(index+delta+images.length)%images.length;elapsed=0;draw()}
 $('prev').onclick=()=>step(-1);$('next').onclick=()=>step(1);
 $('size').onchange=()=>{$('canvas').style.width=$('size').value+'px';$('canvas').style.height=$('size').value+'px';draw()};
  $('rate').onchange=()=>{elapsed=0};
