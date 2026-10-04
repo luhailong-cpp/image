@@ -20,7 +20,17 @@
           "固定画布根锚点，不按脚底或包围盒单独平移缩放。"
         ]
       },
-      "event": "left_touchdown"
+      "event": "left_support_position_2_1",
+      "legacyEvent": "left_touchdown",
+      "supportSequence": {
+        "supportFoot": "left",
+        "positionSegment": 2,
+        "frameWithinPair": 1,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
@@ -39,83 +49,149 @@
           "固定画布根锚点，不按脚底或包围盒单独平移缩放。"
         ]
       },
-      "event": null
+      "event": "left_support_position_2_2",
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "left",
+        "positionSegment": 2,
+        "frameWithinPair": 2,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
       "direction": "N",
       "frame": 3,
-      "source": "sources/new/run-N-03-v1.png",
-      "sha256": "141360873f2b724b74803e42972e2668200d74ec56395385184d0dfcebbd83a7",
+      "source": "sources/new/run-N-03-groundstep-v1.png",
+      "sha256": "3a26a1392a566f75f176f9a2f82c96712388c616834d0f259fd0606cc8b7ef77",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-N-03-v1.json",
+      "generationRecord": "provenance/generation/run-N-03-groundstep-v1.json",
       "review": {
-        "reviewer": "continue_cast",
-        "reviewedAt": "2026-10-03T05:34:04.807173-04:00",
-        "notes": [
-          "实际图已目检：方向、右扇左空手与双腿可辨。阶段姿态与实际落地/腾空由逐帧联合复核；单图选择不等于动态通过。",
-          "固定画布根锚点，不按脚底或包围盒单独平移缩放。"
-        ]
+        "reviewer": "root",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
+        "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": null
+      "event": "left_support_position_3_1",
+      "supersedes": {
+        "path": "sources/new/run-N-03-v1.png",
+        "sha256": "141360873f2b724b74803e42972e2668200d74ec56395385184d0dfcebbd83a7",
+        "generationRecord": "provenance/generation/run-N-03-v1.json",
+        "generationRecordSha256": "0f918dc184e46bd831b5eb50144903f88530b34c3f459bf4eb519b4fa1514608"
+      },
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "left",
+        "positionSegment": 3,
+        "frameWithinPair": 1,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
       "direction": "N",
       "frame": 4,
-      "source": "sources/new/run-N-04-v1.png",
-      "sha256": "4c7656806b986817622a48493a2459b30e8c2c099e56eb57cf74c4d145c3413c",
+      "source": "sources/new/run-N-04-groundstep-v1.png",
+      "sha256": "8e4a733ec1e791c5f81bbde2867373547ad606ab2f4feb751631a6d16ac6399c",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-N-04-v1.json",
+      "generationRecord": "provenance/generation/run-N-04-groundstep-v1.json",
       "review": {
-        "reviewer": "continue_cast",
-        "reviewedAt": "2026-10-03T05:38:20.550433-04:00",
-        "notes": [
-          "实际图已目检：方向、右扇左空手与双腿可辨。阶段姿态与实际落地/腾空由逐帧联合复核；单图选择不等于动态通过。",
-          "固定画布根锚点，不按脚底或包围盒单独平移缩放。"
-        ]
+        "reviewer": "root",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
+        "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": "left_toe_off"
+      "event": "left_support_position_3_2",
+      "supersedes": {
+        "path": "sources/new/run-N-04-v1.png",
+        "sha256": "4c7656806b986817622a48493a2459b30e8c2c099e56eb57cf74c4d145c3413c",
+        "generationRecord": "provenance/generation/run-N-04-v1.json",
+        "generationRecordSha256": "c646830840bf82582b745e9d59eadaf25d9642e73574f705f3f44eed881241bf"
+      },
+      "legacyEvent": "left_toe_off",
+      "supportSequence": {
+        "supportFoot": "left",
+        "positionSegment": 3,
+        "frameWithinPair": 2,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
       "direction": "N",
       "frame": 5,
-      "source": "sources/new/run-N-05-v2.png",
-      "sha256": "60feccd9cc6ea93e94a853badea538cd6f677518613a3eced2817e9dfb711877",
+      "source": "sources/new/run-N-05-groundpairs-v1.png",
+      "sha256": "f890ee66a0cdbd3202da81337bfe5c0da362b04726de3b7490dee9d2125cd126",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-N-05-v2.json",
+      "generationRecord": "provenance/generation/run-N-05-groundpairs-v1.json",
       "review": {
-        "reviewer": "continue_cast",
-        "reviewedAt": "2026-10-03T09:51:37.446355+00:00",
-        "notes": [
-          "实际图已目检：方向、右扇左空手与双腿可辨。阶段姿态与实际落地/腾空由逐帧联合复核；单图选择不等于动态通过。",
-          "固定画布根锚点，不按脚底或包围盒单独平移缩放。"
-        ]
+        "reviewer": "root",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
+        "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": null
+      "event": "left_support_position_4_1",
+      "supersedes": {
+        "path": "sources/new/run-N-05-v2.png",
+        "sha256": "60feccd9cc6ea93e94a853badea538cd6f677518613a3eced2817e9dfb711877",
+        "generationRecord": "provenance/generation/run-N-05-v2.json",
+        "generationRecordSha256": "20fd88be6c7ae1577711233da1d12a851026dab15bb159eb37828c3758e808bf"
+      },
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "left",
+        "positionSegment": 4,
+        "frameWithinPair": 1,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
       "direction": "N",
       "frame": 6,
-      "source": "sources/new/run-N-06-v3.png",
-      "sha256": "ae4c0d5e6277d7e8112cba260b2899f7c1f99c0044a95a2f33820256d8682978",
+      "source": "sources/new/run-N-06-groundpairs-v1.png",
+      "sha256": "140142284cff9f173944ba4c00841a76aa09c8823563cedadf10d8731b2e5c40",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-N-06-v3.json",
+      "generationRecord": "provenance/generation/run-N-06-groundpairs-v1.json",
       "review": {
-        "reviewer": "continue_cast",
-        "reviewedAt": "2026-10-03T15:53:40.510157+00:00",
-        "notes": [
-          "实际图已目检：方向、右扇左空手与双腿可辨。阶段姿态与实际落地/腾空由逐帧联合复核；单图选择不等于动态通过。",
-          "固定画布根锚点，不按脚底或包围盒单独平移缩放。"
-        ]
+        "reviewer": "root",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
+        "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": "first_flight_apex"
+      "event": "left_support_position_4_2",
+      "supersedes": {
+        "path": "sources/new/run-N-06-v3.png",
+        "sha256": "ae4c0d5e6277d7e8112cba260b2899f7c1f99c0044a95a2f33820256d8682978",
+        "generationRecord": "provenance/generation/run-N-06-v3.json",
+        "generationRecordSha256": "d457c5d7548a79229cd611be6cd6acce21fe226e7130d214de24a6bb7289c0d1"
+      },
+      "legacyEvent": "first_flight_apex",
+      "supportSequence": {
+        "supportFoot": "left",
+        "positionSegment": 4,
+        "frameWithinPair": 2,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
@@ -132,12 +208,22 @@
         "notes": "主审逐张查看10张原生全图：N支撑前摆靴底及时转向地面，S支撑靴露蓝鞋面且朝正南，N11收回扇手侧展；均两腿两手且角色/持扇左右正确。完整循环动态仍待新图接入后复核。",
         "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": null,
+      "event": "right_support_position_1_1",
       "supersedes": {
         "path": "sources/new/run-N-07-v2.png",
         "sha256": "6bd112a12c58f0b8cead9aad2bab84eb611219eedcfa91976d44583c6d9e2d23",
         "generationRecord": "provenance/generation/run-N-07-v2.json",
         "generationRecordSha256": "38d5c2911fb9a6c575cb39cd93be35adbbce9dae89e51591a14d544733489a0d"
+      },
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "right",
+        "positionSegment": 1,
+        "frameWithinPair": 1,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
       }
     },
     {
@@ -155,12 +241,22 @@
         "notes": "主审逐张查看10张原生全图：N支撑前摆靴底及时转向地面，S支撑靴露蓝鞋面且朝正南，N11收回扇手侧展；均两腿两手且角色/持扇左右正确。完整循环动态仍待新图接入后复核。",
         "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": null,
+      "event": "right_support_position_1_2",
       "supersedes": {
         "path": "sources/new/run-N-08-v2.png",
         "sha256": "236a9b9c74823f99273a08b87b41a54ca4abf8ea87dd62dc440a86cd9ae2afd4",
         "generationRecord": "provenance/generation/run-N-08-v2.json",
         "generationRecordSha256": "a4d473d4b4d8274760fabc1d7c814e1f4f6311c06c62d30b7b42a2bfc49b583e"
+      },
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "right",
+        "positionSegment": 1,
+        "frameWithinPair": 2,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
       }
     },
     {
@@ -180,7 +276,17 @@
           "固定画布根锚点，不按脚底或包围盒单独平移缩放。"
         ]
       },
-      "event": "right_touchdown"
+      "event": "right_support_position_2_1",
+      "legacyEvent": "right_touchdown",
+      "supportSequence": {
+        "supportFoot": "right",
+        "positionSegment": 2,
+        "frameWithinPair": 1,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
@@ -199,7 +305,17 @@
           "固定画布根锚点，不按脚底或包围盒单独平移缩放。"
         ]
       },
-      "event": null
+      "event": "right_support_position_2_2",
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "right",
+        "positionSegment": 2,
+        "frameWithinPair": 2,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
@@ -216,135 +332,221 @@
         "notes": "主审逐张查看10张原生全图：N支撑前摆靴底及时转向地面，S支撑靴露蓝鞋面且朝正南，N11收回扇手侧展；均两腿两手且角色/持扇左右正确。完整循环动态仍待新图接入后复核。",
         "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": null,
+      "event": "right_support_position_3_1",
       "supersedes": {
         "path": "sources/new/run-N-11-v2.png",
         "sha256": "e6e927cd84208e49c1e47008200a17833c4aab4b5607738d972e5d1ca2ced831",
         "generationRecord": "provenance/generation/run-N-11-v2.json",
         "generationRecordSha256": "7bdaf4bcc2601f7e47ca701c61ecd6d929456acc528c910d2c612d6dae1fa3d8"
+      },
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "right",
+        "positionSegment": 3,
+        "frameWithinPair": 1,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
       }
     },
     {
       "action": "run",
       "direction": "N",
       "frame": 12,
-      "source": "sources/new/run-N-12-v1.png",
-      "sha256": "6ae8e30daad38d3bf58102a67d9aa39a924180df13e2f0cb1fa954f54b6dfeef",
+      "source": "sources/new/run-N-12-groundstep-v1.png",
+      "sha256": "5d733cd532857eb6e5eec59d94fb9e6abce8805ea020c99292014298e90163b1",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-N-12-v1.json",
+      "generationRecord": "provenance/generation/run-N-12-groundstep-v1.json",
       "review": {
-        "reviewer": "continue_cast",
-        "reviewedAt": "2026-10-03T09:59:48.269693+00:00",
-        "notes": [
-          "实际图已目检：方向、右扇左空手与双腿可辨。阶段姿态与实际落地/腾空由逐帧联合复核；单图选择不等于动态通过。",
-          "固定画布根锚点，不按脚底或包围盒单独平移缩放。"
-        ]
+        "reviewer": "root",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
+        "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": "right_toe_off"
+      "event": "right_support_position_3_2",
+      "supersedes": {
+        "path": "sources/new/run-N-12-v1.png",
+        "sha256": "6ae8e30daad38d3bf58102a67d9aa39a924180df13e2f0cb1fa954f54b6dfeef",
+        "generationRecord": "provenance/generation/run-N-12-v1.json",
+        "generationRecordSha256": "7492ddf284c450c2892a166674f4fecbd66686c312cb463cd763bdebbe1a4db2"
+      },
+      "legacyEvent": "right_toe_off",
+      "supportSequence": {
+        "supportFoot": "right",
+        "positionSegment": 3,
+        "frameWithinPair": 2,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
       "direction": "N",
       "frame": 13,
-      "source": "sources/new/run-N-13-v1.png",
-      "sha256": "178e18bdb52fe0b30f1ef3a9a70d2586bdb2a1f42831e34b4cdf836cfd14081c",
+      "source": "sources/new/run-N-13-groundpairs-v2.png",
+      "sha256": "06b2d4149aa1d3a8a84ff0aa26c9543532cb967b9382857415561b214670b34e",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-N-13-v1.json",
+      "generationRecord": "provenance/generation/run-N-13-groundpairs-v2.json",
       "review": {
-        "reviewer": "continue_cast",
-        "reviewedAt": "2026-10-03T15:31:38.604532+00:00",
-        "notes": [
-          "实际图已目检：方向、右扇左空手与双腿可辨。阶段姿态与实际落地/腾空由逐帧联合复核；单图选择不等于动态通过。",
-          "固定画布根锚点，不按脚底或包围盒单独平移缩放。"
-        ]
+        "reviewer": "root",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
+        "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": null
+      "event": "right_support_position_4_1",
+      "supersedes": {
+        "path": "sources/new/run-N-13-v1.png",
+        "sha256": "178e18bdb52fe0b30f1ef3a9a70d2586bdb2a1f42831e34b4cdf836cfd14081c",
+        "generationRecord": "provenance/generation/run-N-13-v1.json",
+        "generationRecordSha256": "e11d54224e37312b12abcf1c34908229677f851a304b73afe889a6a29449da38"
+      },
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "right",
+        "positionSegment": 4,
+        "frameWithinPair": 1,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
       "direction": "N",
       "frame": 14,
-      "source": "sources/new/run-N-14-archer-v1.png",
-      "sha256": "fbab54c615c13a5e100abff195d702c0597745661b6def9fa8aab16077f542fe",
+      "source": "sources/new/run-N-14-groundpairs-v2.png",
+      "sha256": "2a2b504ab1451642ae1ffcec3938fbd986ba2810d6288f1966ecb79cac8b3fef",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-N-14-archer-v1.json",
+      "generationRecord": "provenance/generation/run-N-14-groundpairs-v2.json",
       "review": {
         "reviewer": "root",
-        "reviewedAt": "2026-10-04T05:08:17.310572+00:00",
-        "notes": "主审逐张查看10张原生全图：N支撑前摆靴底及时转向地面，S支撑靴露蓝鞋面且朝正南，N11收回扇手侧展；均两腿两手且角色/持扇左右正确。完整循环动态仍待新图接入后复核。",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
         "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": "second_flight_apex",
+      "event": "right_support_position_4_2",
       "supersedes": {
-        "path": "sources/new/run-N-14-v1.png",
-        "sha256": "b332293e2ae3bd2dedbff4c3620e7fa51c31a3907836b153ea95a1418335c15e",
-        "generationRecord": "provenance/generation/run-N-14-v1.json",
-        "generationRecordSha256": "bc88cc05b80bc0cba65b9bd2d8105d2086ee694aec669f5f4c26729f35288eb2"
+        "path": "sources/new/run-N-14-archer-v1.png",
+        "sha256": "fbab54c615c13a5e100abff195d702c0597745661b6def9fa8aab16077f542fe",
+        "generationRecord": "provenance/generation/run-N-14-archer-v1.json",
+        "generationRecordSha256": "b3651be9f635cf1b3210177ba5c435d55079227cfddd12258d118c133fe05b78"
+      },
+      "legacyEvent": "second_flight_apex",
+      "supportSequence": {
+        "supportFoot": "right",
+        "positionSegment": 4,
+        "frameWithinPair": 2,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
       }
     },
     {
       "action": "run",
       "direction": "N",
       "frame": 15,
-      "source": "sources/new/run-N-15-archer-v1.png",
-      "sha256": "8452de595054ba85ebd2dfe969a0aeff9e32e15acbd322e67a1c12275fa63996",
+      "source": "sources/new/run-N-15-ground242-v1.png",
+      "sha256": "8d3ba82745815244735acd38ff7e11d6c213176d6256a4e5a26c69c0280c2fbb",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-N-15-archer-v1.json",
+      "generationRecord": "provenance/generation/run-N-15-ground242-v1.json",
       "review": {
         "reviewer": "root",
-        "reviewedAt": "2026-10-04T05:08:17.310572+00:00",
-        "notes": "主审逐张查看10张原生全图：N支撑前摆靴底及时转向地面，S支撑靴露蓝鞋面且朝正南，N11收回扇手侧展；均两腿两手且角色/持扇左右正确。完整循环动态仍待新图接入后复核。",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
         "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": null,
+      "event": "left_support_position_1_1",
       "supersedes": {
-        "path": "sources/new/run-N-15-v2.png",
-        "sha256": "d7b0bf76dd8a003a99ce384c37764b4e02f5ea0ea68221ef9b8c9c4581541323",
-        "generationRecord": "provenance/generation/run-N-15-v2.json",
-        "generationRecordSha256": "411ddd738e16eb303c08195c3a760a1b5d798938fe7aad0070311d5d00a495f5"
+        "path": "sources/new/run-N-15-archer-v1.png",
+        "sha256": "8452de595054ba85ebd2dfe969a0aeff9e32e15acbd322e67a1c12275fa63996",
+        "generationRecord": "provenance/generation/run-N-15-archer-v1.json",
+        "generationRecordSha256": "0ac0d46b5f6971b00b95da549ce9bc14a2dc75be74f97a91c4e94ccef0291b8b"
+      },
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "left",
+        "positionSegment": 1,
+        "frameWithinPair": 1,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
       }
     },
     {
       "action": "run",
       "direction": "N",
       "frame": 16,
-      "source": "sources/new/run-N-16-v1.png",
-      "sha256": "236de46e26d3a5823222ebf47126a36d0040b4b892f2defd44a1bf5e2baceb9f",
+      "source": "sources/new/run-N-16-ground242-v2.png",
+      "sha256": "c0fe57c02d7a9f607c4b8b51b84bea96130922adfb217ab84ce302052a8949bb",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-N-16-v1.json",
+      "generationRecord": "provenance/generation/run-N-16-ground242-v2.json",
       "review": {
-        "reviewer": "continue_cast",
-        "reviewedAt": "2026-10-03T16:41:12.207659+00:00",
-        "notes": [
-          "实际图已目检：方向、右扇左空手与双腿可辨。阶段姿态与实际落地/腾空由逐帧联合复核；单图选择不等于动态通过。",
-          "固定画布根锚点，不按脚底或包围盒单独平移缩放。"
-        ]
+        "reviewer": "root",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
+        "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": null
+      "event": "left_support_position_1_2",
+      "supersedes": {
+        "path": "sources/new/run-N-16-v1.png",
+        "sha256": "236de46e26d3a5823222ebf47126a36d0040b4b892f2defd44a1bf5e2baceb9f",
+        "generationRecord": "provenance/generation/run-N-16-v1.json",
+        "generationRecordSha256": "6db38e4276e3104e5831903ed77542932a1a614da436af9c87774aa1e687c0c3"
+      },
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "left",
+        "positionSegment": 1,
+        "frameWithinPair": 2,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
       "direction": "S",
       "frame": 1,
-      "source": "sources/new/run-S-01-v1.png",
-      "sha256": "e2c12974098d77f80fc58317cedeec3586a1773739b59c9f152065d8f7d10197",
+      "source": "sources/new/run-S-01-ground242-v1.png",
+      "sha256": "50fef6b45f399504d5be0540ebbfed52c97cee96347c1f9179b88fdde6ede1ac",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-S-01-v1.json",
+      "generationRecord": "provenance/generation/run-S-01-ground242-v1.json",
       "review": {
-        "reviewer": "continue_cast",
-        "reviewedAt": "2026-10-03T05:24:52.61702-04:00",
-        "notes": [
-          "实际图已目检：方向、右扇左空手与双腿可辨。阶段姿态与实际落地/腾空由逐帧联合复核；单图选择不等于动态通过。",
-          "固定画布根锚点，不按脚底或包围盒单独平移缩放。"
-        ]
+        "reviewer": "root",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
+        "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": "left_touchdown"
+      "event": "left_support_position_2_1",
+      "supersedes": {
+        "path": "sources/new/run-S-01-v1.png",
+        "sha256": "e2c12974098d77f80fc58317cedeec3586a1773739b59c9f152065d8f7d10197",
+        "generationRecord": "provenance/generation/run-S-01-v1.json",
+        "generationRecordSha256": "b40d2a378a92032b344286c3c4dcaf8a50e737f1d1a3571ed0b77d79d38ca308"
+      },
+      "legacyEvent": "left_touchdown",
+      "supportSequence": {
+        "supportFoot": "left",
+        "positionSegment": 2,
+        "frameWithinPair": 1,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
@@ -361,153 +563,254 @@
         "notes": "主审逐张查看10张原生全图：N支撑前摆靴底及时转向地面，S支撑靴露蓝鞋面且朝正南，N11收回扇手侧展；均两腿两手且角色/持扇左右正确。完整循环动态仍待新图接入后复核。",
         "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": null,
+      "event": "left_support_position_2_2",
       "supersedes": {
         "path": "sources/new/run-S-02-v1.png",
         "sha256": "92d28f419729cbc9b52b2575febbd18645468dd2abc4cfb009eb1e54d51a8219",
         "generationRecord": "provenance/generation/run-S-02-v1.json",
         "generationRecordSha256": "3cac3faf23d445516c12771dd307e9ac76c6299a83930eb8b4706083c59f5bce"
+      },
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "left",
+        "positionSegment": 2,
+        "frameWithinPair": 2,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
       }
     },
     {
       "action": "run",
       "direction": "S",
       "frame": 3,
-      "source": "sources/new/run-S-03-archer-v1.png",
-      "sha256": "f83e813228b03f08fb6d4921fd6e760113026963d00d83290d736a261644d368",
+      "source": "sources/new/run-S-03-groundstep-v1.png",
+      "sha256": "abc79a584891a5facff421da4cab08fcab96c06b3fe96e05234cdeaaf8b071e1",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-S-03-archer-v1.json",
+      "generationRecord": "provenance/generation/run-S-03-groundstep-v1.json",
       "review": {
         "reviewer": "root",
-        "reviewedAt": "2026-10-04T05:08:17.310572+00:00",
-        "notes": "主审逐张查看10张原生全图：N支撑前摆靴底及时转向地面，S支撑靴露蓝鞋面且朝正南，N11收回扇手侧展；均两腿两手且角色/持扇左右正确。完整循环动态仍待新图接入后复核。",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
         "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": null,
+      "event": "left_support_position_3_1",
       "supersedes": {
-        "path": "sources/new/run-S-03-v2.png",
-        "sha256": "1c11004c53503021531285bb0245948821e071a7eb05244402637a0108ea3e2e",
-        "generationRecord": "provenance/generation/run-S-03-v2.json",
-        "generationRecordSha256": "e885b8176433eeec061b020aef01728d938b8ee86a922c8850e31dcd0f48cd73"
+        "path": "sources/new/run-S-03-archer-v1.png",
+        "sha256": "f83e813228b03f08fb6d4921fd6e760113026963d00d83290d736a261644d368",
+        "generationRecord": "provenance/generation/run-S-03-archer-v1.json",
+        "generationRecordSha256": "572f96c8011062ee6e4a21d51657675331c0634e846507e1d8437e17e667e6a7"
+      },
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "left",
+        "positionSegment": 3,
+        "frameWithinPair": 1,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
       }
     },
     {
       "action": "run",
       "direction": "S",
       "frame": 4,
-      "source": "sources/new/run-S-04-v1.png",
-      "sha256": "51a609db761955d52d8ffdbde2c4fba5554fa83314c5838a68878b066296bcc9",
+      "source": "sources/new/run-S-04-groundpairs-v1.png",
+      "sha256": "6fc25295fa9750c64f5fca701bbf0f936cee8f5b9474c43bcd45e79917bad2de",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-S-04-v1.json",
+      "generationRecord": "provenance/generation/run-S-04-groundpairs-v1.json",
       "review": {
-        "reviewer": "continue_cast",
-        "reviewedAt": "2026-10-03T05:38:20.552491-04:00",
-        "notes": [
-          "实际图已目检：方向、右扇左空手与双腿可辨。阶段姿态与实际落地/腾空由逐帧联合复核；单图选择不等于动态通过。",
-          "固定画布根锚点，不按脚底或包围盒单独平移缩放。"
-        ]
+        "reviewer": "root",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
+        "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": "left_toe_off"
+      "event": "left_support_position_3_2",
+      "supersedes": {
+        "path": "sources/new/run-S-04-v1.png",
+        "sha256": "51a609db761955d52d8ffdbde2c4fba5554fa83314c5838a68878b066296bcc9",
+        "generationRecord": "provenance/generation/run-S-04-v1.json",
+        "generationRecordSha256": "b8c488d3db8df998c4ea758db8465e4db9e386fd3028ce93fc64072091d48ac7"
+      },
+      "legacyEvent": "left_toe_off",
+      "supportSequence": {
+        "supportFoot": "left",
+        "positionSegment": 3,
+        "frameWithinPair": 2,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
       "direction": "S",
       "frame": 5,
-      "source": "sources/new/run-S-05-v1.png",
-      "sha256": "fbaf882b7b01b19d89abe10316ab621c0b9d36a4de4d48a2432905c68a7c22f3",
+      "source": "sources/new/run-S-05-groundpairs-v1.png",
+      "sha256": "19af3c4afcd97a8114d838e1a117fc3a055bfb9decb5773c89f3e6d124b12048",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-S-05-v1.json",
+      "generationRecord": "provenance/generation/run-S-05-groundpairs-v1.json",
       "review": {
-        "reviewer": "continue_cast",
-        "reviewedAt": "2026-10-03T16:03:37.715395+00:00",
-        "notes": [
-          "实际图已目检：方向、右扇左空手与双腿可辨。阶段姿态与实际落地/腾空由逐帧联合复核；单图选择不等于动态通过。",
-          "固定画布根锚点，不按脚底或包围盒单独平移缩放。"
-        ]
+        "reviewer": "root",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
+        "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": null
+      "event": "left_support_position_4_1",
+      "supersedes": {
+        "path": "sources/new/run-S-05-v1.png",
+        "sha256": "fbaf882b7b01b19d89abe10316ab621c0b9d36a4de4d48a2432905c68a7c22f3",
+        "generationRecord": "provenance/generation/run-S-05-v1.json",
+        "generationRecordSha256": "e7051f162d4c76582d05d6aa6cd476beb9e4510e4f8293ab08f5b56fb1f9ef41"
+      },
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "left",
+        "positionSegment": 4,
+        "frameWithinPair": 1,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
       "direction": "S",
       "frame": 6,
-      "source": "sources/new/run-S-07-v2.png",
-      "sha256": "a471b4eeb715b1c60cc9ed3ddeeb3e2a60984248dbd6b3b210e5eede5b1b96ad",
+      "source": "sources/new/run-S-06-groundpairs-v1.png",
+      "sha256": "ec81783580208d6de99f4027341265f48ae88861d34af6d5f0a42e9b5c6e326a",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-S-07-v2.json",
+      "generationRecord": "provenance/generation/run-S-06-groundpairs-v1.json",
       "review": {
-        "reviewer": "continue_cast",
-        "reviewedAt": "2026-10-03T15:53:40.519824+00:00",
-        "notes": [
-          "实际图已目检：方向、右扇左空手与双腿可辨。阶段姿态与实际落地/腾空由逐帧联合复核；单图选择不等于动态通过。",
-          "固定画布根锚点，不按脚底或包围盒单独平移缩放。",
-          "按实际脚底高度重新选序：S05/07v2/08v2/06v2构成05—08腾空上升、最高点、下降、落地准备；保留原文件名、SHA与逐图来源。"
-        ]
+        "reviewer": "root",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
+        "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": "first_flight_apex"
+      "event": "left_support_position_4_2",
+      "supersedes": {
+        "path": "sources/new/run-S-07-v2.png",
+        "sha256": "a471b4eeb715b1c60cc9ed3ddeeb3e2a60984248dbd6b3b210e5eede5b1b96ad",
+        "generationRecord": "provenance/generation/run-S-07-v2.json",
+        "generationRecordSha256": "b79487eba2cbd87b382ec3e482105dcdfa8d31d38f1f7336bebc6c604a028eaf"
+      },
+      "legacyEvent": "first_flight_apex",
+      "supportSequence": {
+        "supportFoot": "left",
+        "positionSegment": 4,
+        "frameWithinPair": 2,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
       "direction": "S",
       "frame": 7,
-      "source": "sources/new/run-S-08-v2.png",
-      "sha256": "96288a04866f82e1b4ae0d1a4e75a1ab8ebf4a8da4fe8e2da3a3c9135d1bc40d",
+      "source": "sources/new/run-S-07-ground242-v3.png",
+      "sha256": "ac5af679f117f8807f3dbb76feee892543686326d3e3689ff8fd1c0d1d641555",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-S-08-v2.json",
+      "generationRecord": "provenance/generation/run-S-07-ground242-v3.json",
       "review": {
-        "reviewer": "continue_cast",
-        "reviewedAt": "2026-10-03T15:53:40.526394+00:00",
-        "notes": [
-          "实际图已目检：方向、右扇左空手与双腿可辨。阶段姿态与实际落地/腾空由逐帧联合复核；单图选择不等于动态通过。",
-          "固定画布根锚点，不按脚底或包围盒单独平移缩放。",
-          "按实际脚底高度重新选序：S05/07v2/08v2/06v2构成05—08腾空上升、最高点、下降、落地准备；保留原文件名、SHA与逐图来源。"
-        ]
+        "reviewer": "root",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
+        "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": null
+      "event": "right_support_position_1_1",
+      "supersedes": {
+        "path": "sources/new/run-S-08-v2.png",
+        "sha256": "96288a04866f82e1b4ae0d1a4e75a1ab8ebf4a8da4fe8e2da3a3c9135d1bc40d",
+        "generationRecord": "provenance/generation/run-S-08-v2.json",
+        "generationRecordSha256": "d80f36dee3ce433bca3ff89ff3cc006a4631e969af0cf6cbbd3616d25444f1c5"
+      },
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "right",
+        "positionSegment": 1,
+        "frameWithinPair": 1,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
       "direction": "S",
       "frame": 8,
-      "source": "sources/new/run-S-06-v2.png",
-      "sha256": "0d7ca3dec5743cd9eec79fb5c884ffa360806b6897889f40a0211cbf63dab71e",
+      "source": "sources/new/run-S-08-ground242-v2.png",
+      "sha256": "a22a393a89e057617b91607bc9a1c9c79e36c3dd9c1a490cf0d8481aa395413d",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-S-06-v2.json",
+      "generationRecord": "provenance/generation/run-S-08-ground242-v2.json",
       "review": {
-        "reviewer": "continue_cast",
-        "reviewedAt": "2026-10-03T16:03:37.718041+00:00",
-        "notes": [
-          "实际图已目检：方向、右扇左空手与双腿可辨。阶段姿态与实际落地/腾空由逐帧联合复核；单图选择不等于动态通过。",
-          "固定画布根锚点，不按脚底或包围盒单独平移缩放。",
-          "按实际脚底高度重新选序：S05/07v2/08v2/06v2构成05—08腾空上升、最高点、下降、落地准备；保留原文件名、SHA与逐图来源。"
-        ]
+        "reviewer": "root",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
+        "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": null
+      "event": "right_support_position_1_2",
+      "supersedes": {
+        "path": "sources/new/run-S-06-v2.png",
+        "sha256": "0d7ca3dec5743cd9eec79fb5c884ffa360806b6897889f40a0211cbf63dab71e",
+        "generationRecord": "provenance/generation/run-S-06-v2.json",
+        "generationRecordSha256": "83b9eddd0df77a1af0d67715e232b1f23ea4335e6a0a06c8e29223d7175175b9"
+      },
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "right",
+        "positionSegment": 1,
+        "frameWithinPair": 2,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
       "direction": "S",
       "frame": 9,
-      "source": "sources/new/run-S-09-v2.png",
-      "sha256": "2f92a3d0c1147d2530558a5ccc5a9052e407662fa16f843cd30d98a43691a885",
+      "source": "sources/new/run-S-09-ground242-v1.png",
+      "sha256": "446515bd65752d861ec5006e2419f4821a603e6225324bce20a5d6e21be919ac",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-S-09-v2.json",
+      "generationRecord": "provenance/generation/run-S-09-ground242-v1.json",
       "review": {
-        "reviewer": "continue_cast",
-        "reviewedAt": "2026-10-03T05:40:28.726398-04:00",
-        "notes": [
-          "实际图已目检：方向、右扇左空手与双腿可辨。阶段姿态与实际落地/腾空由逐帧联合复核；单图选择不等于动态通过。",
-          "固定画布根锚点，不按脚底或包围盒单独平移缩放。"
-        ]
+        "reviewer": "root",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
+        "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": "right_touchdown"
+      "event": "right_support_position_2_1",
+      "supersedes": {
+        "path": "sources/new/run-S-09-v2.png",
+        "sha256": "2f92a3d0c1147d2530558a5ccc5a9052e407662fa16f843cd30d98a43691a885",
+        "generationRecord": "provenance/generation/run-S-09-v2.json",
+        "generationRecordSha256": "7735f2e8fc2e5f9d3f8751ee920ccd5252de321b98bd48985cea3f65f627667c"
+      },
+      "legacyEvent": "right_touchdown",
+      "supportSequence": {
+        "supportFoot": "right",
+        "positionSegment": 2,
+        "frameWithinPair": 1,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
@@ -524,138 +827,221 @@
         "notes": "主审逐张查看10张原生全图：N支撑前摆靴底及时转向地面，S支撑靴露蓝鞋面且朝正南，N11收回扇手侧展；均两腿两手且角色/持扇左右正确。完整循环动态仍待新图接入后复核。",
         "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": null,
+      "event": "right_support_position_2_2",
       "supersedes": {
         "path": "sources/new/run-S-10-v2.png",
         "sha256": "a6d504e55b1f30b787e6298f70cc3e6a2c68700d18698d5b1d40490b5990ff14",
         "generationRecord": "provenance/generation/run-S-10-v2.json",
         "generationRecordSha256": "a6d7c68432bd276c032ba4b2874444811a391b8a1fbef1209f49dd2be9eb00db"
+      },
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "right",
+        "positionSegment": 2,
+        "frameWithinPair": 2,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
       }
     },
     {
       "action": "run",
       "direction": "S",
       "frame": 11,
-      "source": "sources/new/run-S-11-archer-v1.png",
-      "sha256": "343d48eb8d11455f0a09fd499da381f2f8535788149e4ed3cfa6edde9a88b99f",
+      "source": "sources/new/run-S-11-groundpairs-v1.png",
+      "sha256": "a9a353421ff328bfd6017ea8d072d3d44151828e34522d2cd330409a94b6b4b4",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-S-11-archer-v1.json",
+      "generationRecord": "provenance/generation/run-S-11-groundpairs-v1.json",
       "review": {
         "reviewer": "root",
-        "reviewedAt": "2026-10-04T05:08:17.310572+00:00",
-        "notes": "主审逐张查看10张原生全图：N支撑前摆靴底及时转向地面，S支撑靴露蓝鞋面且朝正南，N11收回扇手侧展；均两腿两手且角色/持扇左右正确。完整循环动态仍待新图接入后复核。",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
         "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": null,
+      "event": "right_support_position_3_1",
       "supersedes": {
-        "path": "sources/new/run-S-11-v1.png",
-        "sha256": "42b86c9c3838cbb1224b295120b6a74c3319d348d0ab8f13439286b998a1b27a",
-        "generationRecord": "provenance/generation/run-S-11-v1.json",
-        "generationRecordSha256": "020eb840a46440127a3bdf7982c0d6dd2a60877e10571515aff025b72372976b"
+        "path": "sources/new/run-S-11-archer-v1.png",
+        "sha256": "343d48eb8d11455f0a09fd499da381f2f8535788149e4ed3cfa6edde9a88b99f",
+        "generationRecord": "provenance/generation/run-S-11-archer-v1.json",
+        "generationRecordSha256": "df857c5735418890c8ed597dfe510f3215d3f01035a211abc78232911046b7dc"
+      },
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "right",
+        "positionSegment": 3,
+        "frameWithinPair": 1,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
       }
     },
     {
       "action": "run",
       "direction": "S",
       "frame": 12,
-      "source": "sources/new/run-S-12-v2.png",
-      "sha256": "a2d549d8dee9a4f9365421027082db1790e4a2f57bf3c01bc14c55fa9b1678a9",
+      "source": "sources/new/run-S-12-groundstep-v1.png",
+      "sha256": "1693844edd745547155ad0eba7eae028447758d7245266dd74a509b69bcddd9e",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-S-12-v2.json",
+      "generationRecord": "provenance/generation/run-S-12-groundstep-v1.json",
       "review": {
-        "reviewer": "continue_cast",
-        "reviewedAt": "2026-10-03T16:18:10.509722+00:00",
-        "notes": [
-          "实际图已目检：方向、右扇左空手与双腿可辨。阶段姿态与实际落地/腾空由逐帧联合复核；单图选择不等于动态通过。",
-          "固定画布根锚点，不按脚底或包围盒单独平移缩放。"
-        ]
+        "reviewer": "root",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
+        "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": "right_toe_off"
+      "event": "right_support_position_3_2",
+      "supersedes": {
+        "path": "sources/new/run-S-12-v2.png",
+        "sha256": "a2d549d8dee9a4f9365421027082db1790e4a2f57bf3c01bc14c55fa9b1678a9",
+        "generationRecord": "provenance/generation/run-S-12-v2.json",
+        "generationRecordSha256": "f4d71849b7836dba9e534426bb31cc7e84f9ef0f6292024dbd0726e734ac54a1"
+      },
+      "legacyEvent": "right_toe_off",
+      "supportSequence": {
+        "supportFoot": "right",
+        "positionSegment": 3,
+        "frameWithinPair": 2,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
       "direction": "S",
       "frame": 13,
-      "source": "sources/new/run-S-12-v1.png",
-      "sha256": "773bf53705a62ee5e3e50bbe33d939deb3c984d0cee109eab3a9a9faa77fbfab",
+      "source": "sources/new/run-S-13-ground242-v1.png",
+      "sha256": "c6609f0c429b2d9789373e8ef8ec9be52c72a3eeab2d51be8e71f499fc69dcbb",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-S-12-v1.json",
+      "generationRecord": "provenance/generation/run-S-13-ground242-v1.json",
       "review": {
-        "reviewer": "continue_cast",
-        "reviewedAt": "2026-10-03T17:21:31.880739+00:00",
-        "notes": [
-          "再次实际查看原始PNG，按实际相位选择；保留原文件名和来源。",
-          "S12v1本为离地已发生的帧，改用于13初腾空；S13v1用于15下降；S14v1本为近触地，改用于16，不按提示词编号认定相位。",
-          "右扇前摆，左空手后摆；屏右解剖左腿前伸、屏左右腿折回，两只靴子的轴线顺膝踝方向，无明显外八。"
-        ]
+        "reviewer": "root",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
+        "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": null
+      "event": "right_support_position_4_1",
+      "supersedes": {
+        "path": "sources/new/run-S-12-v1.png",
+        "sha256": "773bf53705a62ee5e3e50bbe33d939deb3c984d0cee109eab3a9a9faa77fbfab",
+        "generationRecord": "provenance/generation/run-S-12-v1.json",
+        "generationRecordSha256": "42cd3906e5ea91918393949de93724f3d1cfb91747268b8f5d0a8d2dc6955e75"
+      },
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "right",
+        "positionSegment": 4,
+        "frameWithinPair": 1,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
       "direction": "S",
       "frame": 14,
-      "source": "sources/new/run-S-14-archer-v1.png",
-      "sha256": "e61a01be447229f70cbb96ea0dce30992d9e69805091ebacd374d9b98f62efbf",
+      "source": "sources/new/run-S-14-groundpairs-v1.png",
+      "sha256": "15b23786935582445cfe37c6aeb05591ec0b2d493a93d37e3216dec99d8c12f6",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-S-14-archer-v1.json",
+      "generationRecord": "provenance/generation/run-S-14-groundpairs-v1.json",
       "review": {
         "reviewer": "root",
-        "reviewedAt": "2026-10-04T05:08:17.310572+00:00",
-        "notes": "主审逐张查看10张原生全图：N支撑前摆靴底及时转向地面，S支撑靴露蓝鞋面且朝正南，N11收回扇手侧展；均两腿两手且角色/持扇左右正确。完整循环动态仍待新图接入后复核。",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
         "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": "second_flight_apex",
+      "event": "right_support_position_4_2",
       "supersedes": {
-        "path": "sources/new/run-S-14-v2.png",
-        "sha256": "cc49d3c6382dc11f0ca583049b4ea501c2a9ef57ba29533e7fb4546a00022357",
-        "generationRecord": "provenance/generation/run-S-14-v2.json",
-        "generationRecordSha256": "5459598951393ec08303c3b8d42f5ae6788182cd11dc9dcfc89ee9a5f80668a2"
+        "path": "sources/new/run-S-14-archer-v1.png",
+        "sha256": "e61a01be447229f70cbb96ea0dce30992d9e69805091ebacd374d9b98f62efbf",
+        "generationRecord": "provenance/generation/run-S-14-archer-v1.json",
+        "generationRecordSha256": "8955bb6bfa037f352329910b1f5303ce25c6ca8eaaae63501b5b152818f14533"
+      },
+      "legacyEvent": "second_flight_apex",
+      "supportSequence": {
+        "supportFoot": "right",
+        "positionSegment": 4,
+        "frameWithinPair": 2,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
       }
     },
     {
       "action": "run",
       "direction": "S",
       "frame": 15,
-      "source": "sources/new/run-S-13-v1.png",
-      "sha256": "f6ecdd244231156f936ee0532419e387612abc5d3c6f3a9ceafe5ec5fee57a7e",
+      "source": "sources/new/run-S-15-ground242-v2.png",
+      "sha256": "c613f4733ea94446c2dc2892cddc505219f82e6766373d30440e2ee73c65be18",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-S-13-v1.json",
+      "generationRecord": "provenance/generation/run-S-15-ground242-v2.json",
       "review": {
-        "reviewer": "continue_cast",
-        "reviewedAt": "2026-10-03T17:21:31.886305+00:00",
-        "notes": [
-          "再次实际查看原始PNG，按实际相位选择；保留原文件名和来源。",
-          "S12v1本为离地已发生的帧，改用于13初腾空；S13v1用于15下降；S14v1本为近触地，改用于16，不按提示词编号认定相位。",
-          "右扇前摆，左空手后摆；屏右解剖左腿前伸、屏左右腿折回，两只靴子的轴线顺膝踝方向，无明显外八。"
-        ]
+        "reviewer": "root",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
+        "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": null
+      "event": "left_support_position_1_1",
+      "supersedes": {
+        "path": "sources/new/run-S-13-v1.png",
+        "sha256": "f6ecdd244231156f936ee0532419e387612abc5d3c6f3a9ceafe5ec5fee57a7e",
+        "generationRecord": "provenance/generation/run-S-13-v1.json",
+        "generationRecordSha256": "cc6e53474bd4eb5488412c7faab36f43c9600f3ba7f7cb06dea349e03ffe2d56"
+      },
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "left",
+        "positionSegment": 1,
+        "frameWithinPair": 1,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     },
     {
       "action": "run",
       "direction": "S",
       "frame": 16,
-      "source": "sources/new/run-S-14-v1.png",
-      "sha256": "cbd3a1f1ba707d1282a90bc32fd482ce240f9fc65d13eb52bed377286045538d",
+      "source": "sources/new/run-S-16-groundpairs-v1.png",
+      "sha256": "71f57328b1f073c9f1417f9a6408b37408d9a70714a6ca5d19803e1f4baa5d05",
       "accepted": true,
       "nativeSingleFrame": true,
-      "generationRecord": "provenance/generation/run-S-14-v1.json",
+      "generationRecord": "provenance/generation/run-S-16-groundpairs-v1.json",
       "review": {
-        "reviewer": "continue_cast",
-        "reviewedAt": "2026-10-03T17:21:31.891467+00:00",
-        "notes": [
-          "再次实际查看原始PNG，按实际相位选择；保留原文件名和来源。",
-          "S12v1本为离地已发生的帧，改用于13初腾空；S13v1用于15下降；S14v1本为近触地，改用于16，不按提示词编号认定相位。",
-          "右扇前摆，左空手后摆；屏右解剖左腿前伸、屏左右腿折回，两只靴子的轴线顺膝踝方向，无明显外八。"
-        ]
+        "reviewer": "root",
+        "reviewedAt": "2026-10-04T19:31:16.927191+00:00",
+        "notes": "N/S全身分足连续图已实际复核，同一足四个位置各两独立帧承重，鞋向沿纵轴；不按最低像素贴地。待动态最终验收。",
+        "scope": "static_selected_pending_complete_sequence_review"
       },
-      "event": null
+      "event": "left_support_position_1_2",
+      "supersedes": {
+        "path": "sources/new/run-S-14-v1.png",
+        "sha256": "cbd3a1f1ba707d1282a90bc32fd482ce240f9fc65d13eb52bed377286045538d",
+        "generationRecord": "provenance/generation/run-S-14-v1.json",
+        "generationRecordSha256": "064ff7e2d7e18ce54a7c7d4433f3297bd1a52dee4fed9a8ab69e4bb6ec119498"
+      },
+      "legacyEvent": null,
+      "supportSequence": {
+        "supportFoot": "left",
+        "positionSegment": 1,
+        "frameWithinPair": 2,
+        "pairDurationMs": 150,
+        "interpretation": "同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。",
+        "evidenceScope": "static_sequence_review_only",
+        "anatomicalFootConfidence": "reviewed_static"
+      }
     }
   ],
   "updatedAt": "2026-10-03T17:21:31.891467+00:00"

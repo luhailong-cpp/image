@@ -7,10 +7,10 @@
   "animations": [
     {
       "file": "preview/run-N-uniform1200.gif",
-      "sha256": "f0f0dcd3a31a5f62fde34603d358f0185a8bb30db9e96265ca717bd5a7b932c9",
+      "sha256": "dd3b421adcdd1d61e53dc3f063efd6b1ed411be4389ab56c2b6af3c05d9225ad",
       "label": "1200ms 正常跑步 · 每帧75ms",
       "profile": "uniform1200",
-      "timingStatus": "candidate_pending_archer_reference_review",
+      "timingStatus": "pending_final_dynamic_review",
       "playbackSpeed": 1.0,
       "originalFrameDurationsMs": [
         75,
@@ -74,10 +74,10 @@
     },
     {
       "file": "preview/run-N-slow.gif",
-      "sha256": "c4425954aa53826589c350850030cd7096ac023765005a5eaf612c288429fc52",
-      "label": "1200ms 正常节奏（姿态待复核） · 0.25×",
+      "sha256": "9e7d42ca2c5605e4267483b15614217f394c7e64618949bf39b363e707750c49",
+      "label": "1200ms 正常跑步 · 每帧75ms · 0.25×",
       "profile": "uniform1200",
-      "timingStatus": "candidate_pending_root_final_review",
+      "timingStatus": "pending_final_dynamic_review",
       "playbackSpeed": 0.25,
       "originalFrameDurationsMs": [
         75,
@@ -143,19 +143,26 @@
   "operation": "preview thumbnails and GIF on neutral backdrop; no pose synthesis or per-frame anchoring",
   "manifest": {
     "file": "manifest.json",
-    "sha256": "ce1a351f09dfe296cdc30ad0914bb097dfcfdd9585e53b154540f7ea11aecb2b"
+    "sha256": "1763cff136176f0b25ecb93e5792dfb1874844c831b1552e36506c7933ef539c"
   },
   "expectedFrames": 16,
   "actualFrames": 16,
   "previewTiming": {
     "file": "audit/run-timing.json",
-    "sha256": "8bb46052c3b1b6634f3c7c564b0bd839edf5db0e1b43bb886cb6c7bfe09e1580",
+    "sha256": "a3eb2175e29002393f0fdf815a67887389444ccd9f225376e3345cc233e10605",
     "defaultProfile": "uniform1200",
-    "status": "candidate_pending_archer_reference_review",
+    "status": "pending_final_dynamic_review",
     "legacyBaselineCycleMs": 480,
     "clientIntegration": "not_integrated"
   },
-  "animationApproval": "pending_visual_dynamic_review",
+  "animationApproval": "pending_final_dynamic_review",
+  "staticReview": {
+    "record": "audit/current-static-review.json",
+    "sha256": "d9c4f4a8b4afda1f9119a37f5170b464def5035aa398ad1a0bec2f94d14da521",
+    "reviewer": "root",
+    "reviewedAt": "2026-10-04T21:35:01.303235+00:00",
+    "scope": "static_sequence_and_provenance_only"
+  },
   "offlineReview": null,
   "clientIntegration": "not_integrated",
   "clientRuntimeAcceptance": "not_tested",
@@ -171,19 +178,19 @@
     },
     {
       "file": "runtime/run/N/03.png",
-      "sha256": "abe5f950ec651513a35fa8470808e306a543da4a27731e9d2658aa220b69db3b"
+      "sha256": "b051341de7d62ec9bb94f50d8feb966dba6c79a55d4703389e16f9b667f5baf5"
     },
     {
       "file": "runtime/run/N/04.png",
-      "sha256": "c271fab011aa36d12da02bdda2422ed1c92605d34515dac4fb530ce7deda398e"
+      "sha256": "fb76ce51f7dc845dc56da84b1eda3e8a4d8e6c3f0083776ee4204776a26c23fa"
     },
     {
       "file": "runtime/run/N/05.png",
-      "sha256": "aef6d1999ba8738422b8b04a680dee9eab60aae1f5f1bc7dc0c1699fadb50ca9"
+      "sha256": "c7163f9e71f603214381f7170e50675112cea8dc8c1f7e9a6f632ef42d572a3e"
     },
     {
       "file": "runtime/run/N/06.png",
-      "sha256": "e0814fcd9c90db2d0d7f07be798e60e13142e87749581080708572ac6fd08f8a"
+      "sha256": "779c377329021891ac55000b46f4d9453d54ee672d8faa63158ac69e917049a9"
     },
     {
       "file": "runtime/run/N/07.png",
@@ -207,23 +214,23 @@
     },
     {
       "file": "runtime/run/N/12.png",
-      "sha256": "be0f687668d25d96a4ac0d45b7dbf6d54b286aa3761608e9ed22c77e766d4070"
+      "sha256": "5cea0e3f4f48c8ca85076d1b716833b68178b16257b1ddc0c09fceadec702492"
     },
     {
       "file": "runtime/run/N/13.png",
-      "sha256": "b307ec9a650fe6e77bc04ab157b236c776faf0e4c1193e29a7a901c8d29c10e0"
+      "sha256": "a785a77e7983b861def11e7fa1043c37b0ac992895a72199567e586dc6679136"
     },
     {
       "file": "runtime/run/N/14.png",
-      "sha256": "0913c96378e505bc50c1950d578fec0fcc0cc2c7201b03d58af1bff985c1be66"
+      "sha256": "86ec0ae69f989ab03c68e4a22196b8a196d996adbcc2edfa0a097da7fcd8737b"
     },
     {
       "file": "runtime/run/N/15.png",
-      "sha256": "f9ec5d97ae296fdd0195db701019e327a70c550decb2cc20ad972c91b9abcead"
+      "sha256": "ced1852469ffce6d6fd5507d7f31d66774585dbe5833b65ad81b3df6a579f9b3"
     },
     {
       "file": "runtime/run/N/16.png",
-      "sha256": "d14a899d95273caf9573c8455bee16f869bef1a8b432ede669b69f1ea72995b6"
+      "sha256": "7babab738151de7f908749b365b499e5f72dce0700cc9a6d4429178f3245140d"
     }
   ]
 }
