@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "characterId": "01_ice_sword_girl",
   "direction": "SE",
-  "createdAt": "2026-10-04T13:59:52.835614+00:00",
+  "createdAt": "2026-10-04T18:33:03.593780+00:00",
   "canvasSize": [
     1024,
     1024
@@ -16,7 +16,6 @@
     "definition": "固定整画布；接触像素不是贴线规则，各脚前后投影需人工核对。"
   },
   "timing": {
-    "status": "normal_preview_user_selected_client_unconfirmed",
     "uniformCycleMs": 1200,
     "frameDurationsMs": [
       75,
@@ -36,10 +35,8 @@
       75,
       75
     ],
-    "comparisonsMs": [],
-    "formallyAdopted": false,
     "offlineDefaultApplied": true,
-    "reason": "用户指定16帧均匀75ms，1200ms一圈，接触事件按实图候选记录。"
+    "clientVerified": false
   },
   "artStatus": "needs_sequence_review",
   "clientIntegrated": false,
@@ -50,7 +47,8 @@
   "events": {
     "kind": "manual_visual_candidates_not_accepted",
     "requestedStructure": {
-      "right": [
+      "firstFoot": "right",
+      "firstSupport": [
         [
           1,
           2
@@ -68,7 +66,7 @@
           8
         ]
       ],
-      "left": [
+      "secondSupport": [
         [
           9,
           10
@@ -91,42 +89,12 @@
         "body_approaching_support",
         "body_passing_support",
         "rear_push_off"
-      ],
-      "msPerFrame": 75,
-      "msPerPosition": 150
-    },
-    "observed": {
-      "rightSupportPlausible": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8
-      ],
-      "leftSupportPlausible": [
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15
-      ],
-      "leftSupportPartlyOccluded": [
-        16
       ]
     },
     "eightConsecutiveSupportVerified": false
   },
   "issues": [
-    "已针对最新8连续支撑要求真实局部重绘05–08与13–16，未用重复图/标签/整图平移凑数。",
-    "SE16左后腿关节被裙遮挡，后前掌受力仍待连播核对；06、14后跟抬起较弱。",
-    "前后跨步是沿SE运动轴，不把腿间距当作外撇；所有选槽仍需1200ms连播，未视为客户端通过。",
-    "SE12按实际中位用11-v2，SE11用11-v3，16张SHA独立；07/08近肩到前剑袖连接保留。",
-    "09竹弓仅作为用户确认外观的具体姿态参照，未将未看方向自动视为免检。"
+    "Latest repaired source selection exported for real browser 1x and step review; not yet accepted."
   ],
   "frames": [
     {
@@ -140,19 +108,19 @@
       ],
       "generationRecord": "drafts/run/SE/01-v1.png.generation.json",
       "candidatePath": "candidate/run/SE/01.png",
-      "candidateSha256": "1171590b85f7fa9598c4599f0701dea847d4514a5400d1ab940d3825a90c1efc",
-      "candidateGenerationRecord": "candidate/run/SE/01.png.generation.json",
+      "durationMs": 75,
       "status": "selected_for_preview",
+      "actualModel": null,
+      "actualQuality": null,
+      "notes": "近右腿前伸、前靴跟部/全掌初触候选，远左腿后收；剑在近右后摆、符在远左前摆",
       "actualContact": {
-        "left": "air",
-        "right": "initial_contact_candidate",
-        "confidence": "manual_visual_candidate_physical_contact_unverified",
+        "right": "support_candidate",
+        "left": "swing_or_precontact_candidate",
+        "confidence": "manual_visual_candidate_pending_1x",
         "evidence": "近右腿前伸、前靴跟部/全掌初触候选，远左腿后收；剑在近右后摆、符在远左前摆"
       },
-      "notes": "近右腿前伸、前靴跟部/全掌初触候选，远左腿后收；剑在近右后摆、符在远左前摆",
-      "durationMs": 75,
-      "actualModel": null,
-      "actualQuality": null
+      "candidateSha256": "1171590b85f7fa9598c4599f0701dea847d4514a5400d1ab940d3825a90c1efc",
+      "candidateGenerationRecord": "candidate/run/SE/01.png.generation.json"
     },
     {
       "frame": 2,
@@ -165,19 +133,19 @@
       ],
       "generationRecord": "drafts/run/SE/02-v1.png.generation.json",
       "candidatePath": "candidate/run/SE/02.png",
-      "candidateSha256": "c75047a20a13876e63adf57299c5aa897d9f8a31e99a44024bec2d55ba833a13",
-      "candidateGenerationRecord": "candidate/run/SE/02.png.generation.json",
+      "durationMs": 75,
       "status": "selected_for_preview",
+      "actualModel": null,
+      "actualQuality": null,
+      "notes": "近右膝压缩，右靴鞋面及水平底边更明确，远左靴抬起",
       "actualContact": {
-        "left": "air",
         "right": "support_candidate",
-        "confidence": "manual_visual_candidate_physical_contact_unverified",
+        "left": "swing_or_precontact_candidate",
+        "confidence": "manual_visual_candidate_pending_1x",
         "evidence": "近右膝压缩，右靴鞋面及水平底边更明确，远左靴抬起"
       },
-      "notes": "近右膝压缩，右靴鞋面及水平底边更明确，远左靴抬起",
-      "durationMs": 75,
-      "actualModel": null,
-      "actualQuality": null
+      "candidateSha256": "c75047a20a13876e63adf57299c5aa897d9f8a31e99a44024bec2d55ba833a13",
+      "candidateGenerationRecord": "candidate/run/SE/02.png.generation.json"
     },
     {
       "frame": 3,
@@ -190,19 +158,19 @@
       ],
       "generationRecord": "drafts/run/SE/03-v1.png.generation.json",
       "candidatePath": "candidate/run/SE/03.png",
-      "candidateSha256": "c32dbf5aff870cd962deca08029de7014e3f9bd01d46ea7bde866f0d2642f64f",
-      "candidateGenerationRecord": "candidate/run/SE/03.png.generation.json",
+      "durationMs": 75,
       "status": "selected_for_preview",
+      "actualModel": null,
+      "actualQuality": null,
+      "notes": "右支撑候选，左腿开始通过；剑腕开始回收，但与02角度变化仍需连播",
       "actualContact": {
-        "left": "air",
         "right": "support_candidate",
-        "confidence": "manual_visual_candidate_physical_contact_unverified",
+        "left": "swing_or_precontact_candidate",
+        "confidence": "manual_visual_candidate_pending_1x",
         "evidence": "右支撑候选，左腿开始通过；剑腕开始回收，但与02角度变化仍需连播"
       },
-      "notes": "右支撑候选，左腿开始通过；剑腕开始回收，但与02角度变化仍需连播",
-      "durationMs": 75,
-      "actualModel": null,
-      "actualQuality": null
+      "candidateSha256": "c32dbf5aff870cd962deca08029de7014e3f9bd01d46ea7bde866f0d2642f64f",
+      "candidateGenerationRecord": "candidate/run/SE/03.png.generation.json"
     },
     {
       "frame": 4,
@@ -215,19 +183,19 @@
       ],
       "generationRecord": "drafts/run/SE/04-v2.png.generation.json",
       "candidatePath": "candidate/run/SE/04.png",
-      "candidateSha256": "a8cf14998bf892a7350a1463884ecf13f9cd22f4b234bc04604b6007f67caa24",
-      "candidateGenerationRecord": "candidate/run/SE/04.png.generation.json",
+      "durationMs": 75,
       "status": "selected_for_preview",
+      "actualModel": null,
+      "actualQuality": null,
+      "notes": "二版已去掉初版提前伸直飞行腿；右靴最低、左膝前摆，后跟抬起不够明显",
       "actualContact": {
-        "left": "air",
-        "right": "terminal_support_candidate",
-        "confidence": "manual_visual_candidate_physical_contact_unverified",
+        "right": "support_candidate",
+        "left": "swing_or_precontact_candidate",
+        "confidence": "manual_visual_candidate_pending_1x",
         "evidence": "二版已去掉初版提前伸直飞行腿；右靴最低、左膝前摆，后跟抬起不够明显"
       },
-      "notes": "二版已去掉初版提前伸直飞行腿；右靴最低、左膝前摆，后跟抬起不够明显",
-      "durationMs": 75,
-      "actualModel": null,
-      "actualQuality": null
+      "candidateSha256": "a8cf14998bf892a7350a1463884ecf13f9cd22f4b234bc04604b6007f67caa24",
+      "candidateGenerationRecord": "candidate/run/SE/04.png.generation.json"
     },
     {
       "frame": 5,
@@ -240,19 +208,19 @@
       ],
       "generationRecord": "drafts/run/SE/05-v3.png.generation.json",
       "candidatePath": "candidate/run/SE/05.png",
-      "candidateSha256": "ca1e50c884b9b6b680177874ea0dd6457f20470ab0416d96ff936ddcc0e232c4",
-      "candidateGenerationRecord": "candidate/run/SE/05.png.generation.json",
+      "durationMs": 75,
       "status": "selected_for_preview",
+      "actualModel": null,
+      "actualQuality": null,
+      "notes": "05-v3：近右鞋由大幅后伸改到体下，鞋面朝SE、底边平，远左鞋高收，身体经过支撑候选。",
       "actualContact": {
-        "left": "air_or_precontact_candidate",
         "right": "support_candidate",
-        "confidence": "manual_visual_candidate_physical_contact_unverified",
+        "left": "swing_or_precontact_candidate",
+        "confidence": "manual_visual_candidate_pending_1x",
         "evidence": "05-v3：近右鞋由大幅后伸改到体下，鞋面朝SE、底边平，远左鞋高收，身体经过支撑候选。"
       },
-      "notes": "05-v3：近右鞋由大幅后伸改到体下，鞋面朝SE、底边平，远左鞋高收，身体经过支撑候选。",
-      "durationMs": 75,
-      "actualModel": null,
-      "actualQuality": null
+      "candidateSha256": "ca1e50c884b9b6b680177874ea0dd6457f20470ab0416d96ff936ddcc0e232c4",
+      "candidateGenerationRecord": "candidate/run/SE/05.png.generation.json"
     },
     {
       "frame": 6,
@@ -265,19 +233,19 @@
       ],
       "generationRecord": "drafts/run/SE/06-v2.png.generation.json",
       "candidatePath": "candidate/run/SE/06.png",
-      "candidateSha256": "32b5253f5ba0bd7cd24de49cdc94316ab2685e2efc5544e79bb2498a3c167a94",
-      "candidateGenerationRecord": "candidate/run/SE/06.png.generation.json",
+      "durationMs": 75,
       "status": "selected_for_preview",
+      "actualModel": null,
+      "actualQuality": null,
+      "notes": "06-v2：右后腿已由折起改为伸展，右后鞋底低、左前鞋抬起；右踝载荷较明确，后跟抬起偏少。",
       "actualContact": {
-        "left": "air_or_precontact_candidate",
         "right": "support_candidate",
-        "confidence": "manual_visual_candidate_physical_contact_unverified",
+        "left": "swing_or_precontact_candidate",
+        "confidence": "manual_visual_candidate_pending_1x",
         "evidence": "06-v2：右后腿已由折起改为伸展，右后鞋底低、左前鞋抬起；右踝载荷较明确，后跟抬起偏少。"
       },
-      "notes": "06-v2：右后腿已由折起改为伸展，右后鞋底低、左前鞋抬起；右踝载荷较明确，后跟抬起偏少。",
-      "durationMs": 75,
-      "actualModel": null,
-      "actualQuality": null
+      "candidateSha256": "32b5253f5ba0bd7cd24de49cdc94316ab2685e2efc5544e79bb2498a3c167a94",
+      "candidateGenerationRecord": "candidate/run/SE/06.png.generation.json"
     },
     {
       "frame": 7,
@@ -290,19 +258,19 @@
       ],
       "generationRecord": "drafts/run/SE/07-v3.png.generation.json",
       "candidatePath": "candidate/run/SE/07.png",
-      "candidateSha256": "14bf0b6ffd2635f1f1d595b09b685dc513f96fd0334d4b4b3412b2535bad0404",
-      "candidateGenerationRecord": "candidate/run/SE/07.png.generation.json",
+      "durationMs": 75,
       "status": "selected_for_preview",
+      "actualModel": null,
+      "actualQuality": null,
+      "notes": "07-v3：右后腿斜向下伸，后鞋前掌最低、后跟较高；左前脚继续前摆，近肩接前剑袖未换手。",
       "actualContact": {
-        "left": "air_or_precontact_candidate",
         "right": "support_candidate",
-        "confidence": "manual_visual_candidate_physical_contact_unverified",
+        "left": "swing_or_precontact_candidate",
+        "confidence": "manual_visual_candidate_pending_1x",
         "evidence": "07-v3：右后腿斜向下伸，后鞋前掌最低、后跟较高；左前脚继续前摆，近肩接前剑袖未换手。"
       },
-      "notes": "07-v3：右后腿斜向下伸，后鞋前掌最低、后跟较高；左前脚继续前摆，近肩接前剑袖未换手。",
-      "durationMs": 75,
-      "actualModel": null,
-      "actualQuality": null
+      "candidateSha256": "14bf0b6ffd2635f1f1d595b09b685dc513f96fd0334d4b4b3412b2535bad0404",
+      "candidateGenerationRecord": "candidate/run/SE/07.png.generation.json"
     },
     {
       "frame": 8,
@@ -315,19 +283,19 @@
       ],
       "generationRecord": "drafts/run/SE/08-v4.png.generation.json",
       "candidatePath": "candidate/run/SE/08.png",
-      "candidateSha256": "cf068b0386a374a8ad216be7d986acbeabfa2557fe1d8e9c5700e4d8e0df0d7a",
-      "candidateGenerationRecord": "candidate/run/SE/08.png.generation.json",
+      "durationMs": 75,
       "status": "selected_for_preview",
+      "actualModel": null,
+      "actualQuality": null,
+      "notes": "08-v4：右后鞋前掌下压、后跟抬高，左前脚下伸备换脚；两鞋轴向SE，近肩接剑袖正确。",
       "actualContact": {
-        "left": "air_or_precontact_candidate",
         "right": "support_candidate",
-        "confidence": "manual_visual_candidate_physical_contact_unverified",
+        "left": "swing_or_precontact_candidate",
+        "confidence": "manual_visual_candidate_pending_1x",
         "evidence": "08-v4：右后鞋前掌下压、后跟抬高，左前脚下伸备换脚；两鞋轴向SE，近肩接剑袖正确。"
       },
-      "notes": "08-v4：右后鞋前掌下压、后跟抬高，左前脚下伸备换脚；两鞋轴向SE，近肩接剑袖正确。",
-      "durationMs": 75,
-      "actualModel": null,
-      "actualQuality": null
+      "candidateSha256": "cf068b0386a374a8ad216be7d986acbeabfa2557fe1d8e9c5700e4d8e0df0d7a",
+      "candidateGenerationRecord": "candidate/run/SE/08.png.generation.json"
     },
     {
       "frame": 9,
@@ -340,19 +308,19 @@
       ],
       "generationRecord": "drafts/run/SE/09-v1.png.generation.json",
       "candidatePath": "candidate/run/SE/09.png",
-      "candidateSha256": "dc5628701658bec3cb235134e88e9b95d7f58060bd43e153368929956b5ab02e",
-      "candidateGenerationRecord": "candidate/run/SE/09.png.generation.json",
+      "durationMs": 75,
       "status": "selected_for_preview",
+      "actualModel": null,
+      "actualQuality": null,
+      "notes": "左前脚支撑候选，近右剑袖前摆清晰；无凭鞋底诊断线直接定接触",
       "actualContact": {
         "left": "support_candidate",
-        "right": "air",
-        "confidence": "manual_visual_candidate_physical_contact_unverified",
+        "right": "swing_or_precontact_candidate",
+        "confidence": "manual_visual_candidate_pending_1x",
         "evidence": "左前脚支撑候选，近右剑袖前摆清晰；无凭鞋底诊断线直接定接触"
       },
-      "notes": "左前脚支撑候选，近右剑袖前摆清晰；无凭鞋底诊断线直接定接触",
-      "durationMs": 75,
-      "actualModel": null,
-      "actualQuality": null
+      "candidateSha256": "dc5628701658bec3cb235134e88e9b95d7f58060bd43e153368929956b5ab02e",
+      "candidateGenerationRecord": "candidate/run/SE/09.png.generation.json"
     },
     {
       "frame": 10,
@@ -365,19 +333,19 @@
       ],
       "generationRecord": "drafts/run/SE/10-v1.png.generation.json",
       "candidatePath": "candidate/run/SE/10.png",
-      "candidateSha256": "eaa96c42ae2d5c2153437e192260fddba090a171abfca1be5a5472b44c839767",
-      "candidateGenerationRecord": "candidate/run/SE/10.png.generation.json",
+      "durationMs": 75,
       "status": "selected_for_preview",
+      "actualModel": null,
+      "actualQuality": null,
+      "notes": "左膝受载、近右剑袖前摆，后腿收起；与09小幅压缩候选",
       "actualContact": {
         "left": "support_candidate",
-        "right": "air",
-        "confidence": "manual_visual_candidate_physical_contact_unverified",
+        "right": "swing_or_precontact_candidate",
+        "confidence": "manual_visual_candidate_pending_1x",
         "evidence": "左膝受载、近右剑袖前摆，后腿收起；与09小幅压缩候选"
       },
-      "notes": "左膝受载、近右剑袖前摆，后腿收起；与09小幅压缩候选",
-      "durationMs": 75,
-      "actualModel": null,
-      "actualQuality": null
+      "candidateSha256": "eaa96c42ae2d5c2153437e192260fddba090a171abfca1be5a5472b44c839767",
+      "candidateGenerationRecord": "candidate/run/SE/10.png.generation.json"
     },
     {
       "frame": 11,
@@ -390,19 +358,19 @@
       ],
       "generationRecord": "drafts/run/SE/11-v3.png.generation.json",
       "candidatePath": "candidate/run/SE/11.png",
-      "candidateSha256": "595d0a0696028b8270d570077748d7cd6016005a98a23e112471627206b634dc",
-      "candidateGenerationRecord": "candidate/run/SE/11.png.generation.json",
+      "durationMs": 75,
       "status": "selected_for_preview",
+      "actualModel": null,
+      "actualQuality": null,
+      "notes": "选11-v3：近肩接胸前剑袖，剑腕低于胸部的回收中位。",
       "actualContact": {
         "left": "support_candidate",
-        "right": "air",
-        "confidence": "manual_visual_candidate_physical_contact_unverified",
+        "right": "swing_or_precontact_candidate",
+        "confidence": "manual_visual_candidate_pending_1x",
         "evidence": "选11-v3：近肩接胸前剑袖，剑腕低于胸部的回收中位。"
       },
-      "notes": "选11-v3：近肩接胸前剑袖，剑腕低于胸部的回收中位。",
-      "durationMs": 75,
-      "actualModel": null,
-      "actualQuality": null
+      "candidateSha256": "595d0a0696028b8270d570077748d7cd6016005a98a23e112471627206b634dc",
+      "candidateGenerationRecord": "candidate/run/SE/11.png.generation.json"
     },
     {
       "frame": 12,
@@ -415,19 +383,19 @@
       ],
       "generationRecord": "drafts/run/SE/11-v2.png.generation.json",
       "candidatePath": "candidate/run/SE/12.png",
-      "candidateSha256": "a6f74b819515f6a38c99edc66c03c03bc2738a9a71c849d164ada3afce290e22",
-      "candidateGenerationRecord": "candidate/run/SE/12.png.generation.json",
+      "durationMs": 75,
       "status": "selected_for_preview",
+      "actualModel": null,
+      "actualQuality": null,
+      "notes": "本槽按实际姿态改选独立生成11-v2：低剑腕中位、右膝前通过；原12-v2举剑过高拒选。未复用其它选槽图片。",
       "actualContact": {
-        "left": "terminal_support_candidate",
-        "right": "air",
-        "confidence": "manual_visual_candidate_physical_contact_unverified",
+        "left": "support_candidate",
+        "right": "swing_or_precontact_candidate",
+        "confidence": "manual_visual_candidate_pending_1x",
         "evidence": "本槽按实际姿态改选独立生成11-v2：低剑腕中位、右膝前通过；原12-v2举剑过高拒选。未复用其它选槽图片。"
       },
-      "notes": "本槽按实际姿态改选独立生成11-v2：低剑腕中位、右膝前通过；原12-v2举剑过高拒选。未复用其它选槽图片。",
-      "durationMs": 75,
-      "actualModel": null,
-      "actualQuality": null
+      "candidateSha256": "a6f74b819515f6a38c99edc66c03c03bc2738a9a71c849d164ada3afce290e22",
+      "candidateGenerationRecord": "candidate/run/SE/12.png.generation.json"
     },
     {
       "frame": 13,
@@ -440,19 +408,19 @@
       ],
       "generationRecord": "drafts/run/SE/13-v2.png.generation.json",
       "candidatePath": "candidate/run/SE/13.png",
-      "candidateSha256": "3512b3e0e53b6d992d4eb70980cdbba5b125bbb8fc32fe1fc1898606b5cc034f",
-      "candidateGenerationRecord": "candidate/run/SE/13.png.generation.json",
+      "durationMs": 75,
       "status": "selected_for_preview",
+      "actualModel": null,
+      "actualQuality": null,
+      "notes": "13-v2：左后鞋从长跨改到体下后方，右前膝抬起，鞋底前后投影不同，未贴最低线。",
       "actualContact": {
         "left": "support_candidate",
-        "right": "air_or_precontact_candidate",
-        "confidence": "manual_visual_candidate_physical_contact_unverified",
+        "right": "swing_or_precontact_candidate",
+        "confidence": "manual_visual_candidate_pending_1x",
         "evidence": "13-v2：左后鞋从长跨改到体下后方，右前膝抬起，鞋底前后投影不同，未贴最低线。"
       },
-      "notes": "13-v2：左后鞋从长跨改到体下后方，右前膝抬起，鞋底前后投影不同，未贴最低线。",
-      "durationMs": 75,
-      "actualModel": null,
-      "actualQuality": null
+      "candidateSha256": "3512b3e0e53b6d992d4eb70980cdbba5b125bbb8fc32fe1fc1898606b5cc034f",
+      "candidateGenerationRecord": "candidate/run/SE/13.png.generation.json"
     },
     {
       "frame": 14,
@@ -465,19 +433,19 @@
       ],
       "generationRecord": "drafts/run/SE/14-v2.png.generation.json",
       "candidatePath": "candidate/run/SE/14.png",
-      "candidateSha256": "d8c839b9586656abcaad5eb5f68cfeaf06f9506aaf8a95a2778dc472d26da8b0",
-      "candidateGenerationRecord": "candidate/run/SE/14.png.generation.json",
+      "durationMs": 75,
       "status": "selected_for_preview",
+      "actualModel": null,
+      "actualQuality": null,
+      "notes": "14-v2：左后腿从折起改为下伸、鞋掌可承重，右前鞋背屈抬起；左后跟抬起尚弱。",
       "actualContact": {
         "left": "support_candidate",
-        "right": "air_or_precontact_candidate",
-        "confidence": "manual_visual_candidate_physical_contact_unverified",
+        "right": "swing_or_precontact_candidate",
+        "confidence": "manual_visual_candidate_pending_1x",
         "evidence": "14-v2：左后腿从折起改为下伸、鞋掌可承重，右前鞋背屈抬起；左后跟抬起尚弱。"
       },
-      "notes": "14-v2：左后腿从折起改为下伸、鞋掌可承重，右前鞋背屈抬起；左后跟抬起尚弱。",
-      "durationMs": 75,
-      "actualModel": null,
-      "actualQuality": null
+      "candidateSha256": "d8c839b9586656abcaad5eb5f68cfeaf06f9506aaf8a95a2778dc472d26da8b0",
+      "candidateGenerationRecord": "candidate/run/SE/14.png.generation.json"
     },
     {
       "frame": 15,
@@ -490,44 +458,46 @@
       ],
       "generationRecord": "drafts/run/SE/15-v2.png.generation.json",
       "candidatePath": "candidate/run/SE/15.png",
-      "candidateSha256": "919f35cf5ef81c32afb57684e54a6bf08dfae7ced4cc19fc9f220b5617276a26",
-      "candidateGenerationRecord": "candidate/run/SE/15.png.generation.json",
+      "durationMs": 75,
       "status": "selected_for_preview",
+      "actualModel": null,
+      "actualQuality": null,
+      "notes": "15-v2：左后腿进一步后伸，后鞋前掌较低，右前脚继续下摆；鞋轴无明显外翻。",
       "actualContact": {
         "left": "support_candidate",
-        "right": "air_or_precontact_candidate",
-        "confidence": "manual_visual_candidate_physical_contact_unverified",
+        "right": "swing_or_precontact_candidate",
+        "confidence": "manual_visual_candidate_pending_1x",
         "evidence": "15-v2：左后腿进一步后伸，后鞋前掌较低，右前脚继续下摆；鞋轴无明显外翻。"
       },
-      "notes": "15-v2：左后腿进一步后伸，后鞋前掌较低，右前脚继续下摆；鞋轴无明显外翻。",
-      "durationMs": 75,
-      "actualModel": null,
-      "actualQuality": null
+      "candidateSha256": "919f35cf5ef81c32afb57684e54a6bf08dfae7ced4cc19fc9f220b5617276a26",
+      "candidateGenerationRecord": "candidate/run/SE/15.png.generation.json"
     },
     {
       "frame": 16,
-      "path": "drafts/run/SE/16-v2.png",
-      "sourcePath": "drafts/run/SE/16-v2.png",
-      "sha256": "928c26fa0b3b0b53ef294aff6f9c1c5f38db4f78a9754aa7587d7abd3a33a245",
+      "path": "drafts/run/SE/16-v3.png",
+      "sourcePath": "drafts/run/SE/16-v3.png",
+      "sha256": "655c50067c6763eb0661875b99e64acf75ebf6cc41ca15e9c19903c5c75422a7",
       "nativeSize": [
         1254,
         1254
       ],
-      "generationRecord": "drafts/run/SE/16-v2.png.generation.json",
+      "generationRecord": "drafts/run/SE/16-v3.png.generation.json",
       "candidatePath": "candidate/run/SE/16.png",
-      "candidateSha256": "903d72f419224874427e61c64645a615ac40c0cfd51c961ed8680eccd050e592",
-      "candidateGenerationRecord": "candidate/run/SE/16.png.generation.json",
+      "durationMs": 75,
       "status": "selected_for_preview",
+      "actualModel": null,
+      "actualQuality": null,
+      "notes": "16-v3：左后小腿真实下伸，前掌最低、后跟较高，右前靴保持待落地；比16-v2不再高收遮膝。",
       "actualContact": {
         "left": "support_candidate",
-        "right": "air_or_precontact_candidate",
-        "confidence": "manual_visual_candidate_physical_contact_unverified",
-        "evidence": "16-v2：左后鞋已从折起改为下伸，鞋前掌朝下右，近右脚准备落地；左膝仍被裙遮挡，前掌实际受力需连播复核。"
+        "right": "swing_or_precontact_candidate",
+        "confidence": "manual_visual_candidate_pending_1x",
+        "evidence": "16-v3：左后小腿真实下伸，前掌最低、后跟较高，右前靴保持待落地；比16-v2不再高收遮膝。"
       },
-      "notes": "16-v2：左后鞋已从折起改为下伸，鞋前掌朝下右，近右脚准备落地；左膝仍被裙遮挡，前掌实际受力需连播复核。",
-      "durationMs": 75,
-      "actualModel": null,
-      "actualQuality": null
+      "candidateSha256": "5c0a4b100c020698f330ba064026a5c06a2e8a21f74b9c1b028efa1f85114ab7",
+      "candidateGenerationRecord": "candidate/run/SE/16.png.generation.json"
     }
-  ]
+  ],
+  "positionPairsVerified": false,
+  "dynamicArtAccepted": false
 }
