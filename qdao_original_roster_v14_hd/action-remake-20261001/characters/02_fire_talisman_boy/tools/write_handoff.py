@@ -17,7 +17,7 @@ complete=len(rows)==196 and all(checked.get(x['path'])==x['sha256'] for x in row
 events={'status':'offline_material_reviewed_client_not_integrated' if complete else 'offline_review_pending','indexBase':1,'root':{'canvas':[1024,1024],'designReference':[512,920],'clientCalibrated':False,'operation':'整画布原生导出，不按最低脚或bbox配准'},'actions':{'run':{'directions':['N','NE','E','SE','S','SW','W','NW'],'framesPerDirection':16,'frameMs':75,'adoptedCycleMs':1200,'uniform':True,'clientConfirmed':False,'phaseReviews':['reviews/run-grounding-review.json','work/run-S/run-S-grounding-review-20261003.json'],'events':'按方向实图相位，不把统一模板帧号当接触事件'},'hit':{'directions':['E','W'],'framesPerDirection':6,'frameMs':40,'totalMs':240,'event':{'frame':1,'offsetMs':0,'name':'受击开始','status':'设计触发标记，未接客户端'}},'attack':{'directions':['E','W'],'framesPerDirection':12,'frameMs':30,'totalMs':360,'event':{'frame':6,'offsetMs':150,'name':'命中候选','status':'出手峰值候选，未接客户端判定'}},'cast':{'directions':['E','W'],'framesPerDirection':16,'frameMs':45,'totalMs':720,'event':{'frame':9,'offsetMs':360,'name':'释放候选','status':'离线设计标记，未接客户端技能'}}}}
 (R/'animation-events.json').write_text(json.dumps(events,ensure_ascii=False,indent=2),encoding='utf-8')
 audit=read('reviews/full-source-chain-audit.json') if (R/'reviews/full-source-chain-audit.json').exists() else {}
-status='素材制作与离线手脚复核完成；客户端尚未接入' if complete else '素材已齐，最后离线复核中'
+status='素材制作与离线手脚复核完成；客户端尚未接入' if complete else '196张旧正式帧在库；按最新同脚连续8帧、每两帧一个位置段修订跑步，尚未完成'
 lines=[]
 for s in review.get('sequences',[]):
     lines.append('|'+ '|'.join([s['action'],s['direction'],str(s['frames']),s['observations'],'客户端位移、滑步及事件同步待接入'])+'|')

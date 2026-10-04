@@ -10,7 +10,7 @@ receiptpath=R/'records'/f'{a.key}.receipt.json'
 req=json.loads(reqpath.read_text(encoding='utf-8'))
 receipt=json.loads(receiptpath.read_text(encoding='utf-8'))
 hint=receipt.get('output_hint','')
-matches=re.findall(r'as (.*?\\.png) by default',hint)
+matches=re.findall(r'as (.*?[.]png) by default',hint)
 if not matches: raise RuntimeError('No exact native path from output_hint')
 src=Path(matches[0])
 assert src.is_file()
