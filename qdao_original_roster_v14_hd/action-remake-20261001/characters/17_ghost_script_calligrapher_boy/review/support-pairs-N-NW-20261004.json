@@ -1,0 +1,145 @@
+{
+  "authority": "Latest human clarification supersedes four-contact assumption: same support foot progresses through successive positions, two independent frames at each position, then changes foot.",
+  "timing": {
+    "frameMs": 75,
+    "cycleMs": 1200,
+    "framesPerPosition": 2,
+    "msPerPosition": 150
+  },
+  "N": {
+    "supportFirstHalf": "anatomical RIGHT",
+    "supportSecondHalf": "anatomical LEFT"
+  },
+  "NW": {
+    "supportFirstHalf": "anatomical near LEFT",
+    "supportSecondHalf": "anatomical far RIGHT"
+  },
+  "positionPairs": [
+    {
+      "frames": [
+        1,
+        2
+      ],
+      "position": "straight-axis landing and initial load"
+    },
+    {
+      "frames": [
+        3,
+        4
+      ],
+      "position": "body passes over same planted foot"
+    },
+    {
+      "frames": [
+        5,
+        6
+      ],
+      "position": "same foot remains grounded behind hip"
+    },
+    {
+      "frames": [
+        7,
+        8
+      ],
+      "position": "same foot farther behind, broad forefoot push; other leg approaches forward"
+    },
+    {
+      "frames": [
+        9,
+        10
+      ],
+      "position": "opposite foot straight-axis landing and load"
+    },
+    {
+      "frames": [
+        11,
+        12
+      ],
+      "position": "body passes over opposite planted foot"
+    },
+    {
+      "frames": [
+        13,
+        14
+      ],
+      "position": "opposite foot remains grounded behind hip"
+    },
+    {
+      "frames": [
+        15,
+        16
+      ],
+      "position": "opposite foot farther behind, broad forefoot push; first leg approaches"
+    }
+  ],
+  "status": "complete_native_candidates_pending_root_normal_speed_review",
+  "notAccepted": [
+    "没有正式验收：换脚衔接、四位置可读性、摆臂顺畅仍需实播。"
+  ],
+  "comparison": "Reference09 used for anatomy/style only; its old phase timing/flight layout does not override latest user rule.",
+  "reviewedAt": "2026-10-04T18:14:02.267583+00:00",
+  "currentResults": {
+    "N": {
+      "selected": [
+        "staging/run-N-01-v3.png",
+        "staging/run-N-02-v1.png",
+        "staging/run-N-03-v2.png",
+        "staging/run-N-04-v4.png",
+        "staging/run-N-05-v5.png",
+        "staging/run-N-06-v4.png",
+        "staging/run-N-07-v3.png",
+        "staging/run-N-08-v5.png",
+        "staging/run-N-09-v3.png",
+        "staging/run-N-10-v2.png",
+        "staging/run-N-11-v1.png",
+        "staging/run-N-12-v3.png",
+        "staging/run-N-13-v4.png",
+        "staging/run-N-14-v2.png",
+        "staging/run-N-15-v3.png",
+        "staging/run-N-16-v5.png"
+      ],
+      "uniqueNativeFrames": 16,
+      "supportHalves": {
+        "01-08": "RIGHT",
+        "09-16": "LEFT"
+      },
+      "remainingReview": [
+        "08→09、16→01：摆动脚预落地下降与支撑交换须1200ms正常播放确认。",
+        "02→03、10→11及07→08：卷轴/毛笔手臂前后摆幅和肩肘深度有变化，持物身份正确但摆臂流畅性未正式通过。",
+        "N后视的四空间位置差异小于NW；同侧持续低位不等于四位置已正式验收。",
+        "15/16左支撑鞋存在抬跟/露底解释空间，须结合240px动态承重；没有单凭底面可见就判外翻。"
+      ]
+    },
+    "NW": {
+      "selected": [
+        "staging/run-NW-01-v3.png",
+        "staging/run-NW-02-v4.png",
+        "staging/run-NW-03-v1.png",
+        "staging/run-NW-04-v2.png",
+        "staging/run-NW-05-v7.png",
+        "staging/run-NW-06-v3.png",
+        "staging/run-NW-07-v5.png",
+        "staging/run-NW-08-v5.png",
+        "staging/run-NW-09-v5.png",
+        "staging/run-NW-10-v1.png",
+        "staging/run-NW-11-v1.png",
+        "staging/run-NW-12-v2.png",
+        "staging/run-NW-13-v3.png",
+        "staging/run-NW-14-v2.png",
+        "staging/run-NW-15-v3.png",
+        "staging/run-NW-16-v2.png"
+      ],
+      "uniqueNativeFrames": 16,
+      "supportHalves": {
+        "01-08": "near anatomical LEFT",
+        "09-16": "far anatomical RIGHT"
+      },
+      "remainingReview": [
+        "08→09、16→01：两次换脚仍需要正常播放核对摆动脚下降与髋部位移的连贯性。",
+        "02→03与10→11：上肢转动、躯干轻转及长短腿投影变化需动态合审。",
+        "15/16摆动近左鞋仍露底，和支撑远右鞋分属不同腿；不能把摆腿露底误判支撑外翻。"
+      ]
+    }
+  },
+  "limitations": "已按实图保住同侧连续8帧候选，未把16齐或低脚标签等同正式验收。正常1200ms实播由主窗口执行。"
+}
