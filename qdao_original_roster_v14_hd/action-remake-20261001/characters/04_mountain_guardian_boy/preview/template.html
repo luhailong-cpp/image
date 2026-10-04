@@ -57,8 +57,9 @@ function setPlaying(value){playing=value;lastTick=null;$('play').textContent=val
 function changeSequence(){frameIndex=0;lastTick=null;const s=sequence();preload(s);$('scrub').max=s.target_count-1;render()}
 function render(){
  const s=sequence(),f=s.frames[frameIndex],token=++loadToken;
- const runPhases=['第一侧接触','第一侧承重缓冲','第一侧中支撑','转换与后蹬','蹬地收尾','短腾空','下降','异侧预接触','异侧接触','异侧承重缓冲','异侧中支撑','反向转换与后蹬','反向蹬地收尾','短腾空','下降','回接第一侧'];
- $('phase').textContent=s.action==='run'?`${runPhases[frameIndex]} · 实图相位观察，不含客户端世界位移。`:(s.action==='attack'?`${frameIndex<4?'蓄势':frameIndex<7?'出手 / 06 接触标记':'收招'}`:s.action==='cast'?`${frameIndex<7?'聚势':frameIndex<10?'伸杖释放 / 10 释放标记':'收势'}`:`${frameIndex<3?'受力后仰':frameIndex<4?'承重缓冲':'恢复站姿'}`);
+ const runPositions=['01–02 初承重','03–04 身体经过支撑脚','05–06 支撑脚相对后移','07–08 接地后蹬','09–10 异侧初承重','11–12 身体经过支撑脚','13–14 支撑脚相对后移','15–16 接地后蹬'];
+ const firstFoot=s.direction==='W'?'左脚':'右脚',secondFoot=s.direction==='W'?'右脚':'左脚';
+ $('phase').textContent=s.action==='run'?`${frameIndex<8?firstFoot:secondFoot}支撑 · ${runPositions[Math.floor(frameIndex/2)]} · 每段两张独立姿态，正常速度150ms；未接入客户端世界位移。`:(s.action==='attack'?`${frameIndex<4?'蓄势':frameIndex<7?'出手 / 06 接触标记':'收招'}`:s.action==='cast'?`${frameIndex<7?'聚势':frameIndex<10?'伸杖释放 / 10 释放标记':'收势'}`:`${frameIndex<3?'受力后仰':frameIndex<4?'承重缓冲':'恢复站姿'}`);
  $('scrub').value=frameIndex;
  $('status').textContent=`${s.label} ${s.direction} · ${frameIndex+1} / ${s.target_count} 帧 · ${frameMs().toFixed(0)}ms / 帧 · ${cycleMs().toFixed(0)}ms / 段${s.action==='run'?'（离线建议；客户端未接入）':''}`;
  $('sequence-summary').textContent=`本组 ${s.frames.filter(f=>f.exists).length} / ${s.target_count} 张已落盘；当前逐图记录中 ${s.frames.filter(f=>f.visual_review==='visual_passed').length} 张视觉复核通过。`;
