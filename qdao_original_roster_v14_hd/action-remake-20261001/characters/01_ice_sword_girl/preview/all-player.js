@@ -30,7 +30,7 @@ function step(delta){if(!sequence?.complete)return;pause();index=(index+delta+im
 $('prev').onclick=()=>step(-1);$('next').onclick=()=>step(1);
 $('size').onchange=()=>{$('canvas').style.width=$('size').value+'px';$('canvas').style.height=$('size').value+'px'};
 $('ground').onchange=draw;$('rate').onchange=()=>{elapsed=0};
-function tick(now){const dt=last?Math.min(now-last,250):0;last=now;if(playing&&sequence?.complete&&images.length){elapsed+=dt*Number($('rate').value);while(elapsed>=sequence.frameMs){elapsed-=sequence.frameMs;index=(index+1)%images.length}draw()}requestAnimationFrame(tick)}
+function tick(now){const dt=last?Math.min(now-last,250):0;last=now;if(playing&&sequence?.complete&&images.length){elapsed+=dt*Number($('rate').value);let changed=false;while(elapsed>=sequence.frameMs){elapsed-=sequence.frameMs;index=(index+1)%images.length;changed=true}if(changed)draw()}requestAnimationFrame(tick)}
 const first=data.sequences.find(s=>s.complete)||data.sequences.find(s=>s.presentFrames);if(first)select(first);
 window.animationReview={getState:()=>({action:sequence?.action,direction:sequence?.direction,index,playing,loaded:images.filter(Boolean).length,rate:Number($('rate').value)}),select:(action,direction)=>select(data.sequences.find(s=>s.action===action&&s.direction===direction)),step};
 requestAnimationFrame(tick);

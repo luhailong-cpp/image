@@ -6,7 +6,12 @@ from PIL import Image
 ROOT=Path(__file__).resolve().parents[1]
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def read(p): return json.loads(p.read_text(encoding='utf-8-sig'))
-def write(p,x): p.parent.mkdir(parents=True,exist_ok=True); p.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+def normalized(x):
+    if isinstance(x,dict): return {k:normalized(v) for k,v in x.items()}
+    if isinstance(x,list): return [normalized(v) for v in x]
+    if isinstance(x,str): return x.replace('\\','/')
+    return x
+def write(p,x): p.parent.mkdir(parents=True,exist_ok=True); p.write_text(json.dumps(normalized(x),ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 def register(d,f,v):
     assert d in ['N','NE','NW']
     stem=f'run-{d}{f:02}-v{v}'; rec=ROOT/'sources'/(stem+'.receipt.json'); r=read(rec)

@@ -1,5 +1,5 @@
 {
-  "status": "offline_candidates_not_client_validated",
+  "status": "offline_material_reviewed_client_not_integrated",
   "indexBase": 1,
   "root": {
     "canvas": [
@@ -10,7 +10,7 @@
       512,
       920
     ],
-    "calibrated": false,
+    "clientCalibrated": false,
     "operation": "整画布原生导出，不按最低脚或bbox配准"
   },
   "actions": {
@@ -34,7 +34,7 @@
         "reviews/run-grounding-review.json",
         "work/run-S/run-S-grounding-review-20261003.json"
       ],
-      "events": "按方向逐图相位审阅记录；不把统一模板帧号当已验证事件"
+      "events": "按方向实图相位，不把统一模板帧号当接触事件"
     },
     "hit": {
       "directions": [
@@ -46,8 +46,9 @@
       "totalMs": 240,
       "event": {
         "frame": 1,
+        "offsetMs": 0,
         "name": "受击开始",
-        "status": "设计触发标记；未接客户端"
+        "status": "设计触发标记，未接客户端"
       }
     },
     "attack": {
@@ -62,7 +63,7 @@
         "frame": 6,
         "offsetMs": 150,
         "name": "命中候选",
-        "status": "出手伸展峰值候选；未接客户端判定"
+        "status": "出手峰值候选，未接客户端判定"
       }
     },
     "cast": {
@@ -77,7 +78,7 @@
         "frame": 9,
         "offsetMs": 360,
         "name": "释放候选",
-        "status": "离线设计标记；未接客户端技能"
+        "status": "离线设计标记，未接客户端技能"
       }
     }
   }
