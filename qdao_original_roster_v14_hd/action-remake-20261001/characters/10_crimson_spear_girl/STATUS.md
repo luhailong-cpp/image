@@ -1,5 +1,5 @@
 # 赤枪少女 · 当前状态
 
-196/196张现有成品已导出；新一轮全动作手脚复查尚未完成。正在修正 E14 腿部遮挡、W09–12 支撑腿归属及 NW11/12 过大跨步，并核对 SW 后蹬幅度。正式 runtime 在新稿验证后统一更新。跑步保持 16×60ms=960ms；连续支撑位置各两张独立姿态。客户端未接入。
+196/196张完成本轮全动作手脚复核，修订21张跑步帧。跑步16×60ms=960ms。当前资源runtime/，预览preview/index.html。客户端未接入。
 
-详见MERGE_HANDOFF.md、FINAL_REVIEW.md与validation.json。
+见FINAL_REVIEW.md、validation.json和full-limb-review-20261004/current-frame-review.json。

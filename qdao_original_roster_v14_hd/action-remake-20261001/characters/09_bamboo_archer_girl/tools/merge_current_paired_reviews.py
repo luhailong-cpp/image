@@ -17,6 +17,9 @@ for direction in DIRS:
   if direction=='W':
    seg=d['intendedSegments'][0 if n<=8 else 1];pair=((n-1)%8)//2
    evidence=seg['spatialEvidence'][pair]+' '+seg['reason']
+  limb=row.get('fullLimbInspection',{})
+  if limb.get('afterEvidence'):
+   evidence=(str(evidence)+' '+limb['afterEvidence']).strip()
   frames.append({**row,'slot':slot,'status':row.get('status','needs_review'),'staticInspected':True,
    'evidence':evidence,'pairedGroundReview':rel,'footOrientation':row.get('footOrientation') or d.get('evidence',{}).get('footAxis'),
    'dynamicStatus':'not_verified','dynamicVisualAcceptance':False})
@@ -43,4 +46,3 @@ if historical:
 write(ROOT/'review-parts/run-current-paired.json',{'updatedAtUtc':now,'automaticApproval':False,
  'scope':'Current exact-SHA static inspections; no inferred dynamic approval','frames':frames,'sequences':sequences})
 print(json.dumps({'runFramesMerged':128,'historicalPartsRetainedAsText':len(historical),'dynamicApproval':False}))
-
