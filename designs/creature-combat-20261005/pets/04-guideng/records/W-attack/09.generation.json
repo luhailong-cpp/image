@@ -6,8 +6,8 @@
   "frame": 9,
   "durationMs": 30,
   "pivot": [
-    512,
-    942
+    0.5,
+    0.08
   ],
   "tool": "image_gen.imagegen",
   "route": "builtin",
@@ -76,20 +76,34 @@
     "sha256": "f513f4129280e74da58e3109b58a66d6a65ee1580a6e43a45683571aab58a081"
   },
   "operation": {
-    "type": "uniform-full-canvas-resize",
-    "sourceSize": [
+    "id": "native-1254-full-canvas-lanczos-922-pad51-v1",
+    "type": "uniform-full-canvas-resize-and-pad",
+    "nativeSize": [
       1254,
       1254
     ],
-    "outputSize": [
+    "scaledSize": [
+      922,
+      922
+    ],
+    "finalCanvasSize": [
       1024,
       1024
     ],
+    "offsetPx": [
+      51,
+      51
+    ],
+    "scaleFromNative": 0.7352472089314195,
     "resampling": "Lanczos",
+    "sameForAllDirectionsAndActions": true,
     "crop": null,
-    "translation": null
+    "perFrameBBoxAlignment": false,
+    "perFrameFootAlignment": false,
+    "clearLowAlpha": false,
+    "alphaCompositing": "RGBA copy into transparent canvas; no extra alpha mask"
   },
-  "sha256": "54f856a525ae737e9cdaae6c82d5d0a0a86888c93d502a2c56ac5f1a5248373e",
+  "sha256": "6ce4acbe558ff3be6a5f72aadf709eb02c8a495d9b1c23f7ba0f6375c6647134",
   "width": 1024,
   "height": 1024,
   "alphaExtrema": [
@@ -97,10 +111,10 @@
     255
   ],
   "alphaBounds": [
-    0,
-    17,
-    988,
-    1011
+    51,
+    90,
+    941,
+    961
   ],
   "format": "PNG",
   "visualReview": {
@@ -114,5 +128,108 @@
     "path": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb5-55b8-7030-bc42-31f8ed7c0a58\\exec-79ec62e3-7f28-4f9a-aad5-4fe982a63c1a.png",
     "sha256": "f513f4129280e74da58e3109b58a66d6a65ee1580a6e43a45683571aab58a081",
     "record": "D:\\work\\image\\designs\\creature-combat-20261005\\pets\\04-guideng\\records\\W-attack\\09.generation.json"
+  },
+  "operationHistory": [
+    {
+      "type": "uniform-full-canvas-resize",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "outputSize": [
+        1024,
+        1024
+      ],
+      "resampling": "Lanczos",
+      "crop": null,
+      "translation": null
+    }
+  ],
+  "finalExport": {
+    "exportedAt": "2026-10-05T22:46:40.348519+00:00",
+    "preExportSha256": "54f856a525ae737e9cdaae6c82d5d0a0a86888c93d502a2c56ac5f1a5248373e",
+    "transform": {
+      "id": "native-1254-full-canvas-lanczos-922-pad51-v1",
+      "type": "uniform-full-canvas-resize-and-pad",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "scaledSize": [
+        922,
+        922
+      ],
+      "finalCanvasSize": [
+        1024,
+        1024
+      ],
+      "offsetPx": [
+        51,
+        51
+      ],
+      "scaleFromNative": 0.7352472089314195,
+      "resampling": "Lanczos",
+      "sameForAllDirectionsAndActions": true,
+      "crop": null,
+      "perFrameBBoxAlignment": false,
+      "perFrameFootAlignment": false,
+      "clearLowAlpha": false,
+      "alphaCompositing": "RGBA copy into transparent canvas; no extra alpha mask"
+    },
+    "finalSHA": "6ce4acbe558ff3be6a5f72aadf709eb02c8a495d9b1c23f7ba0f6375c6647134",
+    "finalDimensions": [
+      1024,
+      1024
+    ],
+    "nativeSource": {
+      "path": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb5-55b8-7030-bc42-31f8ed7c0a58\\exec-79ec62e3-7f28-4f9a-aad5-4fe982a63c1a.png",
+      "sha256": "f513f4129280e74da58e3109b58a66d6a65ee1580a6e43a45683571aab58a081",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "format": "PNG"
+    },
+    "pillowVersion": "12.3.0",
+    "note": "All E/W hit/attack/cast frames use the same full-canvas transform. The runtime pivot [0.5,0.08] and virtual anchor [512,942] are final 1024x1024 canvas coordinates. The preset anchor is not the lowest shoe pixel of each frame; no per-frame foot/bbox alignment is performed. The character's relative pose motion is retained."
+  },
+  "exportSize": [
+    1024,
+    1024
+  ],
+  "virtualAnchor": [
+    512,
+    942
+  ],
+  "anchorTopLeftPx": [
+    512,
+    942
+  ],
+  "alphaBBox": [
+    51,
+    90,
+    941,
+    961
+  ],
+  "alpha8BBox": [
+    176,
+    144,
+    894,
+    903
+  ],
+  "alpha": {
+    "min": 0,
+    "max": 255,
+    "bbox": [
+      51,
+      90,
+      941,
+      961
+    ],
+    "marginsPx": [
+      51,
+      90,
+      83,
+      63
+    ]
   }
 }
