@@ -2,7 +2,7 @@
 
 仅准备清单，本工具没有删除功能，本次未删除图片。
 
-计划时间（UTC）：2026-10-04T22:05:34.764864+00:00
+计划时间（UTC）：2026-10-05T10:03:26.132533+00:00
 当前交付技术检查通过：True
 
 ## 执行前置条件
@@ -15,9 +15,9 @@
 
 ## 当前数量
 
-{"presentImageCount": 348, "historicalAbsentCount": 848, "byDecision": {"keep_current_delivery_preview": 44, "keep_final_runtime": 196, "keep_current_design_input": 108}, "candidateDeleteBytes": 0}
+{"presentImageCount": 355, "historicalAbsentCount": 885, "byDecision": {"keep_current_delivery_preview": 44, "keep_final_runtime": 196, "keep_current_design_input": 115}, "candidateDeleteBytes": 0}
 
-196 张 runtime 保留；每组最新 contact、跑步主选 uniform1200/slow、战斗 normal/slow、当前关键姿态图保留。HTML固定1200ms/圈，保留正常、慢速和逐帧检查。
+196 张 runtime 保留；每组最新 contact、跑步主选 uniform960/slow、战斗 normal/slow、当前关键姿态图保留。HTML固定960ms/圈，保留正常、慢速和逐帧检查。
 
 当前入选且仍在使用的原生设计在最新动态复核完成前保留；淘汰 sources 及历史 audit/review 诊断图列为删除候选。JSON 内逐图保存当前 SHA、原生成记录路径及模型/质量/参考文字。
 
