@@ -47,7 +47,7 @@ function render(group){
 }
 function summarize(){
   const all=groups.flatMap(g=>g.frames),ready=all.filter(f=>f.status==='ready').length,failed=all.filter(f=>f.status==='error').length,pending=68-ready-failed;
-  document.querySelector('#loaded-status').textContent=`正式帧可读 ${ready}/68${failed?` · 缺失或读取失败 ${failed}`:''}${pending?` · 读取中 ${pending}`:''} · 美术 / 动态待实看`;
+  document.querySelector('#loaded-status').textContent=`正式帧可读 ${ready}/68${failed?` · 缺失或读取失败 ${failed}`:''}${pending?` · 读取中 ${pending}`:''} · 单帧已检查 / 连播待实看`;
 }
 function loadGroup(group,token){
   group.frames=Array.from({length:group.count},(_,index)=>({status:'loading',image:new Image()}));
