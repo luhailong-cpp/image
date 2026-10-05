@@ -9,7 +9,7 @@ checks=[]
 for name in ['index.html','timing-grounding.html']:
     p=R/'preview'/name;text=p.read_text(encoding='utf-8')
     embedded=json.loads(text.split('const DATA=',1)[1].split(',onlyRun=',1)[0])
-    assert embedded['orders']=={} and embedded['runFrameMs']==75 and embedded['runCycleMs']==1200
+    assert embedded['orders']=={} and embedded['runFrameMs']==60 and embedded['runCycleMs']==960
     count=0
     for group,frames in embedded['groups'].items():
         for f in frames:
@@ -35,6 +35,8 @@ for p in (R/'preview').glob('*-contact.jpg.generation.json'):
     if not Path(str(p).removesuffix('.generation.json')).exists():continue
     rec=json.loads(p.read_text(encoding='utf-8'))
     for item in rec['derivedFrom']:assert sha(R/item['file'])==item['sha256']
-report={'status':'passed','afterNativeImageCleanup':True,'pages':checks,'currentRuntimeFiles':196,'clientRuntimeTested':False}
+retention=json.loads((R/'retention-report.json').read_text(encoding='utf-8'))
+after_cleanup=retention['status']=='applied' and all(not (R/row['file']).exists() for row in retention['files']) and not any((R/'run-axis-revision-20261004').rglob('native.png')) and not any((R/'full-limb-review-20261004').rglob('native.png'))
+report={'status':'passed','afterNativeImageCleanup':after_cleanup,'pages':checks,'currentRuntimeFiles':196,'clientRuntimeTested':False}
 (R/'preview/reference-verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(json.dumps(report))

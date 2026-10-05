@@ -6,8 +6,32 @@ R=Path(__file__).resolve().parents[1].resolve()
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p,v):p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 parser=argparse.ArgumentParser();parser.add_argument('--apply',action='store_true');args=parser.parse_args()
-d=json.loads((R/'delivery-current.json').read_text(encoding='utf-8'))
+inventory_bytes=(R/'delivery-current.json').read_bytes()
+inventory_sha=hashlib.sha256(inventory_bytes).hexdigest()
+d=json.loads(inventory_bytes)
 v=json.loads((R/'validation.json').read_text(encoding='utf-8'))
+limb=R/'full-limb-review-20261004'
+if (limb/'SCOPE.md').exists():
+    completion=limb/'completion.json'
+    if not completion.exists():
+        raise SystemExit('Refusing retention: full limb review is still active.')
+    complete=json.loads(completion.read_text(encoding='utf-8'))
+    if complete.get('status')!='complete' or complete.get('inventorySHA256')!=inventory_sha:
+        raise SystemExit('Refusing retention: full limb review does not certify the current inventory.')
+for journal_path in [*R.glob('run-*-revision-*/publish-journal.json'),*R.glob('full-limb-review-*/publish-journal.json')]:
+    journal=json.loads(journal_path.read_text(encoding='utf-8'))
+    if journal.get('status')=='in-progress':
+        raise SystemExit('Refusing retention: publication is in progress: '+journal_path.relative_to(R).as_posix())
+axis=R/'run-axis-revision-20261004'
+axis_has_candidates=any(axis.glob('*/selection.json')) or any(axis.glob('*/*/request.json')) or any(axis.glob('*/*/native.png'))
+if axis_has_candidates:
+    axis_journal=axis/'publish-journal.json'
+    if not axis_journal.exists() or json.loads(axis_journal.read_text(encoding='utf-8')).get('status')!='complete':
+        raise SystemExit('Refusing retention: axis candidates exist but axis publication is not complete.')
+    if d.get('contactRevision')!='20261004-leg-axis':
+        raise SystemExit('Refusing retention: current inventory does not contain the completed axis revision.')
+if v.get('inventoryFile')!='delivery-current.json' or v.get('inventorySHA256')!=inventory_sha:
+    raise SystemExit('Refusing retention: validation is not bound to the current delivery-current.json SHA256.')
 assert v['status']=='passed' and v['runtimeCount']==196
 keep=set(); rows=[]
 for group,fs in d['groups'].items():

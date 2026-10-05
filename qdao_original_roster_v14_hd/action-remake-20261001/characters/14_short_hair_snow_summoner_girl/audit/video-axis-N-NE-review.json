@@ -1,0 +1,689 @@
+{
+  "scope": "video_axis_diagnosis_and_authorized_NE04_local_repair",
+  "status": "NE04_static_selected_pending_root_preview_N_unchanged",
+  "formalFilesModified": [
+    "run/NE/04.png"
+  ],
+  "criterion": {
+    "cycleMs": 1200,
+    "frameDurationMs": 75,
+    "contactOrder": "01–08 left support; 09–16 right support",
+    "spatialPairs": "P1 front landing, P2 below hip, P3 slightly behind bearing, P4 rear forefoot push; two unique poses per position",
+    "axisRule": "Assess knee→ankle→shoe long axis in each direction's motion plane; do not force image-vertical legs or call normal ankle pitch outward yaw."
+  },
+  "conclusion": {
+    "confirmedBadFrames": [
+      {
+        "direction": "NE",
+        "frame": 4,
+        "priorSha256": "75fa1262f302f3f6168b4e8d0bd02a80673374e195c2747b7a4f81c2ad133da7",
+        "confirmation": "Parent independently inspected NE03/04/05 and confirmed isolated near-vertical lifted-boot yaw; local repair authorized."
+      }
+    ],
+    "recommendedAutomaticRedraw": [],
+    "watchOnly": [
+      {
+        "direction": "N",
+        "frame": 16,
+        "confidence": "low",
+        "evidence": "Shoe-side white strip changes sides from15 while knee/ankle and the whole rear push tilt slightly. Boot does not spread transversely; normal ankle pitch/hip motion remains a viable explanation.",
+        "neighborEvidence": "run/staging/video-axis-N-neighbors-14-16.jpg",
+        "recommendation": "Retain unless slow preview reveals a single-frame roll pop; no static redraw recommendation."
+      }
+    ],
+    "initialCandidateReview": [
+      {
+        "direction": "NE",
+        "frame": 4,
+        "confidence": "medium",
+        "part": "raised right boot only",
+        "evidence": "03 and 05 raised soles project diagonally toward lower right, while 04 projects nearly vertically and shows less white sidewall. Torso remains NE but recovery-leg placement also changes.",
+        "neighborEvidence": "run/staging/video-axis-NE-neighbors-03-05.jpg",
+        "recommendation": "Parent independently inspect 03→04→05 at 75 ms and slow motion. If the isolated yaw reads as a flip, correct only raised right ankle/boot orientation toward the neighboring NE projection, retaining left support pose, knee placement, body, hands and four-space phase. No edit is justified solely by a more vertical sole."
+      }
+    ],
+    "repairedFrames": [
+      {
+        "direction": "NE",
+        "frame": 4,
+        "file": "run/NE/04.png",
+        "sha256": "49fd497aff8404a47d05970f92ac00b4e705245fd42b942922cfc1767bcc9754",
+        "nativeSha256": "49fd8289e7913dc5b88d4ee5de1b0c1a1a56488663f28a910a8911e00725a35c",
+        "method": "builtin imagegen local ankle/boot redraw; whole canvas export; no extra character scale or translation",
+        "observation": "NE04 raised right ankle/boot restored to northeast three-quarter projection: purple sole long axis slopes lower-right with visible white outer sidewall between NE03 and NE05; retained higher recovery position, unique knee bend, left support boot, head/body scale, left fox arm and right crystal hand.",
+        "comparisonSheet": "run/staging/video-axis-NE-04-v1-comparison.jpg",
+        "actualModel": null,
+        "actualQuality": null,
+        "continuousPreview": "pending_root"
+      }
+    ]
+  },
+  "reviewMethod": {
+    "freshReview": true,
+    "inheritedAcceptanceUsedAsProof": false,
+    "fullContactSheetsSeen": [
+      "video-axis-14-N-full.jpg",
+      "video-axis-14-N-legs.jpg",
+      "video-axis-09-N-full.jpg",
+      "video-axis-09-N-legs.jpg",
+      "video-axis-14-NE-full.jpg",
+      "video-axis-14-NE-legs.jpg",
+      "video-axis-09-NE-full.jpg",
+      "video-axis-09-NE-legs.jpg"
+    ],
+    "additionalFormalFullImagesSeen": [
+      "run/N/16.png",
+      "run/NE/04.png",
+      "run/NE/14.png"
+    ],
+    "neighborSheetsSeen": [
+      "video-axis-N-neighbors-09-11.jpg",
+      "video-axis-N-neighbors-14-16.jpg",
+      "video-axis-NE-neighbors-03-05.jpg",
+      "video-axis-NE-neighbors-13-16.jpg"
+    ],
+    "videoReferenceSeen": [
+      "reference-motion-review-20261004/video-contact.jpg",
+      "reference-motion-review-20261004/character-detail.jpg",
+      "run/staging/video-axis-reference-6.2.jpg",
+      "run/staging/video-axis-reference-8.7.jpg",
+      "run/staging/video-axis-reference-13.7.jpg"
+    ],
+    "referenceLimits": "Video sprites are small and partially covered by glow/shadow/nameplate. They support narrow in-plane tracking, not precise angle measurements. Bamboo09 and14 frame numbers do not represent identical phases. Contact-sheet crops differ across characters, so cross-character pixel angles/lengths were not treated as measurements.",
+    "playbackPerformedInThisAudit": false
+  },
+  "createdAt": "2026-10-05T02:31:53.096049+00:00",
+  "reviewer": "north_run",
+  "frames": [
+    {
+      "direction": "N",
+      "frame": 1,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\N\\01.png",
+      "sha256": "89ef2e5476e27b6fa373c0482bb664add8f38e9f8f95caf5a059258423d134ef",
+      "supportLeg": "left",
+      "position": "P1",
+      "observations": "左支撑小腿与靴后缝近竖直，右回收鞋底沿前后平面显示；未见鞋尖向两侧摊开。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "N",
+      "frame": 2,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\N\\02.png",
+      "sha256": "374c492e4d8da59536125d9566ecb9c0e071ee2120c8fc9c7fb2fb4583f8fa46",
+      "supportLeg": "left",
+      "position": "P1",
+      "observations": "左支撑靴后缝仍在小腿下，右鞋底相较01加长、略倾斜，侧边连续，未见孤立横转。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "N",
+      "frame": 3,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\N\\03.png",
+      "sha256": "c1d124257ee1cd48bd4f2c752d6cdd3b1e95ed71bbc76fbbd4d4033bedb87869",
+      "supportLeg": "left",
+      "position": "P2",
+      "observations": "左支撑膝踝与后跟同列；右回收鞋底近竖直，延续02回收路径。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "N",
+      "frame": 4,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\N\\04.png",
+      "sha256": "eabae44fdeb9de8819eac153b06ec3c652913e6a5277e74a91e00159397c75ee",
+      "supportLeg": "left",
+      "position": "P2",
+      "observations": "左支撑仍在髋下推进平面，右回收鞋底变短但未变成横向鞋面。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "N",
+      "frame": 5,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\N\\05.png",
+      "sha256": "e62fa76361c6dd46fe7c5d11c43adb2395386419a04c94111372c5b02af897a8",
+      "supportLeg": "left",
+      "position": "P3",
+      "observations": "左腿向后经过，靴跟仍在小腿轨迹；右鞋底偏侧仅小幅，未见外八。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "N",
+      "frame": 6,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\N\\06.png",
+      "sha256": "8656e5a5397b4ae5a7db379ce87cd02d9a533e89a94381578999c1dce93bb831",
+      "supportLeg": "left",
+      "position": "P3",
+      "observations": "左支撑靴与膝踝同列；右回收鞋底稍加宽，靴筒与后跟仍连贯。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "N",
+      "frame": 7,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\N\\07.png",
+      "sha256": "e8be85ebf2a882142137ec10fcc2d82a807363c57e82afe495d4f5afedec5537",
+      "supportLeg": "left",
+      "position": "P4",
+      "observations": "左后蹬靴出现更大底面，踝与前掌仍在同一前后平面；右回收腿未横甩。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "N",
+      "frame": 8,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\N\\08.png",
+      "sha256": "5b8e5d8f3d15f74383e4cc010518d03b2ec7618b9c4f4aa92f84b3629b97c5e0",
+      "supportLeg": "left",
+      "position": "P4",
+      "observations": "左后蹬抬跟程度增加，靴筒和鞋底仍保持窄轨迹；右回收鞋底没有突然转成侧脸。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "N",
+      "frame": 9,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\N\\09.png",
+      "sha256": "a3bc7ddc828974180daf4b0348c9f4f25e2f1d8123be8077a5bea5a06c2606b2",
+      "supportLeg": "right",
+      "position": "P1",
+      "observations": "右前侧支撑靴被透视压短，左回收鞋底向镜头；两脚互换符合半圈交换。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "N",
+      "frame": 10,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\N\\10.png",
+      "sha256": "9c23d63ed0e79ec7faef9111b09bace24aa2dad17d461bd9035e0494a3fef006",
+      "supportLeg": "right",
+      "position": "P1",
+      "observations": "右支撑靴后缝近竖直；左回收鞋底较09略向左倾，但小腿/靴口同时移动，未形成孤立鞋掌翻转。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "N",
+      "frame": 11,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\N\\11.png",
+      "sha256": "fda09e78941ffd22afae45c51b932515966608e181132de0c87f2965c9a2b981",
+      "supportLeg": "right",
+      "position": "P2",
+      "observations": "右支撑膝踝与靴筒同列；左回收鞋底由10的轻斜回到近竖直，仍属窄轨迹。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "N",
+      "frame": 12,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\N\\12.png",
+      "sha256": "9cffda101c3a167934de07ac3932a3652b827b7c4d9eca8f027001007344b58e",
+      "supportLeg": "right",
+      "position": "P2",
+      "observations": "右支撑跟部轻抬并露底，左回收鞋底仍后向，未改变运动平面。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "N",
+      "frame": 13,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\N\\13.png",
+      "sha256": "c49098fc776f83b4cd80e3686d050efe4ab9e12502665d521da33fb1a4fce46f",
+      "supportLeg": "right",
+      "position": "P3",
+      "observations": "右支撑小腿和后跟同列；左回收鞋底轴向延续12。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "N",
+      "frame": 14,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\N\\14.png",
+      "sha256": "a897a14eaa6afa86d14745fbd785d262cac2b8531de8cff609ceb6f96375baee",
+      "supportLeg": "right",
+      "position": "P3",
+      "observations": "右稍后支撑靴与膝踝近同列，左鞋底向后且略倾，不见外撇鞋尖。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "N",
+      "frame": 15,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\N\\15.png",
+      "sha256": "cabb78a2fec746ca15fc991b9c6034ade3fc29bace14f1e022794c3eea2a69b2",
+      "supportLeg": "right",
+      "position": "P4",
+      "observations": "右后蹬鞋底扩大、靴侧白边主要在右侧；踝屈伸可以解释，尚不足以判定外翻。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "N",
+      "frame": 16,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\N\\16.png",
+      "sha256": "ccf99cd55a0ab2ea47f32b9758b0d3bcb2ecdcc134dc4468f2ee24e4d1125238",
+      "supportLeg": "right",
+      "position": "P4",
+      "observations": "右后蹬鞋侧白边相对15换到左侧、腿略向画面右侧斜，但脚跟仍在踝下且鞋掌没有横向展开；保留为慢放观察点，非已确认坏帧。",
+      "axisStatus": "watch_only_no_confirmed_error",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "NE",
+      "frame": 1,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\NE\\01.png",
+      "sha256": "0a1be03961a45bf1637d176897afa94f445da080c477ee2bf7e9d6799dc3da8c",
+      "supportLeg": "left",
+      "position": "P1",
+      "observations": "左支撑靴呈东北背三分之四透视，鞋尖向画面右侧的长度受透视压缩；右回收鞋底向右下斜，连接完整。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "NE",
+      "frame": 2,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\NE\\02.png",
+      "sha256": "24555b8ecd4d730915210bac724cebeb5086644678962f370c697f8a82789094",
+      "supportLeg": "left",
+      "position": "P1",
+      "observations": "左支撑靴延续01的后跟/侧面关系；右回收鞋底轴向与01相近，没有横转。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "NE",
+      "frame": 3,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\NE\\03.png",
+      "sha256": "61b0a863eee06d4d74e45d3707cb71edc0071a9a0591ec539bd95545d2c150d9",
+      "supportLeg": "left",
+      "position": "P2",
+      "observations": "左支撑膝踝斜向画面左下是东北后推投影；右回收鞋底右下斜、外侧白边可见。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "NE",
+      "frame": 4,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\NE\\04.png",
+      "sha256": "49fd497aff8404a47d05970f92ac00b4e705245fd42b942922cfc1767bcc9754",
+      "supportLeg": "left",
+      "position": "P2",
+      "observations": "NE04 raised right ankle/boot restored to northeast three-quarter projection: purple sole long axis slopes lower-right with visible white outer sidewall between NE03 and NE05; retained higher recovery position, unique knee bend, left support boot, head/body scale, left fox arm and right crystal hand.",
+      "axisStatus": "static_repair_selected_pending_continuous_preview",
+      "recommendedAction": "root_preview_then_freeze",
+      "preRepairSha256": "75fa1262f302f3f6168b4e8d0bd02a80673374e195c2747b7a4f81c2ad133da7",
+      "preRepairObservation": "左支撑方向延续03；右回收鞋底变成近竖直、白色靴侧变窄。与03和05的斜向鞋底相比是局部透视变化，右腿回收位置也变化，因此只列中等置信候选，尚不能排除正常踝屈伸。"
+    },
+    {
+      "direction": "NE",
+      "frame": 5,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\NE\\05.png",
+      "sha256": "f3d4b918b9dbac3c7fc1a92ce323f83cef59d1d7d2c40707ebe0a5f20ca2c36f",
+      "supportLeg": "left",
+      "position": "P3",
+      "observations": "左稍后支撑开始露跟底，膝踝没有向横向折断；右回收鞋底恢复03相近的右下斜投影。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "NE",
+      "frame": 6,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\NE\\06.png",
+      "sha256": "de5147de10566c9e6cb63380f8804d9648e956813956a2c170128b5064fb1c95",
+      "supportLeg": "left",
+      "position": "P3",
+      "observations": "左支撑小腿较长但仍沿东北后推平面；右回收鞋底近后向、白边和靴口连续。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "NE",
+      "frame": 7,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\NE\\07.png",
+      "sha256": "da0eacf60d084a7e30b3cdd1fb1027a6266099a57260c66b27b49e0ddccb6970",
+      "supportLeg": "left",
+      "position": "P4",
+      "observations": "左后蹬抬跟，鞋掌与踝一起倾斜，没有仅鞋掌横甩；右回收鞋底轮廓连续。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "NE",
+      "frame": 8,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\NE\\08.png",
+      "sha256": "b0d6452fce501604da0066fd4681bc235c521441a5ff94d7a6243d8a87cc9b21",
+      "supportLeg": "left",
+      "position": "P4",
+      "observations": "左后伸增加，靴筒和鞋底沿同一斜后方向延伸；属于东北投影，不能按画面竖直度判坏。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "NE",
+      "frame": 9,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\NE\\09.png",
+      "sha256": "540ff3e81e9451ca381870a0c1bfab537d9f4178092de0f8f0424ccbb8b0ecb6",
+      "supportLeg": "right",
+      "position": "P1",
+      "observations": "右支撑靴位于前侧并被透视压短，左回收鞋底后向；半圈换脚可跟踪。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "NE",
+      "frame": 10,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\NE\\10.png",
+      "sha256": "2e578ff7016d45a0507cf02418abbe8de9e7590599d8356fbd464eedd2b6a79c",
+      "supportLeg": "right",
+      "position": "P1",
+      "observations": "右支撑靴与09相同的后跟/鞋侧关系，左回收鞋底略斜，未见单帧翻转。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "NE",
+      "frame": 11,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\NE\\11.png",
+      "sha256": "e63ff378b930811701b798b2e322e99f5f0603482381b82f82bfcf2ca7929acc",
+      "supportLeg": "right",
+      "position": "P2",
+      "observations": "右支撑膝踝向左下经过髋下，鞋尖朝画面右侧；左回收脚仍在自身回收轨迹。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "NE",
+      "frame": 12,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\NE\\12.png",
+      "sha256": "ba85e2e9259f952b0543e35a1563604940930eb5f8064ed1e2e4f6509c1bb72e",
+      "supportLeg": "right",
+      "position": "P2",
+      "observations": "右支撑脚比11略收，鞋尖/后跟关系保持；左回收脚可见底面变化属于回收幅度。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "NE",
+      "frame": 13,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\NE\\13.png",
+      "sha256": "9527d357022c860587efb1f89f61f20dae17817fef681d92f1d39e729b476353",
+      "supportLeg": "right",
+      "position": "P3",
+      "observations": "右稍后支撑膝踝与靴筒连贯；左回收鞋底后向，未变成不相容的正面鞋面。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "NE",
+      "frame": 14,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\NE\\14.png",
+      "sha256": "5f3016b6fe4b50c06a152470fa58dc0797e4bd3ef055cbb01c9fb26ab74c5171",
+      "supportLeg": "right",
+      "position": "P3",
+      "observations": "右稍后支撑踝/靴同时倾斜，鞋长轴仍东北投影；鞋底少量显露可由脚踝屈伸解释。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "NE",
+      "frame": 15,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\NE\\15.png",
+      "sha256": "9f502de7c082e7c2d231ca53fa8dcf695fc0c7656476ab6d3d7afe92a5ae0ad5",
+      "supportLeg": "right",
+      "position": "P4",
+      "observations": "右后蹬脚抬跟露底，膝踝至前掌连续；左回收鞋底后向，没有外摆。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    },
+    {
+      "direction": "NE",
+      "frame": 16,
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\NE\\16.png",
+      "sha256": "dd1f8a62f7582fcffd1c12bef494018889069bad0811636cb8798172e5555a9d",
+      "supportLeg": "right",
+      "position": "P4",
+      "observations": "右后蹬腿比15更向左下伸，膝踝鞋掌整体同向而不是仅鞋掌转向；脚底投影和15相接，不能因后伸距离更大判外翻。",
+      "axisStatus": "no_clear_axis_error_seen",
+      "recommendedAction": "retain_pending_parent_review"
+    }
+  ],
+  "bambooReferenceFrames": [
+    {
+      "who": "09",
+      "direction": "N",
+      "frame": 1,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\N\\01.png",
+      "sha256": "7d8b1f42f7e6ed5ef3d2ff6245ff4422c68aa2aadaa8788653ce95559a0d1c8d"
+    },
+    {
+      "who": "09",
+      "direction": "N",
+      "frame": 2,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\N\\02.png",
+      "sha256": "9a83098d9b10a13d7e3d7d4e10d374877208570ff34dd5af54127bcb3619250b"
+    },
+    {
+      "who": "09",
+      "direction": "N",
+      "frame": 3,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\N\\03.png",
+      "sha256": "14f494d6bde618fb4de8bdd7594fa1db062f5403ac47e1afd43a62d49b3d125e"
+    },
+    {
+      "who": "09",
+      "direction": "N",
+      "frame": 4,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\N\\04.png",
+      "sha256": "74e836588fcdee0759c89cd97f99e2398218d2fc5f32cb6946b1d6980a467d8a"
+    },
+    {
+      "who": "09",
+      "direction": "N",
+      "frame": 5,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\N\\05.png",
+      "sha256": "b3e8278e55f68cfea6e64159d02519de33849580882fd42d2beeb13075759713"
+    },
+    {
+      "who": "09",
+      "direction": "N",
+      "frame": 6,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\N\\06.png",
+      "sha256": "01f3cc7c58b1becba3a402498483eeadb4e1bde8e3aa03969c6fbf9d5e3b984e"
+    },
+    {
+      "who": "09",
+      "direction": "N",
+      "frame": 7,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\N\\07.png",
+      "sha256": "531e39e3f6e0eda425b0e9da38ef911c31e047f1e823f695cc1ef9374e6cf2cd"
+    },
+    {
+      "who": "09",
+      "direction": "N",
+      "frame": 8,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\N\\08.png",
+      "sha256": "95415a01cc71187feec698d2d949c11d49717414fe88376d6b0df31af0461147"
+    },
+    {
+      "who": "09",
+      "direction": "N",
+      "frame": 9,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\N\\09.png",
+      "sha256": "f0a8c614615bb55d3d424559ae2986755e671fea73bbb7c84d46efe3af7b3fd6"
+    },
+    {
+      "who": "09",
+      "direction": "N",
+      "frame": 10,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\N\\10.png",
+      "sha256": "6d0a9ab6328f3444cbda3e9f73f706d43b93dc93c26bc4fa54488273fdf6e9db"
+    },
+    {
+      "who": "09",
+      "direction": "N",
+      "frame": 11,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\N\\11.png",
+      "sha256": "f4c191e87a4d66e890565e62466aac119ced689bf64ff776b306efcb5ca42577"
+    },
+    {
+      "who": "09",
+      "direction": "N",
+      "frame": 12,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\N\\12.png",
+      "sha256": "048ef03493c938a0caa717dd3848a818e3b0e9567fde3e19eb2e66d0934bbf12"
+    },
+    {
+      "who": "09",
+      "direction": "N",
+      "frame": 13,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\N\\13.png",
+      "sha256": "51f286671fc97f2bb8176331748a8c0b5ccf14a7657017773ab5c8855b679774"
+    },
+    {
+      "who": "09",
+      "direction": "N",
+      "frame": 14,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\N\\14.png",
+      "sha256": "1068409038bae38fa1600133b7b51b34bf37a4b5bb2570feb2f2f9fb0c3519b8"
+    },
+    {
+      "who": "09",
+      "direction": "N",
+      "frame": 15,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\N\\15.png",
+      "sha256": "ab683e85b7e773878e54aa05e70f0b52f68a2a3e24ff15b4baf4dabb964fcaf0"
+    },
+    {
+      "who": "09",
+      "direction": "N",
+      "frame": 16,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\N\\16.png",
+      "sha256": "d8524790c230215b5f13fbaf83e2e68fc3fd7a21471ded124524061121f7eac5"
+    },
+    {
+      "who": "09",
+      "direction": "NE",
+      "frame": 1,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NE\\01.png",
+      "sha256": "deb11da64c4254d7af1e6ed41150ba4d32514a348c32b6ad781974547d2222a0"
+    },
+    {
+      "who": "09",
+      "direction": "NE",
+      "frame": 2,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NE\\02.png",
+      "sha256": "ffa95b71d0acecb233fcd93279f279e8b76d8171d93c2d9b61c7fb5ebe4f2fc3"
+    },
+    {
+      "who": "09",
+      "direction": "NE",
+      "frame": 3,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NE\\03.png",
+      "sha256": "8adea2f20873083b363c0096ac9a98b07edbc08f1a6c582c7e6ca5ed0de3c0cb"
+    },
+    {
+      "who": "09",
+      "direction": "NE",
+      "frame": 4,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NE\\04.png",
+      "sha256": "5280ee13b716f1a8fb8506d897fa5bb1de9f99d71b1b726575f910e44d2f0d62"
+    },
+    {
+      "who": "09",
+      "direction": "NE",
+      "frame": 5,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NE\\05.png",
+      "sha256": "95068d16fcf7aff2ae4107647fc1f2693281db409f2d500e60b88931219cc58a"
+    },
+    {
+      "who": "09",
+      "direction": "NE",
+      "frame": 6,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NE\\06.png",
+      "sha256": "10ccddb405f74d660bece6889006bc5ac9c8541bdfe97892526411fef905835c"
+    },
+    {
+      "who": "09",
+      "direction": "NE",
+      "frame": 7,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NE\\07.png",
+      "sha256": "f5bc205cccce25947ff54762f97128a9633d0aac794ed21fd386e07fdbe90bf8"
+    },
+    {
+      "who": "09",
+      "direction": "NE",
+      "frame": 8,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NE\\08.png",
+      "sha256": "62d51e1f874d25543e02eec1d947e028ccdc3c94c6f865505ef0f8fc8cfa8b9f"
+    },
+    {
+      "who": "09",
+      "direction": "NE",
+      "frame": 9,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NE\\09.png",
+      "sha256": "9636762702ee78ce7f12d5f683678f1a44621ad8884ddb6bb862916a554484f8"
+    },
+    {
+      "who": "09",
+      "direction": "NE",
+      "frame": 10,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NE\\10.png",
+      "sha256": "a65f4f90b4eb25f028b957525af81d02aa04363c5a22c41ea4a9fc720b7eda48"
+    },
+    {
+      "who": "09",
+      "direction": "NE",
+      "frame": 11,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NE\\11.png",
+      "sha256": "889460b002d4b1aec0b16020f5c5f98a4491a771633517b670cceba8008109b3"
+    },
+    {
+      "who": "09",
+      "direction": "NE",
+      "frame": 12,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NE\\12.png",
+      "sha256": "3e03b7b5e58176af4a2ef7e33cd39ac119ce8babe3b2babc81b3949f63310385"
+    },
+    {
+      "who": "09",
+      "direction": "NE",
+      "frame": 13,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NE\\13.png",
+      "sha256": "9d8fcbe0ef321fbaa061fa196daa4671616f5164a95daa362508b45d066c5eb1"
+    },
+    {
+      "who": "09",
+      "direction": "NE",
+      "frame": 14,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NE\\14.png",
+      "sha256": "55516fa49803476caa10ac53f002a453626b1f299464ccda3ba6c32207a8dc48"
+    },
+    {
+      "who": "09",
+      "direction": "NE",
+      "frame": 15,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NE\\15.png",
+      "sha256": "0278b08fb95b4d8a817858019b07975e9640a7553360990730cde578a75e541e"
+    },
+    {
+      "who": "09",
+      "direction": "NE",
+      "frame": 16,
+      "path": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NE\\16.png",
+      "sha256": "0d81834c01ade914f0ee558f27b3b29c8a65976cddb5150d79b2fa6091695d4f"
+    }
+  ],
+  "sourceSheetManifest": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\14_short_hair_snow_summoner_girl\\run\\staging\\video-axis-N-NE-sources.json",
+  "updatedAt": "2026-10-05T02:40:42.470609+00:00",
+  "processImageRetention": {
+    "status": "process_bitmaps_removed_after_final_review",
+    "record": "audit/video-axis-cleanup.json",
+    "textualEvidenceRetained": true,
+    "currentVisualEvidence": "preview/run-{direction}-sheet.jpg and normal/slow.webp; current formal run/{direction}/*.png",
+    "note": "Any run/staging image path in this audit is historical reviewed process evidence, not a runtime dependency."
+  },
+  "rootFinalReview": "audit/video-axis-final-review.json"
+}

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "status": "passed_offline_after_user_feedback_and_bamboo_reference_repair",
-  "reviewedAt": "2026-10-04T20:24:39.749300+00:00",
+  "status": "passed_offline_after_all_actions_and_straight_axis_followup",
+  "reviewedAt": "2026-10-05T06:56:06.437346+00:00",
   "count": 196,
   "runCount": 128,
   "changedRunCount": 106,
@@ -137,7 +137,8 @@
     "actual09 reference comparison",
     "selected full-resolution hands, feet and identity-scale checks",
     "normal240px and quarter-speed browser previews with representative screenshots and loop stepping",
-    "SHA-bound independent anatomy/source reviews"
+    "SHA-bound independent anatomy/source reviews",
+    "Fresh128-frame knee/ankle/shoe axis review with6 local repairs after user video feedback"
   ],
   "playback": {
     "normalCycleMs": 1200,
@@ -1006,7 +1007,8 @@
           ],
           "position": "P4",
           "supportLeg": "left",
-          "observations": "左后腿延伸到后侧，脚跟抬起由前掌支撑；右摆动膝上提，前靴收在身下。 左后掌继续压地且脚跟抬高，右摆腿膝角打开向前下送，前靴与后支撑明显分离。"
+          "observations": "已修复：右摆动小腿继续向右下前送，位于06与08之间；保留自然轻微膝屈与踝背屈，左后前掌支撑位置保留，消除缩回膝后的回跳。 左后掌继续压地且脚跟抬高，右摆腿膝角打开向前下送，前靴与后支撑明显分离。",
+          "videoAxisRepairObservation": "已修复：右摆动小腿继续向右下前送，位于06与08之间；保留自然轻微膝屈与踝背屈，左后前掌支撑位置保留，消除缩回膝后的回跳。"
         },
         {
           "frames": [
@@ -1033,7 +1035,8 @@
           ],
           "position": "P3",
           "supportLeg": "right",
-          "observations": "右支撑靴移到稍后方，左腿前送、鞋底朝前可见，后腿的踝部仍承接。 右腿在髋后更伸展，左膝提高并缩短回收，后靴掌平压，非双脚腾空。"
+          "observations": "右支撑靴移到稍后方，左腿前送、鞋底朝前可见，后腿的踝部仍承接。 已修复：左摆动小腿处于13到15的前送展开中间姿态，右支撑足仍在髋后P3承重，未再折回膝下。",
+          "videoAxisRepairObservation": "已修复：左摆动小腿处于13到15的前送展开中间姿态，右支撑足仍在髋后P3承重，未再折回膝下。"
         },
         {
           "frames": [
@@ -1120,5 +1123,30 @@
         }
       ]
     }
-  }
+  },
+  "latestFollowup": "audit/straight-axis-final-review.json",
+  "videoAxisAdditionalRepairs": 6,
+  "straightAxisAdditionalRepairs": 3,
+  "processImageRetention": {
+    "verifiedAt": "2026-10-05T06:57:45.161498+00:00",
+    "removedProcessImages": 27,
+    "records": [
+      "audit/straight-axis-cleanup.json",
+      "audit/straight-axis-attack-qa-cleanup.json",
+      "audit/straight-axis-cast-qa-cleanup.json"
+    ],
+    "formalFramesRetained": 196,
+    "previewFilesRetained": 42,
+    "textualGenerationEvidenceRetained": true,
+    "note": "Process-image paths in historical visual evidence identify files viewed before cleanup; their SHA256 and disposition are preserved in the cleanup records."
+  },
+  "latestTimingReview": "audit/timing-60ms-update.json",
+  "currentTiming": {
+    "frameMs": 60,
+    "frameCount": 16,
+    "cycleMs": 960,
+    "quarterSpeedFrameMs": 240,
+    "quarterSpeedCycleMs": 3840
+  },
+  "timingHistoryNote": "Earlier playback observations retain their actual75ms review speed;current delivery timing is60ms per frame."
 }

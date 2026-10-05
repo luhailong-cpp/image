@@ -1,0 +1,733 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-05T02:54:41.819390+00:00",
+  "scope": "character14 run W and NW32 current formal PNGs only",
+  "status": "diagnosis_complete_one_local_repair_pending_root_continuous_preview",
+  "reviewer": "finish_cast_w",
+  "oldPassNotReused": true,
+  "timingUnchanged": {
+    "framesPerDirection": 16,
+    "frameMs": 75,
+    "cycleMs": 1200
+  },
+  "supportStructurePreserved": "01-08 anatomicalleft,09-16 anatomicalright; four spatialpositions P1-P4 each2distinctposes.",
+  "method": "Read video contact/detail plus3 decoded consecutive16frame snippets; inspect all32 formal fullbody/contactleg crops, corresponding09 W/NW images, and enlarged neighboringframes. Judge knee-shin-ankle-foot continuity and direction-specific motion plane, not vertical shins or sole visibility alone.",
+  "videoReferences": [
+    {
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\reference-motion-review-20261004\\video-contact.jpg",
+      "sha256": "e45bbcf9c3dc33ea11ccd862fd0ba6efbf5356f6d063627af7ac7b6efdaf4325"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\reference-motion-review-20261004\\character-detail.jpg",
+      "sha256": "4460e749a97b0dc2f99a247dbb2d61676a61a5ed1e3cc01ef5386a8d7eb0788b"
+    }
+  ],
+  "limitations": [
+    "Video snippets show motion plane and silhouette; foot detail is too small/blurred to establish precise3D joint angles.",
+    "This agent performed static image comparison, not real-time gameplay/video playback.",
+    "Sole exposure in rearview knee recovery can be natural pitch; it is not automatically lateral ankle rotation."
+  ],
+  "confirmedIssues": [
+    {
+      "id": "NW11_support_boot_yaw",
+      "frame": 11,
+      "direction": "NW",
+      "limb": "anatomical far right supporting ankle/boot",
+      "regionOnRegistered1024": [
+        416,
+        825,
+        510,
+        927
+      ],
+      "confidence": "high",
+      "facts": "Old11 presents a longer lateral shoe flank and shoe-axis change versus10/12 while shin and torso do not rotate correspondingly. This causes a one-frame outward-turn impression.",
+      "neighbors": [
+        "run/NW/10.png",
+        "run/NW/12.png",
+        "run/NW/13.png"
+      ],
+      "recommendedLocalChange": "Preserve knee, supporting foot location, recovery leg and upper body; redraw ankle and boot rearthreequarter NW with visible heel counter and foreshortened toe aligned to shin.",
+      "resolution": "Builtin imagegen local boot edit selected and published; no canvas scale/translation or code limb modification.",
+      "beforeSha256": "6d14ca013b376fce796845cde7c4d30f25d9ef469723efd670fbf2f895edfba4",
+      "afterSha256": "e730ab858dc09825518c6964218b8ab0ab41b5b8baf9ddddc18dcd6f3b3458fc",
+      "request": "provenance/video-axis-NW-11-v1.request.json",
+      "receipt": "provenance/video-axis-NW-11-v1.receipt.json",
+      "nativeGeneration": "run/staging/video-axis-NW-11-v1.png.generation.json",
+      "comparison": "run/staging/video-axis-NW11-before-after.jpg",
+      "status": "static_selected_pending_root_continuous_preview"
+    }
+  ],
+  "otherFindings": {
+    "W": "No additional definite axial defect found in16currentimages. W03-05/W11-13 raisedtoes pointdown whilekneesflex; side contours/neighbor poses do not show unsupported outwardyaw. Retain unless continuouspreview reveals a specific turn.",
+    "NW12to16": "After11repair,12supportheel continuesNWperspective.13-15 forwardleftboot exposessole as knee/shin fold;09same-direction liftedknees also showsole. This is not enough evidence for an external-yaw redraw, so those frames retained."
+  },
+  "frames": [
+    {
+      "direction": "W",
+      "frame": 1,
+      "file": "run/W/01.png",
+      "sha256": "9f348a33678b96bda859adf303daec3e17d7fbee998963854506823d2e0d3e71",
+      "initialReviewedSha256": "9f348a33678b96bda859adf303daec3e17d7fbee998963854506823d2e0d3e71",
+      "supportLeg": "left",
+      "position": "P1",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "近左支撑靴为清楚的左向侧面，膝到踝连续；后收右靴的脚尖下垂随膝弯曲，没有横向扭出。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\W\\01.png",
+      "referenceSha256": "4e6337ac903aaac956240d7c36f624e0b17c6def33990076fa711f2401233624",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "W",
+      "frame": 2,
+      "file": "run/W/02.png",
+      "sha256": "3505f4fe9977c7706bcccf14b33264d456c77eb83aeb61b5f4b661392514df26",
+      "initialReviewedSha256": "3505f4fe9977c7706bcccf14b33264d456c77eb83aeb61b5f4b661392514df26",
+      "supportLeg": "left",
+      "position": "P1",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "左膝更屈、左靴侧面朝西不变；远右后靴俯仰加大，但脚踝仍延续小腿方向。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\W\\02.png",
+      "referenceSha256": "4d7d9d7f50bcec0e2c55663dd4124bcc4a6f24dd521f839ed37463d0ae0a604c",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "W",
+      "frame": 3,
+      "file": "run/W/03.png",
+      "sha256": "39e597c0a7ac29a411aeb7c4ccf8f2c490fcf4b8b6b55f1bd44b076621df36fc",
+      "initialReviewedSha256": "39e597c0a7ac29a411aeb7c4ccf8f2c490fcf4b8b6b55f1bd44b076621df36fc",
+      "supportLeg": "left",
+      "position": "P2",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "右前摆膝高抬，右靴足尖向下偏左；与04同属屈膝回收的侧视轮廓，不能因鞋尖不水平判外翻。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\W\\03.png",
+      "referenceSha256": "42b07d98d16ba6a36c87ef859b84dcd8c9eb0054a896b7804e8595a330dc798a",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "W",
+      "frame": 4,
+      "file": "run/W/04.png",
+      "sha256": "c4ccb1f156fe8aa5a9eac3e9f7142c3d5d5c0c366d5aa038853c167210fdf1bd",
+      "initialReviewedSha256": "c4ccb1f156fe8aa5a9eac3e9f7142c3d5d5c0c366d5aa038853c167210fdf1bd",
+      "supportLeg": "left",
+      "position": "P2",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "右前摆靴更下垂、靴侧边仍可读；左支撑胫与左向低靴连接，没有额外横向膝折。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\W\\04.png",
+      "referenceSha256": "28441a56abd90bda510f82da4c72f93c06251336ffc44a9c795a4d024f30ebbd",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "W",
+      "frame": 5,
+      "file": "run/W/05.png",
+      "sha256": "d66108bec56e6bc9ea7b0fcffcb6ed77625e9b76b2e6f103d8cecdafd9010341",
+      "initialReviewedSha256": "d66108bec56e6bc9ea7b0fcffcb6ed77625e9b76b2e6f103d8cecdafd9010341",
+      "supportLeg": "left",
+      "position": "P3",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "左支撑腿向后展开、脚跟抬起；右收腿靴仍沿前摆膝下方，足部俯仰而非绕小腿外转。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\W\\05.png",
+      "referenceSha256": "f308d176047bc26c131b96a41f84633a9abd193f9e9f5a6d75cf01517a9f6646",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "W",
+      "frame": 6,
+      "file": "run/W/06.png",
+      "sha256": "f1aaa6755450c023243aff6e9c31469bb8992fc2dabc6d508dce86eef716f34b",
+      "initialReviewedSha256": "f1aaa6755450c023243aff6e9c31469bb8992fc2dabc6d508dce86eef716f34b",
+      "supportLeg": "left",
+      "position": "P3",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "右小腿向前伸，靴尖上抬但长轴仍指左；左后掌趾侧面承重。05到06展开幅度较大，是屈伸变化而非转向。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\W\\06.png",
+      "referenceSha256": "1db7eea85e3f342c5c58898ab90b4d53e49f69e8977bc9239146f45cd8330156",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "W",
+      "frame": 7,
+      "file": "run/W/07.png",
+      "sha256": "40eae15ad58c00119de75939813e61b469b6af57cd8b17a27e9d2b2f8291dd21",
+      "initialReviewedSha256": "40eae15ad58c00119de75939813e61b469b6af57cd8b17a27e9d2b2f8291dd21",
+      "supportLeg": "left",
+      "position": "P4",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "右前摆靴延续左向侧面，左后支撑踝跖屈；两个鞋长轴都在西向前后摆动平面。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\W\\07.png",
+      "referenceSha256": "15c48325c4f94141ee50b0336ab1ed1b369ca256b030486fbd6e3da3985ed69e",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "W",
+      "frame": 8,
+      "file": "run/W/08.png",
+      "sha256": "d988ed377c60814b45530c909bce75965e89356d942c9ba636728ce7b2adc730",
+      "initialReviewedSha256": "d988ed377c60814b45530c909bce75965e89356d942c9ba636728ce7b2adc730",
+      "supportLeg": "left",
+      "position": "P4",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "右前靴下降准备换脚，左后靴跟起掌压；没有鞋面突然转向镜头的单帧变化。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\W\\08.png",
+      "referenceSha256": "899487e5e335d024780ae92ca6911b878d7309df79fcad2ba0271a758307fb3a",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "W",
+      "frame": 9,
+      "file": "run/W/09.png",
+      "sha256": "a81130b94eaacd5e73a913634ccd7465afed3ec464b7bcbdfb0d40e9ed932054",
+      "initialReviewedSha256": "a81130b94eaacd5e73a913634ccd7465afed3ec464b7bcbdfb0d40e9ed932054",
+      "supportLeg": "right",
+      "position": "P1",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "远右前支撑靴侧面指西，近左后收膝靴连接；后收靴向下转是俯仰。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\W\\09.png",
+      "referenceSha256": "a183b780a7879d7b4434fe3d264c0a160fad3b1f1bc2c769bacc95f4e7c55976",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "W",
+      "frame": 10,
+      "file": "run/W/10.png",
+      "sha256": "a503635884c59c1c63ded0e5524db58ce41bf2dab55ca510bad4e8119e0fd5ee",
+      "initialReviewedSha256": "a503635884c59c1c63ded0e5524db58ce41bf2dab55ca510bad4e8119e0fd5ee",
+      "supportLeg": "right",
+      "position": "P1",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "远右支撑膝缓冲、靴长轴向左；近左小腿回收在后，与09和11的腿身份连续。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\W\\10.png",
+      "referenceSha256": "3e6b37d40901d6e7995758de3cdaa6d9f2a929b8c664472fda12645ae269e90c",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "W",
+      "frame": 11,
+      "file": "run/W/11.png",
+      "sha256": "0b4b05ef9a1005643277cb22fdd1e131359588966021ac4d0635b80b81527915",
+      "initialReviewedSha256": "0b4b05ef9a1005643277cb22fdd1e131359588966021ac4d0635b80b81527915",
+      "supportLeg": "right",
+      "position": "P2",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "近左抬膝靴足尖下垂，鞋侧边/鞋尖形态可与12衔接；尚无充分证据判成正面外翻。远右支撑靴略斜，仍指西。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\W\\11.png",
+      "referenceSha256": "69a47b6ed364e19eb910be3470c205fd49d2a771e4d00e0086c36dc797dcfe62",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "W",
+      "frame": 12,
+      "file": "run/W/12.png",
+      "sha256": "8565425291467133b61f22fccf402ec054355ceae9a4bb39cd438facba1ef5dd",
+      "initialReviewedSha256": "8565425291467133b61f22fccf402ec054355ceae9a4bb39cd438facba1ef5dd",
+      "supportLeg": "right",
+      "position": "P2",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "近左前摆靴继续下垂，右支撑胫向下接左向侧面靴；11到12变化由膝踝屈伸解释。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\W\\12.png",
+      "referenceSha256": "1f64f358e3e2299ac61c6dc95d54d3a0504f96ec92d7eb35ce22438b9d2c3d8e",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "W",
+      "frame": 13,
+      "file": "run/W/13.png",
+      "sha256": "b6d966f39f60f07360e3d7da463eb2ac420f56302201dd3d076462fc5853910b",
+      "initialReviewedSha256": "b6d966f39f60f07360e3d7da463eb2ac420f56302201dd3d076462fc5853910b",
+      "supportLeg": "right",
+      "position": "P3",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "近左膝前抬且靴在膝下，右支撑脚后移；鞋长轴未横甩离开西向平面。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\W\\13.png",
+      "referenceSha256": "81bdcb65bb351630443411e265a0ab86b1250ae1b71691f07281076ebe3f48e2",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "W",
+      "frame": 14,
+      "file": "run/W/14.png",
+      "sha256": "e51c3fadc6a809b9faac31320309d92e12d306080363be0a231421c9060d7e73",
+      "initialReviewedSha256": "e51c3fadc6a809b9faac31320309d92e12d306080363be0a231421c9060d7e73",
+      "supportLeg": "right",
+      "position": "P3",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "近左小腿前伸，靴尖上仰仍向左；右后支撑踝屈曲与胫轴相连。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\W\\14.png",
+      "referenceSha256": "62bf14c41a5dda09eed000e44037ec9ac09dcd8664fa037df1e523f3b06c980b",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "W",
+      "frame": 15,
+      "file": "run/W/15.png",
+      "sha256": "61f2321d0ed7f0af2d238c8bf88ab6c981ffbc95bc6997b60eefe0dc4d7c8f9d",
+      "initialReviewedSha256": "61f2321d0ed7f0af2d238c8bf88ab6c981ffbc95bc6997b60eefe0dc4d7c8f9d",
+      "supportLeg": "right",
+      "position": "P4",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "左前靴再前送并趋平，右后跟升、前掌接地；膝踝和脚长轴在同一前后摆动平面。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\W\\15.png",
+      "referenceSha256": "5a9bbf7c1a938c639262cc81ea3297a180c08597b127dfd0e7122c04e394b27b",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "W",
+      "frame": 16,
+      "file": "run/W/16.png",
+      "sha256": "8fa07e49261a729f36e86680463c04d8fa0567a0f4f814defee69c4b6075f6a5",
+      "initialReviewedSha256": "8fa07e49261a729f36e86680463c04d8fa0567a0f4f814defee69c4b6075f6a5",
+      "supportLeg": "right",
+      "position": "P4",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "左前靴下降、右后脚掌趾蹬推，接01时鞋向保持西向；未见外八突然跳变。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\W\\16.png",
+      "referenceSha256": "13c9c091c93c290ea05ef29205400a8b0899e34c70774de841bcafcb1bf8d713",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "NW",
+      "frame": 1,
+      "file": "run/NW/01.png",
+      "sha256": "6b78d323775141ec80fa99d3aa7ed165c734c09ef8cd3b8b783466d75e6aab3c",
+      "initialReviewedSha256": "6b78d323775141ec80fa99d3aa7ed165c734c09ef8cd3b8b783466d75e6aab3c",
+      "supportLeg": "left",
+      "position": "P1",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "近左支撑靴后跟可见、鞋头向左前缩短，远右回收靴露底随屈膝；不是两脚向外分叉。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NW\\01.png",
+      "referenceSha256": "b41e3a437256368ea9d5f35a09a924de68718adbb39f566d623687714bc1afe5",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "NW",
+      "frame": 2,
+      "file": "run/NW/02.png",
+      "sha256": "3bcb912ee5053f6eead7cdf9b319a2de1f259711239b99a08f5bcfb0cad18cac",
+      "initialReviewedSha256": "3bcb912ee5053f6eead7cdf9b319a2de1f259711239b99a08f5bcfb0cad18cac",
+      "supportLeg": "left",
+      "position": "P1",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "近左支撑膝缓冲，靴后跟透视延续01；远右回收靴更高，足底方向随膝后折。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NW\\02.png",
+      "referenceSha256": "596163b47c002a062d0333f0071d95a3f67641e7923053370c4698e6fcbac0c9",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "NW",
+      "frame": 3,
+      "file": "run/NW/03.png",
+      "sha256": "96d3246dcc52f176f1dd8a8b3e4d53944249ae646dd5bd2ef74f33e5bc08ed13",
+      "initialReviewedSha256": "96d3246dcc52f176f1dd8a8b3e4d53944249ae646dd5bd2ef74f33e5bc08ed13",
+      "supportLeg": "left",
+      "position": "P2",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "近左支撑踝接后视靴、鞋头仍偏西北；远右抬靴的底面方向由后收动作解释。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NW\\03.png",
+      "referenceSha256": "102a009d0c63cdda49023c402c5b9bb6e480001094be3c375c7763feb5b1bf84",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "NW",
+      "frame": 4,
+      "file": "run/NW/04.png",
+      "sha256": "c17f4f9a1be1294958f20090bece324814b1bd9c19b5bf3c96272097fcf06d4f",
+      "initialReviewedSha256": "c17f4f9a1be1294958f20090bece324814b1bd9c19b5bf3c96272097fcf06d4f",
+      "supportLeg": "left",
+      "position": "P2",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "近左支撑链倾斜但连续；远右后收靴底朝镜头，和03相近，没有孤立绕轴扭转。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NW\\04.png",
+      "referenceSha256": "c927a7439199dc71def1410616f5d66bd2123340e2a4bcabdcdcd039a3d0753c",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "NW",
+      "frame": 5,
+      "file": "run/NW/05.png",
+      "sha256": "34a1e0ada76e88a6a24ed61a06f6f18082d8d2394b61295b0e5bfe25ba15cba0",
+      "initialReviewedSha256": "34a1e0ada76e88a6a24ed61a06f6f18082d8d2394b61295b0e5bfe25ba15cba0",
+      "supportLeg": "left",
+      "position": "P3",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "近左腿后伸、靴跟上抬，鞋头仍沿西北；远右小靴在前下方露鞋面，膝踝连接没有横向折断。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NW\\05.png",
+      "referenceSha256": "5331fa030f35b2e385d8dbb09f278711e3a3af13cfdd0075c7bd7f0e9faf076c",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "NW",
+      "frame": 6,
+      "file": "run/NW/06.png",
+      "sha256": "7efb0eba5f1ea3e30fdd958f02f3aaeaa285596478a9383cc0a67e9c9f9aba42",
+      "initialReviewedSha256": "7efb0eba5f1ea3e30fdd958f02f3aaeaa285596478a9383cc0a67e9c9f9aba42",
+      "supportLeg": "left",
+      "position": "P3",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "左后支撑膝展开、脚踝跟随，鞋轴与05一致；远右小靴前摆仍可见鞋面/后跟。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NW\\06.png",
+      "referenceSha256": "160f52440ec9a45e6077af9fac60f67082369cc52ff29c3844a772798c0ccd0d",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "NW",
+      "frame": 7,
+      "file": "run/NW/07.png",
+      "sha256": "1814e8a973c67b45097eaca7d03ce733af007b2b765b4ad06506eb51c65c1f7a",
+      "initialReviewedSha256": "1814e8a973c67b45097eaca7d03ce733af007b2b765b4ad06506eb51c65c1f7a",
+      "supportLeg": "left",
+      "position": "P4",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "左后掌趾蹬推，右前摆靴更收；右靴可见少量底边属于俯仰，未突然变成全外侧横甩。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NW\\07.png",
+      "referenceSha256": "960ae7f1904ebeb6672a3d12c14d0ffe5d70f5486e2452568d58f66f5bd1a947",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "NW",
+      "frame": 8,
+      "file": "run/NW/08.png",
+      "sha256": "b9bb6bcfd6fcf20f3a17b1adac75bbe365b52499a3c5a237ad6c8bc587d52ceb",
+      "initialReviewedSha256": "b9bb6bcfd6fcf20f3a17b1adac75bbe365b52499a3c5a237ad6c8bc587d52ceb",
+      "supportLeg": "left",
+      "position": "P4",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "左后脚延续07蹬地，右前摆靴稍下降；鞋头仍向行进方向而非从踝向外岔。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NW\\08.png",
+      "referenceSha256": "b5236be876181db8a6572df8f0bdc9f3920a5b18d5bf1ab314c0447443685133",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "NW",
+      "frame": 9,
+      "file": "run/NW/09.png",
+      "sha256": "b828b261d0a663bab82df94972be81a06e2d9290b08f28c340dae6829dc6a803",
+      "initialReviewedSha256": "b828b261d0a663bab82df94972be81a06e2d9290b08f28c340dae6829dc6a803",
+      "supportLeg": "right",
+      "position": "P1",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "近左前景腿向后折、远右支撑靴低位后跟可见；支撑脚后视轴与10相近。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NW\\09.png",
+      "referenceSha256": "cdb0dd68337279cbfc1281b24394ceb9b6a45324d04bf0c0cbd69218c0c98f72",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "NW",
+      "frame": 10,
+      "file": "run/NW/10.png",
+      "sha256": "c776bb9372ea51315267f77f54cf36a8b081d1a8284ae5b0ae967618376d88d6",
+      "initialReviewedSha256": "c776bb9372ea51315267f77f54cf36a8b081d1a8284ae5b0ae967618376d88d6",
+      "supportLeg": "right",
+      "position": "P1",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "远右支撑靴后跟透视、鞋头缩短向西北；近左高靴朝镜头露底属于后收，非承重靴外转。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NW\\10.png",
+      "referenceSha256": "74a554ffd19c7fc9bbf39260b141f5347a8f64455c6ad4f86be304818f146f10",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "NW",
+      "frame": 11,
+      "file": "run/NW/11.png",
+      "sha256": "e730ab858dc09825518c6964218b8ab0ab41b5b8baf9ddddc18dcd6f3b3458fc",
+      "initialReviewedSha256": "6d14ca013b376fce796845cde7c4d30f25d9ef469723efd670fbf2f895edfba4",
+      "supportLeg": "right",
+      "position": "P2",
+      "finding": "localized_axis_repair_static_selected_pending_root_preview",
+      "observation": "原11远右支撑靴突然露出较长侧面、鞋向偏西，与10/12后跟透视不连续；已局部AI改为西北后视鞋长轴，胫/抬腿/手臂保留。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NW\\11.png",
+      "referenceSha256": "1a417c28e95a2adf8c70c96988178fa5ab1fc93a303ed6b84f57da56a130bea4",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "NW",
+      "frame": 12,
+      "file": "run/NW/12.png",
+      "sha256": "9a8a9ffa115a6c17b9694ac5eaade57d96622c962f5f6c03a756f88d721e3d5e",
+      "initialReviewedSha256": "9a8a9ffa115a6c17b9694ac5eaade57d96622c962f5f6c03a756f88d721e3d5e",
+      "supportLeg": "right",
+      "position": "P2",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "远右支撑靴后跟朝镜头，承接修后的11；近左腿从后收转前摆，不能以靴移到屏幕左侧误判换支撑腿。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NW\\12.png",
+      "referenceSha256": "826cb48fa4d6e325eae18cb9644e2d00dd80a55c32d28ece345e907ba68254c6",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "NW",
+      "frame": 13,
+      "file": "run/NW/13.png",
+      "sha256": "589082ee9f3c85d90dd893ea8ca882edf79f1c1e50e002b1a343fbf745279a2c",
+      "initialReviewedSha256": "589082ee9f3c85d90dd893ea8ca882edf79f1c1e50e002b1a343fbf745279a2c",
+      "supportLeg": "right",
+      "position": "P3",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "近左前摆膝屈曲使小靴底面可见，鞋长轴仍沿西北前后平面；右支撑踝和后跟方向延续12。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NW\\13.png",
+      "referenceSha256": "2d822602900a31186e421c9c0687a90ff8337c6595e4ad821b8e283c701645de",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "NW",
+      "frame": 14,
+      "file": "run/NW/14.png",
+      "sha256": "43097aa490e29cbbec59814f78ec426512aa7249f430310c47e1b364c755d67a",
+      "initialReviewedSha256": "43097aa490e29cbbec59814f78ec426512aa7249f430310c47e1b364c755d67a",
+      "supportLeg": "right",
+      "position": "P3",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "近左抬靴底面暴露更多，同时膝小腿更折，角度变化有腿链对应；不能仅凭露底判外翻。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NW\\14.png",
+      "referenceSha256": "7b6455715dec190824347391e9627509f0cdfb27b468816cc890962a498fd306",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "NW",
+      "frame": 15,
+      "file": "run/NW/15.png",
+      "sha256": "1ece44be664becda68aec3734dc3bd516d9d8a047379e3bce837c645c59cb105",
+      "initialReviewedSha256": "1ece44be664becda68aec3734dc3bd516d9d8a047379e3bce837c645c59cb105",
+      "supportLeg": "right",
+      "position": "P4",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "近左回收靴底面延续14，远右后脚跟抬、前掌蹬推；两只靴的俯仰不同，不是向两侧叉开。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NW\\15.png",
+      "referenceSha256": "918e859b08a1ed2f70f7dbc6ece7006685348dfe682b16b91835a3c2d0235370",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    },
+    {
+      "direction": "NW",
+      "frame": 16,
+      "file": "run/NW/16.png",
+      "sha256": "b389a79162650c77a79ba107bb0aea27a5926494c8d35e81c20734c607b92dc4",
+      "initialReviewedSha256": "b389a79162650c77a79ba107bb0aea27a5926494c8d35e81c20734c607b92dc4",
+      "supportLeg": "right",
+      "position": "P4",
+      "finding": "no_definite_axis_error_found_in_this_static_review",
+      "observation": "近左小靴随前送下降转回露上表面，为01落地准备；远右后掌趾仍沿西北，未见需要单帧轴向修正的新增缺陷。",
+      "referenceFile": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\NW\\16.png",
+      "referenceSha256": "0b91305105f44f1ca78a5ea55f0817dbb11c72c0d0d1df93e0adde13b74ceaad",
+      "referenceUse": "directional movement plane and knee/ankle/foot connection, not same-frame phase or automatic approval"
+    }
+  ],
+  "processEvidence": [
+    {
+      "file": "run/staging/video-axis-09-N-full.jpg",
+      "sha256": "a284504d56781e72a71fcb8d46e89ae86b16e1578ceb0e5e7f3fdbde2b768810",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-09-N-legs.jpg",
+      "sha256": "09bee9674b17b4c2d3fd4d5f5bc88611712eca3ceaf55d68d63ff0eb34802e15",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-09-NE-full.jpg",
+      "sha256": "f6e533050c0cb5db0f59890672b24459187e6b6fd8d5cd8ede790c21bf0ff510",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-09-NE-legs.jpg",
+      "sha256": "6fa38868529b91cf1fab481628f1ff9c78d8c6b0a3f3f848a0f506a417fc9269",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-09-NW-full.jpg",
+      "sha256": "6ec1038c8012c66f73b670377ed81f48ef35799e762b94dc556f49e4acda6657",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-09-NW-legs.jpg",
+      "sha256": "7df75ec1b4b9ea1a18ddff55c6d51918272bbb3d0ba4d229cf04cede7ea38241",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-09-W-full.jpg",
+      "sha256": "42b79adda1ba6b7eb188444c5eb46645ed543da1ead3f749899fb949780c0654",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-09-W-legs.jpg",
+      "sha256": "596d857c0fed20a6e98a07547818c04baeb8234a0535dabd55a04794229abfa3",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-14-N-full.jpg",
+      "sha256": "7e67c0cba1fae82e1510aff6d60620a9cca0dd015b2cd388feec33c25dde2ba4",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-14-N-legs.jpg",
+      "sha256": "82505e8918f202f1c633c6aac801475f7d017eda8ffb08f809673876b9f85c5c",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-14-NE-final-full.jpg",
+      "sha256": "2fd9f78d1451b12be956fe8590f79d0e0bc3497a4c75cd6d42a94cece6ec42e9",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-14-NE-full.jpg",
+      "sha256": "f646314250cd379ba8cdadb93d64b5210e843700e193fee25017bdaacb4fee84",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-14-NE-legs.jpg",
+      "sha256": "ce61fa1fb2c90d81900782f8d5ec19b39809a6ddb0d44a7cb3f79890e522b138",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-14-NW-full.jpg",
+      "sha256": "26a9bacfd62d8cf4989fdbcf9439e7587a1f9bb719b373d6397b1e3fa56f5700",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-14-NW-legs.jpg",
+      "sha256": "0afd8d5d87cc072f137f7dfa97272ee2daf55239f1e46bc13b3bfeab503659eb",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-14-W-full.jpg",
+      "sha256": "4bf910155e09d3fa05ba00b92f8c5e575793708e60faf2300f92355068977e41",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-14-W-legs.jpg",
+      "sha256": "060b0cbe5c684ae4307cbc17188e029491aa98ebe6d07126802c13e2dc7219a0",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-bamboo-S-legs.jpg",
+      "sha256": "440c9cbae2d16472e2eb78c0b917cd81ba6fe0be989a0f82179082e3c0360743",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-bamboo-SE-legs.jpg",
+      "sha256": "06f51e1f8e9667a9a2f30b612b6fd9eec4a315c64b6c4cf38a3693d403e6e6fd",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-bamboo-SW-legs.jpg",
+      "sha256": "a0b63c8f9eba9432554f392d6a89ad40aeb1f25ee9b9539b00d0f40c930b3f31",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-E-legs.jpg",
+      "sha256": "12769814f6473d8d7f9f754283c6908eb659e3475a2e7057549b9b3f46ebcedc",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-N-neighbors-09-11.jpg",
+      "sha256": "46404312f4905de6137538c284464e583c9845d93af74f3345e535e49e5c809a",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-N-neighbors-14-16.jpg",
+      "sha256": "354091991a50ef02869f709f06b6b2d183361bc627d31169a3be3da82438fd08",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-NE-04-v1-comparison.jpg",
+      "sha256": "04d19e83b7f5ff0e73e22492f5e8e8b36971ff653f87cd5fdca3377275c6c74c",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-NE-neighbors-03-05.jpg",
+      "sha256": "73c555867821f83fea320a3d4bf1095177597bf931e9ad73498b1c97bef8beb6",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-NE-neighbors-13-16.jpg",
+      "sha256": "22a17a0ac82841eb4e7f340df304860ba058741a0cb6e69596f707abb08e207a",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-NW-detail.jpg",
+      "sha256": "6b970a67e8506e0fa12bba7932710475846aa58cbe13d9da916e06eaff8252c4",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-NW11-before-after.jpg",
+      "sha256": "99c715a5270b95206db64cd077b5adf78d305dc1b26b836fa345b44a872d85e9",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-reference-13.7.jpg",
+      "sha256": "75caa73ee50b3e868ebc20efc2c3e30a55945b32914bc7c0d8a06913254ce74e",
+      "type": "observed_video_reference"
+    },
+    {
+      "file": "run/staging/video-axis-reference-6.2.jpg",
+      "sha256": "0492ae751b02c7148f1f8f25278b73ace368f7232b5b20cd20bbe523dec8f313",
+      "type": "observed_video_reference"
+    },
+    {
+      "file": "run/staging/video-axis-reference-8.7.jpg",
+      "sha256": "098d33fa9dd436c2615547709b071cc07e6ba3fc42fc8151a43e733627415f1c",
+      "type": "observed_video_reference"
+    },
+    {
+      "file": "run/staging/video-axis-snow-S-full.jpg",
+      "sha256": "642ca7060ada575b0910a79ba5b70ec6653725a405348905b7a210a5dfaadb25",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-snow-S-legs.jpg",
+      "sha256": "406eeebef415c890543f5b185cc29367223db0be867235055ee575d290a00489",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-snow-SE-full.jpg",
+      "sha256": "c7d8f04b565c0de1c13291f2d00995cbd1513b0f2b31a21d5059a3e1fcef4284",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-snow-SE-legs.jpg",
+      "sha256": "9245e9086873a126f7cd64ed984f4525a43dcce50bd084911b7c28f75dc04797",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-snow-SW-full.jpg",
+      "sha256": "c6cda94d91ff263412fffa9a50911764fdf300c69b103e3c2029abc72f9b87a4",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-snow-SW-legs.jpg",
+      "sha256": "90f723d5574a380b1d6358c93ef27022b120500ae993307a616f5d5660e35417",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-south-neighbor-evidence.jpg",
+      "sha256": "8f00699522571899b6485e2a0fa26f86cbf70bd4e49a93848dd7ef6274121faa",
+      "type": "static_process_contact_sheet"
+    },
+    {
+      "file": "run/staging/video-axis-W-detail.jpg",
+      "sha256": "4e02abf36756738ecf26c24e5967f792a6361f3cf1889376bc21762c5a766b2a",
+      "type": "static_process_contact_sheet"
+    }
+  ],
+  "mutationBoundary": {
+    "changedFormal": [
+      "run/NW/11.png"
+    ],
+    "unchangedFormalDirections": [
+      "W"
+    ],
+    "otherCharacterTouched": false,
+    "timingChanged": false,
+    "sharedManifestOrReviewChangedByAgent": false
+  },
+  "actualModel": null,
+  "actualQuality": null,
+  "pending": "Root continuous normal and quarter-speed NW10-13 plus full loop review; root may update final status.",
+  "processImageRetention": {
+    "status": "process_bitmaps_removed_after_final_review",
+    "record": "audit/video-axis-cleanup.json",
+    "textualEvidenceRetained": true,
+    "currentVisualEvidence": "preview/run-{direction}-sheet.jpg and normal/slow.webp; current formal run/{direction}/*.png",
+    "note": "Any run/staging image path in this audit is historical reviewed process evidence, not a runtime dependency."
+  },
+  "rootFinalReview": "audit/video-axis-final-review.json"
+}

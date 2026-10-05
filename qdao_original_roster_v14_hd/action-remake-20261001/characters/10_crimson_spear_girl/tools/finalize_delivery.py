@@ -6,8 +6,10 @@ from PIL import Image, ImageDraw, ImageFont
 R = Path(__file__).resolve().parents[1]
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p, value): p.write_text(json.dumps(value, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
-delivery = json.loads((R/'delivery-current.json').read_text(encoding='utf-8'))
-expected = {'run':(8,16,75), 'hit':(2,6,40), 'attack':(2,12,30), 'cast':(2,16,45)}
+inventory_bytes = (R/'delivery-current.json').read_bytes()
+inventory_sha = hashlib.sha256(inventory_bytes).hexdigest()
+delivery = json.loads(inventory_bytes)
+expected = {'run':(8,16,60), 'hit':(2,6,40), 'attack':(2,12,30), 'cast':(2,16,45)}
 slots=[]; pixels=set(); file_shas=set(); groups=delivery['groups']; errors=[]
 for group, frames in groups.items():
     action, direction=group.split('/')
@@ -37,9 +39,9 @@ assert len(slots)==196 and len(groups)==14
 for action,(directions,n,ms) in expected.items():
     assert sum(k.startswith(action+'/') for k in groups)==directions
 counts={a:{'expected':dirs*n,'formalExports':dirs*n,'staticReview':'completed','frameMs':ms,'cycleMs':ms*n} for a,(dirs,n,ms) in expected.items()}
-manifest={'character':'10_crimson_spear_girl','updatedAt':datetime.now(timezone.utc).isoformat(),'status':'production-art-export-complete','expectedTotal':196,'nativeCandidateTotal':196,'formalExportTotal':196,'missingTotal':0,'counts':counts,'targetCanvas':[1024,1024],'rootTarget':[512,942],'rootStatus':'offline fixed group registration reviewed; client placement untested','runFrameMs':75,'runCycleMs':1200,'sourceOrderAppliedOnce':True,'clientIntegrated':False,'clientRuntimeTested':False,'userFinalAcceptance':False,'configTarget':'GPT Image 2.5 Sunburst / max','actualModel':None,'actualQuality':None,'toolRoute':'builtin','currentInventory':'delivery-current.json','historicalSourcePolicy':'Native/intermediate images are removed after final export validation; native SHA and original generation text records remain. Runtime PNGs are current assets.','slots':slots}
+manifest={'character':'10_crimson_spear_girl','updatedAt':datetime.now(timezone.utc).isoformat(),'status':'production-art-export-complete','expectedTotal':196,'nativeCandidateTotal':196,'formalExportTotal':196,'missingTotal':0,'counts':counts,'targetCanvas':[1024,1024],'rootTarget':[512,942],'rootStatus':'offline fixed group registration reviewed; client placement untested','runFrameMs':60,'runCycleMs':960,'sourceOrderAppliedOnce':True,'clientIntegrated':False,'clientRuntimeTested':False,'userFinalAcceptance':False,'configTarget':'GPT Image 2.5 Sunburst / max','actualModel':None,'actualQuality':None,'toolRoute':'builtin','currentInventory':'delivery-current.json','historicalSourcePolicy':'Native/intermediate images are removed after final export validation; native SHA and original generation text records remain. Runtime PNGs are current assets.','slots':slots}
 write(R/'manifest.json',manifest)
-write(R/'validation.json',{'status':'passed','runtimeCount':196,'decoded1024RGBA':196,'uniqueFileSHA':196,'uniquePixelSHA':196,'transparentAlpha':196,'noAlpha32EdgeContact':196,'native1254EvidenceAndRecordHashesVerified':196,'sourceOrderAppliedOnce':True,'errors':errors,'staticArtReview':'all selected frames reviewed in directional contact sheets and targeted native views; see FINAL_REVIEW.md','localPlaybackReview':'browser rendering and stepping checked; deterministic timing test in preview/timing-verification.json','clientAcceptance':False,'userFinalAcceptance':False})
+write(R/'validation.json',{'status':'passed','inventoryFile':'delivery-current.json','inventorySHA256':inventory_sha,'runtimeCount':196,'decoded1024RGBA':196,'uniqueFileSHA':196,'uniquePixelSHA':196,'transparentAlpha':196,'noAlpha32EdgeContact':196,'native1254EvidenceAndRecordHashesVerified':196,'sourceOrderAppliedOnce':True,'errors':errors,'staticArtReview':'all selected frames reviewed in directional contact sheets and targeted native views; see FINAL_REVIEW.md','localPlaybackReview':'browser rendering and stepping checked; deterministic timing test in preview/timing-verification.json','clientAcceptance':False,'userFinalAcceptance':False})
 
 try: font=ImageFont.truetype('C:/Windows/Fonts/msyh.ttc',16)
 except OSError: font=ImageFont.load_default()
@@ -67,18 +69,20 @@ handoff='''# 赤枪少女 · 成品交接
 
 | 动作 | 方向 | 每方向帧数 | 每帧 | 一圈 |
 |---|---|---:|---:|---:|
-| 跑步 | N / NE / E / SE / S / SW / W / NW | 16 | 75ms | 1200ms |
+| 跑步 | N / NE / E / SE / S / SW / W / NW | 16 | 60ms | 960ms |
 | 受击 | E / W | 6 | 40ms | 240ms |
 | 普攻 | E / W | 12 | 30ms | 360ms |
 | 施法 | E / W | 16 | 45ms | 720ms |
 
-跑步8方向均匀16×75ms，无阶段加权、无圈尾停顿；已移除480/640/720/800跑步档位。普攻第06帧为接触标记，施法第09帧为释放标记。运行目录编号01起已是最终播放顺序，不可再次应用旧N/S源帧重排；sourceFrame仅用于来源追溯。
+跑步8方向均匀16×60ms，无阶段加权、无圈尾停顿；已移除480/640/720/800跑步档位。普攻第06帧为接触标记，施法第09帧为释放标记。运行目录编号01起已是最终播放顺序，不可再次应用旧N/S源帧重排；sourceFrame仅用于来源追溯。
 
 所有成品为1024×1024 RGBA。原生证据为1254×1254。既有成品保留原配准；本次基于已配准成品重绘的新图整画布1254→1024，不重复旧缩放。个别生成时发生整体缩放漂移的独立新姿势，按头饰、髋部、枪身锚点作有记录的等比配准；未按脚底最低点贴线。每张成品的实际处理见对应generation.json。没有镜像补方向、复制帧或插值补数。接入时仍需验证游戏世界坐标与地面层级。
 
-当前全动作预览 `preview/index.html`，八方向跑步 `preview/timing-grounding.html`；支持正常1×、慢放¼、暂停、逐帧。14张当前联系表及四动作概览均从runtime生成。像素与来源校验见 `validation.json`，时序测试见 `preview/timing-verification.json`，美术检查范围见 `FINAL_REVIEW.md`。
+当前全动作预览 `preview/index.html`，八方向同屏 `preview/all-directions.html`，单方向跑步逐帧检查 `preview/timing-grounding.html`；支持正常1×、慢放¼、暂停、逐帧。14张当前联系表及四动作概览均从runtime生成。像素与来源校验见 `validation.json`，时序测试见 `preview/timing-verification.json`，美术检查范围见 `FINAL_REVIEW.md`。
 
-本轮逐方向参照用户确认的09竹弓少女，按最新要求修订支撑序列：同一只脚连续支撑8帧，沿运动轴相对髋部逐步向后推进4个空间位置，每处2张独立姿势；随后换另一脚8帧。最后位置允许真实前掌支撑。核对脚尖方向、腿部轴线、手数、握枪和枪尖完整性。角色身份、红白金服饰和双手长枪保留，正确帧保留。各方向的起止播放位见RUN_CONTACT_PLAN.json；本次来源和重排记录见run-contact-revision-20261004/publish-report.json。
+接地修订逐方向参照用户确认的09竹弓少女：同一只脚连续支撑8帧，沿运动轴相对髋部逐步向后推进4个空间位置，每处2张独立姿势；也就是前段2帧、中间4帧、后段2帧，随后换另一脚8帧。最后位置允许真实前掌支撑。核对脚尖方向、腿部轴线、手数、握枪和枪尖完整性。角色身份、红白金服饰和双手长枪保留，正确帧保留。各方向的起止播放位见RUN_CONTACT_PLAN.json；接地修订来源和重排记录见run-contact-revision-20261004/publish-report.json。
+
+本轮在原接地节奏上按新视频的运动平面定向修正腿脚轴线：NE15/16/01校正同一左摆动脚鞋尖突然转向镜头的问题，SW08、W06、NW10/11/12修正对应腿脚朝向与相邻帧衔接。保留各帧原支撑关系、双手长枪与角色构图；具体选稿和独立生成来源见run-axis-revision-20261004/publish-report.json及各方向审查记录。视频人物较小，仅用于运动平面和衔接参考，不宣称能测得精确踝角。正确帧保持，仍为16×60ms。
 
 按用户素材保留要求，成品验证后清理本角色目录的原生、拒稿和加工中间图片；清理清单见 `retention-report.json`。提示词、提交参数、回执、原生SHA及逐图生成文字记录保留。历史文档中的native源文件路径仅作出处证据，不是当前加载依赖。当前正式引用只使用runtime和preview文件。外部原角色idle/旧walk、09参照和全局设计图均未更改。
 
@@ -87,6 +91,6 @@ handoff='''# 赤枪少女 · 成品交接
 本任务只修改本角色目录，未修改客户端、其他角色、共享配置或Git状态。客户端目录存在，但未接入、未执行游戏内验收。
 '''
 (R/'MERGE_HANDOFF.md').write_text(handoff,encoding='utf-8')
-(R/'STATUS.md').write_text('# 赤枪少女 · 当前状态\n\n196/196张成品已导出，缺槽0；本机离线检查完成。跑步8方向统一16×75ms=1200ms。当前入口runtime/与preview/index.html。客户端未接入。\n\n详见MERGE_HANDOFF.md、FINAL_REVIEW.md与validation.json。\n',encoding='utf-8')
-(R/'README.md').write_text('# 赤枪少女动作成品\n\n已完成196张1024×1024 RGBA动作制作版：八方向跑步128张，E/W受击12张、普攻24张、施法32张。跑步各方向1200ms/圈。客户端尚未接入。\n\n- [全动作预览](preview/index.html)\n- [八方向跑步](preview/timing-grounding.html)\n- [四动作概览](preview/current-four-actions.jpg)\n- [成品清单](manifest.json)\n- [接入与来源说明](MERGE_HANDOFF.md)\n- [检查记录](FINAL_REVIEW.md)\n- [像素和来源校验](validation.json)\n\n当前资源为runtime/；历史生成记录保留模型、质量、提示词、回执与原生SHA。旧源图清理后不再作为加载依赖。\n',encoding='utf-8')
+(R/'STATUS.md').write_text('# 赤枪少女 · 当前状态\n\n196/196张成品已导出，缺槽0；本机离线检查完成。跑步8方向统一16×60ms=960ms。本轮完成NE15/16/01、SW08、W06、NW10/11/12腿脚轴线定向修正，发布记录见run-axis-revision-20261004/publish-report.json。当前资源入口runtime/，全动作preview/index.html，八方向同屏preview/all-directions.html。客户端未接入。\n\n详见MERGE_HANDOFF.md、FINAL_REVIEW.md与validation.json。\n',encoding='utf-8')
+(R/'README.md').write_text('# 赤枪少女动作成品\n\n已完成196张1024×1024 RGBA动作制作版：八方向跑步128张，E/W受击12张、普攻24张、施法32张。跑步各方向1200ms/圈。本轮腿脚轴线定向修正记录见run-axis-revision-20261004/publish-report.json。客户端尚未接入。\n\n- [八方向同屏](preview/all-directions.html)\n- [全动作预览](preview/index.html)\n- [单方向跑步逐帧检查](preview/timing-grounding.html)\n- [四动作概览](preview/current-four-actions.jpg)\n- [成品清单](manifest.json)\n- [接入与来源说明](MERGE_HANDOFF.md)\n- [检查记录](FINAL_REVIEW.md)\n- [像素和来源校验](validation.json)\n\n当前资源为runtime/；历史生成记录保留模型、质量、提示词、回执与原生SHA。旧源图清理后不再作为加载依赖。\n',encoding='utf-8')
 print(json.dumps({'runtimeVerified':len(slots),'contactSheets':14,'errors':errors}))

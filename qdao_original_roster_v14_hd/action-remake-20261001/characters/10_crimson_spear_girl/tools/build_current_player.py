@@ -5,7 +5,7 @@ R=Path(__file__).resolve().parents[1]
 is_final=(R/'delivery-current.json').exists()
 data=json.loads((R/('delivery-current.json' if is_final else 'candidate-inventory.json')).read_text(encoding='utf-8'))
 data['orders']={} if is_final else json.loads((R/'run-playback-proposals.json').read_text(encoding='utf-8-sig')).get('groups',{})
-data.update(runFrameMs=75,runCycleMs=1200,phaseWeightsApplied=False)
+data.update(runFrameMs=60,runCycleMs=960,phaseWeightsApplied=False)
 runreg=json.loads((R/'candidate/registration.json').read_text(encoding='utf-8-sig'))
 battlereg=json.loads((R/'candidate/battle-registration.json').read_text(encoding='utf-8-sig'))
 for group,frames in data['groups'].items():
@@ -33,10 +33,12 @@ for group,frames in data['groups'].items():
   if not fresh:raise ValueError('Cannot mix unregistered native into registered sequence: '+group)
   f['candidateUrl']='../'+p.relative_to(R).as_posix()+'?v='+cm['sha256'][:12]
 template=(R/'tools/uniform-player.html').read_text(encoding='utf-8')
-if is_final:template=template.replace('正在参照已确认的弓足少女逐向修正，图片仍在复查。','八方向跑步已按四个位置、每处两帧修订；16×75ms。本机预览已检查，客户端尚未接入。')
+if is_final:
+ status='全动作手脚复查中。' if (R/'full-limb-review-20261004/SCOPE.md').exists() and not (R/'full-limb-review-20261004/completion.json').exists() else '本轮全动作手脚复查已完成。'
+ template=template.replace('正在参照已确认的弓足少女逐向修正，图片仍在复查。','跑步16×60ms；每个连续支撑位置两张独立姿态，沿运动方向逐点递进。'+status+'客户端尚未接入。')
 for name,only in [('index.html',False),('timing-grounding.html',True)]:
  (R/'preview'/name).write_text(template.replace('__DATA__',json.dumps(data,ensure_ascii=False)).replace('__RUN_ONLY__',str(only).lower()),encoding='utf-8')
 (R/'preview/timing-review-data.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-timing={'run':{'frameMs':75,'cycleMs':1200,'frameCount':16,'phaseWeightsApplied':False,'timingStatus':'user_requested_offline_default','incompleteSequencePolicy':'block complete playback; preserve16 time slots for stepping','extraLoopPauseMs':0},'hit':{'frameMs':40,'cycleMs':240},'attack':{'frameMs':30,'cycleMs':360,'contactFrame':6},'cast':{'frameMs':45,'cycleMs':720,'releaseFrame':9},'clientIntegrated':False,'clientRuntimeTested':False}
+timing={'run':{'frameMs':60,'cycleMs':960,'frameCount':16,'phaseWeightsApplied':False,'timingStatus':'user_requested_offline_default','incompleteSequencePolicy':'block complete playback; preserve16 time slots for stepping','extraLoopPauseMs':0},'hit':{'frameMs':40,'cycleMs':240},'attack':{'frameMs':30,'cycleMs':360,'contactFrame':6},'cast':{'frameMs':45,'cycleMs':720,'releaseFrame':9},'clientIntegrated':False,'clientRuntimeTested':False}
 (R/'animation-timing.json').write_text(json.dumps(timing,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-print(json.dumps({'runCycleMs':1200,'runFrameMs':75,'oldSpeedOptions':False,'incompleteRunGroups':[k for k,v in data['groups'].items() if k.startswith('run/') and len(v)!=16]}))
+print(json.dumps({'runCycleMs':960,'runFrameMs':60,'oldSpeedOptions':False,'incompleteRunGroups':[k for k,v in data['groups'].items() if k.startswith('run/') and len(v)!=16]}))
