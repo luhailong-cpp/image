@@ -8,7 +8,7 @@ sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 read=lambda name:json.loads((R/name).read_text(encoding='utf-8-sig'))
 native=read('review/native_export_verification_20261004.json')
 tech=read('review/technical.json')
-playback=read('review/current_playback_evidence_20261004.json')
+playback=read('review/current_playback_evidence_20261005.json')
 timing=read('animation-timing.json')['run']
 assert timing['frameMs']==60 and timing['cycleMs']==960 and timing['durationsMs']==[60]*16
 manifest=read('preview/manifest.json')
@@ -45,6 +45,7 @@ out['fullLimbFeedbackReview']='review/full_limb_final_20261005.json'
 out['staticReports'].append('review/full_limb_final_20261005.json')
 out['runTiming']={'frameMs':60,'cycleMs':960,'pairMs':120,'latestUserCorrection':'records/run_timing_user_correction_20261005.json'}
 out['rootVisualObservations']='review/root_full_limb_observations_20261005.json'
+out['playbackEvidence']='review/current_playback_evidence_20261005.json'
 previous=read('review/CURRENT_REVIEW.json')
 if previous.get('retentionCleanup'):out['retentionCleanup']=previous['retentionCleanup']
 (R/'review/CURRENT_REVIEW.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')

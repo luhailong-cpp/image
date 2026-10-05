@@ -65,7 +65,7 @@ else:
     write(R/'run-playback-proposals.json',{'status':'reviewed-source-order-already-applied-to-runtime','groups':{},'historicalSourceOrders':'run-playback-proposals-historical.json','doNotApplyAgain':True})
     old=R/'RUN_REVIEW.md';historic=R/'RUN_REVIEW_HISTORICAL.md'
     if not historic.exists():historic.write_bytes(old.read_bytes())
-    old.write_text('# 跑步当前复核\n\n本轮八方向128张制作版已完成，当前结果见FINAL_REVIEW.md、manifest.json和runtime/run/。早期问题快照保留在RUN_REVIEW_HISTORICAL.md，不代表当前状态。每方向16×75ms=1200ms；客户端尚未接入。\n',encoding='utf-8')
+    old.write_text('# 跑步当前复核\n\n本轮八方向128张制作版已完成，当前结果见FINAL_REVIEW.md、manifest.json和runtime/run/。早期问题快照保留在RUN_REVIEW_HISTORICAL.md，不代表当前状态。每方向16×60ms=960ms；客户端尚未接入。\n',encoding='utf-8')
     for row in delete:
         p=(R/row['file']).resolve()
         assert p.is_relative_to(R) and p not in keep and sha(p)==row['sha256']

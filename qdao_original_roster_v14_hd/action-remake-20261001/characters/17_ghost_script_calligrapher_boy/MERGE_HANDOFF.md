@@ -1,13 +1,11 @@
-# 17 灵篆书生 · 素材交接
+# 17 灵篆书生 · 素材已导出，播放复核受限
 
-本角色制作完成。只交付本目录的runtime、manifest.json、acceptance.json及DELIVERY.md；正式离线预览位于preview/delivery.html。共196帧、14组动作，每帧1024×1024 RGBA。完整时长、事件、逐图来源和哈希见manifest.json。
+196张1024×1024透明RGBA PNG已保存。本轮22帧定点修正，其余174张PNG逐字节保持不变。全部帧静态手脚/持物复核及尺寸、透明边界、唯一性、来源和时长检查通过。
 
-八方向跑步16×60ms；01–08同一脚连续支撑，09–16换另一脚，各半轮四个位置段、每段两帧。N/NE/E/SE/S/W先右后左，NW/SW先左后右，按角色解剖侧。
+八方向跑步16帧各60ms，一轮960ms，每个接地位置两帧120ms。受击6×40ms、普攻12×30ms（06接触）、施法16×45ms（10释放）不变。
 
-来源PNG只作一次整画布LANCZOS缩放；导出偏移为0。客户端统一枢轴未标定，不能按逐帧最低脚点自动吸附地面。旧预览参考(0.5104,0.92105)仅为检查参考。
+本轮正常与四分之一慢放已完成N/NE/E/SE/S/SW跑步；hit-E继承像素和时长完全相同的此前实播。重新访问本地预览时受到浏览器安全策略阻止，W/NW跑步、W受击、E/W普攻、E/W施法共7组本轮实播未完成，不宣称全动作动态验收通过。
 
-本次没有客户端接入、Git暂存、提交或推送。其他角色和旧正式素材保持原状。按用户素材保留规则清除本批原图、拒稿及加工图，逐图模型/质量/时间/来源文字记录保留。runtime旁的generation.json内嵌完整来源记录。
+当前状态以manifest.json、acceptance.json与review/full-body-playback-review-20261005.json为准。完整资源与可离线打开的预览均保存到本目录。未接入客户端，未提交或推送Git。实际生成型号/质量未由内置工具披露，来源记录保持null。
 
-当前结论以acceptance.json和review/final-package-verification.json为准；早期制作检查文件保留历史用途，勿将其pending状态覆盖最终验收。工具未披露的实际型号/质量仍为null。
-
-本次鞋轴返修：run-N-16、run-NE-07、run-NE-08、run-NE-15、run-NW-15。对照用户提供的视频检查摆腿方向，修正横扭与突然翻底；其余191张正式帧SHA保持不变。修改方向已重新正常播放、四分之一慢放及关键帧逐张检查。
+交付runtime、manifest、acceptance、animation-timing和preview/delivery.html。导出仅整画布LANCZOS等比缩至1024；无裁切、平移或Alpha清理。所有22个新选图来源已内嵌在正式PNG旁的generation.json。

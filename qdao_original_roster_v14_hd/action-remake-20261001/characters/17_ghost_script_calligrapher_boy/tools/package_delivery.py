@@ -4,7 +4,9 @@ from zipfile import ZipFile, ZIP_DEFLATED
 import hashlib, json
 B=Path(__file__).resolve().parents[1]
 M=json.loads((B/'manifest.json').read_text(encoding='utf-8'))
-assert M['status']=='passed' and M['counts']['exportedRuntimeSlots']==196
+assert M['status'] in ('passed','ready_with_review_limit') and M['counts']['exportedRuntimeSlots']==196
+if M['status']=='ready_with_review_limit':
+    assert M['acceptance']['record']['dynamicApproval']=='incomplete' and M['acceptance']['record']['browserAccessLimit']
 verification=json.loads((B/'review/final-package-verification.json').read_text(encoding='utf-8'))
 cleanup=json.loads((B/'cleanup-report.json').read_text(encoding='utf-8-sig'))
 manifest_sha=hashlib.sha256((B/'manifest.json').read_bytes()).hexdigest()
@@ -70,6 +72,6 @@ with ZipFile(out) as z:
     assert sum(p.endswith('.png') for p in z.namelist())==196
 result={'file':out.name,'sha256':hashlib.sha256(out.read_bytes()).hexdigest(),
         'bytes':out.stat().st_size,'entries':len(files),'runtimePngs':196,
-        'clientIntegrated':False,'zipIntegrity':'passed'}
+        'clientIntegrated':False,'zipIntegrity':'passed','assetDeliveryStatus':M['status'],'dynamicApproval':M['acceptance']['record']['dynamicApproval']}
 (B/'package.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(json.dumps(result))

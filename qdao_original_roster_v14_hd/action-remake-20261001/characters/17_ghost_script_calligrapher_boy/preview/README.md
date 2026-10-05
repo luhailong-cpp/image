@@ -1,7 +1,5 @@
 # 灵篆书生完整动作预览
 
-直接用浏览器打开 [delivery.html](delivery.html)，无需服务器。保持preview与runtime目录相对关系；全部196帧从runtime读取。支持八方向跑步和E/W受击、普攻、施法，正常播放、四分之一慢放、暂停和逐帧检查。
+打开delivery.html，保持preview与runtime相对目录。196张正式PNG；跑步60ms/帧、960ms/圈；正常/慢放/逐帧均可用。八方向动图为run-current-960ms.webp。
 
-[八方向跑步动图](run-current-960ms.webp)为16帧各60ms，共960ms，240px整画布显示。
-
-旧入口重定向到正式预览。manifest-preview.json只保留导出时的选图/来源历史快照；其中staging路径可能已按素材保留规则清理，正式预览不读取这些路径。不要再用旧build_preview.py覆盖入口。
+7组本轮浏览器实播受访问策略阻止未完成，详见../acceptance.json。图片静态与时长/文件完整性检查已通过；未接入客户端。
