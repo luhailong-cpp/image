@@ -58,6 +58,33 @@ def textual_paths(value):
             yield from textual_paths(item)
 
 
+def generated_source_reference(value, receipt_value, sidecar):
+    """Permit only a tool-output cache path explicitly named in its saved receipt."""
+    within_image = local_reference(value, sidecar)
+    if within_image:
+        return within_image
+    if not isinstance(value, str):
+        return None
+    candidate = Path(value).resolve()
+    cache = (Path.home() / '.codex' / 'generated_images').resolve()
+    receipt_path = local_reference(receipt_value, sidecar)
+    if not candidate.is_relative_to(cache):
+        return None
+    def strings(node):
+        if isinstance(node, str): yield node
+        elif isinstance(node, dict):
+            for item in node.values(): yield from strings(item)
+        elif isinstance(node, list):
+            for item in node: yield from strings(item)
+    needle = str(candidate).replace('\\', '/').lower()
+    receipts = [receipt_path] if receipt_path and receipt_path.is_file() else list((ROOT / 'receipts').glob('*.json'))
+    for receipt_path in receipts:
+        receipt = load_json(receipt_path)
+        if any(needle in re.sub('/+', '/', s.replace('\\', '/')).lower() for s in strings(receipt)):
+            return candidate
+    return None
+
+
 def validate_record(path: Path, frame: dict, error, warn) -> dict | None:
     if not path.is_file():
         error("missing_generation_record", "缺少逐图 generation.json")
@@ -122,10 +149,10 @@ def validate_record(path: Path, frame: dict, error, warn) -> dict | None:
     else:
         for ref in refs:
             ref_path = ref.get("path", ref.get("file")) if isinstance(ref, dict) else ref
-            resolved = local_reference(ref_path, path)
+            resolved = generated_source_reference(ref_path, ref.get('generationRecord') if isinstance(ref,dict) else None, path)
             if not resolved or not resolved.is_file():
                 error("missing_reference_file", str(ref_path))
-            if not isinstance(ref, dict) or not ref.get("purpose"):
+            if not isinstance(ref, dict) or not (ref.get("purpose") or ref.get("role")):
                 error("missing_reference_purpose", str(ref_path))
             if isinstance(ref, dict) and ref.get("sha256") and resolved and resolved.is_file() and sha256(resolved) != ref["sha256"]:
                 error("reference_sha_mismatch", str(ref_path))
@@ -145,7 +172,7 @@ def validate_record(path: Path, frame: dict, error, warn) -> dict | None:
                 error("invalid_derived_source", "derivedFrom 必须保留源图路径、SHA256 与 generationRecord")
                 continue
             ancestor_name = ancestor.get("path", ancestor.get("file"))
-            ancestor_path = local_reference(ancestor_name, path)
+            ancestor_path = generated_source_reference(ancestor_name, ancestor.get('generationRecord', ancestor.get('generationReceipt')), path)
             if not ancestor_name or not ancestor_path:
                 error("invalid_derived_source_path", str(ancestor_name))
             elif ancestor_path.is_file() and sha256(ancestor_path) != ancestor["sha256"]:
@@ -155,7 +182,7 @@ def validate_record(path: Path, frame: dict, error, warn) -> dict | None:
                 cleanup = local_reference(ancestor.get("cleanupRecord"), path)
                 if not (ancestor.get("removed") or ancestor.get("deleted")) or not cleanup or not cleanup.is_file():
                     error("missing_derived_source", f"{ancestor_name}；已删除原图须记 removed=true 与 cleanupRecord")
-            ancestor_record = local_reference(ancestor.get("generationRecord"), path)
+            ancestor_record = local_reference(ancestor.get("generationRecord", ancestor.get("generationReceipt")), path)
             if not ancestor_record or not ancestor_record.is_file():
                 error("missing_derived_generation_record", str(ancestor.get("generationRecord")))
     if record.get("actualModel") is not None or record.get("actualQuality") is not None:
