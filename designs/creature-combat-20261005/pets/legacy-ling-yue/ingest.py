@@ -26,5 +26,7 @@ else:
     dest.write_bytes(source.read_bytes())
 cfg=json.loads(Path('D:/work/image/config/image-generation.json').read_text(encoding='utf-8-sig'))
 record={'file':rel,'sha256':sha(dest),'generatedAt':datetime.fromtimestamp(source.stat().st_mtime,timezone.utc).isoformat(),'recordedAt':datetime.now(timezone.utc).isoformat(),'width':im.width,'height':im.height,'format':'PNG','tool':'image_gen.imagegen','route':'builtin','configSnapshot':cfg,'submittedParameters':{'model':None,'quality':None,'transparent_background':True,'referenced_image_paths':[r['path'] for r in refs]},'actualModel':None,'actualQuality':None,'unverifiedReason':'宿主管理；工具未开放model/quality选择器，结果未披露可核实的实际型号和质量。','evidence':{'receipt':receipt,'outputHintField':'output_hint'},'prompt':prompt,'references':refs,'native':native,'operation':operation,'derivedFrom':{'file':str(source),'sha256':native['sha256'],'generationReceipt':receipt},'visualStatus':'pending-frame-review','clientIntegration':'not-performed'}
+record['derivedFrom']['path']=str(source)
+record['derivedFrom']['generationRecord']=receipt
 (Path(str(dest)+'.generation.json')).write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(json.dumps({'file':rel,'native':[native['width'],native['height']],'output':[im.width,im.height],'alpha':im.getchannel('A').getextrema(),'sha256':record['sha256']},ensure_ascii=False))
