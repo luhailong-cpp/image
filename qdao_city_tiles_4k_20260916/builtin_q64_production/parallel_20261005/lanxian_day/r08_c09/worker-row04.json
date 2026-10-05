@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "worker": "workflow_helper",
+  "tile": "r08_c09",
+  "assignedCells": [
+    "r04_c01",
+    "r04_c02",
+    "r04_c03",
+    "r04_c04"
+  ],
+  "updatedAtUtc": "2026-10-05T14:55:18.791454+00:00",
+  "status": "waiting_for_north_native_dependency",
+  "waitingFor": "r03_c04",
+  "completedNativeCount": 3,
+  "formalAccepted": false,
+  "images": [
+    {
+      "cell": "r04_c01",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r04_c01.png",
+      "sha256": "39be0f308acdf76a6b4532e4b9349c41e34c9078e35b27f89548225c734c2391",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r04_c01.png.generation.json",
+      "reviewStatus": "candidate_pending_full_seam_review",
+      "visualInspection": {
+        "performed": true,
+        "scope": "whole returned 1254-square image; compared with guide and style reference",
+        "findings": [
+          "Extra foliage shadows from first attempt removed. Cream paving, top gray stone, bevel and joint positions retained.",
+          "Small step at left guide-band transition near y367 requires full external-west seam review. No corner/seam approval asserted."
+        ]
+      },
+      "formalAccepted": false
+    },
+    {
+      "cell": "r04_c02",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r04_c02.png",
+      "sha256": "728e2d1163e4de73894a77267674a4d7c2241449797a6cdc04f1db2eafb7cbaa",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r04_c02.png.generation.json",
+      "reviewStatus": "candidate_pending_full_seam_review",
+      "visualInspection": {
+        "performed": true,
+        "scope": "whole returned 1254-square image; compared with guide and style reference",
+        "findings": [
+          "Existing lower-right rounded green tree canopy, branch and cast-shadow footprint preserved. Paving and upper bevel lines retained.",
+          "No additional objects, text or foliage shadows observed. Full shared seam alignment is still unverified."
+        ]
+      },
+      "formalAccepted": false
+    },
+    {
+      "cell": "r04_c03",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r04_c03.png",
+      "sha256": "c70e357cab4e179d2eae7762526c666ec3c7e23d75da6de8732eb48e8cae1dbb",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r04_c03.png.generation.json",
+      "reviewStatus": "candidate_pending_full_seam_review",
+      "visualInspection": {
+        "performed": true,
+        "scope": "whole returned 1254-square image; compared with guide and style reference",
+        "findings": [
+          "Paving joints, rounded tree-canopy silhouettes, white post, planter top/rim and shadows remain in guide footprint. No extra objects or text.",
+          "Some leaf clusters, including near north edge, have stronger highlights than guide; north/west color continuity must be checked at full resolution."
+        ]
+      },
+      "formalAccepted": false
+    }
+  ],
+  "modelPolicyVerification": {
+    "checkedAtUtc": "2026-10-05T13:21:09Z",
+    "configurationTarget": {
+      "model": "gpt-image-2.5-sunburst",
+      "quality": "max"
+    },
+    "officialSources": [
+      "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    ],
+    "actualModel": null,
+    "actualQuality": null,
+    "note": "Official model page lists Sunburst as most capable and quality through max. Builtin tool has no selectors; this is a configuration target, not an actual-return claim."
+  },
+  "rejectedAttempts": [
+    {
+      "cell": "r04_c01",
+      "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r04_c01.attempt01.generation.json",
+      "reason": "Added tree-cast shadows not in guide",
+      "sourceCleanupPending": true
+    }
+  ]
+}
