@@ -62,6 +62,25 @@ def reference_strings(value):
                 yield value[key]
 
 
+def has_retained_deletion_evidence(source: Path | None) -> bool:
+    """A historical generation reference may be removed by the retention policy.
+
+    Require the cleanup inventory and its original generation record to agree;
+    a missing reference alone is never accepted.
+    """
+    if source is None or not inside(source, ROOT):
+        return False
+    try:
+        cleanup = json.loads((ROOT / "records/cleanup.json").read_text(encoding="utf-8"))
+        relative = source.relative_to(ROOT).as_posix()
+        deleted = next((e for e in cleanup["entries"] if e["file"] == relative), None)
+        record = json.loads(source.with_name(source.name + ".generation.json").read_text(encoding="utf-8-sig"))
+        return bool(deleted and deleted["sha256"] == record["sha256"]
+                    and record.get("imageRetention", "").startswith("deleted after final export"))
+    except (OSError, ValueError, KeyError, TypeError):
+        return False
+
+
 def read_record(path: Path, errors: list, warnings: list, seen=None) -> dict:
     seen = set() if seen is None else seen
     if path in seen:
@@ -142,7 +161,10 @@ def read_record(path: Path, errors: list, warnings: list, seen=None) -> dict:
                 continue
             source = resolve_source(value, path)
             if source is None or not source.is_file():
-                errors.append(f"Missing/out-of-scope {field} reference: {value}")
+                if field == "references" and has_retained_deletion_evidence(source):
+                    warnings.append(f"Historical reference image removed with verified retained evidence: {value}")
+                else:
+                    errors.append(f"Missing/out-of-scope {field} reference: {value}")
     return data
 
 
@@ -267,6 +289,16 @@ def main() -> int:
     if not inside(manifest, ROOT):
         parser.error("--manifest-out must stay inside this pet directory")
     report = scan()
+    visual_file = ROOT / 'records' / 'final-visual-review.json'
+    if visual_file.is_file():
+        visual = json.loads(visual_file.read_text(encoding='utf-8-sig'))
+        reviewed = {f['file']: f['sha256'] for f in visual.get('frames', [])}
+        if len(reviewed) == 68 and all(reviewed.get(f['file']) == f.get('sha256') for f in report['frames']):
+            report['verification']['visualFrameReview'] = visual.get('individualFrameReview', 'pending-visual-review')
+            report['verification']['animationPlaybackReview'] = visual.get('playbackReview', 'pending-visual-review')
+            report['verification']['visualReviewRecord'] = 'records/final-visual-review.json'
+            for frame in report['frames']:
+                frame['visualStatus'] = visual.get('individualFrameReview', 'pending-visual-review')
     if not args.check_only:
         (ROOT / "preview").mkdir(exist_ok=True)
         manifest.parent.mkdir(parents=True, exist_ok=True)
