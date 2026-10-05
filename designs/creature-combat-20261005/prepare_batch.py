@@ -1,4 +1,5 @@
 import hashlib
+raise RuntimeError('本脚本已被用户Image-only范围纠正停用；请用prepare_image_only_batch.py，不再导入客户端素材。')
 import io
 import json
 import subprocess
