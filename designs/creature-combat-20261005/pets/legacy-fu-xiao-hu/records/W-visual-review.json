@@ -17,7 +17,7 @@
   "technicalReport": "W-QA/technical.json",
   "technicalReportTransformScope": "本子任务固定1254→1024整画布缩放。根任务计划全W统一y=-4后重算SHA与manifest；此报告若生成在偏移前需根任务刷新。",
   "dynamicReview": {
-    "status": "not_performed_browser_unavailable",
+    "status": "subagent_unavailable_root_reported_completed",
     "attempts": [
       {
         "api": "cua.createBrowserTab('iab', localhost W-QA)",
@@ -28,13 +28,22 @@
         "result": []
       }
     ],
-    "preview": "W-QA/index.html",
+    "preview": "../preview/index.html",
     "modes": [
       "1x hit40ms/cast45ms",
       "0.25x",
       "pause/previous/next/range"
     ],
-    "clientIntegration": "not performed"
+    "clientIntegration": "not performed",
+    "groupPreviews": [
+      "../preview/hit-W.html",
+      "../preview/cast-W.html"
+    ],
+    "rootFollowup": {
+      "reportedBy": "parent /root",
+      "status": "root reported successful unified six-group 1x and 0.25x playback in cua",
+      "evidence": "Parent message received after W handoff; root final QA record is authoritative."
+    }
   },
   "generationEvidence": {
     "route": "builtin image_gen",
@@ -47,6 +56,7 @@
   "cleanup": {
     "workspaceNativeIntermediates": "none created except retained current design/W-reference.png",
     "rejectedFrames": "runtime被修正最终帧替代，原生成证据JSON保留；未建立拒稿图片备份",
-    "hostGeneratedCache": "工具默认产生于本宠目录之外；本子任务只有本宠目录写权限，因此未修改/删除宿主缓存"
+    "hostGeneratedCache": "工具默认产生于本宠目录之外；本子任务只有本宠目录写权限，因此未修改/删除宿主缓存",
+    "duplicateQa": "W-QA contact PNGs and HTML removed after verifying unified preview equivalents."
   }
 }
