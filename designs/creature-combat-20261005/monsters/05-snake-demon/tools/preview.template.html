@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>蛇妖 · 三动作检查台</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,"Microsoft YaHei",sans-serif;background:#101722;color:#e9eef6}*{box-sizing:border-box}body{margin:0;padding:24px;max-width:1800px;margin-inline:auto}h1{font-size:26px;margin:0 0 8px}h2{font-size:17px;margin:0}p{line-height:1.6;color:#bdc8d8}a{color:#9edaff}button,select,input{font:inherit}button,select{background:#24334a;color:#eef5ff;border:1px solid #42536c;border-radius:7px;padding:8px 12px;cursor:pointer}button:hover{background:#344a68}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #87dcff;outline-offset:2px}.toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:20px 0;padding:16px;background:#1b2636;border-radius:12px}.badge{display:inline-block;border:1px solid #42536c;border-radius:7px;padding:6px 10px;color:#cbd6e6}.bad{color:#ffb3b3;border-color:#7c454c}.good{color:#a9e8ca;border-color:#3e705b}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,410px),1fr));gap:20px}.card{background:#1a2535;border:1px solid #304258;border-radius:14px;overflow:hidden}.cardheader,.cardfooter{padding:14px 16px}.meta,.state,.hint{font-size:13px;line-height:1.6;color:#bac7d9}.viewport{position:relative;aspect-ratio:1;width:100%;background-color:#dde2e9;background-image:linear-gradient(45deg,#bdc7d2 25%,transparent 25%),linear-gradient(-45deg,#bdc7d2 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#bdc7d2 75%),linear-gradient(-45deg,transparent 75%,#bdc7d2 75%);background-size:32px 32px;background-position:0 0,0 16px,16px -16px,-16px 0}.viewport.dark{background:#142030}.viewport.light{background:#f3eee1}canvas{display:block;width:100%;height:100%;object-fit:contain}.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.scrub{width:100%;margin:12px 0}.state{margin-top:10px;min-height:42px;overflow-wrap:anywhere}.footerlinks{display:flex;gap:14px;margin-top:10px}.note{padding:14px 18px;border-left:3px solid #e3b36f;background:#2a2930;color:#e4d6c0}details{margin:20px 0}pre{white-space:pre-wrap;max-height:400px;overflow:auto;background:#0d131d;padding:16px;font-size:12px}.contact-list{display:flex;gap:16px;flex-wrap:wrap}.statusline{display:flex;gap:10px;flex-wrap:wrap}label{display:flex;align-items:center;gap:7px}@media(max-width:600px){body{padding:14px}.toolbar{padding:12px}.grid{gap:14px}}
+</style>
+<h1>蛇妖 · 受击 / 普攻 / 施法</h1>
+<p>六组独立序列 · E 敌方斜前朝右下 · W 我方真斜后朝左上 · 原始 1024 × 1024 画布</p>
+<div class="statusline" id="statuses"></div>
+<p class="note">这个检查台不自动判定画法、解剖或连续动作通过。请分别查看全部帧、正常速度、0.25 倍慢放与首尾衔接；点击原图可检查透明边缘和腹面盘身。客户端接入验收需单独记录。</p>
+<div class="toolbar">
+  <button id="playAll">全部暂停</button><button id="restart">全部回到 01</button>
+  <label>播放速度 <select id="speed"><option value="1">1 × 正常</option><option value="0.25">0.25 × 慢放</option></select></label>
+  <label>背景 <select id="background"><option value="checker">透明棋盘</option><option value="dark">深色</option><option value="light">浅色</option></select></label>
+  <label><input type="checkbox" id="pivot">显示锚点 [512,942]</label>
+  <a href="../manifest.json">完整清单</a><a href="../qa/technical-report.json">技术报告</a><a href="../provenance-index.md">逐图来源</a>
+</div>
+<div class="grid" id="groups"></div>
+<details><summary>六组全帧联系表（仅 QA 派生图）</summary><p class="contact-list" id="contacts"></p></details>
+<details><summary>技术问题与检查范围</summary><pre id="validation"></pre></details>
+<script>
+"use strict";
+const delivery = /*__DELIVERY_DATA__*/null;
+if (!delivery) throw new Error("This is a template. Run prepare_delivery.py to build preview/index.html.");
+const manifest = delivery.manifest;
+const frameByFile = new Map(manifest.frames.map(frame => [frame.file, frame]));
+const loaded = new Map();
+const players = [];
+let speed = 1, showPivot = false;
+const statusLabel = value => ({passed:"通过", failed:"失败", pending:"待人工检查", not_tested:"未验收"}[value] || value);
+function element(tag, text, className) {const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(className)el.className=className;return el;}
+function badge(text, cls) {return element("span", text, "badge " + (cls||""));}
+document.getElementById("statuses").append(badge(`正式帧 ${manifest.presentFrames} / 68`),badge(`技术检查 ${statusLabel(manifest.technicalStatus)}`,manifest.technicalStatus==="passed"?"good":"bad"),badge(`客户端 ${statusLabel(manifest.clientAcceptanceStatus)}`));
+document.getElementById("validation").textContent=JSON.stringify(manifest.validation,null,2);
+for (const file of delivery.contacts) {const a=element("a",file.split("/").pop());a.href="../"+file;a.target="_blank";document.getElementById("contacts").append(a);}
+function preload(file) {if(loaded.has(file))return loaded.get(file);const state={image:new Image(),ready:false,error:false};state.image.onload=()=>{state.ready=true;for(const p of players)if(p.group.frames[p.index]===file)p.draw();};state.image.onerror=()=>{state.error=true;for(const p of players)if(p.group.frames[p.index]===file)p.draw();};state.image.src="../"+file;loaded.set(file,state);return state;}
+function syncPlayLabel() {document.getElementById("playAll").textContent=players.some(p=>p.playing)?"全部暂停":"全部播放";}
+class Player {
+  constructor(group) {
+    this.group=group;this.index=0;this.playing=true;this.elapsed=0;
+    this.card=element("section",undefined,"card");const head=element("div",undefined,"cardheader");head.append(element("h2",`${group.actionLabel} · ${group.direction}`),element("div",`${group.directionLabel}｜${group.expectedFrames} 帧 × ${group.durationMs} ms = ${group.totalDurationMs} ms`,"meta"));
+    this.viewport=element("div",undefined,"viewport");this.canvas=element("canvas");this.canvas.width=1024;this.canvas.height=1024;this.canvas.setAttribute("aria-label",`${group.actionLabel} ${group.direction} 预览`);this.viewport.append(this.canvas);this.ctx=this.canvas.getContext("2d");
+    const foot=element("div",undefined,"cardfooter");const controls=element("div",undefined,"controls");this.play=element("button","暂停");this.play.onclick=()=>{this.playing=!this.playing;this.elapsed=0;this.updatePlay();syncPlayLabel();};const prev=element("button","← 上一帧");prev.onclick=()=>this.step(-1);const next=element("button","下一帧 →");next.onclick=()=>this.step(1);this.counter=element("span",undefined,"badge");controls.append(this.play,prev,next,this.counter);
+    this.range=element("input",undefined,"scrub");this.range.type="range";this.range.min=0;this.range.max=group.expectedFrames-1;this.range.step=1;this.range.value=0;this.range.setAttribute("aria-label",`${group.actionLabel} ${group.direction} 逐帧`);this.range.oninput=()=>{this.playing=false;this.index=Number(this.range.value);this.elapsed=0;this.updatePlay();syncPlayLabel();this.draw();};
+    this.state=element("div",undefined,"state");const links=element("div",undefined,"footerlinks");this.original=element("a","打开当前原图");this.original.target="_blank";this.source=element("a","当前来源记录");this.source.target="_blank";links.append(this.original,this.source);
+    const review=element("div",`全帧 ${statusLabel(group.visualStatus)} · 正常 ${statusLabel(group.normalPlaybackStatus)} · 慢放 ${statusLabel(group.slowPlaybackStatus)} · 邻接 ${statusLabel(group.adjacencyStatus)}`,"hint");foot.append(controls,this.range,this.state,links,review);this.card.append(head,this.viewport,foot);document.getElementById("groups").append(this.card);
+    group.frames.forEach(file=>{if(frameByFile.get(file).present)preload(file);});this.draw();
+  }
+  updatePlay(){this.play.textContent=this.playing?"暂停":"播放";}
+  step(delta){this.playing=false;this.elapsed=0;this.index=(this.index+delta+this.group.expectedFrames)%this.group.expectedFrames;this.updatePlay();syncPlayLabel();this.draw();}
+  advance(dt){if(!this.playing)return;this.elapsed+=dt*speed;const count=Math.floor(this.elapsed/this.group.durationMs);if(count>0){this.elapsed-=count*this.group.durationMs;this.index=(this.index+count)%this.group.expectedFrames;this.draw();}}
+  draw(){const file=this.group.frames[this.index];const frame=frameByFile.get(file);const state=loaded.get(file);const ctx=this.ctx;ctx.clearRect(0,0,1024,1024);
+    if(state&&state.ready){ctx.drawImage(state.image,0,0,1024,1024);}else{ctx.fillStyle="#923b42";ctx.font="bold 40px system-ui";ctx.textAlign="center";ctx.fillText(!frame.present?"缺帧":state?.error?"图片无法读取":"正在载入",512,490);ctx.font="24px system-ui";ctx.fillText(file,512,535);}
+    if(showPivot){ctx.strokeStyle="#f54f69";ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(482,942);ctx.lineTo(542,942);ctx.moveTo(512,912);ctx.lineTo(512,972);ctx.stroke();ctx.strokeStyle="#49d4f0";ctx.strokeRect(1.5,1.5,1021,1021);}
+    this.counter.textContent=`${String(this.index+1).padStart(2,"0")} / ${this.group.expectedFrames}`;this.range.value=this.index;this.original.href="../"+file;this.original.hidden=!frame.present;this.source.hidden=!frame.source?.present;if(frame.source?.present)this.source.href="../"+frame.source.record;
+    this.state.textContent=`${file}｜人工：${statusLabel(frame.visualStatus)}｜${frame.errors.length?frame.errors.join("; "):"技术问题：无"}`;this.state.style.color=frame.errors.length?"#ffb3b3":"#bdc8d8";
+  }
+}
+for(const group of manifest.groups)players.push(new Player(group));
+document.getElementById("playAll").onclick=()=>{const play=!players.some(p=>p.playing);for(const p of players){p.playing=play;p.elapsed=0;p.updatePlay();}syncPlayLabel();};
+document.getElementById("restart").onclick=()=>{for(const p of players){p.index=0;p.elapsed=0;p.draw();}};
+document.getElementById("speed").onchange=event=>{speed=Number(event.target.value);for(const p of players)p.elapsed=0;};
+document.getElementById("background").onchange=event=>{for(const p of players)p.viewport.className="viewport "+event.target.value;};
+document.getElementById("pivot").onchange=event=>{showPivot=event.target.checked;for(const p of players)p.draw();};
+let previous=null;function tick(now){if(previous!==null&&!document.hidden){const dt=Math.min(now-previous,100);for(const p of players)p.advance(dt);}previous=now;requestAnimationFrame(tick);}requestAnimationFrame(tick);
+</script>
+</html>
