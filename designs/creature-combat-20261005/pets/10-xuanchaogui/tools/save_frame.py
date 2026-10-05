@@ -36,7 +36,7 @@ refs = []
 for i,p in enumerate(receipt['referenced_image_paths']):
     roles = ['identity E front-three-quarter', 'identity W rear-three-quarter', 'primary painting/material style']
     refs.append({'path':p, 'sha256':sha(p), 'role':roles[i] if i < 3 else 'animation continuity / fixed composition'})
-prompt_rel = f'prompts/{action}/{direction}/{number:02d}.txt'
+prompt_rel = receipt.get('promptPath', f'prompts/{action}/{direction}/{number:02d}.txt')
 data = dict(file=str(native), sha256=sha(native), generatedAt=receipt['completedAt'], startedAt=receipt['startedAt'],
             width=original_size[0], height=original_size[1], format=fmt, mode=mode,
             tool='image_gen.imagegen', route='builtin', configSnapshot=config,
