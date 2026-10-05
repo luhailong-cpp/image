@@ -1,23 +1,21 @@
-# 绛铃 · 受击、普攻、施法
+# Image原有形象：绛铃 · 三种战斗动作
 
-用户2026-10-05明确要求每只怪物/宠物独立一个窗口制作三种战斗动作，不制作移动动作。你的唯一写入范围：`D:\work\image\designs\creature-combat-20261005\pets\02-jiangling`。公共名单、公共规范、来源参考和其它角色目录只读；不改客户端、Git索引或分支，不提交/推送/重置。
+用户最新明确范围是D:/work/image原本已有的怪物和宠物。你只制作本只原有形象，不从客户端、兄弟仓库、另一电脑、外部游戏或本轮新导入参考选新对象。不替换/重新设计现有身份；补受击、普攻、施法，不做跑步/走路/移动循环。
 
-先读 `D:\work\image\designs\creature-combat-20261005\COMBAT_SPEC.md`、根AGENTS.md、designs/README.md、README接手说明及所指交接/美术定调、config/image-generation.json、docs/IMAGE_MODEL_POLICY.md，使用imagegen技能。不要停在计划、仅盘点或写交接，开始内置生图并持续完成本只三动作。
+唯一写入目录：D:\work\image\designs\creature-combat-20261005\pets\02-jiangling。其它Image内窗口目录、旧静态包和公共文件只读；禁止读取客户端及兄弟仓库。不提交/推送/切分支/修改Git索引。本轮公共规范：D:\work\image\designs\creature-combat-20261005\COMBAT_SPEC.md；先读根AGENTS、designs/README、README接手说明、config/image-generation.json、docs/IMAGE_MODEL_POLICY.md，使用imagegen技能和内置image_gen。
 
-身份：墨黑短发折绢仙灵，象牙绛红折瓣衣、青玉丝带与三铃折扇。
-解剖与持物：右手三铃折扇，左手空手。。
-避免：长棕发粉色长裙仙女、绕身长飘带。
+原有身份：墨黑短发折绢仙灵，象牙绛红折瓣衣、青玉丝带与三铃折扇。
+解剖和持物：右手三铃折扇，左手空手。
+禁止身份漂移：长棕发粉色长裙仙女、绕身长飘带。
 
-实际打开以下身份图；工具调用中实际附图、注明身份参考用途：
+实际view_image查看并在生图中附以下身份参考，注明用途：
 - D:\work\image\designs\pets-xianling-20260924\source\02-jiangling-E.png
 - D:\work\image\designs\pets-xianling-20260924\source\02-jiangling-W.png
 
-实际打开并附主要画法/材质参考 `D:\work\image\designs\attribute-panels\v2-painted\01-character-ui-no-affinity.png`；独立生物可补 `D:\work\image\designs\pets-xianling-20260924\source\03-shuangtuan-E.png` 作为画法完成度参考，不能复制貂的身体或饰物。沿用当前仙气提升版E/W真实原生身份；勿用旧未采用pets包或外部游戏截图覆盖。当前只有静态，无可复用三动作。
+主要画法/材质成图也要实际查看并附图：D:\work\image\designs\attribute-panels\v2-painted\01-character-ui-no-affinity.png。当前真实E/W原生图均已有，直接沿用，不用未采用/重复旧包覆盖。
 
-三动作均制作E敌方斜前朝右下、W我方真正斜后朝左上；背向须真实后脑/背部/后足或鞋跟，独立绘制，不水平镜像冒充。每向受击6帧、普攻12帧、施法16帧，共68张1024×1024透明PNG。此为本轮沿用人物战斗数量的新制作合同，不能称为旧怪物8帧合同。时长受击40ms/帧、普攻30ms/帧、施法45ms/帧；动作正常/0.25慢放及逐帧预览齐备。没有跑步、走路、移动循环、位移序列任务。
+E为敌方斜前朝右下；W为真正我方斜后朝左上，要有后脑/背部/后足或鞋跟，独立绘制。每向hit6帧×40ms、attack12帧×30ms、cast16帧×45ms，共68张1024×1024透明PNG。此为新动作制作合同。支撑和重心按真实物种，人形腿掌避免外翻，四足/鸟翼/蟹钳等不能套成人形，也不能缺肢、多肢或突然换手。自然原地反冲、蓄力、抬肢及回弹可保留，不生成位移序列。
 
-所有技术/美术验收、逐图来源记录与不复制移图补帧要求见公共规范。使用GPT Image 2.5/max配置目标，内置优先，不启用单独计费API/CLI。工具若无模型/质量参数，实际记录null及原因，不能把提示词算显式选择参数。把每张选中最终图落本目录；不要只留在用户generated_images路径。
+先写本只POSES.md锁定解剖左右与姿态阶段，随即开始真实内置AI单帧生成/编辑，持续完成六组全部68帧，不停在计划或来源盘点，不再问是否开始。正确已有成果复用，错帧定点修；不复制、整图平移、镜像或插值补帧。逐图保存模型目标/实际提交/真实返回证据、时间、SHA、prompt和参考；没有model/quality选择器则实际未知为null，目标沿用用户GPT Image2.5/max，不转付费API/CLI。
 
-先观察静态身份，写本只 `POSES.md` 明确解剖左右持物、姿态阶段和首尾衔接，再按单帧独立姿态执行真实AI生成/编辑；正确已有图复用，错帧定点改。手/爪/翅连接、道具握持、四足/六步足数量、尾数、支撑接触必须在全序列一致。膝—踝—足掌沿本物种正常运动平面，避免外翻；允许自然屈伸，不把腿锁死或把所有物种做成人形。原地小幅重心、反冲、蓄力和回弹合法，不能复制图并平移充当动作。
-
-完成本只68图、清单/逐图生成来源索引、README/STATUS/MERGE_HANDOFF、离线预览（正常/慢放/逐帧）、尺寸alpha及SHA检查；实际看所有帧、全部六组动态与邻接、手足放大。记录未在游戏客户端接入验收的范围，不把文件存在或消息发送当作成品通过。无需再问是否开始，继续完成。
+成品落本目录，提供manifest/SHA/alpha尺寸与缺帧检查、README/STATUS/MERGE_HANDOFF、正常时间/0.25慢放/逐帧预览。实际看全帧与六组连播，检查方向、手爪/足/翼/尾/道具连续性与收势，不把文件齐全说成动态或游戏接入通过；未接入客户端如实记录。根素材保留规则在最终引用完整后执行；跨窗口旧身份参考不要删除。
