@@ -18,7 +18,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 REPO = ROOT.parents[3]
 PYTHON = "C:/Users/luyua/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe"
-SPECS = {"run": (16, ("N", "NE", "E", "SE", "S", "SW", "W", "NW"), 75),
+SPECS = {"run": (16, ("N", "NE", "E", "SE", "S", "SW", "W", "NW"), 60),
          "hit": (6, ("E", "W"), 40), "attack": (12, ("E", "W"), 30),
          "cast": (16, ("E", "W"), 45)}
 DOCUMENTS = ["manifest.json", "sources.json", "review/current-validation.json",
@@ -245,7 +245,7 @@ def main(argv=None):
     for s in sequences:
         fmt = lambda ns: "、".join(f"{n:02}" for n in ns) or "无"
         lines.append(f"| {s['action']}/{s['direction']} | {fmt(s['presentIndices'])} | {fmt(s['missingIndices'])} | {s['frameDurationMs']} / {s['sequenceDurationMs']} ms |")
-    lines.extend(["", "逐图原生PNG、导出对应、完整SHA、配置/回执证据见 [来源审计](review/provenance-completion.json) 的 generationInventory 与 frameInventory。派生联系表单列 excludedGenerationPngs，不计作原生素材。", "", "跑步当前八方向统一1200ms/圈，16帧各75ms；正式预览仅保留正常、慢放、暂停与逐帧，旧快档和旧权重已退出当前配置。客户端速度与滑步未验证。"])
+    lines.extend(["", "逐图原生PNG、导出对应、完整SHA、配置/回执证据见 [来源审计](review/provenance-completion.json) 的 generationInventory 与 frameInventory。派生联系表单列 excludedGenerationPngs，不计作原生素材。", "", "跑步当前八方向统一960ms/圈，16帧各60ms；正式预览仅保留正常、慢放、暂停与逐帧，旧快档和旧权重已退出当前配置。客户端速度与滑步未验证。"])
     lines.extend(["", f"已确认失败请求 {len(failures)} 项（原始网络错误证据保留）；无完成证据请求 {len(unknowns)} 项（unknown，不等同于已确认失败）。", ""])
     for row in failures + unknowns:
         lines.append(f"- `{row['relativePath']}` — `{row['outcome']}`；SHA `{row['sha256']}`。")

@@ -83,7 +83,7 @@ def main():
         'scope': 'Same-direction comparison; different frame numbers can represent different phases. No reference pixels, identities or weapons are copied.',
         'manifestSha256': {'boy': sha(ROOT / 'manifest.json'), 'bamboo': sha(REFERENCE / 'manifest.json')},
         'referenceTiming': reference_timing,
-        'referenceRunPlaybackOverride': {'frameMs': current_timing['frameDurationMs'], 'cycleMs': current_timing['cycleDurationMs'], 'reason': 'Latest user asks uniform 75ms x 16; display timing only. Read-only reference files are unchanged; sourceMs preserves their manifest values.'},
+        'referenceRunPlaybackOverride': {'frameMs': current_timing['frameDurationMs'], 'cycleMs': current_timing['cycleDurationMs'], 'reason': 'Latest user asks uniform 60ms x 16; display timing only. Read-only reference files are unchanged; sourceMs preserves their manifest values.'},
         'groups': groups,
         'client': {'pathExists': client.exists(), 'modified': False, 'executed': False, 'evidence': client_evidence},
         'dynamicVisualPlaybackVerified': False,
@@ -94,7 +94,7 @@ def main():
 <title>道童与竹弓少女动作对照</title><style>
 body{font:16px system-ui;margin:24px;background:#eeeae0;color:#253d34}main{max-width:1040px;margin:auto}h1{font-size:24px}p{line-height:1.6}button,select{font:inherit;padding:7px;margin:3px}section{display:flex;flex-wrap:wrap;gap:24px}.actor{flex:1;min-width:270px}img{display:block;width:min(100%,400px);background:#f8f6ee;border:1px solid #ccc5b3}small{display:block;color:#57655d}.controls{margin:14px 0}
 </style><main><h1>道童与竹弓少女 · 同方向对照</h1>
-<p>竹弓少女为用户最新确认的参照。道童保留自身外形、左手葫芦与空右手。本页双方跑步均按1200ms一圈、每帧75ms播放；参照文件仅读。同号帧不一定同相位，可暂停后分别逐帧查看。</p>
+<p>竹弓少女为用户最新确认的参照。道童保留自身外形、左手葫芦与空右手。本页双方跑步均按960ms一圈、每帧60ms播放；参照文件仅读。同号帧不一定同相位，可暂停后分别逐帧查看。</p>
 <div class="controls"><select id="sequence"></select><button id="toggle">暂停</button><select id="speed"><option value="1">正常速度</option><option value="0.25">¼ 慢速</option></select><button id="restart">从头播放</button></div>
 <section><div class="actor"><h2>道童</h2><img id="boy" alt="道童当前动作帧"><p id="boyInfo"></p><button data-actor="boy" data-step="-1">上一帧</button><button data-actor="boy" data-step="1">下一帧</button></div>
 <div class="actor"><h2>竹弓少女 · 只读参照</h2><img id="bamboo" alt="竹弓少女当前动作帧"><p id="bambooInfo"></p><button data-actor="bamboo" data-step="-1">上一帧</button><button data-actor="bamboo" data-step="1">下一帧</button></div></section>

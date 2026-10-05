@@ -1,7 +1,7 @@
 """Rebuild the adopted run timing preview without changing manifest or source PNGs.
 
 Usage: python -X utf8 tools/render_timing_previews.py
-Writes only review/timing-grounding/. Requires all eight run directions at 75 ms/frame.
+Writes only review/timing-grounding/. Requires all eight run directions at 60 ms/frame.
 """
 from pathlib import Path
 import hashlib
@@ -18,9 +18,9 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "review/timing-grounding"
 MANIFEST = ROOT / "manifest.json"
 DIRECTIONS = ("N", "NE", "E", "SE", "S", "SW", "W", "NW")
-FRAME_MS = 75
-CYCLE_MS = 1200
-MODE_ID = "adopted-1200"
+FRAME_MS = 60
+CYCLE_MS = 960
+MODE_ID = "adopted-960"
 SIZES = (240, 512)
 PLAYBACK = ({"id": "normal", "label": "正常 1×", "rate": 1, "durationMultiplier": 1},
             {"id": "slow", "label": "慢放 0.25×", "rate": 0.25, "durationMultiplier": 4})
@@ -53,9 +53,9 @@ if (typeof document !== "undefined") {
       im.onerror = () => reject(new Error("图片无法读取：" + source.file));
       im.src = source.browserPath;
     }))).catch(error => { status.textContent = error.message; throw error; });
-    const canvas = document.getElementById("canvas-adopted-1200");
+    const canvas = document.getElementById("canvas-adopted-960");
     const context = canvas.getContext("2d");
-    const frameLabel = document.getElementById("frame-adopted-1200");
+    const frameLabel = document.getElementById("frame-adopted-960");
     const play = document.getElementById("play");
     const slider = document.getElementById("frame-slider");
     const sliderLabel = document.getElementById("frame-choice");
@@ -63,7 +63,7 @@ if (typeof document !== "undefined") {
     function refreshStatus() {
       play.textContent = playing ? "暂停" : "继续";
       status.textContent = playing
-        ? (rate === 1 ? "正常 1×：1200ms/圈，每帧75ms。" : "慢放 0.25×：4800ms/圈，每帧300ms。")
+        ? (rate === 1 ? "正常 1×：960ms/圈，每帧60ms。" : "慢放 0.25×：3840ms/圈，每帧240ms。")
         : "已暂停；可用上一帧、下一帧和滑块检查当前实图。";
     }
     function render(force = false) {
@@ -142,10 +142,10 @@ def validate_adopted_timing(manifest):
             raise ValueError(f"Manifest run/{direction} must contain 16 frames at {FRAME_MS}ms; update manifest first.")
     timing = manifest.get("runTiming", {})
     if timing.get("cycleDurationMs") != CYCLE_MS:
-        raise ValueError("Manifest runTiming.cycleDurationMs must be 1200; update manifest first.")
+        raise ValueError("Manifest runTiming.cycleDurationMs must be 960; update manifest first.")
     durations = timing.get("durationsByDirection", {})
     if any(durations.get(direction) != [FRAME_MS] * 16 for direction in DIRECTIONS):
-        raise ValueError("Manifest runTiming must use uniform 75ms for all eight directions.")
+        raise ValueError("Manifest runTiming must use uniform 60ms for all eight directions.")
     return {"directions": list(DIRECTIONS), "frameCount": 128, "frameDurationMs": FRAME_MS,
             "cycleDurationMs": CYCLE_MS, "uniform": True, "passed": True}
 
@@ -195,12 +195,12 @@ const fs = require("fs"), path = require("path"), assert = require("assert/stric
 const logic = require("./timing-player.js");
 const data = JSON.parse(fs.readFileSync(path.join(__dirname,"review-data.json"),"utf8"));
 let checks = 0;
-assert.deepEqual(data.modes.map(mode => mode.id), ["adopted-1200"]); checks++;
-assert.equal(data.adoptedMode, "adopted-1200"); checks++;
+assert.deepEqual(data.modes.map(mode => mode.id), ["adopted-960"]); checks++;
+assert.equal(data.adoptedMode, "adopted-960"); checks++;
 assert.deepEqual(data.playback.map(item => item.rate), [1, 0.25]); checks++;
 const mode = data.modes[0];
-assert.deepEqual(mode.durationsMs, Array(16).fill(75)); checks++;
-assert.equal(mode.cycleMs, 1200); checks++;
+assert.deepEqual(mode.durationsMs, Array(16).fill(60)); checks++;
+assert.equal(mode.cycleMs, 960); checks++;
 for (const playback of data.playback) {
   const durations = mode.durationsMs.map(ms => ms * playback.durationMultiplier);
   const cycle = mode.cycleMs * playback.durationMultiplier;
@@ -229,14 +229,14 @@ const speed = html.match(/<select id="speed">([\s\S]*?)<\/select>/)[1];
 assert.deepEqual([...speed.matchAll(/value="([^"]+)"/g)].map(match => Number(match[1])), [1, 0.25]); checks++;
 for (const source of data.sources) {
   assert.ok(fs.existsSync(path.resolve(__dirname, source.browserPath)));
-  assert.equal(source.manifestFrameDurationMs, 75); checks += 2;
+  assert.equal(source.manifestFrameDurationMs, 60); checks += 2;
 }
 assert.equal(data.products.length, 4); checks++;
 for (const product of data.products) {
   const multiplier = product.playbackId === "normal" ? 1 : 4;
-  assert.equal(product.modeId, "adopted-1200");
-  assert.deepEqual(product.durationsMs, Array(16).fill(75 * multiplier));
-  assert.equal(product.cycleMs, 1200 * multiplier);
+  assert.equal(product.modeId, "adopted-960");
+  assert.deepEqual(product.durationsMs, Array(16).fill(60 * multiplier));
+  assert.equal(product.cycleMs, 960 * multiplier);
   assert.ok(html.includes(product.file)); checks += 4;
 }
 process.stdout.write(JSON.stringify({status:"passed",checks,scope:"syntax separately; uniform normal/slow timing, loop boundaries, frame stepping, controls and local sources; no browser visual playback"}));
@@ -255,9 +255,9 @@ process.stdout.write(JSON.stringify({status:"passed",checks,scope:"syntax separa
 def html_page(data):
     payload = json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")
     links = " · ".join(f'<a href="{p["file"]}">{p["playbackLabel"]} {p["size"][0]}px WebP</a>' for p in data["products"])
-    rows = "".join(f"<tr><th>{i:02d}</th><td>75</td><td>300</td></tr>" for i in range(1, 17))
+    rows = "".join(f"<tr><th>{i:02d}</th><td>60</td><td>240</td></tr>" for i in range(1, 17))
     return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1"><title>00 E向跑步 · 1200ms正常节奏</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>00 E向跑步 · 960ms正常节奏</title>
 <style>
 :root{{--preview-size:240px;color-scheme:light;font-family:"Microsoft YaHei","Segoe UI",sans-serif;color:#183e35;background:#f4f3ee}}
 *{{box-sizing:border-box}} body{{margin:0;padding:24px}} main{{max-width:1100px;margin:auto}}
@@ -278,20 +278,20 @@ table{{border-collapse:collapse;width:100%}} th,td{{padding:7px 12px;border-bott
 small{{color:#62756a}} @media(max-width:650px){{body{{padding:12px}}}}
 </style></head><body data-background="checker"><main>
 <h1>00 金发带道童 · E向跑步正常节奏</h1>
-<p>正常1×统一1200ms/圈，16帧各75ms。可慢放、暂停、逐帧查看；240×240与512×512均按完整画布等比显示。</p>
+<p>正常1×统一960ms/圈，16帧各60ms。可慢放、暂停、逐帧查看；240×240与512×512均按完整画布等比显示。</p>
 <div class="notice">八方向跑步已统一均匀时长，E向不再单独加权。此页读取当前正式E向帧；战斗动作时长不变。速度设定不等于姿态或客户端动态验收。</div>
 <div class="controls">
 <button id="play">暂停</button><button id="restart">从01重播</button><button id="previous">上一帧</button><button id="next">下一帧</button>
 <label>逐帧 <input id="frame-slider" type="range" min="1" max="16" value="1"><output id="frame-choice">01</output></label>
-<label>速度 <select id="speed"><option value="1">正常 1× · 1200ms</option><option value="0.25">慢放 0.25× · 4800ms</option></select></label>
+<label>速度 <select id="speed"><option value="1">正常 1× · 960ms</option><option value="0.25">慢放 0.25× · 3840ms</option></select></label>
 <label>显示 <select id="size"><option value="240">240×240</option><option value="512">512×512 放大检查</option></select></label>
 <label><input id="ground" type="checkbox">名义地线 942/1024 · 未校准</label>
 <label>背景 <select id="background"><option value="checker">棋盘格</option><option value="ivory">米白</option><option value="dark">深色</option></select></label>
 </div><p id="playback-status" aria-live="polite">正在读取16张完整画布…</p>
-<section class="card"><div class="stage"><canvas id="canvas-adopted-1200" width="1024" height="1024" aria-label="E向跑步当前1200ms节奏"></canvas><div class="ground-line"><span>名义地线 · 未校准</span></div></div>
-<p class="frame" id="frame-adopted-1200">读取帧…</p><p>{links}</p></section>
+<section class="card"><div class="stage"><canvas id="canvas-adopted-960" width="1024" height="1024" aria-label="E向跑步当前960ms节奏"></canvas><div class="ground-line"><span>名义地线 · 未校准</span></div></div>
+<p class="frame" id="frame-adopted-960">读取帧…</p><p>{links}</p></section>
 <details class="details"><summary>逐帧时长与来源</summary><p><a href="review-data.json">来源SHA及播放参数</a> · <a href="validation.json">编码与边界逻辑检查</a></p>
-<table><thead><tr><th>帧</th><th>正常1×（ms）</th><th>慢放0.25×（ms）</th></tr></thead><tbody>{rows}</tbody><tfoot><tr><th>合计</th><td>1200</td><td>4800</td></tr></tfoot></table></details>
+<table><thead><tr><th>帧</th><th>正常1×（ms）</th><th>慢放0.25×（ms）</th></tr></thead><tbody>{rows}</tbody><tfoot><tr><th>合计</th><td>960</td><td>3840</td></tr></tfoot></table></details>
 <p><small>名义地线仅为诊断叠加线，不认定鞋底必须贴线。WebP逐帧编码时长已检查；连续视觉与客户端位移仍需实际验收。生成时间：{data["generatedAt"]}</small></p>
 <script id="dataset" type="application/json">{payload}</script><script src="timing-player.js"></script></main></body></html>'''
 
@@ -303,7 +303,7 @@ def main():
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8-sig"))
     timing_check = validate_adopted_timing(manifest)
     sources, images = read_sources(manifest)
-    mode = {"id": MODE_ID, "label": "当前采用 1200ms", "description": "正常1× · 16帧 × 75ms · 均匀时长",
+    mode = {"id": MODE_ID, "label": "当前采用 960ms", "description": "正常1× · 16帧 × 60ms · 均匀时长",
             "durationsMs": [FRAME_MS] * 16, "cycleMs": CYCLE_MS}
     OUT.mkdir(parents=True, exist_ok=True)
     products, checks = [], []
@@ -355,15 +355,15 @@ def main():
     write_json(OUT / "validation.json", validation)
     (OUT / "README.md").write_text("""# E向跑步当前节奏预览
 
-打开 [index.html](index.html)：正常1×为1200ms/圈、16帧各75ms；慢放0.25×为4800ms/圈、各300ms。支持暂停、从01重播、上一帧、下一帧和滑块。240/512像素均显示完整画布，名义地线未校准且不移动人物。
+打开 [index.html](index.html)：正常1×为960ms/圈、16帧各60ms；慢放0.25×为3840ms/圈、各240ms。支持暂停、从01重播、上一帧、下一帧和滑块。240/512像素均显示完整画布，名义地线未校准且不移动人物。
 
-当前输出只有 adopted-1200 一个模式，normal/slow × 240/512 共4张透明动画WebP。页面及 review-data.json 只列当前产品；旧快档动画已按清理台账移除，派生文字记录作为历史证据保留；本工具不删除文件。
+当前输出只有 adopted-960 一个模式，normal/slow × 240/512 共4张透明动画WebP。页面及 review-data.json 只列当前产品；旧快档动画已按清理台账移除，派生文字记录作为历史证据保留；本工具不删除文件。
 
 每张WebP配套来源及SHA记录；validation.json 核验16帧顺序、实际RIFF编码时长、透明度、画布、循环边界、逐帧控制和来源一致性。
 
 修改导出与manifest后运行：python -X utf8 tools/render_timing_previews.py
 
-脚本先要求manifest中八方向共128张run均为75ms且周期1200ms，否则停止；再按当前E01–E16及SHA重建。脚本不改manifest、正式PNG、原生图片或战斗时长，不读取旧权重建议。此输出不代表已观看动态或完成客户端验收。
+脚本先要求manifest中八方向共128张run均为60ms且周期960ms，否则停止；再按当前E01–E16及SHA重建。脚本不改manifest、正式PNG、原生图片或战斗时长，不读取旧权重建议。此输出不代表已观看动态或完成客户端验收。
 """, encoding="utf-8")
     print(json.dumps({"output": str(OUT), "animations": len(products), "sourceFrames": len(sources),
                       "modeId": MODE_ID, "normalCycleMs": CYCLE_MS, "slowCycleMs": CYCLE_MS * 4,

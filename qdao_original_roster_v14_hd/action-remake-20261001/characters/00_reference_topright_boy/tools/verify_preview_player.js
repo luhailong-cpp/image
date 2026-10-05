@@ -29,7 +29,7 @@ for (const [action, spec] of Object.entries(data.specs)) {
     node('action').value = action; node('direction').value = direction;
     run('sequenceChanged()');
     const rows = data.frames.filter(f => f.action === action && f.direction === direction);
-    const ms = action === 'run' ? 75 : {hit: 40, attack: 30, cast: 45}[action];
+    const ms = action === 'run' ? 60 : {hit: 40, attack: 30, cast: 45}[action];
     assert(rows.length === spec.count && rows.every(f => f.frame_duration_ms === ms), `${action}/${direction}: frame contract`);
     assert(spec.duration_ms === rows.length * ms, `${action}/${direction}: total`);
     for (const speed of [1, 0.25]) {
