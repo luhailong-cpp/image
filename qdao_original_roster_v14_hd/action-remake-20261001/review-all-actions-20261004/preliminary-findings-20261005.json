@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-05 04:15:05 UTC",
+  "scope": "Independent static PNG audit and targeted findings dispatched; not final dynamic acceptance.",
+  "timing": {
+    "run_frames": 16,
+    "frame_ms": 75,
+    "cycle_ms": 1200
+  },
+  "findings": [
+    {
+      "character_id": "04_mountain_guardian_boy",
+      "actions": [
+        {
+          "sequence": "run/W",
+          "transitions": [
+            "03→04",
+            "10→11"
+          ],
+          "observation": "胸背可见面与盾牌近远侧突然切换",
+          "status": "needs_window_verification_and_targeted_repair"
+        },
+        {
+          "sequence": "run/NW",
+          "transitions": [
+            "03→04→05"
+          ],
+          "observation": "持杖手腰侧至过肩相邻变化过大",
+          "status": "needs_window_dynamic_verification"
+        }
+      ],
+      "dispatch_succeeded": true,
+      "static_groups_reviewed": 14,
+      "static_frames_reviewed": 196
+    },
+    {
+      "character_id": "01_ice_sword_girl",
+      "static_groups_reviewed": 14,
+      "static_frames_reviewed": 196,
+      "source_sha_consistent": true,
+      "observation": "暂未确认新增脚掌横向外撇硬伤；NE03→04→05、E02→03→04、SW04→05持剑臂/胸肩转角较大",
+      "status": "retain_correct_frames_and_verify_dynamic_transitions",
+      "dispatch_succeeded": true
+    },
+    {
+      "character_id": "00_reference_topright_boy",
+      "static_groups_reviewed": 14,
+      "static_frames_reviewed": 196,
+      "source_sha_consistent": true,
+      "observation": "暂未确认新增脚掌横向外撇或手交换硬伤",
+      "status": "retain_correct_frames_pending_dynamic_acceptance",
+      "dispatch_succeeded": true
+    },
+    {
+      "character_id": "05_celestial_musician_girl",
+      "static_groups_reviewed": 14,
+      "static_frames_reviewed": 196,
+      "observation": "暂未确认新增横向外翻或错误持手；run/N10→11→12头髋起伏、run/E及W04→05支撑位置及蹲低需动态复核",
+      "status": "retain_correct_frames_and_verify_dynamic_transitions",
+      "dispatch_succeeded": true
+    },
+    {
+      "character_id": "06_thunder_caster_boy",
+      "static_groups_reviewed": 14,
+      "static_frames_reviewed": 196,
+      "observation": "暂未确认新增横向外翻或错误持手；袖袍遮挡关节不得虚称全部看清",
+      "status": "retain_correct_frames_pending_dynamic_acceptance"
+    },
+    {
+      "character_id": "08_alchemy_prodigy_boy",
+      "parent_review_scope": "run/NW及SW联系表，NW07/08单帧放大",
+      "observation": "NW07→08原换脚疑点已排除：实际同足跨16/01→02/03→04/05→06/07，08是正常换足边界。窗口独立仍在修E02握瓶手缺少身侧过渡。",
+      "status": "initial_phase_suspicion_resolved_retain_correct_phase",
+      "dispatch_succeeded": true,
+      "static_groups_reviewed": 14,
+      "static_frames_reviewed": 196
+    },
+    {
+      "character_id": "10_crimson_spear_girl",
+      "static_groups_reviewed": 14,
+      "static_frames_reviewed": 196,
+      "source_sha_consistent": true,
+      "observation": "E/W04→05及12→13原提前换脚判断已降为待核：不能凭最低鞋或屏幕位置确认解剖换足，裙摆遮髋，需窗口真实标足追踪。NE09→10及NW10→11保留动态衔接核对，暂无确定换手/脱杆。",
+      "status": "tentative_anatomical_tracking_and_dynamic_check_required",
+      "dispatch_succeeded": true
+    }
+  ],
+  "updated_utc": "2026-10-05T07:34:38.568507+00:00",
+  "window_reported_repairs": [
+    {
+      "character_id": "03_lotus_healer_girl",
+      "sequence": "run/SE",
+      "frames": [
+        3
+      ],
+      "observation": "窗口对照相近角色确认支撑鞋外展和手臂过渡问题，正定点修图",
+      "parent_final_verification": false
+    },
+    {
+      "character_id": "17_ghost_script_calligrapher_boy",
+      "sequence": "cast/W",
+      "frames": [
+        3,
+        8
+      ],
+      "observation": "窗口发现靴子突然朝镜头、双腿骤叉及笔穗偏腕，正局部修图",
+      "parent_final_verification": false
+    }
+  ]
+}
