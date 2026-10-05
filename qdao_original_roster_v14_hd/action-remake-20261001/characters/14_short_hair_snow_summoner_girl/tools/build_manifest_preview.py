@@ -3,12 +3,12 @@ from pathlib import Path
 from datetime import datetime, timezone
 from PIL import Image
 ROOT=Path(__file__).resolve().parents[1]
-SPECS={'run':(['N','NE','E','SE','S','SW','W','NW'],16,75),'hit':(['E','W'],6,40),'attack':(['E','W'],12,30),'cast':(['E','W'],16,45)}
+SPECS={'run':(['N','NE','E','SE','S','SW','W','NW'],16,None),'hit':(['E','W'],6,40),'attack':(['E','W'],12,30),'cast':(['E','W'],16,45)}
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 review_path=ROOT/'review.json'
 reviews=json.loads(review_path.read_text(encoding='utf-8-sig')) if review_path.exists() else {}
 timing_path=ROOT/'run-timing.json'
-run_timing=json.loads(timing_path.read_text(encoding='utf-8')) if timing_path.exists() else {}
+run_timing=json.loads(timing_path.read_text(encoding='utf-8'))
 run_phases={d:json.loads((ROOT/'run'/d/'grounding-review.json').read_text(encoding='utf-8'))['frames'] for d in SPECS['run'][0] if (ROOT/'run'/d/'grounding-review.json').exists()}
 items=[]; totals={}
 for action,(dirs,count,ms) in SPECS.items():
@@ -16,7 +16,7 @@ for action,(dirs,count,ms) in SPECS.items():
     for direction in dirs:
         for i in range(1,count+1):
             key=f'{action}/{direction}/{i:02d}'; p=ROOT/(key+'.png'); meta=Path(str(p)+'.generation.json')
-            duration=run_timing.get('directions',{}).get(direction,{}).get('durationsMs',[75]*16)[i-1] if action=='run' else ms
+            duration=run_timing['directions'][direction]['durationsMs'][i-1] if action=='run' else ms
             row={'slot':key,'action':action,'direction':direction,'frame':i,'durationMs':duration,'path':p.relative_to(ROOT).as_posix() if p.exists() else None,'status':'missing','clientStatus':'not_integrated'}
             if action=='run' and direction in run_phases:
                 phase=run_phases[direction][i-1]

@@ -3,11 +3,11 @@ from datetime import datetime, timezone
 import hashlib,json
 from PIL import Image, ImageDraw
 ROOT=Path(__file__).resolve().parents[1]
-SPECS={'run':(['N','NE','E','SE','S','SW','W','NW'],16,75),'hit':(['E','W'],6,40),'attack':(['E','W'],12,30),'cast':(['E','W'],16,45)}
+SPECS={'run':(['N','NE','E','SE','S','SW','W','NW'],16,None),'hit':(['E','W'],6,40),'attack':(['E','W'],12,30),'cast':(['E','W'],16,45)}
 P=ROOT/'preview'; P.mkdir(exist_ok=True)
 records=[]
 timing_path=ROOT/'run-timing.json'
-run_timing=json.loads(timing_path.read_text(encoding='utf-8')) if timing_path.exists() else {}
+run_timing=json.loads(timing_path.read_text(encoding='utf-8'))
 for action,(dirs,count,ms) in SPECS.items():
     for direction in dirs:
         paths=[ROOT/action/direction/f'{i:02d}.png' for i in range(1,count+1)]
@@ -25,7 +25,7 @@ for action,(dirs,count,ms) in SPECS.items():
         rec={'file':f'preview/{name}','operation':'labelled contact sheet; preview only; missing slots remain empty','sources':sources}
         if len(anim)==count:
             for suffix,speed in [('normal',1),('slow',4)]:
-                durations=run_timing.get('directions',{}).get(direction,{}).get('durationsMs',[75]*16) if action=='run' else [ms]*count
+                durations=run_timing['directions'][direction]['durationsMs'] if action=='run' else [ms]*count
                 durations=[x*speed for x in durations]
                 target=P/f'{action}-{direction}-{suffix}.webp';anim[0].save(target,save_all=True,append_images=anim[1:],duration=durations,loop=0,lossless=True)
                 records.append({'file':target.relative_to(ROOT).as_posix(),'operation':'preview compositing and 512px whole-canvas downsample','durationsMs':durations,'cycleMs':sum(durations),'sources':sources,'visualPassNotImplied':True})

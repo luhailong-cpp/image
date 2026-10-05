@@ -8,7 +8,8 @@ def validate_contact(root, direction, require_preview=True):
     if spatial_path.exists():
         spatial=json.loads(spatial_path.read_text(encoding='utf-8-sig'))
         assert [s['frames'] for s in spatial['segments']]==[[2*i+1,2*i+2] for i in range(8)], 'Unexpected latest spatial requirement'
-        assert spatial['frameDurationMs']==75 and spatial['cycleMs']==1200
+        timing=json.loads((root/'run-timing.json').read_text(encoding='utf-8'))
+        assert spatial['frameDurationMs']==timing['frameDurationMs'] and spatial['cycleMs']==timing['defaultCycleMs']
     path=root/'audit'/f'contact-{direction}-review.json'
     review=json.loads(path.read_text(encoding='utf-8-sig'))
     assert review['direction']==direction, path

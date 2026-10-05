@@ -4,11 +4,11 @@ const source=fs.readFileSync(path.join(R,'tools/preview_template.html'),'utf8');
 const body=source.slice(source.indexOf('function frameAt(t)'),source.indexOf('function show()'));
 const results=[];
 for(const d of ['N','NE','E','SE','S','SW','W','NW']){
- const group=manifest.frames.filter(f=>f.action==='run'&&f.direction===d);assert.equal(group.length,16);assert(group.every(f=>f.durationMs===75));
- const ctx=vm.createContext({group,starts:group.map((_,i)=>i*75),cycleMs:1200});vm.runInContext(body,ctx);
- for(let i=0;i<16;i++){assert.equal(vm.runInContext('frameAt('+i*75+')',ctx),i);assert.equal(vm.runInContext('frameAt('+(i*75+74.999)+')',ctx),i);}
- assert.equal(vm.runInContext('frameAt(1200)',ctx),0);assert.equal(vm.runInContext('frameAt(2400)',ctx),0);assert.equal(vm.runInContext('frameAt(1199.999)',ctx),15);
- results.push({direction:d,cycleMs:1200,durationMs:75,frameCount:16,boundaryChecks:35,status:'passed'});
+ const group=manifest.frames.filter(f=>f.action==='run'&&f.direction===d);assert.equal(group.length,16);assert(group.every(f=>f.durationMs===60));
+ const ctx=vm.createContext({group,starts:group.map((_,i)=>i*60),cycleMs:960});vm.runInContext(body,ctx);
+ for(let i=0;i<16;i++){assert.equal(vm.runInContext('frameAt('+i*60+')',ctx),i);assert.equal(vm.runInContext('frameAt('+(i*60+59.999)+')',ctx),i);}
+ assert.equal(vm.runInContext('frameAt(960)',ctx),0);assert.equal(vm.runInContext('frameAt(1920)',ctx),0);assert.equal(vm.runInContext('frameAt(959.999)',ctx),15);
+ results.push({direction:d,cycleMs:960,durationMs:60,frameCount:16,boundaryChecks:35,status:'passed'});
 }
 for(const [action,ms,count] of [['hit',40,6],['attack',30,12],['cast',45,16]])for(const d of ['E','W']){const g=manifest.frames.filter(f=>f.action===action&&f.direction===d);assert.equal(g.length,count);assert(g.every(f=>f.durationMs===ms));}
 for(const name of ['tools/timing_template.html','timing-grounding.html','bamboo-reference.html','all-directions.html','index.html']){

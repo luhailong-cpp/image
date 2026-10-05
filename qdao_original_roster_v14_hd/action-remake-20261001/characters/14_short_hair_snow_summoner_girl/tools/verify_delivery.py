@@ -16,7 +16,7 @@ for f in m['frames']:
  else:assert f['durationMs']=={'hit':40,'attack':30,'cast':45}[f['action']]
 for d,g in t['directions'].items():
  validate_contact(R,d)
- assert g['durationsMs']==[75]*16 and g['cycleMs']==1200
+ assert t['frameDurationMs']==60 and g['durationsMs']==[60]*16 and g['cycleMs']==960
  phases=json.loads((R/g['phaseReview']).read_text(encoding='utf-8'))['frames']
  assert all(p['sha256']==sha(R/'run'/d/f'{i+1:02d}.png') for i,p in enumerate(phases))
 preview=json.loads((R/'preview/provenance.json').read_text(encoding='utf-8'))
