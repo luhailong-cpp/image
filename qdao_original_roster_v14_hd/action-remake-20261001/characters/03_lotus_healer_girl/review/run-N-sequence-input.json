@@ -25,9 +25,9 @@
     "alignmentApplied": false
   },
   "timing": {
-    "frameMs": 75,
-    "trialCycleMs": 1200,
-    "offlineDefaultCycleMs": 1200,
+    "frameMs": 60,
+    "trialCycleMs": 960,
+    "offlineDefaultCycleMs": 960,
     "mode": "uniform",
     "selectedProductionCycleMs": null
   },
@@ -40,7 +40,7 @@
       "issues": [
         "Right-contact native mother; exact game-space root and contact require dynamic/client review."
       ],
-      "durationMs": 75,
+      "durationMs": 60,
       "sourceSha256": "6cb919bc1b7f98025c16bcd113b8ad67c6ea92092f3b2dccfe609f6ba60a6db4",
       "review": "generation/N/01-v1.review.json",
       "nativeAlphaGt8Bounds": [
@@ -64,7 +64,7 @@
       "issues": [
         "Compression is modest and visible chiefly in right knee/cloth; do not infer full dynamic loading from one frame."
       ],
-      "durationMs": 75,
+      "durationMs": 60,
       "sourceSha256": "7278bf34f6dd1aef0fab6960fb1073287078e5a8086b9c6f5705b17f9716599a",
       "review": "generation/N/02-v3.review.json",
       "nativeAlphaGt8Bounds": [
@@ -95,7 +95,7 @@
         },
         "shoeLiftFromMother": -2
       },
-      "startMs": 75,
+      "startMs": 60,
       "supportFoot": "right",
       "supportPosition": "front_contact_buffer",
       "contactObserved": true,
@@ -109,7 +109,7 @@
       "issues": [
         "Arm middle pose is incomplete; flask remains forward/high. Head top remains near prior raised head, do not claim requested head height locked."
       ],
-      "durationMs": 75,
+      "durationMs": 60,
       "sourceSha256": "cfc6d818b3fcda02220822022c5607df871945cd9b90aba5f19599860f790110",
       "review": "generation/N/03-v1.review.json",
       "nativeAlphaGt8Bounds": [
@@ -119,7 +119,7 @@
         1161
       ],
       "visualAccepted": false,
-      "startMs": 150,
+      "startMs": 120,
       "supportFoot": "right",
       "supportPosition": "under_body_support",
       "contactObserved": true,
@@ -129,11 +129,11 @@
       "slot": 4,
       "frame": 4,
       "source": "generation/N/04-support-v1.png",
-      "observedPhase": "Right support foot longitudinalaxis pointsaway towardN; heel/sole edge forms stable level support silhouette.; Upperbody, rightlamp/leftbottle and oppositeLEFTswingleg visibly retained.; Actual new stance can extend right support sequence01–04 to4 distinct frames at75ms each.",
+      "observedPhase": "Right support foot longitudinalaxis pointsaway towardN; heel/sole edge forms stable level support silhouette.; Upperbody, rightlamp/leftbottle and oppositeLEFTswingleg visibly retained.; Actual new stance can extend right support sequence01–04 to4 distinct frames at60ms each.",
       "issues": [
         "Support depth/footprint differs slightly from03 and remains subject to full-cycle ground calibration; no wholeimage alignment used."
       ],
-      "durationMs": 75,
+      "durationMs": 60,
       "sourceSha256": "5251ee0bf89b0401a0ad7de9a1623858cabf185eaa44a300640008b8819c2519",
       "review": "generation/N/04-support-v1.review.json",
       "nativeAlphaGt8Bounds": [
@@ -144,7 +144,7 @@
       ],
       "visualAccepted": false,
       "generationRecord": "generation/N/04-support-v1.png.generation.json",
-      "startMs": 225,
+      "startMs": 180,
       "supportFoot": "right",
       "supportPosition": "under_body_support",
       "contactObserved": true,
@@ -158,7 +158,7 @@
       "issues": [
         "地面纵深与邻帧须整圈复核；未动态通过。"
       ],
-      "durationMs": 75,
+      "durationMs": 60,
       "sourceSha256": "d67b0e1fcfec7a136bba02614a200b37034370bb82fb40911e839ca152ef3117",
       "review": "generation/N/05-stance-v1.review.json",
       "nativeAlphaGt8Bounds": [
@@ -169,7 +169,7 @@
       ],
       "visualAccepted": false,
       "generationRecord": "generation/N/05-stance-v1.png.generation.json",
-      "startMs": 300,
+      "startMs": 240,
       "supportFoot": "right",
       "supportPosition": "slightly_behind_loaded",
       "contactObserved": true,
@@ -178,27 +178,47 @@
     {
       "slot": 6,
       "frame": 6,
-      "source": "generation/N/06-stance-v2.png",
-      "observedPhase": "右支撑腿继续递后，鞋平底保持，头手和左腿基本锁定，改善06回缩。",
+      "source": "generation/N/06-axis-v2.png",
+      "observedPhase": "右脚全掌持续支撑，支撑踝鞋向本腿髋下收正，左脚抬起。",
       "issues": [
-        "整圈未动态通过。"
+        "支撑鞋中心由原749.5收至720，减小05到07间的向外凸出；未达到提示目标700。",
+        "保留原生画布，手和法器未换；未采用整图移动或逐帧贴底。"
       ],
-      "durationMs": 75,
-      "sourceSha256": "ee481a0e982201c59e51924890dfe24fa65aeff9a2d46f7fd34b886f9f720cb1",
-      "review": "generation/N/06-stance-v2.review.json",
+      "durationMs": 60,
+      "sourceSha256": "dac52b05bf4b69f6fb40b0159c3ab997d05ab21754601af5901ddee950c85edc",
+      "review": "generation/N/06-axis-v2.review.json",
       "nativeAlphaGt8Bounds": [
         148,
-        56,
+        54,
         1171,
-        1182
+        1186
       ],
       "visualAccepted": false,
-      "generationRecord": "generation/N/06-stance-v2.png.generation.json",
-      "startMs": 375,
+      "generationRecord": "generation/N/06-axis-v2.png.generation.json",
+      "startMs": 300,
       "supportFoot": "right",
       "supportPosition": "slightly_behind_loaded",
       "contactObserved": true,
-      "contactEvidence": "actual plantar orientation, loaded knee/ankle and opposite-leg recovery visible; static candidate, no collision/ground simulation"
+      "contactEvidence": "actual plantar orientation, loaded knee/ankle and opposite-leg recovery visible; static candidate, no collision/ground simulation",
+      "sourceGenerationRecord": "generation/N/06-axis-v2.png.generation.json",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "alphaGt8Bounds": [
+        148,
+        54,
+        1171,
+        1186
+      ],
+      "manualContactPointNative": [
+        720,
+        1185
+      ],
+      "footPoint": [
+        720,
+        1185
+      ]
     },
     {
       "slot": 7,
@@ -208,7 +228,7 @@
       "issues": [
         "实际空间进度需要四位置整圈复核；不把提示坐标当作实测。"
       ],
-      "durationMs": 75,
+      "durationMs": 60,
       "sourceSha256": "bec252c730125f9ce69fbec22aa86377c5f4b3c401a6ff45802d5a47076796d0",
       "review": "generation/N/07-stance-v1.review.json",
       "nativeAlphaGt8Bounds": [
@@ -219,7 +239,7 @@
       ],
       "visualAccepted": false,
       "generationRecord": "generation/N/07-stance-v1.png.generation.json",
-      "startMs": 450,
+      "startMs": 360,
       "supportFoot": "right",
       "supportPosition": "rear_terminal_support",
       "contactObserved": true,
@@ -233,7 +253,7 @@
       "issues": [
         "整圈尚未动态通过；实际相对脚点待核对。"
       ],
-      "durationMs": 75,
+      "durationMs": 60,
       "sourceSha256": "a7dfa4ab03a4ea5519364eccea4488502d8f15307b8f12760da85641c9a44624",
       "review": "generation/N/08-stance-v1.review.json",
       "nativeAlphaGt8Bounds": [
@@ -244,7 +264,7 @@
       ],
       "visualAccepted": false,
       "generationRecord": "generation/N/08-stance-v1.png.generation.json",
-      "startMs": 525,
+      "startMs": 420,
       "supportFoot": "right",
       "supportPosition": "rear_terminal_support",
       "contactObserved": true,
@@ -258,7 +278,7 @@
       "issues": [
         "Cleanup also changed framing/body extent and lowered left support shoe from prior1091 to roughly1144; do not claim all locked geometry preserved. No clipping/toe-out observed."
       ],
-      "durationMs": 75,
+      "durationMs": 60,
       "sourceSha256": "5bf482cfe3f87ba2fcc0f0d98eb69bd437b3f62aaf6e30c3de27f181170aef68",
       "review": "generation/N/09-v2.review.json",
       "nativeAlphaGt8Bounds": [
@@ -268,7 +288,7 @@
         1146
       ],
       "visualAccepted": false,
-      "startMs": 600,
+      "startMs": 480,
       "supportFoot": "left",
       "supportPosition": "front_contact_buffer",
       "contactObserved": true,
@@ -282,7 +302,7 @@
       "issues": [
         "Right recovery sole remains strongly exposed with only small positional progression. Lamp vertical step is substantial and needs cycle review."
       ],
-      "durationMs": 75,
+      "durationMs": 60,
       "sourceSha256": "30ac734748671e831ea67311e25da555ba2de4e3446929a4d881a01330032eb0",
       "review": "generation/N/10-v1.review.json",
       "nativeAlphaGt8Bounds": [
@@ -292,7 +312,7 @@
         1160
       ],
       "visualAccepted": false,
-      "startMs": 675,
+      "startMs": 540,
       "supportFoot": "left",
       "supportPosition": "front_contact_buffer",
       "contactObserved": true,
@@ -306,7 +326,7 @@
       "issues": [
         "Right passing foot did not descend as much as requested; this reads early passing rather than a fully established mid-support. Arm transition from10 is fairly large."
       ],
-      "durationMs": 75,
+      "durationMs": 60,
       "sourceSha256": "8c1ebe10e7d664cc518fc22ce12dec144480036f3125b0f20f5581664cd516c0",
       "review": "generation/N/11-v1.review.json",
       "nativeAlphaGt8Bounds": [
@@ -316,7 +336,7 @@
         1147
       ],
       "visualAccepted": false,
-      "startMs": 750,
+      "startMs": 600,
       "supportFoot": "left",
       "supportPosition": "under_body_support",
       "contactObserved": true,
@@ -330,7 +350,7 @@
       "issues": [
         "尚未完成每半周期连续8帧/四位置要求；整圈未动态验收。"
       ],
-      "durationMs": 75,
+      "durationMs": 60,
       "sourceSha256": "e892f05d365c3908cd1883e9020d9f0a0ed67f68a7328cd41da09a3c99759253",
       "review": "generation/N/12-support-v1.review.json",
       "nativeAlphaGt8Bounds": [
@@ -341,7 +361,7 @@
       ],
       "visualAccepted": false,
       "generationRecord": "generation/N/12-support-v1.png.generation.json",
-      "startMs": 825,
+      "startMs": 660,
       "supportFoot": "left",
       "supportPosition": "under_body_support",
       "contactObserved": true,
@@ -355,7 +375,7 @@
       "issues": [
         "未整圈动态验收；实际足点位置不能当作提示词数值已锁定。"
       ],
-      "durationMs": 75,
+      "durationMs": 60,
       "sourceSha256": "ec5d3585b34d2606c23cc13cb789f4c31a3457a75ee25b3252d76b91872d82ec",
       "review": "generation/N/13-stance-v1.review.json",
       "nativeAlphaGt8Bounds": [
@@ -366,7 +386,7 @@
       ],
       "visualAccepted": false,
       "generationRecord": "generation/N/13-stance-v1.png.generation.json",
-      "startMs": 900,
+      "startMs": 720,
       "supportFoot": "left",
       "supportPosition": "slightly_behind_loaded",
       "contactObserved": true,
@@ -380,7 +400,7 @@
       "issues": [
         "整圈动态效果仍待统一预览复核。"
       ],
-      "durationMs": 75,
+      "durationMs": 60,
       "sourceSha256": "06deb3632e3e8d77787018001fcf3bb1d65357220d1939b602eeea555357db6d",
       "review": "generation/N/14-stance-v2.review.json",
       "nativeAlphaGt8Bounds": [
@@ -391,7 +411,7 @@
       ],
       "visualAccepted": false,
       "generationRecord": "generation/N/14-stance-v2.png.generation.json",
-      "startMs": 975,
+      "startMs": 780,
       "supportFoot": "left",
       "supportPosition": "slightly_behind_loaded",
       "contactObserved": true,
@@ -406,7 +426,7 @@
         "整圈未动态通过；位移为实际视觉观察而非提示数值承诺。",
         "Selected actual earlier rear-support pose from 16-stance-v2; filenames do not define slot phase."
       ],
-      "durationMs": 75,
+      "durationMs": 60,
       "sourceSha256": "b6e1e6800379b7780e8e2b0aa40f3cc1419af56eabc97bf86eb41aafd99278c8",
       "review": "generation/N/16-stance-v2.review.json",
       "nativeAlphaGt8Bounds": [
@@ -417,7 +437,7 @@
       ],
       "visualAccepted": false,
       "generationRecord": "generation/N/16-stance-v2.png.generation.json",
-      "startMs": 1050,
+      "startMs": 840,
       "supportFoot": "left",
       "supportPosition": "rear_terminal_support",
       "contactObserved": true,
@@ -431,7 +451,7 @@
       "issues": [
         "整圈未动态通过；支撑位置非数学等距。"
       ],
-      "durationMs": 75,
+      "durationMs": 60,
       "sourceSha256": "5cac383fed5bdaad990dba626a65dbdaeabc594a679dcc107a6c638fdabf660b",
       "review": "generation/N/16-stance-v3.review.json",
       "nativeAlphaGt8Bounds": [
@@ -442,7 +462,7 @@
       ],
       "visualAccepted": false,
       "generationRecord": "generation/N/16-stance-v3.png.generation.json",
-      "startMs": 1125,
+      "startMs": 900,
       "supportFoot": "left",
       "supportPosition": "rear_terminal_support",
       "contactObserved": true,
@@ -472,8 +492,8 @@
       "event": "right_to_left_support_exchange",
       "slot": 9,
       "frame": 9,
-      "timeMs": 600,
-      "startMs": 600,
+      "timeMs": 480,
+      "startMs": 480,
       "evidence": "RIGHT remains support in08; LEFT becomes support in09; exact release is between drawings",
       "type": "right_to_left_support_exchange"
     },
@@ -483,15 +503,15 @@
       "frame": 1,
       "timeMs": 0,
       "startMs": 0,
-      "evidence": "LEFT support retained16, RIGHT support on next01; cyclic time0 equals1200ms boundary.",
-      "cycleBoundaryMs": 1200,
+      "evidence": "LEFT support retained16, RIGHT support on next01; cyclic time0 equals960ms boundary.",
+      "cycleBoundaryMs": 960,
       "type": "left_to_right_support_exchange_loop"
     }
   ],
   "referenceUpdate": {
     "character": "09_bamboo_archer_girl",
     "scope": "Current runtime user-approved reference; reviewed N/NW actual32 frames and manifest/animation-timing/MERGE_HANDOFF. Only action mechanics borrowed, no identity or mirrored frames.",
-    "timing": "09 old720ms is not copied; current user instruction1200ms applies to03."
+    "timing": "03 latest direct user instruction: uniform60ms per frame,960ms per cycle; reference character timing is not copied."
   },
   "cycleIssues": [
     "四位置为相对身体的视觉分段，非数学等距，仍需统一连播审阅。",
@@ -501,11 +521,11 @@
   "verification": {
     "nativePngCount": 16,
     "distinctSha256Count": 16,
-    "allDuration75": true,
     "scriptPixelEditing": false,
     "mirrorCopyInterpolation": false,
     "staticReview": true,
-    "dynamicPlaybackPassed": false
+    "dynamicPlaybackPassed": false,
+    "allDuration60": true
   },
   "loopClosureReview": {
     "status": "static_pair_inspected_dynamic_pending",
@@ -527,7 +547,7 @@
         7,
         8
       ],
-      "continuousMs": 600,
+      "continuousMs": 480,
       "positions": [
         {
           "name": "front_contact_buffer",
@@ -535,7 +555,7 @@
             1,
             2
           ],
-          "durationMs": 150,
+          "durationMs": 120,
           "independentImages": true
         },
         {
@@ -544,7 +564,7 @@
             3,
             4
           ],
-          "durationMs": 150,
+          "durationMs": 120,
           "independentImages": true
         },
         {
@@ -553,7 +573,7 @@
             5,
             6
           ],
-          "durationMs": 150,
+          "durationMs": 120,
           "independentImages": true
         },
         {
@@ -562,7 +582,7 @@
             7,
             8
           ],
-          "durationMs": 150,
+          "durationMs": 120,
           "independentImages": true
         }
       ],
@@ -580,7 +600,7 @@
         15,
         16
       ],
-      "continuousMs": 600,
+      "continuousMs": 480,
       "positions": [
         {
           "name": "front_contact_buffer",
@@ -588,7 +608,7 @@
             9,
             10
           ],
-          "durationMs": 150,
+          "durationMs": 120,
           "independentImages": true
         },
         {
@@ -597,7 +617,7 @@
             11,
             12
           ],
-          "durationMs": 150,
+          "durationMs": 120,
           "independentImages": true
         },
         {
@@ -606,7 +626,7 @@
             13,
             14
           ],
-          "durationMs": 150,
+          "durationMs": 120,
           "independentImages": true
         },
         {
@@ -615,7 +635,7 @@
             15,
             16
           ],
-          "durationMs": 150,
+          "durationMs": 120,
           "independentImages": true
         }
       ],
@@ -644,8 +664,8 @@
       15,
       16
     ],
-    "rightContinuousMs": 600,
-    "leftContinuousMs": 600,
+    "rightContinuousMs": 480,
+    "leftContinuousMs": 480,
     "requiredSameFootContactVisible": true,
     "spaceProgression": "四个相对身体位置各两张；北向纵深压缩较明显，西北向递后较清楚。非数学等距。",
     "axisFinding": "未发现选入支撑鞋明确反轴/八字；对侧摆腿露鞋底属于正常俯仰。",
@@ -654,5 +674,7 @@
       "NW03/11部分髋膝和手持被长发衣摆遮挡；接触是实图承重轮廓判断，非碰撞实测。"
     ],
     "visualAccepted": false
-  }
+  },
+  "updatedAt": "2026-10-05T04:53:03.104577-04:00",
+  "latestAxisRevision": "review/axis-revision-decisions-20261004.json"
 }
