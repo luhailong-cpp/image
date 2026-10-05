@@ -23,14 +23,14 @@ directions=['N','NE','E','SE','S','SW','W','NW']
 cards=[]
 for n in range(1,17):
     card=Image.new('RGB',(1024,590),'#f5efdf');draw=ImageDraw.Draw(card)
-    draw.text((16,12),'02 FIRE TALISMAN BOY | RUN 1200 ms | 16 x 75 ms',font=font,fill='#23443c')
+    draw.text((16,12),'02 FIRE TALISMAN BOY | RUN 960 ms | 16 x 60 ms',font=font,fill='#23443c')
     for i,d in enumerate(directions):
         x=i%4*256;y=i//4*274+38
         im=Image.open(R/'frames'/'run'/d/f'{n:02}.png').resize((250,250),Image.Resampling.LANCZOS)
         card.paste(im,(x,y),im)
         draw.text((x+12,y+249),f'{d}  {n:02}/16',font=font,fill='#23443c')
     cards.append(card)
-cards[0].save(O/'run-eight-directions.gif',save_all=True,append_images=cards[1:],duration=[80,70]*8,loop=0,disposal=2,optimize=False)
+cards[0].save(O/'run-eight-directions.gif',save_all=True,append_images=cards[1:],duration=[60]*16,loop=0,disposal=2,optimize=False)
 cards[7].save(O/'run-eight-directions.png')
-(O/'contact-sources.json').write_text(json.dumps({'operation':'full-canvas preview reduction and layout only; original PNGs untouched','gifTiming':'GIF 10ms quantization alternates 80/70; HTML exact uniform75; total1200','sources':sources},indent=2),encoding='utf-8')
+(O/'contact-sources.json').write_text(json.dumps({'operation':'full-canvas preview reduction and layout only; original PNGs untouched','gifTiming':'GIF and HTML uniform60ms, total960','sources':sources},indent=2),encoding='utf-8')
 print({'contacts':14,'preview_frames':len(cards),'source_frames':len(sources)})

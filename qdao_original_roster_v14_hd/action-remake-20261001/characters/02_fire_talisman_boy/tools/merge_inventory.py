@@ -17,7 +17,7 @@ for f in frames:
         f['visual_status']='two_frame_position_grounding_revision_pending'
         f.pop('final_review',None)
 complete=len(frames)==196 and all(reviewed.get(f['path'])==hashlib.sha256((ROOT/f['path']).read_bytes()).hexdigest() for f in frames) and not review.get('knownUnresolvedArtFailures',['pending'])
-manifest={"character":"02_fire_talisman_boy","root_anchor":[512,920],"anchor_status":"target coordinates; full sequence visual verification pending","target_frames":196,"timing":{"run":{"frameMs":75,"cycleMs":1200,"uniform":True,"clientConfirmed":False},"hit":{"frameMs":40,"cycleMs":240},"attack":{"frameMs":30,"cycleMs":360},"cast":{"frameMs":45,"cycleMs":720}},"frames":sorted(frames,key=lambda x:(x["action"],x["direction"],x["frame"]))}
+manifest={"character":"02_fire_talisman_boy","root_anchor":[512,920],"anchor_status":"target coordinates; full sequence visual verification pending","target_frames":196,"timing":{"run":{"frameMs":60,"cycleMs":960,"uniform":True,"clientConfirmed":False},"hit":{"frameMs":40,"cycleMs":240},"attack":{"frameMs":30,"cycleMs":360},"cast":{"frameMs":45,"cycleMs":720}},"frames":sorted(frames,key=lambda x:(x["action"],x["direction"],x["frame"]))}
 (ROOT/"inventory.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding="utf-8")
 manifest['offline_materials_complete']=complete
 manifest['client_integrated']=False
