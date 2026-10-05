@@ -17,7 +17,7 @@ sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
 final=Image.open(out);alpha=final.getchannel("A")
 references=[]
 for i,p in enumerate(req["request"]["referenced_image_paths"]):
-    references.append({"path":p,"role":["original identity","approved painted style","locked E-facing camera and seated support","previous animation frame or targeted edit source"][i],"sha256":reference_sha_before[p]})
+    references.append({"path":p,"role":["original identity","approved painted style","locked E-facing camera and seated support","previous animation frame or targeted edit source","matched-pose seated support reference"][i],"sha256":reference_sha_before[p]})
 record={
 "file":out.relative_to(BASE).as_posix(),"sha256":sha(out),"generatedAt":receipt["receivedAt"],"action":"cast","direction":"E","frame":n,"durationMs":45,
 "tool":"image_gen.imagegen","route":"builtin","configSnapshot":req["configSnapshot"],

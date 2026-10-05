@@ -47,9 +47,21 @@ for action,(count,ms) in SPECS.items():
      animation[0].save(out/f'{action}-{direction}-{suffix}.webp',save_all=True,append_images=animation[1:],duration=ms*factor,loop=0,lossless=True)
    page=(out/'index.html').read_text(encoding='utf-8').replace('<html lang="zh-CN">',f'<html lang="zh-CN" data-group="{action}-{direction}">')
    (out/f'{action}-{direction}.html').write_text(page,encoding='utf-8')
-calibrated=(ROOT/'records/final-direction-calibration.json').exists()
+calibration_states=[]
+for f in frames:
+ g=json.loads((ROOT/f['sourceRecord']).read_text(encoding='utf-8')) if f['sourceRecord'] else {}
+ c=g.get('finalDirectionCalibration')
+ calibration_states.append(bool(c and c.get('translationPx')==[0,{'E':-15,'W':-4}[f['direction']]] and c.get('outputSHA256')==f['sha256'] and g.get('sha256')==f['sha256']))
+calibrated=len(frames)==68 and all(calibration_states)
+if (any(calibration_states) or (ROOT/'records/final-direction-calibration.json').exists()) and not calibrated:errors.append({'error':'partial or stale direction calibration; all 68 source records must match pixels'})
+review_path=ROOT/'records/visual-review.json'
+review=json.loads(review_path.read_text(encoding='utf-8')) if review_path.exists() else {}
+reviewed=(review.get('passed') is True and len(frames)==68 and not errors and review.get('frameSHA256')=={f['file']:f['sha256'] for f in frames})
+if reviewed:
+ for f in frames:f['visualStatus']='reviewed';f['visualReviewRecord']='records/visual-review.json'
 manifest={'character':'符小虎','slug':'legacy-fu-xiao-hu','generatedAt':datetime.now(timezone.utc).isoformat(),'expectedFrameCount':68,'actualFrameCount':len(frames),'status':'in-progress' if errors or len(frames)!=68 else 'technical-check-passed-visual-review-pending','directions':{'E':'three-quarter front facing lower right','W':'true three-quarter rear facing upper left'},'coordinateSystem':'exported 1024 canvas; no per-frame alignment','transform':{'E':{'resize':[1024,1024],'translationPx':[0,-15] if calibrated else [0,0]},'W':{'resize':[1024,1024],'translationPx':[0,-4] if calibrated else [0,0]}},'clientIntegration':'not-performed','frames':frames}
+if reviewed:manifest['status']='complete-assets-reviewed';manifest['visualReviewRecord']='records/visual-review.json'
 dump('manifest.json',manifest)
-dump('validation.json',{'checkedAt':datetime.now(timezone.utc).isoformat(),'frameCount':len(frames),'expectedFrameCount':68,'technicalPassed':not errors and len(frames)==68,'errors':errors,'duplicatesChecked':'SHA256 exact bytes AND decoded RGBA pixels; visual similarity reviewed separately','visibleContourThreshold':16,'sourceRecords':'per-frame records present check; full reference audit in records/source-audit.json','artReview':'pending','clientIntegration':'not-performed'})
+dump('validation.json',{'checkedAt':datetime.now(timezone.utc).isoformat(),'frameCount':len(frames),'expectedFrameCount':68,'technicalPassed':not errors and len(frames)==68,'errors':errors,'duplicatesChecked':'SHA256 exact bytes AND decoded RGBA pixels; visual similarity reviewed separately','visibleContourThreshold':16,'sourceRecords':'per-frame records present check; full reference audit in records/source-audit.json','artReview':'reviewed' if reviewed else 'pending','clientIntegration':'not-performed'})
 (out/'data.js').write_text('window.COMBAT_DATA = '+json.dumps(groups,ensure_ascii=False)+';',encoding='utf-8')
 print(json.dumps({'frames':len(frames),'errors':len(errors),'sheets':sheets}))

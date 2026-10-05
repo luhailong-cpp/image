@@ -9,11 +9,13 @@ def read(p):return json.loads(p.read_text(encoding='utf-8-sig'))
 m=read(ROOT/'manifest.json');errors=[];rows=[]
 for f in m['frames']:
  record=resolve(f['sourceRecord']);g=read(record);chain=[str(record.relative_to(ROOT))];model=g
+ if f.get('sha256')!=sha(ROOT/f['file']):errors.append({'file':f['file'],'error':'manifest SHA mismatch; rebuild delivery before audit'})
  if g.get('sha256')!=sha(ROOT/f['file']):errors.append({'file':f['file'],'error':'export source record SHA mismatch'})
  while 'configSnapshot' not in model:
   nextrec=model.get('derivedFrom',{}).get('generationRecord')
   if not nextrec:errors.append({'file':f['file'],'error':'missing model evidence chain'});break
-  np=resolve(nextrec);chain.append(str(np.relative_to(ROOT)));model=read(np)
+  np=resolve(nextrec);chain.append(str(np.relative_to(ROOT)));parent=model;model=read(np)
+  if parent.get('derivedFrom',{}).get('sha256')!=model.get('sha256'):errors.append({'file':f['file'],'error':'native generation chain SHA mismatch','record':str(np.relative_to(ROOT))})
  for key in ['configSnapshot','submittedParameters','actualModel','actualQuality','unverifiedReason','prompt','references']:
   if key not in model:errors.append({'file':f['file'],'error':'missing '+key})
  prompt=model.get('prompt'); prompt_exists=bool(prompt and resolve(prompt).exists())

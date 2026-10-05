@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "file": "runtime/attack/W/02.png",
-  "sha256": "79b8050bc6ab84df1c090136ecae73d1c5a2f8fb3d7ad64236ea3f9e6a1c8cc5",
+  "sha256": "979c82670ee9a85f14b7dbbdf3134b2d35d94796451f38c9cc1ee977a3168fc9",
   "generatedAt": "2026-10-05T12:30:37.900709-04:00",
   "width": 1024,
   "height": 1024,
@@ -34,7 +34,7 @@
   "references": [
     {
       "path": "D:/work/image/designs/creature-combat-20261005/pets/legacy-hu-tuan-tuan/design/W.png",
-      "role": "identity and pose anchor"
+      "role": "rear W identity, camera and pose anchor"
     },
     {
       "path": "D:/work/image/qdao_chibi_pets_v1/01_hu_tuan_tuan-transparent_1254.png",
@@ -46,7 +46,11 @@
     },
     {
       "path": "D:/work/image/designs/creature-combat-20261005/pets/legacy-hu-tuan-tuan/source/attack/W/01.png",
-      "role": "original identity"
+      "role": "previous frame temporal continuity",
+      "deleted": true,
+      "sha256": "4c0bc97e5e29fa6bb2da8a3c8e5f0009c2103628a1a0a35ab8aa282d8894c88c",
+      "deletionRecord": "records/cleanup.json",
+      "generationRecord": "source/attack/W/01.png.generation.json"
     }
   ],
   "evidence": {
@@ -54,33 +58,48 @@
     "hostOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10ccc-dbc5-7452-a1e4-a2b0c454e006\\exec-8da62bd3-12d6-4d43-b52a-52760cf57da7.png"
   },
   "derivedFrom": {
-    "file": "source/attack/W/02.png",
-    "sha256": "a03b53706748684bff489da3c60c25a500d102d0b7d293bb39431209d24011ce",
-    "width": 1254,
-    "height": 1254,
-    "format": "PNG",
-    "mode": "RGBA",
-    "generationRecord": "source/attack/W/02.png.generation.json",
-    "retained": "working native until export QA complete"
+    "file": "removed/intermediate/attack/W/02.png",
+    "sha256": "79b8050bc6ab84df1c090136ecae73d1c5a2f8fb3d7ad64236ea3f9e6a1c8cc5",
+    "generationRecord": "records/pre-registration/attack-W-02.json",
+    "deleted": true,
+    "deletionReason": "intermediate runtime pixels replaced by uniformly registered final export"
   },
   "operation": {
-    "type": "full-canvas-resize",
-    "fromSize": [
-      1254,
-      1254
-    ],
-    "toSize": [
+    "type": "fixed-direction-full-canvas-scale-and-pad",
+    "inputSize": [
       1024,
       1024
     ],
-    "resample": "Lanczos",
-    "translation": [
-      0,
-      0
+    "scaledCanvas": [
+      768,
+      768
     ],
+    "outputSize": [
+      1024,
+      1024
+    ],
+    "offsetPixels": [
+      210,
+      253
+    ],
+    "scale": 0.75,
+    "resample": "Lanczos",
+    "direction": "W",
+    "sameForAllThreeActions": true,
     "perFrameAlignment": false,
-    "alpha": "preserved via RGBA resize"
+    "alpha": "preserved, no thresholding",
+    "nominalAnchorTop": [
+      512,
+      942
+    ],
+    "pivotBottom": [
+      0.5,
+      0.08
+    ]
   },
-  "visualStatus": "pending-review",
-  "clientStatus": "not-integrated"
+  "visualStatus": "individual-frame-and-final-contact-reviewed; browser-playback-sampled",
+  "clientStatus": "not-integrated",
+  "finalExportAt": "2026-10-05T15:23:40.385480-04:00",
+  "visualReviewRecord": "records/final-visual-review.json",
+  "visualReviewedAt": "2026-10-05T17:08:14.161876-04:00"
 }
