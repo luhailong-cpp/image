@@ -26,8 +26,11 @@ for source in R.rglob('*'):
   assert resolved.is_relative_to(R),f'outside scope {source}'
   rel=source.relative_to(R).as_posix()
   if rel not in keep:remove.append({'file':rel,'sha256':sha(source),'bytes':source.stat().st_size})
-record={'createdAt':datetime.now(timezone.utc).isoformat(),'status':'applied' if args.apply else 'dry_run','scope':str(R),'policy':'保留最终游戏PNG、最终预览/接地联系图与全部逐图文字证据；删除原生加工图、拒稿、中间预览，无图片回退备份。','archive':delivery['file'],'preCleanupArchiveSha256':delivery['sha256'],'preCleanupProvenance':'review/delivery-provenance.json','removedFiles':remove,'removedBytes':sum(v['bytes'] for v in remove),'keptImagePaths':sorted(keep)}
 record_path=R/'review/retired-image-sources.json'
+old=rd(record_path) if record_path.exists() else {}
+combined={v['file']:v for v in old.get('removedFiles',[])}
+for item in remove:combined[item['file']]=item
+record={'createdAt':datetime.now(timezone.utc).isoformat(),'status':'applied' if args.apply else 'dry_run','scope':str(R),'policy':'保留最终游戏PNG、最终预览/接地联系图与全部逐图文字证据；删除原生加工图、拒稿、中间预览，无图片回退备份。','archive':delivery['file'],'preCleanupArchiveSha256':delivery['sha256'],'preCleanupProvenance':'review/delivery-provenance.json','previousRetirementProof':'review/retired-image-sources-before-full-axis-20261005.json','removedFiles':list(combined.values()),'removedThisPass':remove,'removedBytes':sum(v['bytes'] for v in remove),'keptImagePaths':sorted(keep)}
 record_path.write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 if args.apply:
  for item in remove:

@@ -14,7 +14,7 @@ p=argparse.ArgumentParser();p.add_argument('--require-art',action='store_true');
 run=[s for s in m['sequences'] if s['action']=='run']
 if args.require_art:
  assert all(s.get('eightConsecutiveSupportVerified') and s.get('positionPairsVerified') for s in run),'Run art review incomplete'
-d={'characterId':m['characterId'],'createdAt':datetime.now(timezone.utc).isoformat(),'totalFrames':196,'size':[1024,1024],'format':'PNG RGBA','runTiming':'16 x 75ms = 1200ms','clientIntegrated':False,'clientRuntimeVerified':False,'review':{'runDirections':[{k:s.get(k) for k in ['direction','eightConsecutiveSupportVerified','positionPairsVerified','dynamicArtAccepted','remainingIssues']} for s in run]},'sequences':[]}
+d={'characterId':m['characterId'],'createdAt':datetime.now(timezone.utc).isoformat(),'totalFrames':196,'size':[1024,1024],'format':'PNG RGBA','runTiming':'16 x 60ms = 960ms','clientIntegrated':False,'clientRuntimeVerified':False,'review':{'runDirections':[{k:s.get(k) for k in ['direction','eightConsecutiveSupportVerified','positionPairsVerified','dynamicArtAccepted','remainingIssues']} for s in run]},'sequences':[]}
 target=R/'ice_sword_girl_actions_196.zip'
 preview_manifest=copy.deepcopy(m)
 for s in preview_manifest['sequences']:
@@ -40,11 +40,13 @@ with ZipFile(target,'w',compression=ZIP_DEFLATED,compresslevel=6) as z:
   for evidence in (R/folder).rglob('*'):
    if evidence.is_file() and evidence.suffix.lower() in ['.json','.txt']:
     z.write(evidence,evidence.relative_to(R).as_posix())
+ for pattern in ['review/axis-*.json','review/*before-axis-20261004.json','review/video-axis-20261004/*.json','review/full-axis-*.json','review/full-action-audit-*.json','review/*before-full-axis-20261005.json']:
+  for evidence in R.glob(pattern):z.write(evidence,evidence.relative_to(R).as_posix())
  for fn in ['preview/all.html','preview/all-player.js']:
   z.write(R/fn,fn)
  z.writestr('preview/all-sequences.js','window.ALL_SEQUENCES='+json.dumps(preview_manifest,ensure_ascii=False)+';\n')
  z.writestr('manifest.json',json.dumps(d,ensure_ascii=False,indent=2)+'\n')
- z.writestr('README.txt','冰剑少女：8方向跑步128帧，E/W受击12、普攻24、施法32，共196张1024透明PNG。跑步统一75ms/帧，1.2秒/圈。\n文件在runtime/。解压后打开preview/all.html可预览所有动作。\n素材检查与客户端接入分开，本包未修改或验证客户端。\n')
+ z.writestr('README.txt','冰剑少女：8方向跑步128帧，E/W受击12、普攻24、施法32，共196张1024透明PNG。跑步统一60ms/帧，0.96秒/圈。\n文件在runtime/。解压后打开preview/all.html可预览所有动作。\n素材检查与客户端接入分开，本包未修改或验证客户端。\n')
 with ZipFile(target) as z:
  bad=z.testzip();assert bad is None,bad
  assert len([n for n in z.namelist() if n.endswith('.png')])==196

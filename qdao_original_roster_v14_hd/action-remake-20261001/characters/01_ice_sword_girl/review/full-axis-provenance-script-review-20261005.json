@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-05T07:03:02.421299+00:00",
+  "reviewer": "delivery_audit independent subagent",
+  "script": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\01_ice_sword_girl\\tools\\verify_full_axis_revision.py",
+  "scriptSha256": "15b954f8ce93da30f52dd0ff0ae42860b17b166036c5a229ff3cf843179313c5",
+  "scriptExecuted": false,
+  "deliveryProvenanceModified": false,
+  "conclusion": "补丁复看通过：动态替换/退休来源分支正确，最终选稿和批准原生图的路径及SHA绑定已补齐；本轮未发现剩余阻断问题。尚未执行完整196校验，最终selected/approval文件形成后由根代理运行。",
+  "findings": [
+    {
+      "id": "selection-version-binding",
+      "priority": "P2",
+      "file": "tools/verify_full_axis_revision.py",
+      "line": 24,
+      "issue": "TARGETS仅保留changes[].file；当前PNG/native与manifest及derivedFrom自洽就会通过，未核对selection所列source/nativeSha256/sha256/oldSha256，也未记录selection文件SHA。",
+      "concreteRisk": "本轮NE04-v1/v2/v3和W07-v1/v2/v3均有合法模型来源；若错误提升旧版本并重建manifest，替换路径集合仍相同，当前脚本不能发现违反最终选稿的情况。",
+      "recommendedFix": "加载完整changes并按file拒绝重复；oldSha256应等于冻结prior导出SHA，sha256等于current导出SHA，source等于当前nativeSource，nativeSha256等于derivedFrom.sha256；把selection文件SHA写进result。若单独交付校验已覆盖同等检查，可在那里落实。",
+      "blocksOngoingGeneration": false,
+      "status": "resolved",
+      "resolution": "补丁已使用唯一selection file索引，核对old/current/source/native SHA及export derivedFrom，并验证approvalEvidence SHA、唯一approvedNative路径、passed和native SHA；结果保留selection/approval文件哈希。"
+    },
+    {
+      "id": "stale-docstring-count",
+      "priority": "P3",
+      "file": "tools/verify_full_axis_revision.py",
+      "line": 1,
+      "issue": "首行仍写eight axis repairs，与动态TARGETS设计不一致。",
+      "recommendedFix": "改为selected axis repairs或动态数量中性的说明。",
+      "blocksOngoingGeneration": false,
+      "status": "resolved",
+      "resolution": "首行已改为selected axis repairs。"
+    }
+  ],
+  "verifiedReadOnly": {
+    "astSyntaxValid": true,
+    "baselineProofPassed": true,
+    "baselineProofChecked": 196,
+    "baselineManifestExactInventoryAndTiming": true,
+    "baselineManifestDigestEqualsFrozenProofManifestDigest": true,
+    "baselineExportShaMatches": 196,
+    "priorNativeRetirementPathAndShaMatches": 196,
+    "nestedPriorProofManifestRetirementHashesMatch": true,
+    "newDraftNativeRecordsChecked": 10,
+    "newDraftNativeLiveShasMatch": 10,
+    "newDraftReceiptPromptHelpersPass": 10,
+    "newDraftReferenceLiveShasMatch": 40,
+    "newDraftInternalReferenceHistoryFileHashAndPathBindingsMatch": 30,
+    "helperExecutionOnly": "AST中只加载只读helpers和R/SPEC/EXPECTED_PATHS；未执行audit()、TARGETS加载或写入delivery-provenance。"
+  },
+  "branchAssessment": [
+    {
+      "branch": "unchanged_exports",
+      "assessment": "每张当前PNG仍读SHA/像素和1024RGBA/alpha；旧native不读图，绑定冻结prior manifest/proof + 累计retirement SHA，输出nativePixelBytesReadThisAudit=false，未虚构重读。"
+    },
+    {
+      "branch": "changed_natives",
+      "assessment": "必须属于TARGETS，live native SHA一致、1254RGBA/alpha且整画布LANCZOS逐像素等于导出；记录nativePixelBytesReadThisAudit=true。"
+    },
+    {
+      "branch": "live_draft_reference",
+      "assessment": "reference-history按输入SHA命名且记录hash/path一致后，current_sha==expected_sha直接允许；不会误要求draft必须位于candidate。已实读NE04-v2/v3、NE08-v2、W07-v3的活draft引用。"
+    },
+    {
+      "branch": "superseded_candidate_reference",
+      "assessment": "仅当旧引用位于candidate、带明确SHA绑定的历史generationRecord，并与新冻结prior manifest/proof/retirement闭合时允许历史证据；记录historicalImageBytesReverified=false。本轮所有拟替换前candidate输入有相应历史记录。"
+    },
+    {
+      "branch": "counts_and_timing",
+      "assessment": "最终counts使用196-len(TARGETS)及len(TARGETS)，路径集对称差会生成问题；run仍16x75ms，其他已定时长不变。"
+    }
+  ],
+  "workflowLimits": [
+    "审查时最终full-axis-revision-selection-20261005.json尚未生成；模块顶层读取会在提前执行时失败。这是选定后运行的前置条件，不是当前素材缺陷。",
+    "新稿仍在产出/审阅中；本审计未代替最终manifest生成后的完整196校验。",
+    "此脚本必须在清理本轮native及draft参考之前成功执行。清理后不可再次运行并声称新native仍被重读。",
+    "保留的旧证据依赖链已核实实际hash一致；脚本本身未递归重放历史原生像素验证，报告不应说它做过。"
+  ],
+  "candidateOrScriptModified": false,
+  "evidence": [
+    {
+      "file": "tools/verify_axis_revision.py",
+      "sha256": "e812bc3f6049be366e080c29c6b51f6a842b1efc5ad88b2917f338ea58767f47"
+    },
+    {
+      "file": "review/manifest-before-full-axis-20261005.json",
+      "sha256": "b78566058153bb777c154cb8186839ecfaf3b928deedabcf3a11a328a2fae2bd"
+    },
+    {
+      "file": "review/delivery-provenance-before-full-axis-20261005.json",
+      "sha256": "f41dfbd40821e2f788f53f925631d4d604d6aa4056ba4e12b859e65c00cd103f"
+    },
+    {
+      "file": "review/retired-image-sources-before-full-axis-20261005.json",
+      "sha256": "44b553e6e8aad1825e4f270e734695bdc4b9c4b59d38eac97d5e9a44769da494"
+    }
+  ],
+  "initialScriptSha256": "7791ea85a97c3bb80b7eaa5af87fbe2ad05fa4fcebc3dffca68a19944b96682c",
+  "updatedAt": "2026-10-05T07:45:40.343751+00:00",
+  "remainingFindings": [],
+  "patchReview": {
+    "syntaxValidForThreeScripts": true,
+    "uniqueSelectedPathIndex": true,
+    "selectionOldShaBoundToFrozenPrior": true,
+    "selectionCurrentShaBoundToManifest": true,
+    "selectionSourceBoundToManifestNative": true,
+    "selectionNativeShaAndSourceBoundToExportDerivedFrom": true,
+    "approvalEvidenceFileShaChecked": true,
+    "approvedNativeUniquePathPassedAndShaChecked": true,
+    "selectionAndApprovalDigestRecorded": true,
+    "wrongVersionRejectionReason": "误提升同帧旧版本必须同时符合最终selection.source/nativeSha、approvedNative记录path/passed/SHA以及当前derivedFrom；其中任一不匹配都会失败。",
+    "applyScriptChecked": "先核对批准记录passed/图SHA/1254RGBA，再用批准列表生成candidate与selection；selection记录approval文件SHA。",
+    "finalizeScriptChecked": "核对当前导出SHA、选中nativeSHA与通过审阅的原生图映射，检查其余未替换图仍与冻结196一致；完整唯一性与approval文件SHA由verify脚本进一步约束。",
+    "scripts": [
+      {
+        "file": "tools/verify_full_axis_revision.py",
+        "sha256": "15b954f8ce93da30f52dd0ff0ae42860b17b166036c5a229ff3cf843179313c5"
+      },
+      {
+        "file": "tools/apply_full_axis_revision.py",
+        "sha256": "2ebe3b2ce78c0264af97a3073daa274dda9a60226dcd17ce21654fde89f1eac1"
+      },
+      {
+        "file": "tools/finalize_full_axis_review.py",
+        "sha256": "47b54d7a63854f4334ab6eace5e8af9e56b520627e3a088fd466791b61f5bf23"
+      }
+    ],
+    "executedMutationScripts": false
+  }
+}
