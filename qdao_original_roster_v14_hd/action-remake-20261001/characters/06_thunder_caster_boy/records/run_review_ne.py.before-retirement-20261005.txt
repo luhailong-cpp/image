@@ -1,0 +1,50 @@
+import json,hashlib
+from pathlib import Path
+from PIL import Image,ImageDraw
+ROOT=Path(__file__).resolve().parents[1]
+def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+allitems=[]
+for direction in ['NE']:
+ files=sorted((ROOT/'runtime/run'/direction).glob('*.png'))
+ if not files: continue
+ thumb=256
+ contact=Image.new('RGB',(4*thumb,4*(thumb+28)),(33,49,55));cd=ImageDraw.Draw(contact)
+ animations=[]
+ sources=[]
+ for idx,p in enumerate(files):
+  im=Image.open(p);im.load()
+  a=im.getchannel('A')
+  rec=json.loads(p.with_name(p.name+'.generation.json').read_text(encoding='utf-8'))
+  item={'file':p.relative_to(ROOT).as_posix(),'direction':direction,'frame':int(p.stem),'sha256':sha(p),'width':im.width,'height':im.height,'mode':im.mode,'alphaExtrema':list(a.getextrema()),'alphaBBoxDiagnosticOnly':list(a.getbbox()),'native':rec['native'],'visualReview':rec['visualReview'],'record':p.with_name(p.name+'.generation.json').relative_to(ROOT).as_posix()}
+  allitems.append(item);sources.append(item)
+  bg=Image.new('RGB',(448,448),(38,57,61))
+  dd=ImageDraw.Draw(bg)
+  for y in range(0,448,28):
+   for x in range(0,448,28):
+    if ((x+y)//28)%2:dd.rectangle((x,y,x+27,y+27),fill=(43,63,66))
+  small=im.resize((448,448),Image.Resampling.LANCZOS);bg.paste(small,(0,0),small)
+  dd=ImageDraw.Draw(bg);dd.line((0,412,447,412),fill=(192,170,94),width=1);dd.text((10,9),direction+' / '+p.stem,fill=(250,240,214));animations.append(bg)
+  x=(int(p.stem)%4)*thumb;y=(int(p.stem)//4)*(thumb+28)
+  ci=im.resize((thumb,thumb),Image.Resampling.LANCZOS);contact.paste(ci,(x,y),ci);cd.line((x,y+235,x+255,y+235),fill=(150,141,84));cd.text((x+9,y+thumb+6),direction+' / '+p.stem,fill=(250,240,214))
+ cp=ROOT/'review'/f'run_{direction}_contact.png';contact.save(cp)
+ previews=[]
+ for name,duration in [('normal',[70 if i%2==0 else 80 for i in range(len(animations))]),('slow',180)]:
+  op=ROOT/'review'/f'run_{direction}_{name}.gif'
+  animations[0].save(op,save_all=True,append_images=animations[1:],duration=duration,loop=0,disposal=2,optimize=False)
+  g=Image.open(op);durations=[]
+  for j in range(g.n_frames):g.seek(j);durations.append(g.info.get('duration'))
+  previews.append({'file':op.relative_to(ROOT).as_posix(),'sha256':sha(op),'frameCount':g.n_frames,'durationsMs':durations,'totalDurationMs':sum(durations)})
+ info={'direction':direction,'sources':sources,'previews':previews,'contact':{'file':cp.relative_to(ROOT).as_posix(),'sha256':sha(cp)},'operation':'Preview only: full-canvas uniform downsample, alpha composite over checkerboard, diagnostic fixed ground line at y=.92. Runtime PNG unchanged.','dynamicReview':'not_performed_by_model: browser iab unavailable and CUA inventory empty','completeSlots':len(files)==16}
+ (ROOT/'review'/f'run_{direction}_preview.generation.json').write_text(json.dumps(info,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+inventory={'scope':'run NE delegated task only','target':16,'exported':len(allitems),'completeDirections':[d for d in ['NE'] if sum(x['direction']==d for x in allitems)==16],'artFinalPassed':False,'dynamicPassed':False,'clientIntegrated':False,'files':allitems,'missing':[f'{d}/{i:02d}' for d in ['NE'] for i in range(16) if not (ROOT/'runtime/run'/d/f'{i:02d}.png').exists()]}
+(ROOT/'review/run_NE_inventory.json').write_text(json.dumps(inventory,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+template=(ROOT/'review/run_E_preview.html').read_text(encoding='utf-8-sig')
+html=template.replace('东向','东北向').replace('· E 跑步','· NE 跑步').replace('run/E/','run/NE/').replace('"E / "','"NE / "')
+html=html.replace('16张独立原生帧，统一相机全画布变换。','16张独立原生帧，各原生全画布降采样。')
+html=html.replace('09/10脚向已局部修正，09支撑高度6–9像素残差与循环连续性待动态/客户端滑步复核。','逐图靴轴已局部修正；03白绑腿异常拉长已收短，保留鞋轴与抬跟。全组相位、首尾连续性和客户端滑步仍待复核。')
+html=html.replace('<div id="stage">','<p><a style="color:#f4d58b" href="NE03_final_correction_20261004.json">03局部修正记录与当前SHA</a></p><div id="stage">')
+(ROOT/'review/run_NE_preview.html').write_text(html,encoding='utf-8')
+print(json.dumps({"NE":len(allitems),"missing":inventory["missing"]},ensure_ascii=False))
+
+import run_timing_1200; run_timing_1200.update()
+
