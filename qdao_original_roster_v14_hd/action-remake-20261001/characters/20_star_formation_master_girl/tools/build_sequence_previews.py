@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[1]
 selection=json.loads((ROOT/'selection.json').read_text(encoding='utf-8-sig'))
 delivered=selection.get('status')=='offline_delivery'
 label='离线交付' if delivered else '候选，动态待审'
-specs={'run':(16,75),'hit':(6,40),'attack':(12,30),'cast':(16,45)}
+specs={'run':(16,60),'hit':(6,40),'attack':(12,30),'cast':(16,45)}
 font=ImageFont.truetype('C:/Windows/Fonts/msyh.ttc',20)
 groups={}
 for e in selection['frames']:groups.setdefault((e['action'],e['direction']),{})[e['frame']]=e

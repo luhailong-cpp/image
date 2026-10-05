@@ -1,4 +1,4 @@
-"""从当前runtime生成八方向正常1200ms与慢放预览；不编辑人物像素。"""
+"""从当前runtime生成八方向正常960ms与慢放预览；不编辑人物像素。"""
 from pathlib import Path
 from PIL import Image,ImageDraw,ImageFont
 import hashlib,json
@@ -12,13 +12,13 @@ for i in range(1,17):
   p=ROOT/f"runtime/run/{d}/{i:02}.png";im=Image.open(p).convert("RGBA").resize((256,256),Image.Resampling.LANCZOS)
   x=(j%4)*256;y=(j//4)*300;out.paste(im,(x,y),im);draw.text((x+12,y+262),f"{d} · {i:02}/16",font=font,fill="#25423d")
   sources.append({"file":p.relative_to(ROOT).as_posix(),"sha256":hashlib.sha256(p.read_bytes()).hexdigest()})
- draw.text((12,595),"星阵少女 · 正常 1200ms / 圈 · 16 × 75ms",font=font,fill="#25423d")
+ draw.text((12,595),"星阵少女 · 正常 960ms / 圈 · 16 × 60ms",font=font,fill="#25423d")
  frames.append(out)
-for label,duration in [("1200ms",75),("slow",300)]:
+for label,duration in [("960ms",60),("slow",240)]:
  outputFrames=[]
  for frame in frames:
   rendered=frame.copy();draw=ImageDraw.Draw(rendered);draw.rectangle((0,591,1024,620),fill="#e7e4dc")
-  draw.text((12,595),f"星阵少女 · {'正常' if duration==75 else '慢放'} {duration*16}ms / 圈 · 16 × {duration}ms",font=font,fill="#25423d")
+  draw.text((12,595),f"星阵少女 · {'正常' if duration==60 else '慢放'} {duration*16}ms / 圈 · 16 × {duration}ms",font=font,fill="#25423d")
   outputFrames.append(rendered)
  p=ROOT/f"preview/run-eight-directions-{label}.png"
  outputFrames[0].save(p,save_all=True,append_images=outputFrames[1:],duration=duration,loop=0,disposal=0,blend=0)
