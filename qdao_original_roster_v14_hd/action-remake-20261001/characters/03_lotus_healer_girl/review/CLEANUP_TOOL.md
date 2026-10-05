@@ -1,5 +1,9 @@
 # 莲花医者原生图清理工具
 
+最新2026-10-05解剖与时长修订已完成：20张新图选入，196张导出、14组浏览器加载和426项播放检查通过；正常跑步60ms/帧、960ms/圈。删除29张已替换/拒用PNG与18张过期诊断图，保留195张本角色当前原生母稿、1张外部只读来源和196张导出，逐图全部文字证据保留。
+
+当前有效：[执行日志](cleanup-applied-20261005T104938547597Z.json)、[计划](cleanup-plan-anatomy-20261005T104643563718Z.json)、[冻结清单](anatomy-export-freeze-20261005T104643563718Z.json)、[诊断图清理](anatomy-obsolete-media-cleanup-20261005.json)。以下75ms/七帧修订相关内容是历史轮次，不再代表当前文件。
+
 追加视频参考后的七帧修订已导出并完成14组浏览器核验。本次再删除11张已替换或拒用的原生PNG，保留195张本角色当前母稿、1张外部只读来源和196张1024导出；另清除6张已过期诊断图片，所有文字来源记录保留。
 
 本轮有效记录：[执行日志](cleanup-applied-20261005T035256504666Z.json)、[清理计划](cleanup-plan-axis-20261005T035103694691Z.json)、[新冻结清单](axis-export-freeze-20261005T035103694691Z.json)、[诊断图清理](axis-obsolete-review-media-cleanup.json)。新日志complete=true，删除后196张成品已再次校验。以下上一轮记录属于历史。
@@ -16,7 +20,7 @@
 
 - 唯一允许删除的对象：本角色 `generation/**/*.png` 中的普通文件。逐文件unlink，不递归删除目录；不删除任何JSON、prompt、job、receipt、review、设计图、宿主generated_images、旧角色或其他路径。
 - 拒绝越界、符号链接、Windows目录联接/reparse point、硬链接、NTFS备用数据流；每次unlink前重新检查路径、PNG及溯源SHA。
-- 开始时读取14组input、14组导出selection和all-actions-selection；要求196槽齐全且196个源SHA及196个导出SHA独立。逐帧核对原生和generation记录、1024×1024 RGBA透明导出、导出来源及完整画布LANCZOS像素一致。跑步每帧必须75ms。
+- 开始时读取14组input、14组导出selection和all-actions-selection；要求196槽齐全且196个源SHA及196个导出SHA独立。逐帧核对原生和generation记录、1024×1024 RGBA透明导出、导出来源及完整画布LANCZOS像素一致。跑步每帧必须60ms。
 - 计划使用实际绝对路径与SHA，列出selected、keep、delete、references、requiredFiles和外部源。只写紧凑的文件证据，不把完整提示词塞进计划；冻结文件另保存逐图源记录快照。
 - 应用时重新完成全套检查，并与原计划指纹、目标列表严格比较。选表/图片/文字记录/工具代码任一变化，旧计划不能应用，需重新dry run。每次删除前还重查当前选表；选中源逐帧再与导出像素比较。中途失败立即停止，已执行部分写入journal，**不会自动回滚或继续扩大范围**。
 - 不得与生图、选表编辑、build或finalize并发运行。若中途失败，先读journal确认已删内容；不要把它当作完整清理，也不要手工放宽校验继续。
