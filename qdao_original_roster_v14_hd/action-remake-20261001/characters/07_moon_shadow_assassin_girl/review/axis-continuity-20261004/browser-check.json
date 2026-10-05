@@ -1,0 +1,85 @@
+{
+  "recordedAt": "2026-10-05T03:01:49.659Z",
+  "passed": true,
+  "url": "http://127.0.0.1:8777/preview/index.html",
+  "method": "Actual CUA controls on fresh IAB tab3 after old tab2 could return DOM but failed mouse input and screenshots. Normal and quarter-speed single-play endpoints; loop tail16 followed by2 and sampled state; visible screenshots at NE256px frame15 and NW160px frame15.",
+  "singlePlaybackCases": [
+    {
+      "direction": "NW",
+      "speed": 1,
+      "endCounter": "16 / 16",
+      "observedImageSHA256": "5901c604cdfb0a9bd1cac12f4bffd26fa7f9e927c1ac46281d818d225567a8b0",
+      "loop": false,
+      "passed": true
+    },
+    {
+      "direction": "NE",
+      "speed": 1,
+      "endCounter": "16 / 16",
+      "observedImageSHA256": "30e3e28f142782cfd13f333886f733d97b3e44995cb015490622f207c5b50558",
+      "loop": false,
+      "passed": true
+    },
+    {
+      "direction": "NW",
+      "speed": 0.25,
+      "endCounter": "16 / 16",
+      "observedImageSHA256": "5901c604cdfb0a9bd1cac12f4bffd26fa7f9e927c1ac46281d818d225567a8b0",
+      "loop": false,
+      "passed": true
+    },
+    {
+      "direction": "NE",
+      "speed": 0.25,
+      "endCounter": "16 / 16",
+      "observedImageSHA256": "30e3e28f142782cfd13f333886f733d97b3e44995cb015490622f207c5b50558",
+      "loop": false,
+      "passed": true
+    }
+  ],
+  "loopCases": [
+    {
+      "direction": "NW",
+      "speed": 1,
+      "loop": true,
+      "tailObserved": "16 / 16",
+      "waitedForWrapCounter": "2 / 16",
+      "sampleAfterWrap": "4 / 16",
+      "observedImageSHA256": "08b2af9b99447a6de2ee925536d3c60f85ef334553414b96a89d8db9724764ae",
+      "stillPlaying": true,
+      "passed": true
+    },
+    {
+      "direction": "NE",
+      "speed": 1,
+      "loop": true,
+      "tailObserved": "16 / 16",
+      "waitedForWrapCounter": "2 / 16",
+      "sampleAfterWrap": "3 / 16",
+      "observedImageSHA256": "5c84af00e09f5537d2f3b53e651bf0fe978e348bb59fc69e6ba29585c1c90a20",
+      "stillPlaying": true,
+      "passed": true
+    }
+  ],
+  "displayChecks": [
+    {
+      "direction": "NE",
+      "size": 256,
+      "frame": 15,
+      "screenshotInspected": true,
+      "observedImageSHA256": "4c9112494950652df746364ca8573a7bf7f872c4f9764f1f90f57be25de35f93"
+    },
+    {
+      "direction": "NW",
+      "size": 160,
+      "frame": 15,
+      "screenshotInspected": true,
+      "observedImageSHA256": "ee1f723ccaa184e682c97c345c8685c0be960d04fb43b067702328e5bf8c11d1"
+    }
+  ],
+  "scope": "Current changed NW/NE browser end states, loop wrap and still-image samples; no continuous video recording and no game client test.",
+  "retainedBrowserRecords": [
+    "review/run-grounding-20261004/browser-check.json",
+    "review/direction-combat-20261004/browser-check.json"
+  ]
+}
