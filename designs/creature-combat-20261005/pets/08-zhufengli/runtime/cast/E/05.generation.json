@@ -20,7 +20,11 @@
   },
   "actualModel": null,
   "actualQuality": null,
-  "evidence": "Builtin image_gen exposes no model/quality selector; result only image_url/output_hint. Target is configuration, not verified model.",
+  "evidence": {
+    "receipt": "receipts/cast-E-05.json",
+    "request": "receipts/cast-E-05.request.json",
+    "statement": "Builtin image_gen exposes no model/quality selector; result only image_url/output_hint. Target is configuration, not verified model."
+  },
   "requestedAt": "2026-10-05T11:30:35.761Z",
   "receivedAt": "2026-10-05T11:32:56.556Z",
   "tool": "image_gen.imagegen",
@@ -81,5 +85,23 @@
     "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png": "e64a817c55b59cf5cc47533428f2e560c64a83f3577067a6fb5969244baf3d6b",
     "D:/work/image/designs/creature-combat-20261005/pets/08-zhufengli/runtime/cast/E/04.png": "4f9d882f2f592122382b9a99698ba6e31b258ca6362907b7e8310d5cf95c4dbf"
   },
-  "operation": "whole-canvas RGBA resize to 1024x1024 using Lanczos; no crop, translation, per-frame foot alignment, synthesis, or interpolation between frames"
+  "operation": "whole-canvas RGBA resize to 1024x1024 using Lanczos; no crop, translation, per-frame foot alignment, synthesis, or interpolation between frames",
+  "file": "runtime/cast/E/05.png",
+  "sha256": "3e8cdf5e6260fd6547a29ccef3aabde368882e47ed1e98db26ed1b20aead2269",
+  "generatedAt": "2026-10-05T11:32:56.556Z",
+  "prompt": "prompts/cast-E-05.txt",
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-04",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  },
+  "evidenceStatement": "Builtin image_gen exposes no model/quality selector; result only image_url/output_hint. Target is configuration, not verified model."
 }
