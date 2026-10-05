@@ -22,4 +22,4 @@ prompt=re.sub(r'Pose frame 01:.*?\n1024',f'Pose frame {i:02}: '+poses[i]+' Image
 refs=['D:/work/image/designs/pets-xianling-20260924/source/04-guideng-E.png','D:/work/image/designs/pets-xianling-20260924/source/04-guideng-W.png','D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png',str(B/f'runtime/cast/E/{i-1:02}.png')]
 (B/f'prompts/E-cast/{i:02}.txt').write_text(prompt,encoding='utf-8')
 cfg=json.loads((B/'records/E-cast/01.json').read_text(encoding='utf-8'))['configSnapshot']
-print(json.dumps({'frame':i,'base':str(B).replace('\\','/'),'prompt':prompt,'refs':refs,'cfg':cfg},ensure_ascii=False))
+print(json.dumps({'frame':i,'base':str(B).replace('\\','/'),'prompt':prompt,'refs':refs,'cfg':cfg},ensure_ascii=True))
