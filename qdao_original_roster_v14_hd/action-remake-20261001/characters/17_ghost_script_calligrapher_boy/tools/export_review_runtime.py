@@ -23,7 +23,7 @@ CHARACTER = "17_ghost_script_calligrapher_boy"
 SIZE = 1024
 EDGE_ALPHA_THRESHOLD = 128  # Existing review convention: alpha > 128.
 ACTIONS = {
-    "run": (("N", "NE", "E", "SE", "S", "SW", "W", "NW"), 16, 75),
+    "run": (("N", "NE", "E", "SE", "S", "SW", "W", "NW"), 16, 60),
     "hit": (("E", "W"), 6, 40),
     "attack": (("E", "W"), 12, 30),
     "cast": (("E", "W"), 16, 45),

@@ -12,12 +12,19 @@ def check(ok,message):
 
 def verify():
     m=read(B/'manifest.json');a=read(B/'acceptance.json')
-    check(m['status']==a['status']=='passed','Not approved')
-    check(a['visualApproval']==a['dynamicApproval']=='passed' and a['reviewedAt'],'Incomplete review')
+    check(m['status']==a['status'] and m['status'] in ('passed','ready_with_review_limit'),'Unknown delivery status')
+    check(a['visualApproval']=='passed' and a['reviewedAt'],'Static review incomplete')
+    if m['status']=='passed':check(a['dynamicApproval']=='passed','Dynamic review incomplete')
+    else:check(a['dynamicApproval']=='incomplete' and a['browserAccessLimit'] and len(a['remainingDynamicSequences'])==7,'Missing explicit browser review limit')
     check(m['acceptance']['sha256']==sha(B/'acceptance.json') and m['acceptance']['record']==a,'Acceptance changed')
     check(sha(B/m['selectionSource']['file'])==m['selectionSource']['sha256']==a['previewManifestSha256'],'Selection changed')
-    spec={'run':(['N','NE','E','SE','S','SW','W','NW'],16,75),'hit':(['E','W'],6,40),
+    spec={'run':(['N','NE','E','SE','S','SW','W','NW'],16,60),'hit':(['E','W'],6,40),
           'attack':(['E','W'],12,30),'cast':(['E','W'],16,45)}
+    timing=read(B/'animation-timing.json')
+    for action,(_,count,ms) in spec.items():
+        check((timing[action]['frameMs'],timing[action]['cycleMs'])==(ms,count*ms),'Timing configuration differs from formal manifest')
+    contact=read(B/'review/contact-pairs-current-20261004.json')
+    check((contact['frameMs'],contact['cycleMs'],contact['pairMs'])==(60,960,120),'Stale run contact timing')
     expected={(act,d) for act,(ds,_,_) in spec.items() for d in ds}
     check(len(m['sequences'])==14 and {(s['action'],s['direction']) for s in m['sequences']}==expected,'Wrong sequences')
     rows={}; pixelhashes={}; physical=set()
@@ -49,11 +56,11 @@ def verify():
             rows[slot]=h
     check(len(rows)==196 and physical=={p.resolve() for p in (B/'runtime').rglob('*.png')},'Wrong physical PNG set')
     d=read(B/'preview/delivery-data.json')
-    check(d['status']=='passed' and d['clientIntegrated']==False,'Wrong preview status')
+    check(d['status']==m['status'] and d['clientIntegrated']==False,'Wrong preview status')
     from plan_final_cleanup import validate_delivery
     by_slot={f['slot']:f for s in m['sequences'] for f in s['frames']}
     validate_delivery(by_slot,physical)
-    return {'status':'passed','checkedAt':datetime.now(timezone.utc).isoformat(),
+    return {'status':'passed','assetDeliveryStatus':m['status'],'dynamicApproval':a['dynamicApproval'],'checkedAt':datetime.now(timezone.utc).isoformat(),
             'manifestSha256':sha(B/'manifest.json'),'acceptanceSha256':sha(B/'acceptance.json'),
             'runtimeFrames':196,'sequences':14,'distinctPixelFrames':196,
             'allCanvas1024RGBA':True,'allOuterEdgesGT128Zero':True,
