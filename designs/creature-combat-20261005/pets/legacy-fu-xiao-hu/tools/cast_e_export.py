@@ -7,6 +7,7 @@ n=int(sys.argv[1]); tag=f"cast-E-{n:02d}"
 req=json.loads((BASE/"records"/f"{tag}.request.json").read_text(encoding="utf-8-sig"))
 receipt=json.loads((BASE/"records"/f"{tag}.receipt.json").read_text(encoding="utf-8-sig"))
 src=Path(receipt["sourcePath"])
+reference_sha_before={p:hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in req["request"]["referenced_image_paths"]}
 native=BASE/"runtime"/"cast"/"E"/".native"/f"{n:02d}.png"; native.parent.mkdir(parents=True,exist_ok=True)
 shutil.copy2(src,native)
 im=Image.open(native); orig_size=list(im.size); orig_mode=im.mode
@@ -16,7 +17,7 @@ sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
 final=Image.open(out);alpha=final.getchannel("A")
 references=[]
 for i,p in enumerate(req["request"]["referenced_image_paths"]):
-    references.append({"path":p,"role":["original identity","approved painted style","locked E-facing camera and seated support","previous animation frame"][i],"sha256":sha(p)})
+    references.append({"path":p,"role":["original identity","approved painted style","locked E-facing camera and seated support","previous animation frame or targeted edit source"][i],"sha256":reference_sha_before[p]})
 record={
 "file":out.relative_to(BASE).as_posix(),"sha256":sha(out),"generatedAt":receipt["receivedAt"],"action":"cast","direction":"E","frame":n,"durationMs":45,
 "tool":"image_gen.imagegen","route":"builtin","configSnapshot":req["configSnapshot"],
