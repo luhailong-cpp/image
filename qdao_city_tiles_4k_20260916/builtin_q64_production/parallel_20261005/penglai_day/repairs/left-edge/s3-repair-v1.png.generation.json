@@ -1,0 +1,63 @@
+{
+  "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\left-edge\\s3-repair-v1.png",
+  "sha256": "c8292f3759ca22beb46880c9419aab7bcafa63faa7afd00e64084e5a3dd5aff0",
+  "generatedAt": "2026-10-05T18:50:30.814475+00:00",
+  "width": 1254,
+  "height": 1254,
+  "format": "PNG",
+  "tool": "image_gen.imagegen",
+  "route": "builtin",
+  "toolResultPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb5-4d03-7df2-b1d5-a2b376b03685\\exec-ba6bcbba-7042-4072-b714-91e51be3a6d3.png",
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-04",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  },
+  "submittedParameters": {
+    "model": null,
+    "quality": null,
+    "prompt": "Use case: precise-object-edit / inpainting. IMAGE1 is an existing1254x1254 game map crop with the vertical magenta repair zone x627..914. Replace all magenta with coherent native artwork. Unmasked left x<627 is a fixed old tile and right x>=915 is a fixed new tile: preserve them, never shift or repaint them. IMAGE3 shows the same crop before masking and provides exact stone-post position, footprint, silhouette and materials; preserve the post centered near x834 with rounded cap at y744..991 and cylindrical body extending down. The stone fence top on left reaches the repair zone at x627,y1042, and the upper paving edge reaches it near y369. Reconstruct the paving slab joints within the gap to connect these actual left endpoints naturally to the visible fixed right slab layout, maintaining straight clean perspective edges and broad simple slabs; varying slab sizes or a natural T-joint is allowed if required, but no abrupt joint ends at mask borders, no thin sliver slabs, no added steps or cracks. Keep the post and existing fence; continue the stone horizontal rail from the left into the post smoothly with coherent solid thickness and shadow, without a doubled rail or notch. The tiny golden roof portion at lower edge remains in position. Reconcile only the missing geometry inside the gap. IMAGE2 is approved PRIMARY painting-style reference only: keep bright clean rounded Taoist Q-style painted ivory stone, muted blue-gray shadows and gentle volume; ignore its UI, writing and characters. Same1254x1254 framing and native scale, opaque, no magenta, extra objects, characters, labels, border, blur or smearing. Do not move or repaint any unmasked artwork.\n",
+    "referenced_image_paths": [
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\left-edge\\s3-target-gap.png",
+      "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\left-edge\\s3-target-native.png"
+    ],
+    "transparent_background": false
+  },
+  "actualModel": null,
+  "actualQuality": null,
+  "unverifiedReason": "宿主管理，工具未披露型号/质量，无可核实元数据；提示词不代表选择器。",
+  "prompt": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\left-edge\\s3-repair-v1.prompt.txt",
+  "references": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\left-edge\\s3-target-gap.png",
+      "sha256": "549302f15c19939eb3377a2e1cb2442e9a880702b45daaccf2b4242548e725c5",
+      "role": "native edit target; immutable left side geometry/color anchor"
+    },
+    {
+      "file": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+      "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+      "role": "approved primary style only"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\left-edge\\s3-target-native.png",
+      "sha256": "4837f3f0e14ae3830893060f7cf4fb2ab3b9c7b8be37cb76a4ce84c4c4a8cb9e",
+      "role": "native unmasked geometry and stone post footprint"
+    }
+  ],
+  "role": "native_geometry_repair_candidate",
+  "formalAccepted": false,
+  "evidence": {
+    "toolResultPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb5-4d03-7df2-b1d5-a2b376b03685\\exec-ba6bcbba-7042-4072-b714-91e51be3a6d3.png",
+    "displayedInToolResult": true,
+    "modelVerificationInherited": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\evidence\\model-verification.json"
+  }
+}
