@@ -1,10 +1,10 @@
 # 赤枪少女动作成品
 
-已完成196张1024×1024 RGBA动作制作版：八方向跑步128张，E/W受击12张、普攻24张、施法32张。跑步各方向1200ms/圈。客户端尚未接入。
+已完成196张1024×1024 RGBA动作制作版：八方向跑步128张，E/W受击12张、普攻24张、施法32张。跑步各方向1200ms/圈。本轮腿脚轴线定向修正记录见run-axis-revision-20261004/publish-report.json。客户端尚未接入。
 
 - [八方向同屏](preview/all-directions.html)
 - [全动作预览](preview/index.html)
-- [八方向跑步](preview/timing-grounding.html)
+- [单方向跑步逐帧检查](preview/timing-grounding.html)
 - [四动作概览](preview/current-four-actions.jpg)
 - [成品清单](manifest.json)
 - [接入与来源说明](MERGE_HANDOFF.md)

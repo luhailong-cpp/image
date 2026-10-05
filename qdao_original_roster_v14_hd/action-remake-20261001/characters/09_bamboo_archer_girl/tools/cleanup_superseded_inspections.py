@@ -17,7 +17,10 @@ for p in candidates:
  assert target.is_relative_to(ROOT) and target!=ROOT
  rows.append({'file':target.relative_to(ROOT).as_posix(),'sha256':sha(target),'reason':'Superseded inspection/working image or duplicate group preview; current runtime and canonical preview/qa verified and retained.'})
 out={'atUtc':datetime.now(timezone.utc).isoformat(),'authorizedBy':'AGENTS.md 2026-09-23: keep final game images and necessary design/integration files; remove original/rejected/working images after current outputs and references verified.','currentRuntimeAndCanonicalPreviewRetained':True,'textProvenanceRetained':True,'outsideCharacterFilesTouched':False,'deleted':rows}
-(ROOT/'audit/cleanup-superseded-inspection-images.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
+ledger=ROOT/'audit/cleanup-superseded-inspection-images.json'
+if ledger.exists():
+ previous=read(ledger)
+ out['previousBatches']=previous.get('previousBatches',[])+[{k:v for k,v in previous.items() if k!='previousBatches'}]
+ledger.write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
 for row in rows:(ROOT/row['file']).unlink()
 print(json.dumps({'deletedIntermediateImages':len(rows),'currentRuntimeAndPreviewRetained':True}))
-
