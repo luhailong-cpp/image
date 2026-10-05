@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-05",
+  "baseline": "provenance/limbs-20261004/before-manifest.json",
+  "url": "http://127.0.0.1:8818/preview/index.html?review=axis-20261004",
+  "method": "Live browser playback samples, full-canvas and simultaneous 128/256 displays. This is not a client/world-motion test.",
+  "unchangedRunGroupsSampledAt1x": ["N", "SE", "S", "SW", "W", "NW"],
+  "combatGroupsSampledAt1x": ["hit/W", "attack/W", "cast/E"],
+  "runReadout": {"frameMs": 75, "cycleMs": 1200},
+  "browserDecode": {"groups": 14, "frames": 196, "width": 1024, "height": 1024, "allLoaded": true, "method": "First visit all groups; revisit six groups that were still decoding on the immediate first observation. All then fully decoded."},
+  "combatReadouts": {"hit/W": [40,240], "attack/W": [30,360], "cast/E": [45,720]},
+  "NWSeam": {
+    "method": "Select slow mode, pause at16, then click next to01; inspect final painted canvas and DOM label/current PNG URL.",
+    "frame16ShaPrefix": "ddb48733018e",
+    "frame01ShaPrefix": "b40cb8e831d8",
+    "finding": "Same screen-right/anatomical-right support boot stays in contact through16 to01; other leg remains flexed. Body weight lowers into01. No support-foot exchange at the loop boundary.",
+    "frameOrderChanged": false
+  },
+  "notes": [
+    "Unchanged groups retain consistent anatomical-right cauldron and left bottle in samples; support/raised-foot separation readable at128 and256.",
+    "One immediate screenshot after a frame click was stale relative to fresh AX; final paused frame16 and next-frame01 were re-observed before accepting the seam check.",
+    "Replacement E/NE run and attack/E will be checked again after final export; this record does not accept unfinished candidate feet.",
+    "World displacement, foot sliding relative to world ground and cross-direction transitions remain outside this offline preview."
+  ]
+}
