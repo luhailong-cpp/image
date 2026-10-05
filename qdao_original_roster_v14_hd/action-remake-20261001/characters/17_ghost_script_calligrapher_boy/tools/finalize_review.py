@@ -46,6 +46,32 @@ def main():
               'limits':['素材制作与本地预览验收；不等同用户最终审美确认。',
                         '未接入客户端，游戏内统一枢轴和实际位移仍需集成核验。',
                         '内置生成工具未披露实际型号/质量，记录保持null。']}
+    revision=m.get('fullBodyRevision') or m.get('axisRevision')
+    full_body=bool(m.get('fullBodyRevision'))
+    history='provenance/full-body-revision-20261005' if full_body else 'provenance/axis-revision-20261004'
+    playback_file='review/full-body-playback-review-20261005.json' if full_body else 'review/axis-playback-review.json'
+    if revision:
+        changed=set(revision['changedSlots'])
+        affected={x.rsplit('-',1)[0] for x in changed}
+        if m.get('timingRevision'):
+            affected.update('run-'+d for d in m['timingRevision']['directions'])
+        playback=read(B/playback_file)
+        assert playback['status']=='passed' and set(playback['changedSlots'])==changed
+        assert playback['runtimeFrameSha256']=={f['slot']:f['sha256'] for f in frames}
+        assert set(playback['reviewedSequences'])==affected
+        if m.get('timingRevision'):
+            assert playback['runTiming']=={'frameMs':60,'cycleMs':960,'frameCount':16}
+        approval['fullBodyRevisionReview' if full_body else 'axisRevisionReview']={'changedSlots':sorted(changed),'changedSequences':sorted(affected),
+            'referenceObservation':'review/axis-video/observations.json',
+            'actualPlaybackEvidence':{'file':playback_file,'sha256':digest(B/playback_file)},
+            'selectionEvidence':m['selectionSource'],
+            'unchangedFramesVerifiedAgainst':history+'/manifest-before.json',
+            'method':'All newly timed run sequences and changed combat sequences reviewed again at normal/quarter speed and stepped through affected neighboring frames; other sequences inherit prior review with identical image hashes.',
+            'timingRevision':m.get('timingRevision')}
+        for s in approval['sequences']:
+            if f"{s['action']}-{s['direction']}" not in affected:
+                s['reviewNote']='本轮像素未改，逐帧SHA与上一轮一致；本轮手脚静态复核记录另存，继承此前实际播放审查。'
+                s['carriedForwardFrom']=history+'/acceptance-before.json'
     write(B/'acceptance.json',approval)
     write(B/'review/final-sequence-review.json',approval)
     m['status']='passed'
@@ -62,7 +88,7 @@ def main():
     write(B/'review/contact-pairs-current-20261004.json',req)
     (B/'STATUS.md').write_text('''# 17 灵篆书生 · 已完成素材制作
 
-196张1024×1024透明PNG已导出，14组动作通过本地逐帧与播放检查。跑步八方向的脚步、膝踝鞋轴和摆臂过渡已按09竹弓少女当前动作规律修正。每个位置段两张独立姿态，16帧各75ms，一轮1200ms。
+196张1024×1024透明PNG已导出，14组动作通过本地逐帧与播放检查。跑步八方向的脚步、膝踝鞋轴和摆臂过渡已按09竹弓少女当前动作规律修正。每个位置段两张独立姿态，16帧各60ms，一轮960ms。
 
 以 [正式清单](manifest.json)、[验收记录](acceptance.json) 和 [交付说明](DELIVERY.md) 为当前状态。[完整动作预览](preview/delivery.html) 支持正常、慢放和逐帧。
 
@@ -76,7 +102,7 @@ def main():
 
 本角色制作完成。只交付本目录的runtime、manifest.json、acceptance.json及DELIVERY.md；正式离线预览位于preview/delivery.html。共196帧、14组动作，每帧1024×1024 RGBA。完整时长、事件、逐图来源和哈希见manifest.json。
 
-八方向跑步16×75ms；01–08同一脚连续支撑，09–16换另一脚，各半轮四个位置段、每段两帧。N/NE/E/SE/S/W先右后左，NW/SW先左后右，按角色解剖侧。
+八方向跑步16×60ms；01–08同一脚连续支撑，09–16换另一脚，各半轮四个位置段、每段两帧。N/NE/E/SE/S/W先右后左，NW/SW先左后右，按角色解剖侧。
 
 来源PNG只作一次整画布LANCZOS缩放；导出偏移为0。客户端统一枢轴未标定，不能按逐帧最低脚点自动吸附地面。旧预览参考(0.5104,0.92105)仅为检查参考。
 
@@ -88,10 +114,15 @@ def main():
 
 直接用浏览器打开 [delivery.html](delivery.html)，无需服务器。保持preview与runtime目录相对关系；全部196帧从runtime读取。支持八方向跑步和E/W受击、普攻、施法，正常播放、四分之一慢放、暂停和逐帧检查。
 
-[八方向跑步动图](run-current-1200ms.webp)为16帧各75ms，共1200ms，240px整画布显示。
+[八方向跑步动图](run-current-960ms.webp)为16帧各60ms，共960ms，240px整画布显示。
 
 旧入口重定向到正式预览。manifest-preview.json只保留导出时的选图/来源历史快照；其中staging路径可能已按素材保留规则清理，正式预览不读取这些路径。不要再用旧build_preview.py覆盖入口。
 ''',encoding='utf-8')
+    if revision:
+        revision_note='\n本次全动作手脚复核与局修：'+ '、'.join(revision['changedSlots'])+'。检查髋膝踝鞋尖轴向、肩肘腕、握持与回收衔接；其余'+str(196-len(revision['changedSlots']))+'张正式帧SHA保持不变。修改方向已重新正常播放、四分之一慢放及关键帧逐张检查。\n'
+        for name in ('STATUS.md','MERGE_HANDOFF.md'):
+            target=B/name
+            target.write_text(target.read_text(encoding='utf-8')+revision_note,encoding='utf-8')
     print(json.dumps({'status':'passed','frames':196,'sequences':14,'reviewedAt':reviewed}))
 
 if __name__=='__main__': main()

@@ -3,7 +3,7 @@
 Run this file after export + delivery preview generation. It writes only
 <character>/cleanup-plan.json, prints a summary, and exits 0 when guards pass
 or 2 when blocked. No approval status is written. No directories outside BASE
-are enumerated. External candidates are exact receipt paths in one allowlisted
+are enumerated. External candidates are exact receipt paths in explicitly allowlisted
 host generation directory, read only when their recorded source SHA matches.
 """
 from __future__ import annotations
@@ -24,14 +24,18 @@ APPROVED_BASE = Path(
     "D:/work/image/qdao_original_roster_v14_hd/action-remake-20261001/"
     "characters/17_ghost_script_calligrapher_boy"
 ).resolve()
-EXTERNAL_ROOT = Path(
-    "C:/Users/luyua/.codex/generated_images/"
-    "01a0f77a-fb47-7bd0-8402-cf6df9512a1c"
-).resolve()
-KEEP_PREVIEW = BASE / "preview" / "run-current-1200ms.webp"
+# Exact thread roots observed in this character's full-body revision receipts
+# (including actual edit ancestors). This is not a generated_images-wide grant.
+EXTERNAL_ROOTS = tuple(Path("C:/Users/luyua/.codex/generated_images") / thread for thread in (
+    "01a0f77a-fb47-7bd0-8402-cf6df9512a1c",  # root / cast W
+    "01a10114-831b-7c12-8a91-0c9cb2d89709",  # run E 04-07
+    "01a10115-2b8e-7a52-8634-77f1edef65cb",  # run E 08-11 / combat
+    "01a10114-f91d-77b2-8a6b-4a2081aed2a5",  # run W / hit W
+))
+KEEP_PREVIEW = BASE / "preview" / "run-current-960ms.webp"
 IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif", ".bmp"}
 ACTIONS = {
-    "run": (("N", "NE", "E", "SE", "S", "SW", "W", "NW"), 16, 75),
+    "run": (("N", "NE", "E", "SE", "S", "SW", "W", "NW"), 16, 60),
     "hit": (("E", "W"), 6, 40),
     "attack": (("E", "W"), 12, 30),
     "cast": (("E", "W"), 16, 45),
@@ -205,10 +209,22 @@ def validate_export():
             check = {"slot": slot, "sourceFile": frame["sourceFile"], "sourceSha256": source_sha,
                      "embeddedEvidenceMatches": True, "actualLocalSourceChecked": False}
             if inside(source):
-                require(source.is_file() and digest(source) == source_sha,
-                        f"Current in-character source SHA mismatch: {slot}")
-                require(png_info(source) == derived["nativeSize"], f"Source size mismatch: {slot}")
-                check["actualLocalSourceChecked"] = True
+                if source.is_file():
+                    require(digest(source) == source_sha, f"Current in-character source SHA mismatch: {slot}")
+                    require(png_info(source) == derived["nativeSize"], f"Source size mismatch: {slot}")
+                    check["actualLocalSourceChecked"] = True
+                else:
+                    histories=[BASE/'cleanup-report.json']+list((BASE/'provenance').glob('**/cleanup-*.json'))
+                    removed=False
+                    for history in histories:
+                        if not history.is_file():continue
+                        cleanup=read_json(history)
+                        if cleanup.get('status')!='completed':continue
+                        if any(Path(x.get('file','')).resolve()==source and x.get('sha256')==source_sha
+                               for x in cleanup.get('deleted',[])):
+                            removed=True;check['previousCleanupEvidence']=history.relative_to(BASE).as_posix();break
+                    require(removed,f"Source absent without matching previous cleanup evidence: {slot}")
+                    check['scopeNote']='Source pixels already removed by verified prior cleanup; embedded provenance and exact deleted SHA retained.'
             else:
                 check["scopeNote"] = "External reused source not read; embedded provenance chain matched."
             original_path = Path(original.get("file", ""))
@@ -314,28 +330,32 @@ def external_candidates():
     found, excluded = {}, []
     for receipt_path in sorted((BASE / "staging").glob("*.png.generation.json")):
         require(inside(receipt_path), "Staging provenance escapes character directory")
+        require(receipt_path.is_file() and not receipt_path.is_symlink(),
+                "Staging provenance must be a regular non-symlink file")
         record = read_json(receipt_path)
         raw = record.get("evidence", {}).get("toolReturnedPath")
         if not raw:
             continue
         p = Path(raw)
-        if not p.is_absolute() or not p.resolve().is_relative_to(EXTERNAL_ROOT) or p.suffix.lower() != ".png":
+        allowed_root = next((root for root in EXTERNAL_ROOTS
+                             if p.is_absolute() and p.resolve().is_relative_to(root.resolve())), None)
+        if allowed_root is None or p.suffix.lower() != ".png":
             excluded.append({"record": receipt_path.relative_to(BASE).as_posix(),
-                             "reason": "Returned path is outside the single allowed thread directory."})
+                             "reason": "Returned path is outside the explicit allowed thread directories."})
             continue
         if not p.is_file() or p.is_symlink():
             excluded.append({"record": receipt_path.relative_to(BASE).as_posix(),
                              "reason": "Exact returned file is absent or is a symlink."})
             continue
         expected = record.get("sha256")
-        if not isinstance(expected, str) or digest(p) != expected:
+        if not isinstance(expected, str) or not re.fullmatch(r"[0-9a-f]{64}", expected) or digest(p) != expected:
             excluded.append({"record": receipt_path.relative_to(BASE).as_posix(),
                              "reason": "Returned source SHA does not match its staging generation record."})
             continue
         key = str(p.resolve())
         if key not in found:
             found[key] = {"file": key, "sha256": expected, "bytes": p.stat().st_size,
-                          "allowedRoot": str(EXTERNAL_ROOT), "records": [],
+                          "allowedRoot": str(allowed_root.resolve()), "records": [],
                           "reason": "Exact same-thread host original; recorded SHA matches."}
         found[key]["records"].append(receipt_path.relative_to(BASE).as_posix())
     return list(found.values()), excluded
@@ -349,14 +369,14 @@ def plan():
               "status": "blocked", "blockingReasons": [], "localCandidates": [],
               "externalCandidates": [], "preserve": [
                   "runtime/**", "manifest.json", "preview/delivery.html", "preview/delivery-data.json",
-                  "preview/run-current-1200ms.webp", "all JSON/JSONL/TXT/MD/PY/JS/HTML and other text records",
+                  "preview/run-current-960ms.webp", "all JSON/JSONL/TXT/MD/PY/JS/HTML and other text records",
                   "all provenance, requests, receipts, prompts, failed-call evidence and original source hashes",
               ],
               "limits": [
                   "Read-only plan, not an executable delete script or a visual/dynamic pass.",
                   "Stale exploratory HTML may become historical after later cleanup; only current delivery is gated.",
                   "Old reused external originals are outside this cleanup scope; embedded source evidence is matched.",
-                  "External host candidates come only from exact toolReturnedPath records in the one allowed root.",
+                  "External host candidates come only from exact toolReturnedPath records in four explicitly allowlisted thread roots.",
                   "Before any later deletion rerun this plan and recheck candidate SHA/current references.",
               ]}
     try:
