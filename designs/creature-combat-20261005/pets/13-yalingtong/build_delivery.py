@@ -13,6 +13,8 @@ def native_path(j):
  return (j.get('native') or {}).get('path') or (j.get('derivedFrom') or {}).get('path') or j.get('sourcePath')
 parser=argparse.ArgumentParser();parser.add_argument('--final-export',action='store_true');args=parser.parse_args()
 frames=[];missing=[];errors=[];seen={};pixels={};groups=[]
+visual_path=R/'visual-qa.json'
+visual=json.loads(visual_path.read_text(encoding='utf-8-sig')) if visual_path.exists() else {}
 preview=R/'preview';preview.mkdir(exist_ok=True)
 for a,(count,ms) in SPEC.items():
  for d in 'EW':
@@ -27,7 +29,7 @@ for a,(count,ms) in SPEC.items():
     # One identical transform per direction, shared by all three actions.
     # No per-frame bbox or foot alignment. Source canvas is always square.
     scaled=im.resize((922,922),Image.Resampling.LANCZOS)
-    canvas=Image.new('RGBA',(1024,1024));offset=(24,55) if d=='E' else (30,55)
+    canvas=Image.new('RGBA',(1024,1024));offset=(51,55)
     canvas.alpha_composite(scaled,offset);canvas.save(p)
     j['preFinalExportSha256']=original_sha;j['finalExport']={'sourceNativePath':str(src),'sourceNativeSha256':sha(src),'sourceNativeSize':list(im.size),'scaledCanvasSize':[922,922],'offset':list(offset),'targetCanvasSize':[1024,1024],'direction':d,'sharedAcrossActions':True,'perFrameAlignment':False,'mirror':False,'createdPose':False,'filter':'LANCZOS'}
     j['sha256']=sha(p);j['width']=1024;j['height']=1024
@@ -42,7 +44,16 @@ for a,(count,ms) in SPEC.items():
    seen[h]=rel;pixels[ph]=rel
    prompt=Path(j['prompt']);prompt=prompt if prompt.is_absolute() else R/prompt
    if not prompt.exists():errors.append('missing prompt '+rel)
+   source=native_path(j)
+   if not source or not Path(source).exists():errors.append('missing native source at audit '+rel)
+   elif sha(Path(source))!=j.get('native',{}).get('sha256'):errors.append('native SHA mismatch '+rel)
+   required=['13-yalingtong-E.png','13-yalingtong-W.png','01-character-ui-no-affinity.png']
+   submitted=j.get('submittedParameters',{}).get('referenced_image_paths',[])
+   for base in required:
+    if not any(Path(x).name==base for x in submitted):errors.append('mandatory reference absent '+rel+' '+base)
+   if j.get('actualModel') is not None or j.get('actualQuality') is not None:errors.append('unexpected confirmed model metadata '+rel)
    entry={'file':rel,'action':a,'direction':d,'frame':i,'durationMs':ms,'width':1024,'height':1024,'pivot':[0.5,0.08],'anchorTopOrigin':[512,942],'event':('impact' if a=='attack' and i==7 else 'cast_release' if a=='cast' and i==10 else None),'sha256':h,'pixelSha256':ph,'generationRecord':rp.relative_to(R).as_posix(),'alphaExtrema':list(alph.getextrema()) if alph else None,'visibleBBoxAlphaAbove16':bbox,'visualStatus':'pending-final-sequence-review','actualModel':j.get('actualModel'),'actualQuality':j.get('actualQuality')}
+   entry['visualStatus']=visual.get('groups',{}).get(a+'-'+d,{}).get('status','pending-final-sequence-review')
    frames.append(entry);group.append(entry)
   groups.append({'action':a,'direction':d,'expectedCount':count,'durationMs':ms,'frames':group})
   if group:
