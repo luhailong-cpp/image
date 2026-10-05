@@ -103,6 +103,15 @@ def audit_record(record: Path | None, image_path: Path, image_sha: str, errors: 
     else:
         out["actualModelQualityStatus"] = "reported_in_source_record_not_independently_verified"
     refs = [("prompt", data.get("prompt"))]
+    evidence = data.get("evidence", {})
+    if isinstance(evidence, dict):
+        for key in ("receipt", "toolResult", "metadata"):
+            value = evidence.get(key)
+            if isinstance(value, str) and value.lower().endswith((".json", ".txt")):
+                refs.append((f"evidence:{key}", value))
+    edit_target = data.get("editTarget", {})
+    if isinstance(edit_target, dict) and edit_target.get("generationRecord"):
+        refs.append(("editTarget:generationRecord", edit_target["generationRecord"]))
     references = data.get("references", [])
     if isinstance(references, list):
         for idx, ref in enumerate(references):
