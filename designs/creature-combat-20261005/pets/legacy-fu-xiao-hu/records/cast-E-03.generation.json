@@ -1,6 +1,6 @@
 {
   "file": "runtime/cast/E/03.png",
-  "sha256": "75dffe3fc018be78bf437c9e497db90d748b0b6b8661379dddf5e877b14cbd4d",
+  "sha256": "69c41fd64862a6fb0c5e9d4b1b64ba69ac4e2a93715f9d48be4d7082adeef641",
   "generatedAt": "2026-10-05T11:48:59.681Z",
   "action": "cast",
   "direction": "E",
@@ -81,22 +81,39 @@
     "sha256": "c868bbef79ba43b2431a722ed89d66cd2e835a92e5da35b42cffcc8ab43f1152"
   },
   "operation": {
-    "type": "uniform-full-canvas-resize",
-    "sourceSize": [
-      1254,
-      1254
-    ],
-    "targetSize": [
-      1024,
-      1024
-    ],
-    "filter": "Pillow LANCZOS",
-    "translation": [
-      0,
-      0
-    ],
-    "crop": null,
-    "perFrameFootAlignment": false
+    "pipeline": [
+      {
+        "type": "uniform-full-canvas-resize",
+        "sourceSize": [
+          1254,
+          1254
+        ],
+        "targetSize": [
+          1024,
+          1024
+        ],
+        "filter": "Pillow LANCZOS",
+        "translation": [
+          0,
+          0
+        ],
+        "crop": null,
+        "perFrameFootAlignment": false
+      },
+      {
+        "type": "fixed-direction-canvas-translation",
+        "translationPx": [
+          0,
+          -15
+        ],
+        "appliesToAllActionsOfDirection": true,
+        "perFrameAlignment": false,
+        "basis": "Design reference visible alpha>16 baseline E957/W946 moved to942; no individual frame registration",
+        "inputSHA256": "75dffe3fc018be78bf437c9e497db90d748b0b6b8661379dddf5e877b14cbd4d",
+        "outputSHA256": "69c41fd64862a6fb0c5e9d4b1b64ba69ac4e2a93715f9d48be4d7082adeef641",
+        "at": "2026-10-05T18:59:46.546158+00:00"
+      }
+    ]
   },
   "technical": {
     "width": 1024,
@@ -112,8 +129,45 @@
       1013,
       992
     ],
-    "uniquePixelSHA256": "4bcdcf626b5d7be55aca4bd9fdbc6fac62b2190eac8b099afd8490c41c4d1325"
+    "uniquePixelSHA256": "4bcdcf626b5d7be55aca4bd9fdbc6fac62b2190eac8b099afd8490c41c4d1325",
+    "finalSHA256": "69c41fd64862a6fb0c5e9d4b1b64ba69ac4e2a93715f9d48be4d7082adeef641"
   },
   "visualStatus": "generated frame individually inspected; sequence review pending",
-  "sourceRetention": "native kept temporarily until sequence final references verified"
+  "sourceRetention": "native kept temporarily until sequence final references verified",
+  "preCalibrationExport": {
+    "sha256": "75dffe3fc018be78bf437c9e497db90d748b0b6b8661379dddf5e877b14cbd4d",
+    "operation": {
+      "type": "uniform-full-canvas-resize",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "targetSize": [
+        1024,
+        1024
+      ],
+      "filter": "Pillow LANCZOS",
+      "translation": [
+        0,
+        0
+      ],
+      "crop": null,
+      "perFrameFootAlignment": false
+    },
+    "imageRetained": false,
+    "reason": "uniform final direction calibration replaces pre-export; source model evidence retained"
+  },
+  "finalDirectionCalibration": {
+    "type": "fixed-direction-canvas-translation",
+    "translationPx": [
+      0,
+      -15
+    ],
+    "appliesToAllActionsOfDirection": true,
+    "perFrameAlignment": false,
+    "basis": "Design reference visible alpha>16 baseline E957/W946 moved to942; no individual frame registration",
+    "inputSHA256": "75dffe3fc018be78bf437c9e497db90d748b0b6b8661379dddf5e877b14cbd4d",
+    "outputSHA256": "69c41fd64862a6fb0c5e9d4b1b64ba69ac4e2a93715f9d48be4d7082adeef641",
+    "at": "2026-10-05T18:59:46.546158+00:00"
+  }
 }
