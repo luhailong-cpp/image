@@ -1,6 +1,6 @@
 {
   "file": "runtime/attack/E/09.png",
-  "sha256": "256e251a870dd2e139b2c6c00ea7cd3004fa12e89471c85911c93a7b9c2b3204",
+  "sha256": "803c39f1e04e59f25a979f5969c8f345ea5cd349db05b6d971d9fc266d89faf0",
   "width": 1024,
   "height": 1024,
   "format": "PNG",
@@ -11,21 +11,38 @@
     "generationRecord": "records/attack-E-09.generation.json"
   },
   "operation": {
-    "kind": "uniform-full-canvas-resize",
-    "sourceSize": [
-      1254,
-      1254
-    ],
-    "targetSize": [
-      1024,
-      1024
-    ],
-    "resampler": "LANCZOS",
-    "translation": [
-      0,
-      0
-    ],
-    "crop": null
+    "pipeline": [
+      {
+        "kind": "uniform-full-canvas-resize",
+        "sourceSize": [
+          1254,
+          1254
+        ],
+        "targetSize": [
+          1024,
+          1024
+        ],
+        "resampler": "LANCZOS",
+        "translation": [
+          0,
+          0
+        ],
+        "crop": null
+      },
+      {
+        "type": "fixed-direction-canvas-translation",
+        "translationPx": [
+          0,
+          -15
+        ],
+        "appliesToAllActionsOfDirection": true,
+        "perFrameAlignment": false,
+        "basis": "Design reference visible alpha>16 baseline E957/W946 moved to942; no individual frame registration",
+        "inputSHA256": "256e251a870dd2e139b2c6c00ea7cd3004fa12e89471c85911c93a7b9c2b3204",
+        "outputSHA256": "803c39f1e04e59f25a979f5969c8f345ea5cd349db05b6d971d9fc266d89faf0",
+        "at": "2026-10-05T18:59:42.494391+00:00"
+      }
+    ]
   },
   "action": "attack",
   "direction": "E",
@@ -38,5 +55,40 @@
   "anchor": [
     512,
     942
-  ]
+  ],
+  "preCalibrationExport": {
+    "sha256": "256e251a870dd2e139b2c6c00ea7cd3004fa12e89471c85911c93a7b9c2b3204",
+    "operation": {
+      "kind": "uniform-full-canvas-resize",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "targetSize": [
+        1024,
+        1024
+      ],
+      "resampler": "LANCZOS",
+      "translation": [
+        0,
+        0
+      ],
+      "crop": null
+    },
+    "imageRetained": false,
+    "reason": "uniform final direction calibration replaces pre-export; source model evidence retained"
+  },
+  "finalDirectionCalibration": {
+    "type": "fixed-direction-canvas-translation",
+    "translationPx": [
+      0,
+      -15
+    ],
+    "appliesToAllActionsOfDirection": true,
+    "perFrameAlignment": false,
+    "basis": "Design reference visible alpha>16 baseline E957/W946 moved to942; no individual frame registration",
+    "inputSHA256": "256e251a870dd2e139b2c6c00ea7cd3004fa12e89471c85911c93a7b9c2b3204",
+    "outputSHA256": "803c39f1e04e59f25a979f5969c8f345ea5cd349db05b6d971d9fc266d89faf0",
+    "at": "2026-10-05T18:59:42.494391+00:00"
+  }
 }
