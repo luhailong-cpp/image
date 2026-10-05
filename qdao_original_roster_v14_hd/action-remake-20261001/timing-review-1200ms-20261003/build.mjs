@@ -12,7 +12,7 @@ const dirs = ['N','NE','E','SE','S','SW','W','NW'];
 const slash = value => value.replaceAll('\\', '/');
 const relative = value => slash(path.relative(out, value));
 const characters = [];
-const evidence = { schemaVersion: 1, generatedAt: new Date().toISOString(), taskDateLocal: '2026-10-03', timezone: 'America/New_York', dispatch: relative(dispatchPath), parameters: { frameCount: 16, normalCycleMs: 1200, normalFrameMs: 75, timing: 'uniform_75ms_per_frame', optionalSlowMotion: [0.5,0.25], historicalSmallerDurationOptionsRemoved: true, hiddenTabBehavior: 'pause', sourcePngsModified: false, imageGeneration: false }, scope: 'Independent normal-speed playback from current manifest selections. User selected 1200ms per complete 16-frame run cycle and removal of smaller-ms options. Artwork and client acceptance are not implied.', browserVisualAcceptance: 'not_performed', characters: [] };
+const evidence = { schemaVersion: 1, generatedAt: new Date().toISOString(), taskDateLocal: new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' }), timezone: 'America/New_York', dispatch: relative(dispatchPath), parameters: { frameCount: 16, normalCycleMs: 1200, normalFrameMs: 75, timing: 'uniform_75ms_per_frame', optionalSlowMotion: [0.5,0.25], historicalSmallerDurationOptionsRemoved: true, hiddenTabBehavior: 'pause', sourcePngsModified: false, imageGeneration: false }, scope: 'Independent normal-speed playback from current manifest selections. User selected 1200ms per complete 16-frame run cycle and removal of smaller-ms options. Artwork and client acceptance are not implied.', browserVisualAcceptance: 'not_performed', characters: [] };
 
 for (const c of dispatch.threads) {
   const root = c.output;
@@ -43,7 +43,9 @@ for (const c of dispatch.threads) {
   const id = c.character_id.slice(0,2);
   let status = '当前导出／候选；此页不代表动作验收';
   if (id === '01') {
-    standard(read('candidate/manifest.json').files); status = '当前候选，仅 E 方向已导出';
+    const m = read('manifest.json');
+    for (const s of m.sequences.filter(s => s.action === 'run')) for (const f of s.frames) add(f, f.path, s.direction, Number(f.frame));
+    status = '当前 manifest 选中帧；此页不代表本次姿态复核通过';
   } else if (id === '02') {
     standard(read('inventory.json').frames);
   } else if (id === '03') {
@@ -63,19 +65,15 @@ for (const c of dispatch.threads) {
     for (const s of read('manifest.json').sequences.filter(s => s.action === 'run')) for (const f of s.frames) add(f, f.file, s.direction, Number(f.frame));
     status = '用户认可的竹弓少女版本；仅对比播放时长';
   } else if (id === '10') {
-    const m = read('candidate-inventory.json');
-    for (const [key, frames] of Object.entries(m.groups)) {
-      if (!key.startsWith('run/')) continue;
-      for (const f of frames) add(f, path.join('preview', f.url), key.split('/')[1], Number(f.frame));
-    }
-    status = '当前预览选中的原生在制稿；保持完整画布，不归一化脚底';
+    standard(read('manifest.json').slots);
+    status = '当前 runtime 正式帧；此页不代表本次姿态复核通过';
   } else if (id === '17') {
-    const m = read('preview/manifest-preview.json');
-    for (const f of m.slots.filter(s => s.action === 'run')) add(f.selected || f, f.selected?.path ? path.join('preview', f.selected.path) : null, f.direction, Number(f.frame));
-    status = '当前 manifest 选中的在制稿；未选中及已删源不替补';
+    const m = read('manifest.json');
+    for (const s of m.sequences.filter(s => s.action === 'run')) for (const f of s.frames) add(f, f.file, s.direction, Number(f.frame));
+    status = '当前 runtime 正式帧；此页不代表本次姿态复核通过';
   } else if (id === '20') {
-    const m = read('preview/manifest.json');
-    for (const g of m.groups.filter(g => g.action === 'run')) for (const f of g.frames.filter(Boolean)) add(f, f.candidate, g.direction, Number(f.frame));
+    const m = read('merge-manifest.json');
+    for (const g of m.groups.filter(g => g.action === 'run')) for (const f of g.frames.filter(Boolean)) add(f, f.source || f.candidate, g.direction, Number(f.frame));
   } else {
     standard(read('manifest.json').frames);
   }
@@ -95,6 +93,8 @@ for (const c of dispatch.threads) {
       const stat = fs.statSync(row.path), bytes = fs.readFileSync(row.path);
       if (bytes.subarray(0,8).toString('hex') !== '89504e470d0a1a0a') { frames.push(null); errors.push(`${n}: PNG 文件头错误`); continue; }
       const frame = { index: n, sourceLabel: row.sourceLabel, url: relative(row.path), width: bytes.readUInt32BE(16), height: bytes.readUInt32BE(20), modifiedAt: stat.mtime.toISOString(), bytes: stat.size, sha256: crypto.createHash('sha256').update(bytes).digest('hex') };
+      frame.expectedSha256 = row.expectedSha256;
+      frame.manifestShaMatches = row.expectedSha256 ? row.expectedSha256 === frame.sha256 : null;
       frames.push(frame);
     }
     const complete = frames.every(Boolean);
@@ -105,6 +105,7 @@ for (const c of dispatch.threads) {
 }
 
 const totals = { characters: characters.length, completeDirections: characters.reduce((n,c) => n + Object.values(c.directions).filter(d => d.complete).length, 0), expectedDirections: characters.length * 8, referencedFrames: characters.reduce((n,c) => n + Object.values(c.directions).reduce((v,d) => v + d.available, 0), 0) };
+totals.manifestShaMismatches = characters.reduce((n,c) => n + Object.values(c.directions).reduce((v,d) => v + d.frames.filter(f => f && f.manifestShaMatches === false).length, 0), 0);
 evidence.totals = totals;
 let html = fs.readFileSync(path.join(out, 'template.html'), 'utf8');
 html = html.replace('/*__DATA__*/', JSON.stringify({ generatedAt: evidence.generatedAt, characters, totals }).replaceAll('<', '\\u003c'));
