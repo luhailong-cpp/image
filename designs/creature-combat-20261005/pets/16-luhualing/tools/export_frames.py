@@ -9,6 +9,7 @@ def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 count=0
 for native in sorted((root/'.work').glob('*/*/*.png')):
     action,direction=native.parts[-3:-1]; number=native.stem
+    if action not in ('hit','attack','cast') or direction not in ('E','W') or not number.isdigit(): continue
     record=root/f'records/{action}/{direction}/{number}.generation.json'
     if not record.exists(): continue
     output=root/f'runtime/{action}/{direction}/{number}.png'

@@ -61,8 +61,17 @@ def main():
                     group['files'].append(rel)
                 frames.append(entry)
             groups.append(group)
+    expected_paths={f['file'] for f in frames}
+    for extra in (ROOT/'runtime').rglob('*.png'):
+        if extra.relative_to(ROOT).as_posix() not in expected_paths:
+            errors.append(f'Unexpected runtime image: {extra.relative_to(ROOT).as_posix()}')
     validation={'checkedAt':datetime.now(timezone.utc).isoformat(), 'expectedFrames':68, 'presentFrames':len(frames)-len(missing), 'missing':missing, 'errors':errors, 'technicalStatus':'passed' if not missing and not errors else 'incomplete_or_failed', 'visualStatus':'not_reviewed', 'dynamicStatus':'not_reviewed', 'clientStatus':'not_integrated', 'checks':['expected names/count','PNG decode','1024x1024 RGBA','nonempty transparent alpha','edge bounds','SHA256 file and pixel duplicates','generation records']}
     write_json(ROOT/'manifest.json', {'schemaVersion':1,'character':'露华灵','characterId':'16-luhualing','coordinateSystem':'1024x1024 top-left','transformPolicy':'one shared transform per direction; no per-frame bottom alignment','frames':frames,'groups':groups})
+    validation['visualStatus']='passed_local_review' if len(frames)==68 and all(f.get('visualStatus')=='passed_local_review' for f in frames) else 'not_reviewed_or_incomplete'
+    if review_path.exists():
+        review_summary=json.loads(review_path.read_text(encoding='utf-8'))
+        validation['dynamicStatus']=review_summary.get('dynamicStatus','not_reviewed')
+        validation['reviewMethod']=review_summary.get('method')
     write_json(ROOT/'validation.json',validation)
     (ROOT/'SHA256SUMS.txt').write_text(''.join(f"{f['sha256']}  {f['file']}\n" for f in frames if f['status']=='present'),encoding='utf-8')
     make_previews(groups)
