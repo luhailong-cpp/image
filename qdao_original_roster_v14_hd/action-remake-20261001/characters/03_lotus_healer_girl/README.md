@@ -4,9 +4,12 @@
 
 追加视频参考后，本轮局部重画并替换7帧，收正支撑鞋侧翻和摆脚轨迹跳变，保留其余正确姿态。实际选帧、提示词与新旧来源见[本轮修订记录](review/axis-revision-decisions-20261004.json)；视频取连续原帧判断运动平面，遮挡处不用于推断精确脚尖细节。旧冻结清单仅保留为历史，不再代表本轮文件。
 
+最新局部修订替换20帧：收正东北/东南/西南支撑鞋外撇，修正北向托瓶手及灯臂下坠、东西向持物与中间摆位。当前正常播放严格为60ms/帧、960ms/圈。[本次选帧与提示词](review/anatomy-revision-decisions-20261005.json)记录逐图来源、实际查看结果及残余差异。
+
 - [全部动作预览](preview/actions.html)：动作/方向切换，正常1×、0.25×、逐帧，128/256/512px；跑步统一960ms一圈、16帧各60ms，已移除旧快档。缺帧保留空槽。
 - [竹弓少女指定参照](../09_bamboo_archer_girl/preview/index.html)：只读对照同方向姿态；保留莲花少女外形与持物。旧index/new-run入口自动进入当前全部动作。
 - [逐组真实进度](review/production-status.json)、[当前选帧](review/all-actions-selection.json)、[来源与SHA](review/source-index.csv)、[合并交接](MERGE_HANDOFF.md)。
+- [1024透明动作素材](candidate/)；当前原生母稿在[generation](generation/)；本轮提示词逐张列在[修订清单](review/anatomy-revision-decisions-20261005.json)。
 
 | 动作 | 方向 | 已选/目标 | 试播时长 ms | 状态 |
 | --- | --- | ---: | ---: | --- |

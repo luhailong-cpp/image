@@ -1,10 +1,12 @@
 # 03 莲花医者 · 本机交接
 
-更新：2026-10-05T04:55:27.682576-04:00。仅写本角色目录；未操作Git、共享配置、其他角色或客户端。
+更新：2026-10-05T06:45:56.440045-04:00。仅写本角色目录；未操作Git、共享配置、其他角色或客户端。
 
 本轮动作修订已导出 **196/196 帧** 1024×1024 RGBA：八方向跑步128帧，东西方向受击、普攻和施法68帧。按竹弓少女同方向姿态校正脚掌朝向、连续承重及持物；跑步正常1×调整为960ms。逐图选择与残余观察项有记录，供用户查看；不代表用户验收或游戏客户端验收，客户端尚未接入。
 
 追加视频参考后，本轮局部重画并替换7帧，收正支撑鞋侧翻和摆脚轨迹跳变，保留其余正确姿态。实际选帧、提示词与新旧来源见[本轮修订记录](review/axis-revision-decisions-20261004.json)；视频取连续原帧判断运动平面，遮挡处不用于推断精确脚尖细节。旧冻结清单仅保留为历史，不再代表本轮文件。
+
+最新局部修订替换20帧：收正东北/东南/西南支撑鞋外撇，修正北向托瓶手及灯臂下坠、东西向持物与中间摆位。当前正常播放严格为60ms/帧、960ms/圈。[本次选帧与提示词](review/anatomy-revision-decisions-20261005.json)记录逐图来源、实际查看结果及残余差异。
 
 | 动作 | 方向 | 已选/目标 | 试播时长 ms | 状态 |
 | --- | --- | ---: | ---: | --- |
@@ -56,7 +58,8 @@
 - E08：固定画布诊断根点未获客户端标定；AI局部重画存在小幅轮廓差异。
 - E09：鞋底最低1165比虚拟地面低1px；首接触候选
 - E10：鞋底1168低4px；头下压约14px，已修复灯具截边
-- E11：支撑鞋中心625偏目标更后，但09→12已单调后移
+- E11：Head top +10px and support shoe lowest +16px versus source; no claim of exact registration or client acceptance.
+- E11：Original requested target legs are retained in phase and broad geometry, but AI did not preserve their pixels exactly.
 - E12：固定画布诊断根点未获客户端标定；AI局部重画存在小幅轮廓差异。
 - E13：原始工具返回receipt随cell丢失；从host按独特目标姿态恢复，来源恢复记录明确保留未确认的调用绑定。
 - E14：支持底1149比固定诊断线高15px；与邻帧仍有微小高度差，未用整图移位补偿。
@@ -67,7 +70,6 @@
 
 - 本轮按连续同脚支撑重画，所有16张独立实图；未以复制帧或画布平移补接地。
 - 位置两帧一组，组内允许膝踝压缩；末对仍为低跟后支撑，最终游戏连播体验待用户查看。
-- NE08：原生绘制鞋底高度1168附近，固定诊断根点不作逐帧对齐；尚无客户端位移核验。
 - NE15：支撑鞋底1188附近，存在原生绘制的少量屏幕高度差；未逐帧移动图像。
 - NE16：支撑鞋底1193附近；此帧采用全掌过渡，不能再描述成明显提跟。
 
@@ -75,15 +77,16 @@
 
 - N01：Right-contact native mother; exact game-space root and contact require dynamic/client review.
 - N02：Compression is modest and visible chiefly in right knee/cloth; do not infer full dynamic loading from one frame.
-- N03：Arm middle pose is incomplete; flask remains forward/high. Head top remains near prior raised head, do not claim requested head height locked.
+- N03：局部AI重画存在细微差异，手位接近02/04高度，非像素级锁定。
 - N04：Support depth/footprint differs slightly from03 and remains subject to full-cycle ground calibration; no wholeimage alignment used.
 - N05：地面纵深与邻帧须整圈复核；未动态通过。
 - N06：支撑鞋中心由原749.5收至720，减小05到07间的向外凸出；未达到提示目标700。
 - N06：保留原生画布，手和法器未换；未采用整图移动或逐帧贴底。
-- N07：实际空间进度需要四位置整圈复核；不把提示坐标当作实测。
-- N08：整圈尚未动态通过；实际相对脚点待核对。
-- N09：Cleanup also changed framing/body extent and lowered left support shoe from prior1091 to roughly1144; do not claim all locked geometry preserved. No clipping/toe-out observed.
-- N10：Right recovery sole remains strongly exposed with only small positional progression. Lamp vertical step is substantial and needs cycle review.
+- N07：AI局部修改非像素级锁定；瓶颈与袖口轻微接壤。
+- N08：AI局部修改非像素级锁定；瓶颈与袖口轻微接壤。
+- N09：瓶局部位置/轮廓有约十余像素以内目测差；无分割测量支持精确瓶像素不变的说法。
+- N09：客户端未验收；新60ms时长交root统一，本图未写选表。
+- N10：相同相位与大体注册保持，不能宣称逐像素锁定。
 - N11：Right passing foot did not descend as much as requested; this reads early passing rather than a fully established mid-support. Arm transition from10 is fairly large.
 - N12：尚未完成每半周期连续8帧/四位置要求；整圈未动态验收。
 - N13：未整圈动态验收；实际足点位置不能当作提示词数值已锁定。
@@ -125,8 +128,11 @@
 - 虚拟根点[610,1179]保持不变，支撑鞋高度有约数至27px差异，不能把静态接触姿态当作客户端接地已验收。
 - W01：仅单帧基准获parent接受；完整循环仍未验收
 - W02：身体压缩主要在膝部，头高相对01变化很小
-- W03：头部未随承重降低；摆臂仍接近01前极值
-- W04：04-v3保留近左瓶/远右灯肩臂链，灯经过后髋中位再接05后极值；支撑底约1206，未移图贴地
+- W03：03→04灯碗仍约470px跨度；并非理想等距中点，应由主审连播决定是否够用。
+- W03：灯碗投影宽较原图缩小约15%，不得声称道具体量完全锁定。
+- W03：本图只改原生候选，不代表选表、导出或客户端验收。
+- W04：实际只回收约90px，未达到提示的x650；03v2→04仍约380px跨度，需按连播审阅，不宣称完全均匀。
+- W04：投影位置是人工约测；相同全图alpha界不等于每个像素完全保持。
 - W05：固定画布诊断根点未获客户端标定；AI局部重画存在小幅轮廓差异。
 - W06：固定画布诊断根点未获客户端标定；AI局部重画存在小幅轮廓差异。
 - W07：固定画布诊断根点未获客户端标定；AI局部重画存在小幅轮廓差异。
@@ -149,10 +155,11 @@
 - 头身/道具注册仍有少量变动，已知手交换图均排除
 - 离线像素和来源完整，不以技术检查替代动态验收
 - SW01：首接触腿髋部被裙摆遮挡，左右腿全圈归属仍需动态复核
-- SW02：前鞋底1195较01的1171低24px；头部承重下降不明显
-- SW03：中支撑脚已向身下收，减小03到04变化；保留原生画布，尚无客户端位移验证。
-- SW04：头脸较目标略向左移约30px、头顶43→39；非程序平移
-- SW04：支撑鞋底1207→1197（10px），上身比例和完整人物保持
+- SW02：鞋底低9原生像素；头顶上移2像素，未程序贴地。
+- SW03：相对v2人物多处向左约30–40原生像素，头顶上移8；属于生成注册漂移，未程序贴地/整体移动或缩放。
+- SW03：灯位仍偏后于初始指示，但处于02灯体约x160与04约x1130之间；两个相邻时间段位移不等，不能称精确均速。
+- SW03：髋与部分远肩被衣发遮挡，未声称完整解剖链每处可見；可见肩袖/手腕分别接左瓶与右灯，没有第三手。
+- SW04：鞋底低14原生像素；身体/脸有小量左移与轮廓变化，未整体变换。
 - SW05：后近左脚全掌落下，底1220低于04约23px；无程序贴地
 - SW06：后近左脚落下，前右脚抬高；支撑底1222，注册不同
 - SW07：支撑鞋约后移190px，底1208→1175；后侧透视深度改变，非整图平移
@@ -160,7 +167,7 @@
 - SW08：支撑鞋约向viewer-right后移240px，底1170→1162；略高8px不单独认定腾空
 - SW08：比07再向后约30px、踝伸展更明显，头脸约左移20px；正确持物链保持
 - SW09：错手裁边09-v1已拒；本帧肩袖修正后正确，近左后腿与远右前腿髋部遮挡仍需全圈审
-- SW10：前鞋最低1204，头脸较09又向左漂约70px，承重感弱
+- SW10：鞋底低12原生像素；约十余像素水平注册残差。09→10→11原支撑轨迹问题不由鞋yaw修订自动消除。
 - SW11：11-v4保留头/腿注册与近左瓶链，灯手由前高极值下收至腹侧，10→11摆幅仍偏大但较原帧缩小
 - SW12：鞋底1201→1198（3px），头顶71→68；原帧边缘余量小仍保留
 - SW12：11→12后支撑推进较大；本次仅改支撑腿
@@ -182,19 +189,17 @@
 - 头身/道具注册仍有少量变动，已知手交换图均排除
 - 离线像素和来源完整，不以技术检查替代动态验收
 - SE01：首接触腿髋部被裙摆遮挡，左右腿全圈归属仍需动态复核
-- SE02：实际前鞋底1211较01的1181低30px；未做程序贴地
-- SE03：中支撑脚已向身下收，减小03到04变化；保留原生画布，尚无客户端位移验证。
-- SE04：鞋底从1209上移至1191（18px），是本次实际生成变化，未作贴地
-- SE04：头顶45保持，肩袖/持物链保留；03→04支撑位置推进仍偏大
+- SE02：Sole contact endpoint6 native pixels lower; no global alignment applied. Small registration residual is separate from improved shoe axis.
+- SE03：支撑底比旧稿低约9原生像素，保持完整画布；须与02/04连播核对。
+- SE04：Sole endpoint is 25 native pixels lower than source. Improved yaw is clear, but this contact-registration change is material enough to compare against adjacent 03/05 in the final sequence.
 - SE05：支撑脚比04稍后，膝压缩；平足承重，非旧前掌飞离
 - SE06：支撑鞋稍回身下，05→06水平推进不严格；接地姿可读
 - SE07：后脚已落下但主要仍平足，末段前掌滚动不足
 - SE08：后脚已伸后支撑，白裤覆盖前脚踝；最后蹬地的踝伸展不足
 - SE09：前鞋底1203低于01接触底22px，左右腿前后反相仍受裙摆遮挡
 - SE10：前掌贴地姿可读，但膝压缩有限，头位有漂移
-- SE11：保持完整白裤，头顶恢复59与邻帧约60一致；灯前极值改为髋侧中间位，支撑底仍约1219
-- SE12：鞋底1209→1183（26px），鞋中心约向右收70px；后侧支撑仍清楚
-- SE12：11→12头和摆臂原有跨度保留，本次不改正确上身
+- SE11：Sole endpoint is 5 native pixels lower; head top is 7 pixels higher and outer silhouette differs slightly. No alignment or body scaling was applied.
+- SE12：Sole endpoint is 20 native pixels lower than source due to changed shoe projection. This is a contact-registration residual requiring sequence comparison, not a claim of identical foot pixels.
 - SE13：后左脚已落下，右脚前摆；较12支撑位置变化小
 - SE14：后左腿伸下，前右腿折起；同侧承重但与13后移差别小
 - SE15：支撑鞋约向viewer-left后移110px，底1181→1156，上身保持；后侧深度及接触注册仍有25px变化
