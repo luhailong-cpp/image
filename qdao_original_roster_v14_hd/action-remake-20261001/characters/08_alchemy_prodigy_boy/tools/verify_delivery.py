@@ -37,8 +37,8 @@ for g in groups:
         p = profiles['directions'][g['key'].split('/')[1]]
         assert g['frameMs'] == p['frameMs']
         assert len(p['frameMs']) == len(p['phases']) == 16
-        assert sum(p['frameMs']) == profiles['normalCycleMs'] == 1200
-        assert p['frameMs'] == [75]*16 and g['ms'] == 75
+        assert sum(p['frameMs']) == profiles['normalCycleMs'] == 960
+        assert p['frameMs'] == [60]*16 and g['ms'] == 60
         assert all(ms > 0 for ms in p['frameMs'])
     for uri in g['frames']:
         p = (ROOT/'preview'/uri.split('?')[0]).resolve()
@@ -48,7 +48,7 @@ report = {'verifiedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),
           'pass':True,'runtimeFrames':196,'groups':counts,'uniqueSourceSHA':196,
           'canvas':[1024,1024],'mode':'RGBA','alphaExtrema':[0,255],
           'provenanceClosed':True,'previewFileReferencesClosed':True,
-          'runTimingProfiles':8,'normalRunCycleMs':1200,
+          'runTimingProfiles':8,'normalRunCycleMs':960,'runFrameMs':60,
           'artisticAcceptanceProvenByThisScript':False,'clientValidated':False}
 (ROOT/'provenance/delivery-technical-verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
 print(json.dumps(report,ensure_ascii=False))

@@ -9,7 +9,7 @@ assert(!html.includes('id="cycle"')&&!html.includes('id="timing"'));
 const results=[];
 for(const g of groups){
   const period=g.ms*g.frames.length;
-  assert.equal(period,g.key.startsWith('run/')?1200:g.key.startsWith('hit/')?240:g.key.startsWith('attack/')?360:720);
+  assert.equal(period,g.key.startsWith('run/')?960:g.key.startsWith('hit/')?240:g.key.startsWith('attack/')?360:720);
   for(const speed of [1,0.25]){
     const seen=[];
     const c={g,index:0,playing:true,elapsed:0,last:0,$:()=>({value:String(speed)}),requestAnimationFrame:()=>{},show:()=>seen.push(c.index)};
@@ -20,6 +20,6 @@ for(const g of groups){
     results.push({group:g.key,speed,wallCycleMs:period/speed,framesSeen:seen.length,seamDelayMs:0});
   }
 }
-const report={checkedAt:new Date().toISOString(),pass:true,source:'actual inline durations() and tick() from current preview',normalRunMs:1200,runFrameMs:75,oldSpeedControlsRemoved:true,results};
+const report={checkedAt:new Date().toISOString(),pass:true,source:'actual inline durations() and tick() from current preview',normalRunMs:960,runFrameMs:60,oldSpeedControlsRemoved:true,results};
 fs.writeFileSync(path.join(root,'provenance/preview-timing-verification.json'),JSON.stringify(report,null,2));
-console.log(JSON.stringify({pass:true,checkedGroups:groups.length,speedCases:results.length,normalRunMs:1200,runFrameMs:75,seamDelayMs:0}));
+console.log(JSON.stringify({pass:true,checkedGroups:groups.length,speedCases:results.length,normalRunMs:960,runFrameMs:60,seamDelayMs:0}));

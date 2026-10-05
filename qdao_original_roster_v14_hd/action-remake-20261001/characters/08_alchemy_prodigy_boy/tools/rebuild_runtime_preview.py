@@ -14,7 +14,7 @@ for key,frames in grouped.items():
     frames.sort(key=lambda f:f['slot'])
     action,direction=key.split('/')
     profile=profiles.get('directions',{}).get(direction) if action=='run' else None
-    ms={'run':75,'hit':40,'attack':30,'cast':45}[action]
+    ms={'run':60,'hit':40,'attack':30,'cast':45}[action]
     g={'key':key,'ms':ms,'frames':['../'+f['file']+'?v='+f['sha256'][:12] for f in frames]}
     if profile:g.update({'frameMs':profile['frameMs'],'phases':profile['phases'],'cycleMs':sum(profile['frameMs'])})
     sheet=Image.new('RGB',(1024,((len(frames)+3)//4)*282),'#e9e4d5')
