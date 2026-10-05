@@ -1,0 +1,468 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-05T19:05:40.358385+00:00",
+  "inputs": {
+    "extended": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v2\\extended4326.png",
+      "sha256": "2442528dfc63149279a441a6597796340c81a8a357a765f5fc2a59d411a5b407",
+      "pixels": [
+        4326,
+        4326
+      ]
+    },
+    "westCore": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\lanxian_day\\triple_r08_c06_c08\\output_v2\\r08_c08.png",
+      "sha256": "7e1f9c16f740cf19a9566d6a1efdedf36d1809c0841a2588a49b61f029bb1fa2",
+      "pixels": [
+        4096,
+        4096
+      ]
+    }
+  },
+  "outputs": {
+    "extended": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\extended4326.png",
+      "sha256": "356a6bd4981093f8c1669115a3d869a611b43a48d84dd4a2ce5d22f063119ebb",
+      "pixels": [
+        4326,
+        4326
+      ]
+    },
+    "core": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\core4096.png",
+      "sha256": "d3eba987004b6d75fd3ff85ab8d244d2c4a71fa9843c14d3db3a5875d8be96f4",
+      "pixels": [
+        4096,
+        4096
+      ]
+    },
+    "preview": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\preview1024.png",
+      "sha256": "6b3112e4b32b1a28c2375490be366e044ce59f11d7178509ae89bdac340cde63",
+      "pixels": [
+        1024,
+        1024
+      ]
+    }
+  },
+  "operation": "Bounded local vertical existing-geometry registration followed by bounded low-frequency RGB residual correction",
+  "parameters": {
+    "method": "vertical-gradient/local-highpass subpixel matching with slope-regularized dynamic programming",
+    "flowGridStepPixels": 0.25,
+    "maxRowSlopePixels": 0.25,
+    "flowSmoothingSigmaRows": 5,
+    "costWindowRows": 41,
+    "matchingOverlapColumns": [
+      96,
+      115
+    ],
+    "opticalFlowPrior": {
+      "pyr_scale": 0.5,
+      "levels": 3,
+      "winsize": 41,
+      "iterations": 8,
+      "poly_n": 7,
+      "poly_sigma": 1.5,
+      "flags": 256
+    },
+    "opticalFlowPriorWeight": 0.002,
+    "reliablePriorRows": 201,
+    "horizontalDisplacement": 0,
+    "maxForwardBackwardErrorForPriorPixels": 1.5,
+    "maxAllowedDisplacementPixels": 10.0,
+    "maxAllowedIncrementalTonePerChannel": 8.0,
+    "fadeStartExtendedX": 115,
+    "fadeZeroExtendedX": 435,
+    "appliedInterpolation": "OpenCV INTER_CUBIC",
+    "borderMode": "BORDER_REFLECT_101",
+    "toneSmoothingSigmaRows": 16,
+    "toneEstimator": "median RGB residual in true115px overlap columns16:110"
+  },
+  "opencvVersion": "5.0.0",
+  "opencvVendor": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20261004\\c07-recovery\\vendor",
+  "scriptSha256": "5203e31c78a286d2ed01c31d4a4b6126205cfe87ece41d945d6f0b37ec630d0f",
+  "fullExtendedPixels": [
+    4326,
+    4326
+  ],
+  "corePixels": [
+    4096,
+    4096
+  ],
+  "nativeDetailScaleUnchanged": true,
+  "enlargementPerformed": false,
+  "subpixelResamplingPerformed": true,
+  "notPixelIdentityToNativeSource": true,
+  "subpixelResamplingSupportExtendedBox": [
+    0,
+    0,
+    435,
+    4326
+  ],
+  "outsideSupportPixelIdentical": true,
+  "westNeighborUnchanged": true,
+  "sourceInputUnchanged": true,
+  "actual": {
+    "maximumAbsoluteVerticalDisplacementPixels": 8.319887161254883,
+    "minimumVerticalDisplacementPixels": -6.458931922912598,
+    "maximumVerticalDisplacementPixels": 8.319887161254883,
+    "maxVerticalFieldSlope": 0.24989557266235352,
+    "maximumAbsoluteIncrementalTonePerChannel": 8.0,
+    "maximumPixelDifferenceFromInput": 252
+  },
+  "mask": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\mask.png",
+    "sha256": "681be6cf8a2aac8913ba84235327ee833441f80a26b8981c744f0e405bc899a9",
+    "pixels": [
+      4326,
+      4326
+    ]
+  },
+  "flowAndCorrection": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\flow-correction.npz",
+    "sha256": "5e463a4142d639f69da47849a232623ebf6fe4ff7382c425a5813c73f2022d3c"
+  },
+  "qaCrops": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\qa\\external_west_part1.png",
+      "sha256": "fd4c809df4cacd721eef1c80fa5a96747838ef8ae466eb3110d87505e62ac5ff",
+      "pixels": [
+        512,
+        1024
+      ],
+      "coreYRange": [
+        0,
+        1024
+      ],
+      "commonBoundaryX": 256,
+      "resampling": "none; integer QA crop/paste"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\qa\\edge_west_part1.png",
+      "sha256": "795d67bfdd8af492e7cf9d5d641b4324ac79e5221b4fa4d707751d52aa540d2c",
+      "pixels": [
+        256,
+        1024
+      ],
+      "coreBox": [
+        0,
+        0,
+        256,
+        1024
+      ],
+      "resampling": "none; integer QA crop"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\qa\\external_west_part2.png",
+      "sha256": "9e652b2842904482e9048453083f90b6854b16310a5aba3ec6298525c3579ca4",
+      "pixels": [
+        512,
+        1024
+      ],
+      "coreYRange": [
+        1024,
+        2048
+      ],
+      "commonBoundaryX": 256,
+      "resampling": "none; integer QA crop/paste"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\qa\\edge_west_part2.png",
+      "sha256": "7c4a32e62a8ab788a3a86635042de537ca01e5c6c2ddfe9e31ac968c57fbd049",
+      "pixels": [
+        256,
+        1024
+      ],
+      "coreBox": [
+        0,
+        1024,
+        256,
+        2048
+      ],
+      "resampling": "none; integer QA crop"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\qa\\external_west_part3.png",
+      "sha256": "0a9b42060020f900eb3c23d51a09d194f395aaf7323309f4a9729ff2e2ce4297",
+      "pixels": [
+        512,
+        1024
+      ],
+      "coreYRange": [
+        2048,
+        3072
+      ],
+      "commonBoundaryX": 256,
+      "resampling": "none; integer QA crop/paste"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\qa\\edge_west_part3.png",
+      "sha256": "c51c0e100a8c9b9268362685f58a603fb566411bf0f5f81ed3e00443e5ec4cf7",
+      "pixels": [
+        256,
+        1024
+      ],
+      "coreBox": [
+        0,
+        2048,
+        256,
+        3072
+      ],
+      "resampling": "none; integer QA crop"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\qa\\external_west_part4.png",
+      "sha256": "808ffc3a5d72d3978ad31c7474000656d54c54b8e9093a0092e3cb15aacdf47d",
+      "pixels": [
+        512,
+        1024
+      ],
+      "coreYRange": [
+        3072,
+        4096
+      ],
+      "commonBoundaryX": 256,
+      "resampling": "none; integer QA crop/paste"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\qa\\edge_west_part4.png",
+      "sha256": "216134c50da1202bb885963db6efb38763c8c766cd1eb28a34e0bd329bceabad",
+      "pixels": [
+        256,
+        1024
+      ],
+      "coreBox": [
+        0,
+        3072,
+        256,
+        4096
+      ],
+      "resampling": "none; integer QA crop"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\qa\\corner_nw.png",
+      "sha256": "ed7ee3eabceee40a724d30a856c833233d85c5d584acb4a095efa8ed1123c56c",
+      "pixels": [
+        512,
+        512
+      ],
+      "coreBox": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "resampling": "none; integer QA crop"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\qa\\corner_ne.png",
+      "sha256": "e3e47ee8ea1e4f6631bf0e02bdf7722da552aaf83dcdf2fa94631f645aba9ee0",
+      "pixels": [
+        512,
+        512
+      ],
+      "coreBox": [
+        3584,
+        0,
+        4096,
+        512
+      ],
+      "resampling": "none; integer QA crop"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\qa\\corner_sw.png",
+      "sha256": "aa311df68079c8192286fb3b38f6394eab1d31de2d5b4254bcf02cac15211d61",
+      "pixels": [
+        512,
+        512
+      ],
+      "coreBox": [
+        0,
+        3584,
+        512,
+        4096
+      ],
+      "resampling": "none; integer QA crop"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\qa\\corner_se.png",
+      "sha256": "93d272298d55d81a188e7e23519de601b7917c61469c7e822f322631961275ed",
+      "pixels": [
+        512,
+        512
+      ],
+      "coreBox": [
+        3584,
+        3584,
+        4096,
+        4096
+      ],
+      "resampling": "none; integer QA crop"
+    }
+  ],
+  "grooveMeasurements": [
+    {
+      "windowCoreY": [
+        580,
+        620
+      ],
+      "westDarkestY": 597,
+      "beforeDarkestY": 602,
+      "afterDarkestY": 597,
+      "beforeEastMinusWestPixels": 5,
+      "afterEastMinusWestPixels": 0
+    },
+    {
+      "windowCoreY": [
+        640,
+        682
+      ],
+      "westDarkestY": 653,
+      "beforeDarkestY": 662,
+      "afterDarkestY": 654,
+      "beforeEastMinusWestPixels": 9,
+      "afterEastMinusWestPixels": 1
+    },
+    {
+      "windowCoreY": [
+        710,
+        747
+      ],
+      "westDarkestY": 721,
+      "beforeDarkestY": 730,
+      "afterDarkestY": 721,
+      "beforeEastMinusWestPixels": 9,
+      "afterEastMinusWestPixels": 0
+    },
+    {
+      "windowCoreY": [
+        1198,
+        1234
+      ],
+      "westDarkestY": 1216,
+      "beforeDarkestY": 1216,
+      "afterDarkestY": 1216,
+      "beforeEastMinusWestPixels": 0,
+      "afterEastMinusWestPixels": 0
+    },
+    {
+      "windowCoreY": [
+        1456,
+        1496
+      ],
+      "westDarkestY": 1465,
+      "beforeDarkestY": 1465,
+      "afterDarkestY": 1465,
+      "beforeEastMinusWestPixels": 0,
+      "afterEastMinusWestPixels": 0
+    },
+    {
+      "windowCoreY": [
+        1766,
+        1804
+      ],
+      "westDarkestY": 1784,
+      "beforeDarkestY": 1781,
+      "afterDarkestY": 1784,
+      "beforeEastMinusWestPixels": -3,
+      "afterEastMinusWestPixels": 0
+    },
+    {
+      "windowCoreY": [
+        1908,
+        1944
+      ],
+      "westDarkestY": 1926,
+      "beforeDarkestY": 1922,
+      "afterDarkestY": 1926,
+      "beforeEastMinusWestPixels": -4,
+      "afterEastMinusWestPixels": 0
+    },
+    {
+      "windowCoreY": [
+        1998,
+        2044
+      ],
+      "westDarkestY": 2016,
+      "beforeDarkestY": 2014,
+      "afterDarkestY": 2016,
+      "beforeEastMinusWestPixels": -2,
+      "afterEastMinusWestPixels": 0
+    },
+    {
+      "windowCoreY": [
+        2523,
+        2551
+      ],
+      "westDarkestY": 2536,
+      "beforeDarkestY": 2535,
+      "afterDarkestY": 2536,
+      "beforeEastMinusWestPixels": -1,
+      "afterEastMinusWestPixels": 0
+    },
+    {
+      "windowCoreY": [
+        2590,
+        2620
+      ],
+      "westDarkestY": 2606,
+      "beforeDarkestY": 2606,
+      "afterDarkestY": 2606,
+      "beforeEastMinusWestPixels": 0,
+      "afterEastMinusWestPixels": 0
+    },
+    {
+      "windowCoreY": [
+        3048,
+        3070
+      ],
+      "westDarkestY": 3059,
+      "beforeDarkestY": 3059,
+      "afterDarkestY": 3059,
+      "beforeEastMinusWestPixels": 0,
+      "afterEastMinusWestPixels": 0
+    },
+    {
+      "windowCoreY": [
+        3162,
+        3212
+      ],
+      "westDarkestY": 3187,
+      "beforeDarkestY": 3186,
+      "afterDarkestY": 3187,
+      "beforeEastMinusWestPixels": -1,
+      "afterEastMinusWestPixels": 0
+    },
+    {
+      "windowCoreY": [
+        3297,
+        3351
+      ],
+      "westDarkestY": 3322,
+      "beforeDarkestY": 3322,
+      "afterDarkestY": 3322,
+      "beforeEastMinusWestPixels": 0,
+      "afterEastMinusWestPixels": 0
+    },
+    {
+      "windowCoreY": [
+        3809,
+        3862
+      ],
+      "westDarkestY": 3839,
+      "beforeDarkestY": 3837,
+      "afterDarkestY": 3838,
+      "beforeEastMinusWestPixels": -2,
+      "afterEastMinusWestPixels": -1
+    }
+  ],
+  "previewOnlyDownsampling": "LANCZOS to1024; no preview pixels used in production output",
+  "status": "candidate_pending_visual_review",
+  "formalAccepted": false,
+  "clientValidated": false,
+  "limitations": [
+    "Registration cannot establish missing geometry; this run is restricted to pre-existing matching west structures.",
+    "Tone bound applies to this pass only; upstream tone changes have a separate record.",
+    "Vertical gradients and darkest-row metrics support inspection; they do not establish seam acceptance."
+  ]
+}
