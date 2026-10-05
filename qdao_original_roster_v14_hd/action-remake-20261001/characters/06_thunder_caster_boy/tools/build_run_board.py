@@ -21,7 +21,7 @@ for n in range(16):
   board.paste(im,(x,y),im)
   draw.text((x+12,y+w+5),f'{d}  ·  {n:02d} / 15',font=font,fill='#2b443b')
  boards.append(board)
-for cycle in [1200,4800]:
+for cycle in [960,3840]:
  p=R/f'preview/run-eight-directions-{cycle}.webp'
  boards[0].save(p,save_all=True,append_images=boards[1:],duration=cycle//16,loop=0,lossless=True,method=4)
  rec={'file':p.relative_to(R).as_posix(),'sha256':sha(p),'operation':'same phase-index grid, each full runtime canvas uniformly resized256, labels only; no sprite editing','durationMs':[cycle//16]*16,'cycleMs':cycle,'derivedFrom':sources,'clientVerified':False}

@@ -2,7 +2,7 @@
 from pathlib import Path
 import json,hashlib
 R=Path(__file__).resolve().parents[1]
-SOURCES=['run_NE_SW_contactpairs_20261004.json','run_SE_contactpairs_20261004.json','run_S_contactpairs_20261004.json','run_EW_contactpairs_20261004.json','run_N_NW_contactpairs_20261004.json']
+SOURCES=['run_NE_SW_contactpairs_20261004.json','run_SE_contactpairs_20261004.json','run_S_contactpairs_20261004.json','run_EW_contactpairs_20261004.json','run_N_NW_contactpairs_20261004.json','full_limb_final_20261005.json']
 def current_run_pairs():
     result={}
     for name in SOURCES:
