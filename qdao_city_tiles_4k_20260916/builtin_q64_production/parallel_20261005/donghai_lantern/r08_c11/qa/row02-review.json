@@ -1,0 +1,79 @@
+{
+  "scope": "donghai_lantern r08_c11 row 02 native fragments; fragment-level visual check, not 4K acceptance",
+  "updatedAtUtc": "2026-10-05T13:44:44.519082+00:00",
+  "savedFragments": [
+    "r02_c01",
+    "r02_c02",
+    "r02_c03"
+  ],
+  "pendingFragments": [
+    "r02_c04"
+  ],
+  "pendingReason": "Exact day native r02_c04 pixels and generation record not ready at last prepare check.",
+  "nativePixels": [
+    1254,
+    1254
+  ],
+  "corePixels": [
+    1024,
+    1024
+  ],
+  "formalAccepted": false,
+  "completeTile": false,
+  "fragmentsCountAsTiles": false,
+  "checks": [
+    {
+      "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\row02-north-c01-native.png",
+      "viewedAtNativePixels": true,
+      "finding": "Horizontal brightness and warmth step at strip y=230 through leaves and trunk. Broad geometry continues; not seamless.",
+      "passed": false,
+      "action": "Local overlap color matching may be sufficient; preserve geometry and record masks/field and verify after correction. Repaint if structural displacement is found."
+    },
+    {
+      "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\row02-north-c02-native.png",
+      "viewedAtNativePixels": true,
+      "finding": "Horizontal warmth/brightness step at y=230, clearest on wooden wall and foliage. Roof contours appear broadly aligned at viewing scale; exact geometry not accepted.",
+      "passed": false,
+      "action": "Local overlap color matching may be sufficient; preserve geometry and record masks/field and verify after correction. Repaint if structural displacement is found."
+    },
+    {
+      "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\row02-north-c03-native.png",
+      "viewedAtNativePixels": true,
+      "finding": "Horizontal color/brightness change at y=230 across blue roof tiles and pale ridge; some painted highlights differ.",
+      "passed": false,
+      "action": "Local overlap color matching may be sufficient; preserve geometry and record masks/field and verify after correction. Repaint if structural displacement is found."
+    },
+    {
+      "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\row02-east-c01-native.png",
+      "viewedAtNativePixels": true,
+      "finding": "Vertical color/brightness step at x=230, strong in lower pale wall and visible on roof/wood; leaf and eave outlines broadly continuous.",
+      "passed": false,
+      "action": "Local overlap color matching may be sufficient; preserve geometry and record masks/field and verify after correction. Repaint if structural displacement is found."
+    },
+    {
+      "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\row02-east-c02-native.png",
+      "viewedAtNativePixels": true,
+      "finding": "Vertical color/highlight step at x=230 across blue roof tiles. Tile arrangement broadly continuous, but uncorrected hard join is visible.",
+      "passed": false,
+      "action": "Local overlap color matching may be sufficient; preserve geometry and record masks/field and verify after correction. Repaint if structural displacement is found."
+    }
+  ],
+  "wholeImageReview": {
+    "r02_c01": "Day tree trunk, principal leaf groups and lower-right blue eave retained. Warm yellow edge lights and stronger lavender-dark backdrop introduced. No new structures seen.",
+    "r02_c02": "Roof ridge, rounded end caps, tile rows, wood beams and pale wall retain broad day geometry. Strong warm highlights appear along many tile edges and wall patches; may be more intense than restrained-light target.",
+    "r02_c03": "Tile rows, diagonal roof rim, timber and lower-right wall board retain broad day geometry. Warm roof highlights are stronger and blue saturation shifts relative to c02; requires seam treatment."
+  },
+  "unchecked": [
+    "r02_c04",
+    "west r08_c10 common edge",
+    "south interfaces",
+    "all four-way junctions",
+    "subpixel day/festival geometry registration",
+    "navigation and runtime integration"
+  ],
+  "limitations": [
+    "All output images visually inspected individually at full returned size.",
+    "No numerical or client geometry acceptance claimed.",
+    "QA hard joins expose raw differences; no corrections applied in this subtask."
+  ]
+}
