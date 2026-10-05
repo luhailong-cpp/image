@@ -24,11 +24,11 @@ try{
   const row={id:seq.id,runs:[],stepped:[]};
   for(const speed of [1,4]){
    event('speed','change',speed);event('timeline','input',0);get('play').click();
-   const samples=[];let start;
-   await new Promise(resolve=>{function tick(t){if(start===undefined)start=t;samples.push({ms:t-start,...state()});if(t-start<Math.max(1500,seq.cycle_ms*speed*2))w.requestAnimationFrame(tick);else resolve();}w.requestAnimationFrame(tick);});
+   const samples=[];let start,previousFrame,wrapCount=0;
+   await new Promise((resolve,reject)=>{function tick(t){if(start===undefined)start=t;const s=state();if(previousFrame!==undefined&&s.frame<previousFrame)wrapCount++;previousFrame=s.frame;samples.push({ms:t-start,documentVisible:!d.hidden,...s});if(t-start>60000)return reject(new Error(seq.id+' playback did not complete three actual wraps'));if(wrapCount<3||t-start<Math.max(1500,seq.cycle_ms*speed*2))w.requestAnimationFrame(tick);else resolve();}w.requestAnimationFrame(tick);});
    get('play').click();
    const changes=samples.filter((x,i)=>i===0||x.frame!==samples[i-1].frame),wraps=changes.filter((x,i)=>i>0&&x.frame<changes[i-1].frame).map(x=>x.ms);
-   row.runs.push({speed,seen:[...new Set(samples.map(x=>x.frame))].sort((a,b)=>a-b),expected:seq.expected_count,nonRenderable:samples.filter(x=>!x.visible).length,samples:samples.length,nominalCycleMs:seq.cycle_ms*speed,observedWrapIntervalsMs:wraps.slice(1).map((x,i)=>x-wraps[i]),skippedTransitions:changes.slice(1).filter((x,i)=>(x.frame-changes[i].frame+seq.expected_count)%seq.expected_count!==1),changes});
+   row.runs.push({speed,seen:[...new Set(samples.map(x=>x.frame))].sort((a,b)=>a-b),expected:seq.expected_count,nonRenderable:samples.filter(x=>!x.visible).length,samples:samples.length,nominalCycleMs:seq.cycle_ms*speed,actualWrapCount:wrapCount,hiddenSamples:samples.filter(x=>!x.documentVisible).length,observedWrapIntervalsMs:wraps.slice(1).map((x,i)=>x-wraps[i]),skippedTransitions:changes.slice(1).filter((x,i)=>(x.frame-changes[i].frame+seq.expected_count)%seq.expected_count!==1),changes});
   }
   for(let n=0;n<seq.expected_count;n++){event('timeline','input',n);await raf();row.stepped.push(state());}
   row.pauseAtLastFrame=get('play').textContent==='播放';get('next').click();await raf();row.nextWrap=state().frame;get('previous').click();await raf();row.previousWrap=state().frame;
@@ -38,6 +38,7 @@ try{
  out.completed=true;out.passed=out.runs.length===14&&out.runs.every(r=>r.passed);out.finishedAt=new Date().toISOString();$('progress').textContent=out.passed?'14段全部通过':'有未通过项，请查看结果';
 }catch(e){out.errors.push(String(e));$('progress').textContent='检查失败';}
 publish();};
+if(location.hash==='#autostart')window.addEventListener('load',()=>$('start').click(),{once:true});
 </script></html>'''
 (R/'preview/browser-check.html').write_text(HTML,encoding='utf-8')
 m=json.loads((R/'preview/manifest.json').read_text(encoding='utf-8'))

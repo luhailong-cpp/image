@@ -10,13 +10,19 @@ def write_handoff(status):
     lines=['# 06 雷法少年 · 本机素材交接','',
        '本机素材制作与复核已完成。' if review and review.get('localWorkComplete') else '当前仍在制作与复核；以下只列实际已落盘资源。',
        '客户端未接入、未运行游戏内验收；用户最终动态观感未代为批准。','',
-       '[打开全部动作预览](preview/index.html) · [八方向正常动态图](preview/run-eight-directions-1200.webp) · [八方向慢放](preview/run-eight-directions-4800.webp)','',
+       '[打开全部动作预览](preview/index.html) · [八方向正常动态图](preview/run-eight-directions-960.webp) · [八方向慢放](preview/run-eight-directions-3840.webp)','',
        '|动作|方向|实际帧数|每帧|整段|','|---|---|---:|---:|---:|']
-    for a,dirs,ms,count in [('run','八方向',75,16),('hit','E/W',40,6),('attack','E/W',30,12),('cast','E/W',45,16)]:
+    for a,dirs,ms,count in [('run','八方向',60,16),('hit','E/W',40,6),('attack','E/W',30,12),('cast','E/W',45,16)]:
         n=sum(f['action']==a for f in status['files'])
         lines.append(f'|{a}|{dirs}|{n}|{ms}ms|{ms*count}ms|')
+    lines+=['','## 最新手脚与时长修正','',
+      '2026-10-05 用户在本角色聊天直接纠正跑步为60ms/帧，当前16帧一圈960ms，四分之一慢放为3840ms。此要求覆盖旧批次README的75ms；战斗时长保持不变。[直接用户纠正记录](records/run_timing_user_correction_20261005.json)。']
+    if review and review.get('fullLimbFeedbackReview'):
+        full=json.loads((R/review['fullLimbFeedbackReview']).read_text(encoding='utf-8-sig'))
+        lines+=['',f'本轮重新检查196张的整腿轴线、肩肘腕与握持，局部更新{len(full["changedRuntimeFiles"])}张、保留{full["retainedRuntimeCount"]}张。北向补反向协调摆臂，东南修符牌手跳位，东北修支撑鞋朝向，东西向修摆臂过渡，西北修翻牌，朝西施法末段修近靴方向。全部改动与当前SHA见 [全肢体复核]('+review['fullLimbFeedbackReview']+')。',
+          '保留自然屈膝、承重位移和蹬地；不以鞋底边的屏幕角度代替髋膝踝鞋的整体运动平面。09竹弓少女仅作为同向动作与可读性参考，身份和双手持物仍属于06。']
     lines+=['','## 跑步接地位置与帧号','',
-      '按最新解释，同一支撑脚持续着地，从跑向前端落地、前侧承重、身体经过，过渡到后侧前掌蹬离；每个位置为两张独立姿态，150ms。位置变化沿跑向与透视，鞋尖保持顺着膝踝。每方向16张、均匀75ms、1200ms一圈。末段抬跟但前掌仍接触，不沿用旧腾空索引。','',
+      '按最新解释，同一支撑脚持续着地，从跑向前端落地、前侧承重、身体经过，过渡到后侧前掌蹬离；每个位置为两张独立姿态，120ms。位置变化沿跑向与透视，鞋尖保持顺着膝踝。每方向16张、均匀60ms、960ms一圈。末段抬跟但前掌仍接触，不沿用旧腾空索引。','',
       '|方向|支撑脚|初接两帧|前侧承重两帧|身体经过两帧|后侧蹬离两帧|','|---|---|---|---|---|---|']
     for d in ['N','NE','E','SE','S','SW','W','NW']:
         for leg in ['右脚','左脚']:
@@ -41,7 +47,7 @@ def write_handoff(status):
     lines+=['','尚未通过的接入项：客户端根点与位移速度、游戏内滑步、命中/释放触发时刻；用户最终观感确认。当前没有凭客户端状态冒称全部游戏内验收完成。','',
       '最终PNG与当前预览确认后，按用户素材保留规则清理本目录已淘汰/中间图，保留完整来源文字与删除清单。临时Edge配置/缓存的清理曾被自动审批拒绝（仅返回 blocked by policy），因此保留，不绕过。']
     if status.get('retentionCleanup',{}).get('state')=='blocked_by_automatic_approval':
-        lines[-1]='最终PNG及当前预览已验证。清理本目录487张原生重复图、拒稿和旧复核图时，自动审批拒绝启动删除命令（仅返回 blocked by policy），没有执行删除；这些图和全部来源文字仍保留。具体路径和SHA见 [清理清单](records/final_retention_plan_20261004.json)。此前临时Edge配置/缓存删除也被自动审批拒绝，仍保留，未绕过。素材制作与离线验证已完成，清理项因上述限制未完成。'
+        lines[-1]='最终PNG及当前预览已验证。此前针对487张过程图的清理命令被自动审批拒绝（仅返回 blocked by policy），没有执行删除；487是该次清单数量，不代表后续修图产生的全部过程图数量。原清单与SHA见 [被拒绝的清理清单](records/final_retention_plan_20261004.json)。临时Edge配置/缓存删除也被拒绝，已保留且未绕过。清理项未完成，不影响正式runtime和当前预览。'
     lines += ['', '游戏图片取 runtime/ 的196张PNG及对应来源JSON；查看效果取 preview/。保留提示词和文字来源记录。work/ 中原生重复图、拒稿及旧复核图不作为游戏资源。']
     (R/'MERGE_HANDOFF.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
 if __name__=='__main__':write_handoff(json.loads((R/'STATUS.json').read_text(encoding='utf-8-sig')))

@@ -1,0 +1,1506 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-05T02:38:30.449558+00:00",
+  "reviewer": "/root/finish_s",
+  "scope": "run/S, run/SE, run/SW 当前48帧腿脚方向，只读像素审计",
+  "trigger": "用户最新视频指出腿脚歪/外翻；旧轮通过不能代替本轮检查。",
+  "method": [
+    "实际看用户12山岳NW截图，仅学习歪脚错误类型，不复制角色或方向。",
+    "实际看共享视频抽样和角色局部；视频中角色小且名称/蓝色地面效果遮腿，不能证明每张脚部细节。",
+    "逐张实际看当前48帧的原尺寸下肢裁切，包含膝、踝、足背、鞋底。",
+    "实际看09同向S/SE/SW各01、05、09、13作为运动平面参考；09为1起始，不能按同号直接断定相位。",
+    "单图复看SE04/05和SW10/11/12，并复看09 SE05/13与SW05/13，区分俯仰露底与侧向外翻。"
+  ],
+  "criterion": "检查膝到踝的运动平面、踝与鞋跟连接、足背中线/鞋长轴是否突然向内外侧转折；正常屈膝或足尖上翘可露底，不能把屏幕鞋轴不竖直等同外翻。",
+  "timingPreserved": {
+    "frameMs": 75,
+    "pairMs": 150,
+    "cycleMs": 1200
+  },
+  "runtimeMutated": false,
+  "sourceSnapshotStillCurrent": true,
+  "wholeCyclePlaybackByThisReviewer": false,
+  "wholeCyclePlaybackOwner": "/root",
+  "summary": {
+    "reviewedFrames": 48,
+    "confirmedAxisErrors": 0,
+    "correctionTargets": [],
+    "dynamicWatchFrames": [
+      "SE/04",
+      "SE/05",
+      "SW/11"
+    ],
+    "conclusion": "本轮静态逐图未确证必须重绘的外翻/反向鞋轴。SE04/05与SW11露底可由前摆上翘解释，保留原图并交主窗口结合连续播放判断。此结论不是整套动画最终通过。"
+  },
+  "findings": [
+    {
+      "id": "SE04-05-forward-pitch-watch",
+      "status": "not-confirmed-axis-error",
+      "leg": "左摆动腿",
+      "location": "前摆踝与鞋底",
+      "observation": "04到05膝前伸、脚尖上翘增大，鞋底朝右前显露。鞋跟仍接在踝后下侧，未见独立向体侧翻转。09 SE05也有同类前摆上翘露底。",
+      "evidence": [
+        {
+          "file": "runtime/run/SE/03.png",
+          "sha256": "0b9cacbf2eda8c3f041f5962820e9fe3dbefab17b13f6c92e8fab26b3f289257",
+          "direction": "SE",
+          "frame": 3
+        },
+        {
+          "file": "runtime/run/SE/04.png",
+          "sha256": "789c8730d353b9fb28b2810764903ea47c5eba7c5a2a1c6e3be2f6666c999b4c",
+          "direction": "SE",
+          "frame": 4
+        },
+        {
+          "file": "runtime/run/SE/05.png",
+          "sha256": "f3e17a08f5b86600f0acc6ed6edfdc5a05176c38f2554e07466a2418f8d7af63",
+          "direction": "SE",
+          "frame": 5
+        },
+        {
+          "file": "runtime/run/SE/06.png",
+          "sha256": "82548b248b38d5d84008e3df9020cd1d2ee7e9c516304cfc858e3bdb38c5887e",
+          "direction": "SE",
+          "frame": 6
+        }
+      ],
+      "retain": "保持左腿前摆与右脚后蹬，不能仅为消除露底把抬脚改成平掌。",
+      "nextCheck": "正常速度确认03→04→05→06的脚掌俯仰过渡，只有出现独立侧向扭转才局部修正。"
+    },
+    {
+      "id": "SW11-forward-extension-watch",
+      "status": "not-confirmed-axis-error",
+      "leg": "右摆动腿",
+      "location": "画面左前方抬起的鞋",
+      "observation": "10的右足仍收在膝下，11前伸并上翘、鞋尖更偏画面左，12已平掌初接；11足底长轴偏左但膝踝鞋跟连接未断开，可由前伸屈踝解释。静态不能证实外翻。",
+      "evidence": [
+        {
+          "file": "runtime/run/SW/10.png",
+          "sha256": "e9e1c68404e6f043452a10274b98073e630236db5a8ae6048b29221d4f721621",
+          "direction": "SW",
+          "frame": 10
+        },
+        {
+          "file": "runtime/run/SW/11.png",
+          "sha256": "f09a3e73673eceb1535a2003bbe8aee9db22945049258dbb3a05672cf240af90",
+          "direction": "SW",
+          "frame": 11
+        },
+        {
+          "file": "runtime/run/SW/12.png",
+          "sha256": "26406bf0693022f09f1e4231c94d8db8940ce674bd99b02e4e09e93d379b3c21",
+          "direction": "SW",
+          "frame": 12
+        }
+      ],
+      "retain": "保持左后足支撑、右腿前伸、手杖符牌和原两帧位置对。",
+      "nextCheck": "关注10→11→12是否在75ms节奏下读成急转；若只读成正常前摆，保持该帧。"
+    }
+  ],
+  "contextSources": [
+    {
+      "file": "C:\\Users\\luyua\\AppData\\Local\\Temp\\codex-clipboard-7cc4bf22-e4cf-4c35-8ac6-a37fd85f4037.png",
+      "sha256": "be7a05d73f0a487c5dca89dd9bf74a7175d0f7addef06e187a78591a2c156e64",
+      "actuallyViewed": true,
+      "limitation": "动作与错误类型参考；不作为06每帧鞋细节通过证明。"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\reference-motion-review-20261004\\video-contact.jpg",
+      "sha256": "e45bbcf9c3dc33ea11ccd862fd0ba6efbf5356f6d063627af7ac7b6efdaf4325",
+      "actuallyViewed": true,
+      "limitation": "动作与错误类型参考；不作为06每帧鞋细节通过证明。"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\reference-motion-review-20261004\\character-detail.jpg",
+      "sha256": "4460e749a97b0dc2f99a247dbb2d61676a61a5ed1e3cc01ef5386a8d7eb0788b",
+      "actuallyViewed": true,
+      "limitation": "动作与错误类型参考；不作为06每帧鞋细节通过证明。"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\06_thunder_caster_boy\\review\\video_reference_sequence_192_20261004.jpg",
+      "sha256": "2387e3f5b5efe962c159edd7f10141ad07bbcfc4a71964f1f32eb825b4eb508d",
+      "actuallyViewed": true,
+      "limitation": "动作与错误类型参考；不作为06每帧鞋细节通过证明。"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\06_thunder_caster_boy\\review\\video_reference_sequence_288_20261004.jpg",
+      "sha256": "a2e317fb5ea721a9978f4da6e9b8c77eaeb796aca82e5f7c416e27c38a570953",
+      "actuallyViewed": true,
+      "limitation": "动作与错误类型参考；不作为06每帧鞋细节通过证明。"
+    }
+  ],
+  "directionReferences": [
+    {
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\S\\01.png",
+      "sha256": "7d7f6b974d4a3e01c71a8b95f11d3968ea1bde5b5161a68af718d2271b424b39",
+      "frame": 1,
+      "direction": "S",
+      "crop": [
+        100,
+        590,
+        950,
+        1024
+      ],
+      "actuallyViewed": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\S\\05.png",
+      "sha256": "a0940716d853294a271443a76b657e31e80d0111567bc9cff4975da9a84c094b",
+      "frame": 5,
+      "direction": "S",
+      "crop": [
+        100,
+        590,
+        950,
+        1024
+      ],
+      "actuallyViewed": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\S\\09.png",
+      "sha256": "7084b99e985ba5beeaff967c85238446605a70d7a819172ab059c2e3197ac27f",
+      "frame": 9,
+      "direction": "S",
+      "crop": [
+        100,
+        590,
+        950,
+        1024
+      ],
+      "actuallyViewed": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\S\\13.png",
+      "sha256": "701853f0df18690f4d9769fee4f5360f4c1e35975de69f20b6a7ae190fd5fb22",
+      "frame": 13,
+      "direction": "S",
+      "crop": [
+        100,
+        590,
+        950,
+        1024
+      ],
+      "actuallyViewed": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\SE\\01.png",
+      "sha256": "562b723a7b6b3f8a5676102ec47b0b72503e651daf1b504ab8990f5b7e42fb0f",
+      "frame": 1,
+      "direction": "SE",
+      "crop": [
+        100,
+        590,
+        950,
+        1024
+      ],
+      "actuallyViewed": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\SE\\05.png",
+      "sha256": "99adbc138358d961ee1cf446a702533f788563be07fc5f44de44b9611c640237",
+      "frame": 5,
+      "direction": "SE",
+      "crop": [
+        100,
+        590,
+        950,
+        1024
+      ],
+      "actuallyViewed": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\SE\\09.png",
+      "sha256": "95792b2c81018c5a37ec71e0c2f93c04022edb7d65c8726f88608dbcb13669fd",
+      "frame": 9,
+      "direction": "SE",
+      "crop": [
+        100,
+        590,
+        950,
+        1024
+      ],
+      "actuallyViewed": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\SE\\13.png",
+      "sha256": "094e6cce671df15cd81d35c58c017494fbb76e5e37feea8cbed38dc4a0bd9b5d",
+      "frame": 13,
+      "direction": "SE",
+      "crop": [
+        100,
+        590,
+        950,
+        1024
+      ],
+      "actuallyViewed": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\SW\\01.png",
+      "sha256": "3da787a28be4124dad86634d49bcdd3dbeaedeb8b19300f944a0659b5ceaa831",
+      "frame": 1,
+      "direction": "SW",
+      "crop": [
+        100,
+        590,
+        950,
+        1024
+      ],
+      "actuallyViewed": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\SW\\05.png",
+      "sha256": "3daad5903b1aaecbb4a99ceab0ae6fa06d6b47e3570355175bfcc82019531439",
+      "frame": 5,
+      "direction": "SW",
+      "crop": [
+        100,
+        590,
+        950,
+        1024
+      ],
+      "actuallyViewed": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\SW\\09.png",
+      "sha256": "3431426a2eadc1843e19f5b8380b131902c4827a0567cb9172f53a4c0fb14b39",
+      "frame": 9,
+      "direction": "SW",
+      "crop": [
+        100,
+        590,
+        950,
+        1024
+      ],
+      "actuallyViewed": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_original_roster_v14_hd\\action-remake-20261001\\characters\\09_bamboo_archer_girl\\runtime\\run\\SW\\13.png",
+      "sha256": "d33b1d49a81e58e3e3a86672e3fa98267b5d73d9142489afd51e10da9ed4ce8a",
+      "frame": 13,
+      "direction": "SW",
+      "crop": [
+        100,
+        590,
+        950,
+        1024
+      ],
+      "actuallyViewed": true
+    }
+  ],
+  "frames": [
+    {
+      "file": "runtime/run/S/00.png",
+      "sha256": "5aad372360763aa6f332c42c2c5591d6e985c25dca5ca4d47823898a2787e426",
+      "frame": 0,
+      "direction": "S",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        0,
+        1
+      ],
+      "positionPhase": "前侧承重",
+      "supportLegObservation": "右膝至踝向下，鞋面中线继续朝正南，前载没有侧翻。",
+      "swingLegObservation": "左脚屈膝后收，露出的鞋面和鞋尖仍朝前下，未反转。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-S-0.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/S/01.png",
+      "sha256": "cf2bca4427712340ef53836e9e568474e25d0c97233184f01103d6eafecd797b",
+      "frame": 1,
+      "direction": "S",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        0,
+        1
+      ],
+      "positionPhase": "前侧承重",
+      "supportLegObservation": "右足较00收近，踝与金色鞋面中线连续，脚掌保持正面。",
+      "swingLegObservation": "左足后抬较高，足背朝前下；屈膝透视缩短保留。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-S-0.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/S/02.png",
+      "sha256": "704e29e7aa4e8642b778a873282e7315e10754c7fb694201cde6afb1f169bb7c",
+      "frame": 2,
+      "direction": "S",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        2,
+        3
+      ],
+      "positionPhase": "身体经过",
+      "supportLegObservation": "右脚进入髋下，膝踝略压缩，鞋尖继续朝S。",
+      "swingLegObservation": "左膝前提而靴仍低垂，脚背中线未朝外侧折断。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-S-0.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/S/03.png",
+      "sha256": "11f40530ef031d842a0baee886985bafc4374332fd03984300f51a90de67a867",
+      "frame": 3,
+      "direction": "S",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        2,
+        3
+      ],
+      "positionPhase": "身体经过",
+      "supportLegObservation": "右踝压缩较明显，但鞋尖与02同向，未见突然内外翻。",
+      "swingLegObservation": "左腿前摆的鞋尖仍在膝踝前后摆动平面内。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-S-0.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/S/04.png",
+      "sha256": "556792e5e57c89e38e6b56853dfcef91041d13881b8677b87d448dfcda4ed0dd",
+      "frame": 4,
+      "direction": "S",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        4,
+        5
+      ],
+      "positionPhase": "后侧蹬离",
+      "supportLegObservation": "右后足前掌支撑，靴面仍朝S，后蹬不变成横踩。",
+      "swingLegObservation": "左前摆足上翘露底；鞋底长轴居中，属于俯仰而非向侧面翻转。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-S-1.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/S/05.png",
+      "sha256": "e75e89c0f5b1849ec21dde846b8fa8d96feca5b0278871318bfe4378b29c67dd",
+      "frame": 5,
+      "direction": "S",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        4,
+        5
+      ],
+      "positionPhase": "后侧蹬离",
+      "supportLegObservation": "右后足继续支撑，脚尖和04同向。",
+      "swingLegObservation": "左鞋底面扩大，脚跟仍在踝下、前掌在运动前端，未横向扭开。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-S-1.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/S/06.png",
+      "sha256": "a609539a62253e6a5eb14f2d319a5f4238dcd2b17d70b1b5adb988db6750b146",
+      "frame": 6,
+      "direction": "S",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        6,
+        7
+      ],
+      "positionPhase": "前端初接",
+      "supportLegObservation": "左前伸脚掌已放平，膝、踝与鞋中线连贯朝S。",
+      "swingLegObservation": "右足屈膝后收，脚背正面可见，无反向鞋尖。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-S-1.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/S/07.png",
+      "sha256": "af3ed79758964bbe291c74078313942346fc5839d5815bba95b33e6fb65be4b5",
+      "frame": 7,
+      "direction": "S",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        6,
+        7
+      ],
+      "positionPhase": "前端初接",
+      "supportLegObservation": "左脚第二初接帧，鞋尖朝S且掌面平稳；保留自然轻微身倾。",
+      "swingLegObservation": "右后足进一步收起，足背与06一致。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-S-1.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/S/08.png",
+      "sha256": "0ce6ac8460655be9933383a8f8b4a7c55f12f4c5d996e66375d67f90f8d0f495",
+      "frame": 8,
+      "direction": "S",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        8,
+        9
+      ],
+      "positionPhase": "前侧承重",
+      "supportLegObservation": "左前载靴从初接位置回收，鞋尖仍正向前。",
+      "swingLegObservation": "右脚屈膝抬起，短缩的鞋面未向外侧翻。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-S-2.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/S/09.png",
+      "sha256": "901e654e095b0c004f756fa9e933a34f421345b6ca0be0ea5ac3f873b96eaff3",
+      "frame": 9,
+      "direction": "S",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        8,
+        9
+      ],
+      "positionPhase": "前侧承重",
+      "supportLegObservation": "左承重膝踝压缩，足背中线保持正S。",
+      "swingLegObservation": "右后摆靴方向与08连续，保持屈膝产生的透视。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-S-2.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/S/10.png",
+      "sha256": "730e9306be3ad7a7e82f2067e1d0ea5ae4fe0ea5f62e27ec93c9169ebe22b393",
+      "frame": 10,
+      "direction": "S",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        10,
+        11
+      ],
+      "positionPhase": "身体经过",
+      "supportLegObservation": "左脚经过髋下，脚尖和前掌朝S，未突然旋转。",
+      "swingLegObservation": "右腿准备前摆，鞋面在膝下，未出现鞋尖朝侧后的反转。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-S-2.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/S/11.png",
+      "sha256": "f5c3306a68a2926ff542f288e446052c7544b8f907907c808a27f6e886fed1a4",
+      "frame": 11,
+      "direction": "S",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        10,
+        11
+      ],
+      "positionPhase": "身体经过",
+      "supportLegObservation": "左支撑脚仍正S，膝踝位置变化而脚面不侧翻。",
+      "swingLegObservation": "右抬脚略向画面左偏，膝踝随之移动；不足以确证踝部外扭。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-S-2.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/S/12.png",
+      "sha256": "568571d9a0f77c37073492476b66eac3ea7e092ca0df080e1ecbfa9729d4c85b",
+      "frame": 12,
+      "direction": "S",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        12,
+        13
+      ],
+      "positionPhase": "后侧蹬离",
+      "supportLegObservation": "左后足前掌支撑，仍保持正南鞋向。",
+      "swingLegObservation": "右前摆靴上翘露底，脚跟与踝相接，长轴仍在正南平面。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-S-3.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/S/13.png",
+      "sha256": "373b0c4177cca61e0c5a80aa62a1d57469cc7752aeef3c419685a5894b36c27d",
+      "frame": 13,
+      "direction": "S",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        12,
+        13
+      ],
+      "positionPhase": "后侧蹬离",
+      "supportLegObservation": "左足继续后蹬，脚掌方向与12连续。",
+      "swingLegObservation": "右脚底可见面积增加但不横向翻面；保留前摆上翘。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-S-3.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/S/14.png",
+      "sha256": "4979522e23c9995a7fc7cc05a8c509963a7e1c08439ea332cb2ca4079fea5df2",
+      "frame": 14,
+      "direction": "S",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        14,
+        15
+      ],
+      "positionPhase": "前端初接",
+      "supportLegObservation": "右前伸靴已放平，踝、鞋面中线和正S鞋尖连贯。",
+      "swingLegObservation": "左足折回，鞋面正向下前方；无侧面反转。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-S-3.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/S/15.png",
+      "sha256": "d46b0e7a5f8cfa7a5cbce4cc2c3290c56c19b091a70c480d9d4913b0e9bbd21b",
+      "frame": 15,
+      "direction": "S",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        14,
+        15
+      ],
+      "positionPhase": "前端初接",
+      "supportLegObservation": "右脚第二初接，平掌与14连续，环接00仍同向。",
+      "swingLegObservation": "左后脚保持折叠；鞋尖未朝身体外侧突然翻出。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-S-3.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SE/00.png",
+      "sha256": "71480c276a2dbec37241425b7dab88ec07859430e9b30bb055e84a9967ef98cf",
+      "frame": 0,
+      "direction": "SE",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        0,
+        1
+      ],
+      "positionPhase": "前侧承重",
+      "supportLegObservation": "右承重靴的鞋跟在左后、鞋尖在右前，符合SE斜向。",
+      "swingLegObservation": "左后摆足随屈膝缩短，足背未从一侧翻到另一侧。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SE-0.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SE/01.png",
+      "sha256": "593124477e41ee6520271e6020b05ea4979e8ddb1a0d16ae83931d138f2ff77e",
+      "frame": 1,
+      "direction": "SE",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        0,
+        1
+      ],
+      "positionPhase": "前侧承重",
+      "supportLegObservation": "右脚较00收近，踝与鞋面相接自然，SE轴稳定。",
+      "swingLegObservation": "左后脚位置略抬高，鞋尖仍沿屈膝折回的投影。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SE-0.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SE/02.png",
+      "sha256": "566ba42861123e2b08e236936f08581d6bcbdc464059c2b1596a95bc066d76ad",
+      "frame": 2,
+      "direction": "SE",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        2,
+        3
+      ],
+      "positionPhase": "身体经过",
+      "supportLegObservation": "右足经过身体下方，前掌朝右下，膝踝没有向相反侧拧。",
+      "swingLegObservation": "左腿前摆准备，靴在踝下，未见突然反向鞋底。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SE-0.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SE/03.png",
+      "sha256": "0b9cacbf2eda8c3f041f5962820e9fe3dbefab17b13f6c92e8fab26b3f289257",
+      "frame": 3,
+      "direction": "SE",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        2,
+        3
+      ],
+      "positionPhase": "身体经过",
+      "supportLegObservation": "右支撑踝向后发展，鞋尖维持右下，保留后蹬倾角。",
+      "swingLegObservation": "左膝前提，脚部仍随同一前后摆动平面变化。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SE-0.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SE/04.png",
+      "sha256": "789c8730d353b9fb28b2810764903ea47c5eba7c5a2a1c6e3be2f6666c999b4c",
+      "frame": 4,
+      "direction": "SE",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        4,
+        5
+      ],
+      "positionPhase": "后侧蹬离",
+      "supportLegObservation": "右后足前掌支撑，鞋向右前，踝仍接在鞋跟上方。",
+      "swingLegObservation": "左前摆足明显上翘，鞋底朝右前可见；单图与09 SE05同类俯仰，未确证侧翻。",
+      "verdict": "dynamic-watch-not-confirmed-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SE-1.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SE/05.png",
+      "sha256": "f3e17a08f5b86600f0acc6ed6edfdc5a05176c38f2554e07466a2418f8d7af63",
+      "frame": 5,
+      "direction": "SE",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        4,
+        5
+      ],
+      "positionPhase": "后侧蹬离",
+      "supportLegObservation": "右后足继续支撑，脚尖与04一致。",
+      "swingLegObservation": "左脚前伸更远且上翘更大，鞋跟仍接踝后下方；关注05→06放掌过渡，不因露底判外翻。",
+      "verdict": "dynamic-watch-not-confirmed-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SE-1.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SE/06.png",
+      "sha256": "82548b248b38d5d84008e3df9020cd1d2ee7e9c516304cfc858e3bdb38c5887e",
+      "frame": 6,
+      "direction": "SE",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        6,
+        7
+      ],
+      "positionPhase": "前端初落地",
+      "supportLegObservation": "左初接靴平掌，鞋跟左后、鞋尖右前；略偏水平是斜视鞋长轴投影。",
+      "swingLegObservation": "右后腿屈膝收起，鞋面向下前，保留透视短缩。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SE-1.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SE/07.png",
+      "sha256": "37934c6b2af0631b2cfc245f433742d046a04acce9596e6118b15d820e6584b7",
+      "frame": 7,
+      "direction": "SE",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        6,
+        7
+      ],
+      "positionPhase": "前端初落地",
+      "supportLegObservation": "左初接靴较06前掌更展开，踝与鞋体连贯，未形成向外侧折断。",
+      "swingLegObservation": "右后摆足与06同一折叠方向，未突然翻底。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SE-1.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SE/08.png",
+      "sha256": "870dd73f940030b4a21a20603759115854164f7981e011562b8698d5b8c875cf",
+      "frame": 8,
+      "direction": "SE",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        8,
+        9
+      ],
+      "positionPhase": "前侧承重",
+      "supportLegObservation": "左前载靴朝SE，鞋跟与前掌处于一致接地面。",
+      "swingLegObservation": "右后摆鞋收在身后，脚背仍与小腿连接自然。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SE-2.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SE/09.png",
+      "sha256": "153a3b3f2953bf902c87ed754f79e3fc8e562341c8e99272540966f879ecf708",
+      "frame": 9,
+      "direction": "SE",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        8,
+        9
+      ],
+      "positionPhase": "前侧承重",
+      "supportLegObservation": "左前载鞋位置回收而方向保持右前，未侧转。",
+      "swingLegObservation": "右后足继续屈膝，短缩和鞋尖轻垂保持。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SE-2.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SE/10.png",
+      "sha256": "0e5cb498e9d34efc4bfcc4fb21f225d0b28e2769a5cc5409a8c619c798b5077d",
+      "frame": 10,
+      "direction": "SE",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        10,
+        11
+      ],
+      "positionPhase": "身体经过",
+      "supportLegObservation": "左脚经过髋下，前掌朝右下，踝部无明显外折。",
+      "swingLegObservation": "右抬脚在后方折回，鞋面朝向变化未构成反转。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SE-2.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SE/11.png",
+      "sha256": "40128b4e31d86dc4ac8ba76d6fb4b42446d7cce22d68e88ccb8491880c64fefe",
+      "frame": 11,
+      "direction": "SE",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        10,
+        11
+      ],
+      "positionPhase": "身体经过",
+      "supportLegObservation": "左支撑脚维持SE，膝踝与鞋面连续。",
+      "swingLegObservation": "右后足鞋尖投影较偏左下，但与折膝后收一致，静态不足以判为外翻。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SE-2.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SE/12.png",
+      "sha256": "cc87336f83beefcc05d16bbc78a36ae1511a77ed184ad7afb7298ecd76e5cb29",
+      "frame": 12,
+      "direction": "SE",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        12,
+        13
+      ],
+      "positionPhase": "后侧蹬离",
+      "supportLegObservation": "左足在后侧蹬离，鞋跟抬高、前掌方向保持右前。",
+      "swingLegObservation": "右腿前摆的短缩鞋位在踝下，没有独立横向扭转。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SE-3.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SE/13.png",
+      "sha256": "8ac4504cb8e09770a9ccb0de608264ad52c720e44aab8104f4f5f60bf280bf59",
+      "frame": 13,
+      "direction": "SE",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        12,
+        13
+      ],
+      "positionPhase": "后侧蹬离",
+      "supportLegObservation": "左后足继续前掌支撑，脚尖与12保持同向。",
+      "swingLegObservation": "右摆动靴随抬膝变化，未见鞋底突然左右互换。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SE-3.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SE/14.png",
+      "sha256": "c9e768c48e963dfc58c989fbafeb4cf844689bd4510d8ce72891ddd50f697a8d",
+      "frame": 14,
+      "direction": "SE",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        14,
+        15
+      ],
+      "positionPhase": "前端初落地",
+      "supportLegObservation": "右前伸初接脚掌平放，鞋跟左后、鞋尖右前。",
+      "swingLegObservation": "左后摆脚屈膝悬空，保持正常后收投影。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SE-3.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SE/15.png",
+      "sha256": "6b8a820d3374a8ddd12c6cb4863418c0673ca36606c2507f6331f3055f4aea5d",
+      "frame": 15,
+      "direction": "SE",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        14,
+        15
+      ],
+      "positionPhase": "前端初落地",
+      "supportLegObservation": "右第二初接靴沿SE放平，环接00方向一致。",
+      "swingLegObservation": "左后摆鞋面沿腿部折叠，未反向。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SE-3.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SW/00.png",
+      "sha256": "e25726eb740d3fac3dd92d0a854fb6017b6fcbfd1b7b2f5ec6c17920e8b3785f",
+      "frame": 0,
+      "direction": "SW",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        0,
+        1
+      ],
+      "positionPhase": "身体经过",
+      "supportLegObservation": "右支撑靴朝左下，鞋跟在右后，身体经过时未横向转鞋。",
+      "swingLegObservation": "左后脚向下前方短缩，仍随折膝，没有单独外翻。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SW-0.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SW/01.png",
+      "sha256": "b35f0510a792193e4eae46494bb53b6eedd80e10519792b4f46d580410a14b77",
+      "frame": 1,
+      "direction": "SW",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        0,
+        1
+      ],
+      "positionPhase": "身体经过",
+      "supportLegObservation": "右支撑脚较00回收，鞋尖仍为SW方向。",
+      "swingLegObservation": "左后摆足姿态与00连续，保留脚背可见。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SW-0.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SW/02.png",
+      "sha256": "8169578ae9dd0445f0484256b3a05b03edc08bad656f864e4987101b23073944",
+      "frame": 2,
+      "direction": "SW",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        2,
+        3
+      ],
+      "positionPhase": "后侧蹬离",
+      "supportLegObservation": "右足后蹬的前掌朝左前，踝向后倾但鞋尖未扭反。",
+      "swingLegObservation": "左腿准备前摆，靴面未从外侧翻至内侧。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SW-0.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SW/03.png",
+      "sha256": "9b33c4365c470fb15b5ed262875a9c22158f1f7beab407494f2a277f6f0b6108",
+      "frame": 3,
+      "direction": "SW",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        2,
+        3
+      ],
+      "positionPhase": "后侧蹬离",
+      "supportLegObservation": "右后侧支撑保持SW，脚跟抬起并非整鞋侧翻。",
+      "swingLegObservation": "左前摆脚随膝踝移动，没有清楚可证的外旋断点。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SW-0.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SW/04.png",
+      "sha256": "53f3137a9cdfb5795f0f79cd03bdaed8bb313187a71a427a55c861d3f52f9182",
+      "frame": 4,
+      "direction": "SW",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        4,
+        5
+      ],
+      "positionPhase": "前端初落地",
+      "supportLegObservation": "左前伸脚掌朝左下，膝踝至鞋面连续。",
+      "swingLegObservation": "右脚后收，鞋尖轻垂而仍在前后摆动平面。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SW-1.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SW/05.png",
+      "sha256": "a407fed43d75053138d210224dd2ce8cbec4b5ceae2dc3c6720dc7f4657c253a",
+      "frame": 5,
+      "direction": "SW",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        4,
+        5
+      ],
+      "positionPhase": "前端初落地",
+      "supportLegObservation": "左初接鞋向与04一致，鞋面较展开但没有外撇跳转。",
+      "swingLegObservation": "右摆动靴位置变化保留屈膝透视。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SW-1.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SW/06.png",
+      "sha256": "0bc8eaa2008e41215b330b72f02c94f4bd76336106cd2c262031faf345e8061f",
+      "frame": 6,
+      "direction": "SW",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        6,
+        7
+      ],
+      "positionPhase": "前侧承重",
+      "supportLegObservation": "左前载靴朝SW，鞋跟和前掌在一致平面。",
+      "swingLegObservation": "右抬脚投影较正S，但位于折膝腿下方，未确证踝部外拧。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SW-1.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SW/07.png",
+      "sha256": "109a3d18d27e3f675f54b9588d6b1f7b225a87223fc7206e35797309753d306a",
+      "frame": 7,
+      "direction": "SW",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        6,
+        7
+      ],
+      "positionPhase": "前侧承重",
+      "supportLegObservation": "左承重脚的鞋尖继续左下，踝部没有突然内扣。",
+      "swingLegObservation": "右后收足较短缩，脚背正面可见与06连续。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SW-1.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SW/08.png",
+      "sha256": "82faa4d988a1000694f8f5ab3f2a8a2a642a8312b0a65848d859284980cf3337",
+      "frame": 8,
+      "direction": "SW",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        8,
+        9
+      ],
+      "positionPhase": "身体经过",
+      "supportLegObservation": "左支撑脚进入髋下，鞋面中线与左下鞋尖相接。",
+      "swingLegObservation": "右后摆靴位于膝后下方，鞋尖近S为折膝投影，未横翻。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SW-2.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SW/09.png",
+      "sha256": "252f97bd4414f20a50776b6684036455adb78e6d04a532cfa8ceb3777b7df041",
+      "frame": 9,
+      "direction": "SW",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        8,
+        9
+      ],
+      "positionPhase": "身体经过",
+      "supportLegObservation": "左支撑靴较08回收，左下方向稳定。",
+      "swingLegObservation": "右后摆鞋面与08连续，未换边露底。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SW-2.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SW/10.png",
+      "sha256": "e9e1c68404e6f043452a10274b98073e630236db5a8ae6048b29221d4f721621",
+      "frame": 10,
+      "direction": "SW",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        10,
+        11
+      ],
+      "positionPhase": "后侧蹬离",
+      "supportLegObservation": "左足后侧支撑保持SW，踝与鞋跟连接自然。",
+      "swingLegObservation": "右靴仍收在屈膝下方，脚背朝前下；与11前伸变化幅度较大，需正常速度看节奏。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SW-2.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SW/11.png",
+      "sha256": "f09a3e73673eceb1535a2003bbe8aee9db22945049258dbb3a05672cf240af90",
+      "frame": 11,
+      "direction": "SW",
+      "supportLeg": "左脚",
+      "swingLeg": "右脚",
+      "pairFrames": [
+        10,
+        11
+      ],
+      "positionPhase": "后侧蹬离",
+      "supportLegObservation": "左后足仍朝SW，支撑鞋未侧翻。",
+      "swingLegObservation": "右前摆靴鞋尖偏画面左并上翘，露出鞋底；膝-踝-鞋跟仍相接，单图可由前伸屈踝解释，列动态关注而非硬错。",
+      "verdict": "dynamic-watch-not-confirmed-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SW-2.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SW/12.png",
+      "sha256": "26406bf0693022f09f1e4231c94d8db8940ce674bd99b02e4e09e93d379b3c21",
+      "frame": 12,
+      "direction": "SW",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        12,
+        13
+      ],
+      "positionPhase": "前端初落地",
+      "supportLegObservation": "右前伸靴落平朝左下，从11上翘转为平掌；单图鞋轴无外折。",
+      "swingLegObservation": "左后足折回，保留足背朝前下的短缩。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SW-3.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SW/13.png",
+      "sha256": "01bb612dd98b9fb00ae5c7ad19ee39fb772a27d4be8a15baced1b3a088eed096",
+      "frame": 13,
+      "direction": "SW",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        12,
+        13
+      ],
+      "positionPhase": "前端初落地",
+      "supportLegObservation": "右第二初接鞋掌与12同向，未横向旋转。",
+      "swingLegObservation": "左后摆靴方向与12连续，无鞋底突然反转。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SW-3.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SW/14.png",
+      "sha256": "76d35d4abb240e740e0cccf7d5e12e0ee26c0d038a74d45eab98504b42a83cdf",
+      "frame": 14,
+      "direction": "SW",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        14,
+        15
+      ],
+      "positionPhase": "前侧承重",
+      "supportLegObservation": "右前载足朝SW，鞋跟在右后，膝踝受力方向自然。",
+      "swingLegObservation": "左后摆足缩在腿后，鞋面未向外侧翻。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SW-3.jpg",
+      "actualViewedAtNativeCrop": true
+    },
+    {
+      "file": "runtime/run/SW/15.png",
+      "sha256": "065dd059595796877a3eb71c7b7a4f2c20366f025c2dbff931b235674060d7aa",
+      "frame": 15,
+      "direction": "SW",
+      "supportLeg": "右脚",
+      "swingLeg": "左脚",
+      "pairFrames": [
+        14,
+        15
+      ],
+      "positionPhase": "前侧承重",
+      "supportLegObservation": "右前载靴与14同向，环接00鞋轴连续。",
+      "swingLegObservation": "左后脚的折膝透视保留，未见独立侧翻。",
+      "verdict": "retain-no-confirmed-axis-error",
+      "retain": [
+        "当前两帧位置对",
+        "当前支撑脚及接触点",
+        "正常屈膝和透视短缩",
+        "已正确的手部、道具与上身"
+      ],
+      "diagnosticImage": "review/video-axis-details/06-SW-3.jpg",
+      "actualViewedAtNativeCrop": true
+    }
+  ],
+  "provenance": "本文件为人工视觉审计；没有生成或编辑游戏PNG，没有改模型/质量记录。诊断JPEG仅裁切拼排，源哈希已复核。",
+  "orderedNeighbourFollowup": {
+    "method": "直接从当前runtime PNG读取，view_image original按序对照SE04→05→06→07、SW10→11→12；先看1:1腿部板，再看这些完整1024帧。此方法是顺序邻帧视觉对照，不冒充实时动画播放。",
+    "additionalReference": "实际查看主窗口从原视频提取的连续32帧板192（8~9.29秒S）、288（12~13.29秒SW→W）；同向膝踝前后推进和正常抬脚露底可作定性参考，遮挡限制不变。",
+    "SE04to07": {
+      "evidence": [
+        {
+          "file": "runtime/run/SE/04.png",
+          "sha256": "789c8730d353b9fb28b2810764903ea47c5eba7c5a2a1c6e3be2f6666c999b4c",
+          "direction": "SE",
+          "frame": 4
+        },
+        {
+          "file": "runtime/run/SE/05.png",
+          "sha256": "f3e17a08f5b86600f0acc6ed6edfdc5a05176c38f2554e07466a2418f8d7af63",
+          "direction": "SE",
+          "frame": 5
+        },
+        {
+          "file": "runtime/run/SE/06.png",
+          "sha256": "82548b248b38d5d84008e3df9020cd1d2ee7e9c516304cfc858e3bdb38c5887e",
+          "direction": "SE",
+          "frame": 6
+        },
+        {
+          "file": "runtime/run/SE/07.png",
+          "sha256": "37934c6b2af0631b2cfc245f433742d046a04acce9596e6118b15d820e6584b7",
+          "direction": "SE",
+          "frame": 7
+        }
+      ],
+      "observation": "04→05左膝与脚向右前伸展、脚尖上翘增强；05→06掌面落平且踝回到鞋跟上方，06→07维持同方向平掌。未出现向相反侧翻鞋或踝部独立外折。",
+      "decision": "保留；正常前摆俯仰至初接变化，未确证外翻。"
+    },
+    "SW10to12": {
+      "evidence": [
+        {
+          "file": "runtime/run/SW/10.png",
+          "sha256": "e9e1c68404e6f043452a10274b98073e630236db5a8ae6048b29221d4f721621",
+          "direction": "SW",
+          "frame": 10
+        },
+        {
+          "file": "runtime/run/SW/11.png",
+          "sha256": "f09a3e73673eceb1535a2003bbe8aee9db22945049258dbb3a05672cf240af90",
+          "direction": "SW",
+          "frame": 11
+        },
+        {
+          "file": "runtime/run/SW/12.png",
+          "sha256": "26406bf0693022f09f1e4231c94d8db8940ce674bd99b02e4e09e93d379b3c21",
+          "direction": "SW",
+          "frame": 12
+        }
+      ],
+      "observation": "10右足在后折膝下方，11随膝向左前摆并上翘，12左前方落平；鞋跟随踝，11露底与12掌面切换可由俯仰解释。10→11位移明显，但不能据此单图认定脚轴外扭。",
+      "decision": "保留；若主窗口正常速度看到节奏急转，再定点修。"
+    },
+    "runtimeMutated": false,
+    "wholeCyclePlaybackClaimed": false
+  }
+}

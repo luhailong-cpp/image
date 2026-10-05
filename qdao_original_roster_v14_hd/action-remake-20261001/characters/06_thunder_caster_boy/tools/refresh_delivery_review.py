@@ -7,6 +7,8 @@ R=Path(__file__).resolve().parents[1]
 review=current_review();assert review and review.get('localWorkComplete')
 p=R/'STATUS.json';out=json.loads(p.read_text(encoding='utf-8-sig'))
 out.update(complete=True,completionScope=review['completionScope'],staticReviewedFrames=196,offlinePlaybackVerifiedSequences=14,currentReview='review/CURRENT_REVIEW.json',userFinalApproved=False)
+if review.get('retentionCleanup'):out['retentionCleanup']=review['retentionCleanup']
+out['currentFullLimbReview']='review/full_limb_final_20261005.json'
 for f in out['files']:f['review']='当前手脚逐帧复核完成；离线正常/慢放、暂停和逐帧功能已验证；客户端未接入'
 for s in out['sequences']:s['dynamicReview']='offline_playback_verified; user/client acceptance pending'
 p.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
