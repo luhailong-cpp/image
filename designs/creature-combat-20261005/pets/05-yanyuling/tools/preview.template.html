@@ -119,7 +119,7 @@ function buildGrid(){
   group.frames.forEach((frame,index)=>{
     const button=document.createElement("button");button.className="thumb";button.type="button";button.dataset.index=index;
     const stage=document.createElement("div");stage.className="stage";stage.dataset.bg=el("background").value;
-    if(frame.exists){const im=document.createElement("img");im.src=frame.file;im.alt=frame.id;im.loading="lazy";stage.append(im)}
+    if(frame.exists){const im=document.createElement("img");im.src=frame.file;im.alt=frame.id;stage.append(im)}
     else{const missing=document.createElement("div");missing.className="missing";missing.textContent="待生成";stage.append(missing)}
     button.append(stage);
     const label=document.createElement("span");label.textContent=String(frame.frame).padStart(2,"0")+" · "+frame.durationMs+"ms";button.append(label);

@@ -21,15 +21,49 @@ def read_json(p): return json.loads(p.read_text(encoding="utf-8-sig"))
 def native_removed(r):
     c=r.get("cleanup",{})
     return any(v is True and any(t in k.lower() for t in ("deleted","removed")) for k,v in c.items()) or r.get("derivedFrom",{}).get("sourceRetained") is False
+def verify_historical_revision(path,expected,actual,revision,rp):
+    """Verify both hashes against the exact fixed-direction export register."""
+    if not isinstance(revision,dict):
+        return {"verified":False,"reason":"missing_historical_revision"}
+    if revision.get("sha256AtGeneration")!=expected or revision.get("currentSha256")!=actual:
+        return {"verified":False,"reason":"historical_revision_hashes_do_not_match"}
+    raw=revision.get("record")
+    if not isinstance(raw,str) or not raw:
+        return {"verified":False,"reason":"missing_export_registration_path"}
+    register_path=resolve(raw,rp)
+    required_path=(BASE/"export-registration.json").resolve()
+    if register_path.resolve()!=required_path:
+        return {"verified":False,"reason":"unexpected_export_registration_path"}
+    if not register_path.is_file():
+        return {"verified":False,"reason":"export_registration_missing"}
+    try:
+        registration=read_json(register_path)
+        matches=[item for item in registration.get("frames",[])
+                 if isinstance(item,dict) and isinstance(item.get("file"),str)
+                 and str(resolve(item["file"],register_path).resolve()).lower()==str(path.resolve()).lower()]
+    except (OSError,ValueError,TypeError,AttributeError) as ex:
+        return {"verified":False,"reason":"invalid_export_registration","detail":str(ex)}
+    if len(matches)!=1:
+        return {"verified":False,"reason":"export_registration_file_not_unique"}
+    item=matches[0]
+    if item.get("beforeSha256")!=expected or item.get("afterSha256")!=actual:
+        return {"verified":False,"reason":"export_registration_hashes_do_not_match"}
+    return {"verified":True,"record":rel(register_path),"recordSha256":sha(register_path),
+            "file":item["file"],"beforeSha256":expected,"afterSha256":actual}
 def references(r,rp):
     found=[]
-    def add(kind,raw,expected=None,removed=False):
+    declared_removed_inputs=set()
+    def add(kind,raw,expected=None,removed=False,historical=None):
         if not isinstance(raw,str) or not raw or raw.startswith(("http:","https:","data:")): return
         p=resolve(raw,rp)
         entry={"kind":kind,"path":str(p),"expectedSha256":expected,"exists":p.is_file()}
         if entry["exists"]:
             actual=sha(p) if expected else None
             entry.update(actualSha256=actual,status="matched" if expected and actual==expected else "sha_mismatch" if expected else "exists_unhashed")
+            if expected and actual!=expected and historical is not None:
+                proof=verify_historical_revision(p,expected,actual,historical,rp)
+                entry["historicalRevisionCheck"]=proof
+                if proof["verified"]:entry["status"]="historical_revision_verified"
         else: entry["status"]="declared_removed" if removed else "missing"
         found.append(entry)
     add("prompt",r.get("prompt"))
@@ -37,9 +71,14 @@ def references(r,rp):
     if isinstance(evidence,dict):
         for key in ("receipt","receiptPath"): add(key,evidence.get(key))
     for ref in r.get("references",[]):
-        if isinstance(ref,dict): add("input_reference",ref.get("path",ref.get("file")),ref.get("sha256"),ref.get("sourceRetained") is False)
+        if isinstance(ref,dict):
+            raw=ref.get("path",ref.get("file"))
+            removed=ref.get("sourceRetained") is False or ref.get("retained") is False or ref.get("deleted") is True
+            if removed and raw:declared_removed_inputs.add(str(resolve(raw,rp)).lower())
+            add("input_reference",raw,ref.get("sha256"),removed,historical=ref.get("historicalRevision"))
         elif isinstance(ref,str): add("input_reference",ref)
-    for value in r.get("submittedParameters",{}).get("referenced_image_paths",[]): add("submitted_reference",value)
+    for value in r.get("submittedParameters",{}).get("referenced_image_paths",[]):
+        add("submitted_reference",value,removed=str(resolve(value,rp)).lower() in declared_removed_inputs)
     deleted=native_removed(r)
     native_path=None; native_hash=None
     for key in ("native","nativeOutput","derivedFrom"):
@@ -147,7 +186,14 @@ def main():
     missing=[x["file"] for x in frames if not x["exists"]]
     errors=[{"frame":x["id"],"errors":x["errors"]} for x in frames if x["errors"]]
     summary={"expectedFrames":68,"presentFrames":sum(x["exists"] for x in frames),"missingFrames":missing,"errorFrames":errors,"duplicateFileHashes":duplicates,"duplicatePixelHashes":pixel_duplicates,"extraRuntimePngs":extras,"checksPassForPresentFrames":not [x for x in errors if x["errors"]!=["missing_frame"]] and not duplicates and not pixel_duplicates,"completeTechnicalPass":not missing and not errors and not duplicates and not pixel_duplicates and not extras}
-    data={"schemaVersion":1,"pet":"砚羽灵","petId":"05-yanyuling","generatedAt":datetime.now(timezone.utc).isoformat(),"canvas":[1024,1024],"pivot":[0.5,0.08],"anchor":[512,942],"anchorStatus":"contract_target_not_measured_foot_registration","sourceImagesModified":False,"playbackReview":"not_performed_by_build_script","clientIntegration":"not_verified","summary":summary,"groups":groups,"frames":frames}
+    review_path=QA/'visual-review-final.json'
+    playback_review={"status":"not_recorded","performedByBuildScript":False}
+    if review_path.is_file():
+        review=read_json(review_path)
+        reviewed={x['file']:x['sha256'] for x in review.get('frames',[])}
+        matches=all(reviewed.get(x['file'])==x['sha256'] for x in frames) and len(reviewed)==68
+        playback_review={"status":review.get('status') if matches else 'stale_after_frame_change',"record":rel(review_path),"recordSha256":sha(review_path),"matchesCurrentFrames":matches,"performedByBuildScript":False}
+    data={"schemaVersion":1,"pet":"砚羽灵","petId":"05-yanyuling","generatedAt":datetime.now(timezone.utc).isoformat(),"canvas":[1024,1024],"pivot":[0.5,0.08],"anchor":[512,942],"anchorStatus":"fixed_direction_export_reference_approximate","sourceImagesModified":False,"playbackReview":playback_review,"clientIntegration":"not_verified","summary":summary,"groups":groups,"frames":frames}
     (BASE/"manifest.json").write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding="utf-8")
     (QA/"technical-validation.json").write_text(json.dumps({"generatedAt":data["generatedAt"],**summary,"referenceChecks":[{"frame":x["id"],"checks":x.get("referenceChecks",[])} for x in frames if x["exists"]]},ensure_ascii=False,indent=2),encoding="utf-8")
     template=(BASE/"tools/preview.template.html").read_text(encoding="utf-8")
@@ -156,4 +202,3 @@ def main():
     print(json.dumps({"manifest":str(BASE/"manifest.json"),"preview":str(BASE/"preview.html"),**summary},ensure_ascii=False,indent=2))
     if args.strict and not summary["completeTechnicalPass"]:raise SystemExit(1)
 if __name__=="__main__":main()
-
