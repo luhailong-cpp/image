@@ -1,0 +1,38 @@
+from pathlib import Path
+from PIL import Image
+from datetime import datetime,timezone
+import hashlib,json
+ROOT=Path(__file__).resolve().parents[2]
+before=json.loads(r'''{"run/E/frame_01.png":"b99270b6d15c59343e97ffb97c5e78915783e1033d4458b61713209d698e115c","run/E/frame_02.png":"a0d7bb9102637b377f5949f43e0992226d021f7d5132d29d399084b647635ac9","run/E/frame_03.png":"2b99f86c21e716a2232f159729605fabe62acc73ebe9c771907d40d0454f29fe","run/E/frame_04.png":"938682b7405c998421380eea870b0877bcfe8f5ff3f35a0f68b8be2b2c8d80e8","run/E/frame_05.png":"15af3ffc80dbc0a1e34f47295697549689475fd353613970365d5f2c07daf300","run/E/frame_06.png":"057cb541e4dd944f22847484e6a5587cf6fe6b8ac3478a289075bd8147bbd83c","run/E/frame_07.png":"44d42f15408d0eae47915d4b1efff8c062b42ea7219f89345419fa2811b59fd9","run/E/frame_08.png":"2aa2a2007e5605111985d137a7b00279b109763da4c06b81dcbceed7946858d9","run/E/frame_09.png":"00d058842f2f0a704717958648f233163134a981911b48222b87e71287371f4b","run/E/frame_10.png":"57e0279d93946e0660d6db00d7dbf0e253718e98b16ac5eace089c9746069de5","run/E/frame_11.png":"bd20c0d15e8850432421e22fe07756e18be58de972ea05f8375633a11fafd2bb","run/E/frame_12.png":"aa02fa40d3ff55695fa989b8560815174953956a1c070650f567b5f1e1a36607","run/E/frame_13.png":"0afc00d91e71d1426ba1d3e77f4c88fee9d7b01b268d420694555c36a08c766c","run/E/frame_14.png":"349a4e245f52e9cf78145434e03cbf2f9e70926cbc4c0eb07852f203f50de55d","run/E/frame_15.png":"a74275a99d048e2627e8890caa088f37fc231d5a4d646026b23da9588483c9c7","run/E/frame_16.png":"953d4dbc0285b8b34a455e6eb0a4f2893d454fdaa36238a41ae457e351c3b1af","run/W/frame_01.png":"a16d0d7b6bfa0c875bd596d28931c617029d0c4354c3f0170cd22917b5af51c9","run/W/frame_02.png":"ca04d33bcc8e856903e14d9763312174b3fe3071758b6c9cc75d4ddf77c6e910","run/W/frame_03.png":"9bcc956c225500ba17610512db9585e94532aa735ee1f0b1f5f9967d0afb33da","run/W/frame_04.png":"593af3c5cd77550123cb9778cb1aa4b0748b668d1f131075c6e7e53d583fb47d","run/W/frame_05.png":"684206b7efc11775af91b24f835d75cce627c677fc3b6db0f9ff847955d6fb5a","run/W/frame_06.png":"b904f544102a9c3182857547e9cb1b74e812854a6f527bcf45d2dd4f55652b3a","run/W/frame_07.png":"a2468831f8280228ebccbaa0ed776f3b2e5fd60665cc6f1f818e7e76b5c70812","run/W/frame_08.png":"5cda74036c56ee30453013660e144df9bf3531a92144fbb3f8d167c42459b6d5","run/W/frame_09.png":"212d548887131b7e13809a0ee7917c9f33afa7e2907d440e7de64ff59052a6f5","run/W/frame_10.png":"42805fce7d71bd3725466c8ed90cf9d3eb6d794887b9b0f78a29befc17472191","run/W/frame_11.png":"420e26bec8b26b0eaa7a07df5b760a78dcac870c96d508201ec1bf3153953fe6","run/W/frame_12.png":"339beec8a79e7dab76e66dae49c77bde74ffea5c95f1565a1047b1a11946d4a0","run/W/frame_13.png":"32799b8d375218f763351d5db0460a32793aa59bcad9db39308bebdc46a803ce","run/W/frame_14.png":"fc5db6838766f023f2f055d6b4f9527503e2c5c52243312c52e3f1abbfe573fc","run/W/frame_15.png":"7d0d1ff21b9eacbeeb7b1e74970016717a6234011eea5da1e92bd5b12741b47a","run/W/frame_16.png":"3cac0d04281db888995d0e6a2d02efc6656081a3e25c9425b3d1439729dcbf77"}''')
+notes=json.loads(r'''{"E":["右脚前承重鞋轴朝右；左后摆靴随屈膝向下，靴筒与小腿连续，保留。","右脚平掌下压；左后摆靴仍在同一侧视平面，未单独外翻，保留。","右脚经过身体下方；左腿折回、鞋尖向下是回收屈曲，保留。","右脚继续支撑；后摆脚未绕小腿轴翻转，保留。","右脚后支撑；前摆左靴跟随膝踝朝右，仅自然勾脚，保留。","右脚后支撑；前摆左靴侧面及薄底边可读，与05方向一致，保留。","右脚后蹬前掌接触；左前摆脚朝右，踝关节无单独横扭，保留。","右脚后蹬继续；左脚抬起仍同侧平面，持杖穿越前腿的原遮挡保留。","左脚前承重；右脚后收的鞋尖向下，作为10前相邻基准，保留。","本轮重画右后摆小腿与靴：降低异常高踢，靴筒接续小腿且鞋尖下垂；恢复原向前持杖和后侧盾手。拒用误移手势的attempt01，采用attempt02。","左脚承重；右后摆靴在腿的运动平面内，是10后相邻方向基准，保留。","左脚继续支撑；右脚后摆鞋尖向下，未看到额外轴向外翻，保留。","左脚后支撑；右前摆靴侧面朝右，与膝踝同一平面，保留。","左脚后支撑；右靴自然上勾，鞋底只呈薄侧缘，保留。","左脚后蹬保持前掌下压；右前摆脚仍朝右，后靴抬跟属蹬地俯仰，保留。","左脚继续后蹬；右脚自然勾脚，靴筒随小腿没有单独横扭，保留。"],"W":["左脚前承重鞋轴朝左；右腿后回收的鞋尖向下，保持自然屈膝，保留。","左脚平掌承重；右后摆靴与小腿处于同一运行平面，保留。","左脚身体经过阶段；右后摆靴仅随屈膝俯仰，保留。","左脚继续承重；右后摆靴从回收准备前摆，膝踝连续，保留。","本轮重画前摆右靴：鞋尖从斜朝镜头收正为朝左侧面，膝踝和靴筒同轴；左支撑脚和原持杖/盾姿保持。","左脚后支撑；前摆右靴朝左，俯仰表现为自然勾脚，作为05及后支撑鞋侧面参考，保留。","本轮重画后支撑左靴：鞋头收向左侧运行线，后小腿顺接踝部，前掌接触不变；右前摆腿保留。attempt01网络失败，采用attempt02。","本轮重画后支撑左靴：收掉明显朝镜头的鞋头偏转，前掌仍下压、跟部抬起，与07保持不同姿势；右前摆腿保留。","右脚前承重朝左；左后摆靴随腿回收，未见绕轴翻鞋，保留。","右脚平掌承重；左后摆靴适度屈曲，同运行平面内变化，保留。","右脚身体经过阶段；左后摆脚没有独立外扭，保留。","右脚继续支撑；左腿后摆保持膝踝连续，原手部姿势保留。","本轮重画前摆左靴：鞋尖朝左侧面，收掉朝镜头的转鞋；右脚平掌承重和原双手姿势保持。","右脚后支撑；左前摆靴侧向朝左，只有自然抬脚露薄底边，与13方向衔接，保留。","本轮重画后支撑右靴：鞋尖收为朝左、靴筒顺接后小腿，保留后方承重位置；前摆左腿与原持杖/盾手保持。","右脚后段继续接触；左前摆靴朝左，鞋底侧缘属自然勾脚，未见突然外扭，保留。"]}''')
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+now=datetime.now(timezone.utc).isoformat()
+frames=[];issues=[];previews=[]
+changed={"E":[10],"W":[5,7,8,13,15]}
+for d in ("E","W"):
+ for i in range(1,17):
+  p=ROOT/"frames"/"run"/d/f"frame_{i:02}.png"; side=p.with_suffix(".generation.json")
+  meta=json.loads(side.read_text(encoding="utf-8-sig"));h=sha(p)
+  old=before[f"run/{d}/frame_{i:02}.png"]
+  with Image.open(p) as im:
+   valid=im.size==(1024,1024) and im.mode=="RGBA" and im.getchannel("A").getextrema()==(0,255)
+  if not valid or meta["sha256"]!=h:issues.append(f"{d}{i:02}: image/sidecar")
+  replaced=i in changed[d]
+  if (h!=old)!=replaced:issues.append(f"{d}{i:02}: unexpected change")
+  if replaced and meta["replacement"]["oldFrameSha256"]!=old:issues.append(f"{d}{i:02}: replacement guard")
+  frames.append({"direction":d,"frame":i,"path":p.relative_to(ROOT).as_posix(),"sha256":h,"oldSha256":old,"replacedThisPass":replaced,"sourceBoundSha256":h,"manualObservation":notes[d][i-1],"reviewStatus":"manual_static_passed","reviewedAt":now,"supportFoot":(("right" if i<=8 else "left") if d=="E" else ("left" if i<=8 else "right")),"groundingScope":"图像中鞋底/前掌承重构型；未验客户端世界空间接触","actualModel":meta.get("actualModel"),"actualQuality":meta.get("actualQuality"),"generationRecord":side.relative_to(ROOT).as_posix(),"selectedNative":meta.get("nativeSource") if replaced else None})
+ for speed,total in (("normal",1200),("slow",4800)):
+  p=ROOT/"preview"/f"run_{d}_{speed}.apng"
+  with Image.open(p) as im:
+   times=[]
+   for n in range(im.n_frames):im.seek(n);times.append(im.info["duration"])
+  if len(times)!=16 or sum(times)!=total:issues.append(f"{d}{speed}: timing")
+  previews.append({"path":p.relative_to(ROOT).as_posix(),"sha256":sha(p),"durationsMs":times,"totalMs":sum(times)})
+ if len({f["sha256"] for f in frames if f["direction"]==d})!=16:issues.append(f"{d}:duplicate")
+report={"createdAt":now,"reviewer":"finish_side_pairs","reviewMode":"manual_current_32_frame_sha_bound","scope":"新视频/截图反馈后的E/W脚轴复核；实际查看32正式原尺寸PNG、新6候选和最终2方向接触表。","requestedChangedSlots":changed,"replacedCount":6,"retainedCount":26,"modelTarget":{"model":"gpt-image-2.5-sunburst","quality":"max"},"actualModel":None,"actualQuality":None,"modelNote":"使用内置宿主管理入口；实际型号和质量无可核实返回。","status":"manual_static_passed_pending_root_1x_dynamic_review","clientIntegration":"not_integrated","worldSpaceFootLock":"not_verified","retention":"全部native及拒用稿留给角色根窗口统一处理，本分工未清理。","rejections":[{"stem":"video_axis_E_10_attempt01","reason":"脚轴虽改善但误将原向前持杖移为垂直持杖，改变正确手部，拒用。"},{"stem":"video_axis_W_07_attempt01","reason":"连接发送失败，无生成PNG；错误记录保留。"}],"issues":issues,"frames":frames,"previews":previews}
+p=ROOT/"provenance"/"run"/"video_axis_E_W_manual_20261004.json";p.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+lines=["# 视频反馈后E/W脚轴逐帧人工复核","",f"复核时间：{now}","", "本轮修正 E10；W05、W07、W08、W13、W15。其余26张逐图查看后保留。正常75ms×16=1200ms；慢速300ms×16=4800ms。手部和支撑脚归属保持。","", "本记录只核准当前SHA的素材静态脚轴与接地构型；根窗口继续正常1×动态复核。客户端未接入，未验世界锁脚。实际模型/质量未确认，配置目标为GPT Image 2.5 Sunburst/max。","", "|槽|本轮|观察|当前正式SHA256|","|---|---|---|---|"]
+for f in frames:lines.append(f"|{f['direction']}{f['frame']:02}|{'替换' if f['replacedThisPass'] else '保留'}|{f['manualObservation']}|{f['sha256']}|")
+p.with_suffix(".md").write_text("\n".join(lines)+"\n",encoding="utf-8")
+print(json.dumps({"record":str(p),"frames":len(frames),"changed":changed,"issues":issues},ensure_ascii=False))
+
