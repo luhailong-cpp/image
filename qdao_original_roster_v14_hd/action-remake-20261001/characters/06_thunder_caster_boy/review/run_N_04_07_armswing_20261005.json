@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-05T09:22:18.883408+00:00",
+  "reviewer": "/root/finish_s",
+  "scope": "独占 run/N/04–07 上肢修正；不代签整个N循环。",
+  "timing": {
+    "frameMs": 60,
+    "framesPerCycle": 16,
+    "cycleMs": 960,
+    "source": "2026-10-05最新用户明确覆盖旧75ms规格"
+  },
+  "method": [
+    "实际查看每帧原生目标、runtime，身份画像、N idle和已确认风格图。",
+    "通过内置imagegen独立编辑每个姿态，再实际看完整画布旧新并列对照。",
+    "核验4张独立1254透明原生以及1024整幅统一导出，关联逐图来源。"
+  ],
+  "holdingInvariant": "解剖右手雷杖，左手符牌直接握下沿且牌身向上或左上，无多余手柄。",
+  "modelEvidence": {
+    "configTargetModel": "gpt-image-2.5-sunburst",
+    "configTargetQuality": "max",
+    "route": "builtin image_gen",
+    "submittedModel": null,
+    "submittedQuality": null,
+    "returnedModel": null,
+    "returnedQuality": null,
+    "status": "宿主无型号/质量选择器，返回未披露，实际未确认"
+  },
+  "frames": [
+    {
+      "file": "runtime/run/N/04.png",
+      "sha256": "f4405fe05045581cee8a6ec526441e1bc18060268757935a1f64a0c30a4ca79c",
+      "currentSHA": "f4405fe05045581cee8a6ec526441e1bc18060268757935a1f64a0c30a4ca79c",
+      "previousRuntimeSha256": "ac55dc03d65858e09a33e80278af162467b3a06d24e617106af6bf7c01cc5931",
+      "frame": 4,
+      "direction": "N",
+      "native": {
+        "file": "work/run_N_04_armswing_v3.png",
+        "sha256": "4141fc36dd1ff472e78fd5423e61f7220dff8d4b7fedf02ba40254231e25fc20",
+        "width": 1254,
+        "height": 1254
+      },
+      "generationRecord": "runtime/run/N/04.png.generation.json",
+      "status": "accepted-frozen-local-review",
+      "rightArm": "右肩至肘收近躯干，前臂屈肘向N远摆；右拳高于左拳，保持握杖。",
+      "leftArm": "左肩后摆，袖口扩大呈近侧透视，低腕伸至腰旁；牌直接握下沿，上左伸出手掌，未附加柄。",
+      "adjacentObservation": "04→05左腕继续后下摆，右肘稍收紧，非固定双手。",
+      "invariants": "实际看原生/运行帧和左右同画布对照，头身、发型比例、相机、骨盆与原全腿鞋位置及相位保留；不是bbox裁切或程序造姿态。",
+      "comparison": "review/run_N_04_armswing_v3_compare.jpg",
+      "technicalCheck": {
+        "exactWholeCanvasLanczos1254To1024": true,
+        "rgba": true,
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null
+    },
+    {
+      "file": "runtime/run/N/05.png",
+      "sha256": "8fe1566c9ff5e259990a14356e400a07d311d552cc4e63380fe44086d668e2bb",
+      "currentSHA": "8fe1566c9ff5e259990a14356e400a07d311d552cc4e63380fe44086d668e2bb",
+      "previousRuntimeSha256": "2dcda381d9511b571dd6fe4dc6ea4a55083a4eadeb9a059408416560ea1c1286",
+      "frame": 5,
+      "direction": "N",
+      "native": {
+        "file": "work/run_N_05_armswing_v3.png",
+        "sha256": "4d24d62c64318f234365b554844cc585563003dffb1c80438b7cf641d1b36b0e",
+        "width": 1254,
+        "height": 1254
+      },
+      "generationRecord": "runtime/run/N/05.png.generation.json",
+      "status": "accepted-frozen-local-review",
+      "rightArm": "右肩屈肘前摆较04稍收紧，杖随拳更竖，握点未漂移。",
+      "leftArm": "左袖与前臂向近侧后下方伸展，手仍低于肘，牌向上左、握下沿，腕无倒折。",
+      "adjacentObservation": "05→06左臂到摆动端点，随后07开始回收，保持同一手持物。",
+      "invariants": "实际看原生/运行帧和左右同画布对照，头身、发型比例、相机、骨盆与原全腿鞋位置及相位保留；不是bbox裁切或程序造姿态。",
+      "comparison": "review/run_N_05_armswing_v3_compare.jpg",
+      "technicalCheck": {
+        "exactWholeCanvasLanczos1254To1024": true,
+        "rgba": true,
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null
+    },
+    {
+      "file": "runtime/run/N/06.png",
+      "sha256": "ebcf9f06f4b5d1d51d1c16b012dd8afd9168deb147df94b58d158a94ad902900",
+      "currentSHA": "ebcf9f06f4b5d1d51d1c16b012dd8afd9168deb147df94b58d158a94ad902900",
+      "previousRuntimeSha256": "0699078f08ce4b9dbef3e5a34d03abcdc88eb42b4515ac69451d4f8ba6939191",
+      "frame": 6,
+      "direction": "N",
+      "native": {
+        "file": "work/run_N_06_armswing_v2.png",
+        "sha256": "67999d8b51d2742cb33c8d31cd3ae04c924b81c5665f8914c1a13c554edd77fe",
+        "width": 1254,
+        "height": 1254
+      },
+      "generationRecord": "runtime/run/N/06.png.generation.json",
+      "status": "accepted-frozen-local-review",
+      "rightArm": "右臂朝远处前收，肘屈，杖的部分形体被头发遮住，清楚区别后摆姿态。",
+      "leftArm": "左肩后摆，肘略伸，握牌手位于身侧向近端伸；牌直接握下沿并上左伸，不悬在拳下。",
+      "adjacentObservation": "06→07左肘回收、右拳轻降，是同向端点附近连续变化。",
+      "invariants": "实际看原生/运行帧和左右同画布对照，头身、发型比例、相机、骨盆与原全腿鞋位置及相位保留；不是bbox裁切或程序造姿态。",
+      "comparison": "review/run_N_06_armswing_v2_compare.jpg",
+      "technicalCheck": {
+        "exactWholeCanvasLanczos1254To1024": true,
+        "rgba": true,
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null
+    },
+    {
+      "file": "runtime/run/N/07.png",
+      "sha256": "00a7cd92e33750f21475b6f21ba53b6cbc6d8353d445a9b49164b3f956fc76cb",
+      "currentSHA": "00a7cd92e33750f21475b6f21ba53b6cbc6d8353d445a9b49164b3f956fc76cb",
+      "previousRuntimeSha256": "b70c247ea27c6e1b26b392d015f3d75df5b8d7649a784dc4d1007ad69c67b747",
+      "frame": 7,
+      "direction": "N",
+      "native": {
+        "file": "work/run_N_07_armswing_v1.png",
+        "sha256": "19a22e69df362fd7616766c9c7064526d147651922d31bd1fc1e8b324b218460",
+        "width": 1254,
+        "height": 1254
+      },
+      "generationRecord": "runtime/run/N/07.png.generation.json",
+      "status": "accepted-frozen-local-review",
+      "rightArm": "右前臂前收远摆并轻降，杖仍由解剖右手握持，肩肘过渡成立。",
+      "leftArm": "左臂保持近侧后摆并轻回收，腕与袖口顺接，牌上伸且直接握底边。",
+      "adjacentObservation": "07端点轻回收可衔接08；08属于其他代理，此报告不代签整个N循环。",
+      "invariants": "实际看原生/运行帧和左右同画布对照，头身、发型比例、相机、骨盆与原全腿鞋位置及相位保留；不是bbox裁切或程序造姿态。",
+      "comparison": "review/run_N_07_armswing_v1_compare.jpg",
+      "technicalCheck": {
+        "exactWholeCanvasLanczos1254To1024": true,
+        "rgba": true,
+        "alphaExtrema": [
+          0,
+          255
+        ]
+      },
+      "actualModel": null,
+      "actualQuality": null
+    }
+  ],
+  "rejectedCandidates": [
+    {
+      "stem": "run_N_04_armswing_v2",
+      "reason": "人物放大下移，未采用"
+    },
+    {
+      "stem": "run_N_05_armswing_v2",
+      "reason": "左手抬高失去低位后摆，未采用"
+    },
+    {
+      "stem": "run_N_06_armswing_v1",
+      "reason": "人物放大且符牌朝下，未采用"
+    }
+  ],
+  "supersededCandidates": [
+    {
+      "stem": "run_N_04_armswing_v1",
+      "reason": "低手位成立但牌朝下，v3仅修握牌方向"
+    },
+    {
+      "stem": "run_N_05_armswing_v1",
+      "reason": "低手位成立但牌朝下，v3仅修握牌方向"
+    }
+  ],
+  "mutations": "仅N04–07 PNG及其专属逐图记录；未改其它N槽、共享Git、主状态或全局预览。",
+  "integration": "本机无客户端，本次只素材与证据，不声明已游戏接入。"
+}
