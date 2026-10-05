@@ -1,47 +1,51 @@
 # 08 炼丹童子 · 当前动作交接
 
-2026-10-04。本角色八方向跑步接地修正已导出并完成离线复核；本轮 85 张替换以 contact-pairs-selection.json 为准。当前权威入口为 manifest.json、run-timing.json 和 runtime；此前选表与审阅记录仅作为历史来源证据。
+2026-10-05。完整手脚连续复查及定点修正已完成。以manifest.json、limbs-selection.json、run-timing.json、runtime和preview/index.html为准；早期选表/审阅保留历史证据，帧号没有重排。
 
 ## 正式资源
 
 | 动作 | 方向 | 帧数 | 正常配时 |
 | --- | --- | --- | --- |
-| run | N/NE/E/SE/S/SW/W/NW | 各 16，共 128 | 各 1200 ms，每帧 75 ms |
-| hit | E/W | 各 6，共 12 | 各 240 ms，每帧 40 ms |
-| attack | E/W | 各 12，共 24 | 各 360 ms，每帧 30 ms |
-| cast | E/W | 各 16，共 32 | 各 720 ms，每帧 45 ms |
+| run | N/NE/E/SE/S/SW/W/NW | 各16，共128 | 960ms，每帧60ms |
+| hit | E/W | 各6，共12 | 240ms，每帧40ms |
+| attack | E/W | 各12，共24 | 360ms，每帧30ms |
+| cast | E/W | 各16，共32 | 720ms，每帧45ms |
 
-共 196 张 1024×1024 透明 RGBA，196 个不同图像 SHA 与独立来源 SHA。PNG 相邻 generation.json 与 manifest 对应，记录来源、导出操作、相位和时长。战斗动作仅交付 E/W；本轮保留原 68 张战斗图片及配时。
-
-preview/index.html 提供正常 1×、0.25×、暂停逐帧、128/256 显示、背景切换及联系表。正式页面仅引用 runtime，不依赖已经清理的原图。普攻事件标记为 06（150 ms）；施法 E09（360 ms）、W10（405 ms），客户端尚未验证事件接入。
+共196张1024×1024透明RGBA。逐帧SHA、独立来源、导出操作和相位在manifest及相邻generation.json闭合。战斗范围为E/W，不宣称其他六向战斗已制作。普攻事件标记06（150ms）；施法E09（360ms）、W10（405ms），客户端事件同步尚未验收。
 
 ## 本轮修正
 
-本轮替换 N 9、NE 8、E 11、SE 12、S 11、SW 12、W 10、NW 12，共 85 张；其他 43 张跑步帧保持。以用户认可的 09 竹弓少女核对方向和膝踝关系，修复脚掌外撇、反向鞋尖、提前抬起支撑足和错换支撑足。解剖右手持丹炉、左手持药瓶，随视角遮挡但不交换。
+全196帧已检查静态关节及相邻帧：髋→膝→踝→鞋尖运动平面、支撑与前掌蹬离、摆手路径、握持与遮挡。连续检查纠正了初次单帧审阅漏掉的握瓶手跳位，也重新确认NE后蹬的鞋尖外撇需要处理；早期“NE13–15全保留”结论由本轮替代。
 
-最新接地顺序是同一支撑脚每位置两个独立姿态：右足 16/01→02/03→04/05→06/07，左足 08/09→10/11→12/13→14/15。依次为身体前方初接触、身体下承重、稍后承重、更后前掌推蹬，每对 150 ms。旧的中间四帧解释和 05/13 腾空标签不再适用。详见 RUN_PHASES.md。
+| 正式槽位 | 修正内容 |
+| --- | --- |
+| attack/E/08 | 07的左瓶在背侧，原08立即跳回胸前，与09同位，缺少身侧回摆过渡。08 v2将左手/瓶移到身侧中间位，承接07→08→09；右手丹炉、脚与原攻击相位保持。 |
+| run/E/03 | 左持瓶手从前举经过身侧低位再后摆，修补旧03到04直接从胸前跳到背后的过渡；右手丹炉与下肢相位保持。 |
+| run/E/11 | 左持瓶手从后摆经过腰侧低位再前举，修补旧10到11直接跳到胸前的过渡；右手丹炉与下肢相位保持。 |
+| run/NE/03 | 左持瓶手经腰侧低位并由躯干/背包自然遮挡，再进入后摆，旧胸前持瓶姿态改为低位经过；右丹炉与双腿保持。 |
+| run/NE/11 | 左持瓶手先经腰侧低位自然遮挡，再进入前举，减少直接从后摆跳到胸前；右丹炉与双腿保持。 |
+| run/NE/13 | 原13支撑靴白鞋头向屏幕右侧横钩；v2只调整靴前半部及鞋底后侧透视，白鞋头收为远侧窄边，沿NE进深；保留自然抬跟、前掌接触、膝踝和主体位置。 |
+| run/NE/14 | NE14画面左下支撑靴原白鞋头向右横钩、J形足底与后伸小腿轴线不顺；v4收成窄后视，白鞋头远侧遮挡，踝到鞋跟衔接更直，保留膝位/支撑相位和手臂持物。 |
+| run/NE/15 | 左下支撑靴由宽侧向横钩收为窄后视NE纵深，白鞋头只留细远端边缘；髋膝踝延伸与鞋掌长轴衔接，保留自然抬跟及前掌末段推蹬。 |
 
-## 画布与根点
+其余图像像素保留。八向run保持原循环起点：右足16/01→02/03→04/05→06/07，左足08/09→10/11→12/13→14/15。07→08与15→16交接支撑足，16→01同足继续承重，无额外停顿。NW07→08经独立复核确认为正确半圈换脚；曾考虑过的起点旋转在执行前取消，未为了编号重画正常姿态。
 
-本轮以已注册 runtime 为编辑输入，原生 1254 画布只做完整画布统一缩至 1024、偏移 0。不要再次应用旧的 940+(42,50)。未修历史帧的原始导出可能保留该旧参数，以每帧 operation 为准。
+本轮选表的originalInputSlot与finalSlot相同，前后SHA可对照provenance/limbs-20261004/before-manifest.json。按2026-10-05用户最新直接更正，八向run从75ms改为60ms，一圈960ms，每对120ms；相位和支撑足配对不变，战斗配时不变。前后配时SHA与依据见provenance/limbs-20261004/timing-correction.json。
 
-逻辑根点仍为 (512,942)，用于摆放，并非所有透视脚底的接触线。无逐帧包围盒适配、整身贴脚平移或扭曲。少量发梢和上身轮廓仍有绘画差异，不宣称像素级一致。
+## 参考、画布与验证
 
-## 验证
+用户认可的弓足少女及原视频用于动作平面、接地和连续性的参考。视频24fps，复核连续片段0–31、88–119、148–179、283–314；小角色与遮挡限制精确鞋角测量。角色造型与画风保持项目确认风格，实际附图designs/jubaozhai-ui/02-characters.png。
 
-- tools/verify_delivery.py：196 文件、不同图像与来源 SHA、1024 RGBA、透明通道、来源记录 SHA、14 组预览引用和 8 组 1200 ms 配时通过。
-- tools/verify_preview_timing.cjs：执行正式页面时钟逻辑，14 组×正常/慢放共 28 项通过，循环无额外停顿。
-- 浏览器：14 组、196 张全部成功解码为 1024；正常/慢放采样、重点接触帧与 128/256 小图检查完成。
-- 全部八方向联系表经逐帧及支撑半圈复核；独立文件审计确认选择、配时与引用闭合。
+新AI编辑均以当前runtime为底图，原生1254完整画布统一缩至1024，偏移0；不套旧940+(42,50)，不逐帧bbox贴合，不扭脚或整身平移。历史未改图仍以各自operation为准。逻辑根点(512,942)是摆放参考，942诊断线不是所有透视脚底必须贴齐的地面。
 
-最终审阅记录为 provenance/contact-pairs-20261004/review-result.json。技术与时钟报告分别为 provenance/delivery-technical-verification.json、provenance/preview-timing-verification.json。
+tools/verify_delivery.py核验196图、来源记录、透明通道和14组预览引用；tools/verify_preview_timing.cjs核验14组×1×/0.25×共28项，包括循环末帧和无额外停顿。浏览器正常/慢放与重点逐帧复核结果见provenance/limbs-20261004/review-result.json。预览地址：http://127.0.0.1:8818/preview/index.html?review=limbs-20261005 。
 
-本机未运行客户端。连续游戏位移、滑步、跨方向与 idle 过渡、命中及特效同步尚未验收；dynamicAccepted/clientValidated 保持 false，不将离线截图采样当作完整游戏动态认证。
+这是离线素材交付。小幅绘画轮廓差异仍可能存在；本机未进行客户端世界位移、滑步、跨向/idle切换和命中/特效同步验收，dynamicAccepted/clientValidated仍为false。
 
 ## 来源与清理
 
-本批使用内置 image_gen。配置目标 gpt-image-2.5-sunburst / max；入口未提供型号或质量参数，返回也未披露，实际值记录 null/未确认。未使用计费 API/CLI。完整提示词、原调用与逐图记录保留在 generation/contact4-20261004 和 generation/contact-pairs-20261004；159 条生成记录的来源链见 provenance/contact-pairs-20261004/edit-lineage.json。
+内置image_gen；2026-10-05核对官方最新目标为配置中的gpt-image-2.5-sunburst/max。工具不支持显式型号/质量参数，实际值未披露，记录null/未确认。每图提示词、输入、回执和来源记录保留在provenance及generation的limbs-20261004目录，来源链见edit-lineage.json。
 
-按用户规则，已删除本轮 188 张原图、拒稿及加工中间图，共 202,832,603 字节，无图片备份。目录仅余 196 张 runtime 和 14 张当前联系表；全部来源文字和配套设计/接入文件保留。清单与结果位于 provenance/contact-pairs-20261004/cleanup-plan.json 和 cleanup-result.json。来源记录中的历史图片路径用于追溯，不是运行依赖。
+本轮导出8张修正图，已删除60张原图、拒稿和检查图，共39,711,638字节，不留图片备份。当前保留196runtime与14preview联系表；原用户视频、截图未动；所有文字证据及接入文件保留。
 
-可运行 tools/rebuild_runtime_preview.py 从当前 runtime 重建预览，或运行 verify_delivery.py 和 verify_preview_timing.cjs。原生图已清理，制作历史中的 export_delivery.py、apply_grounding_revision.py、apply_contact_pairs.py、close_contact_pairs_delivery.py 及候选工作页生成脚本不要重跑。临时 contact-pairs-work.html/data.js 已删除。以后修图以当前 runtime 为输入建立新来源链。
+可重跑rebuild_runtime_preview.py、verify_delivery.py、verify_preview_timing.cjs。所有依赖已删除原生稿或旧基线的历史apply/close脚本仅作制作记录，不可重跑，包括本轮apply_limbs_revision.py及close_limbs_revision.py；以后编辑从当前runtime建立新来源链。
