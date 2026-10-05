@@ -156,6 +156,12 @@ def audit_frame(action: str, direction: str, n: int) -> dict:
         f["errors"].append("missing_frame")
         return f
     f["sha256"] = sha(path)
+    review_path = ROOT / "qa/visual-review.json"
+    if review_path.exists():
+        review = json.loads(review_path.read_text(encoding="utf-8"))
+        matching = next((r for r in review.get("frames", []) if r.get("file") == f["file"] and r.get("sha256") == f["sha256"]), None)
+        if matching:
+            f["visual"] = {k: matching[k] for k in ("stillReview", "sequenceReview", "clientReview", "evidence")}
     try:
         with Image.open(path) as image:
             image.load()
@@ -243,7 +249,7 @@ def contact_sheets(frames: list[dict]) -> list[str]:
                 sheet.paste(cell.convert("RGB"), (x, y))
                 event = f" · {frame['event']}" if frame["event"] else ""
                 draw.text((x + 8, y + thumb + 4), f"{direction} / {action} / {frame['frame']:02d}{event}", font=font(22), fill="#194f47")
-                status = "待美术实看" if not frame["errors"] else f"技术问题 {len(frame['errors'])} 项"
+                status = ("单帧已实看 · 连播待验" if frame["visual"]["stillReview"] == "reviewed" else "待美术实看") if not frame["errors"] else f"技术问题 {len(frame['errors'])} 项"
                 draw.text((x + 8, y + thumb + 34), status, font=font(19), fill="#725e3f")
             target = ROOT / "qa" / f"technical-contact-{action}-{direction}.jpg"
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -284,7 +290,7 @@ def main() -> int:
               "missingFrames": [f["file"] for f in frames if not f["present"]], "unexpectedRuntimePngs": extras,
               "errorCount": errors, "warningCount": sum(len(f["warnings"]) for f in frames),
               "duplicates": duplicates, "frames": frames,
-              "visualReview": "pending_separate_review", "clientReview": "not_tested",
+              "visualReview": "qa/visual-review.json; continuous playback not observed", "clientReview": "not_tested",
               "limitations": ["Exact duplicate detection does not prove independent AI generation.",
                               "Bounding boxes do not verify anatomy, direction, pivot stability or animation quality.",
                               "Source metadata is checked for consistency; model assertions are not independently authenticated.",
@@ -294,7 +300,7 @@ def main() -> int:
     save_json(ROOT / "qa/technical-check.json", report)
     if args.manifest:
         manifest = {"schemaVersion": 1, "pet": "02-jiangling", "name": "绛铃", "generatedAt": now,
-                    "deliveryStatus": status, "frameCount": present, "expectedFrameCount": 68,
+                    "deliveryStatus": "assets_complete_continuous_playback_pending" if status == "passed" else status, "technicalStatus": status, "frameCount": present, "expectedFrameCount": 68,
                     "canvas": {"width": 1024, "height": 1024, "format": "PNG", "mode": "RGBA"},
                     "coordinates": {"pivot": PIVOT, "pivotOrigin": "bottom-left", "neutralAnchorTopLeftPx": [512, 942],
                                     "alignment": "single_uniform_export_transform_per_direction; no per-frame foot realignment"},
@@ -302,7 +308,7 @@ def main() -> int:
                     "actions": {a: {"framesPerDirection": c, "durationMs": ms, "totalDurationMs": c * ms,
                                     "eventFrame": event, "event": name} for a, (c, ms, event, name) in ACTIONS.items()},
                     "technicalReport": "qa/technical-check.json", "preview": "preview.html", "frames": frames,
-                    "visualReview": "pending_separate_review", "clientReview": "not_tested"}
+                    "visualReview": "qa/visual-review.json; continuous playback not observed", "clientReview": "not_tested", "sourceAudit": "qa/source-audit.json"}
         save_json(ROOT / "manifest.json", manifest)
         checksum_paths = [ROOT / f["file"] for f in frames if f["present"]]
         checksum_paths += [ROOT / f["sourceRecord"]["path"] for f in frames if f.get("sourceRecord", {}).get("path")]
