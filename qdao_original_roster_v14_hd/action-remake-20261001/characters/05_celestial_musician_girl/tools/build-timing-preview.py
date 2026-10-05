@@ -7,7 +7,7 @@ formal='--final' in sys.argv
 selectionFile='final-selection.json' if formal else 'registered-selection.json' if registered else 'candidate-selection.json'
 selection=json.loads((ROOT/selectionFile).read_text(encoding='utf-8-sig'))
 timing=json.loads((ROOT/'animation-timing.json').read_text(encoding='utf-8-sig'))['run']
-assert timing['frameMs']*16==timing['cycleMs']==1200
+assert timing['frames']==16 and timing['frameMs']>0 and timing['frameMs']*16==timing['cycleMs']
 seq={}
 for e in selection:
     if e['action']!='run':continue
@@ -16,8 +16,8 @@ for e in selection:
 data=json.dumps(seq,ensure_ascii=False).replace('</','<\\/')
 page='''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>05 天音少女 · 跑步节奏与接地检查</title><style>
 *{box-sizing:border-box}body{font:15px/1.55 system-ui;margin:24px;color:#263d38;background:#f7f4eb}h1{font-size:24px}button,select,input{font:inherit}button,select{padding:7px;border:1px solid #abbbb1;border-radius:6px;background:white;color:#28483e}header{max-width:1100px}.controls{display:flex;gap:15px;flex-wrap:wrap;align-items:center;padding:18px 0}.cards{display:grid;grid-template-columns:minmax(290px,640px);gap:12px}.card{background:white;border:1px solid #cbd7cc;border-radius:12px;padding:14px;min-width:0}.stage{height:290px;display:flex;align-items:center;justify-content:center;background:#273b3c;border-radius:8px}.box{position:relative;width:160px;height:160px}.box img{width:100%;height:100%;object-fit:contain}.guide{position:absolute;left:0;right:0;top:95%;border-top:1px dashed #e8cd89;display:none}.info{font-size:13px;min-height:90px;overflow-wrap:anywhere}small{color:#586f67}#frameButtons{display:flex;gap:5px;flex-wrap:wrap;padding:12px 0}.active{background:#2c6758;color:white}aside{margin:20px 0;padding:14px;background:#eee9d8}#observed{white-space:pre-wrap}@media(max-width:900px){.cards{grid-template-columns:minmax(290px,1fr)}}
-</style><header><h1>05 天音少女 · 跑步节奏与接地检查</h1><p>完整16帧，正常1200ms一圈，每帧均匀75ms。客户端移动速度匹配尚未验证。图片不做逐帧位移或贴地处理。</p></header>
-<div class="controls"><label>方向 <select id="direction"></select></label><label>角色显示画布 <select id="size"><option value="128">128px</option><option value="160" selected>160px</option><option value="256">256px</option><option value="512">512px 放大逐帧</option></select></label><label>背景 <select id="background"><option value="#273b3c">深色</option><option value="#ffffff">白色</option><option value="#777777">中灰</option></select></label><label>播放速度 <select id="speed"><option value="1">正常 1× · 1200ms</option><option value="0.5">慢放 ½×</option><option value="0.25">慢放 ¼×</option></select></label><button id="play">暂停</button><button id="playOnce">播放一圈</button><button id="restart">回到首帧</button><label><input type="checkbox" id="guide">诊断地面</label><label>画布 Y% <input id="ground" type="number" min="0" max="100" step="0.1" value="95" style="width:70px"></label></div>
+</style><header><h1>05 天音少女 · 跑步节奏与接地检查</h1><p>完整16帧，正常__CYCLE_MS__ms一圈，每帧均匀__FRAME_MS__ms。客户端移动速度匹配尚未验证。图片不做逐帧位移或贴地处理。</p></header>
+<div class="controls"><label>方向 <select id="direction"></select></label><label>角色显示画布 <select id="size"><option value="128">128px</option><option value="160" selected>160px</option><option value="256">256px</option><option value="512">512px 放大逐帧</option></select></label><label>背景 <select id="background"><option value="#273b3c">深色</option><option value="#ffffff">白色</option><option value="#777777">中灰</option></select></label><label>播放速度 <select id="speed"><option value="1">正常 1× · __CYCLE_MS__ms</option><option value="0.5">慢放 ½×</option><option value="0.25">慢放 ¼×</option></select></label><button id="play">暂停</button><button id="playOnce">播放一圈</button><button id="restart">回到首帧</button><label><input type="checkbox" id="guide">诊断地面</label><label>画布 Y% <input id="ground" type="number" min="0" max="100" step="0.1" value="95" style="width:70px"></label></div>
 <div id="frameButtons"></div><div class="cards"></div><aside><strong>验收边界：</strong>数量齐全不等于跑步修复。地面线仅供诊断，未作客户端标定；透视中的远近脚不强行落在同一屏幕水平线。检查着地鞋底、膝踝压缩、重心、另一腿回收以及肩肘握琴连续。受击、普攻、施法不受此页面的速度设置影响。</aside><h2>当前选帧实查备注</h2><div id="observed"></div>
 <script>
 const seq=__DATA__, durations=[__CYCLE_MS__], direction=document.getElementById('direction'),cards=document.querySelector('.cards');
@@ -40,7 +40,7 @@ document.getElementById('background').onchange=e=>document.querySelectorAll('.st
 document.getElementById('guide').onchange=e=>document.querySelectorAll('.guide').forEach(el=>el.style.display=e.target.checked?'block':'none');
 document.getElementById('ground').oninput=e=>document.querySelectorAll('.guide').forEach(el=>el.style.top=e.target.value+'%');
 renderNotes();requestAnimationFrame(tick);
-</script></html>'''.replace('__DATA__',data).replace('__CYCLE_MS__',str(timing['cycleMs']))
+</script></html>'''.replace('__DATA__',data).replace('__CYCLE_MS__',str(timing['cycleMs'])).replace('__FRAME_MS__',str(timing['frameMs']))
 stem='timing-grounding-final' if formal else 'timing-grounding-registered' if registered else 'timing-grounding'
 if registered or formal:
     page=page.replace('同一组真实候选帧','同一组1024固定配准复核帧').replace('图片不做逐帧位移或贴地处理。','全角色统一比例、整段固定根；不做逐帧位移或贴地处理。').replace('value="95"','value="91.9921875"').replace('top:95%','top:91.9921875%')

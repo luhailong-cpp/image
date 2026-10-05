@@ -1,4 +1,7 @@
 """Bind current 04 and user-approved 09 files for a read-only side-by-side review."""
+from timing_profile import RUN_FRAME_MS
+if RUN_FRAME_MS != 75:
+    raise SystemExit('历史75ms竹弓对照构建已停用；当前入口为preview/gallery.html。')
 from pathlib import Path
 from datetime import datetime, timezone
 import hashlib,json

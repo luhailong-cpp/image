@@ -1,7 +1,7 @@
 {
   "character": "04_mountain_guardian_boy",
-  "reviewedAt": "2026-10-04T20:50:35.472527+00:00",
-  "finalizedAt": "2026-10-04T21:03:27.904723+00:00",
+  "reviewedAt": "2026-10-05T09:17:23.732157+00:00",
+  "finalizedAt": "2026-10-05T09:22:21.854380+00:00",
   "generated": 196,
   "exported": 196,
   "staticVisualPassed": 196,
@@ -9,23 +9,57 @@
   "clientIntegration": "not_integrated",
   "clientDynamicAcceptance": "not_run",
   "methods": [
-    "实际查看八向最终16帧连图、六组战斗连图及新生成关键原生单帧，逐方向识别解剖支撑脚和摆动脚。",
-    "根与独立复核定位提前换腿问题；SE13–16退回重画后再次实际查看，不按提示词或SHA唯一认定动作。",
-    "浏览器正常75ms/帧、256px画布、0.25倍慢放、暂停和逐帧核对，首尾相位由完整连图与播放器共同复核。",
-    "汇总仅已手动判定通过并绑定当前SHA的6份根视觉记录；哈希技术检查不会生成美术判断。"
+    "根实际查看身份画像、idle、designs风格、用户截图及视频连续帧分析。",
+    "分工逐帧人工观察100+48+32张，根独立审NW16及全部方向连图；新NW手臂7张与W手臂9张根查看正式图/原生候选及连续连图。",
+    "根在浏览器打开八向run及E/W战斗正常、0.25慢放总览；NW播放器60ms/960ms和240ms/3840ms、暂停及步进抽查。",
+    "SHA仅锁定实际所看图片，技术验证和文件计数不用于自动美术结论。"
   ],
   "observations": {
-    "run": "除W为左脚先支撑外，其余七向01–08均右脚支撑，09–16异侧；每半段分为初承重、身体经过、后支撑、接地后蹬四个两帧位置段。膝踝与鞋掌沿行进轴，保留摆动腿正常露底。",
-    "hands": "解剖右手持法杖、左臂持圆盾保持，肩肘随姿态运动；不以镜像更换手持归属。",
-    "hit": "E/W各6，后仰缓冲恢复，240ms。",
-    "attack": "E/W各12，蓄势出手收招，360ms，06为建议接触帧。",
-    "cast": "E/W各16，聚势释放收势，720ms，10为建议释放帧。",
-    "grounding": "同一支撑脚从承重到后蹬保持接触的姿态连续；没有用逐帧平移或最低alpha贴地。屏幕足位仍有透视、人体重心和独立绘制造成的小幅变化，不宣称世界坐标锁脚。",
-    "limits": "衣褶与金属细纹有独立绘制的小变化；本次为离线素材验收，世界位移、移速、停步、转向、碰撞和事件触发尚未客户端验证。",
-    "model": "目标GPT Image2.5 Sunburst/max；内置无型号/质量选择器，实际提交及返回均未确认。"
+    "changedCurrentPngCount": 30,
+    "retainedCurrentPngCount": 166,
+    "changedFiles": [
+      "frames/run/E/frame_10.png",
+      "frames/run/NE/frame_02.png",
+      "frames/run/NE/frame_03.png",
+      "frames/run/NE/frame_07.png",
+      "frames/run/NE/frame_10.png",
+      "frames/run/NE/frame_14.png",
+      "frames/run/NE/frame_16.png",
+      "frames/run/NW/frame_01.png",
+      "frames/run/NW/frame_02.png",
+      "frames/run/NW/frame_04.png",
+      "frames/run/NW/frame_05.png",
+      "frames/run/NW/frame_06.png",
+      "frames/run/NW/frame_07.png",
+      "frames/run/NW/frame_08.png",
+      "frames/run/NW/frame_09.png",
+      "frames/run/NW/frame_10.png",
+      "frames/run/SE/frame_13.png",
+      "frames/run/SW/frame_05.png",
+      "frames/run/SW/frame_08.png",
+      "frames/run/W/frame_04.png",
+      "frames/run/W/frame_05.png",
+      "frames/run/W/frame_06.png",
+      "frames/run/W/frame_07.png",
+      "frames/run/W/frame_08.png",
+      "frames/run/W/frame_09.png",
+      "frames/run/W/frame_10.png",
+      "frames/run/W/frame_11.png",
+      "frames/run/W/frame_12.png",
+      "frames/run/W/frame_13.png",
+      "frames/run/W/frame_15.png"
+    ],
+    "run": "修正膝踝鞋掌运动轴、抬脚侧甩，保持独立相位；W04–12上身镜头统一、NW04–10持杖手臂降回连贯高度。",
+    "combat": "E/W受击12、普攻24、施法32已再看脚轴与可见手部；没有新增必须重画的问题，保留原图及原时长。",
+    "limits": [
+      "W髋部遮挡、双腿同服饰，实际解剖支撑左右未确认；不能宣称同一左/右脚已逐帧测定。",
+      "护盾遮住的手指不声称全部可见。",
+      "独立绘制饰纹/衣褶仍有小幅变化，未证明像素锁定物理地面。",
+      "未接入客户端，世界位移、停步、转向、碰撞锚点与实际事件触发均未验收。"
+    ]
   },
   "limits": [
-    "1200ms/75ms为用户选定的离线节奏；客户端速度未接入验证。",
+    "960ms/60ms为用户选定的离线节奏；客户端速度未接入验证。",
     "512,928仅历史布局声明；不把辅助线或最低脚像素当作物理地面。",
     "独立绘制的杖首细纹/衣褶有少量逐帧变化；不据SHA不同证明动态质量。",
     "客户端世界位移/停步/转向/碰撞锚点和脚滑测试未运行。"
@@ -172,7 +206,7 @@
       "direction": "NE",
       "frame": 2,
       "path": "frames/run/NE/frame_02.png",
-      "sha256": "e3d19d5282b422155aa9d0d180ebb54b55a4411dbe09e754f5675dbb613efdb6",
+      "sha256": "40ac443e7d56f80a2563f411fdd39c2e127d0c10a3de68051c1b1868b8cf56b3",
       "record": "frames/run/NE/frame_02.generation.json"
     },
     {
@@ -180,7 +214,7 @@
       "direction": "NE",
       "frame": 3,
       "path": "frames/run/NE/frame_03.png",
-      "sha256": "7e0c588e51e2cabab23c1d077652eb4cd92fca0b0d487385c29d99237d04b4e0",
+      "sha256": "cdb307317579c2de74e606022a54dfe8a365443c6587970e8af42b68f3986ec4",
       "record": "frames/run/NE/frame_03.generation.json"
     },
     {
@@ -212,7 +246,7 @@
       "direction": "NE",
       "frame": 7,
       "path": "frames/run/NE/frame_07.png",
-      "sha256": "a96f5e744625bfc523b6c81fae98a7f2d5b556c7e8ffac12055eced0cee9730b",
+      "sha256": "2e22b654d663af2bb886147beb0b5c1c20d1a5acd71d81ade04f9edc7c7f4cca",
       "record": "frames/run/NE/frame_07.generation.json"
     },
     {
@@ -236,7 +270,7 @@
       "direction": "NE",
       "frame": 10,
       "path": "frames/run/NE/frame_10.png",
-      "sha256": "059594ac691ffb44d5869b14f007906361802cb148b996916a4cfee18b8eb0d4",
+      "sha256": "79b388f1b8f230bb74e32fc8c780187229a16e776ff463bb46c42eeef29783e8",
       "record": "frames/run/NE/frame_10.generation.json"
     },
     {
@@ -268,7 +302,7 @@
       "direction": "NE",
       "frame": 14,
       "path": "frames/run/NE/frame_14.png",
-      "sha256": "80e0902f80ed8c4cc07c4b83f8bea4720ff498336bbb6a20d3972619a212e239",
+      "sha256": "3649dfec838c7b4ce23c976a652f87dd6eae8a5bff6c79cc09ca0f62e8f6b835",
       "record": "frames/run/NE/frame_14.generation.json"
     },
     {
@@ -284,7 +318,7 @@
       "direction": "NE",
       "frame": 16,
       "path": "frames/run/NE/frame_16.png",
-      "sha256": "716f31716420d74b43c9f0606594083c0a3d4fafd90e0cec939fa849c18b6c41",
+      "sha256": "03b07e1b160170c75d7c4302e9d3443f85cf31f97ddf9e0a3038104e2aa8e8e2",
       "record": "frames/run/NE/frame_16.generation.json"
     },
     {
@@ -364,7 +398,7 @@
       "direction": "E",
       "frame": 10,
       "path": "frames/run/E/frame_10.png",
-      "sha256": "57e0279d93946e0660d6db00d7dbf0e253718e98b16ac5eace089c9746069de5",
+      "sha256": "a5b6f5e49b5ef88f95b9bfc23a39faf1ecea463a639f66caa588cc39d678cafd",
       "record": "frames/run/E/frame_10.generation.json"
     },
     {
@@ -516,7 +550,7 @@
       "direction": "SE",
       "frame": 13,
       "path": "frames/run/SE/frame_13.png",
-      "sha256": "ed798c985fa79718755556d65c231c4c2e472f5ec065ad98737bda69dde5c307",
+      "sha256": "5b973ed86aa26044b1a783ddbba3e310aa55a270a1e90eb0ac8f980960e9a489",
       "record": "frames/run/SE/frame_13.generation.json"
     },
     {
@@ -708,7 +742,7 @@
       "direction": "SW",
       "frame": 5,
       "path": "frames/run/SW/frame_05.png",
-      "sha256": "538efd2a02bed0ade791dda91b0ad2d9fa09f9f2776d71f20883eea27d476714",
+      "sha256": "ac2b9764fca3dd0bb573ffea098f7ea735ce55e89d7b419718f26d4fce262d0c",
       "record": "frames/run/SW/frame_05.generation.json"
     },
     {
@@ -732,7 +766,7 @@
       "direction": "SW",
       "frame": 8,
       "path": "frames/run/SW/frame_08.png",
-      "sha256": "5fb61a7a042f1df6dc4d03155e293d9039626f87bb830537bee72f11eac06e5f",
+      "sha256": "0867563986c55a5d2f074da2ab3782740f07bf800e974a1a78435a7529d3c27c",
       "record": "frames/run/SW/frame_08.generation.json"
     },
     {
@@ -828,7 +862,7 @@
       "direction": "W",
       "frame": 4,
       "path": "frames/run/W/frame_04.png",
-      "sha256": "593af3c5cd77550123cb9778cb1aa4b0748b668d1f131075c6e7e53d583fb47d",
+      "sha256": "29750ea1e68057a404104d273e4bf728655b6bfbd775953ce6374d84e167c530",
       "record": "frames/run/W/frame_04.generation.json"
     },
     {
@@ -836,7 +870,7 @@
       "direction": "W",
       "frame": 5,
       "path": "frames/run/W/frame_05.png",
-      "sha256": "684206b7efc11775af91b24f835d75cce627c677fc3b6db0f9ff847955d6fb5a",
+      "sha256": "d693da95557b3c4b565364d0cafab29cdaa19ca7a9839c1915a77bce4483c5fe",
       "record": "frames/run/W/frame_05.generation.json"
     },
     {
@@ -844,7 +878,7 @@
       "direction": "W",
       "frame": 6,
       "path": "frames/run/W/frame_06.png",
-      "sha256": "b904f544102a9c3182857547e9cb1b74e812854a6f527bcf45d2dd4f55652b3a",
+      "sha256": "0ae4ede649c2ae79912aa6676c9449d8093aa235248fe7feb7cd3f38eff2d897",
       "record": "frames/run/W/frame_06.generation.json"
     },
     {
@@ -852,7 +886,7 @@
       "direction": "W",
       "frame": 7,
       "path": "frames/run/W/frame_07.png",
-      "sha256": "a2468831f8280228ebccbaa0ed776f3b2e5fd60665cc6f1f818e7e76b5c70812",
+      "sha256": "1702634b81c9bbcbc8ec37148d0e9e78d30664cee12eecf4dc692a9739728d4c",
       "record": "frames/run/W/frame_07.generation.json"
     },
     {
@@ -860,7 +894,7 @@
       "direction": "W",
       "frame": 8,
       "path": "frames/run/W/frame_08.png",
-      "sha256": "5cda74036c56ee30453013660e144df9bf3531a92144fbb3f8d167c42459b6d5",
+      "sha256": "4e8dbe821abd31265b56d5cc6e4d96742458363b096fc4df0ab0721b6c10c355",
       "record": "frames/run/W/frame_08.generation.json"
     },
     {
@@ -868,7 +902,7 @@
       "direction": "W",
       "frame": 9,
       "path": "frames/run/W/frame_09.png",
-      "sha256": "212d548887131b7e13809a0ee7917c9f33afa7e2907d440e7de64ff59052a6f5",
+      "sha256": "4a7ab69e7f97aa2c5d8a4ec6359bd106f3f518fb3ab2a86456e506de6e8c7ee4",
       "record": "frames/run/W/frame_09.generation.json"
     },
     {
@@ -876,7 +910,7 @@
       "direction": "W",
       "frame": 10,
       "path": "frames/run/W/frame_10.png",
-      "sha256": "42805fce7d71bd3725466c8ed90cf9d3eb6d794887b9b0f78a29befc17472191",
+      "sha256": "65b8ad59b8da36e3e526fe07299ff253dbfd357eb840f528d1421aa469084aca",
       "record": "frames/run/W/frame_10.generation.json"
     },
     {
@@ -884,7 +918,7 @@
       "direction": "W",
       "frame": 11,
       "path": "frames/run/W/frame_11.png",
-      "sha256": "420e26bec8b26b0eaa7a07df5b760a78dcac870c96d508201ec1bf3153953fe6",
+      "sha256": "8d1657ba20ef03d73859f1d9736950960d62d8c81ad7d584d3dd152e9317edbe",
       "record": "frames/run/W/frame_11.generation.json"
     },
     {
@@ -892,7 +926,7 @@
       "direction": "W",
       "frame": 12,
       "path": "frames/run/W/frame_12.png",
-      "sha256": "339beec8a79e7dab76e66dae49c77bde74ffea5c95f1565a1047b1a11946d4a0",
+      "sha256": "bcd5701c2a76e2aefffc106b6a17667ab84ca4340b5d81c3c8cd035ba4db0dcd",
       "record": "frames/run/W/frame_12.generation.json"
     },
     {
@@ -900,7 +934,7 @@
       "direction": "W",
       "frame": 13,
       "path": "frames/run/W/frame_13.png",
-      "sha256": "32799b8d375218f763351d5db0460a32793aa59bcad9db39308bebdc46a803ce",
+      "sha256": "5633cccd50ec4f2f9a971cb54531258b52e17480ed6061e43d2e165857a57d36",
       "record": "frames/run/W/frame_13.generation.json"
     },
     {
@@ -916,7 +950,7 @@
       "direction": "W",
       "frame": 15,
       "path": "frames/run/W/frame_15.png",
-      "sha256": "7d0d1ff21b9eacbeeb7b1e74970016717a6234011eea5da1e92bd5b12741b47a",
+      "sha256": "604246ee2cd87d59d5eec0dbc1edfe9bc9c716c9b98a8e04374496901c1fcc79",
       "record": "frames/run/W/frame_15.generation.json"
     },
     {
@@ -932,7 +966,7 @@
       "direction": "NW",
       "frame": 1,
       "path": "frames/run/NW/frame_01.png",
-      "sha256": "7fe047c77cda8acde0e1c72fd55183e4ea4331f84708d4d2a19bf1483b676ba8",
+      "sha256": "f09a9c896940fe006bad96fa041ac11a7249e58d1d95f42db6b13da4bcb3b449",
       "record": "frames/run/NW/frame_01.generation.json"
     },
     {
@@ -940,7 +974,7 @@
       "direction": "NW",
       "frame": 2,
       "path": "frames/run/NW/frame_02.png",
-      "sha256": "65bd5c251290c5b2d565b192a80085d759ad6a8b1c8d2527145ada1e46c144cc",
+      "sha256": "b8fff4d117d9f0d760c5e1853f4df8e9b01abbc768f432bee4774ca1c02634c6",
       "record": "frames/run/NW/frame_02.generation.json"
     },
     {
@@ -956,7 +990,7 @@
       "direction": "NW",
       "frame": 4,
       "path": "frames/run/NW/frame_04.png",
-      "sha256": "f46be3fd6493b082ef066b7c05248c80f374eeaa2faf32f1d4e2626bd2f364b4",
+      "sha256": "b52ca05c70916c67c681f17d3c987d32573b8a6c73b0da54a7d803d1e70adb35",
       "record": "frames/run/NW/frame_04.generation.json"
     },
     {
@@ -964,7 +998,7 @@
       "direction": "NW",
       "frame": 5,
       "path": "frames/run/NW/frame_05.png",
-      "sha256": "fa173aab4e6c0c57a96ba3494b5c0783a02b0cef6f3237a4feeff61bec37e5bf",
+      "sha256": "c6e36c2885958ab88f345139ea4140b6050da15d46e6859776c3fd5948701c30",
       "record": "frames/run/NW/frame_05.generation.json"
     },
     {
@@ -972,7 +1006,7 @@
       "direction": "NW",
       "frame": 6,
       "path": "frames/run/NW/frame_06.png",
-      "sha256": "d8ae77ad3c90bc900a20e13208209cbd920d1ff6c6a50680a8f74fdbf2f1e82b",
+      "sha256": "588a0cf081c311dd4cdd0f7dd512b6ae52db764183b9aed255e7f4543b4a3f16",
       "record": "frames/run/NW/frame_06.generation.json"
     },
     {
@@ -980,7 +1014,7 @@
       "direction": "NW",
       "frame": 7,
       "path": "frames/run/NW/frame_07.png",
-      "sha256": "4bc387b7a737dd101784767e5a9412d871cd587b53db683b6f92537a8c1f4143",
+      "sha256": "f742ef4ec233331e4fdecfb21cae326dde71f3a5c93e4fd6ec3f2531f307ad21",
       "record": "frames/run/NW/frame_07.generation.json"
     },
     {
@@ -988,7 +1022,7 @@
       "direction": "NW",
       "frame": 8,
       "path": "frames/run/NW/frame_08.png",
-      "sha256": "48ba83112498d4191038a77a6a32a996eb16a792d0920f9eb0657909dbc24d18",
+      "sha256": "9dda672de9ab4c0d76ea28e1c2028c9dad2b184d8e23f081b3e19c57c19872ff",
       "record": "frames/run/NW/frame_08.generation.json"
     },
     {
@@ -996,7 +1030,7 @@
       "direction": "NW",
       "frame": 9,
       "path": "frames/run/NW/frame_09.png",
-      "sha256": "402aa761a4473c9c9dfecc025e698ef8c79fdf6cccae5444e51757e9a3f2984a",
+      "sha256": "49fb91db3f30c87b50009c7bacd5ff282dc91ee45efa31ceabbb1a2cb0e5289b",
       "record": "frames/run/NW/frame_09.generation.json"
     },
     {
@@ -1004,7 +1038,7 @@
       "direction": "NW",
       "frame": 10,
       "path": "frames/run/NW/frame_10.png",
-      "sha256": "5b15330b4e0473e850643b2caff7a7b0afeedd5af4e643e9271ff697d0a2972b",
+      "sha256": "1217479d1b832581cdcdc8dccb34cd6c8fc489b37d02f2772461d2946cbaccf0",
       "record": "frames/run/NW/frame_10.generation.json"
     },
     {
@@ -1600,16 +1634,16 @@
       "record": "frames/cast/W/frame_16.generation.json"
     }
   ],
-  "audit": "provenance/audit/export_stancepairs_precleanup_snapshot_20261004.json",
-  "auditSha256": "5da4a6d3eada36ebe4742dbc56853b17e07d2bad9f7f06c09b4ef9a17ad4ab59",
+  "audit": "provenance/audit/export_video_axis_precleanup_snapshot_20261005.json",
+  "auditSha256": "51a0c6eca36061d25dc4dd17661da559f3956e05e658eeca8ccd22291c994e52",
   "rootVisualApproval": {
-    "path": "provenance/audit/stancepairs_final_visual_approval_20261004.json",
-    "sha256": "4dbe4a34779edf3bd5f727d14cab8bc4f369edde82d7e54e68ae275923053632"
+    "path": "provenance/audit/video_axis_final_visual_approval_20261005.json",
+    "sha256": "9cb1677966f74573ae65325bbb7e8909f87de575c191e382abae8fc96086786d"
   },
   "timingUpdate": {
-    "record": "provenance/audit/run_timing_1200_update_20261003.json",
-    "cycleMs": 1200,
-    "frameMs": 75,
+    "record": "provenance/audit/export_video_axis_precleanup_snapshot_20261005.json",
+    "frameMs": 60,
+    "cycleMs": 960,
     "uniform": true,
     "clientTested": false
   }

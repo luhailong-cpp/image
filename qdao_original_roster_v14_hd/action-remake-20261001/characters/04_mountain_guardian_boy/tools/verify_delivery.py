@@ -3,6 +3,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 from PIL import Image
 import hashlib, json
+from timing_profile import RUN_FRAME_MS, RUN_CYCLE_MS, RUN_NORMAL_DURATIONS
 ROOT=Path(__file__).resolve().parents[1]
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def read(p): return json.loads(p.read_text(encoding='utf-8-sig'))
@@ -23,10 +24,34 @@ def main():
     if approval.get('character')!=ROOT.name: raise ValueError('Current root visual approval character mismatch')
     approved={x['file']:x['sha256'] for x in approval['entries'] if x.get('status')=='visual_passed'}
     errors=[]; count=0; media=0
+    timing=read(ROOT/'runtime_timing.json')
+    run=timing['run']
+    if (RUN_FRAME_MS!=60 or RUN_CYCLE_MS!=960 or run['frameMs']!=RUN_FRAME_MS
+            or run['offlineDefaultLoopMs']!=RUN_CYCLE_MS
+            or run['offlineFrameDurationsMs']!=RUN_NORMAL_DURATIONS
+            or run['previewFrameDurationsMs']!=RUN_NORMAL_DURATIONS):
+        errors.append('Current runtime must be uniform60ms/960ms')
+    for direction,segments in run['groundContactSegments'].items():
+        if len(segments)!=8 or any(x['durationMs']!=120 for x in segments):
+            errors.append(direction+': expected eight120ms support-position pairs')
+    ms={'run':60,'hit':40,'attack':30,'cast':45}
+    technical=read(ROOT/'manifest.technical.json')
+    technical_rows={f['path']:f for s in technical['sequences'] for f in s['frames']}
+    for s in technical['sequences']:
+        if s['frame_ms']!=ms[s['action']] or s['duration_ms']!=s['target_count']*ms[s['action']]:
+            errors.append(s['action']+'/'+s['direction']+': technical duration mismatch')
     for row in manifest['files']:
         p=ROOT/row['path']; j=ROOT/row['record']; data=read(j)
         if sha(p)!=row['sha256'] or data['sha256']!=row['sha256']: errors.append(row['path']+': PNG SHA mismatch')
         if sha(j)!=row['recordSha256']: errors.append(row['record']+': record SHA mismatch')
+        if data['frameDurationMs']!=ms[data['action']]: errors.append(row['path']+': sidecar timing mismatch')
+        if technical_rows.get(row['path'],{}).get('sha256')!=row['sha256']: errors.append(row['path']+': technical inventory stale')
+        if technical_rows.get(row['path'],{}).get('source',{}).get('record_sha256')!=row['recordSha256']:
+            errors.append(row['path']+': technical sidecar SHA stale')
+        if data['action']=='run' and (data['runTiming']['offlinePreviewFrameMs']!=60
+                or data['runTiming']['offlinePreviewDefaultLoopMs']!=960
+                or data['runTiming']['offlinePreviewFrameDurationsMs']!=RUN_NORMAL_DURATIONS):
+            errors.append(row['path']+': runTiming stale')
         visual=data.get('review',{})
         if (approved.get(row['path'])!=row['sha256'] or visual.get('status')!='visual_passed'
                 or visual.get('sourceBoundSha256')!=row['sha256']
@@ -52,8 +77,15 @@ def main():
                     im.seek(n); durations.append(im.info.get('duration'))
             wanted=data['operation']['durationsMs']
             if durations!=wanted: errors.append(p.name+': encoded GIF/APNG frame duration mismatch')
+            if p.suffix.lower()=='.apng':
+                expected_ms=60 if p.stem.endswith('_normal') else 240
+                if durations!=[expected_ms]*16: errors.append(p.name+': stale run APNG timing')
         media+=1
-    remaining=[str(p.relative_to(ROOT)) for ext in ('*.png','*.gif') for p in (ROOT/'provenance').rglob(ext)]
+    if media!=42: errors.append('Expected42 derived preview assets')
+    wanted_hashes={row['path']:row['sha256'] for row in manifest['files']}
+    actual_hashes={line.split('  ',1)[1]:line.split('  ',1)[0] for line in (ROOT/'frames.sha256').read_text(encoding='utf-8').splitlines()}
+    if actual_hashes!=wanted_hashes: errors.append('frames.sha256 is stale')
+    remaining=[str(p.relative_to(ROOT)) for ext in ('*.png','*.gif','*.jpg') for p in (ROOT/'provenance').rglob(ext)]
     if remaining: errors.append('provenance images remain after retention cleanup')
     report={'verifiedAt':datetime.now(timezone.utc).isoformat(),'formalFrames':count,'previewAssets':media,'rootVisualApproval':approval_binding,'errors':errors,'remainingProvenanceImages':remaining,'scope':'Current formal/export/approval/source/GIF-APNG encoded frame-duration consistency only; not automated aesthetic approval.','clientIntegration':'not_integrated'}
     (ROOT/'provenance/audit/final_delivery_verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

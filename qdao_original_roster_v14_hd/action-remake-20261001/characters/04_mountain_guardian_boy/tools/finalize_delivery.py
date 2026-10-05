@@ -199,6 +199,7 @@ def main(cleanup):
  print(json.dumps({"frames":len(frames),"distinct":len({f["sha256"] for f in frames}),"cleanup":cleanup,"staticVisualPassed":len(frames),'cleanupFailed':0 if cleanup_record is None else cleanup_record['failedCount']},ensure_ascii=False))
  if cleanup_record and cleanup_record['failedCount']:raise SystemExit('Partial cleanup: inspect ledger failures; do not rerun blindly.')
 if __name__=="__main__":
+ if RUN_NORMAL_DURATIONS != [75]*16: raise SystemExit("历史交付工具已停用；本轮使用finalize_video_axis_followup.py。")
  p=argparse.ArgumentParser();p.add_argument("--cleanup",action="store_true");a=p.parse_args()
  try:main(a.cleanup)
  except (OSError,ValueError,KeyError,TypeError) as error:raise SystemExit(str(error)) from error

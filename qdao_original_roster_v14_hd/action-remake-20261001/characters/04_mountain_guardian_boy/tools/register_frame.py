@@ -14,6 +14,7 @@ import os
 import shutil
 from datetime import datetime, timezone
 from pathlib import Path
+from timing_profile import RUN_FRAME_MS
 
 from PIL import Image
 
@@ -22,7 +23,7 @@ WORKSPACE = ROOT.parents[3]
 PROVENANCE = ROOT / "provenance"
 CONFIG = WORKSPACE / "config" / "image-generation.json"
 SPECS = {
-    "run": (16, ("N", "NE", "E", "SE", "S", "SW", "W", "NW"), 75),
+    "run": (16, ("N", "NE", "E", "SE", "S", "SW", "W", "NW"), RUN_FRAME_MS),
     "hit": (6, ("E", "W"), 40),
     "attack": (12, ("E", "W"), 30),
     "cast": (16, ("E", "W"), 45),

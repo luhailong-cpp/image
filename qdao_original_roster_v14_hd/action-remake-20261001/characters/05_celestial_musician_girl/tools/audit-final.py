@@ -8,8 +8,11 @@ def load(p):return json.loads(p.read_text(encoding='utf-8-sig'))
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 manifest=load(ROOT/'final/manifest.json');rows=load(ROOT/'final-selection.json')
 currentTiming=load(ROOT/'animation-timing.json')
-assert currentTiming['run']['frameMs']==75 and currentTiming['run']['cycleMs']==1200
-assert currentTiming['run']['uniform'] is True
+runTiming=currentTiming['run']
+assert runTiming['frames']==16 and runTiming['frameMs']==60 and runTiming['cycleMs']==960
+assert runTiming['uniform'] is True and runTiming['frames']*runTiming['frameMs']==runTiming['cycleMs']
+for action,frames,frameMs,cycleMs in [('hit',6,40,240),('attack',12,30,360),('cast',16,45,720)]:
+    assert (currentTiming[action]['frames'],currentTiming[action]['frameMs'],currentTiming[action]['cycleMs'])==(frames,frameMs,cycleMs)
 assert len(rows)==196 and manifest['frames']==rows
 assert len({r['sha256'] for r in rows})==196
 assert len({r['nativeSha256'] for r in rows})==196
@@ -50,7 +53,7 @@ for seq in preview['sequences']:
         assert (ROOT/frame['file']).is_file() and frame['file'].startswith('final/')
         assert frame['sha256']==finalHashByFile[frame['file']]
 timing=load(ROOT/'preview/timing-grounding-final-data.json')
-assert timing['uniformCycleDurationsMs']==[1200] and timing['frameMs']==75
+assert timing['uniformCycleDurationsMs']==[runTiming['cycleMs']] and timing['frameMs']==runTiming['frameMs']
 assert timing['phaseWeightsApplied'] is False
 assert all((ROOT/f['file']).is_file() and f['file'].startswith('final/') for frames in timing['sequences'].values() for f in frames)
 result={'checkedAt':datetime.now(timezone.utc).isoformat(),'finalFrames':196,'uniqueNativeFrames':196,'uniqueFinalFrames':196,'canvas':'1024 RGBA','allTransparentBorders':True,'constantTransformPerSequence':True,'globalScale':reg['globalScale'],'activePreviewReferencesComplete':True,'sequenceCount':len(sequences),'clientIntegrated':False,'clientRuntimeValidated':False,'checks':records}

@@ -1,4 +1,7 @@
 """Apply the user's uniform 75 ms run timing without changing any PNG or combat timing."""
+from timing_profile import RUN_FRAME_MS
+if RUN_FRAME_MS != 75:
+    raise SystemExit('历史75ms迁移工具已停用；当前以timing_profile.py为准。')
 from pathlib import Path
 from datetime import datetime,timezone
 import hashlib,json

@@ -24,11 +24,11 @@ import struct
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote
-from timing_profile import RUN_NORMAL_DURATIONS
+from timing_profile import RUN_NORMAL_DURATIONS, RUN_FRAME_MS
 
 ROOT = Path(__file__).resolve().parents[1]
 SPECS = {
-    "run": {"label": "跑步", "directions": ["N", "NE", "E", "SE", "S", "SW", "W", "NW"], "count": 16, "frame_ms": 75},
+    "run": {"label": "跑步", "directions": ["N", "NE", "E", "SE", "S", "SW", "W", "NW"], "count": 16, "frame_ms": RUN_FRAME_MS},
     "hit": {"label": "受击", "directions": ["E", "W"], "count": 6, "frame_ms": 40},
     "attack": {"label": "普攻", "directions": ["E", "W"], "count": 12, "frame_ms": 30},
     "cast": {"label": "施法", "directions": ["E", "W"], "count": 16, "frame_ms": 45},
@@ -261,7 +261,7 @@ def inspect(index_base: int, anchor_x: float | None, anchor_y: float | None) -> 
                 "action": action, "label": spec["label"], "direction": direction,
                 "target_count": spec["count"], "frame_ms": spec["frame_ms"],
                 "duration_ms": spec["count"] * spec["frame_ms"], "frames": frames,
-                "timing_status": "user_selected_offline_1200_client_unconfirmed" if action == "run" else "specified_not_client_tested",
+                "timing_status": "user_selected_offline_960_client_unconfirmed" if action == "run" else "specified_not_client_tested",
                 "offline_normal_durations_ms": RUN_NORMAL_DURATIONS if action == "run" else [spec["frame_ms"]] * spec["count"],
                 "client_approved_loop_ms": None,
             })

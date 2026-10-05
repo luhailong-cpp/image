@@ -3,9 +3,9 @@ from pathlib import Path
 from datetime import datetime, timezone
 from PIL import Image, ImageDraw, ImageFont
 import argparse, hashlib, json, math
-from timing_profile import RUN_NORMAL_DURATIONS
+from timing_profile import RUN_NORMAL_DURATIONS, RUN_FRAME_MS
 ROOT = Path(__file__).resolve().parents[1]
-SPECS = {"run":(16,75),"hit":(6,40),"attack":(12,30),"cast":(16,45)}
+SPECS = {"run":(16,RUN_FRAME_MS),"hit":(6,40),"attack":(12,30),"cast":(16,45)}
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def write_record(out, sources, operation):
     data={"file":out.relative_to(ROOT).as_posix(),"sha256":sha(out),"createdAt":datetime.now(timezone.utc).isoformat(),"route":"deterministic_preview","modelGenerated":False,"actualModel":None,"actualQuality":None,"operation":operation,"derivedFrom":sources,"note":"预览只按统一整画布显示原PNG，不计新增动作帧；实际版本/质量追溯各帧来源"}
@@ -49,7 +49,7 @@ def build(action,direction):
             rendered[0].save(out,format="PNG",save_all=True,append_images=rendered[1:],duration=durations,loop=0,disposal=0,blend=0)
         else:
             rendered[0].save(out,save_all=True,append_images=rendered[1:],duration=durations,loop=0,disposal=2,optimize=False)
-        write_record(out,sources,{"type":"animated_whole_canvas_preview","encoding":"APNG" if action=='run' else "GIF","scale":0.5,"background":[245,240,226],"durationsMs":durations,"logicalFrameMs":ms*mult,"sequenceDurationMs":sum(durations),"speedMultiplier":1/mult,"timingStatus":"user_selected_offline_1200_client_unconfirmed" if action=="run" else "specified","encodingTimingNote":"跑步APNG与HTML精确75ms/帧，总1200ms，无额外首尾帧。战斗GIF只支持10ms单位，施法45ms用40/50ms交替，总720ms。"})
+        write_record(out,sources,{"type":"animated_whole_canvas_preview","encoding":"APNG" if action=='run' else "GIF","scale":0.5,"background":[245,240,226],"durationsMs":durations,"logicalFrameMs":ms*mult,"sequenceDurationMs":sum(durations),"speedMultiplier":1/mult,"timingStatus":"user_selected_offline_960_client_unconfirmed" if action=="run" else "specified","encodingTimingNote":"跑步APNG与HTML精确60ms/帧，总960ms，无额外首尾帧。战斗GIF只支持10ms单位，施法45ms用40/50ms交替，总720ms。"})
     print(json.dumps({"action":action,"direction":direction,"present":len(sources),"target":count,"animated":True}))
 if __name__=="__main__":
     p=argparse.ArgumentParser();p.add_argument("action",choices=SPECS);p.add_argument("direction");a=p.parse_args();build(a.action,a.direction)
