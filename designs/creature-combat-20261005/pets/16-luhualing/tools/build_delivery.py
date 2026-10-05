@@ -16,6 +16,8 @@ def write_json(path, data):
 
 def main():
     frames, errors, missing, groups = [], [], [], []
+    review_path=ROOT/'visual-review.json'
+    reviews=json.loads(review_path.read_text(encoding='utf-8')).get('frames',{}) if review_path.exists() else {}
     byte_seen, pixel_seen = {}, {}
     for action,(count,ms,event) in SPEC.items():
         for direction in ('E','W'):
@@ -52,6 +54,10 @@ def main():
                         entry['actualModel']=metadata.get('actualModel')
                         entry['actualQuality']=metadata.get('actualQuality')
                     else: errors.append(f'{rel}: missing generation record')
+                    review=reviews.get(rel,{})
+                    if review.get('sha256')==entry['sha256']:
+                        entry['visualStatus']=review.get('status','not_reviewed')
+                        entry['visualReview']=review
                     group['files'].append(rel)
                 frames.append(entry)
             groups.append(group)
@@ -79,7 +85,7 @@ def make_previews(groups):
         sheet.save(preview/f"{group['action']}-{group['direction']}-contact.jpg",quality=92)
     data=json.dumps(groups,ensure_ascii=False)
     html='''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>露华灵 · 战斗动作逐帧预览</title>
-<style>*{box-sizing:border-box}body{margin:0;background:#142c2a;color:#eee6cc;font:16px system-ui}header{padding:28px 32px;border-bottom:1px solid #6b785c}h1{margin:0 0 12px;font-size:28px}p{line-height:1.6;color:#cdd3c2}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:24px;padding:24px}article{padding:20px;border:1px solid #6b785c;border-radius:12px;background:#203d39}h2{margin:0 0 12px}.stage{aspect-ratio:1;background:repeating-conic-gradient(#dadbd5 0% 25%,#f0f0e9 0% 50%) 50%/32px 32px;border-radius:8px;position:relative}.stage img{width:100%;height:100%;object-fit:contain}.stage .empty{position:absolute;inset:0;display:grid;place-items:center;color:#44534a}button,select{background:#eee5cd;border:0;border-radius:5px;padding:8px 12px;margin:5px 3px 5px 0;color:#203d39;font:inherit}input{width:100%}.counter{font-variant-numeric:tabular-nums}.state{color:#d6c17c;font-size:14px}a{color:#d6c17c}</style>
+<style>*{box-sizing:border-box}body{margin:0;background:#142c2a;color:#eee6cc;font:16px system-ui}header{padding:28px 32px;border-bottom:1px solid #6b785c}h1{margin:0 0 12px;font-size:28px}p{line-height:1.6;color:#cdd3c2}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:24px;padding:24px}article{padding:20px;border:1px solid #6b785c;border-radius:12px;background:#203d39}h2{margin:0 0 12px}.stage{aspect-ratio:1;background:repeating-conic-gradient(#dadbd5 0% 25%,#f0f0e9 0% 50%) 50%/32px 32px;border-radius:8px;position:relative}.stage img{width:100%;height:100%;object-fit:contain}.stage .empty[hidden]{display:none}.stage .empty{position:absolute;inset:0;display:grid;place-items:center;color:#44534a}button,select{background:#eee5cd;border:0;border-radius:5px;padding:8px 12px;margin:5px 3px 5px 0;color:#203d39;font:inherit}input{width:100%}.counter{font-variant-numeric:tabular-nums}.state{color:#d6c17c;font-size:14px}a{color:#d6c17c}</style>
 <header><h1>露华灵 · 受击 / 普攻 / 施法</h1><p>E 斜前朝右下 · W 斜后朝左上。播放使用已落盘的真实帧。原时间 / 0.25×慢放 / 逐帧可切换。</p><p id="total"></p></header><main></main><script>
 const groups=__DATA__;
 document.querySelector('#total').textContent=`已落盘 ${groups.reduce((n,g)=>n+g.files.length,0)} / 68 帧。动态与客户端验收状态以 STATUS.md 为准。`;
