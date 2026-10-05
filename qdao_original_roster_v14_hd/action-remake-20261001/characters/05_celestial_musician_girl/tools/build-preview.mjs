@@ -151,9 +151,10 @@ const manifest = {
 };
 
 const pageTitle = registeredMode ? '05 天音少女 · 1024固定配准复核' : candidateMode ? '05 天音少女 · 候选预览，非正式交付' : '05 天音少女 · 正式动作素材';
-const subtitle = registeredMode ? '1024 RGBA复核导出 · 全角色统一比例与每段固定根 · 跑步1200ms，均匀75ms/帧 · 战斗时长保持原要求' : candidateMode
-  ? '按源 PNG 整画布等比显示 · 跑步1200ms，均匀75ms/帧 · 未选帧保留空槽 · 未正式导出'
-  : '196张1024透明素材 · 跑步同脚连续支撑，每个接地位置两张姿态 · 16帧/1200ms，75ms/帧 · 客户端尚未接入实测';
+const runTimingLabel = `${timing.run.frames}帧/${timing.run.cycleMs}ms，${timing.run.frameMs}ms/帧`;
+const subtitle = registeredMode ? `1024 RGBA复核导出 · 全角色统一比例与每段固定根 · 跑步${runTimingLabel} · 战斗时长保持原要求` : candidateMode
+  ? `按源 PNG 整画布等比显示 · 跑步${runTimingLabel} · 未选帧保留空槽 · 未正式导出`
+  : `196张1024透明素材 · 腿脚与持琴逐帧复核 · 跑步每个接地位置两张姿态，${runTimingLabel} · 客户端尚未接入实测`;
 const inputInstructions = registeredMode
   ? '此页读取 registered-selection.json 的1024复核图。整段共用固定根、全角色共用统一比例；registration.json与逐图export记录保存变换。未作每帧贴地。'
   : candidateMode
@@ -178,7 +179,7 @@ const html = `<!doctype html>
 <div class="status" id="status" aria-live="polite"></div><p class="muted">空格播放／暂停，左右键逐帧。播放遇到缺图或读取失败会清空人物，不保留上一张。</p>
 </section><section class="panel">
 <h2>${candidateMode ? '候选库存' : '库存'}</h2><div class="sequence-table"><table><thead><tr><th>动作／方向</th><th>实际 PNG</th><th>${candidateMode ? '源图画布' : '格式符合'}</th><th>来源记录</th></tr></thead><tbody id="inventory"></tbody></table></div>
-<p class="muted notice">${candidateMode ? '库存只证明文件存在；本页不自动判定美术验收。' : '接地位置依次为：落脚、承重经过、髋下向后、后侧蹬地；每个位置两张独立姿态，再换另一只脚。逐帧验收见 provenance/ground-contact-20261004/position-acceptance.json。'}</p>
+<p class="muted notice">${candidateMode ? '库存只证明文件存在；本页不自动判定美术验收。' : '接地位置依次为：落脚、承重经过、髋下向后、后侧蹬地；每个位置两张独立姿态，再换另一只脚。膝、踝与鞋掌沿运动方向连续过渡，保留正常屈膝与透视。最新复核见 provenance/foot-axis-20261004/acceptance.json。'}</p>
 <h2>当前帧</h2><p><a id="currentFile" target="_blank" rel="noopener"></a></p><div id="frameInfo"></div>
 <details><summary>逐图生成记录（原字段）</summary><pre id="record"></pre></details>
 <details><summary>检查范围与使用说明</summary><p>方向由独立文件读取，不镜像。所有帧共用整个画布的显示比例；不裁切包围盒、不归一化人物大小、不调整脚底。1× 时长由动作规格定义，显示节奏受浏览器限制。</p><p>${inputInstructions}</p><p>人物帧所含光效、解剖左右手、连续姿态是否正确，均不能通过文件数量或 SHA 判断。重复 SHA 只作为人工检查提示。</p></details>

@@ -1,0 +1,80 @@
+{
+  "reviewedAt": "2026-10-05T03:01:59.602843+00:00",
+  "scope": "独立只读SE04/05/07-v1与03/06/08及同槽原formal的鞋向/承重/持琴连续性比较",
+  "actuallyViewed": [
+    "final/run/SE/03.png",
+    "final/run/SE/04.png",
+    "final/run/SE/05.png",
+    "final/run/SE/06.png",
+    "final/run/SE/07.png",
+    "final/run/SE/08.png",
+    "staging/foot-axis-20261004/SE/04-v1.png",
+    "staging/foot-axis-20261004/SE/05-v1.png",
+    "staging/foot-axis-20261004/SE/07-v1.png"
+  ],
+  "rows": [
+    {
+      "frame": 4,
+      "formalFile": "final/run/SE/04.png",
+      "formalSha256": "e860c1bc4e4d07ce68b833514b1085c47f674a2d04e50db96d81567b1a952f6f",
+      "candidateFile": "staging/foot-axis-20261004/SE/04-v1.png",
+      "candidateSha256": "326fea2367cf6c911a2e379087e1469411cbb663b1e6e9e1893278959d3c789c",
+      "candidateSidecarSha256": "e6aca31857fa04794f2d26d0c1622c3a4f3e8d2f0fd93c868142ba511ff6c70a",
+      "decision": "accept_offline_candidate",
+      "supportLeg": "RIGHT",
+      "footAxis": "新支撑鞋轴自然朝SE右下，膝踝连接保持；LEFT前摆腿与左右腿身份未交换。",
+      "contact": "04/05原承重姿态与接触高度保留。",
+      "upperBody": "原手臂连接、双手持琴、完整琴头/琴身、脸与身体比例未发现明显改变。",
+      "oldNearRightLowerRegionBottom": 938,
+      "newNearRightLowerRegionBottom": 942
+    },
+    {
+      "frame": 5,
+      "formalFile": "final/run/SE/05.png",
+      "formalSha256": "4035e50ea27ab1516520c068940fb71c734ae07d3cbc9f0fd2263743938f93d3",
+      "candidateFile": "staging/foot-axis-20261004/SE/05-v1.png",
+      "candidateSha256": "fc42a454db859a615818ce32b0a6af8947a132318925731223d88798a2db523e",
+      "candidateSidecarSha256": "af99a9e3c376a13a2c3e6001f51fd1216e63059ed5f89f3ad6f8fbd1b3bf3d78",
+      "decision": "accept_offline_candidate",
+      "supportLeg": "RIGHT",
+      "footAxis": "新支撑鞋轴自然朝SE右下，膝踝连接保持；LEFT前摆腿与左右腿身份未交换。",
+      "contact": "04/05原承重姿态与接触高度保留。",
+      "upperBody": "原手臂连接、双手持琴、完整琴头/琴身、脸与身体比例未发现明显改变。",
+      "oldNearRightLowerRegionBottom": 940,
+      "newNearRightLowerRegionBottom": 945
+    },
+    {
+      "frame": 7,
+      "formalFile": "final/run/SE/07.png",
+      "formalSha256": "abf2ab88904a2265fcdfe01b72a6b7cd0f6554453516dbb8c3e4617b0ae29922",
+      "candidateFile": "staging/foot-axis-20261004/SE/07-v1.png",
+      "candidateSha256": "2883abb8ec49e93234b7bfbcb10ce8c54800b0b47d491977623c5ca21cee3f8c",
+      "candidateSidecarSha256": "1ad4b28895b9ceb43cb7f152ec894ee942faf9854ea13fb7038c793bdfce79be",
+      "decision": "accept_offline_candidate",
+      "supportLeg": "RIGHT",
+      "footAxis": "新支撑鞋轴自然朝SE右下，膝踝连接保持；LEFT前摆腿与左右腿身份未交换。",
+      "contact": "07抬跟与前掌向下的后蹬链保留；原稿本来高于06/08投影，新稿局部足尖仅比原07高约7像素，不新增必修。",
+      "upperBody": "原手臂连接、双手持琴、完整琴头/琴身、脸与身体比例未发现明显改变。",
+      "oldNearRightLowerRegionBottom": 921,
+      "newNearRightLowerRegionBottom": 914
+    }
+  ],
+  "mustRepair": [],
+  "conclusion": "三张候选鞋向改善且未新增确定肢体/持琴问题，可保留本轮修正。",
+  "correctionRecord": {
+    "initialVisualClaimWithdrawn": "初看错误估计原07足尖底约y950，并误称新稿y912为明显新增上提/失地。",
+    "verifiedPixelEvidence": {
+      "method": "仅作人工观察的数值复核：1024原图近RIGHT下部固定ROI[300,850,525,1000]，alpha>=64的包围下界。它不定义root、地面或接地判据。",
+      "formalSE03": 955,
+      "candidateSE04v1": 942,
+      "candidateSE05v1": 945,
+      "formalSE06": 948,
+      "formalSE07": 921,
+      "candidateSE07v1": 914,
+      "formalSE08": 962
+    },
+    "correctedConclusion": "原07本来就采用较后/较高投影。新07相对原07仅约7像素差，不能由各帧最低脚高度推断新失地，撤回新增必须补修建议。"
+  },
+  "formalModified": false,
+  "clientValidated": false
+}
