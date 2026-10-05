@@ -36,9 +36,9 @@ record = {
  'operation':{'type':'whole-canvas-uniform-export','sourceCanvas':list(im.size),'resizedCanvas':[960,960],'destinationCanvas':[1024,1024],'offset':[32,6],'resampling':'Lanczos','perFrameAlignment':False},
  'visualStatus':'pending-group-review','clientIntegration':'not-tested'}
 rec = ROOT/'records'/f'{stem}.generation.json'
-if len(sys.argv) > 5:
-    continuity = Path(sys.argv[5])
-    record['references'].append({'file':str(continuity),'purpose':'previous independent AI frame for fixed camera, identity and pose continuity','sha256':sha(continuity)})
+for extra in sys.argv[5:]:
+    continuity = Path(extra)
+    record['references'].append({'file':str(continuity),'purpose':'independent AI frame for framing, identity or targeted pose correction; see prompt for exact role','sha256':sha(continuity)})
 rec.parent.mkdir(parents=True,exist_ok=True)
 rec.write_text(json.dumps(record,ensure_ascii=False,indent=2),encoding='utf-8')
 print(json.dumps({'file':record['file'],'sha256':record['sha256'],'native':list(im.size),'alpha':final.getchannel('A').getextrema()}))
