@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "appearance": "lanxian_spring",
+  "updatedAtUtc": "2026-10-05T13:19:32.1072657Z",
+  "readyForProduction": false,
+  "status": "blocked_by_repeated_source_thread_429_before_handoff",
+  "targetTiles": 256,
+  "targetTilePixels": [
+    4096,
+    4096
+  ],
+  "wholeCityPixels": [
+    65536,
+    65536
+  ],
+  "baselineCandidateCount": 3,
+  "baselineCurrent": false,
+  "formalAccepted": 0,
+  "newComplete4KCandidates": 0,
+  "nativeDetailPatchesGenerated": 0,
+  "wholeCityComplete": false,
+  "runtimePublished": false,
+  "route": "builtin_image_gen",
+  "paidApiAllowed": false,
+  "sourceAudit": "preflight/source-audit.json",
+  "currentTile": "r08_c09",
+  "requiredNativePatches": 16,
+  "core": 1024,
+  "halo": 115,
+  "currentPhase": "handoff_gate",
+  "nextAction": "When original source chat recovers and handoff is published, verify final source hashes and continue adjacent r08_c09 with shared day geometry. No new generation or complete tile is claimed.",
+  "lastHandoffCheckUtc": "2026-10-05T11:36:53.9586636Z",
+  "preparationComplete": true,
+  "navigationContract": "preflight/navigation-contract.json",
+  "blockingCondition": {
+    "handoffReady": false,
+    "sourceThreadId": "01a10997-f575-7002-8029-c9cdf6a0e32a",
+    "sourceThreadStatus": "failed",
+    "error": "exceeded retry limit, last status: 429 Too Many Requests",
+    "requestId": "835dd661-7865-4024-be1d-ff4ad109bb4d",
+    "evidence": "codex_app.wait_threads snapshot 118ca212-f81d-4ad2-98d8-7fd6ba824723:7; resumed turn 01a10c1c-6b31-7fb2-bed2-e3f61246f866 failed before tools",
+    "userClarificationRequested": true,
+    "userAuthorizedResume": true,
+    "userAuthorizedResumeAttempted": true,
+    "resumeAttemptOutcome": "Failed again with 429 Too Many Requests; source handoff remains false."
+  }
+}
