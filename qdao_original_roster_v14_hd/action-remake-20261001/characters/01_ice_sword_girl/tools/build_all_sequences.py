@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 import hashlib, json
 from PIL import Image
 R=Path(__file__).resolve().parents[1]
-SPEC={'run':(['S','SE','E','NE','N','NW','W','SW'],16,75),'hit':(['E','W'],6,40),'attack':(['E','W'],12,30),'cast':(['E','W'],16,45)}
+SPEC={'run':(['S','SE','E','NE','N','NW','W','SW'],16,60),'hit':(['E','W'],6,40),'attack':(['E','W'],12,30),'cast':(['E','W'],16,45)}
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def read(p):return json.loads(p.read_text(encoding='utf-8-sig'))
 def write(p,v):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

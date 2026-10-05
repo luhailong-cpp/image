@@ -6,6 +6,7 @@ m=json.loads((R/'manifest.json').read_text(encoding='utf-8'))
 report=[]
 for s in m['sequences']:
  if not s['complete']:continue
+ if '--run-only' in sys.argv and s['action']!='run':continue
  if '--axis-only' in sys.argv and (s['action']!='run' or s['direction'] not in ['E','W']):continue
  if '--full-axis-only' in sys.argv:
   revision=json.loads((R/'review/full-axis-revision-selection-20261005.json').read_text(encoding='utf-8'))
