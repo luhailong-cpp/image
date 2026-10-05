@@ -1,15 +1,14 @@
 {
   "scope": "donghai_lantern r08_c11 row 02 native fragments; fragment-level visual check, not 4K acceptance",
-  "updatedAtUtc": "2026-10-05T13:44:44.519082+00:00",
+  "updatedAtUtc": "2026-10-05T18:42:20.814492+00:00",
   "savedFragments": [
     "r02_c01",
     "r02_c02",
-    "r02_c03"
-  ],
-  "pendingFragments": [
+    "r02_c03",
     "r02_c04"
   ],
-  "pendingReason": "Exact day native r02_c04 pixels and generation record not ready at last prepare check.",
+  "pendingFragments": [],
+  "pendingReason": null,
   "nativePixels": [
     1254,
     1254
@@ -56,15 +55,36 @@
       "finding": "Vertical color/highlight step at x=230 across blue roof tiles. Tile arrangement broadly continuous, but uncorrected hard join is visible.",
       "passed": false,
       "action": "Local overlap color matching may be sufficient; preserve geometry and record masks/field and verify after correction. Repaint if structural displacement is found."
+    },
+    {
+      "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\row02-north-c04-native.png",
+      "viewedAtNativePixels": true,
+      "finding": "Horizontal hue/brightness step at strip y=230 across roof tiles, pale wall and right timber. Broad structural contours continue.",
+      "passed": false,
+      "action": "Local overlap color matching with retained correction field and masks; review 1:1 result."
+    },
+    {
+      "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\row02-east-c03-native.png",
+      "viewedAtNativePixels": true,
+      "finding": "Vertical warmth/brightness step at x=230. More significantly, pale-wall cast-shadow boundary is discontinuous: left diagonal shadow ends much lower than right boundary, producing a large abrupt shadow shape change. This is not only a color seam.",
+      "passed": false,
+      "action": "Coordinate correction with shared day geometry. Repaint the missing/inconsistent shadow shape; do not conceal structural discontinuity by feathering."
+    },
+    {
+      "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\row02-east-c03-day-native.png",
+      "viewedAtNativePixels": true,
+      "finding": "Read-only day source hard join confirms the pale-wall shadow discontinuity already exists in day r02_c03/r02_c04. Festival conversion retained the inconsistent source shadow geometry.",
+      "passed": false,
+      "action": "Resolve shared shadow geometry before cross-appearance or full-tile acceptance."
     }
   ],
   "wholeImageReview": {
     "r02_c01": "Day tree trunk, principal leaf groups and lower-right blue eave retained. Warm yellow edge lights and stronger lavender-dark backdrop introduced. No new structures seen.",
     "r02_c02": "Roof ridge, rounded end caps, tile rows, wood beams and pale wall retain broad day geometry. Strong warm highlights appear along many tile edges and wall patches; may be more intense than restrained-light target.",
-    "r02_c03": "Tile rows, diagonal roof rim, timber and lower-right wall board retain broad day geometry. Warm roof highlights are stronger and blue saturation shifts relative to c02; requires seam treatment."
+    "r02_c03": "Tile rows, diagonal roof rim, timber and lower-right wall board retain broad day geometry. Warm roof highlights are stronger and blue saturation shifts relative to c02; requires seam treatment.",
+    "r02_c04": "Day blue roof corner, timber roof structure, main support, red cloth and rail remain broadly located as source. Warm highlights and lavender wall shadows were added. Neighbor day source already has a cast-shadow discontinuity, confirmed by day-only native join."
   },
   "unchecked": [
-    "r02_c04",
     "west r08_c10 common edge",
     "south interfaces",
     "all four-way junctions",
@@ -75,5 +95,9 @@
     "All output images visually inspected individually at full returned size.",
     "No numerical or client geometry acceptance claimed.",
     "QA hard joins expose raw differences; no corrections applied in this subtask."
+  ],
+  "rowNativeProductionComplete": true,
+  "blockingStructuralFindings": [
+    "Inherited day r02_c03/r02_c04 pale-wall cast-shadow discontinuity, evidence row02-east-c03-day-native.png."
   ]
 }
