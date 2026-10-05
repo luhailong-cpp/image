@@ -41,7 +41,7 @@ def finalize(action, direction, frame, source, receipt, review):
       'configSnapshot':CONFIG,'submittedParameters':{'model':None,'quality':None,'transparent_background':True},
       'actualModel':None,'actualQuality':None,
       'unverifiedReason':'宿主管理；内置工具未开放 model/quality 选择器，也未披露实际返回版本/质量。',
-      'prompt':f'prompts/{action}/{direction}/{frame:02}.txt',
+      'prompt':rec.get('promptPath',f'prompts/{action}/{direction}/{frame:02}.txt'),
       'references':rec.get('arguments',{}).get('referenced_image_paths',[]),
       'evidence':{'receipt':receipt.relative_to(ROOT).as_posix(),'toolResultFields':['image_url','output_hint']},
       'native':{'path':str(source),'width':native.width,'height':native.height,'mode':native.mode,'sha256':sha(source),'retained':True},
