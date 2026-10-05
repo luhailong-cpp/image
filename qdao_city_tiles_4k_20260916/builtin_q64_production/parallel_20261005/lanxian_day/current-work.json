@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "appearance": "lanxian_day",
-  "updatedAtUtc": "2026-10-05T16:09:30.289841+00:00",
+  "updatedAtUtc": "2026-10-05T20:39:55.887010+00:00",
   "targetTiles": 256,
   "targetTilePixels": [
     4096,
@@ -18,16 +18,16 @@
   "wholeCityComplete": false,
   "runtimePublished": false,
   "formalAccepted": 0,
-  "newComplete4KCandidates": 0,
-  "nativeDetailPatchesGenerated": 15,
+  "newComplete4KCandidates": 1,
+  "nativeDetailPatchesGenerated": 16,
   "baselineCandidateCount": 3,
   "baselineCurrent": false,
-  "status": "complete_candidate_pending_full_seam_review",
-  "currentTile": "r08_c09",
-  "currentPhase": "full_4k_visual_qa",
-  "nextAction": "Inspect all internal seams,9intersections,4corners,all perimeter and west shared edge; repair only concrete defects then extend next missing tile.",
+  "status": "adjacent_tile_native_production",
+  "currentTile": "r08_c10",
+  "currentPhase": "regional/nativeproduction",
+  "nextAction": "Continue r08_c10 native generation using retained registration-west/v3 west context; its east230 exactly matches selected c09. Recheck neighboring edges when complete. Formal art/client/whole-city acceptance remains pending.",
   "pixelRectXYWH": [
-    32768,
+    36864,
     28672,
     4096,
     4096
@@ -65,19 +65,150 @@
   },
   "lastHandoffCheckUtc": "2026-10-05T11:03:08.639257+00:00",
   "preflightComplete": true,
-  "preview": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\current-preview.png",
-  "previewRole": "Downsample of actual complete native-pixel candidate; all seams pending detailed visual QA",
+  "preview": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\selected\\preview1024.png",
+  "previewRole": "Qualified complete r08_c09 candidate overview; downsample only. Adjacent r08_c10 in native production.",
   "layoutAudit": "preflight/layout-audit.json",
   "legacyPatchReuseReview": "preflight/legacy-c09-reuse/visual-review.json",
   "productionAuthorized": true,
   "nativeDetailPatchesReused": 1,
-  "regionalGuidesGenerated": 1,
-  "nativeDetailPatchesAvailable": 16,
-  "completePixelCandidatesUnreviewed": 1,
-  "candidateFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\candidate\\core4096.png",
-  "candidateSha256": "bd9dea258c2cfd6a8c1843b1b6d0bf54b9aa595917a87f6b9755e8aca698317e",
+  "regionalGuidesGenerated": 2,
+  "nativeDetailPatchesAvailable": 17,
+  "completePixelCandidatesUnreviewed": 0,
+  "candidateFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\selected\\core4096.png",
+  "candidateSha256": "f234b170956464dd3233207d38d6520d5388942b771a5b25c32683c4cecfdbeb",
   "candidatePixels": [
     4096,
     4096
-  ]
+  ],
+  "rawQaCoverage": {
+    "internalSeamSegments": 24,
+    "intersections": 9,
+    "corners": 4,
+    "outerEdgeSegments": 16,
+    "externalWestSegments": 4,
+    "allViewed": true
+  },
+  "rawQaReports": [
+    "r08_c09/qa/vertical-review.json",
+    "r08_c09/qa/horizontal-root-review.json",
+    "r08_c09/qa/west-corner-review.json"
+  ],
+  "toneProcessing": "r08_c09/tone-v3/processing.json",
+  "phase": "regional/nativeproduction",
+  "qualifiedComplete4KCandidate": true,
+  "clientValidated": false,
+  "candidateTile": "r08_c09",
+  "selectedDeliveryManifest": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\selected\\delivery.manifest.json",
+    "sha256": "183a79130503dab8e9097036ac50ad575fe5e1687bebd685952396ec23d904bd"
+  },
+  "westRegistration": "r08_c09/registration-west/v3/registration.manifest.json",
+  "tileSourceCounts": {
+    "r08_c09": {
+      "newNativeGenerated": 15,
+      "nativeReused": 1,
+      "nativeAvailable": 16,
+      "qualifiedComplete4KCandidates": 1
+    },
+    "r08_c10": {
+      "newNativeGenerated": 1,
+      "nativeReused": 0,
+      "nativeAvailable": 1,
+      "qualifiedComplete4KCandidates": 0
+    }
+  },
+  "nativeCountScope": "Current task totals; per-tile counts explicitly preserved. c09 is15 generated+1 reused. c10 count is verified ingested native records at summary write time.",
+  "c10NativeSnapshot": [
+    {
+      "cell": "r01_c01",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\native\\r01_c01.png",
+      "sha256": "b9519134bd830f09d721c2ddfa1180bec650497161f0ecddd035c0ac2fbcf51a",
+      "generationRecord": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\native\\r01_c01.png.generation.json",
+        "sha256": "ff0c1610736944975b65e90fe6b28702cbbe5a8c8782265738ad0553ee5be318"
+      }
+    }
+  ],
+  "lastCompletedTile": "r08_c09",
+  "lastCompletedTileFormalAccepted": false,
+  "qaSummary": {
+    "scope": "57 raw inspection scopes inherited through exact pixel provenance, complete changed-band reviews, and one new original-pixel merge-boundary comparison. Not a claim that every4096-square pixel was visually inspected or that adjacent ungenerated tiles were validated.",
+    "rawCoreSha256": "bd9dea258c2cfd6a8c1843b1b6d0bf54b9aa595917a87f6b9755e8aca698317e",
+    "rawUniqueScopeCount": 57,
+    "rawCoverage": {
+      "verticalInternalSeamSegments": 12,
+      "horizontalInternalSeamSegments": 12,
+      "internalCrossings512Square": 9,
+      "outerEdgeSegments": 16,
+      "ownCorners512Square": 4,
+      "externalWestSegments": 4,
+      "eachInternalSeamLengthPixels": 4096,
+      "eachOuterEdgeLengthPixels": 4096,
+      "externalWestLengthPixels": 4096,
+      "allListedScopesActuallyViewedAtOriginalPixelsByTeam": true
+    },
+    "rawReviewCoverage": [
+      {
+        "report": {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\qa\\vertical-review.json",
+          "sha256": "58a13c3746e80812781712fda3e8e8081ab29ed6ceb84eb1690e3a792ab471f3"
+        },
+        "reviewer": "layout_audit",
+        "scopeCount": 21,
+        "scopes": "12 vertical seam segments plus9 internal crossings"
+      },
+      {
+        "report": {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\qa\\horizontal-root-review.json",
+          "sha256": "892a33d27af936da715542b08e26b503085fb59d8109c920bce4d836711cb288"
+        },
+        "reviewer": "root",
+        "scopeCount": 24,
+        "scopes": "12 horizontal seam segments plus12 north/east/south outer edge segments"
+      },
+      {
+        "report": {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\qa\\west-corner-review.json",
+          "sha256": "d37fe1b0c0ce3be48ae4d6ed6f0ce55536bf92b3146851cb3cd6ebe367843fe8"
+        },
+        "reviewer": "workflow_helper",
+        "scopeCount": 12,
+        "scopes": "4 full west neighbor comparison segments plus4 own west edge segments plus4 own corners"
+      }
+    ],
+    "repairReviews": [
+      {
+        "report": {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v2\\review.json",
+          "sha256": "13113311845fb72d50deb6651c75b119740da140cc1f80fc10daa09df5d33d2a"
+        },
+        "originalPixelComparisonBoardCount": 23,
+        "scope": "All12 horizontal seam segments,2 selected x1024 vertical portions and9 crossings. One new RGBstripe at core x1264:1360,y2944:3200 required correction; other reviewed scopes had no newly observed hard stripe/geometric discontinuity."
+      },
+      {
+        "report": {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\review.json",
+          "sha256": "9e5ea5263e0e78aafb997ae1b89b0798da800d3e51e90885ca4f3e39863b9e6b"
+        },
+        "originalPixelComparisonBoardCount": 4,
+        "scope": "Localized y3072 field undo, full changed field and adjacent crossing. All4 viewed; new stripe removed, taper and grooves remained continuous. Supersedes tone-v2 requiredRepair; earlier minor brush-scale differences retained."
+      },
+      {
+        "report": {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\review.json",
+          "sha256": "c8dfd05097a784b7b8e6185362cbb24b2a33b8f5f5b43513c3bc74ea1ed086e2"
+        },
+        "originalPixelImageCount": 12,
+        "scope": "Full4096 west neighbor edge,full4096 own west edge and4 own corners. Earlier5-9px offsets reduced to max1px measured residual. No obvious new gap, missing geometry or exposure band in reviewed scope."
+      }
+    ],
+    "mergePreservesReviewedPixels": {
+      "toneV3ChangedRegionExactlyPreserved": true,
+      "registrationV3ChangedRegionExactlyPreserved": true,
+      "noChangesOutsideUnionOfReviewedDerivationSupports": true,
+      "rawUnchangedScopesNotReopenedDuringMerge": true
+    },
+    "formalAcceptanceEstablished": false
+  },
+  "retention": "No images deleted. registration-west/v3 is still referenced by r08_c10; raw16 retained for parent source-reference audit."
 }
