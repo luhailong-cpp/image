@@ -22,8 +22,8 @@ def main():
                 'supportFoot': foot,
                 'positionSegment': i % 8 // 2 + 1,
                 'frameWithinPair': i % 2 + 1,
-                'pairDurationMs': 150,
-                'interpretation': '同一足连续支撑四个两帧位置段；中部两段共四帧，前后各两帧。',
+                'pairDurationMs': 120,
+                'interpretation': '同一支撑足沿行进轴在连续相对位置各用两张独立姿态过渡，每位置120ms，然后换足。',
                 'evidenceScope': 'static_sequence_review_only',
                 'anatomicalFootConfidence': 'medium' if direction == 'SE' and frame in (8,9,10) else 'reviewed_static'
             }
@@ -54,7 +54,8 @@ def main():
     if 'reviewFinalizedAt' in manifest:
         manifest['supersededReviewFinalizedAt'] = manifest.pop('reviewFinalizedAt')
     manifest['sourceRetention']['currentDesignPolicy'] = '当前入选且仍存在的原生图保留用于待完成动态复核；淘汰源图及中间图清理，来源文字保留。'
-    manifest['sourceRetention']['executionRecords'] = ['audit/retention-executed.json','audit/retention-executed-20261004.json']
+    manifest['sourceRetention']['executionRecords'] = sorted(p.relative_to(ROOT).as_posix() for p in (ROOT/'audit').glob('retention-executed*.json'))
+    manifest['sourceRetention']['note'] = 'source、inventory及逐图来源中的路径记录原生成历史，不承诺历史源像素留存；清理与留存以executionRecords各批次记录和当前技术检查为准。当前入选原生设计在动态复核完成前保留。'
     write(ROOT/'manifest.json', manifest)
     # Current authoritative per-group selection records; historical nested audit snapshots stay untouched.
     for path in (ROOT/'audit').glob('*selection.json'):
@@ -66,7 +67,7 @@ def main():
         write(path,data)
     timing = read(ROOT/'audit/run-timing.json')
     timing['status'] = 'pending_final_dynamic_review'
-    timing['note'] = '当前修复版已导出并完成静态逐帧复核；75ms×16=1200ms。最新动态观感尚未验收，客户端未接入。'
+    timing['note'] = '当前修复版已导出并完成静态逐帧复核；60ms×16=960ms。最新动态观感尚未验收，客户端未接入。'
     for p in timing['profiles']: p['status'] = 'pending_final_dynamic_review'
     write(ROOT/'audit/run-timing.json',timing)
     write(ROOT/'audit/current-support-sequence.json', {'updatedAt':now,'scope':'annotations_only_no_pixel_changes','frames':annotations,'legacyEventsPreserved':True,'dynamicApproval':'pending_final_dynamic_review'})

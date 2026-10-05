@@ -1,13 +1,15 @@
 # 17 灵篆书生 · 动作修复素材包
 
+本次鞋轴返修已完成：N第16帧、NE第07/08/15帧、NW第15帧；其余191张正式帧逐字节保持不变。修改方向已重新正常播放、四分之一慢放和关键相邻帧检查。来源选择见 `review/axis-selected.json`，实播记录见 `review/axis-playback-review.json`。
+
 正式资源见 `runtime/`，完整清单与逐帧 SHA256 见 [manifest.json](manifest.json)。当前验收状态以清单和 [acceptance.json](acceptance.json) 为准。
 
 - [完整动作预览](preview/delivery.html)：正常速度、四分之一慢放、暂停、逐帧和方向切换。
-- [八方向跑步动图](preview/run-current-1200ms.webp)：整张画布以240px显示。
+- [八方向跑步动图](preview/run-current-960ms.webp)：整张画布以240px显示。
 
 | 动作 | 方向 | 每方向帧数 | 每帧 | 一轮 |
 |---|---|---:|---:|---:|
-| 跑步 | N、NE、E、SE、S、SW、W、NW | 16 | 75ms | 1200ms |
+| 跑步 | N、NE、E、SE、S、SW、W、NW | 16 | 60ms | 960ms |
 | 受击 | E、W | 6 | 40ms | 240ms |
 | 普攻 | E、W | 12 | 30ms | 360ms |
 | 施法 | E、W | 16 | 45ms | 720ms |

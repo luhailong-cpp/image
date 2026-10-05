@@ -94,7 +94,7 @@ def render_key_poses(manifest: dict, payload: dict, manifest_sha: str) -> None:
         sources.append({'slot': slot, 'path': row['output'], 'sha256': actual_sha,
                         'sourceSha256': row['derivedFrom']['sha256']})
     complete = payload['offlineReviewedFrames'] == 196 and payload['offlineReviewedGroups'] == 14
-    footer = ('本聊天主审离线复核完成；跑步1200ms正常节奏、75ms/帧（本地）；用户尚未验收，客户端未接入。' if complete
+    footer = ('本聊天主审离线复核完成；跑步960ms正常节奏、60ms/帧（本地）；用户尚未验收，客户端未接入。' if complete
               else '196帧素材已导出；静态逐帧检查完成，最新动态播放观感待验收；客户端未接入。' if payload.get('staticReviewedFrames') == 196
               else '当前为关键姿态预览；本地完整序列审核尚未完成，客户端未接入、未运行验收。')
     draw.text((14, 459), footer, fill='#6b3740', font=font)
@@ -133,6 +133,11 @@ def main() -> None:
     payload['newAttemptsMeaning'] = '保留真实生成记录的历史原生尝试数量；包括已淘汰图，不代表批准帧数。'
     payload['sourcePngPresent'] = sum(1 for _ in (ROOT / 'sources').rglob('*.png'))
     payload['sourceCleanupNote'] = '源图清理不抹掉历史尝试记录；当前成品和来源链以 manifest/derived 为准。'
+    round_path = ROOT / 'audit/video-direction-20261004/repair-result.json'
+    if round_path.is_file():
+        current_round = json.loads(round_path.read_text(encoding='utf-8-sig'))
+        payload['latestRepairRound'] = {key:current_round[key] for key in ['changedCount','runFootRepairs','runHandRepairs','combatHandRepairs','unchangedCount']}
+        payload['latestRepairRound']['record'] = round_path.relative_to(ROOT).as_posix()
     render_key_poses(manifest, payload, manifest_sha)
     (ROOT / 'progress.json').write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     complete = payload['offlineReviewedFrames'] == 196 and payload['offlineReviewedGroups'] == 14
@@ -145,10 +150,13 @@ def main() -> None:
              '- 关键姿态读取当前 runtime/run/E/01、hit/E/03、attack/E/06、cast/E/10，不读取淘汰源图。']
     if payload['offlineReviewRecordIssue']:
         lines.append(f"- 复核记录尚不适用于当前版本：{payload['offlineReviewRecordIssue']}")
+    if payload.get('latestRepairRound'):
+        rr = payload['latestRepairRound']
+        lines.append(f"- 最新视频反馈轮：共替换 {rr['changedCount']} 个独立槽，含跑步脚向 {rr['runFootRepairs']} 帧、跑步摆臂 {rr['runHandRepairs']} 帧、战斗手臂 {rr['combatHandRepairs']} 帧（N11两类重叠），其余 {rr['unchangedCount']} 帧保持原成品 SHA；逐图对照见 {rr['record']}。")
     if complete:
-        lines.append('- 跑步采用1200ms正常节奏、75ms/帧（本地），逐帧时长见 audit/run-timing.json；480ms仅旧基线。')
+        lines.append('- 跑步采用960ms正常节奏、60ms/帧（本地），逐帧时长见 audit/run-timing.json；480ms仅旧基线。')
     else:
-        lines.append('- 跑步1200ms/圈、75ms/帧已按用户要求生效；196张完成静态逐帧复核，最新动态观感待验收。')
+        lines.append('- 跑步960ms/圈、60ms/帧已按用户要求生效；196张完成静态逐帧复核，最新动态观感待验收。')
     lines += ['- 以上为本聊天/主审离线复核记录，用户尚未验收；客户端未接入、未进行客户端运行验收。', '',
               '目标 GPT Image 2.5 Sunburst / max；实际型号、质量和来源按每图真实记录，宿主未披露项保持 null。', '']
     (ROOT / 'STATUS.md').write_text('\n'.join(lines), encoding='utf-8')

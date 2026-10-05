@@ -25,9 +25,25 @@ def main():
  'attack-W':'12张现有成品连图复核；双鞋朝左、蓄势出手收招成立；保留已修脚向和右手扇。',
  'cast-E':'16张现有成品连图复核；双鞋朝右、右手扇左手诀；聚势释放收势可读，保留之前已修的脚位。',
  'cast-W':'16张现有成品连图复核；双鞋朝左、右手扇左手诀；聚势释放收势可读。'}
+ current_round=read(ROOT/'audit/video-direction-20261004/repair-result.json')
+ round_notes={
+ 'run-N':'本轮原生与新版16帧连图复核：01/02/07/08/09/10/11/15支撑靴收回纵向，保留左右交替和屈膝；11另补右腕半抬、扇面向右的中间相位，保留新脚向。',
+ 'run-NE':'本轮原生与新版16帧连图复核：08/09/12/13/15支撑靴从横向长鞋面收回东北透视；脚踝、鞋尖沿前进轴。',
+ 'run-SE':'本轮原生与新版16帧连图复核：04/05支撑靴收回东南透视。鞋尖投影向下改变，不是整腿下移；不按鞋尖最低点重新贴地。',
+ 'run-NW':'本轮原生与新版16帧连图复核：10腾空左靴的鞋底朝向与09/11连续，右支撑靴保持；03补右腕经过远侧身体遮挡的扇手中间相位。',
+ 'run-E':'本轮03右持扇腕收至腰前身侧，左拳向前摆经过身侧；保留已修腿脚。',
+ 'run-W':'本轮03胸肩提前侧转，右手保留腹侧扇、近左拳不握扇柄；保留已修腿脚。',
+ 'run-SW':'本轮原生与新版16帧连图复核：10左支撑鞋尖收回西南轴；13/14为正常前足背屈，保留。',
+ 'attack-W':'本轮复核发现03持扇上臂连到近侧肩，已局部修正远右臂举扇、近左臂空手跨胸，复看02/03/04衔接。'}
+ changed_groups={'-'.join(r['slot'].split('-')[:2]) for r in current_round['changes']}
+ for group in changed_groups:
+  notes[group]+=' '+round_notes[group]
  for r in m['frames']:
   assert sha(ROOT/r['output'])==r['sha256']
- record={'character':ROOT.name,'reviewer':'root','reviewedAt':now,'scope':'static_sequence_and_provenance_only','status':'static_sequence_reviewed_dynamic_pending','frames':[{'slot':r['slot'],'sourceSha256':r['derivedFrom']['sha256'],'outputSha256':r['sha256']} for r in m['frames']],'groups':[{'action':g['action'],'direction':g['direction'],'staticReviewed':True,'dynamicApproved':False,'notes':notes[g['action']+'-'+g['direction']]} for g in m['groups']],'timing':{'runFrameMs':75,'runCycleMs':1200,'pairMs':150},'dynamicReview':{'status':'pending','reason':'Browser automation rejected the local file:// preview under URL security policy; no alternate route attempted. Static frame sequence and encoded timing reviewed; live normal/slow playback not observed for this final revision.'},'remainingObservation':['正常1×与0.25×最新整圈观感、16→01衔接；逐帧复核与时序核验不冒充实际播放验收。','斜向遮挡足别及局部接地点约10–25原生像素变化，未做最低像素贴地。'],'clientIntegration':'not_integrated','clientRuntimeAcceptance':'not_tested','userAcceptance':'not_reviewed_after_latest_repairs'}
+ record={'character':ROOT.name,'reviewer':'root','reviewedAt':now,'scope':'static_sequence_and_provenance_only','status':'static_sequence_reviewed_dynamic_pending','frames':[{'slot':r['slot'],'sourceSha256':r['derivedFrom']['sha256'],'outputSha256':r['sha256']} for r in m['frames']],'groups':[{'action':g['action'],'direction':g['direction'],'staticReviewed':True,'dynamicApproved':False,'notes':notes[g['action']+'-'+g['direction']]} for g in m['groups']],'timing':{'runFrameMs':60,'runCycleMs':960,'pairMs':120},'dynamicReview':{'status':'pending','reason':'Browser automation rejected the local file:// preview under URL security policy; no alternate route attempted. Static frame sequence and encoded timing reviewed; live normal/slow playback not observed for this final revision.'},'remainingObservation':['正常1×与0.25×最新整圈观感、16→01衔接；逐帧复核与时序核验不冒充实际播放验收。','斜向遮挡足别及局部接地点约10–25原生像素变化，未做最低像素贴地。'],'clientIntegration':'not_integrated','clientRuntimeAcceptance':'not_tested','userAcceptance':'not_reviewed_after_latest_repairs'}
+ record['latestRepairRound']={'file':'audit/video-direction-20261004/repair-result.json','sha256':sha(ROOT/'audit/video-direction-20261004/repair-result.json'),'changedCount':current_round['changedCount'],'unchangedCount':current_round['unchangedCount']}
+ record['evidenceMethod']='本轮逐张实际查看新原生图、受影响完整连图；未改帧同时核验旧审核SHA并复看各动作连图。各方向手臂和全腿轴线经过第二审核者复核，发现摆臂缺口后新增候选另经root复看；旧二审SHA只适用于当时图片，不自动扩为新图动态通过。'
+ record['secondaryRunStructureReviews']=[{'file':p,'sha256':sha(ROOT/p)} for p in ['audit/video-direction-20261004/ne-e-se-w-hands-review.json','audit/video-direction-20261004/ns-nw-sw-hands-review.json']]
  p=ROOT/'audit/current-static-review.json';save(p,record)
  evidence={'record':p.relative_to(ROOT).as_posix(),'sha256':sha(p),'reviewer':'root','reviewedAt':now,'scope':record['scope']}
  for r in m['frames']:
