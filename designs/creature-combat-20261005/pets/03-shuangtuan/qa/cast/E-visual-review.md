@@ -46,5 +46,4 @@
 - 历史尝试：`*.attempt*.generation.json`、`*.attempt*.receipt.json`、旧提示词；明确标 superseded，不将历史路径指向的新像素误当旧图
 - 06 的一次 network error 单独保留，失败请求未产生图
 - configSnapshot 目标 gpt-image-2.5-sunburst/max；实际提交和实际返回 model/quality 均为 null，宿主未披露
-- 本目录源图/修正输入暂用于全包仍在进行的总验收与来源核验；主执行者确认全部成品和引用后按项目规则清理，保留文本、SHA和删除标记。未删除宿主默认生成目录，也未删除公共身份/风格源。
-
+- 本组16张正式帧、prompt、receipt与SHA核实后，source/cast/E内21张原生图/修图输入已清理；逐图来源与输入记录已标记删除并保留SHA，详见 E-cleanup.json。未删除宿主默认生成目录、W向源图或公共身份/风格源。
