@@ -11,6 +11,9 @@ def dump(p,v): p.write_text(json.dumps(v,ensure_ascii=False,indent=2),encoding='
 
 def main():
     frames=[]; groups=[]; errors=[]; hashes={}; pixels={}
+    review_file=ROOT/'visual-review.json'
+    review=json.loads(review_file.read_text(encoding='utf-8')) if review_file.exists() else {}
+    reviewed=review.get('frameHashes',{})
     for action,count in COUNTS.items():
         for direction in ['E','W']:
             key=f'{action}/{direction}'; present=[]
@@ -28,12 +31,14 @@ def main():
                 extrema=alpha.getextrema() if alpha else None
                 if extrema is None or extrema[0]!=0 or extrema[1]!=255: errors.append({'type':'alpha','file':str(path)})
                 rec_path=path.with_suffix('.png.generation.json')
+                if not rec_path.exists(): rec_path=ROOT/'provenance'/action/direction/f'{n:02d}.generation.json'
                 if not rec_path.exists(): errors.append({'type':'generation_record_missing','file':str(path)})
                 else:
                     rec=json.loads(rec_path.read_text(encoding='utf-8-sig'))
                     if rec.get('sha256')!=digest: errors.append({'type':'record_sha_mismatch','file':str(path)})
                 event='hit_peak' if action=='hit' and n==3 else 'attack_release' if action=='attack' and n==7 else 'cast_release' if action=='cast' and n==9 else None
                 frame={'file':path.relative_to(ROOT).as_posix(),'action':action,'direction':direction,'index':n,'width':im.width,'height':im.height,'durationMs':DURATIONS[action],'pivot':[0.5,0.08],'anchorTopLeft':[512,942],'event':event,'sha256':digest,'pixelSHA256':pixel,'alphaExtrema':extrema,'alphaBBox':alpha.getbbox() if alpha else None,'generationRecord':rec_path.relative_to(ROOT).as_posix(),'visualStatus':'pending_final_review'}
+                if reviewed.get(frame['file'])==digest: frame['visualStatus']='inspected_static_and_preview'
                 frames.append(frame);present.append(frame)
             groups.append({'id':key,'action':action,'direction':direction,'expectedFrames':count,'durationMs':DURATIONS[action],'totalDurationMs':count*DURATIONS[action],'frames':present})
     manifest={'schemaVersion':1,'character':'岚铎仙','slug':'15-landuoxian','expectedFrameCount':68,'frameCount':len(frames),'generatedAt':datetime.now(timezone.utc).isoformat(),'directions':{'E':'front three-quarter southeast','W':'true back three-quarter northwest'},'exportTransform':{'wholeCanvasResizedTo':[920,920],'offset':[52,37],'outputSize':[1024,1024],'perFrameAlignment':False},'groups':groups,'frames':frames,'clientIntegration':'not_performed'}
@@ -53,6 +58,9 @@ def main():
         board.save(preview/(group['id'].replace('/','-')+'-contact.png'))
     template=(ROOT/'preview-template.html').read_text(encoding='utf-8')
     (preview/'index.html').write_text(template.replace('__GROUP_DATA__',json.dumps(groups,ensure_ascii=False)),encoding='utf-8')
+    for group in groups:
+        single=template.replace('__GROUP_DATA__',json.dumps([group],ensure_ascii=False)).replace('</style>','.grid{grid-template-columns:1fr;max-width:800px;margin:auto}</style>').replace('岚铎仙 · 受击 / 普攻 / 施法',f"岚铎仙 · {group['id']}")
+        (preview/(group['id'].replace('/','-')+'.html')).write_text(single,encoding='utf-8')
     print(json.dumps({'frames':len(frames),'errors':len(errors)},ensure_ascii=False))
 
 if __name__=='__main__': main()
