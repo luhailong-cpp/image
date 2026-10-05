@@ -1,0 +1,48 @@
+{
+  "preparedAtUtc": "2026-10-05T15:35:49.426923+00:00",
+  "patch": "r03_c02-shifted",
+  "version": "v1",
+  "tile": "r08_c10",
+  "globalCropLTRB": [
+    37773,
+    31002,
+    39027,
+    32256
+  ],
+  "tileLocalCropLTRB": [
+    909,
+    2330,
+    2163,
+    3584
+  ],
+  "knownPixels": 786258,
+  "missingPixels": 786258,
+  "knownRegionLTRB": [
+    0,
+    627,
+    1254,
+    1254
+  ],
+  "payload": {
+    "prompt": "Use case: precise-object-edit / exact upward terrain outpainting.\nReturn one fully opaque 1254 by 1254 square, exactly image1's framing. This is a close-up continuous game plaza pavement for 五行奇谈.\nIMAGE 1 is the authoritative EDIT TARGET. Its entire BOTTOM HALF, 627 rows y=627..1253, is completed native artwork. Keep this known half unchanged: exact positions, widths, curved tangents, depth and shading of the three slate-gray inset panels and all ivory/gold divider edges. Only the TOP HALF, y=0..626, is transparent and missing. Paint the missing upper half by extending the visible slab borders upward from precisely the same native contour endpoints. There is no known left strip. Do not recenter, widen, straighten or shift the visible gray columns. No replacement of the known lower half by a fresh interpretation.\nIMAGE 2 is the original broad structural layout at these exact world coordinates, ONLY for the missing top half. It establishes a substantial horizontal IVORY STONE CROSS-BAND spanning the entire width at approximately y=303..393, joining the ivory vertical dividers and separating the gray upper slabs from gray lower slabs. Newly render this real broad ivory stone band with its restrained rounded bevel, and continue the original vertical structures into the bottom native half. The lower native contour positions from image1 take priority over the blurry guide: never relocate the native columns to the guide. The cross-band is broad ivory stone, NOT thin dark seams inside gray slabs. No invented extra paving divisions. Do not copy enlarged pixels, blur or grain from image2.\nIMAGE 3 is the approved PRIMARY STYLE reference only: bright clean plump rounded Q/chibi Daoist fantasy handpainting, quiet warm ivory stone and restrained gold bevels, neutral slate stone, controlled sculpted shading. Do not import UI, text, figures, icons, props or decorative motifs.\nThe transparent boundary at y=627 is not a stone joint or object. Make one continuous surface across it without any new horizontal seam, bevel, shadow, frame or color rectangle. The true ivory cross-band is around y=303..393, well ABOVE the former transparent boundary. Preserve every known pixel as closely as possible and create crisp new native detail in the missing half only. No buildings, foliage, characters, symbols, text, watermark, border or collage. No zoom, camera move, rotation or rescaling. No extra marble veins, cracks, speckles, grunge or dense mottled texture. Highest available visual finish; output only the exact opaque terrain crop.",
+    "referenced_image_paths": [
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r08_c10\\r03_c02-shifted-v1\\context.png",
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r08_c10\\r03_c02-shifted-v1\\layout-reference-only.png",
+      "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png"
+    ],
+    "transparent_background": false
+  },
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-04",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  }
+}
