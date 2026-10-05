@@ -1,6 +1,6 @@
 'use strict';
 const ActionTiming = (() => {
-  function durations(action, frames) { return frames.map(f => action === 'run' ? 75 : f.durationMs); }
+  function durations(action, frames) { return frames.map(f => action === 'run' ? 60 : f.durationMs); }
   function total(ds) { return ds.reduce((sum, n) => sum + n, 0); }
   function frameAt(time, ds) {
     const cycle=total(ds), t=((time%cycle)+cycle)%cycle;

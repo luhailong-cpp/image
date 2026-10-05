@@ -172,11 +172,13 @@
     },
     {
       "slot": 3,
-      "source": "generation/W/03-v1.png",
-      "sourceSha256": "3269c2ac8734bef95a146b871d940ec53fd0f0d02c2d15648196654db499c8b4",
-      "observedPhase": "近左承重足向髋下移动，远右摆腿折膝",
+      "source": "generation/W/03-anatomy-v2.png",
+      "sourceSha256": "b5d034f4900750a188a2ddb7d70664a20560fe8373da605dbab6c90850d6a564",
+      "observedPhase": "右灯臂收向身侧中间位，左瓶与原支撑相位保持。",
       "issues": [
-        "头部未随承重降低；摆臂仍接近01前极值"
+        "03→04灯碗仍约470px跨度；并非理想等距中点，应由主审连播决定是否够用。",
+        "灯碗投影宽较原图缩小约15%，不得声称道具体量完全锁定。",
+        "本图只改原生候选，不代表选表、导出或客户端验收。"
       ],
       "durationMs": 60,
       "visualAccepted": false,
@@ -185,16 +187,14 @@
         1254
       ],
       "alphaGt8Bounds": [
-        50,
-        61,
-        1239,
-        1193
+        239,
+        67,
+        1237,
+        1191
       ],
-      "diagnosticLowestShoeY": 1192,
-      "diagnosticFloorClearance": -13,
       "measurementNote": "Lowest shoe visually identified as lowest occupied feature in selected image; alpha>8 bbox bottom is diagnostic, not ground alignment.",
       "frame": 3,
-      "sourceGenerationRecord": "generation/W/03-v1.png.generation.json",
+      "sourceGenerationRecord": "generation/W/03-anatomy-v2.png.generation.json",
       "sourceDimensions": [
         1254,
         1254
@@ -204,24 +204,16 @@
       "positionPair": 2,
       "continuousSupportCandidate": true,
       "footAxis": "screen_left",
-      "manualContactPointNative": [
-        525,
-        1192
-      ],
-      "footPoint": [
-        525,
-        1192
-      ],
       "contactPointMeaning": "人工确认支撑鞋及ROI；x为鞋中心约测，y为该ROI alpha>8最低占用像素。仅画布诊断，非世界地面/客户端验收；无对齐变换。",
       "nativeBoundsAlphaGt8": [
-        50,
-        61,
-        1239,
-        1193
+        239,
+        67,
+        1237,
+        1191
       ],
       "clientAccepted": false,
       "file": "candidate/run/W/03.png",
-      "sha256": "6bb5d002659c7d01cfd3bcb94ee29dcbda6d04d14a4d1ecc6b77d776ae92d41f",
+      "sha256": "9522cf241a0a61f8d0c6972282a19895472df20e91bf7e82d1a41c0178fd1b6e",
       "generationRecord": "candidate/run/W/03.png.generation.json",
       "exportTransform": {
         "type": "full_canvas_uniform_downscale",
@@ -246,11 +238,12 @@
     },
     {
       "slot": 4,
-      "source": "generation/W/04-v3.png",
-      "sourceSha256": "425ccfd3730bae4385773507a160b404075f07d987520c9320a6ea6967d2060f",
-      "observedPhase": "近左髋下全掌承重，远右膝通过；原正确瓶近灯远摆臂保留",
+      "source": "generation/W/04-anatomy-v1.png",
+      "sourceSha256": "31c1c03c97fd2b3696ebce7e0829ed2e3e04c3ab07e7cfff4713a0e0846f3d5e",
+      "observedPhase": "右灯臂回收，衔接03与05，近左瓶与原腿保持。",
       "issues": [
-        "04-v3保留近左瓶/远右灯肩臂链，灯经过后髋中位再接05后极值；支撑底约1206，未移图贴地"
+        "实际只回收约90px，未达到提示的x650；03v2→04仍约380px跨度，需按连播审阅，不宣称完全均匀。",
+        "投影位置是人工约测；相同全图alpha界不等于每个像素完全保持。"
       ],
       "durationMs": 60,
       "visualAccepted": false,
@@ -264,11 +257,9 @@
         1244,
         1207
       ],
-      "diagnosticLowestShoeY": 1206,
-      "diagnosticFloorClearance": -27,
       "measurementNote": "Lowest shoe visually identified as lowest occupied feature in selected image; alpha>8 bbox bottom is diagnostic, not ground alignment.",
       "frame": 4,
-      "sourceGenerationRecord": "generation/W/04-v3.png.generation.json",
+      "sourceGenerationRecord": "generation/W/04-anatomy-v1.png.generation.json",
       "sourceDimensions": [
         1254,
         1254
@@ -278,14 +269,6 @@
       "positionPair": 2,
       "continuousSupportCandidate": true,
       "footAxis": "screen_left",
-      "manualContactPointNative": [
-        620,
-        1206
-      ],
-      "footPoint": [
-        620,
-        1206
-      ],
       "contactPointMeaning": "人工确认支撑鞋及ROI；x为鞋中心约测，y为该ROI alpha>8最低占用像素。仅画布诊断，非世界地面/客户端验收；无对齐变换。",
       "nativeBoundsAlphaGt8": [
         208,
@@ -295,7 +278,7 @@
       ],
       "clientAccepted": false,
       "file": "candidate/run/W/04.png",
-      "sha256": "cd4604a58159b88e66a25faefd1528004f10cce5af792eca2a5f79a49b32a255",
+      "sha256": "27cb8454d5a3e1c036af7a212971c4751b59e17cc80e817c21c2afb4c29fd2a1",
       "generationRecord": "candidate/run/W/04.png.generation.json",
       "exportTransform": {
         "type": "full_canvas_uniform_downscale",
@@ -1308,8 +1291,9 @@
     ],
     "alignmentApplied": false
   },
-  "updatedAt": "2026-10-05T04:53:03.112667-04:00",
+  "updatedAt": "2026-10-05T06:32:39.911853-04:00",
   "latestAxisRevision": "review/axis-revision-decisions-20261004.json",
+  "latestAnatomyRevision": "review/anatomy-revision-decisions-20261005.json",
   "root": {
     "native": [
       610,
@@ -1324,5 +1308,5 @@
     962.755980861244
   ],
   "exportCanvas": 1024,
-  "exportedAt": "2026-10-05T04:53:59.044973-04:00"
+  "exportedAt": "2026-10-05T06:32:41.147288-04:00"
 }

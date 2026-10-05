@@ -74,6 +74,7 @@ readme=f"""# 03 莲花医者 · 动作修复
 - [全部动作预览](preview/actions.html)：动作/方向切换，正常1×、0.25×、逐帧，128/256/512px；跑步统一960ms一圈、16帧各60ms，已移除旧快档。缺帧保留空槽。
 - [竹弓少女指定参照](../09_bamboo_archer_girl/preview/index.html)：只读对照同方向姿态；保留莲花少女外形与持物。旧index/new-run入口自动进入当前全部动作。
 - [逐组真实进度](review/production-status.json)、[当前选帧](review/all-actions-selection.json)、[来源与SHA](review/source-index.csv)、[合并交接](MERGE_HANDOFF.md)。
+- [1024透明动作素材](candidate/)；当前原生母稿在[generation](generation/)；本轮提示词逐张列在[修订清单](review/anatomy-revision-decisions-20261005.json)。
 
 {table_text}
 

@@ -191,24 +191,37 @@
     "units": "export_canvas_pixels",
     "status": "declared_layout_target_not_pixel_verified"
   },
-  "frameDurationMs": 75,
+  "frameDurationMs": 60,
   "review": {
     "status": "visual_passed",
     "automaticallyApproved": false,
-    "reviewedAt": "2026-10-04T20:50:35.472527+00:00",
-    "scope": "当前196张离线素材人工视觉核准。跑步八向每支撑脚连续8帧，每2张真实独立姿态推进一个相对位置段，16×75ms=1200ms。战斗68张E/W保留原时序。客户端未接入。",
-    "reviewer": "04山岳守卫专属根窗口，结合角色内分工制作与独立复核",
+    "reviewedAt": "2026-10-05T09:17:23.732157+00:00",
+    "scope": "当前196张静态脚轴、可见手臂和持物连续复核；浏览器离线正常/慢放抽查。W解剖支撑侧及客户端世界地面未确认。",
+    "reviewer": "root（结合三组人工分工观察，根复核全部14组连图及全部本轮关键补修原图）",
     "priorReview": {
       "status": "visual_passed",
       "automaticallyApproved": false,
-      "note": "尺寸与哈希登记不等于美术通过；review-status 是调用者显式声明。"
+      "reviewedAt": "2026-10-04T20:50:35.472527+00:00",
+      "scope": "当前196张离线素材人工视觉核准。跑步八向每支撑脚连续8帧，每2张真实独立姿态推进一个相对位置段，16×75ms=1200ms。战斗68张E/W保留原时序。客户端未接入。",
+      "reviewer": "04山岳守卫专属根窗口，结合角色内分工制作与独立复核",
+      "priorReview": {
+        "status": "visual_passed",
+        "automaticallyApproved": false,
+        "note": "尺寸与哈希登记不等于美术通过；review-status 是调用者显式声明。"
+      },
+      "sourceBoundSha256": "841b5649c123ac175a7df3589c68cd4f6bbcc45f99a387f52ac9100fde521f13",
+      "clientDynamicStatus": "not_integrated",
+      "approvalRecord": "provenance/audit/stancepairs_final_visual_approval_20261004.json",
+      "approvalSha256": "4dbe4a34779edf3bd5f727d14cab8bc4f369edde82d7e54e68ae275923053632",
+      "independentPoseObserved": true,
+      "observation": "NE 01：解剖右脚持续承重；背向鞋跟/远侧鞋尖可辨，无明显侧向外撇；同组连图观察独立膝踝及手臂相位。"
     },
     "sourceBoundSha256": "841b5649c123ac175a7df3589c68cd4f6bbcc45f99a387f52ac9100fde521f13",
     "clientDynamicStatus": "not_integrated",
-    "approvalRecord": "provenance/audit/stancepairs_final_visual_approval_20261004.json",
-    "approvalSha256": "4dbe4a34779edf3bd5f727d14cab8bc4f369edde82d7e54e68ae275923053632",
+    "approvalRecord": "provenance/audit/video_axis_final_visual_approval_20261005.json",
+    "approvalSha256": "9cb1677966f74573ae65325bbb7e8909f87de575c191e382abae8fc96086786d",
     "independentPoseObserved": true,
-    "observation": "NE 01：解剖右脚持续承重；背向鞋跟/远侧鞋尖可辨，无明显侧向外撇；同组连图观察独立膝踝及手臂相位。"
+    "observation": "右脚接地，左脚抬起；鞋底长轴沿摆腿，保留近远侧透视。；手部：右手在近侧持杖，左盾侧后摆；肩肘腕连接顺畅。"
   },
   "clientIntegration": "not_integrated",
   "replacement": {
@@ -216,27 +229,63 @@
     "retiredRecord": "provenance/run/NE_01_retired_b2be601fc922.generation.json"
   },
   "runTiming": {
-    "offlinePreviewDefaultLoopMs": 1200,
-    "offlinePreviewFrameMs": 75,
+    "offlinePreviewDefaultLoopMs": 960,
+    "offlinePreviewFrameMs": 60,
     "offlinePreviewFrameDurationsMs": [
-      75,
-      75,
-      75,
-      75,
-      75,
-      75,
-      75,
-      75,
-      75,
-      75,
-      75,
-      75,
-      75,
-      75,
-      75,
-      75
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60
     ],
     "clientApprovedLoopMs": null,
-    "status": "user_selected_offline_1200_client_unconfirmed"
-  }
+    "status": "user_selected_offline_960_client_unconfirmed",
+    "updatedAt": "2026-10-05T09:22:21.854380+00:00",
+    "updateRecord": "provenance/audit/export_video_axis_precleanup_snapshot_20261005.json"
+  },
+  "timingHistory": [
+    {
+      "frameDurationMs": 75,
+      "runTiming": {
+        "offlinePreviewDefaultLoopMs": 1200,
+        "offlinePreviewFrameMs": 75,
+        "offlinePreviewFrameDurationsMs": [
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75,
+          75
+        ],
+        "clientApprovedLoopMs": null,
+        "status": "user_selected_offline_1200_client_unconfirmed"
+      },
+      "supersededAt": "2026-10-05T09:22:21.854380+00:00",
+      "migrationSnapshot": {
+        "path": "provenance/audit/export_video_axis_precleanup_snapshot_20261005.json",
+        "sha256": "51a0c6eca36061d25dc4dd17661da559f3956e05e658eeca8ccd22291c994e52"
+      }
+    }
+  ]
 }

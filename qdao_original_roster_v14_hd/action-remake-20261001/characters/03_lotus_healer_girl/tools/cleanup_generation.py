@@ -192,7 +192,7 @@ def verify_selections():
                     op.get("crop") is None and op.get("perFrameFitting") is False and
                     op.get("alphaPreserved") is True, f"Unsupported export operation: {exported}")
             if action == "run":
-                require(f.get("durationMs") == 75, f"Run timing must remain75ms: {key}/{number}")
+                require(f.get("durationMs") == 60, f"Run timing must remain60ms: {key}/{number}")
             native_info, export_info = pair_check(source, exported, source_hash, export_hash)
             require(op.get("from") == native_info["size"], "Native operation size mismatch")
             declared_native = src_meta.get("native", {})

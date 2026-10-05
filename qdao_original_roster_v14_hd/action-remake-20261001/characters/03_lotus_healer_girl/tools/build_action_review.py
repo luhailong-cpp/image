@@ -8,8 +8,8 @@ from PIL import Image, ImageDraw
 BASE = Path(__file__).resolve().parent.parent
 GROUPS = [("run", d, 16) for d in ("E", "NE", "N", "NW", "W", "SW", "S", "SE")] + [(a, d, n) for a, n in (("hit", 6), ("attack", 12), ("cast", 16)) for d in ("E", "W")]
 STAMP = datetime.now(ZoneInfo("America/New_York")).isoformat()
-RUN_FRAME_MS = 75
-RUN_CYCLE_MS = 1200
+RUN_FRAME_MS = 60
+RUN_CYCLE_MS = 16 * RUN_FRAME_MS
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def rel(p): return os.path.relpath(p, BASE).replace("\\", "/")
 def read(p): return json.loads(p.read_text(encoding="utf-8-sig"))
@@ -31,6 +31,10 @@ for action, direction, expected in GROUPS:
             source_frame["durationMs"] = RUN_FRAME_MS
             if "startMs" in source_frame:
                 source_frame["startMs"] = (int(source_frame.get("frame", source_frame.get("slot")))-1)*RUN_FRAME_MS
+        for event in inp.get("contactEvents", []):
+            number = event.get("frame", event.get("slot"))
+            if number:
+                event["atMs"] = (number-1)*RUN_FRAME_MS + event.get("cycleOffset",0)*RUN_CYCLE_MS
         if inp.get("contactEvents"):
             inp["events"] = [dict(event, frame=event.get("frame",event.get("slot")), type=event.get("type",event.get("event")), timeMs=(int(event.get("frame",event.get("slot")))-1)*RUN_FRAME_MS) for event in inp["contactEvents"]]
         for event in inp.get("events", []):
@@ -44,9 +48,11 @@ for action, direction, expected in GROUPS:
                 event["type"] = event_type
                 event["timeMs"] = (number-1)*RUN_FRAME_MS + event.get("cycleOffset",0)*RUN_CYCLE_MS
                 if "startMs" in event: event["startMs"] = event["timeMs"]
+                if "atMs" in event: event["atMs"] = event["timeMs"]
+                if "cycleBoundaryMs" in event: event["cycleBoundaryMs"] = RUN_CYCLE_MS
         if "durationMs" in inp: inp["durationMs"] = RUN_CYCLE_MS
         if "totalDurationMs" in inp: inp["totalDurationMs"] = RUN_CYCLE_MS
-        if "timingBasis" in inp: inp["timingBasis"] = "1200ms per cycle; 16 independent frames at uniform75ms; offline default, client unconfirmed"
+        if "timingBasis" in inp: inp["timingBasis"] = f"{RUN_CYCLE_MS}ms per cycle; 16 independent frames at uniform{RUN_FRAME_MS}ms; offline default, client unconfirmed"
         write(inp_path, inp)
     root = inp.get("root") or {"native": inp.get("nativeRoot"), "nativeCanvas": inp.get("canvas", inp.get("nativeCanvas")), "status": "provisional_not_client_approved", "alignmentApplied": False}
     if isinstance(root.get("nativeCanvas"), list):
@@ -124,7 +130,7 @@ with (BASE/"review/selected-source-index.csv").open("w",encoding="utf-8-sig",new
 manifest=read(BASE/"manifest.json") if (BASE/"manifest.json").exists() else {}
 manifest.update(schemaVersion=2,character="03_lotus_healer_girl",status="in_progress_not_all_actions_complete",updatedAt=STAMP,allActionsSelection="review/all-actions-selection.json",technicalVerification="review/all-actions-technical-verification.json",client="not_integrated_not_tested")
 manifest["animationTiming"] = "animation-timing.json"
-manifest["runDefault"] = dict(frameMs=75, cycleMs=1200, frames=16, mode="uniform", offlineApplied=True, clientVerified=False)
+manifest["runDefault"] = dict(frameMs=RUN_FRAME_MS, cycleMs=RUN_CYCLE_MS, frames=16, mode="uniform", offlineApplied=True, clientVerified=False)
 manifest.setdefault("counts",{}).update(finalTotalTarget=196,selectedCandidateExported=len(all_rows),visualAccepted=0,clientAccepted=0)
 for g in groups:
     if not g.get("selection"): continue
