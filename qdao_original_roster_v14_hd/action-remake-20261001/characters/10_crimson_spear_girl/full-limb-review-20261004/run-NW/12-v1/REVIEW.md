@@ -1,0 +1,1 @@
+Rejected: generated frame enlarged/repositioned the whole character, with head and spear near upper edge and excessive leg extension. Does not meet fixed framing or continuity. Native and full request retained until final verified cleanup; never published.
