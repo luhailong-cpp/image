@@ -50,12 +50,16 @@
     },
     {
       "path": "D:/work/image/designs/creature-combat-20261005/pets/08-zhufengli/runtime/cast/E/09.png",
-      "role": "same-direction previous-frame continuity"
+      "role": "edit target: rejected initial release effect; identity and body pose preserved",
+      "atSubmissionSHA256": "e4143ff707afdd2acbbfd3eb6135a46ef1a7528c755856033a99e11f3475c3eb",
+      "historicReceipt": "receipts/cast-E-09.rejected-01.json"
     }
   ],
   "visualInspection": {
-    "status": "pending",
-    "notes": "Model to inspect returned image and exported frame."
+    "status": "inspected-all-single-frames",
+    "method": "builtin returned image per generated frame plus 4x4 final exported contact sheet",
+    "notes": "Viewed built-in output and final exported contact sheet; original E identity, four-foot species, one curled tail/two beads, fixed front-right projection preserved. Frame body articulation advances through charge/release/recovery.",
+    "animationPlayback": "parent agent full-package preview pending"
   },
   "nativeSize": [
     1254,
@@ -83,7 +87,7 @@
     "D:/work/image/designs/pets-xianling-20260924/source/08-zhufengli-E.png": "cdf42afa91af2fa1481d4ac398da75134c140d3c4ca8079bcdef3b5b9016f7c0",
     "D:/work/image/designs/pets-xianling-20260924/source/08-zhufengli-W.png": "8298c4ac004a6f0c2ca79ef71a24dd3ee5ab3b1fa5da450fefc2a85e03d2c428",
     "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png": "e64a817c55b59cf5cc47533428f2e560c64a83f3577067a6fb5969244baf3d6b",
-    "D:/work/image/designs/creature-combat-20261005/pets/08-zhufengli/runtime/cast/E/09.png": "45a58808226da3da4343613309b399f6c22b65bb15d5aee0336f1b998154a793"
+    "D:/work/image/designs/creature-combat-20261005/pets/08-zhufengli/runtime/cast/E/09.png": "e4143ff707afdd2acbbfd3eb6135a46ef1a7528c755856033a99e11f3475c3eb"
   },
   "operation": "whole-canvas RGBA resize to 1024x1024 using Lanczos; no crop, translation, per-frame foot alignment, synthesis, or interpolation between frames",
   "file": "runtime/cast/E/09.png",
@@ -103,5 +107,11 @@
       "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
     }
   },
-  "evidenceStatement": "Builtin image_gen exposes no model/quality selector; result only image_url/output_hint. Target is configuration, not verified model."
+  "evidenceStatement": "Builtin image_gen exposes no model/quality selector; result only image_url/output_hint. Target is configuration, not verified model.",
+  "repair": {
+    "reason": "Initial wind leaves clipped by right edge; targeted AI reduction of effect only",
+    "rejectedReceipt": "receipts/cast-E-09.rejected-01.json",
+    "rejectedOutputSHA256": "e4143ff707afdd2acbbfd3eb6135a46ef1a7528c755856033a99e11f3475c3eb",
+    "retainedRejectedImage": false
+  }
 }
