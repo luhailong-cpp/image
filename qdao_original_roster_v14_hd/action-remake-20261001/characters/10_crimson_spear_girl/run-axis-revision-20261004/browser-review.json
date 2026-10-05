@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-10-05T03:47:43.084739+00:00",
+  "scope": "Actual local browser rendering, speed controls, pause and step; not game-client acceptance or pixel-by-pixel video measurement",
+  "loadedRunImages": 128,
+  "speedsChecked": [
+    1,
+    0.25
+  ],
+  "singleDirectionDisplayPixels": 512,
+  "steppedSequences": {
+    "NW": [
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "NE": [
+      15,
+      16,
+      1,
+      2
+    ],
+    "W": [
+      5,
+      6,
+      7
+    ],
+    "SW": [
+      7,
+      8,
+      9
+    ]
+  },
+  "handsSpearFramingReviewed": true,
+  "firstLoadBug": {
+    "found": "An animation timestamp earlier than the last image-load callback could produce frame index -1 and abort the overview tick.",
+    "fix": "Clamp elapsed deltas to nonnegative values in both players; overview also guards undefined image.",
+    "verified": "Reloaded all 128 sprites; normal and quarter speed advance, targeted frames rendered; regression test passes."
+  },
+  "proof": {
+    "file": "preview/final-browser-check.jpg",
+    "sha256": "7a7cdaff32278ffec8125915ac91327373646107b66c9f9e59b4174eca9e75d1",
+    "overviewFrame": 11
+  },
+  "unchangedBattlePNGVerified": 68,
+  "currentInventorySHA256": "f4633e12f0356d197dfbee05a95d48b4bb3348f59cfd1d89e96c76578428ddfc",
+  "clientRuntimeTested": false
+}
