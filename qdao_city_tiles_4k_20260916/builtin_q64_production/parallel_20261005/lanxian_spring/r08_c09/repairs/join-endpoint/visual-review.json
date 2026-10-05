@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "scope": "Only the localized gold/ivory bevel and dark groove endpoint repair, its mask transition and four ROI edges",
+  "actualImagesViewed": [
+    "edit-target-1254.png",
+    "before-local-320x260.png",
+    "generated image returned inline by builtin image_gen",
+    "qa-before-after.png",
+    "after-context-1254.png",
+    "qa-mask-left-edge.png",
+    "qa-mask-right-edge.png",
+    "qa-mask-top-edge.png",
+    "qa-mask-bottom-edge.png"
+  ],
+  "originalDefect": "An approximately 4-5 pixel step in the thin warm highlight and narrow brown groove at core [1126,1020,1146,1060].",
+  "endpointNaturallyContinuousAfterRepair": true,
+  "finding": "The abrupt step is gone in the pasted native-resolution ROI. The thin highlight and brown groove form one smooth curve; their thickness, tangent and material shading remain consistent with the surrounding ring.",
+  "maskEdgeChecks": {
+    "left": "No doubled contour, new step or abrupt color line seen where the curve crosses the feather transition.",
+    "right": "No doubled contour, new step or abrupt color line seen where the curve crosses the feather transition.",
+    "top": "Ground texture and the far corner of the groove join smoothly; no rectangular patch edge seen.",
+    "bottom": "Cream bevel/stone face shading joins smoothly; no hard horizontal transition seen."
+  },
+  "localRepairVisualAccepted": true,
+  "allOtherTileSeamsReviewedInThisTask": false,
+  "fullTileFormalAccepted": false,
+  "limitations": "This approves the visible local correction only. All outside-mask pixels, including c09 east/west edges and the c10 input edge, were preserved by exact equality checks in repair-record.json."
+}
