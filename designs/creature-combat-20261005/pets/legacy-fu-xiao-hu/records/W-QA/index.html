@@ -1,0 +1,17 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><title>符小虎 W 受击施法检查</title>
+<style>body{margin:20px;font:16px system-ui;background:#152b25;color:#eef5e9}h1{font-size:22px}.row{display:flex;gap:16px;flex-wrap:wrap}section{background:#244337;padding:12px;border-radius:10px}canvas{width:480px;height:480px;background:repeating-conic-gradient(#d4ddd6 0 25%,#ecf0e9 0 50%) 50%/24px 24px}button,select,input{font:inherit;margin:6px}footer{font-size:13px;color:#bfcebf}img{max-width:100%}</style>
+<h1>符小虎 · W 真正左上斜背 · 受击/施法</h1><p>正常时间、0.25慢速、暂停后逐帧；所有图独立生成。运行时接入未执行。</p><div class="row" id="players"></div>
+<h2>逐帧</h2><img src="hit-contact.png"><img src="cast-contact.png"><footer>固定整画布1254→1024；最终统一W垂直-4由根任务执行，本检查会读取当前runtime。</footer>
+<script>
+window.audit={};
+for(const [action,count,duration] of [['hit',6,40],['cast',16,45]]){
+ const section=document.createElement('section');section.id=action;section.innerHTML='<h2>'+action+' W</h2><canvas width="1024" height="1024"></canvas><p class="state"></p><button class="toggle">暂停</button><select><option value="1">正常 1×</option><option value=".25">慢速 0.25×</option></select><button class="prev">上一帧</button><button class="next">下一帧</button><input type="range" min="1" max="'+count+'" value="1">';
+ document.querySelector('#players').append(section);const ctx=section.querySelector('canvas').getContext('2d');const imgs=Array.from({length:count},(_,i)=>{const im=new Image();im.src='../../runtime/'+action+'/W/'+String(i+1).padStart(2,'0')+'.png';return im});
+ let index=0,playing=true,speed=1,last=performance.now(),rendered=0;const draw=()=>{if(imgs[index].complete){ctx.clearRect(0,0,1024,1024);ctx.drawImage(imgs[index],0,0)}section.querySelector('.state').textContent='第 '+(index+1)+' / '+count+' 帧 · '+duration+'ms · '+speed+'×';section.querySelector('input').value=index+1;window.audit[action]={index:index+1,count,duration,speed,playing,rendered,loaded:imgs.filter(x=>x.complete&&x.naturalWidth===1024).length};};
+ const tick=t=>{if(playing&&t-last>=duration/speed){index=(index+1)%count;last=t;rendered++;draw()}requestAnimationFrame(tick)};Promise.all(imgs.map(im=>im.decode())).then(draw);requestAnimationFrame(tick);
+ section.querySelector('.toggle').onclick=()=>{playing=!playing;section.querySelector('.toggle').textContent=playing?'暂停':'播放';draw()};
+ section.querySelector('select').onchange=e=>{speed=+e.target.value;last=performance.now();draw()};
+ const step=x=>{playing=false;index=(index+x+count)%count;section.querySelector('.toggle').textContent='播放';draw()};
+ section.querySelector('.prev').onclick=()=>step(-1);section.querySelector('.next').onclick=()=>step(1);section.querySelector('input').oninput=e=>{playing=false;index=+e.target.value-1;section.querySelector('.toggle').textContent='播放';draw()};
+}
+</script></html>
