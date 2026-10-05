@@ -1,6 +1,6 @@
 {
-  "file": "D:\\work\\image\\designs\\creature-combat-20261005\\pets\\05-yanyuling\\runtime\\cast\\W\\11.png",
-  "sha256": "9ab163bd5a8a7800617a2a433a4183d2f2c50b24078d9a740b50272a9a7dc89f",
+  "file": "runtime/cast/W/11.png",
+  "sha256": "34408e1efc8d1809ecedc420089cadc9efb361da850aebac02ddb3311918b826",
   "action": "cast",
   "direction": "W",
   "frame": 11,
@@ -66,7 +66,14 @@
     {
       "path": "D:/work/image/designs/creature-combat-20261005/pets/05-yanyuling/runtime/cast/W/01.png",
       "sha256": "4cd94dec3aa1ca7d42b92729fa4af00fb97f3fcebde14a507dec227ac28ad016",
-      "role": "previous accepted W frame, camera and scale continuity"
+      "role": "previous accepted W frame, camera and scale continuity",
+      "historicalRevision": {
+        "sha256AtGeneration": "4cd94dec3aa1ca7d42b92729fa4af00fb97f3fcebde14a507dec227ac28ad016",
+        "currentSha256": "c5ffe56645a5fb8196a1e3f6f30690f69aeb25d2d029210f2192a3427348cc1b",
+        "change": "same path subsequently received shared direction export transform",
+        "record": "export-registration.json",
+        "pixelsAtGenerationRetained": false
+      }
     }
   ],
   "nativeOutput": {
@@ -86,20 +93,81 @@
     "sha256": "c99570c9b5c2473246719f6ae84584a89feb2a426b29069d5b38180d533b437c"
   },
   "operation": {
-    "type": "whole_canvas_uniform_resize",
-    "sourceSize": [
-      1254,
-      1254
+    "type": "whole_canvas_direction_fixed_export",
+    "inputSize": [
+      1024,
+      1024
+    ],
+    "resizedCanvas": [
+      840,
+      840
+    ],
+    "uniformScale": 0.8203125,
+    "offset": [
+      114,
+      151
     ],
     "outputSize": [
       1024,
       1024
     ],
-    "resampler": "LANCZOS",
-    "perFrameAlignment": false
+    "perFrameAlignment": false,
+    "allActionsShareTransform": true,
+    "sourceBeforeExportSha256": "9ab163bd5a8a7800617a2a433a4183d2f2c50b24078d9a740b50272a9a7dc89f",
+    "registration": "export-registration.json"
   },
   "visualReview": {
     "status": "inspected",
     "notes": "Native result inspected: wing recoil to half-spread, fading local scroll light, true rear upper-left direction, two planted feet and original accessory sides. No extra limbs or clipping."
+  },
+  "exportHistory": [
+    {
+      "file": "runtime/cast/W/11.png",
+      "sha256": "9ab163bd5a8a7800617a2a433a4183d2f2c50b24078d9a740b50272a9a7dc89f",
+      "width": 1024,
+      "height": 1024,
+      "operationBeforeRegistration": {
+        "type": "whole_canvas_uniform_resize",
+        "sourceSize": [
+          1254,
+          1254
+        ],
+        "outputSize": [
+          1024,
+          1024
+        ],
+        "resampler": "LANCZOS",
+        "perFrameAlignment": false
+      },
+      "replacedBy": "34408e1efc8d1809ecedc420089cadc9efb361da850aebac02ddb3311918b826",
+      "retained": false
+    }
+  ],
+  "anchor": {
+    "pixel": [
+      512,
+      942
+    ],
+    "pivot": [
+      0.5,
+      0.08
+    ],
+    "basis": "manual two-foot contact projection midpoint of direction attack01; approximate +/-15 source pixels",
+    "referenceBeforeExport": [
+      485,
+      965
+    ],
+    "referenceAfterExport": [
+      511.8515625,
+      942.6015625
+    ],
+    "individualFeetForcedToAnchor": false
+  },
+  "finalDeliveryReview": {
+    "reviewedAt": "2026-10-05T22:23:03.627398+00:00",
+    "status": "accepted_for_art_delivery",
+    "sha256": "34408e1efc8d1809ecedc420089cadc9efb361da850aebac02ddb3311918b826",
+    "record": "qa/visual-review-final.json",
+    "method": "individual generation result review, full final contact sheets and browser playback/step controls; not an engine test"
   }
 }

@@ -1,6 +1,6 @@
 {
-  "file": "D:\\work\\image\\designs\\creature-combat-20261005\\pets\\05-yanyuling\\runtime\\cast\\W\\16.png",
-  "sha256": "a10b6a590afbdd3bddf691de7153a9388fe10e6139ec8d4825ea6ca7c657a415",
+  "file": "runtime/cast/W/16.png",
+  "sha256": "bb106725c910c1bec6aa0b896020eb65ab642537bf46556eb3f93714179fb830",
   "action": "cast",
   "direction": "W",
   "frame": 16,
@@ -66,7 +66,14 @@
     {
       "path": "D:/work/image/designs/creature-combat-20261005/pets/05-yanyuling/runtime/cast/W/01.png",
       "sha256": "4cd94dec3aa1ca7d42b92729fa4af00fb97f3fcebde14a507dec227ac28ad016",
-      "role": "previous accepted W frame, camera and scale continuity"
+      "role": "previous accepted W frame, camera and scale continuity",
+      "historicalRevision": {
+        "sha256AtGeneration": "4cd94dec3aa1ca7d42b92729fa4af00fb97f3fcebde14a507dec227ac28ad016",
+        "currentSha256": "c5ffe56645a5fb8196a1e3f6f30690f69aeb25d2d029210f2192a3427348cc1b",
+        "change": "same path subsequently received shared direction export transform",
+        "record": "export-registration.json",
+        "pixelsAtGenerationRetained": false
+      }
     }
   ],
   "nativeOutput": {
@@ -86,20 +93,81 @@
     "sha256": "aa492fe2da1af0452f5e2a2a3df562f993561841a4c8d04e811e7bca1d741a7e"
   },
   "operation": {
-    "type": "whole_canvas_uniform_resize",
-    "sourceSize": [
-      1254,
-      1254
+    "type": "whole_canvas_direction_fixed_export",
+    "inputSize": [
+      1024,
+      1024
+    ],
+    "resizedCanvas": [
+      840,
+      840
+    ],
+    "uniformScale": 0.8203125,
+    "offset": [
+      114,
+      151
     ],
     "outputSize": [
       1024,
       1024
     ],
-    "resampler": "LANCZOS",
-    "perFrameAlignment": false
+    "perFrameAlignment": false,
+    "allActionsShareTransform": true,
+    "sourceBeforeExportSha256": "a10b6a590afbdd3bddf691de7153a9388fe10e6139ec8d4825ea6ca7c657a415",
+    "registration": "export-registration.json"
   },
   "visualReview": {
     "status": "inspected",
     "notes": "Native result inspected: stable folded-wing resting pose, clear rear head/back facing upper-left, settled tassels, original scroll right/pouch left and exactly two bird feet. No clipping/effects. Final pose is independent generation."
+  },
+  "exportHistory": [
+    {
+      "file": "runtime/cast/W/16.png",
+      "sha256": "a10b6a590afbdd3bddf691de7153a9388fe10e6139ec8d4825ea6ca7c657a415",
+      "width": 1024,
+      "height": 1024,
+      "operationBeforeRegistration": {
+        "type": "whole_canvas_uniform_resize",
+        "sourceSize": [
+          1254,
+          1254
+        ],
+        "outputSize": [
+          1024,
+          1024
+        ],
+        "resampler": "LANCZOS",
+        "perFrameAlignment": false
+      },
+      "replacedBy": "bb106725c910c1bec6aa0b896020eb65ab642537bf46556eb3f93714179fb830",
+      "retained": false
+    }
+  ],
+  "anchor": {
+    "pixel": [
+      512,
+      942
+    ],
+    "pivot": [
+      0.5,
+      0.08
+    ],
+    "basis": "manual two-foot contact projection midpoint of direction attack01; approximate +/-15 source pixels",
+    "referenceBeforeExport": [
+      485,
+      965
+    ],
+    "referenceAfterExport": [
+      511.8515625,
+      942.6015625
+    ],
+    "individualFeetForcedToAnchor": false
+  },
+  "finalDeliveryReview": {
+    "reviewedAt": "2026-10-05T22:23:03.627398+00:00",
+    "status": "accepted_for_art_delivery",
+    "sha256": "bb106725c910c1bec6aa0b896020eb65ab642537bf46556eb3f93714179fb830",
+    "record": "qa/visual-review-final.json",
+    "method": "individual generation result review, full final contact sheets and browser playback/step controls; not an engine test"
   }
 }

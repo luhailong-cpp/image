@@ -1,6 +1,6 @@
 {
-  "file": "D:\\work\\image\\designs\\creature-combat-20261005\\pets\\05-yanyuling\\runtime\\cast\\W\\13.png",
-  "sha256": "3443db50e871642da715cbb5030d04c041657b1de8ba5402719515cd77ef1582",
+  "file": "runtime/cast/W/13.png",
+  "sha256": "31986eaf11bae8f627da6f8f722b72232d12a6a17371d86f5ef7fcc6bb29e7cb",
   "action": "cast",
   "direction": "W",
   "frame": 13,
@@ -66,7 +66,14 @@
     {
       "path": "D:/work/image/designs/creature-combat-20261005/pets/05-yanyuling/runtime/cast/W/01.png",
       "sha256": "4cd94dec3aa1ca7d42b92729fa4af00fb97f3fcebde14a507dec227ac28ad016",
-      "role": "previous accepted W frame, camera and scale continuity"
+      "role": "previous accepted W frame, camera and scale continuity",
+      "historicalRevision": {
+        "sha256AtGeneration": "4cd94dec3aa1ca7d42b92729fa4af00fb97f3fcebde14a507dec227ac28ad016",
+        "currentSha256": "c5ffe56645a5fb8196a1e3f6f30690f69aeb25d2d029210f2192a3427348cc1b",
+        "change": "same path subsequently received shared direction export transform",
+        "record": "export-registration.json",
+        "pixelsAtGenerationRetained": false
+      }
     }
   ],
   "nativeOutput": {
@@ -86,20 +93,81 @@
     "sha256": "6d01fd47b1e6a60ab4c6ee583a5a50cdbc3d6b544ea8bbe420a5d9386d3b5eaf"
   },
   "operation": {
-    "type": "whole_canvas_uniform_resize",
-    "sourceSize": [
-      1254,
-      1254
+    "type": "whole_canvas_direction_fixed_export",
+    "inputSize": [
+      1024,
+      1024
+    ],
+    "resizedCanvas": [
+      840,
+      840
+    ],
+    "uniformScale": 0.8203125,
+    "offset": [
+      114,
+      151
     ],
     "outputSize": [
       1024,
       1024
     ],
-    "resampler": "LANCZOS",
-    "perFrameAlignment": false
+    "perFrameAlignment": false,
+    "allActionsShareTransform": true,
+    "sourceBeforeExportSha256": "3443db50e871642da715cbb5030d04c041657b1de8ba5402719515cd77ef1582",
+    "registration": "export-registration.json"
   },
   "visualReview": {
     "status": "inspected",
     "notes": "Native result inspected: wings settled close to torso and all light gone, head remains upper-left, rear feather layers and accessory sides correct. Two bird feet remain in baseline region, no clipping."
+  },
+  "exportHistory": [
+    {
+      "file": "runtime/cast/W/13.png",
+      "sha256": "3443db50e871642da715cbb5030d04c041657b1de8ba5402719515cd77ef1582",
+      "width": 1024,
+      "height": 1024,
+      "operationBeforeRegistration": {
+        "type": "whole_canvas_uniform_resize",
+        "sourceSize": [
+          1254,
+          1254
+        ],
+        "outputSize": [
+          1024,
+          1024
+        ],
+        "resampler": "LANCZOS",
+        "perFrameAlignment": false
+      },
+      "replacedBy": "31986eaf11bae8f627da6f8f722b72232d12a6a17371d86f5ef7fcc6bb29e7cb",
+      "retained": false
+    }
+  ],
+  "anchor": {
+    "pixel": [
+      512,
+      942
+    ],
+    "pivot": [
+      0.5,
+      0.08
+    ],
+    "basis": "manual two-foot contact projection midpoint of direction attack01; approximate +/-15 source pixels",
+    "referenceBeforeExport": [
+      485,
+      965
+    ],
+    "referenceAfterExport": [
+      511.8515625,
+      942.6015625
+    ],
+    "individualFeetForcedToAnchor": false
+  },
+  "finalDeliveryReview": {
+    "reviewedAt": "2026-10-05T22:23:03.627398+00:00",
+    "status": "accepted_for_art_delivery",
+    "sha256": "31986eaf11bae8f627da6f8f722b72232d12a6a17371d86f5ef7fcc6bb29e7cb",
+    "record": "qa/visual-review-final.json",
+    "method": "individual generation result review, full final contact sheets and browser playback/step controls; not an engine test"
   }
 }

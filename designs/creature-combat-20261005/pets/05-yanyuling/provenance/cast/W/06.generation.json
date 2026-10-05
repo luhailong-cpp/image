@@ -1,6 +1,6 @@
 {
-  "file": "D:\\work\\image\\designs\\creature-combat-20261005\\pets\\05-yanyuling\\runtime\\cast\\W\\06.png",
-  "sha256": "e251f4c3938cb7e9d9adb285b53f250c06eb9bfe0bfdccd339c5486f56512670",
+  "file": "runtime/cast/W/06.png",
+  "sha256": "a470178398bc6851564fd01f621f044343d7b3ba57ee84170f09d05869a4d135",
   "action": "cast",
   "direction": "W",
   "frame": 6,
@@ -66,7 +66,14 @@
     {
       "path": "D:/work/image/designs/creature-combat-20261005/pets/05-yanyuling/runtime/cast/W/01.png",
       "sha256": "4cd94dec3aa1ca7d42b92729fa4af00fb97f3fcebde14a507dec227ac28ad016",
-      "role": "previous accepted W frame, camera and scale continuity"
+      "role": "previous accepted W frame, camera and scale continuity",
+      "historicalRevision": {
+        "sha256AtGeneration": "4cd94dec3aa1ca7d42b92729fa4af00fb97f3fcebde14a507dec227ac28ad016",
+        "currentSha256": "c5ffe56645a5fb8196a1e3f6f30690f69aeb25d2d029210f2192a3427348cc1b",
+        "change": "same path subsequently received shared direction export transform",
+        "record": "export-registration.json",
+        "pixelsAtGenerationRetained": false
+      }
     }
   ],
   "nativeOutput": {
@@ -86,20 +93,81 @@
     "sha256": "29eab9ebe8a190bd1dca592f49ea1c112a0bbd7b59be9b904f5b3b28eb2d5fc8"
   },
   "operation": {
-    "type": "whole_canvas_uniform_resize",
-    "sourceSize": [
-      1254,
-      1254
+    "type": "whole_canvas_direction_fixed_export",
+    "inputSize": [
+      1024,
+      1024
+    ],
+    "resizedCanvas": [
+      840,
+      840
+    ],
+    "uniformScale": 0.8203125,
+    "offset": [
+      114,
+      151
     ],
     "outputSize": [
       1024,
       1024
     ],
-    "resampler": "LANCZOS",
-    "perFrameAlignment": false
+    "perFrameAlignment": false,
+    "allActionsShareTransform": true,
+    "sourceBeforeExportSha256": "e251f4c3938cb7e9d9adb285b53f250c06eb9bfe0bfdccd339c5486f56512670",
+    "registration": "export-registration.json"
   },
   "visualReview": {
     "status": "inspected",
     "notes": "Targeted retry native result inspected: reduced to three scroll glints and thin jade wisps at two wing tips; rear camera, two wings/two feet and accessory sides preserved. No body obstruction or crop."
+  },
+  "exportHistory": [
+    {
+      "file": "runtime/cast/W/06.png",
+      "sha256": "e251f4c3938cb7e9d9adb285b53f250c06eb9bfe0bfdccd339c5486f56512670",
+      "width": 1024,
+      "height": 1024,
+      "operationBeforeRegistration": {
+        "type": "whole_canvas_uniform_resize",
+        "sourceSize": [
+          1254,
+          1254
+        ],
+        "outputSize": [
+          1024,
+          1024
+        ],
+        "resampler": "LANCZOS",
+        "perFrameAlignment": false
+      },
+      "replacedBy": "a470178398bc6851564fd01f621f044343d7b3ba57ee84170f09d05869a4d135",
+      "retained": false
+    }
+  ],
+  "anchor": {
+    "pixel": [
+      512,
+      942
+    ],
+    "pivot": [
+      0.5,
+      0.08
+    ],
+    "basis": "manual two-foot contact projection midpoint of direction attack01; approximate +/-15 source pixels",
+    "referenceBeforeExport": [
+      485,
+      965
+    ],
+    "referenceAfterExport": [
+      511.8515625,
+      942.6015625
+    ],
+    "individualFeetForcedToAnchor": false
+  },
+  "finalDeliveryReview": {
+    "reviewedAt": "2026-10-05T22:23:03.627398+00:00",
+    "status": "accepted_for_art_delivery",
+    "sha256": "a470178398bc6851564fd01f621f044343d7b3ba57ee84170f09d05869a4d135",
+    "record": "qa/visual-review-final.json",
+    "method": "individual generation result review, full final contact sheets and browser playback/step controls; not an engine test"
   }
 }
