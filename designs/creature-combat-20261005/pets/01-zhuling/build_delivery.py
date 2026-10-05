@@ -21,12 +21,15 @@ for action,(count,ms) in SPECS.items():
    im=Image.open(p); a=im.getchannel('A') if im.mode=='RGBA' else None
    record_path=p.with_suffix('.png.generation.json')
    if not record_path.exists(): record_path=ROOT/f'records/{action}/{direction}/{index:02}.generation.json'
-   record=json.loads(record_path.read_text(encoding='utf-8')) if record_path.exists() else {}
+   record=json.loads(record_path.read_text(encoding='utf-8-sig')) if record_path.exists() else {}
    sha=digest(p); ph=hashlib.sha256(im.tobytes()).hexdigest()
    hashes.setdefault(sha,[]).append(rel);pixels.setdefault(ph,[]).append(rel)
    if im.size!=(1024,1024) or im.mode!='RGBA': problems.append({'file':rel,'issue':'size or mode'})
    if a is None or a.getextrema()!=(0,255): problems.append({'file':rel,'issue':'alpha range'})
    if not record: problems.append({'file':rel,'issue':'missing generation record'})
+   if record and record.get('sha256')!=sha: problems.append({'file':rel,'issue':'record SHA mismatch'})
+   if record and (ROOT/record.get('file','__missing__')).resolve()!=p.resolve(): problems.append({'file':rel,'issue':'record file mismatch'})
+   if record and not (ROOT/record.get('prompt','__missing__')).is_file(): problems.append({'file':rel,'issue':'prompt file missing'})
    bbox=a.getbbox() if a else None
    if bbox and (bbox[0]==0 or bbox[1]==0 or bbox[2]==1024 or bbox[3]==1024): problems.append({'file':rel,'issue':'alpha touches canvas edge'})
    source=record.get('derivedFrom') or record.get('source') or record.get('native')
@@ -36,7 +39,7 @@ for action,(count,ms) in SPECS.items():
     'event':event,'phase':PHASES[action][index-1],'sha256':sha,'pixelSHA256':ph,'alphaRange':list(a.getextrema()) if a else None,'alphaBBox':bbox,
     'generationRecord':record_path.relative_to(ROOT).as_posix() if record_path.exists() else None,
     'targetModel':record.get('configSnapshot',{}).get('model'),'actualModel':record.get('actualModel'),'actualQuality':record.get('actualQuality'),
-    'source':source,'visualStatus':'pending sequence QA'}
+    'source':source,'visualStatus':record.get('visualStatus','pending sequence QA')}
    frames.append(frame);group['frames'].append(frame)
   groups.append(group)
   # Contact sheets retain every frame at 320px, four columns and up to two rows per page.
