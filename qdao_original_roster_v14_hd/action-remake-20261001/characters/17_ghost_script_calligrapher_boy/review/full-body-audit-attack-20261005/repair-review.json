@@ -1,0 +1,134 @@
+{
+  "reviewedAt": "2026-10-05T06:34:18.907Z",
+  "status": "two_candidates_ready_for_root_sequence_review",
+  "runtimeModified": false,
+  "manifestModified": false,
+  "acceptanceModified": false,
+  "staticRecommendation": [
+    "attack-E-09-v4",
+    "attack-W-09-v4"
+  ],
+  "notSelected": [
+    {
+      "key": "attack-E-09-v3",
+      "reason": "笔向修正但原笔尾穗残留在左腰外侧；随后v4已只去掉该残留。"
+    }
+  ],
+  "versionSafety": "历史文件名、provenance请求/返回、generation文本、runtime receipt全部核对；E09最高v2所以先v3，修残留用未占v4；W09最高v3所以用v4。未覆盖历史记录。",
+  "sourceModelEvidence": {
+    "route": "builtin image_gen.imagegen",
+    "targetModel": "gpt-image-2.5-sunburst",
+    "targetQuality": "max",
+    "submittedModel": null,
+    "submittedQuality": null,
+    "actualModel": null,
+    "actualQuality": null,
+    "note": "宿主管理，工具只返回image_url/output_hint；逐图保存请求、结果、来源哈希与当次配置，不把提示词当成实际模型/质量参数。"
+  },
+  "frames": [
+    {
+      "slot": "attack-E-09",
+      "key": "attack-E-09-v4",
+      "file": "staging/attack-E-09-v4.png",
+      "sourceSha256": "fc5656aa0d0913760582eadb11ff0f00c5b260dd8a82b1d8c5864c70c085d1e7",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "nativeEdgesHighAlpha": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "beforeRuntimeSha256": "9a88511bf3326e75b73ecadfbb705aaa5046dae705a805b250d1af9acc3c29a0",
+      "exportTest": {
+        "size": [
+          1024,
+          1024
+        ],
+        "sha256": "3334823c843d57fa9e7671d30ca542ae9535e3abce8ef12205af7b7796de398b",
+        "edgesHighAlpha": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "operation": "uniform_full_canvas_resize",
+        "crop": null,
+        "translation": [
+          0,
+          0
+        ],
+        "alphaCleanup": false,
+        "written": false
+      },
+      "generationRecord": "staging/attack-E-09-v4.png.generation.json",
+      "recommendation": "recommend_for_root_review",
+      "change": "右腕和笔转为右下收回，白笔头不再单帧上举；旧笔尾穗残留被删除，真正上左笔尾只一束青穗。",
+      "nonTargetDrift": "固定全画布前后对比，头身、左卷两墨灵、双腿靴位未见明显漂移。握拳略收向身体、右腕与局部袖口重画属于本次目标；v4另恢复删除旧穗后的衣摆外缘。",
+      "gripIdentity": "右手握黑杆、左手卷轴；笔尾只有一束相连青穗，空白卷与两墨灵保留。",
+      "request": "provenance/attack-E-09-v4.request.json",
+      "result": "provenance/attack-E-09-v4.tool-result.json",
+      "comparison": "E-08-new09-10-full320.jpg",
+      "beforeAfter": "E-09-before-after-full320.jpg"
+    },
+    {
+      "slot": "attack-W-09",
+      "key": "attack-W-09-v4",
+      "file": "staging/attack-W-09-v4.png",
+      "sourceSha256": "ad34ac80f4920176f4aa3fb1f03119b3192e0a7333ae62bf9e7071e326f428a3",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "nativeEdgesHighAlpha": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "beforeRuntimeSha256": "36f8a98e06f4fb4e2e0a5119387a051e5c228b609eae4d953881a1ad59f93e67",
+      "exportTest": {
+        "size": [
+          1024,
+          1024
+        ],
+        "sha256": "d43d2cb067febc38db27072354a1b4851eaeb27eff0630677650a9186ab51768",
+        "edgesHighAlpha": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "operation": "uniform_full_canvas_resize",
+        "crop": null,
+        "translation": [
+          0,
+          0
+        ],
+        "alphaCleanup": false,
+        "written": false
+      },
+      "generationRecord": "staging/attack-W-09-v4.png.generation.json",
+      "recommendation": "recommend_for_root_review",
+      "change": "右腕完整握黑杆，白笔头接近竖直向下，与08/10形成下收连续方向；笔尾穗在杆尾。",
+      "nonTargetDrift": "固定全画布前后对比，头身、左卷两墨灵、双腿靴位未见明显漂移。右握拳下降、右腕与局部袖口调整以形成下收笔姿势；不声称目标区域逐像素不动。",
+      "gripIdentity": "右手握黑杆、左手卷轴；笔尾只有一束相连青穗，空白卷与两墨灵保留。",
+      "request": "provenance/attack-W-09-v4.request.json",
+      "result": "provenance/attack-W-09-v4.tool-result.json",
+      "comparison": "W-08-new09-10-full320.jpg",
+      "beforeAfter": "W-09-before-after-full320.jpg"
+    }
+  ],
+  "validation": "最终2张1254×1254 RGBA原生；原生和全画布1024测试PNG四边alpha>128均为0。缩图仅技术检查，未写runtime；无裁切/移动/alpha算法。",
+  "timing": {
+    "frameMs": 30,
+    "frameCount": 12,
+    "contactFrame": 6,
+    "totalMs": 360
+  },
+  "next": "root选择及30ms正常速度实播。原24帧只读结论与SHA见audit.json；未发现需要同步重画的腿脚硬错。"
+}

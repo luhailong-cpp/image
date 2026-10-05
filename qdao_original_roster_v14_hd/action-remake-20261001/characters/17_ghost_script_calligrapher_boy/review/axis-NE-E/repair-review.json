@@ -1,0 +1,178 @@
+{
+  "reviewedAt": "2026-10-05T02:50:55.843Z",
+  "status": "three_local_candidates_ready_for_root_review",
+  "runtimeModified": false,
+  "acceptanceModified": false,
+  "frameTimingChanged": false,
+  "inputAudit": "review/axis-NE-E/audit.json",
+  "nativeOutputCount": 3,
+  "outputNativeSize": [
+    1254,
+    1254
+  ],
+  "technicalValidation": "all three native RGBA squares >=1024 and uniform full-canvas 1024 test PNGs have zero border pixels with alpha>128; no crop, translation, alpha cleanup, or local pixel postprocessing",
+  "visualMethod": "实看内置返回原图、固定整画布240px前后对照，以及同一(200,650,1000,1010)足部固定裁剪。仅确认本轮局修效果，未做完整序列动态验收。",
+  "normalTiming": {
+    "frameMs": 75,
+    "runLoopMs": 1200,
+    "contactPositionFrames": 2
+  },
+  "modelEvidence": {
+    "configTargetModel": "gpt-image-2.5-sunburst",
+    "configTargetQuality": "max",
+    "submittedModel": null,
+    "submittedQuality": null,
+    "actualModel": null,
+    "actualQuality": null,
+    "route": "builtin image_gen.imagegen",
+    "officialProductVerifiedOn": "2026-10-04",
+    "officialSources": [
+      "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    ],
+    "unverifiedReason": "工具无model/quality选择器且返回未披露实际值；官方开放与配置目标不替代单图实际参数证据。"
+  },
+  "versionSelection": "核对provenance/request、staging .generation.json和runtime receipt中的历史v键；07/08最高v6故用v7，15有v2失败记录、最高v3故用v4。没有覆盖历史记录。",
+  "frames": [
+    {
+      "slot": "run-NE-07",
+      "key": "run-NE-07-v7",
+      "file": "staging/run-NE-07-v7.png",
+      "sourceSha256": "554fef097e08195df785844f07ffd2c24c61aa986ed2f969068d8d0941f460ed",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "nativeEdgesHighAlpha": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "exportTest": {
+        "size": [
+          1024,
+          1024
+        ],
+        "sha256": "2002079168837534e57421a2ab27a4f64a0547c90c613d7bd3ff8b88f8d20286",
+        "edgesHighAlpha": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "operation": "uniform_full_canvas_resize",
+        "crop": null,
+        "translation": [
+          0,
+          0
+        ],
+        "alphaCleanup": false,
+        "written": false
+      },
+      "beforeRuntimeSha256": "ef0fb408dc2537b8f6da9bf47509e90c2def6f7a30f5eaa19324b60ef8884494",
+      "generationRecord": "staging/run-NE-07-v7.png.generation.json",
+      "change": "支撑右靴由鞋尖几乎水平向右、露前侧的形状，改成鞋跟在左下、前掌向右上远方的背侧三分之四视图；膝下与踝部连接自然。",
+      "nonTargetDrift": "整画布240px与固定脚部放大对比，头、双手、笔卷墨灵、左悬空腿位置未见明显漂移。目标靴装饰/后跟轮廓随透视重画；右踝附近裤口轮廓有小幅重绘，不是逐像素无损编辑。",
+      "staticRecommendation": "recommend_for_root_sequence_review",
+      "toolRequest": "provenance/run-NE-07-v7.request.json",
+      "toolResult": "provenance/run-NE-07-v7.tool-result.json"
+    },
+    {
+      "slot": "run-NE-08",
+      "key": "run-NE-08-v7",
+      "file": "staging/run-NE-08-v7.png",
+      "sourceSha256": "5cc43effa0b30679fa332dec7b0846b795a3e010b9d1836ffd205ee3f78a88bc",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "nativeEdgesHighAlpha": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "exportTest": {
+        "size": [
+          1024,
+          1024
+        ],
+        "sha256": "eb26176e8b6bd7c4bebab650369571f971d8cecaa7f31c258d59c5994323e042",
+        "edgesHighAlpha": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "operation": "uniform_full_canvas_resize",
+        "crop": null,
+        "translation": [
+          0,
+          0
+        ],
+        "alphaCleanup": false,
+        "written": false
+      },
+      "beforeRuntimeSha256": "01c1150117dc66d1cb922188e2e33ef492bfa78a67f6be01f9ede21725e12a3b",
+      "generationRecord": "staging/run-NE-08-v7.png.generation.json",
+      "change": "去掉朝镜头的宽鞋头，支撑右靴现在后跟靠左下、鞋尖收向右上；与07的新朝向相容，仍保持右脚支撑及左脚后折。",
+      "nonTargetDrift": "未见整体搬移、头身缩放或另一腿位置改变；右裤口/靴口、金纹局部样式有细微变化。脚跟位置基本维持，靴尖因旋转朝向而上收，这属于目标修改。",
+      "staticRecommendation": "recommend_for_root_sequence_review",
+      "toolRequest": "provenance/run-NE-08-v7.request.json",
+      "toolResult": "provenance/run-NE-08-v7.tool-result.json"
+    },
+    {
+      "slot": "run-NE-15",
+      "key": "run-NE-15-v4",
+      "file": "staging/run-NE-15-v4.png",
+      "sourceSha256": "a062e3a4cca08c787d53a479d122949a490364a0d0edbbdc88ab9be3ced72b24",
+      "nativeSize": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "nativeEdgesHighAlpha": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+      },
+      "exportTest": {
+        "size": [
+          1024,
+          1024
+        ],
+        "sha256": "100eb5068aeae403b648b5cdade12ff72c4204a440b9d98610c98a9fa6e0018e",
+        "edgesHighAlpha": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "operation": "uniform_full_canvas_resize",
+        "crop": null,
+        "translation": [
+          0,
+          0
+        ],
+        "alphaCleanup": false,
+        "written": false
+      },
+      "beforeRuntimeSha256": "d4542550c0bf7431ecef37ed26701aafc9a38856b7a390d88a94589a996e403e",
+      "generationRecord": "staging/run-NE-15-v4.png.generation.json",
+      "change": "原先对镜头的整块右摆靴鞋底已消失，右靴改为朝右上前送的靴面/外侧与后跟视图，消除14→15→16之间孤立的鞋底换面。",
+      "nonTargetDrift": "左后延支撑腿、头身、双臂笔卷两墨灵保持原布局；右小腿裤口至靴口有必要的局部重接。鞋面朝向变化使可见后跟轮廓改变，不能声称靴轮廓逐像素不动；未见膝部显著平移或腿距扩大。",
+      "staticRecommendation": "recommend_for_root_sequence_review",
+      "toolRequest": "provenance/run-NE-15-v4.request.json",
+      "toolResult": "provenance/run-NE-15-v4.tool-result.json"
+    }
+  ],
+  "nextReview": "root决定替换；75ms正常播放重点连看06→07→08→09、14→15→16→01，确认未造成接地或相位跳变。此报告不写全局passed。",
+  "previews": [
+    "review/axis-NE-E/repair-before-after-240.jpg",
+    "review/axis-NE-E/repair-before-after-feet.jpg"
+  ]
+}
