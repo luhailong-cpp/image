@@ -38,7 +38,7 @@ SIZE = 1024
 CONTENT_SIZE = 940
 CONTENT_OFFSET = (42, 49)
 SPECS = {
-    'run': (('N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'), 16, 75),
+    'run': (('N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'), 16, 60),
     'hit': (('E', 'W'), 6, 40),
     'attack': (('E', 'W'), 12, 30),
     'cast': (('E', 'W'), 16, 45),

@@ -41,7 +41,7 @@ def main():
         d.pop('offlineReview',None)
         r.update(source=source,sha256=sha(png),derivedFrom=origin,sourceKind='new',visiblePixelSha256=vsha,review=review,visualApproval='accepted_by_selection',animationApproval='pending_archer_reference_review')
         r.pop('offlineReview',None)
-        if r['action']=='run': r.update(durationMs=75,timingStatus='user_requested_not_client');d.update(durationMs=75,timingStatus='user_requested_not_client')
+        if r['action']=='run': r.update(durationMs=60,timingStatus='user_requested_not_client');d.update(durationMs=60,timingStatus='user_requested_not_client')
         index[name].update(source=source,sha256=g['sha256'],generationRecord=gp,review=review,accepted=True,nativeSingleFrame=True,supersedes=before['derivedFrom'])
         selection_updates[name]=deepcopy(index[name]);writes[ROOT/r['output']]=png;writes[ROOT/r['derivedRecord']]=enc(d)
         changes.append({'slot':name,'source':source,'generationRecord':gp,'sourceSha256':g['sha256'],'outputSha256':sha(png),'previous':before,'review':review})

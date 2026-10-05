@@ -60,10 +60,10 @@ def offline_reviewed(manifest: dict, timing: dict) -> bool:
 
 def review_notice(manifest: dict, timing: dict) -> str:
     if offline_reviewed(manifest, timing):
-        return '本聊天主审已按所引复核记录完成196帧、14组动作的离线静态与动态复核。用户尚未验收。跑步采用1200ms/圈、每帧75ms（本地）。客户端未接入、未运行验收。'
+        return '本聊天主审已按所引复核记录完成196帧、14组动作的离线静态与动态复核。用户尚未验收。跑步采用960ms/圈、每帧60ms（本地）。客户端未接入、未运行验收。'
     if manifest.get('staticReview') and all(r.get('visualApproval') == 'static_sequence_reviewed' for r in manifest['frames']):
-        return '修复版196帧已导出并完成静态逐帧检查；跑步每圈1200ms、每帧75ms。最新正常/慢速动态观感待验收；客户端未接入。'
-    return '用户指出其他方向仍有问题，现参照竹弓少女重修；文件齐全不代表通过。跑步已按最新要求改为1200ms/圈、每帧75ms。客户端未接入、未运行验收。'
+        return '修复版196帧已导出并完成静态逐帧检查；跑步每圈960ms、每帧60ms。最新正常/慢速动态观感待验收；客户端未接入。'
+    return '用户指出其他方向仍有问题，现参照竹弓少女重修；文件齐全不代表通过。跑步已按最新要求改为960ms/圈、每帧60ms。客户端未接入、未运行验收。'
 
 
 # Shared elapsed-time lookup: each real cel owns one interval, no duplicate images.
@@ -82,7 +82,7 @@ function groupDurations(group,timing,profileId){
 }
 function offlineGroup(group){return m.animationApproval==='offline_reviewed'&&group.animationApproval==='offline_reviewed'}
 function offlineSelected(){return m.animationApproval==='offline_reviewed'&&timing.status==='offline_selected_not_client'&&m.groups.length===14&&m.groups.every(offlineGroup)}
-function profileLabel(profile){return profile.status==='offline_selected_not_client'&&!offlineSelected()?'1200ms 正常节奏（姿态待复核）':profile.label}
+function profileLabel(profile){return profile.status==='offline_selected_not_client'&&!offlineSelected()?'960ms 正常节奏（姿态待复核）':profile.label}
 function timingReviewLabel(profile){return offlineSelected()&&profile.id===timing.defaultProfile?'本地已选正常节奏；未入客户端':profile.status==='legacy_baseline_not_approved_normal'?'仅旧基线；未入客户端':profile.status==='comparison_only'?'仅对比节奏；未入客户端':'待最终评审；未入客户端'}
 '''
 

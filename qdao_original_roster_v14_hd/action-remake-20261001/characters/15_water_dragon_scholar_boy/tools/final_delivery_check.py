@@ -22,7 +22,7 @@ from render_review_board import gif_durations, load_run_timing
 from finalize_review import validate_review, OFFLINE, TIMING_SELECTED
 
 ROOT = Path(__file__).resolve().parents[1]
-SPECS = {'run': (['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'], 16, 75),
+SPECS = {'run': (['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'], 16, 60),
          'hit': (['E', 'W'], 6, 40), 'attack': (['E', 'W'], 12, 30),
          'cast': (['E', 'W'], 16, 45)}
 IMAGE_SUFFIXES = {'.png', '.apng', '.gif', '.jpg', '.jpeg', '.webp', '.bmp', '.tif', '.tiff'}
@@ -145,7 +145,7 @@ def check_delivery() -> dict:
             validate_review(manifest, read(final_review_path))
             require(sha(final_review_path) == manifest.get('offlineReview', {}).get('sha256'),
                     'final_review_record_sha_mismatch', 'audit/final-review.json')
-            require(run_profile.get('status') == TIMING_SELECTED and run_profile.get('cycleMs') == 1200,
+            require(run_profile.get('status') == TIMING_SELECTED and run_profile.get('cycleMs') == 960,
                     'selected_run_profile_invalid', run_profile)
             require(manifest.get('clientIntegration') == 'not_integrated' and manifest.get('clientRuntimeAcceptance') == 'not_tested',
                     'offline_review_must_not_claim_client', manifest.get('clientIntegration'))
@@ -154,8 +154,8 @@ def check_delivery() -> dict:
         for group in manifest.get('groups', []):
             require(group.get('animationApproval') == OFFLINE, 'offline_group_status_missing', [group.get('action'), group.get('direction')])
             if group.get('action') == 'run':
-                require(group.get('frameDurationsMs') == run_profile['frameDurationsMs'] and group.get('cycleMs') == 1200
-                        and group.get('durationMs') == 75 and group.get('timingStatus') == TIMING_SELECTED
+                require(group.get('frameDurationsMs') == run_profile['frameDurationsMs'] and group.get('cycleMs') == 960
+                        and group.get('durationMs') == 60 and group.get('timingStatus') == TIMING_SELECTED
                         and group.get('legacyTiming', {}).get('cycleMs') == 480,
                         'offline_run_group_timing_mismatch', group.get('direction'))
     for row in frames:
@@ -260,7 +260,7 @@ def check_delivery() -> dict:
                         and derived.get('timingStatus') == TIMING_SELECTED,
                         'offline_run_frame_timing_mismatch', row.get('durationMs'), slot)
             else:
-                require(row.get('durationMs') == 75 and row.get('timingStatus') == 'user_requested_not_client',
+                require(row.get('durationMs') == 60 and row.get('timingStatus') == 'user_requested_not_client',
                         'run_current_timing_mislabeled', row.get('timingStatus'), slot)
         except (OSError, ValueError, TypeError, KeyError) as error:
             problem('frame_chain_unreadable', str(error), slot=slot)
@@ -341,7 +341,7 @@ def check_delivery() -> dict:
                 and overview_record.get('sourceFrameDurationsMs') == run_profile['frameDurationsMs']
                 and overview_record.get('gifActualFrameDurationsMs') == actual_durations
                 and actual_durations == gif_durations(run_profile['frameDurationsMs'])
-                and len(actual_durations) == 16 and sum(actual_durations) == 1200,
+                and len(actual_durations) == 16 and sum(actual_durations) == 960,
                 'run_overview_stale_or_invalid', 'preview/run-all-directions.gif')
     except (OSError, ValueError, KeyError, TypeError) as error:
         problem('run_overview_unreadable', str(error))
@@ -460,7 +460,7 @@ def main() -> int:
                  f"计划时间（UTC）：{plan['plannedAt']}", f"当前交付技术检查通过：{plan['currentTechnicalCheckPassed']}", '',
                  '## 执行前置条件', ''] + [f'- {item}' for item in plan['prerequisites']]
         lines += ['', '## 当前数量', '', json.dumps(plan['summary'], ensure_ascii=False), '',
-                  '196 张 runtime 保留；每组最新 contact、跑步主选 uniform1200/slow、战斗 normal/slow、当前关键姿态图保留。HTML固定1200ms/圈，保留正常、慢速和逐帧检查。', '',
+                  '196 张 runtime 保留；每组最新 contact、跑步主选 uniform960/slow、战斗 normal/slow、当前关键姿态图保留。HTML固定960ms/圈，保留正常、慢速和逐帧检查。', '',
                   '当前入选且仍在使用的原生设计在最新动态复核完成前保留；淘汰 sources 及历史 audit/review 诊断图列为删除候选。JSON 内逐图保存当前 SHA、原生成记录路径及模型/质量/参考文字。', '',
                   '历史来源文字不改写成“文件仍在”。清理源图后不能再运行依赖原生输入的 build_delivery；成品检查用 final_delivery_check，HTML/GIF可从 runtime 重建。', '',
                   '仅处理本角色目录，不处理宿主缓存、共享参考或其他角色。保留全部逐图 JSON、提示词、清理文字、交接文档与必要脚本。', '',

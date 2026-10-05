@@ -110,8 +110,8 @@ def apply_review(manifest: dict, timing: dict, review: dict, derived_records: di
     manifest, timing, derived_records = deepcopy(manifest), deepcopy(timing), deepcopy(derived_records)
     profile = next(profile for profile in timing['profiles'] if profile['id'] == timing['defaultProfile'])
     durations = profile['frameDurationsMs']
-    if timing['defaultProfile'] != 'uniform1200' or durations != [75] * 16 or sum(durations) != 1200:
-        raise ValueError('当前时序不等于用户指定1200ms/圈、均匀75ms逐帧节奏，需主审另行明确')
+    if timing['defaultProfile'] != 'uniform960' or durations != [60] * 16 or sum(durations) != 960:
+        raise ValueError('当前时序不等于用户指定960ms/圈、均匀60ms逐帧节奏，需主审另行明确')
     evidence = {'record': 'audit/final-review.json', 'sha256': review_sha256,
                 'reviewer': validated['reviewer'], 'reviewedAt': validated['reviewedAt'],
                 'scope': 'offline_static_and_dynamic_not_client',
@@ -138,7 +138,7 @@ def apply_review(manifest: dict, timing: dict, review: dict, derived_records: di
         human = validated['groups'][(group['action'], group['direction'])]
         group.update(animationApproval=OFFLINE, offlineReview={**evidence, 'notes': human.get('notes')})
         if group['action'] == 'run':
-            group.update(durationMs=75, frameDurationsMs=list(durations), cycleMs=1200,
+            group.update(durationMs=60, frameDurationsMs=list(durations), cycleMs=960,
                          timingStatus=TIMING_SELECTED, legacyTiming=legacy)
     manifest.update(animationApproval=OFFLINE, offlineReview=evidence,
                     reviewFinalizedAt=finalized_at, clientIntegration='not_integrated', clientRuntimeAcceptance='not_tested',
@@ -148,13 +148,13 @@ def apply_review(manifest: dict, timing: dict, review: dict, derived_records: di
                                      'executionRecord': 'audit/retention-executed.json',
                                      'note': 'source、inventory及逐图来源中的路径记录原生成历史，不承诺源像素留存；最终清理执行与留存情况以 audit/retention-executed.json 为准。本收尾脚本不删除图片。'},
                     runTiming={'file': 'audit/run-timing.json', 'defaultProfile': timing['defaultProfile'],
-                               'status': TIMING_SELECTED, 'cycleMs': 1200, 'legacyCycleMs': 480},
+                               'status': TIMING_SELECTED, 'cycleMs': 960, 'legacyCycleMs': 480},
                     note='196帧与14动作组已由所引主审复核记录完成本地静态及动态审核；这是本聊天主审离线复核结论，用户尚未验收；未接入或验收客户端。')
     timing.update(status=TIMING_SELECTED, selectedAt=validated['reviewedAt'], selectionEvidence=evidence,
                   clientIntegration='not_integrated', clientRuntimeAcceptance='not_tested',
                   userAcceptance='not_reviewed_by_user',
-                  note='用户指定1200ms/圈，每帧75ms，旧快速档移出正式预览；未入客户端。')
-    profile.update(status=TIMING_SELECTED, label='1200ms 正常跑步 · 每帧75ms')
+                  note='用户指定960ms/圈，每帧60ms，旧快速档移出正式预览；未入客户端。')
+    profile.update(status=TIMING_SELECTED, label='960ms 正常跑步 · 每帧60ms')
     return manifest, timing, derived_records
 
 
@@ -218,7 +218,7 @@ def main() -> int:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(data)
     print(json.dumps({'written': args.write, 'frames': 196, 'groups': 14,
-                      'approval': OFFLINE, 'runCycleMs': 1200, 'clientIntegration': 'not_integrated'}, ensure_ascii=False))
+                      'approval': OFFLINE, 'runCycleMs': 960, 'clientIntegration': 'not_integrated'}, ensure_ascii=False))
     return 0
 
 

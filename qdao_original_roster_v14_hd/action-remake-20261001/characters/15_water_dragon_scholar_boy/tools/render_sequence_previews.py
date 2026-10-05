@@ -50,11 +50,11 @@ def main():
         if len(rows) == group['expected']:
             if action == 'run':
                 variants = [(p['id'], p['id'], 1,
-                             '1200ms 正常节奏（姿态待复核）' if p['status'] == 'offline_selected_not_client' and not fully_reviewed else p['label'],
+                             '960ms 正常节奏（姿态待复核）' if p['status'] == 'offline_selected_not_client' and not fully_reviewed else p['label'],
                              'candidate_pending_root_final_review' if p['status'] == 'offline_selected_not_client' and not fully_reviewed else p['status'])
                             for p in timing['profiles']]
                 default_profile = next(profile for profile in timing['profiles'] if profile['id'] == timing['defaultProfile'])
-                slow_label = default_profile['label'] if fully_reviewed or static_reviewed else '1200ms 正常节奏（姿态待复核）'
+                slow_label = default_profile['label'] if fully_reviewed or static_reviewed else '960ms 正常节奏（姿态待复核）'
                 variants.append(('slow', timing['defaultProfile'], 4, slow_label + ' · 0.25×',
                                  timing['status'] if fully_reviewed or static_reviewed else 'candidate_pending_root_final_review'))
             else:
