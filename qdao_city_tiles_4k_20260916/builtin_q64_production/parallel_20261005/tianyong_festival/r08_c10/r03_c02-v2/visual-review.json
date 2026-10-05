@@ -1,0 +1,45 @@
+{
+  "reviewedAtUtc": "2026-10-05 15:23:52 UTC",
+  "reviewer": "audit_native_pipeline",
+  "native": {
+    "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/tianyong_festival/r08_c10/r03_c02-v2/native.png",
+    "sha256": "ff9d92a5b93afbb1c4d7b134795b552d82379d801e7956c67ece46072835a308"
+  },
+  "viewMethod": "view_image detail=original; source context, layout, approved style and rejectedv1 viewed before generation; new native and full bottom230/hard-return images actually viewed after",
+  "scope": "Native1254 return; full230-row known overlap; broad canonical layout only. No whole4K seam or client acceptance.",
+  "evidenceViewed": [
+    "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/tianyong_festival/r08_c10/r03_c02-v2/context.png",
+    "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/tianyong_festival/r08_c10/r03_c02-v2/layout-reference-only.png",
+    "D:/work/image/designs/gameplay-ui/04-guild.png",
+    "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/tianyong_festival/r08_c10/r03_c02-v2/native.png",
+    "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/tianyong_festival/r08_c10/r03_c02-v2/comparison-bottom230-original-above-raw-below.png",
+    "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/tianyong_festival/r08_c10/r03_c02-v2/comparison-hard-return-y1024.png"
+  ],
+  "observations": [
+    "The requested broad horizontal ivory cross-band is now present across the image, at roughly y680..770; the returned geometry is substantially closer to the canonical wide band than v1 thin seams.",
+    "The entire old bottom strip was nevertheless repainted and contour positions still drift. Direct hard return shows multiple bevel steps and color discontinuities.",
+    "At y1028 the six diagnostic contour offsets are [-21,-5,-16,+20,+20,+29]px. Four sampled rows show raw/context differences ranging from -21 to +29px; contrast can affect individual subedge matches, so these are supporting diagnostics rather than a registration solution.",
+    "The second and third gray inset widths and the rightmost edge differ visibly from the native known strip. Exact join is not achieved.",
+    "Broad stone/gold surfaces are bright and rounded, but stone veining remains conspicuous. No building, foliage, UI or character added."
+  ],
+  "structuralCorrection": {
+    "broadIvoryCrossBandRestored": true,
+    "rawBandApproximateY": [
+      680,
+      770
+    ],
+    "requestedCanonicalBandApproximateY": [
+      700,
+      790
+    ]
+  },
+  "localAccepted": false,
+  "rawReadyForDirectJoin": false,
+  "automaticAcceptancePerformed": false,
+  "joinedIntoCurrent": false,
+  "registrationPerformed": false,
+  "newComplete4KTiles": 0,
+  "formalAccepted": false,
+  "clientRuntimeAccepted": false,
+  "nextAction": "Test shifted framing with bottom627 original-known pixels and only upper627 missing. Retain canonical broad band around shifted y303..393. No large flow repair for missing structure."
+}

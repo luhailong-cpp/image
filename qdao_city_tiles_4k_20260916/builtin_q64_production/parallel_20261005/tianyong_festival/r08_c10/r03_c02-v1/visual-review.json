@@ -1,0 +1,37 @@
+{
+  "reviewedAtUtc": "2026-10-05 15:04:19 UTC",
+  "reviewer": "audit_native_pipeline",
+  "native": {
+    "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/tianyong_festival/r08_c10/r03_c02-v1/native.png",
+    "sha256": "b4d1e8ec87ae0bbbae09f1b2a4a393efe0101da8f21fecc8b07cabf864892c1a"
+  },
+  "viewMethod": "Generated full image plus view_image detail=original of bottom230 direct comparison and hard return. Inputs context/layout/style actually viewed before call.",
+  "scope": "Raw native return, complete known bottom230 overlap, and broad canonical geometry comparison. No internal whole4K seams, other neighbor edges, junctions or client acceptance.",
+  "evidenceViewed": [
+    "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/tianyong_festival/r08_c10/r03_c02-v1/context.png",
+    "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/tianyong_festival/r08_c10/r03_c02-v1/layout-reference-only.png",
+    "D:/work/image/designs/gameplay-ui/04-guild.png",
+    "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/tianyong_festival/r08_c10/r03_c02-v1/native.png",
+    "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/tianyong_festival/r08_c10/r03_c02-v1/comparison-bottom230-original-above-raw-below.png",
+    "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/tianyong_festival/r08_c10/r03_c02-v1/comparison-hard-return-y1024.png"
+  ],
+  "observations": [
+    "The returned image contains the expected three gray stone inset columns and warm ivory/gold vertical curved bands. No building, foliage, figure or UI was added.",
+    "The raw return did not preserve the bottom native context geometry. Multiple vertical bevel contours differ across the overlap, particularly the leftmost inset left edge and right-side columns.",
+    "Diagnostic matching-polarity luminance edge locations at y1028 show offsets [-19,-4,+1,+13,+16,+26] pixels across six sampled boundary windows. The leftmost difference remains -19 px at four measured rows. This metric is supporting evidence, not an optical registration solution.",
+    "A hard handoff from raw above y1024 to unchanged context below would retain visible contour steps and tonal changes. Raw bottom230 mean absolute RGB difference is approximately [15.43,17.02,18.29].",
+    "The reference-only canonical layout contains a broad ivory horizontal cross-band around y700-790. The raw return reduces it to thin gray-inset horizontal joints while its ivory vertical bands remain uninterrupted, so the missing-region broad structure is not faithfully retained.",
+    "Materials remain bright and rounded but retain conspicuous mottled mineral pattern relative to the desired quiet stone finish."
+  ],
+  "localAccepted": false,
+  "rawReadyForDirectJoin": false,
+  "selection": "retained_in_progress_native_return_requires_targeted_redraw_review",
+  "recommendedNextAction": "Do not merge this raw return. Resolve broad cross-band geometry and protect native contour endpoints in a targeted edit or revised geometric input; do not use a large flow correction to invent missing structure.",
+  "automaticAcceptancePerformed": false,
+  "joinedIntoCurrent": false,
+  "newComplete4KTiles": 0,
+  "formalAccepted": false,
+  "clientRuntimeAccepted": false,
+  "actualModel": null,
+  "actualQuality": null
+}
