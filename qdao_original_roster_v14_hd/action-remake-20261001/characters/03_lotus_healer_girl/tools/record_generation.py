@@ -24,7 +24,7 @@ record={"schemaVersion":1,"file":str(out.relative_to(BASE)).replace(chr(92),"/")
 "evidence":{"hostOutputPath":str(host),"copiedShaMatches":sha(host)==sha(out),"receipt":job.get("receipt"),"pngTextMetadata":{k:v for k,v in im.info.items() if isinstance(v,(str,int,float))}},
 "prompt":job["prompt"],"promptSha256":sha(BASE/job["prompt"]),"references":[dict(r,sha256=sha(r["path"])) for r in job["references"]],
 "status":job.get("status","pending_visual_review"),"review":job.get("review",{}),
-"officialVerification":{"verifiedOn":"2026-10-03","url":"https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst","finding":"most capable image model, max quality listed; no built-in selectors"}}
+"officialVerification":job.get("officialVerification",{"verifiedOn":"2026-10-03","url":"https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst","finding":"most capable image model, max quality listed; no built-in selectors"})}
 if im.mode=="RGBA":
  record["alphaExtrema"]=im.getchannel("A").getextrema()
  record["alphaGt8Bounds"]=im.getchannel("A").point(lambda a:255 if a>8 else 0).getbbox()

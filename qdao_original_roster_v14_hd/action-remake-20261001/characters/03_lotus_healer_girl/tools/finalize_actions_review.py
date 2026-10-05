@@ -45,17 +45,33 @@ for group in overview["groups"]:
     issue_sections.append(f"### {action} / {direction}\n\n"+("\n".join("- "+str(s) for s in issues) if issues else "本组暂无单独问题条目，仍须连播和客户端核验。"))
 
 write(B/"review/slot-inventory.json",dict(updatedAt=stamp,target=196,candidate=overview["selectedExported"],accepted=0,missing=196-overview["selectedExported"],slots=inventory))
-write(B/"review/root-and-timing.json",dict(schemaVersion=2,updatedAt=stamp,status="provisional_not_client_approved",transformation=dict(fullCanvasUniformDownscale=True,translation=[0,0],perFrameBBoxFit=False,lowestFootPin=False),runCycleMs=1200,runFrameMs=75,runMode="uniform",groups=roots))
+write(B/"review/root-and-timing.json",dict(schemaVersion=2,updatedAt=stamp,status="provisional_not_client_approved",transformation=dict(fullCanvasUniformDownscale=True,translation=[0,0],perFrameBBoxFit=False,lowestFootPin=False),runCycleMs=960,runFrameMs=60,runMode="uniform",groups=roots))
 write(B/"review/action-events.json",dict(schemaVersion=1,updatedAt=stamp,groups=event_groups))
 write(B/"validation.json",technical)
 shutil.copyfile(B/"review/selected-source-index.csv",B/"review/source-index.csv")
-summary=f"本轮动作修订已导出 **{overview['selectedExported']}/196 帧** 1024×1024 RGBA：八方向跑步128帧，东西方向受击、普攻和施法68帧。按竹弓少女同方向姿态校正脚掌朝向、连续承重及持物；跑步正常1×调整为1200ms。逐图选择与残余观察项有记录，供用户查看；不代表用户验收或游戏客户端验收，客户端尚未接入。"
+summary=f"本轮动作修订已导出 **{overview['selectedExported']}/196 帧** 1024×1024 RGBA：八方向跑步128帧，东西方向受击、普攻和施法68帧。按竹弓少女同方向姿态校正脚掌朝向、连续承重及持物；跑步正常1×调整为960ms。逐图选择与残余观察项有记录，供用户查看；不代表用户验收或游戏客户端验收，客户端尚未接入。"
+axis_path=B/'review/axis-revision-decisions-20261004.json'
+if axis_path.exists():
+    axis=read(axis_path)
+    if axis.get('selectedAt'):
+        summary+=f"\n\n追加视频参考后，本轮局部重画并替换{len(axis['decisions'])}帧，收正支撑鞋侧翻和摆脚轨迹跳变，保留其余正确姿态。实际选帧、提示词与新旧来源见[本轮修订记录](review/axis-revision-decisions-20261004.json)；视频取连续原帧判断运动平面，遮挡处不用于推断精确脚尖细节。旧冻结清单仅保留为历史，不再代表本轮文件。"
+        runtime.add('review/axis-revision-decisions-20261004.json')
+        for name in ['axis-audit-E-W-20261004.json','axis-audit-N-NW-20261004.json','axis-audit-SE-SW-20261004.json','axis-browser-verification-20261004.json']:
+            if (B/'review'/name).exists(): runtime.add('review/'+name)
+anatomy_path=B/'review/anatomy-revision-decisions-20261005.json'
+if anatomy_path.exists():
+    anatomy=read(anatomy_path)
+    if anatomy.get('selectedAt'):
+        summary+=f"\n\n最新局部修订替换{len(anatomy['decisions'])}帧：收正东北/东南/西南支撑鞋外撇，修正北向托瓶手及灯臂下坠、东西向持物与中间摆位。当前正常播放严格为60ms/帧、960ms/圈。[本次选帧与提示词](review/anatomy-revision-decisions-20261005.json)记录逐图来源、实际查看结果及残余差异。"
+        runtime.add('review/anatomy-revision-decisions-20261005.json')
+        for name in ['anatomy-current-coverage-20261005.json','anatomy-browser-verification-20261005.json']:
+            if (B/'review'/name).exists(): runtime.add('review/'+name)
 table_text="| 动作 | 方向 | 已选/目标 | 试播时长 ms | 状态 |\n| --- | --- | ---: | ---: | --- |\n"+"\n".join(table)
 readme=f"""# 03 莲花医者 · 动作修复
 
 {summary}
 
-- [全部动作预览](preview/actions.html)：动作/方向切换，正常1×、0.25×、逐帧，128/256/512px；跑步统一1200ms一圈、16帧各75ms，已移除旧快档。缺帧保留空槽。
+- [全部动作预览](preview/actions.html)：动作/方向切换，正常1×、0.25×、逐帧，128/256/512px；跑步统一960ms一圈、16帧各60ms，已移除旧快档。缺帧保留空槽。
 - [竹弓少女指定参照](../09_bamboo_archer_girl/preview/index.html)：只读对照同方向姿态；保留莲花少女外形与持物。旧index/new-run入口自动进入当前全部动作。
 - [逐组真实进度](review/production-status.json)、[当前选帧](review/all-actions-selection.json)、[来源与SHA](review/source-index.csv)、[合并交接](MERGE_HANDOFF.md)。
 
@@ -84,7 +100,7 @@ handoff=f"""# 03 莲花医者 · 本机交接
 
 [root-and-timing.json](review/root-and-timing.json)逐组记录固定原生根点、1024导出根点、规范化pivot及逐帧时长；这些是离线诊断值，尚未在客户端采用。透视远近脚允许不同屏幕高度，不能通过逐帧最低脚移动伪造落地。
 
-[action-events.json](review/action-events.json)记录已有实图候选的接触/离地、受击、普攻接触与施法释放帧，缺失的事件明示待核查。跑步离线正常1×为1200ms=16×75ms；正式客户端周期仍null；受击/普攻/施法保持240/360/720ms。
+[action-events.json](review/action-events.json)记录已有实图候选的接触/离地、受击、普攻接触与施法释放帧，缺失的事件明示待核查。跑步离线正常1×为960ms=16×60ms；正式客户端周期仍null；受击/普攻/施法保持240/360/720ms。
 
 ## 当前待核查项
 
