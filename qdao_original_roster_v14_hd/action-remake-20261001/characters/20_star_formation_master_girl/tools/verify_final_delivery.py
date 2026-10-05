@@ -9,6 +9,8 @@ sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 sel=rd(R/"selection.json");mf=rd(R/"merge-manifest.json");st=rd(R/"STATUS.json")
 assert len(sel["frames"])==len(mf["files"])==196 and len(list((R/"runtime").rglob("*.png")))==196
 assert st["offlineMaterialComplete"] and mf["offlineMaterialComplete"]
+assert st['axisReviewed'] and mf['axisReviewed']
+assert st['fullBodyReviewed'] and mf['fullBodyReviewed']
 prior=rd(R/"provenance/grounding4-prior-selection.json")
 old={(f["action"],f["direction"],f["frame"]):f for f in prior["frames"]}
 fm={(f["action"],f["direction"],f["frame"]):f for f in mf["files"]}
@@ -25,7 +27,7 @@ for f in sel["frames"]:
  if f["action"]!="run":
   assert f["sourceSha256"]==old[k]["sourceSha256"];combat+=1
 assert combat==68
-timings={"run":(16,75),"hit":(6,40),"attack":(12,30),"cast":(16,45)}
+timings={"run":(16,60),"hit":(6,40),"attack":(12,30),"cast":(16,45)}
 groups=[]
 for g in mf["groups"]:
  count,ms=timings[g["action"]];assert g["count"]==count and g["loopMs"]==count*ms
@@ -38,13 +40,19 @@ for g in mf["groups"]:
    for i in range(count):im.seek(i);durations.append(im.info.get("duration"))
    assert durations==[ms*mul]*count,(p,durations)
  groups.append({"action":g["action"],"direction":g["direction"],"frames":count,"frameMs":ms,"loopMs":count*ms,"uniqueImages":count,"normalAndSlowAPNG":"passed"})
-for name,ms in [("1200ms",75),("slow",300)]:
+for name,ms in [("960ms",60),("slow",240)]:
  p=R/f"preview/run-eight-directions-{name}.png"
  with Image.open(p) as im:
   assert im.n_frames==16
   for i in range(16):im.seek(i);assert im.info["duration"]==ms
 assert rd(R/"provenance/run-playback-uniform-check.json")["checks"]["timingBoundaries"]["passed"]
-result={"verifiedAt":datetime.now(timezone.utc).isoformat(),"passed":True,"runtimeRGBA1024":196,"nativeInputsAtLeast1024":196,"groups":groups,"combatByteIdenticalToPrior":68,"allRuntimeAndRecordHashesMatchManifest":True,"sourceRecordHashesVerified":196,"newRunImageCounts":rd(R/"provenance/grounding-pairs-applied.json")["counts"],"runNormalLoopMs":1200,"extraEndPauseMs":0,"browserVisualReview":"provenance/offline-visual-review.json","imageCleanup":"provenance/grounding-pairs-image-cleanup.json" if (R/"provenance/grounding-pairs-image-cleanup.json").exists() else "pending","clientIntegrated":False,"clientValidation":"not_run","userFinalAcceptance":False}
+result={"verifiedAt":datetime.now(timezone.utc).isoformat(),"passed":True,"runtimeRGBA1024":196,"nativeInputsAtLeast1024":196,"groups":groups,"combatByteIdenticalToPrior":68,"allRuntimeAndRecordHashesMatchManifest":True,"sourceRecordHashesVerified":196,"newRunImageCounts":rd(R/"provenance/grounding-pairs-applied.json")["counts"],"runNormalLoopMs":960,"extraEndPauseMs":0,"browserVisualReview":"provenance/offline-visual-review.json","imageCleanup":"provenance/grounding-pairs-image-cleanup.json" if (R/"provenance/grounding-pairs-image-cleanup.json").exists() else "pending","clientIntegrated":False,"clientValidation":"not_run","userFinalAcceptance":False}
+(R/"provenance/final-verification.json").write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+result['fullBodyEdits']=rd(R/'provenance/full-body-edits-applied.json')['count']
+result['fullBodyRetained']=196-result['fullBodyEdits']
+result['fullBodyReviewed']=True
+result['axisRevision']='2026-10-04_knee_ankle_boot'
+result['axisEdits']=rd(R/'provenance/axis-edits-applied.json')['count']
+result['axisRunRetained']=rd(R/'provenance/axis-edits-applied.json')['retainedRun']
 (R/"provenance/final-verification.json").write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 print(json.dumps({k:v for k,v in result.items() if k!="groups"},ensure_ascii=False))
-
