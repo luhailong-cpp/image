@@ -8,10 +8,10 @@
     "r04_c03",
     "r04_c04"
   ],
-  "updatedAtUtc": "2026-10-05T14:55:18.791454+00:00",
-  "status": "waiting_for_north_native_dependency",
-  "waitingFor": "r03_c04",
-  "completedNativeCount": 3,
+  "updatedAtUtc": "2026-10-05T15:23:38.084245+00:00",
+  "status": "native_row_complete_pending_assembly_qa",
+  "waitingFor": null,
+  "completedNativeCount": 4,
   "formalAccepted": false,
   "images": [
     {
@@ -73,6 +73,26 @@
         ]
       },
       "formalAccepted": false
+    },
+    {
+      "cell": "r04_c04",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r04_c04.png",
+      "sha256": "b7bca935ded4860001a848b3fe4771c825045f7db0c95a51467e34dceffc7612",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r04_c04.png.generation.json",
+      "reviewStatus": "candidate_pending_full_seam_review",
+      "visualInspection": {
+        "performed": true,
+        "scope": "whole returned 1254-square image; compared with guide and style reference",
+        "findings": [
+          "Large trunk, rounded planter corner, upper stone curb, lower-right white post and existing leaf mass retain guide footprint. No new objects or text.",
+          "Leaf highlights and trunk/planter shading are more defined. Exact foliage boundary and tonal continuity with north/west neighbors require assembled 1:1 QA."
+        ]
+      },
+      "formalAccepted": false
     }
   ],
   "modelPolicyVerification": {
@@ -96,5 +116,16 @@
       "reason": "Added tree-cast shadows not in guide",
       "sourceCleanupPending": true
     }
-  ]
+  ],
+  "verification": {
+    "fourNativeChecksumsMatch": true,
+    "actualNativePixels": [
+      1254,
+      1254
+    ],
+    "resamplingPerformed": false,
+    "formalTileCount": 0,
+    "clientValidated": false,
+    "assemblyAndFullSeamQaOwner": "root"
+  }
 }
