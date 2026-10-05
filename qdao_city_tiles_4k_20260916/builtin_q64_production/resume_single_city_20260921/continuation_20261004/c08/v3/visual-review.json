@@ -1,0 +1,86 @@
+{
+  "createdAtUtc": "2026-10-05T01:22:42.319375+00:00",
+  "candidate": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20261004\\c08\\v3\\r08_c08.png",
+  "candidateSha256": "d55428d435ad5147bb46b2c004d05286d3aed450c9d7a399f97b67db2b7f06a2",
+  "scope": "Two additional native AI repairs on prior v1 candidate; no global selection update.",
+  "visualReviewPerformed": true,
+  "method": "Viewed repair-02 and repair-03 exact native 1254 input/output; viewed assembled 1574x1574 and 1414x1574 contexts including 160px outside available patch perimeter with view_image original. Viewed v3 1024 overview only for full composition.",
+  "evidence": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20261004\\c08\\repair-02\\composite-perimeter-context.png",
+      "sha256": "f231c8b36830740a729057f52736ec24a133fc1bb9c096dbf44dd4cf2467c9b8"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20261004\\c08\\repair-03\\composite-perimeter-context.png",
+      "sha256": "491973a74cd257db27b257cea0f5207c21cd4ae2d8439fb72c551f8afc3e3161"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20261004\\c08\\v3\\overview.png",
+      "sha256": "a21c1f8471edb6e83a705e91042358d3622a63cd39b14ab357e410acb2b3cfb8",
+      "role": "downsampled overview only"
+    }
+  ],
+  "findings": [
+    {
+      "repair": "02",
+      "cropLTRB": [
+        1421,
+        397,
+        2675,
+        1651
+      ],
+      "result": "local_improvement",
+      "finding": "Gold band center at [2048,1024] no longer has prior abrupt cross-tone step. Carved motif, slab and blue-gray rim are visually coherent in the central repaired area. Checked full surrounding context: no new doubled gold line or curve offset at blend perimeter. Original x2048 seam remains above/below the repair window, and the outer carved slab corner near upper window edge still retains the original cut."
+    },
+    {
+      "repair": "03",
+      "cropLTRB": [
+        2842,
+        397,
+        4096,
+        1651
+      ],
+      "result": "local_improvement",
+      "finding": "Broad blue-gray straight tone band at y1024 is removed across most of repaired interior. Curved outline, slim highlight and ivory inset remain aligned through the blend perimeter. Residual old band is visible near the preserved right edge, and the original x3072 vertical band continues below the repair window; therefore this is not full seam acceptance."
+    }
+  ],
+  "pixelValidation": [
+    {
+      "version": "v2",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20261004\\c08\\v2\\r08_c08.png",
+      "sha256": "f18d2e2c4c642f5953a1b45a70690eeed8032d9374b8427f2c16510136ef0a6d",
+      "pixels": [
+        4096,
+        4096
+      ],
+      "pixelsOutsideCropUnchanged": true,
+      "outerBordersUnchanged": true,
+      "changedPixels": 1244747
+    },
+    {
+      "version": "v3",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20261004\\c08\\v3\\r08_c08.png",
+      "sha256": "d55428d435ad5147bb46b2c004d05286d3aed450c9d7a399f97b67db2b7f06a2",
+      "pixels": [
+        4096,
+        4096
+      ],
+      "pixelsOutsideCropUnchanged": true,
+      "outerBordersUnchanged": true,
+      "changedPixels": 1259048
+    }
+  ],
+  "sourceModelAndQuality": "Configured target snapshot gpt-image-2.5-sunburst/max verified_on 2026-10-04. Builtin selector absent and result undisclosed: actualModel and actualQuality null for both new images.",
+  "previousFullTileReview": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\continuation_20261004\\c08\\qa\\visual-review.json",
+  "previousFullTileReviewScope": "Applies as unchanged historical findings outside the two repair windows; is not relabeled as a fresh full-tile v3 audit.",
+  "remaining": [
+    "Internal x1024 upper pavement and carved motif seams remain.",
+    "Internal x2048 seam beyond the repair-02 window remains.",
+    "Blue-gray x3072 seam below repair-03 window and y1024 near preserved east border remain.",
+    "Old y2048/y3072 ivory material bands outside repaired windows remain.",
+    "East upper gold junction, south material mismatch and missing north neighbor remain; external border pixels were unchanged."
+  ],
+  "formalAccepted": false,
+  "runtimeAccepted": false,
+  "globalSelectionModified": false
+}
