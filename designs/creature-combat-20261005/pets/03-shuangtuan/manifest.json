@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "id": "03-shuangtuan",
   "name": "霜团貂",
-  "builtAt": "2026-10-05T11:47:54+00:00",
+  "builtAt": "2026-10-05T12:29:28+00:00",
   "status": "partial",
   "counts": {
     "expected": 68,
-    "present": 22,
-    "missing": 46,
-    "technicalPass": 22,
+    "present": 54,
+    "missing": 14,
+    "technicalPass": 54,
     "invalid": 0,
     "duplicateSets": 0,
     "extraPng": 0
@@ -825,7 +825,7 @@
       "label": "受击",
       "direction": "W",
       "expected": 6,
-      "present": 0,
+      "present": 6,
       "durationMs": 40,
       "totalDurationMs": 240,
       "frames": [
@@ -834,9 +834,9 @@
           "direction": "W",
           "frame": 1,
           "path": "runtime/hit/W/01.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 40,
           "pivot": [
             0.5,
@@ -847,23 +847,127 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "91dd96f7b56121da8718eaf5ca652735df1987e350b0e052d5d25264013c6344",
+          "sourceRecord": "records/hit/W/01.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 560195,
+            "visiblePixels": 488381,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              40,
+              1024,
+              990
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/hit/W/01.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/hit/W/01.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/hit/W/01.repair1.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/hit/W/01.repair1.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb2-56d1-7d30-898d-ff0a06a1b1c3\\exec-ffea6751-1b9e-4b17-993e-82492061f220.png",
+              "resolved": "C:/Users/luyua/.codex/generated_images/01a10bb2-56d1-7d30-898d-ff0a06a1b1c3/exec-ffea6751-1b9e-4b17-993e-82492061f220.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/hit/W/01.repair1.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/hit/W/01.repair1.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.path",
+              "path": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb2-56d1-7d30-898d-ff0a06a1b1c3\\exec-641225aa-d602-410d-beb1-d5ead6855cb6.png",
+              "resolved": "C:/Users/luyua/.codex/generated_images/01a10bb2-56d1-7d30-898d-ff0a06a1b1c3/exec-641225aa-d602-410d-beb1-d5ead6855cb6.png",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T11:52:15.698Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具无model/quality选择器且未披露真实值"
+          }
         },
         {
           "action": "hit",
           "direction": "W",
           "frame": 2,
           "path": "runtime/hit/W/02.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 40,
           "pivot": [
             0.5,
@@ -874,23 +978,127 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "8eeb4af183296d0e88ae9c847acc7491fe4f993a2817f47a938d1b9baeadece4",
+          "sourceRecord": "records/hit/W/02.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 532255,
+            "visiblePixels": 516321,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              17,
+              1024,
+              965
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/hit/W/02.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/hit/W/02.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/hit/W/02.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/hit/W/02.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "runtime/hit/W/01.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/hit/W/01.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/hit/W/02.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/hit/W/02.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.path",
+              "path": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb2-56d1-7d30-898d-ff0a06a1b1c3\\exec-50ef56e3-fe7e-4853-99cd-b5b9b3ef4574.png",
+              "resolved": "C:/Users/luyua/.codex/generated_images/01a10bb2-56d1-7d30-898d-ff0a06a1b1c3/exec-50ef56e3-fe7e-4853-99cd-b5b9b3ef4574.png",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T11:54:37.506Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具无model/quality选择器且未披露真实值"
+          }
         },
         {
           "action": "hit",
           "direction": "W",
           "frame": 3,
           "path": "runtime/hit/W/03.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 40,
           "pivot": [
             0.5,
@@ -901,23 +1109,127 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "34e91f26c0a5d8eaee66e8c26230f836194a6de2f283a7170ba7ea78959203a6",
+          "sourceRecord": "records/hit/W/03.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 523882,
+            "visiblePixels": 524694,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              12,
+              1024,
+              991
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/hit/W/03.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/hit/W/03.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/hit/W/03.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/hit/W/03.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "runtime/hit/W/01.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/hit/W/01.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/hit/W/03.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/hit/W/03.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.path",
+              "path": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb2-56d1-7d30-898d-ff0a06a1b1c3\\exec-216737bc-cc57-4df0-a226-b7cc78417c56.png",
+              "resolved": "C:/Users/luyua/.codex/generated_images/01a10bb2-56d1-7d30-898d-ff0a06a1b1c3/exec-216737bc-cc57-4df0-a226-b7cc78417c56.png",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T11:56:42.072Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具无model/quality选择器且未披露真实值"
+          }
         },
         {
           "action": "hit",
           "direction": "W",
           "frame": 4,
           "path": "runtime/hit/W/04.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 40,
           "pivot": [
             0.5,
@@ -928,23 +1240,125 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "2ca688129b6b67a364e9aad24f5c03c456e7988a2c1fe6fefe07a71604200ccb",
+          "sourceRecord": "records/hit/W/04.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [],
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 578547,
+            "visiblePixels": 470029,
+            "hasTransparency": true,
+            "alphaBounds": [
+              14,
+              25,
+              1018,
+              985
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/hit/W/04.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/hit/W/04.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/hit/W/04.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/hit/W/04.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "runtime/hit/W/01.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/hit/W/01.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/hit/W/04.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/hit/W/04.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.path",
+              "path": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb2-56d1-7d30-898d-ff0a06a1b1c3\\exec-fcc810f1-ab22-4bcb-8a90-50bc7d94c350.png",
+              "resolved": "C:/Users/luyua/.codex/generated_images/01a10bb2-56d1-7d30-898d-ff0a06a1b1c3/exec-fcc810f1-ab22-4bcb-8a90-50bc7d94c350.png",
+              "exists": true,
+              "retiredWithSha256": false
+            }
           ],
-          "warnings": []
+          "provenance": {
+            "generatedAt": "2026-10-05T12:11:41.040Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具无model/quality选择器且未披露真实值"
+          }
         },
         {
           "action": "hit",
           "direction": "W",
           "frame": 5,
           "path": "runtime/hit/W/05.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 40,
           "pivot": [
             0.5,
@@ -955,23 +1369,127 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "febbda3a0b794ec28acab5f24a9e79cdce8b339cff30b216691aaee9ed7a636f",
+          "sourceRecord": "records/hit/W/05.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 545773,
+            "visiblePixels": 502803,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              17,
+              1024,
+              1024
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/hit/W/05.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/hit/W/05.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/hit/W/05.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/hit/W/05.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "runtime/hit/W/01.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/hit/W/01.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/hit/W/05.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/hit/W/05.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.path",
+              "path": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb2-56d1-7d30-898d-ff0a06a1b1c3\\exec-b8d42d29-2b12-49d2-9300-a3240569a858.png",
+              "resolved": "C:/Users/luyua/.codex/generated_images/01a10bb2-56d1-7d30-898d-ff0a06a1b1c3/exec-b8d42d29-2b12-49d2-9300-a3240569a858.png",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T12:19:19.988Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具无model/quality选择器且未披露真实值"
+          }
         },
         {
           "action": "hit",
           "direction": "W",
           "frame": 6,
           "path": "runtime/hit/W/06.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 40,
           "pivot": [
             0.5,
@@ -982,14 +1500,118 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "b55934f945e9c7622f0cb2cb0c9999f16b308cd031552603c7db38af0dc70cdd",
+          "sourceRecord": "records/hit/W/06.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 537281,
+            "visiblePixels": 511295,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              16,
+              1024,
+              957
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/hit/W/06.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/hit/W/06.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/hit/W/06.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/hit/W/06.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "runtime/hit/W/01.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/hit/W/01.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/hit/W/06.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/hit/W/06.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.path",
+              "path": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb2-56d1-7d30-898d-ff0a06a1b1c3\\exec-fc25ae57-d753-43b1-9abe-c00b833ddf01.png",
+              "resolved": "C:/Users/luyua/.codex/generated_images/01a10bb2-56d1-7d30-898d-ff0a06a1b1c3/exec-fc25ae57-d753-43b1-9abe-c00b833ddf01.png",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T12:21:28.913Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具无model/quality选择器且未披露真实值"
+          }
         }
       ]
     },
@@ -999,7 +1621,7 @@
       "label": "普攻",
       "direction": "E",
       "expected": 12,
-      "present": 5,
+      "present": 12,
       "durationMs": 30,
       "totalDurationMs": 360,
       "frames": [
@@ -1685,9 +2307,9 @@
           "direction": "E",
           "frame": 6,
           "path": "runtime/attack/E/06.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 30,
           "pivot": [
             0.5,
@@ -1698,23 +2320,133 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "0077f3a1ebdc6a35256b07086d4e14999b302e07c027e7dc09663f9461119e53",
+          "sourceRecord": "records/attack/E/06.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 559662,
+            "visiblePixels": 488914,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              32,
+              1013,
+              998
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/attack/E/06.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/06.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/attack/E-06.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/attack/E-06.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/05.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/05.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "native.file",
+              "path": "source/attack/E/06.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/attack/E/06.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/attack/E/06.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/attack/E/06.png",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T11:48:25.151Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/05.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model / quality；无可核实元数据。"
+          }
         },
         {
           "action": "attack",
           "direction": "E",
           "frame": 7,
           "path": "runtime/attack/E/07.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 30,
           "pivot": [
             0.5,
@@ -1725,23 +2457,133 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "d3e3eed8ae78f4b07b10ce588d207eac82d2b78395a52b2bb61411f640889754",
+          "sourceRecord": "records/attack/E/07.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 555753,
+            "visiblePixels": 492823,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              38,
+              1016,
+              1024
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/attack/E/07.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/07.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/attack/E-07.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/attack/E-07.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/06.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/06.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "native.file",
+              "path": "source/attack/E/07.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/attack/E/07.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/attack/E/07.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/attack/E/07.png",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T11:49:53.488Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/06.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model / quality；无可核实元数据。"
+          }
         },
         {
           "action": "attack",
           "direction": "E",
           "frame": 8,
           "path": "runtime/attack/E/08.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 30,
           "pivot": [
             0.5,
@@ -1752,23 +2594,133 @@
             942
           ],
           "event": "attack-contact",
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "e2029d08492523e31e74eea26e6f7056dfb84d28066154e5b379614b27144be1",
+          "sourceRecord": "records/attack/E/08.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 548471,
+            "visiblePixels": 500105,
+            "hasTransparency": true,
+            "alphaBounds": [
+              20,
+              39,
+              1023,
+              1024
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/attack/E/08.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/08.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/attack/E-08.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/attack/E-08.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/07.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/07.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "native.file",
+              "path": "source/attack/E/08.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/attack/E/08.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/attack/E/08.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/attack/E/08.png",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T11:51:31.542Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/07.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model / quality；无可核实元数据。"
+          }
         },
         {
           "action": "attack",
           "direction": "E",
           "frame": 9,
           "path": "runtime/attack/E/09.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 30,
           "pivot": [
             0.5,
@@ -1779,23 +2731,133 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "84a9a9ac75b24b33ceeabf11430a7a33bcc000361a9c3e6d0b049a286448aa03",
+          "sourceRecord": "records/attack/E/09.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 560855,
+            "visiblePixels": 487721,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              4,
+              1023,
+              988
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/attack/E/09.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/09.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/attack/E-09.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/attack/E-09.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/08.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/08.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "native.file",
+              "path": "source/attack/E/09.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/attack/E/09.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/attack/E/09.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/attack/E/09.png",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T11:52:36.444Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/08.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model / quality；无可核实元数据。"
+          }
         },
         {
           "action": "attack",
           "direction": "E",
           "frame": 10,
           "path": "runtime/attack/E/10.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 30,
           "pivot": [
             0.5,
@@ -1806,23 +2868,133 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "4a7f488c797d4df40b3c683bae938840fe962dfd2148dc5fc7317b0cdff173c2",
+          "sourceRecord": "records/attack/E/10.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 545971,
+            "visiblePixels": 502605,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              15,
+              1024,
+              1003
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/attack/E/10.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/10.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/attack/E-10.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/attack/E-10.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/09.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/09.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "native.file",
+              "path": "source/attack/E/10.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/attack/E/10.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/attack/E/10.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/attack/E/10.png",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T11:53:59.495Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/09.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model / quality；无可核实元数据。"
+          }
         },
         {
           "action": "attack",
           "direction": "E",
           "frame": 11,
           "path": "runtime/attack/E/11.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 30,
           "pivot": [
             0.5,
@@ -1833,23 +3005,141 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "bbb097bc4c170cc3b7ba0bb8a38b960cabac15113762ad08e641ac4eab404024",
+          "sourceRecord": "records/attack/E/11.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 543629,
+            "visiblePixels": 504947,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              71,
+              1022,
+              983
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/attack/E/11.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/11.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/attack/E-11.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/attack/E-11.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/10.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/10.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[4].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/01.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/01.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "native.file",
+              "path": "source/attack/E/11.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/attack/E/11.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/attack/E/11.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/attack/E/11.png",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T11:56:33.550Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/10.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/01.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model / quality；无可核实元数据。"
+          }
         },
         {
           "action": "attack",
           "direction": "E",
           "frame": 12,
           "path": "runtime/attack/E/12.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 30,
           "pivot": [
             0.5,
@@ -1860,14 +3150,132 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "e66ae85526b39a95e1fd0392ec3dd277cdb17d4025cbaaab572160c7beb46ffc",
+          "sourceRecord": "records/attack/E/12.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 565987,
+            "visiblePixels": 482589,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              38,
+              1024,
+              1013
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/attack/E/12.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/12.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/attack/E-12.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/attack/E-12.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/11.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/11.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[4].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/01.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/01.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "native.file",
+              "path": "source/attack/E/12.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/attack/E/12.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/attack/E/12.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/attack/E/12.png",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T12:05:27.501Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/11.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/E/01.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model / quality；无可核实元数据。"
+          }
         }
       ]
     },
@@ -1877,7 +3285,7 @@
       "label": "普攻",
       "direction": "W",
       "expected": 12,
-      "present": 3,
+      "present": 5,
       "durationMs": 30,
       "totalDurationMs": 360,
       "frames": [
@@ -2289,9 +3697,9 @@
           "direction": "W",
           "frame": 4,
           "path": "runtime/attack/W/04.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 30,
           "pivot": [
             0.5,
@@ -2302,23 +3710,133 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "08e4a57a31dcb7ce2b73e3a73deb38574d32ffd9febb493cb1c98a3667db3c8a",
+          "sourceRecord": "records/attack/W/04.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 557798,
+            "visiblePixels": 490778,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              15,
+              1024,
+              1005
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/attack/W/04.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/W/04.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/attack/W-04.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/attack/W-04.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/W/03.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/W/03.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "native.file",
+              "path": "source/attack/W/04.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/attack/W/04.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/attack/W/04.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/attack/W/04.png",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T12:16:28.393Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/W/03.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model / quality；无可核实元数据。"
+          }
         },
         {
           "action": "attack",
           "direction": "W",
           "frame": 5,
           "path": "runtime/attack/W/05.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 30,
           "pivot": [
             0.5,
@@ -2329,14 +3847,124 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "08cdc4aaa536b5420e6ba82f457430d9d26ccf519e74e19b7eb8b8634081f28b",
+          "sourceRecord": "records/attack/W/05.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 564272,
+            "visiblePixels": 484304,
+            "hasTransparency": true,
+            "alphaBounds": [
+              14,
+              19,
+              1024,
+              970
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/attack/W/05.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/W/05.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/attack/W-05.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/attack/W-05.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/W/04.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/W/04.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "native.file",
+              "path": "source/attack/W/05.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/attack/W/05.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/attack/W/05.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/attack/W/05.png",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T12:19:05.343Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/attack/W/04.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model / quality；无可核实元数据。"
+          }
         },
         {
           "action": "attack",
@@ -2535,7 +4163,7 @@
       "label": "施法",
       "direction": "E",
       "expected": 16,
-      "present": 5,
+      "present": 15,
       "durationMs": 45,
       "totalDurationMs": 720,
       "frames": [
@@ -3264,9 +4892,9 @@
           "direction": "E",
           "frame": 6,
           "path": "runtime/cast/E/06.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 45,
           "pivot": [
             0.5,
@@ -3277,23 +4905,140 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "3c856f78d93690574b5325de7a1a63e8c8b4c10d575de91bbd040ef5415a771d",
+          "sourceRecord": "records/cast/E/06.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 590455,
+            "visiblePixels": 458121,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              101,
+              1012,
+              1024
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/cast/E/06.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/E/06.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/cast/E/06.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/cast/E/06.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/05.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/05.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/cast/E/06.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/06.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/cast/E/06.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/06.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.generationRecord",
+              "path": "records/cast/E/06.generation.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/06.generation.json",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T11:50:45.021Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/05.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model/quality，无可核实元数据。提示词质量目标不等于实际选择器。"
+          }
         },
         {
           "action": "cast",
           "direction": "E",
           "frame": 7,
           "path": "runtime/cast/E/07.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 45,
           "pivot": [
             0.5,
@@ -3304,23 +5049,140 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "e7525a9a57cba27f94b423fdb625a77e0655b584d4060f23a37b4687cab162f2",
+          "sourceRecord": "records/cast/E/07.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 566740,
+            "visiblePixels": 481836,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              7,
+              1024,
+              1024
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/cast/E/07.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/E/07.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/cast/E/07.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/cast/E/07.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/06.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/06.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/cast/E/07.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/07.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/cast/E/07.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/07.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.generationRecord",
+              "path": "records/cast/E/07.generation.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/07.generation.json",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T11:52:30.072Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/06.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model/quality，无可核实元数据。提示词质量目标不等于实际选择器。"
+          }
         },
         {
           "action": "cast",
           "direction": "E",
           "frame": 8,
           "path": "runtime/cast/E/08.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 45,
           "pivot": [
             0.5,
@@ -3331,23 +5193,140 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "e5b12cf0e4e681513118d58b75a583589d0282fd34152c420ab17f045b3efd07",
+          "sourceRecord": "records/cast/E/08.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 564209,
+            "visiblePixels": 484367,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              84,
+              1018,
+              1024
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/cast/E/08.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/E/08.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/cast/E/08.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/cast/E/08.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/07.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/07.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/cast/E/08.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/08.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/cast/E/08.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/08.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.generationRecord",
+              "path": "records/cast/E/08.generation.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/08.generation.json",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T11:53:47.237Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/07.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model/quality，无可核实元数据。提示词质量目标不等于实际选择器。"
+          }
         },
         {
           "action": "cast",
           "direction": "E",
           "frame": 9,
           "path": "runtime/cast/E/09.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 45,
           "pivot": [
             0.5,
@@ -3358,23 +5337,140 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "903932f2f446d1e7a1905464439d55d1fd1fd676b0b28b4b61a53ff351b0855f",
+          "sourceRecord": "records/cast/E/09.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 559130,
+            "visiblePixels": 489446,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              12,
+              1024,
+              1024
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/cast/E/09.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/E/09.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/cast/E/09.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/cast/E/09.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/08.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/08.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/cast/E/09.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/09.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/cast/E/09.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/09.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.generationRecord",
+              "path": "records/cast/E/09.generation.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/09.generation.json",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T11:55:34.995Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/08.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model/quality，无可核实元数据。提示词质量目标不等于实际选择器。"
+          }
         },
         {
           "action": "cast",
           "direction": "E",
           "frame": 10,
           "path": "runtime/cast/E/10.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 45,
           "pivot": [
             0.5,
@@ -3385,23 +5481,140 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "a947d0e65980e3a6c2b067b67a3e47bce3478f0b84b8ef8d1a7d49141280c203",
+          "sourceRecord": "records/cast/E/10.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 571484,
+            "visiblePixels": 477092,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              17,
+              1024,
+              1024
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/cast/E/10.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/E/10.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/cast/E/10.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/cast/E/10.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/09.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/09.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/cast/E/10.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/10.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/cast/E/10.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/10.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.generationRecord",
+              "path": "records/cast/E/10.generation.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/10.generation.json",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T12:04:02.320Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/09.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model/quality，无可核实元数据。提示词质量目标不等于实际选择器。"
+          }
         },
         {
           "action": "cast",
           "direction": "E",
           "frame": 11,
           "path": "runtime/cast/E/11.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 45,
           "pivot": [
             0.5,
@@ -3412,23 +5625,140 @@
             942
           ],
           "event": "cast-release",
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "206de1b13052f32c24d34325a2cc4bafa50f8586d7b60081edbd340503fa5620",
+          "sourceRecord": "records/cast/E/11.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 542276,
+            "visiblePixels": 506300,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              17,
+              1024,
+              1024
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/cast/E/11.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/E/11.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/cast/E/11.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/cast/E/11.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/10.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/10.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/cast/E/11.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/11.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/cast/E/11.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/11.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.generationRecord",
+              "path": "records/cast/E/11.generation.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/11.generation.json",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T12:06:50.743Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/10.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model/quality，无可核实元数据。提示词质量目标不等于实际选择器。"
+          }
         },
         {
           "action": "cast",
           "direction": "E",
           "frame": 12,
           "path": "runtime/cast/E/12.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 45,
           "pivot": [
             0.5,
@@ -3439,23 +5769,140 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "4932e546c4d13d5c522120e3e6c1a7b6fe8b0f84500ac98a5c146eee985ca29f",
+          "sourceRecord": "records/cast/E/12.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 613402,
+            "visiblePixels": 435174,
+            "hasTransparency": true,
+            "alphaBounds": [
+              31,
+              17,
+              1013,
+              1024
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/cast/E/12.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/E/12.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/cast/E/12.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/cast/E/12.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/12.attempt1.edit-input.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/12.attempt1.edit-input.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/cast/E/12.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/12.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/cast/E/12.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/12.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.generationRecord",
+              "path": "records/cast/E/12.generation.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/12.generation.json",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T12:17:00.677Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/12.attempt1.edit-input.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model/quality，无可核实元数据。提示词质量目标不等于实际选择器。"
+          }
         },
         {
           "action": "cast",
           "direction": "E",
           "frame": 13,
           "path": "runtime/cast/E/13.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 45,
           "pivot": [
             0.5,
@@ -3466,23 +5913,140 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "3249b600d020c5cbf3466e420069819865f778b2133252a446ad3cd100b445a5",
+          "sourceRecord": "records/cast/E/13.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 607575,
+            "visiblePixels": 441001,
+            "hasTransparency": true,
+            "alphaBounds": [
+              14,
+              43,
+              1016,
+              1024
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/cast/E/13.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/E/13.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/cast/E/13.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/cast/E/13.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/12.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/12.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/cast/E/13.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/13.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/cast/E/13.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/13.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.generationRecord",
+              "path": "records/cast/E/13.generation.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/13.generation.json",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T12:18:22.122Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/12.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model/quality，无可核实元数据。提示词质量目标不等于实际选择器。"
+          }
         },
         {
           "action": "cast",
           "direction": "E",
           "frame": 14,
           "path": "runtime/cast/E/14.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 45,
           "pivot": [
             0.5,
@@ -3493,23 +6057,140 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "14992066ff329fa2be59e0ee931129720bddbdd43c801c9289772d87bebe1587",
+          "sourceRecord": "records/cast/E/14.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 611843,
+            "visiblePixels": 436733,
+            "hasTransparency": true,
+            "alphaBounds": [
+              17,
+              15,
+              1009,
+              1024
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/cast/E/14.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/E/14.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/cast/E/14.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/cast/E/14.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/13.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/13.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/cast/E/14.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/14.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/cast/E/14.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/14.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.generationRecord",
+              "path": "records/cast/E/14.generation.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/14.generation.json",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T12:21:20.805Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/13.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model/quality，无可核实元数据。提示词质量目标不等于实际选择器。"
+          }
         },
         {
           "action": "cast",
           "direction": "E",
           "frame": 15,
           "path": "runtime/cast/E/15.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 45,
           "pivot": [
             0.5,
@@ -3520,14 +6201,131 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "3da8503698cdeb78b497127113f535e436bf7ff2aa7d5ae006fc8d85b8a493c4",
+          "sourceRecord": "records/cast/E/15.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 545671,
+            "visiblePixels": 502905,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              26,
+              1024,
+              998
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/cast/E/15.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/E/15.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/cast/E/15.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/cast/E/15.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/01.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/01.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/cast/E/15.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/15.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/cast/E/15.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/15.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.generationRecord",
+              "path": "records/cast/E/15.generation.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/E/15.generation.json",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T12:27:37.200Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/E/01.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model/quality，无可核实元数据。提示词质量目标不等于实际选择器。"
+          }
         },
         {
           "action": "cast",
@@ -3564,7 +6362,7 @@
       "label": "施法",
       "direction": "W",
       "expected": 16,
-      "present": 3,
+      "present": 10,
       "durationMs": 45,
       "totalDurationMs": 720,
       "frames": [
@@ -3997,9 +6795,9 @@
           "direction": "W",
           "frame": 4,
           "path": "runtime/cast/W/04.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 45,
           "pivot": [
             0.5,
@@ -4010,23 +6808,140 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "b83d077a8c6fccfd33f6867813dd81b7ce32ce5980da8dc574cb19bb629682d2",
+          "sourceRecord": "records/cast/W/04.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 577190,
+            "visiblePixels": 471386,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              32,
+              1023,
+              1024
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/cast/W/04.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/04.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/cast/W/04.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/cast/W/04.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/cast/W/04.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/W/04.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/cast/W/04.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/W/04.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.generationRecord",
+              "path": "records/cast/W/04.generation.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/W/04.generation.json",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T11:52:38Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model/quality，无可核实元数据。提示词质量目标不等于实际选择器。"
+          }
         },
         {
           "action": "cast",
           "direction": "W",
           "frame": 5,
           "path": "runtime/cast/W/05.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 45,
           "pivot": [
             0.5,
@@ -4037,23 +6952,140 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "d394bbf354d4beaf9aeb821a3b52bc548506b169dccf5fd3ec03933fe8b83456",
+          "sourceRecord": "records/cast/W/05.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 560707,
+            "visiblePixels": 487869,
+            "hasTransparency": true,
+            "alphaBounds": [
+              74,
+              17,
+              1024,
+              965
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/cast/W/05.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/05.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/cast/W/05.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/cast/W/05.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/cast/W/05.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/W/05.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/cast/W/05.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/W/05.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.generationRecord",
+              "path": "records/cast/W/05.generation.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/W/05.generation.json",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T11:54:04Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model/quality，无可核实元数据。提示词质量目标不等于实际选择器。"
+          }
         },
         {
           "action": "cast",
           "direction": "W",
           "frame": 6,
           "path": "runtime/cast/W/06.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 45,
           "pivot": [
             0.5,
@@ -4064,23 +7096,140 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "f6b6ecbd846afb752040987753d54b5fdf50beb84e59e0e2f07a2b1693b34d81",
+          "sourceRecord": "records/cast/W/06.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 573842,
+            "visiblePixels": 474734,
+            "hasTransparency": true,
+            "alphaBounds": [
+              30,
+              17,
+              1024,
+              983
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/cast/W/06.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/06.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/cast/W/06.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/cast/W/06.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/cast/W/06.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/W/06.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/cast/W/06.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/W/06.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.generationRecord",
+              "path": "records/cast/W/06.generation.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/W/06.generation.json",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T11:56:22Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model/quality，无可核实元数据。提示词质量目标不等于实际选择器。"
+          }
         },
         {
           "action": "cast",
           "direction": "W",
           "frame": 7,
           "path": "runtime/cast/W/07.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 45,
           "pivot": [
             0.5,
@@ -4091,23 +7240,148 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "764ff3736f63b1bc3944193d1c6745cfc01ef358e362582594e0131674bb7a35",
+          "sourceRecord": "records/cast/W/07.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 566703,
+            "visiblePixels": 481873,
+            "hasTransparency": true,
+            "alphaBounds": [
+              20,
+              15,
+              1024,
+              947
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/cast/W/07.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/07.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/cast/W/07.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/cast/W/07.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/06.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/06.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[4].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/cast/W/07.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/W/07.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/cast/W/07.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/W/07.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.generationRecord",
+              "path": "records/cast/W/07.generation.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/W/07.generation.json",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T12:13:18Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/06.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model/quality，无可核实元数据。提示词质量目标不等于实际选择器。"
+          }
         },
         {
           "action": "cast",
           "direction": "W",
           "frame": 8,
           "path": "runtime/cast/W/08.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 45,
           "pivot": [
             0.5,
@@ -4118,23 +7392,148 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "5af0b4022acbdc005bee5f5619cd3ac5b973129530ba7efad5cf606e802c82dc",
+          "sourceRecord": "records/cast/W/08.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 542240,
+            "visiblePixels": 506336,
+            "hasTransparency": true,
+            "alphaBounds": [
+              0,
+              55,
+              1024,
+              1024
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/cast/W/08.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/08.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/cast/W/08.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/cast/W/08.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[4].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/07.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/07.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/cast/W/08.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/W/08.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/cast/W/08.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/W/08.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.generationRecord",
+              "path": "records/cast/W/08.generation.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/W/08.generation.json",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T12:16:28Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/07.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model/quality，无可核实元数据。提示词质量目标不等于实际选择器。"
+          }
         },
         {
           "action": "cast",
           "direction": "W",
           "frame": 9,
           "path": "runtime/cast/W/09.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 45,
           "pivot": [
             0.5,
@@ -4145,23 +7544,148 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "a56a2e5e57ad1c2577e98a1765fa9f7583345e605eae79dd95781d9bff08dbb7",
+          "sourceRecord": "records/cast/W/09.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 590343,
+            "visiblePixels": 458233,
+            "hasTransparency": true,
+            "alphaBounds": [
+              55,
+              17,
+              1024,
+              990
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/cast/W/09.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/09.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/cast/W/09.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/cast/W/09.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[4].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/08.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/08.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/cast/W/09.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/W/09.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/cast/W/09.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/W/09.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.generationRecord",
+              "path": "records/cast/W/09.generation.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/W/09.generation.json",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T12:19:35Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/08.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model/quality，无可核实元数据。提示词质量目标不等于实际选择器。"
+          }
         },
         {
           "action": "cast",
           "direction": "W",
           "frame": 10,
           "path": "runtime/cast/W/10.png",
-          "exists": false,
-          "width": null,
-          "height": null,
+          "exists": true,
+          "width": 1024,
+          "height": 1024,
           "durationMs": 45,
           "pivot": [
             0.5,
@@ -4172,14 +7696,139 @@
             942
           ],
           "event": null,
-          "sha256": null,
-          "sourceRecord": null,
+          "sha256": "c04ea0186efa2815ed2ae089b43ffa4e21e01875b6409e7f66831e9be0c36910",
+          "sourceRecord": "records/cast/W/10.generation.json",
           "visualStatus": "unverified",
-          "technicalStatus": "missing",
-          "errors": [
-            "missing-frame"
+          "technicalStatus": "pass",
+          "errors": [],
+          "warnings": [
+            "visible-alpha-touches-canvas-edge-review-crop"
           ],
-          "warnings": []
+          "image": {
+            "width": 1024,
+            "height": 1024,
+            "bitDepth": 8,
+            "colorType": 6,
+            "mode": "RGBA",
+            "hasAlphaChannel": true,
+            "interlace": 0,
+            "alphaMin": 0,
+            "alphaMax": 255,
+            "transparentPixels": 580696,
+            "visiblePixels": 467880,
+            "hasTransparency": true,
+            "alphaBounds": [
+              14,
+              17,
+              1024,
+              1024
+            ]
+          },
+          "sourceReferences": [
+            {
+              "field": "file",
+              "path": "runtime/cast/W/10.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/10.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "prompt",
+              "path": "prompts/cast/W/10.txt",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/prompts/cast/W/10.txt",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[0].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[1].path",
+              "path": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "resolved": "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[2].path",
+              "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "resolved": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[3].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "references[4].path",
+              "path": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/09.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/09.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "evidence.receipt",
+              "path": "records/cast/W/10.receipt.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/W/10.receipt.json",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.file",
+              "path": "source/cast/W/10.png",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/source/cast/W/10.png",
+              "exists": true,
+              "retiredWithSha256": false
+            },
+            {
+              "field": "derivedFrom.generationRecord",
+              "path": "records/cast/W/10.generation.json",
+              "resolved": "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/records/cast/W/10.generation.json",
+              "exists": true,
+              "retiredWithSha256": false
+            }
+          ],
+          "provenance": {
+            "generatedAt": "2026-10-05T12:21:43Z",
+            "tool": "image_gen.imagegen",
+            "route": "builtin",
+            "configSnapshot": {
+              "schema_version": 1,
+              "model": "gpt-image-2.5-sunburst",
+              "quality": "max",
+              "builtin_product": "ChatGPT Images 2.5",
+              "selection": "latest_verified",
+              "preferred_route": "builtin",
+              "verified_on": "2026-10-04",
+              "sources": {
+                "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+                "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+              }
+            },
+            "submittedParameters": {
+              "model": null,
+              "quality": null,
+              "transparent_background": true,
+              "referenced_image_paths": [
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-E.png",
+                "D:/work/image/designs/pets-xianling-20260924/source/03-shuangtuan-W.png",
+                "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/01.png",
+                "D:/work/image/designs/creature-combat-20261005/pets/03-shuangtuan/runtime/cast/W/09.png"
+              ]
+            },
+            "actualModel": null,
+            "actualQuality": null,
+            "unverifiedReason": "宿主管理，工具未披露 model/quality，无可核实元数据。提示词质量目标不等于实际选择器。"
+          }
         },
         {
           "action": "cast",
