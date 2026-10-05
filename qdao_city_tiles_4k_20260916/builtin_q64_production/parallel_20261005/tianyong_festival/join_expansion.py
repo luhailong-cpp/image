@@ -47,6 +47,8 @@ def main():
     j.crop((64,0,390,1254)).save(qa/'left-return-326x1254.png')
     j.crop((0,1010,1254,1254)).save(qa/'bottom-return-1254x244.png')
     j.crop((0,1010,390,1254)).save(qa/'corner-390x244.png')
+    j.crop((0,900,1254,1254)).save(qa/'lower-return-1254x354.png')
+    j.crop((900,0,1254,1254)).save(qa/'right-return-354x1254.png')
     board=Image.new('RGB',(978,1254),(20,20,20))
     for i,im in enumerate([c.convert('RGB'),Image.fromarray(raw),j]):board.paste(im.crop((0,0,326,1254)),(i*326,0))
     board.save(qa/'left-context-native-joined-comparison.png')

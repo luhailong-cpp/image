@@ -1,0 +1,62 @@
+{
+  "preparedAtUtc": "2026-10-05T16:01:46.232439+00:00",
+  "patch": "r03_c02-shifted-repaired",
+  "version": "v1",
+  "tile": "r08_c10",
+  "globalCropLTRB": [
+    37773,
+    31002,
+    39027,
+    32256
+  ],
+  "tileLocalCropLTRB": [
+    909,
+    2330,
+    2163,
+    3584
+  ],
+  "knownPixels": 1281588,
+  "missingPixels": 290928,
+  "knownRegionsLTRB": [
+    [
+      0,
+      0,
+      1254,
+      395
+    ],
+    [
+      0,
+      627,
+      1254,
+      1254
+    ]
+  ],
+  "missingRegionLTRB": [
+    0,
+    395,
+    1254,
+    627
+  ],
+  "payload": {
+    "prompt": "Use case: precise-object-edit / narrow terrain inpainting.\nReturn one opaque1254 by1254 square with image1's exact framing. Repair ONLY the transparent horizontal band in IMAGE1 at y395..626 (232 pixels high). Everything above y395 and below y627 is already drawn and is to remain unchanged.\nThe top region of IMAGE1 contains the rendered wide ivory stone cross-band around y290..400. The bottom627 rows y627..1253 are the authoritative original native game pavement, with three slate-gray inset columns, ivory/gold vertical dividers and the lower stone border. Preserve the lower half exactly, especially all six gray slab side contours and their widths, curvature, scale and shadows. The lower native image is the controlling endpoint geometry. Preserve the wide upper ivory cross-band instead of replacing it with seams.\nIn the transparent232-row gap, render the upper ends of the three lower gray stone inset panels and continue their side contours from the original bottom region upward to the underside of the broad cross-band. Match each original contour endpoint and tangent exactly. Do not widen, recenter, straighten, shift, split or duplicate the three lower inset columns. This is actual newly painted geometry repair, not a new layout. The missing band's bottom at y627 must become a smooth invisible continuation of the known native contours, with no step or doubled line. Do not introduce a new horizontal stone joint at y627. The upper edge of the gap belongs at the underside of the real cross-band, not a new decorative frame.\nIMAGE2 is the same-world canonical broad layout only; use it to confirm the broad ivory cross-band and three inset columns, but never use its blurred lower edge positions to displace the exact native lower half in image1. Never copy enlarged guide pixels.\nIMAGE3 is the user-approved rendering STYLE only: bright clean rounded Q/chibi Daoist fantasy handpainting, warm ivory, restrained gold and neutral slate. Do not import UI, lettering, characters, props or icons. No new objects, ornaments, cracks, grunge, dense texture, white halos, blur, text, watermark or frame. Do not repaint the known top or bottom, move the camera, zoom, rotate or rescale. Fill only the transparent gap with crisp native details at the highest host visual finish.",
+    "referenced_image_paths": [
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r08_c10\\r03_c02-shifted-repaired-v1\\context.png",
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r08_c10\\r03_c02-shifted-repaired-v1\\layout-reference-only.png",
+      "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png"
+    ],
+    "transparent_background": false
+  },
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-04",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  }
+}
