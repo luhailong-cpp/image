@@ -10,6 +10,7 @@ LAYOUT=PROJECT/'qdao_city_tiles_4k_20260916/builtin_q64_all_city_references/dong
 WEST=PROJECT/'qdao_city_tiles_4k_20260916/builtin_q64_production/donghai_day/r08_c08_c09_c10_joint/output_v3/r08_c10.png'
 STYLE=PROJECT/'designs/gameplay-ui/04-guild.png'
 T=ROOT/'r08_c11'
+ORIGIN=(40960,28672)
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def now():return datetime.now(timezone.utc).isoformat()
 def savej(p,d):
@@ -52,7 +53,7 @@ def guide(r,c):
   west=Image.open(WEST).convert('RGB');y0=max(0,oy-115);y1=min(4096,oy+1139)
   g.paste(west.crop((3981,y0,4096,y1)),(0,y0-(oy-115)))
   refs.append({'file':str(WEST),'sha256':sha(WEST),'role':'actual west neighbor, only existing 115-pixel interior edge copied'})
- for rr,cc in [(r-1,c-1),(r-1,c),(r-1,c+1),(r,c-1)]:
+ for rr,cc in [(r-1,c-1),(r-1,c),(r-1,c+1),(r+1,c-1),(r+1,c),(r+1,c+1),(r,c+1),(r,c-1)]:
   p=T/'native'/f'r{rr:02}_c{cc:02}.png'
   if not p.exists():continue
   px=(cc-1)*1024;py=(rr-1)*1024;x0=max(ox,px);y0=max(oy,py);x1=min(ox+1254,px+1254);y1=min(oy+1254,py+1254)
@@ -60,13 +61,13 @@ def guide(r,c):
    g.paste(Image.open(p).crop((x0-px,y0-py,x1-px,y1-py)),(x0-ox,y0-oy))
    refs.append({'file':str(p),'sha256':sha(p),'role':'actual overlapping native neighbor pixels'})
  out=T/'guides'/(name+'.png');g.save(out)
- savej(str(out)+'.generation.json',{'file':str(out),'sha256':sha(out),'operation':'layout-reference crop plus exact native overlapping neighbors','derivedFrom':refs,'globalBox':[40845+ox,28557+oy,42099+ox,29811+oy],'allowedInFinal':False})
+ savej(str(out)+'.generation.json',{'file':str(out),'sha256':sha(out),'operation':'layout-reference crop plus exact native overlapping neighbors','derivedFrom':refs,'globalBox':[ORIGIN[0]-115+ox,ORIGIN[1]-115+oy,ORIGIN[0]+1139+ox,ORIGIN[1]+1139+oy],'allowedInFinal':False})
  print(str(out))
 def prepare(r,c,subject):
  name=f'r{r:02}_c{c:02}';guide(r,c)
  refs=[{'file':str(T/'guides'/(name+'.png')),'role':'edit target, exact field of view; sharp edge strips are real adjacent native context, soft interior is layout reference only'},{'file':str(STYLE),'role':'primary user-confirmed rendering and materials style; no UI content'}]
  for e in refs:e['sha256']=sha(e['file'])
- prompt=f'''Use case: precise-object-edit. Edit IMAGE 1 only. This is native patch {name}, core 1024 with 115 pixel context on each side, inside fishing village daylight map r08_c11 for 五行奇谈. Repaint the soft interior into genuinely crisp native hand-painted details. Subject: {subject}. IMAGE 2 is the PRIMARY user-confirmed art style: rounded full forms, delicate controlled volumes, clean outlines and warm bright daylight, quiet materials without micro-noise. Keep image 1 camera, composition, colors, every structural silhouette, leaf mass, stone joint, doorway and timber footprint fixed. Do not zoom, rotate, crop or add objects. Sharp strips at left/top are actual already-generated adjacent context: preserve their geometry and color exactly, extend naturally across the sharp/soft junction. That junction is not a physical straight edge; draw continuous structures across it. Use existing leaf and tile shapes as guides, no new random foliage or smaller repeat pattern. Keep clean Q-style volume and material shading. Output one opaque square native image, 1254x1254 target, no enlargement of a low-res image. No text, UI, border, characters, collage, blur, grain, cracks, oversharpening or plastic reflection. Highest available visual finish. Return only image 1 repainted.'''
+ prompt=f'''Use case: precise-object-edit. Edit IMAGE 1 only. This is native patch {name}, core 1024 with 115 pixel context on each side, inside fishing village daylight map {T.name} for 五行奇谈. Repaint the soft interior into genuinely crisp native hand-painted details. Subject: {subject}. IMAGE 2 is the PRIMARY user-confirmed art style: rounded full forms, delicate controlled volumes, clean outlines and warm bright daylight, quiet materials without micro-noise. Keep image 1 camera, composition, colors, every structural silhouette, leaf mass, stone joint, doorway and timber footprint fixed. Do not zoom, rotate, crop or add objects. Sharp strips at left/top are actual already-generated adjacent context: preserve their geometry and color exactly, extend naturally across the sharp/soft junction. That junction is not a physical straight edge; draw continuous structures across it. Use existing leaf and tile shapes as guides, no new random foliage or smaller repeat pattern. Keep clean Q-style volume and material shading. Output one opaque square native image, 1254x1254 target, no enlargement of a low-res image. No text, UI, border, characters, collage, blur, grain, cracks, oversharpening or plastic reflection. Highest available visual finish. Return only image 1 repainted.'''
  (T/'prompts'/(name+'.txt')).write_text(prompt,encoding='utf-8');savej(T/'prompts'/(name+'.references.json'),refs)
  print(json.dumps({'name':name,'prompt':prompt,'references':[e['file'] for e in refs]}))
 if __name__=='__main__':
