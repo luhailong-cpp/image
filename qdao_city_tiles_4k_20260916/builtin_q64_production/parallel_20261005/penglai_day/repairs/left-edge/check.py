@@ -1,0 +1,16 @@
+from repair import *
+import numpy as np
+target=Image.open(R/'target-native.png').convert('RGB')
+gen=Image.open(R/'repair-v1.png').convert('RGB')
+assert gen.size==(1254,1254)
+mask=Image.new('L',(1254,1254),0)
+mask.paste(255,(627,115,830,1139))
+mask.save(R/'mask-v1.png')
+derived(R/'mask-v1.png',[R/'repair-v1.png',R/'target-native.png'],{'method':'hard binary right-side-only rectangle mask','rectLTRB':[627,115,830,1139],'resampling':None,'feather':0})
+merged=Image.composite(gen,target,mask)
+merged.save(R/'joined-v1.png')
+derived(R/'joined-v1.png',[R/'repair-v1.png',R/'target-native.png',R/'mask-v1.png'],{'method':'binary masked native pixel replacement','mask':str(R/'mask-v1.png'),'resampling':None,'feather':0})
+merged.crop((477,115,980,1139)).save(R/'qa-both-edges-v1.png')
+derived(R/'qa-both-edges-v1.png',[R/'joined-v1.png'],{'method':'native crop','boxLTRB':[477,115,980,1139],'jointImageX':150,'rightMaskBoundaryImageX':353})
+a=np.array(target);b=np.array(gen)
+write(R/'qa-numerical-v1.json',{'leftAnchorUnchanged':bool(np.array_equal(np.array(merged)[:,:627],a[:,:627])),'farRightUnchanged':bool(np.array_equal(np.array(merged)[:,830:],a[:,830:])),'noInterpolation':True,'rawGeneratedChangesLeftMeanAbs':float(np.abs(a[:,:627].astype(float)-b[:,:627]).mean()),'rawGeneratedChangesRightMeanAbs':float(np.abs(a[:,830:].astype(float)-b[:,830:]).mean()),'rawGeneratedVsSourceX830MeanAbs':float(np.abs(a[115:1139,830].astype(float)-b[115:1139,830]).mean()),'maskBBoxLTRB':[627,115,830,1139]})
