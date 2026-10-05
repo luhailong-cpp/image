@@ -93,6 +93,15 @@
 | runtime/cast/W/10.png | 014d41110a19c206a776465526da6ea20d50f6fdb116ffb2a088ea37b7970fd7 |
 | runtime/cast/W/11.png | 725136b1ad1d4bbae037c2889fab9065d5a49c67236a6407048ec69c3cc47dc7 |
 | runtime/cast/W/12.png | 1942e3eac4367b08df74b16e40c69a509e6f27cae7cedcbc3d1f5adc182e9554 |
-| runtime/cast/W/13.png | 724c3e33796d2a790689a93edf9ef5a2df2bfbc20d9552be920b144a0b3e66df |
-| runtime/cast/W/14.png | 61e5967dd493d375e4559d0c1b6d28390577ad788e807f0f4d3fdd733ce66163 |
-| runtime/cast/W/15.png | c353262c0f3186b1d96039f886424db2a36d74eb211f63adc218f73be3ccc775 |
+| runtime/cast/W/13.png | f49717f8ced4aef3912d29575bd4582afaa539893e79d79bc7a7ca2335885abb |
+| runtime/cast/W/14.png | 93b2d162f4e4f13bba4258f414963929b93328fb2ea6049bb3debecfe6217bf8 |
+| runtime/cast/W/15.png | 9bbeccba500f9f2e2fb96f6fc2f8b053bc2303031ce2509f407b3a6b22d11a7a |
+
+## 新视频反馈后的局部修正
+
+本轮视频反馈定位并AI局部修正：近侧解剖左靴鞋尖向W/左延展，右侧鞋跟块与鞋侧壁恢复，12→13的近正面鞋轴突变已处理。膝弯、白绑腿/踝位置、远靴、收勢、身份和右杖左牌保持。已实际查看1254原生与1024正式图；动态另验。
+
+逐图来源：work/cast_W_13_videoaxis_v1.png.generation.json。其他 67 行图像检查记录保持，当前 68 行 SHA 已同步。
+
+
+2026-10-05 补充复核：战斗 68 帧肩—袖口—腕—手指及握持已逐张实看，未发现新增明确上肢错误。cast W14/15 近侧左靴向镜头偏转已使用内置 image_gen 分别局部修正；朝 W 长鞋侧恢复，踝点、膝弯、另一靴、头脸相机、右杖左牌保留，两帧各 45ms。已实看原生和 1024 导出，只更新本报告对应两行，其他 66 行保留。完整逐帧与来源见 upper_limb_combat_20261005.json。仍属静态审查，不代表连续播放或客户端验收。

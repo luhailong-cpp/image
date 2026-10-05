@@ -49,6 +49,36 @@
       ],
       "issue": "原图近侧解剖右手错持符牌",
       "resolution": "各自 AI 重绘为近侧右手持杖、远侧左手持符牌；新的 4 张正式图已实际查看。"
+    },
+    {
+      "files": [
+        "runtime/cast/W/13.png"
+      ],
+      "beforeSha256": "724c3e33796d2a790689a93edf9ef5a2df2bfbc20d9552be920b144a0b3e66df",
+      "afterSha256": "f49717f8ced4aef3912d29575bd4582afaa539893e79d79bc7a7ca2335885abb",
+      "issue": "新用户视频反馈后重新定位近侧左靴向镜头偏转的12→13鞋轴突变",
+      "resolution": "本轮视频反馈定位并AI局部修正：近侧解剖左靴鞋尖向W/左延展，右侧鞋跟块与鞋侧壁恢复，12→13的近正面鞋轴突变已处理。膝弯、白绑腿/踝位置、远靴、收勢、身份和右杖左牌保持。已实际查看1254原生与1024正式图；动态另验。",
+      "evidenceReport": "review/video_axis_EW_combat_20261004.json"
+    },
+    {
+      "date": "2026-10-05",
+      "file": "runtime/cast/W/14.png",
+      "beforeSha256": "61e5967dd493d375e4559d0c1b6d28390577ad788e807f0f4d3fdd733ce66163",
+      "afterSha256": "93b2d162f4e4f13bba4258f414963929b93328fb2ea6049bb3debecfe6217bf8",
+      "issue": "近靴鞋头比W12及新W13更偏画面下方，长鞋侧缩短；膝踝与髋没有对应转身，收势鞋轴出现局部外转。并非仅因展示鞋面/鞋底判错，也不以09三分之四透视作放行依据。",
+      "resolution": "内置image_gen逐张局部修靴，将鞋头转朝W偏左，恢复长鞋侧，鞋跟在右；保留白裹踝、踝点、膝弯、另一靴、头脸相机及右杖左牌。",
+      "review": "已实看1254原生与1024导出：近侧靴鞋头左伸，长侧面和右侧鞋跟清楚，与新W13同一W鞋轴；全身取景、膝踝、另一靴及两手持物连接保持。",
+      "evidence": "review/upper_limb_combat_20261005.json"
+    },
+    {
+      "date": "2026-10-05",
+      "file": "runtime/cast/W/15.png",
+      "beforeSha256": "c353262c0f3186b1d96039f886424db2a36d74eb211f63adc218f73be3ccc775",
+      "afterSha256": "9bbeccba500f9f2e2fb96f6fc2f8b053bc2303031ce2509f407b3a6b22d11a7a",
+      "issue": "近靴鞋头比W12及新W13更偏画面下方，长鞋侧缩短；膝踝与髋没有对应转身，收势鞋轴出现局部外转。并非仅因展示鞋面/鞋底判错，也不以09三分之四透视作放行依据。",
+      "resolution": "内置image_gen逐张局部修靴，将鞋头转朝W偏左，恢复长鞋侧，鞋跟在右；保留白裹踝、踝点、膝弯、另一靴、头脸相机及右杖左牌。",
+      "review": "已实看1254原生与1024导出：近侧靴鞋头左伸，长侧面和右侧鞋跟清楚，与新W13同一W鞋轴；全身取景、膝踝、另一靴及两手持物连接保持。",
+      "evidence": "review/upper_limb_combat_20261005.json"
     }
   ],
   "limitations": [
@@ -2207,12 +2237,12 @@
     },
     {
       "file": "runtime/cast/W/13.png",
-      "sha256": "724c3e33796d2a790689a93edf9ef5a2df2bfbc20d9552be920b144a0b3e66df",
+      "sha256": "f49717f8ced4aef3912d29575bd4582afaa539893e79d79bc7a7ca2335885abb",
       "action": "cast",
       "direction": "W",
       "frame": 13,
-      "visualInspection": "full contact-sheet cell inspection",
-      "staticObservation": "近侧左手持符牌、远侧右手持杖；脚尖朝西。09 释放及 11/12 完整单帧已额外查看，11/12 鞋尖向左、鞋跟在右。",
+      "visualInspection": "contact sheet before correction; full native and 1024 runtime inspection after local correction",
+      "staticObservation": "本轮视频反馈定位并AI局部修正：近侧解剖左靴鞋尖向W/左延展，右侧鞋跟块与鞋侧壁恢复，12→13的近正面鞋轴突变已处理。膝弯、白绑腿/踝位置、远靴、收勢、身份和右杖左牌保持。已实际查看1254原生与1024正式图；动态另验。",
       "technicalChecks": {
         "runtimeShaMatchesSidecar": true,
         "rgba1024": true,
@@ -2220,13 +2250,13 @@
       },
       "sources": [
         {
-          "file": "work/cast_W_13_v1.png",
-          "sha256": "6ad6fa7c66a06bb3988528614964ac0ff7e897813f04fde7e022174d42297aae",
-          "generationRecord": "work/cast_W_13_v1.png.generation.json",
-          "generationRecordSha256": "d8955dc4e6e1053eb53acf4146595305feb970c4e857b85fd24b2a44caec432b",
+          "file": "work/cast_W_13_videoaxis_v1.png",
+          "sha256": "a1bb945a83fd78730adcab508358fe90b217be1bb44f09a69d65e624b28fc0f8",
+          "generationRecord": "work/cast_W_13_videoaxis_v1.png.generation.json",
+          "generationRecordSha256": "98e0754529cef5e2c174f1f5f4c7045ae287a06aed9d636228f102ecdb19b05a",
           "recordShaMatches": true,
           "nativeImageAvailable": true,
-          "nativeImageLocation": "host-generated-native",
+          "nativeImageLocation": "character-work",
           "nativeShaMatches": true,
           "actualModel": null,
           "actualQuality": null,
@@ -2240,26 +2270,27 @@
     },
     {
       "file": "runtime/cast/W/14.png",
-      "sha256": "61e5967dd493d375e4559d0c1b6d28390577ad788e807f0f4d3fdd733ce66163",
+      "sha256": "93b2d162f4e4f13bba4258f414963929b93328fb2ea6049bb3debecfe6217bf8",
       "action": "cast",
       "direction": "W",
       "frame": 14,
-      "visualInspection": "full contact-sheet cell inspection",
-      "staticObservation": "近侧左手持符牌、远侧右手持杖；脚尖朝西。09 释放及 11/12 完整单帧已额外查看，11/12 鞋尖向左、鞋跟在右。",
+      "visualInspection": "2026-10-05 full native image and full runtime 1024 image; adjacent W12/W13/W14/W15 static comparison",
+      "staticObservation": "已实看1254原生与1024导出：近侧靴鞋头左伸，长侧面和右侧鞋跟清楚，与新W13同一W鞋轴；全身取景、膝踝、另一靴及两手持物连接保持。 本次上肢全量复核未见新换手/倒折腕/握点脱离，仍各45ms。",
       "technicalChecks": {
         "runtimeShaMatchesSidecar": true,
         "rgba1024": true,
-        "transparentPixels": true
+        "transparentPixels": true,
+        "native1254FullCanvasExportMatches": true
       },
       "sources": [
         {
-          "file": "work/cast_W_14_v1.png",
-          "sha256": "f64f9a0fcef8e96c7c5cbc01e210b3497752fbe58d06712ff3ee3ab22ca1b4ce",
-          "generationRecord": "work/cast_W_14_v1.png.generation.json",
-          "generationRecordSha256": "6ff8a8d50f09935612ab8eeb907e98b8e8abcb0ea878f649c6a7549defc349fe",
+          "file": "work/cast_W_14_axisfollow_20261005_v1.png",
+          "sha256": "c8f98519a8c3931a7a0aa23b9b802bc73958ff2babd951da7ff015533606a4e3",
+          "generationRecord": "work/cast_W_14_axisfollow_20261005_v1.png.generation.json",
+          "generationRecordSha256": "807458a3b6572c335618ef7616002f6b67cd68be7d16e1d92e7edde6a5d3bd20",
           "recordShaMatches": true,
           "nativeImageAvailable": true,
-          "nativeImageLocation": "host-generated-native",
+          "nativeImageLocation": "character-work-native",
           "nativeShaMatches": true,
           "actualModel": null,
           "actualQuality": null,
@@ -2269,30 +2300,36 @@
           ],
           "nativeFullCanvasExportMatches": true
         }
-      ]
+      ],
+      "laterFootAxisCorrection": {
+        "report": "review/upper_limb_combat_20261005.json",
+        "beforeSha256": "61e5967dd493d375e4559d0c1b6d28390577ad788e807f0f4d3fdd733ce66163",
+        "status": "resolved"
+      }
     },
     {
       "file": "runtime/cast/W/15.png",
-      "sha256": "c353262c0f3186b1d96039f886424db2a36d74eb211f63adc218f73be3ccc775",
+      "sha256": "9bbeccba500f9f2e2fb96f6fc2f8b053bc2303031ce2509f407b3a6b22d11a7a",
       "action": "cast",
       "direction": "W",
       "frame": 15,
-      "visualInspection": "full contact-sheet cell inspection",
-      "staticObservation": "近侧左手持符牌、远侧右手持杖；脚尖朝西。09 释放及 11/12 完整单帧已额外查看，11/12 鞋尖向左、鞋跟在右。",
+      "visualInspection": "2026-10-05 full native image and full runtime 1024 image; adjacent W12/W13/W14/W15 static comparison",
+      "staticObservation": "已实看1254原生与1024导出：近侧靴鞋头左伸，长侧面和右侧鞋跟清楚，与新W13同一W鞋轴；全身取景、膝踝、另一靴及两手持物连接保持。 本次上肢全量复核未见新换手/倒折腕/握点脱离，仍各45ms。",
       "technicalChecks": {
         "runtimeShaMatchesSidecar": true,
         "rgba1024": true,
-        "transparentPixels": true
+        "transparentPixels": true,
+        "native1254FullCanvasExportMatches": true
       },
       "sources": [
         {
-          "file": "work/cast_W_15_v1.png",
-          "sha256": "cf3e9d11d304673a18228ea30daaa7b4eff122593720a06caef8311558d52d9d",
-          "generationRecord": "work/cast_W_15_v1.png.generation.json",
-          "generationRecordSha256": "110955d191e1f730118b9fa2b7d26cc0834b029f85e4deabe932e63a3c18227a",
+          "file": "work/cast_W_15_axisfollow_20261005_v1.png",
+          "sha256": "8d2d10d079e4b0a3491a24e903a576f127b9ab2b1b83cb46c49214af6c4ffc98",
+          "generationRecord": "work/cast_W_15_axisfollow_20261005_v1.png.generation.json",
+          "generationRecordSha256": "7189a27e57981fc789d46f52645a82e6fb253cae98c0d1380c730a4e9af8b8ce",
           "recordShaMatches": true,
           "nativeImageAvailable": true,
-          "nativeImageLocation": "host-generated-native",
+          "nativeImageLocation": "character-work-native",
           "nativeShaMatches": true,
           "actualModel": null,
           "actualQuality": null,
@@ -2302,7 +2339,29 @@
           ],
           "nativeFullCanvasExportMatches": true
         }
-      ]
+      ],
+      "laterFootAxisCorrection": {
+        "report": "review/upper_limb_combat_20261005.json",
+        "beforeSha256": "c353262c0f3186b1d96039f886424db2a36d74eb211f63adc218f73be3ccc775",
+        "status": "resolved"
+      }
     }
-  ]
+  ],
+  "updatedAt": "2026-10-05T07:13:19.592423+00:00",
+  "laterVideoAxisReview": {
+    "report": "review/video_axis_EW_combat_20261004.json",
+    "sha256": "6e54e9bed4ce7fd72d824482a8840d31e410218c85a8ae7911085c1c721d42a4",
+    "changedFrame": "runtime/cast/W/13.png",
+    "other67RowsPreserved": true
+  },
+  "laterUpperLimbReview": {
+    "file": "review/upper_limb_combat_20261005.json",
+    "frameCount": 68,
+    "upperLimbProblems": [],
+    "correctedFootFrames": [
+      "runtime/cast/W/14.png",
+      "runtime/cast/W/15.png"
+    ],
+    "staticOnly": true
+  }
 }
