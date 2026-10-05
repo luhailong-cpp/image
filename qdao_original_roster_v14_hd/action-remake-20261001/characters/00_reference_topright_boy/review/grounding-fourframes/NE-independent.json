@@ -5,23 +5,13 @@
   "status": "static_reviewed_no_confirmed_hard_defect",
   "selection": {
     "path": "generation/run/NE/selection-middle4-side2-20261004.json",
-    "sha256": "561eabd25610adf834b0aaf48659905299302fc011f06afeff4bddc79fe5d054"
+    "sha256": "744ea2bbb0aec1fcdb14814401f50c1a3ef8f19556beea2710b696e114e74365"
   },
   "methods": [
     "实际查看全部16帧完整画布联系表及统一区域腿部图。",
     "实际查看槽03、09、10、11、15、16的完整1254原生图。",
     "膝-踝-鞋连接、前后遮挡、鞋底与鞋面、持物与空手相位、头身大小综合判断；不以最低alpha像素代替地面。",
     "所有16原生RGBA文件和generation记录SHA实测核验；完整RGBA像素唯一。"
-  ],
-  "contactSheets": [
-    {
-      "path": "review/grounding-fourframes/NE-candidate-full.jpg",
-      "sha256": "55dc67b3639d7c4351272c3ce851729e1c5410de1795554cb387ee9c5f3b13c3"
-    },
-    {
-      "path": "review/grounding-fourframes/NE-candidate-legs.jpg",
-      "sha256": "7fcf7104871cc51c4cca89728de30dd5b6bda3aee9a0af8f71c0be2fb413ffbb"
-    }
   ],
   "nativeSlotsViewed": [
     3,
@@ -143,13 +133,16 @@
     },
     {
       "frame": 4,
-      "source": "generation/run/NE/03-v2.png",
-      "sourceSha256": "7786eff4d70862f72bd397f0120dcd82a22f98b6fec54ada14950e44ef645880",
-      "generationRecordSha256": "8942babba2719178e5e917ba5e86b10b632bd120f49eddac36d547569e22739a",
-      "nativePixelSha256": "2443839eff6c5e0a0c9a0b5ba7f0ed9b526103044e695b640d64a09eb53de9ce",
+      "source": "generation/run/NE/flow-04-v1.png",
+      "sourceSha256": "dc9b241bfe33a5c4c48c25be3facd61fe941b249cafb9a87589084cd1a28b5ba",
+      "generationRecordSha256": "d73c8b8b39843d313ab69d352b53136a8d0968a50a45ace274a59efde5b2ce21",
+      "nativePixelSha256": "bd0db7453fd06816251414490bc752dc8c6fd2ba027448f403165f8c493c3481",
       "supportFoot": "right",
       "positionPair": 2,
-      "staticObservation": "同一右支撑腿稍伸，左恢复鞋向身体收拢，右手开始回程；双腿没有交换。"
+      "staticObservation": "右空臂上臂收至身侧，低拳与前臂形成可见肘弯，连接后摆到前摆；腿与持物侧保留。",
+      "observation": "右空臂上臂收至身侧，低拳与前臂形成可见肘弯，连接后摆到前摆；腿与持物侧保留。",
+      "revisionEvidence": "review/full-body-20261004/run-north-repairs.json",
+      "revisionReviewer": "/root/full_body_run_north"
     },
     {
       "frame": 5,
@@ -223,13 +216,16 @@
     },
     {
       "frame": 12,
-      "source": "generation/run/NE/11-v1.png",
-      "sourceSha256": "883a5d6fe0dc3e43d5cdf1805b069e7c90901838c75cb68f29ae76458ee51517",
-      "generationRecordSha256": "dd171a9da1b3fe7f684ce61ee447da08f50d312009b9459011c0d3a4b7d59753",
-      "nativePixelSha256": "a4fc8d8e2a0ed34386395b7a2568d9902e3f6af0b52f82145dd26836a37ff974",
+      "source": "generation/run/NE/flow-12-v3.png",
+      "sourceSha256": "46523a636143a3e6e79015da8700879c1a02752145464ae4b8f514df05a9d571",
+      "generationRecordSha256": "087c78d3ea468d2b884afc793e0e1c49c50125eb864a5b353b4613c6a00a9714",
+      "nativePixelSha256": "445fe24a311c937339ca7530be66bbed92ea326e533db4e8d559b82c58d95b94",
       "supportFoot": "left",
       "positionPair": 2,
-      "staticObservation": "左支撑鞋与膝相连，右恢复腿更靠近躯干；右空手由前摆退回身侧。"
+      "staticObservation": "右空臂以低拳、开放肘弯连接前屈到后摆，避免一次展开；腿与持物侧保留。",
+      "observation": "右空臂以低拳、开放肘弯连接前屈到后摆，避免一次展开；腿与持物侧保留。",
+      "revisionEvidence": "review/full-body-20261004/run-north-repairs.json",
+      "revisionReviewer": "/root/full_body_run_north"
     },
     {
       "frame": 13,
@@ -271,5 +267,93 @@
       "positionPair": 4,
       "staticObservation": "原生复核：左后伸腿与踝角有独立变化，右腿前抬准备转入01；头身与15相近，静态首尾身份衔接成立。"
     }
-  ]
+  ],
+  "priorRevisions": [
+    {
+      "reportSha256": "3a2cd7fe2cfe75c292c986880a99b2fb38ec13a9638800d6d7715a7eaee10634",
+      "selection": {
+        "path": "generation/run/NE/selection-middle4-side2-20261004.json",
+        "sha256": "561eabd25610adf834b0aaf48659905299302fc011f06afeff4bddc79fe5d054"
+      },
+      "replacedFrame": {
+        "frame": 4,
+        "source": "generation/run/NE/03-v2.png",
+        "sourceSha256": "7786eff4d70862f72bd397f0120dcd82a22f98b6fec54ada14950e44ef645880",
+        "generationRecordSha256": "8942babba2719178e5e917ba5e86b10b632bd120f49eddac36d547569e22739a",
+        "nativePixelSha256": "2443839eff6c5e0a0c9a0b5ba7f0ed9b526103044e695b640d64a09eb53de9ce",
+        "supportFoot": "right",
+        "positionPair": 2,
+        "staticObservation": "同一右支撑腿稍伸，左恢复鞋向身体收拢，右手开始回程；双腿没有交换。"
+      },
+      "reason": "localized arm/airborne-leg transition follow-up"
+    },
+    {
+      "reportSha256": "ee6e79ebeb9b46b82259c730663bceedd3454302fdc742ec3ccb51535049abfb",
+      "selection": {
+        "path": "generation/run/NE/selection-middle4-side2-20261004.json",
+        "sha256": "d23403b72442072feeac0f6e04c8d20545a207a040f97bdb4d9ce1297629d2ab"
+      },
+      "replacedFrame": {
+        "frame": 12,
+        "source": "generation/run/NE/11-v1.png",
+        "sourceSha256": "883a5d6fe0dc3e43d5cdf1805b069e7c90901838c75cb68f29ae76458ee51517",
+        "generationRecordSha256": "dd171a9da1b3fe7f684ce61ee447da08f50d312009b9459011c0d3a4b7d59753",
+        "nativePixelSha256": "a4fc8d8e2a0ed34386395b7a2568d9902e3f6af0b52f82145dd26836a37ff974",
+        "supportFoot": "left",
+        "positionPair": 2,
+        "staticObservation": "左支撑鞋与膝相连，右恢复腿更靠近躯干；右空手由前摆退回身侧。"
+      },
+      "reason": "localized arm/airborne-leg transition follow-up"
+    }
+  ],
+  "latestRevision": {
+    "atUtc": "2026-10-05T06:26:56.785271+00:00",
+    "review": "review/full-body-20261004/run-north-repairs.json",
+    "reviewSha256": "7c4a893600a2c9d1cdcb91c81e3dbc96871f1ad96397b083711d76778b838fcb",
+    "frame": 12,
+    "sourceSha256": "46523a636143a3e6e79015da8700879c1a02752145464ae4b8f514df05a9d571",
+    "dynamicVerified": false
+  },
+  "historicalContactEvidence": [
+    {
+      "supersededAt": "2026-10-05T06:50:36.502840+00:00",
+      "evidence": {
+        "contactSheets": [
+          {
+            "path": "review/grounding-fourframes/NE-candidate-full.jpg",
+            "sha256": "55dc67b3639d7c4351272c3ce851729e1c5410de1795554cb387ee9c5f3b13c3"
+          },
+          {
+            "path": "review/grounding-fourframes/NE-candidate-legs.jpg",
+            "sha256": "7fcf7104871cc51c4cca89728de30dd5b6bda3aee9a0af8f71c0be2fb413ffbb"
+          }
+        ]
+      },
+      "status": "historical_before_flow_repair"
+    }
+  ],
+  "currentRootContactCheck": {
+    "path": "review/animations/run-NE-contact.png",
+    "sha256": "7ef8f162ae23d85174f35ebff10c4038cbc2762d3bf1348cf4479b1fea8c90bc",
+    "reviewer": "/root",
+    "actuallyViewed": true,
+    "dynamicVerified": false,
+    "scope": "Rebuilt current full export contact, read after five repairs; original independent observations and per-repair reviews retained separately."
+  },
+  "timingRebindings": [
+    {
+      "atUtc": "2026-10-05T08:44:17.829062+00:00",
+      "selectionBeforeSha256": "fd1786d7844e81ca2765bec38b08d2cc14f9f33953ee6734c375ffc39ce914a9",
+      "selectionAfterSha256": "744ea2bbb0aec1fcdb14814401f50c1a3ef8f19556beea2710b696e114e74365",
+      "oldFrameMs": 75,
+      "newFrameMs": 60,
+      "sourceImagesUnchanged": true,
+      "newVisualReviewClaimed": false
+    }
+  ],
+  "currentPlaybackTiming": {
+    "frameMs": 60,
+    "cycleMs": 960,
+    "visualPlaybackVerified": false
+  }
 }

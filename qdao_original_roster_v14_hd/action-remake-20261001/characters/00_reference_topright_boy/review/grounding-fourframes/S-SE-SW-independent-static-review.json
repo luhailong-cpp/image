@@ -6,7 +6,7 @@
   "directions": {
     "S": {
       "selection": "generation/run/S/selection-middle4-side2-20261004.json",
-      "selectionSha256": "34f332b7f8bde1369a8c7cebdb0396a3adf912ae595d25292b3b0b8a3ac5d25d",
+      "selectionSha256": "39a2e7505573af0df3167283ced2d2a0093a37bdb13257bfb6f9e13b25781e0c",
       "frames": [
         {
           "frame": 1,
@@ -176,11 +176,27 @@
         "S03 source05-v2 and S04 source04-v3 inspected natively: empty right hand remains forward across transition; no former back-swing reversal.",
         "Right01-08 and left09-16 thigh-to-shoe connections consistent; posterior contact inferred from front-view foreshortening."
       ],
-      "decision": "no hard static defect found; dynamic unverified"
+      "decision": "no hard static defect found; dynamic unverified",
+      "timingRebindings": [
+        {
+          "atUtc": "2026-10-05T08:44:17.829062+00:00",
+          "selectionBeforeSha256": "34f332b7f8bde1369a8c7cebdb0396a3adf912ae595d25292b3b0b8a3ac5d25d",
+          "selectionAfterSha256": "39a2e7505573af0df3167283ced2d2a0093a37bdb13257bfb6f9e13b25781e0c",
+          "oldFrameMs": 75,
+          "newFrameMs": 60,
+          "sourceImagesUnchanged": true,
+          "newVisualReviewClaimed": false
+        }
+      ],
+      "currentPlaybackTiming": {
+        "frameMs": 60,
+        "cycleMs": 960,
+        "visualPlaybackVerified": false
+      }
     },
     "SE": {
       "selection": "generation/run/SE/selection-middle4-side2-20261004.json",
-      "selectionSha256": "26bfa05b782ebf9073395b24e6b9389318994a2106c00491864b95fa2ccb8ea9",
+      "selectionSha256": "9d46322c15369c070571c3ad6d62fdfb73641c7c254a24470e9fe7ff1af5794e",
       "frames": [
         {
           "frame": 1,
@@ -350,10 +366,29 @@
         "SE15-v6 and16-v5 inspected natively: near right thigh crosses toward forward image-right shoe, with far LEFT support behind it extending image-left/rear. Left support identity is consistent.",
         "SE14 source13-v5 also inspected for transition; no side swap identified."
       ],
-      "decision": "no hard static defect found; dynamic unverified"
+      "decision": "no hard static defect found; dynamic unverified",
+      "timingRebindings": [
+        {
+          "atUtc": "2026-10-05T08:44:17.829062+00:00",
+          "selectionBeforeSha256": "26bfa05b782ebf9073395b24e6b9389318994a2106c00491864b95fa2ccb8ea9",
+          "selectionAfterSha256": "9d46322c15369c070571c3ad6d62fdfb73641c7c254a24470e9fe7ff1af5794e",
+          "oldFrameMs": 75,
+          "newFrameMs": 60,
+          "sourceImagesUnchanged": true,
+          "newVisualReviewClaimed": false
+        }
+      ],
+      "currentPlaybackTiming": {
+        "frameMs": 60,
+        "cycleMs": 960,
+        "visualPlaybackVerified": false
+      }
     },
     "SW": {
-      "selection": "generation/run/SW/selection-middle4-side2-20261004.json",
+      "selection": {
+        "path": "generation/run/SW/selection-middle4-side2-20261004.json",
+        "sha256": "142ee567d1da01a8567007fb9a5463baba47bb55c7e35035a9dc6fa5cecc4e97"
+      },
       "selectionSha256": "ca99d1920fbd046f6cbbc4efc17e3b1008876d90b6478c33d417de6cb3d6cfc6",
       "frames": [
         {
@@ -408,13 +443,19 @@
         },
         {
           "frame": 6,
-          "source": "generation/run/SW/06-v6.png",
-          "sourceSha256": "46574fae1a7d15d60c484fdb5deebf1f744787306703756f6b335737bdb270f3",
+          "source": "generation/run/SW/flow-06-v2.png",
+          "sourceSha256": "149e990845854a487c4b39545f355fc5d0001980e3253b2b3c429ca1cf0d8784",
           "expectedSupportFoot": "right",
           "observedSupportFoot": "right",
           "position": "middle",
           "status": "no hard static defect identified",
-          "durationMs": 75
+          "durationMs": 75,
+          "observation": "左悬空腿由后折收至近身经过位，连接下一帧前摆；右支撑脚和左右手保留。",
+          "staticObservation": "左悬空腿由后折收至近身经过位，连接下一帧前摆；右支撑脚和左右手保留。",
+          "nativePixelSha256": "c810fe8a74ae04735a006f1e997eed81993422257c263d9e7deafebd4574856a",
+          "generationRecordSha256": "6ac3f9510db7801adfedb97ecba06d8d2fdfa7a7d22ade991a738268543b2e44",
+          "revisionEvidence": "review/full-body-20261004/run-south-repairs.json",
+          "revisionReviewer": "/root/full_body_run_south"
         },
         {
           "frame": 7,
@@ -549,6 +590,55 @@
         ],
         "currentHardFindings": 0,
         "approvedOnlyAfterNativeInspection": true
+      },
+      "priorRevisions": [
+        {
+          "reportSha256": "0a2aefdc8af7d39344de55c552b2e33f70c65a0ade032db995625eea6524c369",
+          "selection": "generation/run/SW/selection-middle4-side2-20261004.json",
+          "replacedFrame": {
+            "frame": 6,
+            "source": "generation/run/SW/06-v6.png",
+            "sourceSha256": "46574fae1a7d15d60c484fdb5deebf1f744787306703756f6b335737bdb270f3",
+            "expectedSupportFoot": "right",
+            "observedSupportFoot": "right",
+            "position": "middle",
+            "status": "no hard static defect identified",
+            "durationMs": 75
+          },
+          "reason": "localized arm/airborne-leg transition follow-up"
+        }
+      ],
+      "latestRevision": {
+        "atUtc": "2026-10-05T06:26:56.850452+00:00",
+        "review": "review/full-body-20261004/run-south-repairs.json",
+        "reviewSha256": "b0d9f6c51975ede93139ce0af107854cc9d65381e9304e0966025d82c4e014e7",
+        "frame": 6,
+        "sourceSha256": "149e990845854a487c4b39545f355fc5d0001980e3253b2b3c429ca1cf0d8784",
+        "dynamicVerified": false
+      },
+      "currentRootContactCheck": {
+        "path": "review/animations/run-SW-contact.png",
+        "sha256": "2ab4985db9de732d3f7d2f177318b070bb167f94936a813b4363f2d66913684f",
+        "reviewer": "/root",
+        "actuallyViewed": true,
+        "dynamicVerified": false,
+        "scope": "Rebuilt current full export contact, read after five repairs; original independent observations and per-repair reviews retained separately."
+      },
+      "timingRebindings": [
+        {
+          "atUtc": "2026-10-05T08:44:17.829062+00:00",
+          "selectionBeforeSha256": "05533bf7e63d6008d6dec34e1d8e9fa00924fca293590433390595c79fe07719",
+          "selectionAfterSha256": "142ee567d1da01a8567007fb9a5463baba47bb55c7e35035a9dc6fa5cecc4e97",
+          "oldFrameMs": 75,
+          "newFrameMs": 60,
+          "sourceImagesUnchanged": true,
+          "newVisualReviewClaimed": false
+        }
+      ],
+      "currentPlaybackTiming": {
+        "frameMs": 60,
+        "cycleMs": 960,
+        "visualPlaybackVerified": false
       }
     }
   },

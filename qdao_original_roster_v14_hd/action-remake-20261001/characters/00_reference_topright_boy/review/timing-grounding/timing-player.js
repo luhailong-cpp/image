@@ -24,9 +24,9 @@ if (typeof document !== "undefined") {
       im.onerror = () => reject(new Error("图片无法读取：" + source.file));
       im.src = source.browserPath;
     }))).catch(error => { status.textContent = error.message; throw error; });
-    const canvas = document.getElementById("canvas-adopted-1200");
+    const canvas = document.getElementById("canvas-adopted-960");
     const context = canvas.getContext("2d");
-    const frameLabel = document.getElementById("frame-adopted-1200");
+    const frameLabel = document.getElementById("frame-adopted-960");
     const play = document.getElementById("play");
     const slider = document.getElementById("frame-slider");
     const sliderLabel = document.getElementById("frame-choice");
@@ -34,7 +34,7 @@ if (typeof document !== "undefined") {
     function refreshStatus() {
       play.textContent = playing ? "暂停" : "继续";
       status.textContent = playing
-        ? (rate === 1 ? "正常 1×：1200ms/圈，每帧75ms。" : "慢放 0.25×：4800ms/圈，每帧300ms。")
+        ? (rate === 1 ? "正常 1×：960ms/圈，每帧60ms。" : "慢放 0.25×：3840ms/圈，每帧240ms。")
         : "已暂停；可用上一帧、下一帧和滑块检查当前实图。";
     }
     function render(force = false) {

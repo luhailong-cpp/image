@@ -6,7 +6,7 @@
   "authority": "最新方案为沿跑向前2、中4、后2，各脚8帧；覆盖旧仅连续4帧要求。",
   "selection": {
     "path": "generation/run/E/selection-middle4-side2-20261004.json",
-    "sha256": "df29c35d51a4e08c30bc76000d3535b43a5da4fbe3e8a98a9d5697efe99fc56e"
+    "sha256": "79b3dfc23d1332422086235f01f1bc6771d50a0d99b299a9df69ae1bbcef6260"
   },
   "timing": {
     "frameDurationMs": 75,
@@ -313,8 +313,8 @@
     },
     {
       "frame": 16,
-      "source": "generation/run/E/12-v3.png",
-      "sourceSha256": "7828cb465513b69e5ca4e0539fbecf2b80a7ddf59708d27f20911ddbc7a78cd2",
+      "source": "generation/run/E/axis-16-v1.png",
+      "sourceSha256": "b4d75db3fc6dd620b2bc9771436bf4b83b3763185468db8878ab1b0d0ac9730a",
       "supportFoot": "left",
       "position": "rear",
       "nativeSize": [
@@ -323,9 +323,14 @@
       ],
       "mode": "RGBA",
       "inspection": "full_native_plus_full_canvas_and_lower_contact",
-      "observation": "左后侧第二张；后侧支撑前掌与抬起右脚可辨，准备回到01右脚前侧。",
+      "observation": "两鞋偏航回到E向运动平面，减少朝镜头的短正面鞋形；右悬空脚保持将落地的俯仰，左脚后侧支撑，膝踝与手持侧保留。",
       "staticRecommendation": "retain_current_candidate",
-      "dynamicVerified": false
+      "dynamicVerified": false,
+      "staticObservation": "两鞋偏航回到E向运动平面，减少朝镜头的短正面鞋形；右悬空脚保持将落地的俯仰，左脚后侧支撑，膝踝与手持侧保留。",
+      "nativePixelSha256": "53344aa0150ba955fab5767b5143bfa475f4ae3afc0b512aa5c353794eda819c",
+      "generationRecordSha256": "b5ca96634e3c6a97ac937a97e9ce136aec5ddfc74e6b436ebf938f6076699ef0",
+      "revisionReviewer": "/root/axis_side_review",
+      "revisionEvidence": "review/axis-review-20261004/side-repair-review.json"
     }
   ],
   "qa": [
@@ -337,5 +342,55 @@
       "path": "review/grounding-fourframes/E-middle4-lower.jpg",
       "sha256": "1b1ae5a2e5a2ffece7aa9e1f7b3830c88afb5a39aa502b97bb1a260d4693dd8c"
     }
-  ]
+  ],
+  "priorRevisions": [
+    {
+      "reportSha256": "db3ae54b2edc383b10e7e5c6d5043cda877577f972d5f5618e5ba353cdec1e2f",
+      "selection": {
+        "path": "generation/run/E/selection-middle4-side2-20261004.json",
+        "sha256": "df29c35d51a4e08c30bc76000d3535b43a5da4fbe3e8a98a9d5697efe99fc56e"
+      },
+      "replacedFrame": {
+        "frame": 16,
+        "source": "generation/run/E/12-v3.png",
+        "sourceSha256": "7828cb465513b69e5ca4e0539fbecf2b80a7ddf59708d27f20911ddbc7a78cd2",
+        "supportFoot": "left",
+        "position": "rear",
+        "nativeSize": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "inspection": "full_native_plus_full_canvas_and_lower_contact",
+        "observation": "左后侧第二张；后侧支撑前掌与抬起右脚可辨，准备回到01右脚前侧。",
+        "staticRecommendation": "retain_current_candidate",
+        "dynamicVerified": false
+      },
+      "reason": "shoe heading continuity follow-up"
+    }
+  ],
+  "latestRevision": {
+    "atUtc": "2026-10-05T02:03:16.538249+00:00",
+    "review": "review/axis-review-20261004/side-repair-review.json",
+    "reviewSha256": "9fbaa814099e88135a702a5e50f3649e4bdc00a30a62e96b66dab36666c98c44",
+    "frame": 16,
+    "sourceSha256": "b4d75db3fc6dd620b2bc9771436bf4b83b3763185468db8878ab1b0d0ac9730a",
+    "dynamicVerified": false
+  },
+  "timingRebindings": [
+    {
+      "atUtc": "2026-10-05T08:44:17.829062+00:00",
+      "selectionBeforeSha256": "060c2c168ef91573e7d773f9c3da00dcbd4e78c8ce9688f871f69a16380730db",
+      "selectionAfterSha256": "79b3dfc23d1332422086235f01f1bc6771d50a0d99b299a9df69ae1bbcef6260",
+      "oldFrameMs": 75,
+      "newFrameMs": 60,
+      "sourceImagesUnchanged": true,
+      "newVisualReviewClaimed": false
+    }
+  ],
+  "currentPlaybackTiming": {
+    "frameMs": 60,
+    "cycleMs": 960,
+    "visualPlaybackVerified": false
+  }
 }

@@ -100,14 +100,15 @@ def load_direction(direction, seen_files, seen_pixels):
                 raise ValueError(f"Duplicate native {kind} in {seen[value]} and {key}")
             seen[value] = key
         support = "right" if n <= 8 else "left"
-        position = "front" if (n - 1) % 8 < 2 else "middle" if (n - 1) % 8 < 6 else "rear"
+        pair_number = ((n - 1) % 8) // 2 + 1
+        position = f"position_{pair_number}"
         if row.get("supportFoot", support) != support:
             raise ValueError(f"Unexpected support foot at {key}")
         declared_position = first(row, ("position", "supportPositionAlongRun"))
-        if declared_position is not None and declared_position != position:
-            raise ValueError(f"Unexpected support position at {key}: {declared_position}")
+        # Earlier front/middle/rear labels remain historical observations.
+        # Current timing uses successive two-frame positions, not a four-frame hold.
         duration = first(row, ("durationMs", "frameDurationMs"))
-        if duration is not None and duration != 75:
+        if duration is not None and duration != 60:
             raise ValueError(f"Unexpected duration at {key}")
         observation = row.get("observation")
         if not observation:
@@ -117,10 +118,12 @@ def load_direction(direction, seen_files, seen_pixels):
                        "sourceSha256": actual_sha, "nativePixelSha256": pixels_sha,
                        "generationRecord": record_path.relative_to(ROOT).as_posix(),
                        "supportFoot": support, "position": position,
-                       "positionPair": ((n - 1) % 8) // 2 + 1,
-                       "durationMs": 75, "nativeSize": [1254, 1254],
+                       "legacyPositionObservation": declared_position,
+                       "positionPair": pair_number,
+                       "durationMs": 60, "nativeSize": [1254, 1254],
                        "status": row.get("status", metadata.get("status", "static_candidate_dynamic_unverified")),
-                       "observation": observation, "dynamicVerified": False,
+                       "observation": "相邻支撑位置各两张独立姿态，依跑向逐步推进；60ms/帧；静态复核不等于动态接地通过。 " + observation if "flow-" in source.name or "axis-" in source.name else "相邻支撑位置各两张独立姿态，依跑向逐步推进；60ms/帧；静态复核不等于动态接地通过。",
+                       "legacyObservation": observation, "dynamicVerified": False,
                        "reviewedSelection": path.relative_to(ROOT).as_posix(),
                        "reviewedSelectionSha256": sha(path)})
     return result
@@ -145,8 +148,8 @@ def main():
         raise ValueError("Existing selection is missing one or more run slots")
     merged = [replacement_by_key.get((r["action"], r["direction"], r["frame"]), r) for r in original]
     timing = read(ROOT / "run-timing.json")
-    if timing["cycleDurationMs"] != 1200 or set(timing["durationsByDirection"]) != set(DIRECTIONS) or any(v != [75] * 16 for v in timing["durationsByDirection"].values()):
-        raise ValueError("Expected all eight directions at 16x75ms = 1200ms")
+    if timing["cycleDurationMs"] != 960 or set(timing["durationsByDirection"]) != set(DIRECTIONS) or any(v != [60] * 16 for v in timing["durationsByDirection"].values()):
+        raise ValueError("Expected all eight directions at 16x60ms = 960ms")
     changes = [{"action": before["action"], "direction": before["direction"], "frame": before["frame"],
                 "before": before["source"], "after": after["source"], "sourceSha256": after["sourceSha256"]}
                for before, after in zip(original, merged)

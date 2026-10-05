@@ -1,10 +1,10 @@
 {
   "atUtc": "2026-10-04T08:35:45.594590+00:00",
   "status": "native_repairs_exported_static_reviewed_dynamic_pending",
-  "latestUserRequirement": "应该是要着中间地四帧，旁边地各两帧",
-  "normalFrameMs": 75,
+  "latestUserRequirement": "直脚着地两帧，再旁边点两帧，依次过渡",
+  "normalFrameMs": 60,
   "cycleFrames": 16,
-  "cycleMs": 1200,
+  "cycleMs": 960,
   "baselineStaticVisibleSegments": {
     "N": {
       "right": [
@@ -1015,16 +1015,14 @@
   "clientValidated": false,
   "visualLimit": "历史本地页面实播被策略拒绝，不绕过；现采用逐图原生与完整画布正常显示尺寸联系表复查，编码验证不冒充实际动态验收。",
   "latestSpatialFeedback": {
-    "atUtc": "2026-10-04T10:42:16.299295+00:00",
-    "verbatim": "应该是要着中间地四帧，旁边地各两帧",
-    "spaceMeaning": "实际前侧/身体正下方/后侧空间位置，不直接等同脚跟、全掌、前掌。",
-    "middleFrames": 4,
-    "eachSideFrames": 2,
-    "allocationScope": "per_foot_eight_frame_half_cycle_execution_interpretation",
-    "timingUnchanged": "16 x 75ms =1200ms",
-    "priorFourContactOnlyPlanIsNotFinalAcceptance": true
+    "atUtc": "2026-10-05T08:45:01.541263+00:00",
+    "verbatim": "直脚着地两帧，再旁边点两帧，依次过渡",
+    "spaceMeaning": "连续相邻的落脚位置，各两张独立姿态；不把旧中间四帧作为停留规则。",
+    "framesPerAdjacentPosition": 2,
+    "timingUnchanged": "16 x60ms=960ms",
+    "alignment": "髋、膝、踝、鞋尖沿跑向，保留自然屈膝和后蹬。"
   },
-  "allocationInterpretation": "每脚8帧：前侧2→中间前段2→中间后段2→后侧2；中间合计4帧。每对均为两张独立姿态，不复制延长。",
+  "allocationInterpretation": "直脚落地两帧，再到旁边相邻位置两帧，依次推进；每脚四组，每组两张独立姿态。不以旧中间四帧标签延长停留。",
   "allocationIsAssistantExecutionInterpretation": true,
   "activeFramePlan": [
     {
@@ -1034,8 +1032,8 @@
       ],
       "supportFoot": "right",
       "positionPair": 1,
-      "position": "front_landing",
-      "durationMs": 150
+      "position": "position_1",
+      "durationMs": 120
     },
     {
       "frames": [
@@ -1044,8 +1042,8 @@
       ],
       "supportFoot": "right",
       "positionPair": 2,
-      "position": "middle_early",
-      "durationMs": 150
+      "position": "position_2",
+      "durationMs": 120
     },
     {
       "frames": [
@@ -1054,8 +1052,8 @@
       ],
       "supportFoot": "right",
       "positionPair": 3,
-      "position": "middle_late",
-      "durationMs": 150
+      "position": "position_3",
+      "durationMs": 120
     },
     {
       "frames": [
@@ -1064,8 +1062,8 @@
       ],
       "supportFoot": "right",
       "positionPair": 4,
-      "position": "rear_push_off",
-      "durationMs": 150
+      "position": "position_4",
+      "durationMs": 120
     },
     {
       "frames": [
@@ -1074,8 +1072,8 @@
       ],
       "supportFoot": "left",
       "positionPair": 1,
-      "position": "front_landing",
-      "durationMs": 150
+      "position": "position_1",
+      "durationMs": 120
     },
     {
       "frames": [
@@ -1084,8 +1082,8 @@
       ],
       "supportFoot": "left",
       "positionPair": 2,
-      "position": "middle_early",
-      "durationMs": 150
+      "position": "position_2",
+      "durationMs": 120
     },
     {
       "frames": [
@@ -1094,8 +1092,8 @@
       ],
       "supportFoot": "left",
       "positionPair": 3,
-      "position": "middle_late",
-      "durationMs": 150
+      "position": "position_3",
+      "durationMs": 120
     },
     {
       "frames": [
@@ -1104,16 +1102,32 @@
       ],
       "supportFoot": "left",
       "positionPair": 4,
-      "position": "rear_push_off",
-      "durationMs": 150
+      "position": "position_4",
+      "durationMs": 120
     }
   ],
   "historicalMinimumOnlyPlan": {
     "minimumConsecutiveContactFrames": 4,
     "minimumContactMs": 300
   },
-  "updatedAt": "2026-10-04T17:42:57.704787+00:00",
+  "updatedAt": "2026-10-05T08:45:01.541263+00:00",
   "latestClarification": "直脚着地两帧，再旁边点两帧，依次过渡",
   "currentEvidence": "current-static-delivery.json",
-  "currentSelectionSha256": "6232dda436ab38b15edab34d8b7c37aecc815a3bb95fd98368c004f0b868700e"
+  "currentSelectionSha256": "947a4460cb2023bbfc7020a2e3762c3db2ddb6a3ca66eca664c2fdf2d7cd8752",
+  "historicalSpatialRequirements": [
+    {
+      "supersededAt": "2026-10-05T06:27:36.380921+00:00",
+      "latestUserRequirement": "应该是要着中间地四帧，旁边地各两帧",
+      "latestSpatialFeedback": {
+        "atUtc": "2026-10-04T10:42:16.299295+00:00",
+        "verbatim": "应该是要着中间地四帧，旁边地各两帧",
+        "spaceMeaning": "实际前侧/身体正下方/后侧空间位置，不直接等同脚跟、全掌、前掌。",
+        "middleFrames": 4,
+        "eachSideFrames": 2,
+        "allocationScope": "per_foot_eight_frame_half_cycle_execution_interpretation",
+        "timingUnchanged": "16 x 75ms =1200ms",
+        "priorFourContactOnlyPlanIsNotFinalAcceptance": true
+      }
+    }
+  ]
 }
