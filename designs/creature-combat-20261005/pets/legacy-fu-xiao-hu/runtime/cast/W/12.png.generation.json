@@ -65,24 +65,41 @@
     }
   },
   "operation": {
-    "name": "uniform whole-canvas resize",
-    "sourceSize": [
-      1254,
-      1254
-    ],
-    "destinationSize": [
-      1024,
-      1024
-    ],
-    "filter": "Lanczos",
-    "translation": [
-      0,
-      0
-    ],
-    "perFrameAlignment": false
+    "pipeline": [
+      {
+        "name": "uniform whole-canvas resize",
+        "sourceSize": [
+          1254,
+          1254
+        ],
+        "destinationSize": [
+          1024,
+          1024
+        ],
+        "filter": "Lanczos",
+        "translation": [
+          0,
+          0
+        ],
+        "perFrameAlignment": false
+      },
+      {
+        "type": "fixed-direction-canvas-translation",
+        "translationPx": [
+          0,
+          -4
+        ],
+        "appliesToAllActionsOfDirection": true,
+        "perFrameAlignment": false,
+        "basis": "Design reference visible alpha>16 baseline E957/W946 moved to942; no individual frame registration",
+        "inputSHA256": "065c4c1893814cb68c56ee5d473447f2211023a36903b299c846cf5432e2620e",
+        "outputSHA256": "c495db29bf6486fd3d5da48d3a6fffff2b2f3b6f9d0512ae19bd90b938953b20",
+        "at": "2026-10-05T18:59:52.487795+00:00"
+      }
+    ]
   },
   "file": "D:\\work\\image\\designs\\creature-combat-20261005\\pets\\legacy-fu-xiao-hu\\runtime\\cast\\W\\12.png",
-  "sha256": "065c4c1893814cb68c56ee5d473447f2211023a36903b299c846cf5432e2620e",
+  "sha256": "c495db29bf6486fd3d5da48d3a6fffff2b2f3b6f9d0512ae19bd90b938953b20",
   "width": 1024,
   "height": 1024,
   "format": "PNG",
@@ -110,5 +127,40 @@
       "receipt.output_hint"
     ],
     "modelQualitySelectorsExposed": false
+  },
+  "preCalibrationExport": {
+    "sha256": "065c4c1893814cb68c56ee5d473447f2211023a36903b299c846cf5432e2620e",
+    "operation": {
+      "name": "uniform whole-canvas resize",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "destinationSize": [
+        1024,
+        1024
+      ],
+      "filter": "Lanczos",
+      "translation": [
+        0,
+        0
+      ],
+      "perFrameAlignment": false
+    },
+    "imageRetained": false,
+    "reason": "uniform final direction calibration replaces pre-export; source model evidence retained"
+  },
+  "finalDirectionCalibration": {
+    "type": "fixed-direction-canvas-translation",
+    "translationPx": [
+      0,
+      -4
+    ],
+    "appliesToAllActionsOfDirection": true,
+    "perFrameAlignment": false,
+    "basis": "Design reference visible alpha>16 baseline E957/W946 moved to942; no individual frame registration",
+    "inputSHA256": "065c4c1893814cb68c56ee5d473447f2211023a36903b299c846cf5432e2620e",
+    "outputSHA256": "c495db29bf6486fd3d5da48d3a6fffff2b2f3b6f9d0512ae19bd90b938953b20",
+    "at": "2026-10-05T18:59:52.487795+00:00"
   }
 }
