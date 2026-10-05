@@ -15,6 +15,10 @@ refs=[
 {"path":r"D:/work/image/designs/pets-original-20260924/source/13-yalingtong-E.png","role":"native E identity master"},
 {"path":r"D:/work/image/designs/pets-original-20260924/source/13-yalingtong-W.png","role":"native W anatomy and clothing master"},
 {"path":r"D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png","role":"primary approved painting/style reference"}]
+if len(sys.argv)>5:
+    refs.extend(json.loads(sys.argv[5]))
+if len(sys.argv)>6 and sys.argv[6]=='replace':
+    refs=json.loads(sys.argv[5])
 for ref in refs: ref["sha256"]=hashlib.sha256(Path(ref["path"]).read_bytes()).hexdigest()
 record={
 "file":"runtime/cast/E/"+n+".png","sha256":hashlib.sha256(out.read_bytes()).hexdigest(),
@@ -33,4 +37,3 @@ record={
 "visualStatus":"individually-reviewed","visualNotes":sys.argv[4] if len(sys.argv)>4 else ""}
 (base/"evidence"/"cast"/"E"/(n+".generation.json")).write_text(json.dumps(record,ensure_ascii=False,indent=2),encoding="utf-8")
 print(json.dumps({"frame":n,"native":native,"export":record["export"],"sha256":record["sha256"]}))
-
