@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="zh-CN"><meta charset="utf-8"><title>苍嶂麟 W 施法 16帧</title><style>
+body{margin:24px;background:#ece8df;color:#203d36;font:16px system-ui}h1{font-size:24px}button{padding:10px 18px;margin:4px;border:1px solid #688a7a;border-radius:8px;background:#fffdf6;color:#26443a;cursor:pointer}.viewer{display:flex;gap:20px;align-items:start}.stage{width:600px;height:600px;background:repeating-conic-gradient(#e4e2dc 0 25%,#f5f3ed 0 50%) 0/32px 32px}.stage img{width:100%;height:100%}#sheet{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:1280px}figure{margin:0;background:#dce3df}figure img{width:100%;display:block}figcaption{padding:8px}input{width:300px}</style>
+<h1>苍嶂麟 · W 真斜后 · 施法</h1><p>16 × 45 ms = 720 ms。独立 AI 单帧；四足原地施法；客户端未接入。</p>
+<div class="viewer"><div class="stage"><img id="player" alt="W 施法当前帧"></div><div><p id="status"></p><button id="normal">正常 1×</button><button id="slow">慢放 0.25×</button><button id="pause">暂停</button><p><button id="prev">上一帧</button><button id="next">下一帧</button></p><input id="scrub" type="range" min="1" max="16" value="1"><p id="phase"></p><p>固定全幅缩放为 960，再置于 1024 画布 (32,6)。未逐帧重定位。</p></div></div><h2>逐帧检查</h2><div id="sheet"></div>
+<script>
+const stages=["注意目标","颈稍收","头缓降、四肢微屈","头降蓄气","角间出现微光","胸颈开始抬升","抬头聚气","角间光增强","躯干最高聚气","颈角朝目标送出（施法事件）","释放极点，小型玉色气芒","光势扩散减弱","头颈回收","四肢吸收","灵气消散、云鬃回摆","中性附近恢复、仅微弱余光"];
+const frames=Array.from({length:16},(_,i)=>'../runtime/cast/W/'+String(i+1).padStart(2,'0')+'.png');
+frames.forEach(src=>{const im=new Image;im.src=src});
+let index=0,speed=1,playing=true,last=performance.now(),loops=0;
+const img=document.getElementById('player'),status=document.getElementById('status'),scrub=document.getElementById('scrub');
+function render(){img.src=frames[index];scrub.value=index+1;status.textContent='帧 '+String(index+1).padStart(2,'0')+' / 16 · '+speed+'× · 循环 '+loops+' · '+(playing?'播放':'暂停');document.getElementById('phase').textContent=stages[index]}
+function tick(t){if(playing){const span=45/speed;const steps=Math.floor((t-last)/span);if(steps>0){const next=index+steps;loops+=Math.floor(next/16);index=next%16;last+=steps*span;render()}}requestAnimationFrame(tick)}
+document.getElementById('normal').onclick=()=>{playing=true;speed=1;last=performance.now();render()};
+document.getElementById('slow').onclick=()=>{playing=true;speed=.25;last=performance.now();render()};
+document.getElementById('pause').onclick=()=>{playing=false;render()};
+document.getElementById('prev').onclick=()=>{playing=false;index=(index+15)%16;render()};
+document.getElementById('next').onclick=()=>{playing=false;index=(index+1)%16;render()};
+scrub.oninput=()=>{playing=false;index=Number(scrub.value)-1;render()};
+frames.forEach((src,i)=>{let f=document.createElement('figure');f.innerHTML='<img src="'+src+'" alt="W cast '+(i+1)+'"><figcaption>'+String(i+1).padStart(2,'0')+' · '+stages[i]+'</figcaption>';document.getElementById('sheet').appendChild(f)});
+render();requestAnimationFrame(tick);
+</script></html>
