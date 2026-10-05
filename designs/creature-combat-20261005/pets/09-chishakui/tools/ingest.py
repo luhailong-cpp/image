@@ -24,7 +24,14 @@ def ingest(receipt):
         rgba.save(dest)
     config=json.loads(Path('D:/work/image/config/image-generation.json').read_text(encoding='utf-8-sig'))
     record={'file':str(dest.relative_to(ROOT)).replace('\\','/'),'sha256':sha(dest),'generatedAt':r.get('completedAt'),'tool':'image_gen.imagegen','route':'builtin','configSnapshot':config,'submittedParameters':{'model':None,'quality':None,'transparent_background':True,'referenced_image_paths':r['references'],'promptFile':r['promptFile']},'actualModel':None,'actualQuality':None,'unverifiedReason':'Host managed. Tool exposes no model/quality selector and returns only image_url/output_hint; no reliable model/quality metadata disclosed.','evidence':{'receipt':str(rp.relative_to(ROOT)).replace('\\','/'),'output_hint':r.get('output_hint')},'prompt':r['promptFile'],'references':r['references'],'native':native,'width':1024,'height':1024,'format':'PNG','mode':'RGBA','derivedFrom':{'path':str(src),'sha256':source_sha,'generationReceipt':str(rp.relative_to(ROOT)).replace('\\','/')},'operation':{'type':'whole_canvas_uniform_resize' if native['width']!=1024 else 'RGBA_png_export','from':[native['width'],native['height']],'to':[1024,1024],'perFrameAlignment':False,'cropped':False,'mirrored':False,'generatedMissingFrames':False},'visualStatus':r.get('visualStatus','pending-review')}
-    dest.with_suffix('.png.generation.json').write_text(json.dumps(record,ensure_ascii=False,indent=2),encoding='utf-8')
+    record_path=dest.with_suffix('.png.generation.json')
+    if record_path.exists():
+        old=json.loads(record_path.read_text(encoding='utf-8-sig'))
+        if old.get('sha256')!=record['sha256']:
+            history=ROOT/'records'/'superseded';history.mkdir(exist_ok=True)
+            old['supersededByReceipt']=str(rp.relative_to(ROOT)).replace('\\','/')
+            (history/f'{action}-{direction}-{number:02d}-{old.get("sha256","unknown")[:12]}.generation.json').write_text(json.dumps(old,ensure_ascii=False,indent=2),encoding='utf-8')
+    record_path.write_text(json.dumps(record,ensure_ascii=False,indent=2),encoding='utf-8')
     print(json.dumps({'file':str(dest),'sha256':record['sha256'],'native':native},ensure_ascii=False))
 if __name__=='__main__':
     for x in sys.argv[1:]:ingest(x)

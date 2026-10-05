@@ -7,6 +7,8 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
     m=json.loads((ROOT/'manifest.json').read_text(encoding='utf-8'));v=json.loads((ROOT/'validation.json').read_text(encoding='utf-8'))
     errors=[];sourceindex=[];previewchecks=[]
+    cleanup=json.loads((ROOT/'cleanup.json').read_text(encoding='utf-8')) if (ROOT/'cleanup.json').exists() else {}
+    removed={str(Path(x['path'])).lower():x for x in cleanup.get('removed',[])}
     for e in m['frames']:
         p=ROOT/e['generationRecord'];g=json.loads(p.read_text(encoding='utf-8'));rp=ROOT/g['evidence']['receipt'];receipt=json.loads(rp.read_text(encoding='utf-8'))
         prompt=ROOT/g['prompt']
@@ -15,8 +17,9 @@ def main():
         for ref in g['references']:
             refp=Path(ref)
             role='primary confirmed painting/material style' if '01-character-ui-no-affinity' in ref else 'original E identity and right-hand anatomy' if '09-chishakui-E.png' in ref else 'original W rear identity (hand corrected to match E)' if '09-chishakui-W.png' in ref else 'generated pose continuity / exact prompt role'
-            evidence.append({'path':str(refp),'role':role,'existsAtAudit':refp.is_file(),'sha256':sha(refp) if refp.is_file() else None})
-            if not refp.is_file():errors.append({'file':e['file'],'missingReference':str(refp)})
+            removal=removed.get(str(refp).lower())
+            evidence.append({'path':str(refp),'role':role,'existsAtAudit':refp.is_file(),'sha256':sha(refp) if refp.is_file() else removal.get('sha256') if removal else None,'hashScope':'file-at-final-audit, not necessarily original submitted bytes; consult receipt and superseded records for replaced runtime inputs','historicalInputRemovedPerRetentionPolicy':bool(removal)})
+            if not refp.is_file() and not removal:errors.append({'file':e['file'],'missingReference':str(refp)})
         g['referenceEvidence']=evidence
         g['actualModel']=None;g['actualQuality']=None
         p.write_text(json.dumps(g,ensure_ascii=False,indent=2),encoding='utf-8')

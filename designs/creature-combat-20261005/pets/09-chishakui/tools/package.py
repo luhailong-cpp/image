@@ -7,6 +7,9 @@ CONTRACT={'hit':(6,40),'attack':(12,30),'cast':(16,45)}
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
     entries=[];groups=[];missing=[];issues=[];pixelhashes={};filehashes={}
+    review_path=ROOT/'records/final-visual-review.json'
+    review=json.loads(review_path.read_text(encoding='utf-8')) if review_path.exists() else {}
+    reviewed={x['file']:x['sha256'] for x in review.get('frames',[])}
     for action,(count,ms) in CONTRACT.items():
         for direction in ['E','W']:
             files=[]
@@ -34,11 +37,16 @@ def main():
                 entry['alpha']['visibleBboxThreshold16']=corebbox
                 entry['alpha']['edgeMaximum']=edgemax
                 entry['alpha']['edgeTraceNote']='Preserved native low-alpha trace; no visible clipping detected' if edgemax and edgemax<16 else None
+                if reviewed.get(rel)==h:entry['visualStatus']='static-reviewed; dynamic-unverified'
                 entries.append(entry);files.append(rel)
             groups.append({'action':action,'direction':direction,'count':count,'durationMs':ms,'totalMs':count*ms,'files':files})
     manifest={'schemaVersion':1,'character':'赤砂魁','slug':'09-chishakui','createdAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'expectedFrames':68,'actualFrames':len(entries),'directions':{'E':'three-quarter front, down-right','W':'independently drawn three-quarter back, up-left'},'anatomy':{'arms':2,'legs':2,'wings':0,'visibleTail':0,'hammerHand':'anatomical-right','kiln':'one, strapped to center back'},'export':{'canvas':[1024,1024],'transform':'whole native square canvas uniformly resized to 1024; no per-frame alignment or crop','nominalAnchor':[512,942],'pivot':[0.5,0.08]},'clientIntegration':'not-performed','groups':groups,'frames':entries}
     (ROOT/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
     check={'checkedAt':manifest['createdAt'],'expected':68,'found':len(entries),'missing':missing,'issues':issues,'technicalPassed':len(entries)==68 and not missing and not issues,'visualReview':'separate, not implied by technicalPassed','clientIntegration':'not-performed'}
+    if review:
+        manifest['visualReviewRecord']='records/final-visual-review.json'
+        check['visualReview']={'record':'records/final-visual-review.json','matchingReviewedFrames':sum(reviewed.get(e['file'])==e['sha256'] for e in entries),'dynamicPassed':False}
+        (ROOT/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
     (ROOT/'validation.json').write_text(json.dumps(check,ensure_ascii=False,indent=2),encoding='utf-8')
     (ROOT/'SHA256SUMS.txt').write_text('\n'.join(f'{h}  {p}' for p,h in filehashes.items())+'\n',encoding='utf-8')
     preview=ROOT/'preview';preview.mkdir(exist_ok=True)
