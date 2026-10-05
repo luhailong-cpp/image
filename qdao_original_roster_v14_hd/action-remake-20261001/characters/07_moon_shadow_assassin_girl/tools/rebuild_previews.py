@@ -16,7 +16,7 @@ def build_artifacts(m):
     for (action, direction), group in groups.items():
         group.sort(key=lambda f: f['index'])
         if action == 'run':
-            assert len(group) == 16 and [f['durationMs'] for f in group] == [75] * 16
+            assert len(group) == 16 and [f['durationMs'] for f in group] == [60] * 16
         sheet = Image.new('RGB', (1200, ((len(group) + 3) // 4) * 326), '#e5e7eb')
         draw = ImageDraw.Draw(sheet)
         thumbs = []
@@ -42,8 +42,8 @@ def build_artifacts(m):
 
 def main():
     m = load_manifest()
-    assert m['timing']['runCycleMs'] == 1200
-    assert all(f['durationMs'] == 75 for f in m['frames'] if f['action'] == 'run')
+    assert m['timing']['runCycleMs'] == 960 and m['timing']['runFrameMs'] == 60
+    assert all(f['durationMs'] == 60 for f in m['frames'] if f['action'] == 'run')
     build_artifacts(m)
     return build_html()
 

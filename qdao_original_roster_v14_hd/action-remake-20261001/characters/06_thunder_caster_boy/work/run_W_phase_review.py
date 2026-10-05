@@ -1,3 +1,6 @@
+
+# RETIRED_20261005: direct human timing correction supersedes historical writers.
+raise SystemExit("Retired: use tools/build_preview.py, build_delivery.py, build_run_board.py and build_timing_grounding.py; run60ms/960ms.")
 import json,hashlib
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]

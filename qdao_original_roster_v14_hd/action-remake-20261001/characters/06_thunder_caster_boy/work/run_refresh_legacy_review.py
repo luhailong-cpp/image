@@ -1,4 +1,7 @@
 """Refresh current pointers without restoring superseded timing presets."""
+
+# RETIRED_20261005: direct human timing correction supersedes historical writers.
+raise SystemExit("Retired: use tools/build_preview.py, build_delivery.py, build_run_board.py and build_timing_grounding.py; run60ms/960ms.")
 from pathlib import Path
 import json
 import run_timing_1200

@@ -9,10 +9,10 @@ from manifest_tools import ROOT, load_manifest, frames_of, local_path
 def main() -> int:
     try:
         manifest = load_manifest()
-        if manifest.get('timing', {}).get('runCycleMs') != 1200 or any(
-            f.get('durationMs') != 75 for f in frames_of(manifest) if f.get('action') == 'run'
+        if manifest.get('timing', {}).get('runCycleMs') != 960 or manifest.get('timing', {}).get('runFrameMs') != 60 or any(
+            f.get('durationMs') != 60 for f in frames_of(manifest) if f.get('action') == 'run'
         ):
-            raise ValueError('当前跑步交付必须是1200ms一圈、16帧均匀75ms；拒绝重建旧节奏。')
+            raise ValueError('当前跑步交付必须是960ms一圈、16帧均匀60ms；拒绝重建旧节奏。')
         real_frames, skipped = [], []
         for frame in frames_of(manifest):
             path = frame.get("path", frame.get("file"))

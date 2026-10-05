@@ -1,4 +1,4 @@
-"""Check current1200ms delivery, real APNG delays and actual player loop boundaries."""
+"""Check current960ms delivery, real APNG delays and actual player loop boundaries."""
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -28,11 +28,11 @@ if not args.allow_pending:
     assert m['formalAccepted'] and all(f['visualApproved'] for f in m['frames'])
     assert changed == targets
 assert len(m['frames']) == 196 and len({f['sha256'] for f in m['frames']}) == 196
-assert m['timing']['runCycleMs'] == 1200 and m['timing']['runFrameMs'] == 75
-assert m['timing']['E'] == [75] * 16 and m['timing']['otherRunDirections'] == [75] * 16
+assert m['timing']['runCycleMs'] == 960 and m['timing']['runFrameMs'] == 60
+assert m['timing']['E'] == [60] * 16 and m['timing']['otherRunDirections'] == [60] * 16
 for f in m['frames']:
     assert sha(R / f['path']) == f['sha256'], f['id']
-    assert f['durationMs'] == (75 if f['action'] == 'run' else old[f['id']]['durationMs'])
+    assert f['durationMs'] == (60 if f['action'] == 'run' else old[f['id']]['durationMs'])
     with Image.open(R / f['path']) as im:
         assert im.size == (1024, 1024) and im.mode == 'RGBA'
         alpha = im.getchannel('A')
@@ -79,7 +79,7 @@ for(const frames of Object.values(Object.groupBy(m.frames,f=>f.action+'/'+f.dire
  for(const speed of [1,.25])for(const loop of [false,true]){
   const seen=[],queue=[];let elapsed=0,nextId=1;
   const controls={loop:{checked:loop},speed:{value:String(speed)},play:{textContent:'播放',classList:{add(){},remove(){}}}};
-  const ctx={frames,at:loop?0:7,playing:false,timer:null,specs:{run:{ms:75},hit:{ms:40},attack:{ms:30},cast:{ms:45}},
+  const ctx={frames,at:loop?0:7,playing:false,timer:null,specs:{run:{ms:60},hit:{ms:40},attack:{ms:30},cast:{ms:45}},
    $:id=>controls[id],setTimeout(fn,delay){const id=nextId++;queue.push({id,fn,delay});return id},
    clearTimeout(id){const i=queue.findIndex(t=>t.id===id);if(i>=0)queue.splice(i,1)},
    render(){seen.push({index:ctx.at,elapsed})}};
@@ -96,11 +96,11 @@ for(const frames of Object.values(Object.groupBy(m.frames,f=>f.action+'/'+f.dire
   if(!loop&&(ctx.playing||queue.length||seen.length!==frames.length||ctx.at!==frames.length-1))throw Error('Single play skipped or held extra frame');
   if(loop&&(!ctx.playing||queue.length!==1||seen.length!==frames.length*2+1||ctx.at!==0))throw Error('Loop boundary failed');
   seen.forEach((s,i)=>{if(s.index!==i%frames.length)throw Error('Frame order or restart failed')});
-  if(ctx.frameDuration({action:'run'})!==75)throw Error('Wrong run fallback');
+  if(ctx.frameDuration({action:'run'})!==60)throw Error('Wrong run fallback');
   cases++;
  }
 }
-console.log(JSON.stringify({groups:14,cases,speeds:[1,.25],singleStartsAtZero:true,completeFrames:true,loopHasNoExtraWait:true,runCycleMs:1200,runFrameMs:75}));
+console.log(JSON.stringify({groups:14,cases,speeds:[1,.25],singleStartsAtZero:true,completeFrames:true,loopHasNoExtraWait:true,runCycleMs:960,runFrameMs:60}));
 """.replace('MANIFEST', json.dumps(m)).replace('DEFINITIONS', json.dumps(definitions)).replace('SCRIPT', json.dumps(script))
 js_path = REV / 'check-current-playback.cjs'
 js_path.write_text(js, encoding='utf-8')

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "character": "07_moon_shadow_assassin_girl",
+  "reviewDate": "2026-10-05",
+  "timezone": "America/New_York",
+  "status": "passed",
+  "scope": {
+    "nativePngsIndividuallyViewed": [
+      {
+        "path": "staging/limb-axis-20261005/run-S/07-v1.png",
+        "sha256": "d35d2748f4a83c0c728dd109894692824d2f56ecda999f45a3c96c91bc8408a2"
+      },
+      {
+        "path": "staging/limb-axis-20261005/run-SW/14-v1.png",
+        "sha256": "b5a76b96789b3199369319fe7ea66979fadacf1d67996909645034d7df30da44"
+      }
+    ],
+    "candidateContactSheetsViewed": [
+      {
+        "path": "review/limb-axis-20261005/candidate-run-S-contact.jpg",
+        "sha256": "a58ace750e08868bcaf1111487933146dc40e1218bd7a78fbc2ccf4330af5583"
+      },
+      {
+        "path": "review/limb-axis-20261005/candidate-run-SW-contact.jpg",
+        "sha256": "a5a1ff44d9e789ceec82b17f2adc6ce3c906fde159dd5bfebc9523f99c7ee1d3"
+      }
+    ],
+    "contactSheetFrameCount": 32,
+    "method": "Actual view_image on both native candidate PNGs and both full 16-frame candidate contact sheets. Compared local correction to earlier individually viewed current originals and adjacent contact-sheet poses.",
+    "notClaimed": "No continuous animated playback or client validation in this second review; no publishing."
+  },
+  "results": [
+    {
+      "frameId": "run/S/07",
+      "native": "staging/limb-axis-20261005/run-S/07-v1.png",
+      "nativeSha256": "d35d2748f4a83c0c728dd109894692824d2f56ecda999f45a3c96c91bc8408a2",
+      "status": "passed",
+      "targetImprovement": "画面右侧、角色左手的匕首已恢复与06/08一致的握持方向：刃在拳的左上，柄尾朝右下；原单帧翻腕/翻刀朝向跳变已消除。",
+      "checks": {
+        "twoHands": true,
+        "twoCrescentDaggers": true,
+        "oneDaggerPerHand": true,
+        "wristConnected": true,
+        "shoulderElbowAnchorsVisuallyPreserved": true,
+        "bodyAndHeadIdentityPreserved": true,
+        "legIdentityAndPosePreserved": true,
+        "supportPhasePreserved": true
+      },
+      "sequenceAssessment": "完整S联系表中06→07→08握持方向连续，07仍是同一前摆与后腿支撑关系；未发现新增确定问题。"
+    },
+    {
+      "frameId": "run/SW/14",
+      "native": "staging/limb-axis-20261005/run-SW/14-v1.png",
+      "nativeSha256": "b5a76b96789b3199369319fe7ea66979fadacf1d67996909645034d7df30da44",
+      "status": "passed",
+      "targetImprovement": "画面右侧后伸小靴由原来朝右下收为朝左下，鞋尖落在踝的左下方；与13/15/16后靴方向衔接。",
+      "checks": {
+        "twoHands": true,
+        "twoCrescentDaggers": true,
+        "oneDaggerPerHand": true,
+        "rearAnkleConnected": true,
+        "bodyAndHeadIdentityPreserved": true,
+        "frontLegPreserved": true,
+        "rearLegExtensionPreserved": true,
+        "supportPhasePreserved": true
+      },
+      "sequenceAssessment": "完整SW联系表中13→14→15后脚不再独立向外折；前腿步位、后腿伸展和A/B身份仍一致，未发现新增确定问题。"
+    }
+  ],
+  "invariants": {
+    "timing": "Root relayed latest direct user instruction: 16x60ms = 960ms. This reviewer performed static candidate review only and did not modify or validate runtime timing; root will integrate the 60ms target.",
+    "supportPattern": "Current four positions, two independent poses each, retained visually",
+    "formalAssetsEdited": false
+  },
+  "limitations": [
+    "Style/position invariants were visually compared; this is not a claim of pixel-identical unedited regions.",
+    "Native candidates still require root integration, provenance update and delivery checks."
+  ]
+}

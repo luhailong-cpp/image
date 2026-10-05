@@ -14,7 +14,7 @@ def publish(revision):
     m = read(ROOT / 'manifest.json')
     before = {f['id']: f for f in read(rev / 'before-manifest.json')['frames']}
     assert not (rev / 'replacement-ledger.json').exists(), 'Already published'
-    assert m['timing']['runCycleMs'] == 1200 and m['timing']['runFrameMs'] == 75
+    assert m['timing']['runCycleMs'] == 960 and m['timing']['runFrameMs'] == 60
     assert set(chosen) <= set(before)
     assert all(sha(ROOT / f['path']) == before[f['id']]['sha256'] for f in m['frames'])
     external_updates = {}
