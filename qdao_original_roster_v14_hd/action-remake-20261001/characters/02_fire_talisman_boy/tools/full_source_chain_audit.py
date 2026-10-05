@@ -1,4 +1,4 @@
-"""Read-only audit of five live inventories; writes only the assigned review JSON.
+"""Read-only audit of current private inventories; writes only the assigned review JSON.
 
 Run with the existing Python/Pillow runtime. No image is changed or deleted.
 Raw receipts, captured host paths and inferred recovery are separate evidence grades.

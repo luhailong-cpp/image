@@ -36,21 +36,21 @@ for seq in tech['sequences']:
 assert len(gif_checks)==28
 with Image.open(R/'previews/run-eight-directions.gif') as im:
     over=[frame.info.get('duration') for frame in ImageSequence.Iterator(im)]
-assert len(over)==16 and sum(over)==1200
+assert len(over)==16 and sum(over)==960
 assert len(list((R/'frames').rglob('*.png')))==196
 timing=read('animation-timing.json')
-assert timing['run']['frameMs']==75 and timing['run']['cycleMs']==1200 and timing['run']['uniform']
+assert timing['run']['frameMs']==60 and timing['run']['cycleMs']==960 and timing['run']['uniform']
 result={
 'verifiedAtUtc':datetime.now(timezone.utc).isoformat(),
 'formalFrames':196,'sequences':14,'technicalPass':196,'offlineMaterialsComplete':True,
 'previewGifCount':28,'allFormalAndPreviewSourceHashesCurrent':True,
-'runNormalMs':1200,'runFrameMs':75,'runUniform':True,
+'runNormalMs':960,'runFrameMs':60,'runUniform':True,
 'runEightDirectionGif':{'file':'previews/run-eight-directions.gif','sha256':sha('previews/run-eight-directions.gif'),'frames':len(over),'durationMs':sum(over)},
 'clientIntegrated':False,
 'actualModelAndQuality':'not disclosed by built-in image_gen; unconfirmed',
 'cleanup':'Earlier batch deletion was blocked by automatic approval review; no bypass or retry.',
 'scope':'File/source hash agreement and preview frame/duration verification. Visual review and browser sampling recorded separately; no client runtime claim.',
-'evidence':{p:sha(p) for p in ['inventory.json','reviews/final-review.json','reviews/full-source-chain-audit.json','reviews/final-browser-review-20261004.json','previews/contact-sources.json','MERGE_FILES.csv','MERGE_HANDOFF.md']},
+'evidence':{p:sha(p) for p in ['inventory.json','reviews/final-review.json','reviews/full-source-chain-audit.json','reviews/full-limb-browser-20261005.json','reviews/full-limb-final-20261005.json','previews/contact-sources.json','MERGE_FILES.csv','MERGE_HANDOFF.md']},
 'previewGifs':gif_checks}
 (R/'reviews/delivery-verification.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(json.dumps({k:result[k] for k in ['formalFrames','technicalPass','previewGifCount','allFormalAndPreviewSourceHashesCurrent','clientIntegrated']},ensure_ascii=False))

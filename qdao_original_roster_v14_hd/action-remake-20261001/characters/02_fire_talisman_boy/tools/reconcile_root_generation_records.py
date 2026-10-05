@@ -7,7 +7,7 @@ current={f.get('native_evidence') or f.get('source_record') for _,f in current_s
 reasons={'run-E-04-20261004-position-pairs-01':'拒用：生成时多出一只手臂并改变道具位置。','run-SE-12-20261004-position-pairs-01':'拒用：腿部支撑归属不连续。','run-SE-13-20261004-position-pairs-02':'未选用：支撑高度和相邻帧不连贯。','run-SE-13-20261004-position-pairs-03':'被后续修订替代：第四支撑位置未继续向后推进。','run-SE-14-20261004-position-pairs-02':'被后续修订替代：第四支撑位置未继续向后推进。'}
 count=0
 for p in sorted((R/'records').glob('*.receipt.json')):
-    if not ('position-pairs' in p.name or 'grounding-v2' in p.name):continue
+    if not ('position-pairs' in p.name or 'grounding-v2' in p.name or 'video-axis' in p.name or '-20261005-full-limb-' in p.name):continue
     recp=p.with_name(p.name.replace('.receipt.json','.json'))
     if not recp.exists():continue
     rec=json.loads(recp.read_text(encoding='utf-8-sig'));receipt=json.loads(p.read_text(encoding='utf-8-sig'))
