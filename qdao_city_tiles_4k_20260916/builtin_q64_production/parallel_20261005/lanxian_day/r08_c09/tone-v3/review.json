@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "layout_audit",
+  "reviewedAtUtc": "2026-10-05T19:47:11.168715+00:00",
+  "target": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\core4096.png",
+    "sha256": "b40405d6ea3f41fdb8a6b477b8876d77da817c2017cb0d394f669b25a117b0d8"
+  },
+  "extended": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\extended4326.png",
+    "sha256": "5c3cf07f4b2a4ba3aac7d489cf1062e81af7dcc89904b511ff59064bd5819c63"
+  },
+  "method": "Actual tools.view_image(detail=original) on all 4 exact-pixel comparison boards. No preview used for verification.",
+  "result": "Localized tone-v2 artifact repaired within reviewed scope; no new color stripe or geometry discontinuity observed.",
+  "checks": [
+    {
+      "id": "horizontal_y3072_part2_v2_v3",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\qa\\horizontal_y3072_part2_v2_v3.png",
+      "sha256": "8ea509dc1e448880a9225ac66fa4f5c734a29dfd5e083d8b515502f7da6308dc",
+      "sourceBoxCoreXYXY": [
+        1024,
+        2944,
+        2048,
+        3200
+      ],
+      "sourceBoxWholeCityXYXY": [
+        33792,
+        31616,
+        34816,
+        31872
+      ],
+      "layout": "before_top_after_bottom",
+      "pixels": [
+        1024,
+        512
+      ],
+      "operation": "integer crop and paste",
+      "resampling": "none",
+      "visuallyInspectedAtNativeResolution": true,
+      "status": "local_repair_verified_in_this_crop",
+      "finding": "Compared complete second 1024px segment before/after: vertical warm/dark stripe near core x1304 no longer visible. Cream stone shading reads continuously and the diagonal grout lines retain their positions."
+    },
+    {
+      "id": "horizontal_y3072_full_field_v2_v3",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\qa\\horizontal_y3072_full_field_v2_v3.png",
+      "sha256": "7d4c410187e79edeb41ea04ee01e2bf4b652f5cb21499c7479b0ed11d49113a6",
+      "sourceBoxCoreXYXY": [
+        1024,
+        2880,
+        2048,
+        3264
+      ],
+      "sourceBoxWholeCityXYXY": [
+        33792,
+        31552,
+        34816,
+        31936
+      ],
+      "layout": "before_top_after_bottom",
+      "pixels": [
+        1024,
+        768
+      ],
+      "operation": "integer crop and paste",
+      "resampling": "none",
+      "visuallyInspectedAtNativeResolution": true,
+      "status": "local_repair_verified_in_this_crop",
+      "finding": "Compared the complete 1024px wide by 384px field-height segment at native resolution: new vertical stripe removed; no new taper boundary or line discontinuity visible above/below seam."
+    },
+    {
+      "id": "intersection_r3_c1_v2_v3",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\qa\\intersection_r3_c1_v2_v3.png",
+      "sha256": "e6ecf384f5f76cc8dd1660664959c4301249885ec9b54bafeb8da3b078f0c18b",
+      "sourceBoxCoreXYXY": [
+        768,
+        2816,
+        1280,
+        3328
+      ],
+      "sourceBoxWholeCityXYXY": [
+        33536,
+        31488,
+        34048,
+        32000
+      ],
+      "layout": "before_top_after_bottom",
+      "pixels": [
+        512,
+        1024
+      ],
+      "operation": "integer crop and paste",
+      "resampling": "none",
+      "visuallyInspectedAtNativeResolution": true,
+      "status": "local_repair_verified_in_this_crop",
+      "finding": "Compared top tone-v2 with bottom tone-v3: stone joints keep the same geometry, right portion of the crop transitions into the undone correction smoothly. No new hard color band or gap observed. Existing broad brush pattern remains."
+    },
+    {
+      "id": "horizontal_y3072_part2_candidate_v3",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\qa\\horizontal_y3072_part2_candidate_v3.png",
+      "sha256": "32144abdc40ed1fbe2dbfadaae6a0fe264965d1c0e6958495865bbe563032816",
+      "sourceBoxCoreXYXY": [
+        1024,
+        2944,
+        2048,
+        3200
+      ],
+      "sourceBoxWholeCityXYXY": [
+        33792,
+        31616,
+        34816,
+        31872
+      ],
+      "layout": "before_top_after_bottom",
+      "pixels": [
+        1024,
+        512
+      ],
+      "operation": "integer crop and paste",
+      "resampling": "none",
+      "visuallyInspectedAtNativeResolution": true,
+      "status": "local_repair_verified_in_this_crop",
+      "finding": "Compared original candidate top with tone-v3 bottom: repaired stripe location matches candidate material appearance. Original grooves and highlights retained. RGB smoothing elsewhere in the crop retained; no new stripe observed."
+    }
+  ],
+  "actualChangedBoxCoreXYXY": [
+    1028,
+    2904,
+    1597,
+    3240
+  ],
+  "actualChangedBoxWholeCityXYXY": [
+    33796,
+    31576,
+    34365,
+    31912
+  ],
+  "preservation": {
+    "sourcePlusFieldReproducesV2BandExactly": true,
+    "fullUndoPlateauMatchesCandidateExactly": true,
+    "coreLeft320PixelIdenticalToV2": true,
+    "coreRight320PixelIdenticalToV2": true,
+    "allPixelsOutsideMaskIdenticalToV2": true,
+    "geometricShift": 0,
+    "resampling": "none"
+  },
+  "priorToneV2Review": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v2\\review.json",
+    "sha256": "13113311845fb72d50deb6651c75b119740da140cc1f80fc10daa09df5d33d2a",
+    "scopeCount": 23,
+    "otherNewDefectsObserved": false,
+    "limitations": "Original texture/brush-scale differences at x1024 remain; RGB correction does not recreate material geometry."
+  },
+  "formalAccepted": false,
+  "notACompleteTileAcceptance": true,
+  "readyForParentWestRegistrationMerge": true
+}

@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-05T19:43:27.137890+00:00",
+  "purpose": "Remove visually confirmed new vertical tone stripe in tone-v2 near core x1304 across y3072.",
+  "sources": {
+    "candidateExtended": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\candidate\\extended4326.png",
+      "sha256": "bfc3ccdd8bc4fafa4d2123af125adcbb7d0587485497e1dacde86586b7d4d18a"
+    },
+    "toneV2Extended": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v2\\extended4326.png",
+      "sha256": "2442528dfc63149279a441a6597796340c81a8a357a765f5fc2a59d411a5b407"
+    },
+    "toneV2Core": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v2\\core4096.png",
+      "sha256": "7efefcfd2c0abb1e90ef72ea4a712fc1e1fbab4f170cc0ed195d31abea3e0a14"
+    },
+    "y3072Field": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v2\\y3072-correction.npy",
+      "sha256": "af861f64d438cca791974f020ab717af0b50a45f0201519c91f9d35a44cf482d"
+    }
+  },
+  "operation": "Reconstruct only the y3072 band from original candidate source plus stored RGB field multiplied by (1-undo). No raster filtering, blur, geometric change, or resampling.",
+  "maskDefinition": {
+    "coordinateConvention": "half-open boxes; x is integer core pixel coordinate; array field y0 corresponds core y2880; field x0 corresponds core x-115",
+    "arrayShape": [
+      384,
+      4326
+    ],
+    "fieldBoxCoreXYXY": [
+      -115,
+      2880,
+      4211,
+      3264
+    ],
+    "undoSupportCoreXYXY": [
+      1025,
+      2880,
+      1600,
+      3264
+    ],
+    "undoPlateauXInclusive": [
+      1152,
+      1472
+    ],
+    "taperIntervalsX": [
+      [
+        1024,
+        1152
+      ],
+      [
+        1472,
+        1600
+      ]
+    ],
+    "formula": "undo=min(smoothstep(clamp((x-1024)/128)),smoothstep(clamp((1600-x)/128))); smoothstep(t)=t*t*(3-2*t)",
+    "maskNpy": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\y3072-undo-mask.npy",
+      "sha256": "a44722ed3fe6eeb344e322f280a1f30a5ecb97e0d27eda4de07563df4301ed95"
+    },
+    "maskPngVisualization": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\y3072-undo-mask.png",
+      "sha256": "365021469b207bfacc2b6bb3e0c4c79e1e2285795919128a0c7db6cfb494ed1b"
+    }
+  },
+  "adjustmentField": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\y3072-field-adjustment.npy",
+    "sha256": "fe784d8d0c70ff6a6ddd36a26f782c0a9fb37a4f97f7a251b2a4210c612ebc21"
+  },
+  "replacementY3072Field": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\y3072-correction.npy",
+    "sha256": "f6241982008c0a4fa1f6d86a859c087ea2906090a9de1732719a4b37da12be0b"
+  },
+  "maxAbsoluteFieldAdjustmentRGB": [
+    11.999755859375,
+    11.999755859375,
+    11.999755859375
+  ],
+  "maxActualPixelChangeFromV2RGB": [
+    12,
+    12,
+    12
+  ],
+  "changedPixelCount": 133504,
+  "actualChangedBoxCoreXYXY": [
+    1028,
+    2904,
+    1597,
+    3240
+  ],
+  "verification": {
+    "sourcePlusFieldReproducesV2BandExactly": true,
+    "fullUndoPlateauMatchesCandidateExactly": true,
+    "coreLeft320PixelIdenticalToV2": true,
+    "coreRight320PixelIdenticalToV2": true,
+    "allPixelsOutsideMaskIdenticalToV2": true,
+    "geometricShift": 0,
+    "resampling": "none"
+  },
+  "outputs": {
+    "extended": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\extended4326.png",
+      "sha256": "5c3cf07f4b2a4ba3aac7d489cf1062e81af7dcc89904b511ff59064bd5819c63"
+    },
+    "core": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\core4096.png",
+      "sha256": "b40405d6ea3f41fdb8a6b477b8876d77da817c2017cb0d394f669b25a117b0d8"
+    }
+  },
+  "derivationScript": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\derive_local_field.py",
+    "sha256": "f03277790f207609f1353f8a13b665b2905adac7a7e796dd59faee5266d2cea1"
+  },
+  "formalAccepted": false,
+  "visualRecheckRequired": false,
+  "visualReview": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\review.json",
+    "sha256": "9e5ea5263e0e78aafb997ae1b89b0798da800d3e51e90885ca4f3e39863b9e6b",
+    "reviewScopeIsLimited": true
+  }
+}
