@@ -4,6 +4,7 @@ from datetime import datetime,timezone
 import argparse,json,hashlib
 from PIL import Image
 import numpy as np
+from checkpoint_candidates import carry
 T=Path(__file__).resolve().parent
 sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
 read=lambda p:json.loads(Path(p).read_text(encoding='utf-8-sig'))
@@ -16,8 +17,8 @@ def main():
     d=a.registration.resolve();d.relative_to(T)
     assert sha(T/'source-checkpoint.json')==a.checkpoint_sha,'Current checkpoint changed; recheck adjacent ownership first'
     review=read(d/'visual-review.json');assert review['localAccepted']
-    result=read(d/'result.json');joined=Path(result['output']['file']);assert sha(joined)==result['output']['sha256']
-    b=review['tileLocalLTRB'];assert len(b)==4
+    result=read(d/'result.json');output=result.get('output',result.get('joined'));joined=Path(output['file']);assert sha(joined)==output['sha256']
+    b=review.get('tileLocalLTRB',result.get('tileLocalLTRB'));assert len(b)==4
     p=read(T/'source-checkpoint.json')
     for k in ['fragment','bottom']:assert sha(p[k]['file'])==p[k]['sha256']
     old=Image.open(p['fragment']['file']).convert('RGBA');ob=p['fragment']['tileLocalLTRB'];j=Image.open(joined).convert('RGBA');assert j.size==(b[2]-b[0],b[3]-b[1]);assert j.getextrema()[3]==(255,255)
@@ -31,6 +32,7 @@ def main():
     op={'createdAtUtc':datetime.now(timezone.utc).isoformat(),'operation':'1:1 placement of a reviewed registered native piece; no enlargement; missing areas remain transparent','derivedFrom':[p['fragment'],info(joined)],'registrationResult':info(d/'result.json'),'visualReview':info(d/'visual-review.json'),'fragment':info(fragment),'bottom':p['bottom'],'tileLocalLTRB':box,'newMissingPixelsFilledInsideTile':count-before,'coveredNativeTilePixels':count,'formalAccepted':False,'complete4KTilesAdded':0,'sourceCheckpointSha':a.checkpoint_sha}
     write(out/'assembly.json',op);write(Path(str(fragment)+'.generation.json'),{'file':str(fragment),'sha256':sha(fragment),'derivedFrom':op['derivedFrom'],'assembly':info(out/'assembly.json'),'newModelCalls':0,'nativeScale':1})
     cp={'createdAtUtc':datetime.now(timezone.utc).isoformat(),'resumeAuthorizedByUser':True,'userInstruction':'继续做完给我','sourcePairVerified':True,'bottom':p['bottom'],'fragment':{**info(fragment),'tileLocalLTRB':box},'evidence':[info(out/'assembly.json'),info(d/'visual-review.json')],'formalAccepted':False,'geometryAndNavigationAcceptance':False}
+    cp=carry(p,cp,out)
     write(out/'source-checkpoint.json',cp);write(T/'source-checkpoint.json',cp)
     preview=Image.new('RGBA',(4096,4096));preview.paste(new,(box[0],box[1]));preview.thumbnail((1024,1024));pp=T/'current-preview.png';preview.save(pp)
     write(Path(str(pp)+'.generation.json'),{'file':str(pp),'sha256':sha(pp),'derivedFrom':[info(fragment)],'operation':'Progress preview downsample only, missing pixels transparent','newModelCalls':0})

@@ -1,0 +1,79 @@
+{
+  "reviewedAtUtc": "2026-10-06T01:53:19.527163+00:00",
+  "result": "local improvement; no full-tile formal acceptance",
+  "acceptedForLocalComposition": true,
+  "formalAccepted": false,
+  "actualViewed": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c10\\shared-geometry\\west-edge-repair\\qa-before-after.png",
+      "sha256": "dd58ae494ac050f186d8c8dba359a111f7bc3e7e44e4ef22375150398945de4d",
+      "viewedAtUtc": "2026-10-06T01:53:19.528164+00:00",
+      "viewMethod": "view_image(detail=original)",
+      "observation": "Before/after checked at native pixels. No rectangular mask boundary, extra line, gap or visible taper seam is introduced."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c10\\shared-geometry\\west-edge-repair\\qa-mask-left-edge.png",
+      "sha256": "cdf6fd68e2e24480fa117af9065ac52fdb1467f3488afe45038da3f22114902b",
+      "viewedAtUtc": "2026-10-06T01:53:19.528164+00:00",
+      "viewMethod": "view_image(detail=original)",
+      "observation": "Two bevel strokes cross the true west boundary with smaller steps; tiny residual stroke variation remains. Material transition remains deliberately unchanged."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c10\\shared-geometry\\west-edge-repair\\qa-mask-right-edge.png",
+      "sha256": "48257b4a8853c6c05c9ea11bb90758efda6fa013c42203aa37e691ff4fbf9b65",
+      "viewedAtUtc": "2026-10-06T01:53:19.528164+00:00",
+      "viewMethod": "view_image(detail=original)",
+      "observation": "Before/after checked at native pixels. No rectangular mask boundary, extra line, gap or visible taper seam is introduced."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c10\\shared-geometry\\west-edge-repair\\qa-mask-top-edge.png",
+      "sha256": "6dfb2ef8846ffc6ab054b903cc6236d696bfb4b73b47076c4f3942f8c36f22e1",
+      "viewedAtUtc": "2026-10-06T01:53:19.528164+00:00",
+      "viewMethod": "view_image(detail=original)",
+      "observation": "Before/after checked at native pixels. No rectangular mask boundary, extra line, gap or visible taper seam is introduced."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c10\\shared-geometry\\west-edge-repair\\qa-mask-bottom-edge.png",
+      "sha256": "caa1d9b51709516e9982b3e00a66d0865edd975f832a1887cba6e2f7c758ac7b",
+      "viewedAtUtc": "2026-10-06T01:53:19.528164+00:00",
+      "viewMethod": "view_image(detail=original)",
+      "observation": "Before/after checked at native pixels. No rectangular mask boundary, extra line, gap or visible taper seam is introduced."
+    }
+  ],
+  "edgeEstimates": [
+    {
+      "feature": "upper stone outline",
+      "c09BoundaryY": 1181.0629370629365,
+      "beforeC10BoundaryY": 1183.9370629370628,
+      "afterC10BoundaryY": 1182.1013986013986,
+      "beforeResidualPx": 2.874125874126321,
+      "afterResidualPx": 1.0384615384621156
+    },
+    {
+      "feature": "lower stone outline",
+      "c09BoundaryY": 1299.9813519813515,
+      "beforeC10BoundaryY": 1302.4155011655012,
+      "afterC10BoundaryY": 1301.7488344988346,
+      "beforeResidualPx": 2.4341491841496463,
+      "afterResidualPx": 1.7674825174831312
+    }
+  ],
+  "estimateNote": "Subpixel regression through gradient maxima; an approximate stroke diagnostic, not native subpixel generation or geometry transformation.",
+  "remaining": "About1–2px boundary stroke residual and existing gray/ivory material variation remain; no additional correction attempted. Rail gold-stripe irregularity intentionally untouched as root-owned.",
+  "scope": {
+    "actualChangedBoxLTRB": [
+      0,
+      1163,
+      72,
+      1353
+    ],
+    "changedPixels": 5034,
+    "outsideMaskByteEqual": true,
+    "c09Modified": false,
+    "southwestRegionModified": false,
+    "centralRegionModified": false
+  },
+  "integration": "edited-core4096.png already contains alpha compositing over base SHA33b86f2d...c28f9. For union with disjoint central edits, copy edited-core pixels where alpha4096>0; do not alpha-blend this already-composited image a second time. Alternative: generated source mapping plus alpha applied once.",
+  "outputSha256": "d0a13f7f3171c4c8ad579a4cdafd7a9abf31dc580a97fff913da13108ab79afd",
+  "alphaSha256": "60b449187b5a7ddec164605447d42d3376ecf92aba0018f4837aae424e1e78ab"
+}

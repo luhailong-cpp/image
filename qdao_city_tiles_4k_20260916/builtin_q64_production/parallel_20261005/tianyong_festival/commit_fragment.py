@@ -4,6 +4,7 @@ from datetime import datetime,timezone
 import argparse,json,hashlib
 from PIL import Image
 import numpy as np
+from checkpoint_candidates import carry
 TASK=Path(__file__).resolve().parent
 sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
 read=lambda p:json.loads(Path(p).read_text(encoding='utf-8-sig'))
@@ -34,11 +35,12 @@ def main():
     for p in [fragment]+([bottom] if bottom.parent==out else []):write(Path(str(p)+'.generation.json'),{'file':str(p),'sha256':sha(p),'derivedFrom':operation['derivedFrom'],'assembly':info(out/'assembly.json'),'operation':operation['operation'],'newModelCalls':0})
     if not (TASK/'source-checkpoint-initial.json').exists():write(TASK/'source-checkpoint-initial.json',prev)
     checkpoint={'createdAtUtc':datetime.now(timezone.utc).isoformat(),'resumeAuthorizedByUser':True,'userInstruction':'继续做完给我','sourcePairVerified':True,'bottom':info(bottom),'fragment':{**info(fragment),'tileLocalLTRB':[xmin,ymin,xmax,ymax]},'evidence':[info(out/'assembly.json'),info(d/'visual-review.json')],'formalAccepted':False,'geometryAndNavigationAcceptance':False}
+    checkpoint=carry(prev,checkpoint,out)
     write(out/'source-checkpoint.json',checkpoint);write(TASK/'source-checkpoint.json',checkpoint)
     preview=Image.new('RGBA',(4096,4096),(0,0,0,0));preview.paste(new.convert('RGBA'),(xmin,ymin));preview.thumbnail((1024,1024))
     pp=TASK/'current-preview.png';preview.save(pp)
     write(Path(str(pp)+'.generation.json'),{'file':str(pp),'sha256':sha(pp),'derivedFrom':[info(fragment)],'operation':'Transparent missing-area canvas downsampled only for progress preview; not complete artwork','newModelCalls':0})
-    native_count=len(list((TASK/'r08_c10').glob('*/native.png.generation.json')))
+    native_count=len(list((TASK/'r08_c10').rglob('native.png.generation.json')))
     progress={'updatedAtUtc':datetime.now(timezone.utc).isoformat(),'appearance':'tianyong_festival','status':'native_expansion_in_progress','targetTiles':256,'activeTile':'r08_c10','nativeCallsInThisTask':native_count,'newCompleteTileCount':0,'formalAccepted':0,'wholeCityComplete':False,'clientAccepted':False,'currentFragmentPixels':[new.width,new.height],'coveredNativeTilePixels':covered,'tileCoverageFraction':covered/16777216,'sourceCheckpoint':str(TASK/'source-checkpoint.json'),'currentPreview':str(pp),'nextAction':'Continue adjacent missing native patch; inspect all affected joins.'}
     write(TASK/'progress.json',progress);write(TASK/'current-work.json',{**progress,'lastCommittedPatch':req['patch'],'lastCommit':str(out/'assembly.json')})
     print(json.dumps(checkpoint))

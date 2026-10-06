@@ -1,7 +1,7 @@
 {
-  "createdAt": "2026-10-06T01:07:19.217481+00:00",
+  "createdAt": "2026-10-06T01:17:24.675438+00:00",
   "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\internal\\r09_c13-internal-candidate-v3.png",
-  "sha256": "37cd419f95f6d1a0e8d5e6717b4dabe75e1febdd57f553906b0c46af6674320a",
+  "sha256": "a246e63c67e13b452fe01eba7ec927c940cac61e19630068351018817f43a42b",
   "pixels": [
     4096,
     4096
@@ -40,6 +40,12 @@
       "mask": {
         "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\internal\\fields-v3-targeted\\wood2048-mask.png",
         "sha256": "9bfc90ee22632df5fc4afda60f5ebe618888dd17314f4d88563662ddd08399f6"
+      },
+      "boundaryColorJumpDiagnostic": {
+        "eligiblePixelCount": 132,
+        "oldMeanAbsoluteRGB": 5.136363636363638,
+        "newMeanAbsoluteRGB": 3.8257575757575757,
+        "meaning": "mechanical tone diagnostic only, not visual acceptance"
       }
     },
     {
@@ -66,6 +72,12 @@
       "mask": {
         "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\internal\\fields-v3-targeted\\wood3072-mask.png",
         "sha256": "e9393eae51ef5a5f92b836e3ae846d6a3f705088c2d9c374145a5fa576aa4bfa"
+      },
+      "boundaryColorJumpDiagnostic": {
+        "eligiblePixelCount": 155,
+        "oldMeanAbsoluteRGB": 2.356989247311828,
+        "newMeanAbsoluteRGB": 2.8516129032258064,
+        "meaning": "mechanical tone diagnostic only, not visual acceptance"
       }
     },
     {
@@ -81,17 +93,23 @@
       "material": "jade",
       "mode": "right_only",
       "support": 256,
-      "actualMaxAbsoluteCorrection": 20.0,
+      "actualMaxAbsoluteCorrection": 16.78738021850586,
       "cap": 20,
-      "changedPixelCount": 66132,
+      "changedPixelCount": 44072,
       "sourceNativeHighGradientProtection": "full correction at native gradient<=4; zero at>=12; native-source gradients do not mistake assembly tone jump for painted outline",
       "fields": {
         "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\internal\\fields-v3-targeted\\pot.npz",
-        "sha256": "d05bca68331ab00089c4284f9658de4113eb604d9743f698cae2ea9ad3391111"
+        "sha256": "46788dfa29ef681f2d37998583f45a364574a7457af7c34fa74cd89645f8a72b"
       },
       "mask": {
         "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\internal\\fields-v3-targeted\\pot-mask.png",
-        "sha256": "d5ce69a791eab8b69c974a809d7b65940f3dcb06770b44ccac938a8c35294036"
+        "sha256": "026bef0b54ea51fe2476a11aba7aa01fc0c6d3c810cd8743f4bbab903c5ccf73"
+      },
+      "boundaryColorJumpDiagnostic": {
+        "eligiblePixelCount": 217,
+        "oldMeanAbsoluteRGB": 5.539170506912442,
+        "newMeanAbsoluteRGB": 3.181259600614439,
+        "meaning": "mechanical tone diagnostic only, not visual acceptance"
       }
     }
   ],
@@ -107,7 +125,8 @@
         1184,
         2304
       ],
-      "actuallyViewed": false
+      "actuallyViewed": true,
+      "viewedAt": "2026-10-06T01:21:09.624273+00:00"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\internal\\qa-v3-targeted\\wood3072-old-new-native.png",
@@ -119,11 +138,12 @@
         1200,
         3328
       ],
-      "actuallyViewed": false
+      "actuallyViewed": true,
+      "viewedAt": "2026-10-06T01:21:09.624273+00:00"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\internal\\qa-v3-targeted\\pot-old-new-native.png",
-      "sha256": "f3778570718c9053c8ca3fab7b9fe0b3ff6b327a8a5ed51d08c9f347a52c5f05",
+      "sha256": "29b10d531e968275e4e1c641e62aea7de8f8aa14035ebd7e62a02beb963809dd",
       "scale": "1:1",
       "box": [
         768,
@@ -131,10 +151,17 @@
         1280,
         350
       ],
-      "actuallyViewed": false
+      "actuallyViewed": true,
+      "viewedAt": "2026-10-06T01:21:09.624273+00:00"
     }
   ],
   "formalAccepted": false,
   "rootReviewPending": true,
-  "sourceFilesModified": false
+  "sourceFilesModified": false,
+  "visualFindings": [
+    "All3 native old/new boards actually viewed. Wood2048 andwood3072 retain exact timber contours and original texture; tonal transitions reduced but texture/facet differences remain perceptible, root judgment required.",
+    "Pot final estimator uses matching nativeoverlap coordinates; rejected transverseband artifact absent. Whole small cloud and raised flower remain intact; no geometry or ornament blending.",
+    "No new geometry; same inherited maximumshift0.8151938343; alloutside3ROI pixels unchanged."
+  ],
+  "colorBoundDisclosure": "This targeted stage applies maximum20additiveRGB to v2; v2 priorboundedcolorfields(max8) remain independentlyrecorded. Native-to-final effectivecolor must be reviewed frombothfieldstages."
 }

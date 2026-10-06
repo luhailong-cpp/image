@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-06T01:51:29.647904+00:00",
+  "useCase": "precise-object-edit",
+  "route": "builtin_image_gen",
+  "tool": "image_gen.imagegen",
+  "configTarget": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-04",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  },
+  "configFile": "D:\\work\\image\\config\\image-generation.json",
+  "configSha256": "5af4e536fece43c4180fc69a1ac19130e61961040b91156b2d4e2564602ad986",
+  "submittedParameters": {
+    "prompt": "Use case: precise-object-edit. Edit Image 1 only: an exact 1254×1254 native crop of the existing game-map planter. Repaint ONLY the existing orange/ochre masonry planter surfaces with rich vermilion red lacquer and one very fine warm-gold line following the existing bevel edges, matching the restrained red/gold finish in Image 3. Keep its thick rounded masonry block construction, existing block joints, surface relief, silhouettes and every coordinate exactly unchanged. The existing orange top rim, outer vertical faces and tiny visible orange back rail may receive this surface finish; do not reshape or replace them. Red must remain shaded naturally under the existing light. Gold must be a thin painted accent on the existing bevel, never added geometry.\nImage 2 (04-guild) is the locked rendering/material style only, no UI copied. Image 3 is the neighboring Spring Festival planter FINISH/COLOR reference only. Do not copy its rail shape, structure, dimensions or layout.\nAbsolutely preserve the tree trunk, bark, roots, green leaves and bushes, soil, all cream/white stone posts and rails, square pillar caps, pavement and cast shadows. Do not add balls, caps, posts, wood frames, carved motifs, ornaments, lanterns, ribbons, petals, lines on the ground, text, or any physical objects. Do not change camera, cropping, scale, edge positions, geometry, shadows or lighting. Retain Image 1's same full square framing and output exactly 1254×1254. This is color/material editing of existing orange surfaces only.",
+    "referenced_image_paths": [
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c10\\spring-edits\\central\\front-target-1254.png",
+      "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c09\\native\\r04_c04.png"
+    ],
+    "transparent_background": false,
+    "model": null,
+    "quality": null
+  },
+  "actualModel": null,
+  "actualQuality": null,
+  "unverifiedReason": "Builtin tool exposes no model or quality selectors and returns neither; config is only a target.",
+  "startedAt": {
+    "current_time": "2026-10-06 01:14:04 UTC"
+  },
+  "completedAt": {
+    "current_time": "2026-10-06 01:16:04 UTC"
+  },
+  "toolMetadata": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c10\\spring-edits\\central\\front-tool-result.json",
+  "originalToolFile": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb2-bcdc-7d01-a2c1-ddf19d41f1ee\\exec-93574c39-9fd3-412d-828d-170b0f800a80.png",
+  "originalToolSha256": "0e4dde5a13db64bc1bef234cd7826fa55c7f657fb58183f2a3f0b5cbaeb00c26",
+  "originalToolModifiedAtUtc": "2026-10-06T01:15:10.873601+00:00",
+  "savedOutput": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c10\\spring-edits\\central\\front-generated-1254.png",
+    "sha256": "0e4dde5a13db64bc1bef234cd7826fa55c7f657fb58183f2a3f0b5cbaeb00c26",
+    "pixels": [
+      1254,
+      1254
+    ],
+    "role": "unaltered builtin returned native image"
+  },
+  "savedByteIdenticalToTool": true,
+  "promptFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c10\\spring-edits\\central\\front-prompt.txt",
+  "promptSha256": "52d8d7cc3e3fd4c0f53a6b20485f5a6a4b5c2cf033f09e902425402d93b45990",
+  "references": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c10\\spring-edits\\central\\front-target-1254.png",
+      "sha256": "17cd6a63d2baf67a12d602ad74dd220377e49de3f4caee1927bfa69d89c25757",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "role": "exact native day selected crop, edit target"
+    },
+    {
+      "file": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+      "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+      "pixels": [
+        1931,
+        814
+      ],
+      "role": "primary painting/material style only"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c09\\native\\r04_c04.png",
+      "sha256": "735c48191b39d5a41cd565a5788f80facaca524a10c8f4e4f4148281f813749c",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "role": "Spring red/gold material only; same-object overlap on back request"
+    }
+  ],
+  "daySelectedSource": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\selected\\core4096.png",
+    "sha256": "bff348371e3ba8d23fe152885919a94b550807cbccdd1a0dccd2c81abc9f807f"
+  },
+  "cropInCoreLTRB": [
+    1200,
+    1400,
+    2454,
+    2654
+  ],
+  "resampling": null,
+  "warp": null
+}

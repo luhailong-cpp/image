@@ -13,7 +13,7 @@ def run(a):
         for record in records:
             j=read_json(record);p=Path(j['file'])
             if p.exists() and sha256(p)!=j['sha256']:raise ValueError(f'Native changed: {p}')
-            cleaned=any((tile/n).exists() for n in ('cleanup-manifest.json','cleanup.manifest.json'))
+            cleaned=any((tile/n).exists() for n in ('cleanup-manifest.json','cleanup.manifest.json','selected/cleanup.manifest.json'))
             if not p.exists() and not cleaned:raise FileNotFoundError(p)
             items.append({'cell':j['cell'],'sha256':j['sha256'],'generationRecord':str(record),
                           'nativePngRetained':p.exists()})

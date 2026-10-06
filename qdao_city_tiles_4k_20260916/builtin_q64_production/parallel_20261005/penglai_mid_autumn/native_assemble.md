@@ -31,6 +31,6 @@ python native_assemble.py assemble --tile r10_c13 --registration bounded --max-s
 - `r10_c13/output/r10_c13-candidate.png`：4096候选，实际像素全部来自原生片段与记录的有限重采样／校色。
 - `r10_c13/output/native-assembly.json`、候选 `.generation.json`：派生链、参数、字段和状态。
 - `r10_c13/output/native-fields/`：16组实际归属、真实支持、位移和色彩场。
-- `r10_c13/qa/native-candidate/`：6条完整4096内部缝、9个320²交点；实际旧north/west共边各4096；新侧 return-depth 返回线；东／南缺邻边明确标未验。各图只裁切和90°旋转，保持原像素，无缩放。
+- `r10_c13/qa/native-candidate/`：6条完整4096内部缝、6条内部字段返回线、9个320²交点；实际旧north/west共边各4096；新侧 return-depth 返回线；东／南缺邻边明确标未验。默认内部返回位置为1280、2304、3328，各图只裁切和90°旋转，保持原像素，无缩放。双邻齐备时共27张QA。
 
 所有QA初始 `actuallyViewed=false`，候选保持 `scopedLocalSeamsPassed=false`、formal/client/nav=false。必须实际逐张查看后再由后续任务记录局部验收；强错位或缺结构应原生AI补绘，不能提高色差或位移去遮挡。后续上下文从最终验收的4K图裁取。

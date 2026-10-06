@@ -1,0 +1,46 @@
+{
+  "preparedAtUtc": "2026-10-06T01:56:29.853164+00:00",
+  "patch": "r03_c01",
+  "tile": "r08_c10",
+  "globalCropLTRB": [
+    36749,
+    30605,
+    38003,
+    31859
+  ],
+  "tileLocalCropLTRB": [
+    -115,
+    1933,
+    1139,
+    3187
+  ],
+  "knownPixels": 641700,
+  "missingPixels": 930816,
+  "payload": {
+    "prompt": "Use case: precise-object-edit. Finish ONLY the two transparent repair areas in image1, preserving the same1254x1254 framing and all opaque artwork. This is a precise material repair of a completed plaza crop, not a new composition.\nREPAIR1, the lower central gray stone panel: the visible original bottom230 rows are immutable native pixels. The lower gray slab starts just below the horizontal stone joint around y780 and continues through the bottom edge. Its true source gray is visible below y1024 and has approximately RGB[182, 173, 169] in the center. Extend THAT cool medium gray upward into the hole. It must be the SAME connected stone plane and the SAME brightness as the original bottom, not a pale creamy/beige stone. The prior hole content was too light by about27 red,22 green,16 blue levels; that failed light material has been erased. Match the native bottom exactly without a horizontal tone step at y1024. Keep subtle low-contrast native texture and gentle shading. Preserve the top stone joint at y780 and the existing ivory ring. Match the original lower gray left-edge bevel endpoint at approximately x640 at y1024, following the original curve, without a narrow or jogged return.\nREPAIR2, the narrow vertical hole in the left ivory slabs: create a natural quiet texture continuation from the real original left115-pixel strip into the already-painted right side. There must be NO straight rectangular texture or color boundary at x115. Use restrained pale ivory stone, gently transitioning the existing subtle surface texture; no added spots or veins. Continue the existing horizontal stone seam near y735 at precisely the same height and tangent as the original left strip, without creating a new seam at the mask edge.\nThe left115 pixels, right230 pixels and bottom230 pixels have been restored from actual accepted neighboring map pixels. Preserve them exactly. Keep the big ivory curved ring, other stone planes, all bevel widths and all unaffected geometry unchanged. Opaque areas are completed work. Do not redraw the entire picture.\nImage2 is only a broad low-resolution canonical LOCATION guide. It does not override native plane colors or precise contour thickness. Never enlarge/copy it into finished pixels. Image3 is the approved primary STYLE reference only, bright clean rounded Daoist fantasy Q-version painting. Do not import any interface, text, character or object.\nNo camera movement, scaling, rotation, new stone division, blur, cracks, mosaic grain, marble veins, heavy cloudy texture, border, watermark or lettering. The transparent areas are editing holes, not physical seams. Return the opaque1254-square native crop with only these material connections repaired at highest host finish.",
+    "referenced_image_paths": [
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r08_c10\\r03_c01-v1\\repaired-v1\\context.png",
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r08_c10\\r03_c01-v1\\repaired-v1\\layout-reference-only.png",
+      "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png"
+    ],
+    "transparent_background": false
+  },
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-04",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  },
+  "submittedModel": null,
+  "submittedQuality": null,
+  "submittedSize": null,
+  "operation": "AI lower gray material and left texture seam repair",
+  "repairPixels": 195150
+}

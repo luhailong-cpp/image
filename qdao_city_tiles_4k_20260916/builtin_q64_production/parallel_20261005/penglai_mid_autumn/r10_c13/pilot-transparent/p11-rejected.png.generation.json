@@ -1,0 +1,64 @@
+{
+  "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c13\\pilot-transparent\\p11-rejected.png",
+  "sha256": "24f43df2c6f30cc8c66fb933eea0fda7314b2ae93f88c1d7cdbe822651e9dc74",
+  "generatedAt": "2026-10-06T01:32:33.043986+00:00",
+  "width": 1254,
+  "height": 1254,
+  "tool": "image_gen.imagegen",
+  "route": "builtin",
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-04",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  },
+  "submittedParameters": {
+    "model": null,
+    "quality": null,
+    "prompt": "Precise native outpainting for game map r10_c13, micro-patch p11. Produce one fully opaque1254x1254 square at exactly this framing.\nImage1 contains ONLY already-generated native adjacent context and a transparent area to fill. Preserve the visible context's shapes, scale, edge positions, lighting and brushwork, and paint a natural continuous continuation through the transparent region. The transparent edge is a working mask, never a visible rectangle or design feature. Do not introduce a cut, band or outline at the mask edge.\nImage2 is ONLY the exact structure/composition guide for the SAME square. Use its object footprints, road clearance, stairs, railing, roof profiles, furniture positions, crop framing and illumination. Its soft enlarged guide pixels are not finished artwork: generate real crisp native painted detail with the same geometry. Preserve all original object silhouettes and do not invent additional objects or grout branches. The existing opaque native context in Image1 is authoritative where these references differ locally. Continue its existing line endpoints coherently into the guide geometry.\nImage3 is the approved art style: clean, bright, rounded full-bodied Daoist chibi hand painting, well-shaped ivory/jade/gold materials, controlled highlights and subtle organized brushwork. Do not borrow UI, writing or characters. Match the Mid-Autumn blue-violet evening stones, clear cobalt water, warm amber light and jade foliage of the map references. Smooth ceramic goods stay smooth, fabric stays fabric, foliage stays foliage; do not reinterpret materials. No zoom, reframing, added decorations, new lamps, paths or stairs. No blur, sharpening halo, noise, photographic grain, text, border or watermark. Fill the transparent region completely.",
+    "referenced_image_paths": [
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c13\\native\\p11-context.png",
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c13\\guides\\p11.png",
+      "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png"
+    ],
+    "transparent_background": false
+  },
+  "actualModel": null,
+  "actualQuality": null,
+  "unverifiedReason": "Host-managed; no model/quality selectors or returned metadata.",
+  "evidence": {
+    "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10ba7-d61e-7742-870d-85174acc5a1e\\exec-275ecf6d-6b92-4fde-bac1-1cc82d187b4b.png",
+    "sourceOutputSha256": "24f43df2c6f30cc8c66fb933eea0fda7314b2ae93f88c1d7cdbe822651e9dc74"
+  },
+  "prompt": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c13\\pilot-transparent\\p11.prompt.txt",
+  "promptSha256": "fac3104a9f12f626e3f94f6134afe8e7c60673baa9e4aef861b4a2acdcd1693c",
+  "references": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c13\\pilot-transparent\\p11-context.png",
+      "sha256": "567f9da19eed5770d75a6831de8e86a0213a5e4eaf0b5f47d44bd2397df73135",
+      "role": "native immutable context"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c13\\guides\\p11.png",
+      "sha256": "3dc4434cecf3cfa86313e695f1b6b647fc240d6327a3a40cf74cb1a27b99c76a",
+      "role": "structure guide only"
+    },
+    {
+      "file": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+      "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+      "role": "approved style"
+    }
+  ],
+  "status": "rejected_geometry_and_crop_drift",
+  "reason": "Completed left lower eave corner and added foliage where exact structure guide continues roof beyond the frame; visible context and framing changed.",
+  "sourceUpscaled": false,
+  "productionPixels": false,
+  "formalAccepted": false
+}

@@ -188,8 +188,9 @@ def register_native(context, patch, known, owner, edges, layout, max_shift=6., t
 def load_native(path, expected_size):
     with Image.open(path) as image:
         assert image.size == (expected_size, expected_size), str(path)
-        if 'A' in image.getbands(): assert image.getchannel('A').getextrema() == (255, 255), str(path)
-        return np.asarray(image.convert('RGB')).copy()
+        rgba = image.convert('RGBA')  # Includes P-mode tRNS and RGB transparent-color metadata.
+        assert rgba.getchannel('A').getextrema() == (255, 255), str(path)
+        return np.asarray(rgba.convert('RGB')).copy()
 
 
 def full_strip(image, axis, pos, context=160):
@@ -223,6 +224,11 @@ def make_qa(final_path, neighbors, out, return_depth):
         for pos in [1024, 2048, 3072]:
             image, operation = full_strip(final, axis, pos)
             save(image, f'internal-{axis}{pos}-full', operation, [candidate])
+            # Each patch's finite field also returns inside its core, outside the seam crop.
+            returned, return_operation = full_strip(final, axis, pos + return_depth)
+            return_operation['scope'] = 'internal native registration field return'
+            return_operation['sourceCoreBoundary'] = pos
+            save(returned, f'internal-{axis}{pos}-return-{return_depth}-full', return_operation, [candidate])
     for y in [1024, 2048, 3072]:
         for x in [1024, 2048, 3072]:
             box = [x-160, y-160, x+160, y+160]
@@ -295,6 +301,9 @@ def assemble(args):
     for role, key_name in [('north', 'northCandidate'), ('west', 'westCandidate'), ('northwest', 'northWestCandidate')]:
         if plan.get(key_name):
             path = Path(plan[key_name]);neighbors[role] = {'reference': ref(path), 'pixels': load_native(path, 4096)}
+            frozen_sha = plan.get(key_name + 'Sha256')
+            if frozen_sha:
+                assert neighbors[role]['reference']['sha256'] == frozen_sha, 'Frozen neighbor differs from plan: ' + role
     if args.preflight:
         print(json.dumps({'tile': args.tile, 'nativeCount': len(sources), 'neighbors': list(neighbors), 'outputsWritten': False}));return
     output = folder / 'output'
@@ -302,7 +311,9 @@ def assemble(args):
     final_path = output / f'{args.tile}-candidate.png'
     manifest_path = output / 'native-assembly.json'
     fields_path = output / 'native-fields'
-    assert not final_path.exists() and not manifest_path.exists() and not fields_path.exists() and not qa_folder.exists(), 'Refuse to overwrite existing assembly or QA.'
+    protected_outputs = [final_path, Path(str(final_path)+'.generation.json'), manifest_path,
+                         fields_path, qa_folder, output/'native-registration-failure.json']
+    assert not any(p.exists() for p in protected_outputs), 'Refuse to overwrite existing images, fields, QA or retained text records.'
     canvas, covered, seed = seed_neighbors(layout, **{k: v['pixels'] for k, v in neighbors.items()})
     fields_path.mkdir(parents=True)
     reports = []
@@ -407,12 +418,20 @@ def selfcheck():
         assert hi-lo==([1139,1254,1254,1139][index])
     standalone=np.zeros((p,p),bool);standalone[:h,:h]=True
     assert not layout.native_owner_mask(standalone,[])[:h,:h].any()
+    # Alpha can be encoded in PNG metadata without an A band; reject both forms.
+    from io import BytesIO
+    for mode, transparency in [('P',0),('RGB',(0,0,0))]:
+        tiny=Image.new(mode,(2,2),0);buffer=BytesIO()
+        tiny.save(buffer,format='PNG',transparency=transparency);buffer.seek(0)
+        try: load_native(buffer,2)
+        except AssertionError: pass
+        else: raise AssertionError('Transparent PNG metadata bypassed input validation')
     result={'checkedAt':now(),'result':'pass','syntheticTilePixels':[64,64], 'syntheticExtendedPixels':[70,70],
             'checks':['all16 core coordinates exactly once','native binary ownership maps exact coordinate pixels',
                       '230-equivalent internal overlap','115-equivalent real north/west/NW support',
                       'missing NW remains unknown; supplied NW remains protected',
                       'all4 clipped external native contexts map without offset',
-                      '4326 crop and4096 seam offsets'],
+                      '4326 crop and4096 seam offsets','P/RGB transparent PNG metadata rejected'],
             'productionImagesRead':False,'productionAssemblyRun':False,'generationCalled':False}
     print(json.dumps(result))
 
@@ -421,4 +440,16 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     commands=parser.add_subparsers(dest='command',required=True)
     commands.add_parser('selfcheck',help='small in-memory coordinate checks only')
-    build=commands.add_parser('assemble',help='requires all16 immutable native patc
+    build=commands.add_parser('assemble',help='requires all16 immutable native patches')
+    build.add_argument('--tile',required=True)
+    build.add_argument('--preflight',action='store_true',help='validate all inputs and hashes, write nothing')
+    build.add_argument('--registration',choices=['bounded','none'],default='bounded')
+    build.add_argument('--max-shift',type=float,default=6.,help='vector displacement limit, default6; implementation permits0..12')
+    build.add_argument('--tone-cap',type=float,default=18.,help='per-channel correction limit,0..32')
+    build.add_argument('--return-depth',type=int,default=256,help='finite influence return inside native core,160..512')
+    args=parser.parse_args()
+    if args.command=='selfcheck':selfcheck()
+    else:assemble(args)
+
+
+if __name__=='__main__':main()

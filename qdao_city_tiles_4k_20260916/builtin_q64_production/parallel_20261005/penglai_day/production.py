@@ -40,6 +40,9 @@ def ingest(source,name,prompt,refs,role):
     source=Path(source); dest=ROOT/('references' if role=='layout_only' else 'native')/(name+'.png')
     shutil.copy2(source,dest)
     rec={'file':str(dest),'sha256':sha(dest),'generatedAt':stamp(),'width':Image.open(dest).width,'height':Image.open(dest).height,'format':'PNG','tool':'image_gen.imagegen','route':'builtin','toolResultPath':str(source),'configSnapshot':read(REPO/'config/image-generation.json'),'submittedParameters':{'model':None,'quality':None,'prompt':str(prompt),'referenced_image_paths':refs,'transparent_background':False},'actualModel':None,'actualQuality':None,'unverifiedReason':'宿主管理，工具未披露型号/质量，提示词不代表选择器。','prompt':str(prompt),'references':[{'file':x,'sha256':sha(x),'role':'edit target geometry' if i==0 else ('approved primary style' if '04-guild' in x else 'adjacent context')} for i,x in enumerate(refs)],'role':role,'formalAccepted':False,'evidence':{'toolResultPath':str(source),'displayedInToolResult':True}}
+    rec['recordedAt']=stamp()
+    rec['generatedAt']=datetime.datetime.fromtimestamp(source.stat().st_mtime,datetime.timezone.utc).isoformat()
+    rec['generatedAtEvidence']='Local tool-output file modification time; service generation timestamp is not exposed.'
     rec['submittedParameters']['prompt']=Path(prompt).read_text(encoding='utf-8-sig')
     write(str(dest)+'.generation.json',rec)
     return dest
