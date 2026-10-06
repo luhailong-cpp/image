@@ -395,6 +395,11 @@ def main():
                   "visualReview": {"status": "pending" if visual_pending or missing else "recorded-passed", "pendingFrames": visual_pending, "note": "Only reads the review status saved by a human/visual reviewer; does not perform visual or motion review."},
                   "motionReview": {"status": "pending", "note": "Play all six groups and record independent review evidence."},
                   "clientIntegration": {"status": "not-performed"}, "unrecordedRuntimeFiles": unrecorded}
+    review_path = ROOT / "qa/final-review.json"
+    if review_path.exists():
+        review = json.loads(review_path.read_text(encoding="utf-8-sig"))
+        if review.get("reviewedRuntimeSha256") == {f["id"]: f["sha256"] for f in frames}:
+            validation["motionReview"] = {"status": review.get("motionStatus"), "evidence": "qa/final-review.json", "note": review.get("scope")}
     manifest = {"schemaVersion": 1, "pet": "legacy-yun-jiu-jiu", "name": "云啾啾", "builtAt": now(),
                 "dimensions": [1024, 1024], "pivot": PIVOT, "expectedFrames": 68, "availableFrames": len(frames),
                 "coordinatePolicy": "One native canvas and one uniform export transform per direction across all actions; no per-frame foot alignment.",
@@ -411,6 +416,11 @@ def main():
         template = (preview / "template.html").read_text(encoding="utf-8")
         embedded = json.dumps(manifest, ensure_ascii=False).replace("<", "\\u003c")
         (preview / "index.html").write_text(template.replace("__MANIFEST_JSON__", embedded), encoding="utf-8")
+        for group in groups:
+            group_frames = [f for f in frames if f["action"] == group["action"] and f["direction"] == group["direction"]]
+            standalone = dict(manifest, groups=[group], frames=group_frames, expectedFrames=group["expectedFrames"], availableFrames=len(group_frames))
+            payload = json.dumps(standalone, ensure_ascii=False).replace("<", "\\u003c")
+            (preview / f'{group["action"]}-{group["direction"]}.html').write_text(template.replace("__MANIFEST_JSON__", payload), encoding="utf-8")
     print(json.dumps({"mode": args.mode, "technicalStatus": validation["technicalStatus"], "availableFrames": len(frames), "expectedFrames": 68, "missingFrames": missing, "errors": errors, "warnings": sum(p["severity"] == "warning" for p in problems), "issues": problems, "writesPerformed": args.mode != "plan"}, ensure_ascii=False, indent=2))
     return 2 if errors else (1 if missing else 0)
 

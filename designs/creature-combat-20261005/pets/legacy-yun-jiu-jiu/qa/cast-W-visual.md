@@ -2,7 +2,7 @@
 
 2026-10-05。本组已生成并选定 16 张原生 1254×1254 RGBA PNG；每张均为独立内置 `image_gen` 调用，约定每帧45ms、全动作720ms。此记录是**原生单帧与全帧总览静态检查**；正常/0.25倍速动态播放、1024正式导出及客户端接入未在本子任务中完成，交主窗口统一检查。
 
-每次实际附上原身份 `qdao_chibi_pets_v1/03_yun_jiu_jiu-transparent_1254.png`、确认风格 `designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png` 与本只 `source/design-W.png`；早段还附前帧用于关节连续性。三张必需参考均已实际 `view_image` 查看。图像工具输出逐张查看，最后又实际查看了浅灰棋盘合成总览 [cast-W-contact.png](cast-W-contact.png)。总览只用于观察，没有改动任何角色源像素。
+每次实际附上原身份 `qdao_chibi_pets_v1/03_yun_jiu_jiu-transparent_1254.png`、确认风格 `designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png` 与本只 `source/design-W.png`；早段还附前帧用于关节连续性。三张必需参考均已实际 `view_image` 查看。图像工具输出逐张查看，最后又实际查看了浅灰棋盘合成总览 [cast-W-contact.png](../preview/cast-W-contact.png)。总览只用于观察，没有改动任何角色源像素。
 
 ## 当前选定文件
 
@@ -48,3 +48,6 @@
 未选定：`cast-W-10-r0`、`cast-W-10`、`cast-W-11-r0`、`cast-W-11-r1`、`cast-W-11-r2`、`cast-W-12-r0`、`cast-W-14-r0`。各记录已标记rejected或superseded并有原因。旧候选图当前尚在source，待主窗口确认正式导出落盘与当前引用完整后按项目保留政策统一清理；文字来源记录应保留。本子任务没有运行全包export、清理、Git或客户端操作。
 
 全包工具：`tools/build_combat.py export` 生成1024 RGBA、manifest、validation、六组总览及可直接打开的HTML；`verify`复核，`plan`只读。原生1254帧统一使用同方向整画布变换，不按单帧脚点重新对齐。
+
+
+最终收尾：本文件保留制作阶段的原生静态检查历史；原生动作/拒稿/过程图片已按cleanup.json清理，最终runtime及播放检查以../README.md、../manifest.json和final-review.json为准。上文“待主窗口检查”属于当时状态。

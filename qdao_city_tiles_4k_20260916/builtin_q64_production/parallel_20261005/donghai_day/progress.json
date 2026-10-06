@@ -1,11 +1,13 @@
 {
   "appearance": "donghai_day",
-  "updatedAtUtc": "2026-10-05T17:23:25.103711+00:00",
+  "title": "04 渔村日景地图",
+  "updatedAtUtc": "2026-10-05T21:15:29.972492+00:00",
   "targetCityPixels": [
     65536,
     65536
   ],
   "targetTiles": 256,
+  "completePixelCandidates": 4,
   "baselineCompletePixelCandidates": 3,
   "newCompletePixelCandidates": 1,
   "formalAccepted": 0,
@@ -18,11 +20,70 @@
     4096,
     4096
   ],
-  "nativeCorePixels": 1024,
-  "nativeHaloPixels": 115,
   "nativePatchesSaved": 16,
   "nativePatchesRequiredForActiveTile": 16,
   "fragmentsCountAsTiles": false,
-  "phase": "native_expansion_in_progress",
-  "nextAction": "Generate next missing adjacent native patch; assemble only after all 16 native patches; inspect all internal seams, west common edge and corners."
+  "phase": "west_common_edge_structural_repair",
+  "activeRepair": "r08_c11/repairs/west-common-edge",
+  "repairNativePatchesSaved": 2,
+  "internalInspection": {
+    "review": "r08_c11/qa/internal-review.json",
+    "completeInternalSeams": 6,
+    "intersections": 9,
+    "result": "no actionable internal defects observed"
+  },
+  "westCommonEdgeInspection": "leaf, shadow and paving discontinuity found; AI repair in progress",
+  "wholeCityNavigationAlignment": "not verified",
+  "nextTile": "r08_c12",
+  "nextAction": "Finish west joint repair and inspect join/attachment boundaries; then extend east into r08_c12.",
+  "currentPreview": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\current-preview.png",
+  "tileIndex": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\tile-index.json",
+  "candidates": [
+    {
+      "tile": "r08_c08",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\donghai_day\\r08_c08_c09_c10_joint\\output_v3\\r08_c08.png",
+      "sha256": "cc2369d3bfd61a71104cc53cc330e37034367761094d54de8d437da3eaed9ff2",
+      "pixels": [
+        4096,
+        4096
+      ],
+      "source": "verified read-only baseline",
+      "formalAccepted": false
+    },
+    {
+      "tile": "r08_c09",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\donghai_day\\r08_c08_c09_c10_joint\\output_v3\\r08_c09.png",
+      "sha256": "2595df0fb75328de5fc748da03a08d6ebf8c64ef10f331bdc408a1a6c2921caa",
+      "pixels": [
+        4096,
+        4096
+      ],
+      "source": "verified read-only baseline",
+      "formalAccepted": false
+    },
+    {
+      "tile": "r08_c10",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\donghai_day\\r08_c08_c09_c10_joint\\output_v3\\r08_c10.png",
+      "sha256": "8c17085bfa7695afb60715f015e9f9b8ad8848d5e9edb283b83a8f97c27688cb",
+      "pixels": [
+        4096,
+        4096
+      ],
+      "source": "verified read-only baseline",
+      "formalAccepted": false
+    },
+    {
+      "tile": "r08_c11",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r08_c11\\output\\r08_c11.png",
+      "sha256": "c5c5c24746460d9e09c713d7549da8d7fdb168a0aef240611877c9d1e4641354",
+      "pixels": [
+        4096,
+        4096
+      ],
+      "source": "16 native1254 patches, 1024 core, 115 halo; native assembly; west join under repair",
+      "formalAccepted": false
+    }
+  ],
+  "builtinOnly": true,
+  "paidApiUsed": false
 }
