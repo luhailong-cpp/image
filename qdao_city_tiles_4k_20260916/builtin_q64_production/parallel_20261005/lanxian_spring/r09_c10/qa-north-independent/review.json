@@ -1,0 +1,472 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-06T14:36:39.480512+00:00",
+  "reviewer": "independent north inspection subagent",
+  "scope": "Read-only north edge investigation; art unchanged. Only QA crops and this report written.",
+  "stage": "pre-final",
+  "sources": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r09_c10\\shared-geometry\\day\\extended4326.png",
+      "sha256": "9f4279c1fec0ff91aa62fcb21e2fcb3e78ca021266732ed6096adb9338e341f5"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r09_c10\\shared-geometry\\north-spring\\extended4326.png",
+      "sha256": "356a3500b749eaa1fb3dab0f46c1a8b73f005c9dca0860b18847dd4f44345cdc"
+    }
+  ],
+  "coordinateMapping": {
+    "integerTranslation": "northExtended(x,y+4096) -> currentExtended(x,y)",
+    "commonNorthLTRB": [
+      0,
+      4096,
+      4326,
+      4326
+    ],
+    "commonCurrentLTRB": [
+      0,
+      0,
+      4326,
+      230
+    ],
+    "coreBoxLTRB": [
+      115,
+      115,
+      4211,
+      4211
+    ],
+    "resampling": null
+  },
+  "commonOverlapComparison": {
+    "comparedPixels": 994980,
+    "differentPixels": 990733,
+    "wholeBandDirectCopyRejected": true,
+    "reason": "The shared geometry constraint requires day pixels outside bounded spring surface masks to remain exact. Full donor overlap differs throughout pavement, vegetation and shadows."
+  },
+  "capSupport": {
+    "roiInCurrentExtendedLTRB": [
+      480,
+      0,
+      592,
+      84
+    ],
+    "predicate": "integer RGB wood=(R>G+24) AND (G>B+18) AND (R>140); intersect ROI",
+    "northEditedMask": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/lanxian_spring/r08_c10/spring-edits/southwest/mask-4326.png",
+    "northMaskMappedCurrentBBoxLTRB": [
+      507,
+      0,
+      572,
+      67
+    ],
+    "northMaskPixels": 1731,
+    "currentWoodBBoxLTRB": [
+      505,
+      0,
+      572,
+      67
+    ],
+    "currentWoodPixels": 1667,
+    "intersectionPixels": 1639,
+    "northMaskOutsideCurrentWoodPixels": 92,
+    "currentWoodOutsideNorthMaskPixels": 28,
+    "northOriginalAndMaskHashesVerifiedAgainstProcessingRecord": true,
+    "insideCurrentCorePixels": 0,
+    "unqualifiedNorthMaskCopyRejected": true,
+    "recommendation": "Current formal core needs no north-cap edit. Halo may inherit exact donor pixels only inside strict current surface support. The remaining28 target wood pixels need separately bounded handling; do not transplant92 donor-support pixels outside current surface."
+  },
+  "views": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r09_c10\\qa-north-independent\\commonedge-c01.png",
+      "sha256": "f97ca06f06fe0cec546db40fea6ced2ea1327ef627eb527893d7d578ec6fd553",
+      "pixels": [
+        1024,
+        460
+      ],
+      "actuallyViewed": true,
+      "sourceCoordinateScope": {
+        "northExtendedLTRB": [
+          115,
+          4096,
+          1139,
+          4326
+        ],
+        "dayExtendedLTRB": [
+          115,
+          0,
+          1139,
+          230
+        ],
+        "layout": "north above day, panel split at output y230",
+        "resampling": null
+      },
+      "findings": [
+        "Corresponding common-coordinate content is visually similar but not pixel identical.",
+        "West segment contains north red cap versus current orange cap in halo."
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r09_c10\\qa-north-independent\\commonedge-c02.png",
+      "sha256": "30a1c3d91840581d819cbfe6c5bcf6d343a900bb4e012d032e91015e45588261",
+      "pixels": [
+        1024,
+        460
+      ],
+      "actuallyViewed": true,
+      "sourceCoordinateScope": {
+        "northExtendedLTRB": [
+          1139,
+          4096,
+          2163,
+          4326
+        ],
+        "dayExtendedLTRB": [
+          1139,
+          0,
+          2163,
+          230
+        ],
+        "layout": "north above day, panel split at output y230",
+        "resampling": null
+      },
+      "findings": [
+        "Pavement, paving boundary or vegetation/shadow content has subtle source differences."
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r09_c10\\qa-north-independent\\commonedge-c03.png",
+      "sha256": "4f6b010c2900e06c102fe4a50b0257cbf991f0980d291b0e6da7d48a914d3354",
+      "pixels": [
+        1024,
+        460
+      ],
+      "actuallyViewed": true,
+      "sourceCoordinateScope": {
+        "northExtendedLTRB": [
+          2163,
+          4096,
+          3187,
+          4326
+        ],
+        "dayExtendedLTRB": [
+          2163,
+          0,
+          3187,
+          230
+        ],
+        "layout": "north above day, panel split at output y230",
+        "resampling": null
+      },
+      "findings": [
+        "Pavement, paving boundary or vegetation/shadow content has subtle source differences."
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r09_c10\\qa-north-independent\\commonedge-c04.png",
+      "sha256": "03e2be733f922b3db9837d1b1e8d27c3485ef3524c751cd8584cb833ac2152e3",
+      "pixels": [
+        1024,
+        460
+      ],
+      "actuallyViewed": true,
+      "sourceCoordinateScope": {
+        "northExtendedLTRB": [
+          3187,
+          4096,
+          4211,
+          4326
+        ],
+        "dayExtendedLTRB": [
+          3187,
+          0,
+          4211,
+          230
+        ],
+        "layout": "north above day, panel split at output y230",
+        "resampling": null
+      },
+      "findings": [
+        "Pavement, paving boundary or vegetation/shadow content has subtle source differences."
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r09_c10\\qa-north-independent\\commonedge-nw.png",
+      "sha256": "4534942253c4231ae88cbaed107acbe9c291c4a532cbd9e048b14a9e818d47b0",
+      "pixels": [
+        512,
+        460
+      ],
+      "actuallyViewed": true,
+      "sourceCoordinateScope": {
+        "northExtendedLTRB": [
+          0,
+          4096,
+          512,
+          4326
+        ],
+        "dayExtendedLTRB": [
+          0,
+          0,
+          512,
+          230
+        ],
+        "layout": "north above day, panel split at output y230",
+        "resampling": null
+      },
+      "findings": [
+        "Corner geometry is visually corresponding; vegetation and/or stone/pavement details differ between the two generated sources."
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r09_c10\\qa-north-independent\\commonedge-ne.png",
+      "sha256": "26c73cfb7a0cd1f6d1bb505f406c567bbfb738a6d54aa33306d02ed9e62d2311",
+      "pixels": [
+        512,
+        460
+      ],
+      "actuallyViewed": true,
+      "sourceCoordinateScope": {
+        "northExtendedLTRB": [
+          3814,
+          4096,
+          4326,
+          4326
+        ],
+        "dayExtendedLTRB": [
+          3814,
+          0,
+          4326,
+          230
+        ],
+        "layout": "north above day, panel split at output y230",
+        "resampling": null
+      },
+      "findings": [
+        "Corner geometry is visually corresponding; vegetation and/or stone/pavement details differ between the two generated sources."
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r09_c10\\qa-north-independent\\corejoin-c01.png",
+      "sha256": "f66d091e1bb10b00d3d5bb2965241ac96a3049cbeceaa46cb442b5ba6bdc615d",
+      "pixels": [
+        1024,
+        512
+      ],
+      "actuallyViewed": true,
+      "sourceCoordinateScope": {
+        "northExtendedLTRB": [
+          115,
+          3955,
+          1139,
+          4211
+        ],
+        "dayExtendedLTRB": [
+          115,
+          115,
+          1139,
+          371
+        ],
+        "layout": "last256 north core rows above first256 current day core rows; join at output y256",
+        "resampling": null
+      },
+      "findings": [
+        "Native final-core boundary visually continuous in this segment; no visible broken paving, vegetation or shadow at join.",
+        "Visible red cap lies above final core join; current day core top has no orange cap surface."
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r09_c10\\qa-north-independent\\corejoin-c02.png",
+      "sha256": "35f44029a86439c2e9734b00435bc8b1fbd895faa1bb5555e840720189241df2",
+      "pixels": [
+        1024,
+        512
+      ],
+      "actuallyViewed": true,
+      "sourceCoordinateScope": {
+        "northExtendedLTRB": [
+          1139,
+          3955,
+          2163,
+          4211
+        ],
+        "dayExtendedLTRB": [
+          1139,
+          115,
+          2163,
+          371
+        ],
+        "layout": "last256 north core rows above first256 current day core rows; join at output y256",
+        "resampling": null
+      },
+      "findings": [
+        "Native final-core boundary visually continuous in this segment; no visible broken paving or shadow at join."
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r09_c10\\qa-north-independent\\corejoin-c03.png",
+      "sha256": "55a9c68ca90fd20b19e0946f893b55c901481d5cd772e086bb9ed797ead2fb14",
+      "pixels": [
+        1024,
+        512
+      ],
+      "actuallyViewed": true,
+      "sourceCoordinateScope": {
+        "northExtendedLTRB": [
+          2163,
+          3955,
+          3187,
+          4211
+        ],
+        "dayExtendedLTRB": [
+          2163,
+          115,
+          3187,
+          371
+        ],
+        "layout": "last256 north core rows above first256 current day core rows; join at output y256",
+        "resampling": null
+      },
+      "findings": [
+        "Native final-core boundary visually continuous in this segment; no visible broken paving or shadow at join."
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r09_c10\\qa-north-independent\\corejoin-c04.png",
+      "sha256": "d1512513777fda3220c81246224284986232b19621d14bf1112ba64acb9fa740",
+      "pixels": [
+        1024,
+        512
+      ],
+      "actuallyViewed": true,
+      "sourceCoordinateScope": {
+        "northExtendedLTRB": [
+          3187,
+          3955,
+          4211,
+          4211
+        ],
+        "dayExtendedLTRB": [
+          3187,
+          115,
+          4211,
+          371
+        ],
+        "layout": "last256 north core rows above first256 current day core rows; join at output y256",
+        "resampling": null
+      },
+      "findings": [
+        "Native final-core boundary visually continuous in this segment; no visible broken paving or shadow at join."
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r09_c10\\qa-north-independent\\day-overview.png",
+      "sha256": "c9c3a5322edabb72949c26a47f00d25610e095afd13f376294d395c4dfbf17d2",
+      "pixels": [
+        1024,
+        1024
+      ],
+      "actuallyViewed": true,
+      "sourceCoordinateScope": {
+        "dayExtendedLTRB": [
+          115,
+          115,
+          4211,
+          4211
+        ],
+        "outputPixels": [
+          1024,
+          1024
+        ],
+        "resampling": "Pillow resize default; overview only"
+      },
+      "findings": [
+        "Overview used for context only, not native seam acceptance."
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r09_c10\\qa-north-independent\\cap-local-common-coordinates.png",
+      "sha256": "740b3819e67fdc203a965c88f8b8f22e4490b83259194dc975ece20074c43b75",
+      "pixels": [
+        400,
+        140
+      ],
+      "actuallyViewed": true,
+      "sourceCoordinateScope": {
+        "northExtendedLTRB": [
+          450,
+          4096,
+          650,
+          4236
+        ],
+        "dayExtendedLTRB": [
+          450,
+          0,
+          650,
+          140
+        ],
+        "layout": "north left, current day right; split at output x200",
+        "resampling": null
+      },
+      "findings": [
+        "North cap is red and current day cap orange.",
+        "Cap and adjacent leaf boundaries are close but subtly different; unqualified donor-mask copy is unsafe."
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r09_c10\\qa-north-independent\\cap-before-vs-day-common-coordinates.png",
+      "sha256": "c7b6cd6138d7d1cb4385bcbfba338dc3f1b52c17c2c77006dde1e97896d33ba6",
+      "pixels": [
+        400,
+        140
+      ],
+      "actuallyViewed": true,
+      "sourceCoordinateScope": {
+        "northOriginalExtendedLTRB": [
+          450,
+          4096,
+          650,
+          4236
+        ],
+        "dayExtendedLTRB": [
+          450,
+          0,
+          650,
+          140
+        ],
+        "layout": "north original left, current day right; split at output x200",
+        "resampling": null
+      },
+      "findings": [
+        "Original orange surface and leaf edge differ slightly even before spring edit, confirming differences are not solely the spring color edit."
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r09_c10\\qa-north-independent\\cap-local-compare-offset20.png",
+      "sha256": "d7fb7c6709c05b55b1ce33ade86130d9f30718d19c8e5bf1fa0c1e411cfe075e",
+      "pixels": [
+        400,
+        140
+      ],
+      "actuallyViewed": true,
+      "sourceCoordinateScope": {
+        "northExtendedLTRB": [
+          450,
+          4076,
+          650,
+          4216
+        ],
+        "dayExtendedLTRB": [
+          450,
+          0,
+          650,
+          140
+        ],
+        "layout": "north left, current day right; diagnostic20-row offset only, not common-coordinate comparison",
+        "resampling": null
+      },
+      "findings": [
+        "A20-row offset visibly misaligns the cap and vegetation; not an accepted donor mapping."
+      ]
+    }
+  ],
+  "finalCompositeReviewed": false,
+  "formalAccepted": false
+}

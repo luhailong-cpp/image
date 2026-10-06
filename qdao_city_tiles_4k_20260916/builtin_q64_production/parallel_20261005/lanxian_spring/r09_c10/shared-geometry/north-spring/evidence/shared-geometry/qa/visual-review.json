@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "reviewedAtUtc": "2026-10-06T01:36:10.878Z",
+  "scope": "Spring c09 repaired east edge against qualified shared day c10, then spring c10 southwest appearance edit",
+  "comparisonCoordinateSystem": "c10 core local: x0 west seam, y0 north edge. c09 east core x4096 is same seam. Global seam x36864, global y28672 + local y.",
+  "conclusion": "Qualified day c10 is geometrically compatible with repaired spring c09 at this edge. Southwest Spring Festival edit joins the red-gold rail coherently. No macrogeometry redrawing or global alignment is required. Limited stroke and material residuals remain; this does not establish formal full-tile acceptance.",
+  "sources": {
+    "springC09Core": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c09\\repairs\\join-endpoint\\candidate_4096.png",
+      "sha256": "eacc709f26e6224c3b24e493bb4a3a60b8eb44cda18afa787e208f5a1805ff38"
+    },
+    "dayC10Core": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\selected\\core4096.png",
+      "sha256": "bff348371e3ba8d23fe152885919a94b550807cbccdd1a0dccd2c81abc9f807f"
+    },
+    "springC10SouthwestCore": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c10\\spring-edits\\southwest\\candidate_4096.png",
+      "sha256": "eb2053d43b3669ef3c1e1165a7d4381530a034129fec6f02d9501b2aa0291c8e"
+    },
+    "springC10SouthwestExtended": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c10\\spring-edits\\southwest\\candidate_with_halo.png",
+      "sha256": "87c8096734ba29001e0f531721a9134a71d97f925c9f0f1ed7eaa91ea890dbfb"
+    }
+  },
+  "method": "All full-edge segments and corner boards viewed with view_image(detail=original); exact 1:1 crop/paste, no scaling or candidate modification. Both source cores are exact 115px-inset crops of their extended sources. Gradient edge estimates use 12 columns each side and linear continuation to the boundary; they are approximate stroke measurements, not structural landmark proof.",
+  "coverage": [
+    {
+      "c10Y": [
+        0,
+        1024
+      ],
+      "viewed": [
+        "west-seam-01-y0000-1024.png",
+        "shared-overlap-01-y0000-1024.png",
+        "southwest/west-seam-01-y0000-1024.png"
+      ],
+      "observed": "Top ivory radial band connects at y261 and371. Curved inner edge connects near y895. Gray stone brush texture is rougher/cooler on day-derived right; no missing section or large geometric displacement.",
+      "edgeResidualEstimatesPx": [
+        -0.34,
+        0.22,
+        1.63
+      ]
+    },
+    {
+      "c10Y": [
+        1024,
+        2048
+      ],
+      "viewed": [
+        "west-seam-02-y1024-2048.png",
+        "shared-overlap-02-y1024-2048.png",
+        "southwest/west-seam-02-y1024-2048.png",
+        "southwest/detail-cross-band-y1120-1360.png"
+      ],
+      "observed": "Road/ring routes and widths match at macro scale. Crossing band at y1181 and1300 has a small contour step of about2.4–2.9px after slope compensation. Remaining arc crossings near1535,1753,1949 connect within about1px. Stone material varies more than geometry.",
+      "edgeResidualEstimatesPx": [
+        2.87,
+        2.43,
+        0.8,
+        0.31,
+        0.91
+      ]
+    },
+    {
+      "c10Y": [
+        2048,
+        3072
+      ],
+      "viewed": [
+        "west-seam-03-y2048-3072.png",
+        "shared-overlap-03-y2048-3072.png",
+        "southwest/west-seam-03-y2048-3072.png",
+        "southwest/detail-paving-joint-y2430-2660.png"
+      ],
+      "observed": "Paving diagonals at y2493 and2595 and their nearby four-way junction are continuous. Slight painted surface variation only.",
+      "edgeResidualEstimatesPx": [
+        0.73,
+        0.26
+      ]
+    },
+    {
+      "c10Y": [
+        3072,
+        4096
+      ],
+      "viewed": [
+        "west-seam-04-y3072-4096.png",
+        "shared-overlap-04-y3072-4096.png",
+        "southwest/west-seam-04-y3072-4096.png",
+        "southwest/detail-rail-y3470-3740.png",
+        "southwest/detail-south-post-y3810-4060.png"
+      ],
+      "observed": "Day version had orange/red rail appearance contrast. Southwest edit removes it and matches red/gold. Rail top near3533 and bottom near3661 connect; white stone wall line near3842 connects. Foliage and square cap footprints remain compatible. A tiny gold-stripe irregularity exists around c10 x115,y3680, within the tile rather than the external seam.",
+      "edgeResidualEstimatesPx": {
+        "railTop": -0.04,
+        "railBottom": -1.38,
+        "whiteWall": -0.22
+      }
+    }
+  ],
+  "corners": [
+    {
+      "file": "southwest/north-corner-with-halo.png",
+      "c10Y": [
+        -115,
+        397
+      ],
+      "observed": "True c09/c10 west seam at local x0 has compatible gray paving. At c10 x115 within y<0, a vertical guide/halo continuation artifact is visible; this is in the unaccepted north halo, not evidence of a core west-edge gap. Northern neighboring tiles are absent from this review."
+    },
+    {
+      "file": "southwest/south-corner-with-halo.png",
+      "c10Y": [
+        3699,
+        4211
+      ],
+      "observed": "White square posts, wall, shadows and foliage are coherent through the lower edge region. Actual southern neighboring tiles are absent, so four-tile corner acceptance remains unproven."
+    }
+  ],
+  "minimumRepairPlan": [
+    {
+      "id": "appearance-only-rail-stripe",
+      "priority": "minor",
+      "target": "spring c10 southwest appearance layer",
+      "coreBoxLTRB": [
+        80,
+        3640,
+        150,
+        3720
+      ],
+      "action": "If polishing further, locally smooth the tiny warm-gold stripe kink/rough pixels around x115,y3680, keeping the red rail outer silhouette and all stone geometry fixed. No global edit or regeneration is needed."
+    },
+    {
+      "id": "small-paving-stroke-step",
+      "priority": "minor_geometry_residual",
+      "target": "prefer spring c09 side to retain c10 day-shared coordinates",
+      "coreBoxesC09LTRB": [
+        [
+          4032,
+          1156,
+          4096,
+          1210
+        ],
+        [
+          4032,
+          1274,
+          4096,
+          1330
+        ]
+      ],
+      "action": "If zero visible step is required, align the last short c09 bevel stroke to fixed c10 endpoints. Estimated downward adjustment is at most3px, spatially bounded to the two bands. Record any interpolation, and recheck both endpoints. Do not warp the whole c10 tile."
+    },
+    {
+      "id": "stone-surface-transition",
+      "priority": "material_only",
+      "target": "narrow edge-local material correction",
+      "c10RelativeBoxesLTRB": [
+        [
+          -96,
+          0,
+          96,
+          1060
+        ],
+        [
+          -96,
+          1060,
+          96,
+          1530
+        ]
+      ],
+      "action": "Optional appearance polish: reduce color-temperature/brush-scale difference in the stone interiors, protecting every joint and bevel. A bounded color field can reduce tone difference; brush-scale changes would need a narrowly masked native AI texture edit. Do not blur the boundary or alter the road geometry."
+    }
+  ],
+  "notRequired": [
+    "Recreating the regional layout",
+    "Replacing the qualified c10 ground with earlier independent spring natives",
+    "Global resampling/registration of either complete tile",
+    "Changing the white stone posts into spherical caps"
+  ],
+  "formalAccepted": false,
+  "clientValidated": false,
+  "wholeCityComplete": false,
+  "limitations": [
+    "Review concerns this west edge and two local corners only.",
+    "North/south/east neighboring tiles and client traversal are not reviewed.",
+    "Automatic gradient outliers at branched lower paving/post strokes are not used as geometry findings; exact visual crops show connected shapes."
+  ],
+  "candidateMutation": false
+}

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "scope": "r08_c10 native detail row 1",
+  "reviewedAt": "2026-10-05T20:11:19.746Z",
+  "nativePatches": 4,
+  "nativePixels": [
+    1254,
+    1254
+  ],
+  "formalAccepted": false,
+  "actualModel": null,
+  "actualQuality": null,
+  "sourceHashes": {
+    "r01_c01": "c7961a81998883823c4c49c1d55865ad763c2da1679866ea73d130174f921a9b",
+    "r01_c02": "5d474b187e1da9adac901cb89ee8e16c6f318f0133288bb46e9482f9e9d124be",
+    "r01_c03": "d5e14c02e0837fc0abb62014c08b17699fb78f05e17fc1fb66e06f5e9bf4b64b",
+    "r01_c04": "86ea871462367f7ffc831c2ab365759bc290cbb04dd5dd1aa617fb2a79050a0a"
+  },
+  "internalSeams": [
+    {
+      "between": [
+        "r01_c01",
+        "r01_c02"
+      ],
+      "observed": "Stone joint curves continue; minor shading variation remains; no obvious geometry break in exact-core strip.",
+      "shared230pxMAE": 4.384407997131348
+    },
+    {
+      "between": [
+        "r01_c02",
+        "r01_c03"
+      ],
+      "observed": "Paving joint and foliage contour continue; minor leaf shading changes remain; no obvious geometric break in exact-core strip.",
+      "shared230pxMAE": 5.462560176849365
+    },
+    {
+      "between": [
+        "r01_c03",
+        "r01_c04"
+      ],
+      "observed": "Paving joints and curve continue; low color difference.",
+      "shared230pxMAE": 2.2062697410583496
+    }
+  ],
+  "issues": [
+    {
+      "id": "external-west-row1",
+      "priority": "requires-repair",
+      "evidence": "external-west-core-seam.png",
+      "description": "At the lower part of the c09/c10 row1 boundary, the diagonal ivory/gray stone edge on the c09 side and r01_c01 side is visibly displaced. Prompt preservation of the 230px shared strip did not guarantee identical geometry. Do not accept the external west boundary."
+    },
+    {
+      "id": "c01-upper-border-fade",
+      "priority": "requires-review",
+      "description": "Upper horizontal ivory stone border fades into gray toward the left instead of forming a continuous physical stone edge; inherited regional guide conflict was smoothed without coherent reconstruction."
+    }
+  ],
+  "unreviewed": [
+    "row1/row2 seams and their junctions",
+    "north neighboring tile edge",
+    "east neighboring tile edge",
+    "full 4K c10 assembly",
+    "shared day geometry/navigation"
+  ],
+  "artifacts": [
+    "metrics.json",
+    "c01-c02-core-seam.png",
+    "c02-c03-core-seam.png",
+    "c03-c04-core-seam.png",
+    "external-west-core-seam.png",
+    "external-west-core-seam.json"
+  ],
+  "rejectedAttempt": {
+    "directory": "../../attempts/r01_c01-attempt1",
+    "reason": "Invented planter and lanterns absent from the source guide; never used as neighbor input."
+  },
+  "generation": "All four native PNGs are direct builtin imagegen results copied without pixel resizing or blending. Guides are enlarged layout inputs only. Per-image .generation.json records include config target, null submitted/actual model and quality, prompt, refs, receipt and SHA.",
+  "preparer": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/lanxian_spring/tools/prepare_native_c10.py"
+}

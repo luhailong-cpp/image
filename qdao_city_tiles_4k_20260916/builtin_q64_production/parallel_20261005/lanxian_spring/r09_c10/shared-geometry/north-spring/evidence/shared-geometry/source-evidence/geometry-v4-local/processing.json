@@ -1,0 +1,270 @@
+{
+  "createdAt": "2026-10-06T00:42:27.522327+00:00",
+  "source": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v3-local\\core4096.png",
+    "sha256": "5114535256dd9f7a713464e7284f089c3805f75d253f5ac7175d4f66f389c483"
+  },
+  "operation": "One new local horizontal displacement on v3 current RGB pixels; prior flows not replayed",
+  "supportRectangleLTRB": [
+    2880,
+    2012,
+    3010,
+    2090
+  ],
+  "actualSupportLTRB": [
+    2907,
+    2013,
+    2985,
+    2089
+  ],
+  "maxDx": 4.0,
+  "maxDy": 0,
+  "minimumMappingJacobian": 0.20969289541244507,
+  "changedPixels": 2566,
+  "outsideSupportByteIdentical": true,
+  "previousLeftContoursByteIdentical": true,
+  "priorFlowReapplied": false,
+  "RGBBlur": false,
+  "newRGBToneField": false,
+  "resampling": {
+    "method": "cv2.INTER_LINEAR",
+    "subpixel": true,
+    "newPasses": 1,
+    "onlyNonzeroFieldPixelsWritten": true
+  },
+  "features": [
+    {
+      "name": "shadow_plane",
+      "sourceContourThreshold": 190,
+      "yRange": [
+        2012,
+        2084
+      ],
+      "crossRadius": 14,
+      "plateauRadius": 4,
+      "fitUpper": [
+        -0.13172943997684428,
+        2920.204078998052
+      ],
+      "fitLower": [
+        -0.07520186104752638,
+        2928.2756703060013
+      ],
+      "targetFit": [
+        -0.10346565051218533,
+        2924.2398746520266
+      ],
+      "rawCentralDx": [
+        -3.9069920926676787,
+        3.997043358414885
+      ],
+      "maximumRawRequestedDx": 4.285593252773197,
+      "fieldCappedAt": 4,
+      "classification": "Existing contour registration; no missing structure"
+    },
+    {
+      "name": "diagonal_bottom",
+      "sourceContourThreshold": 120,
+      "yRange": [
+        2035,
+        2076
+      ],
+      "crossRadius": 11,
+      "plateauRadius": 5,
+      "fitUpper": [
+        -0.8076909471779999,
+        2952.5283724606693
+      ],
+      "fitLower": [
+        -0.846859733601095,
+        2954.7859875092363
+      ],
+      "targetFit": [
+        -0.8272753403895474,
+        2953.6571799849526
+      ],
+      "rawCentralDx": [
+        -0.9310327089110615,
+        1.2928213216059703
+      ],
+      "maximumRawRequestedDx": 1.320761431316896,
+      "fieldCappedAt": 4,
+      "classification": "Existing contour registration; no missing structure"
+    },
+    {
+      "name": "pillar_outline",
+      "sourceContourThreshold": null,
+      "yRange": [
+        2016,
+        2089
+      ],
+      "crossRadius": 12,
+      "plateauRadius": 5,
+      "fitUpper": [
+        0.016421240151574784,
+        2971.220171227721
+      ],
+      "fitLower": [
+        0.005343052269465539,
+        2972.8931683111887
+      ],
+      "targetFit": [
+        0.010882146210520163,
+        2972.056669769455
+      ],
+      "rawCentralDx": [
+        -0.864954186545674,
+        0.8263189095059715
+      ],
+      "maximumRawRequestedDx": 0.8832169381821586,
+      "fieldCappedAt": 4,
+      "classification": "Existing contour registration; no missing structure",
+      "additionalAnchors": "Existing normalized half-depth ink boundaries on each side plus dark center; all 3 measured per row; applied dx/dy fields saved separately"
+    }
+  ],
+  "flow": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v4-local\\wall-column-flow.npz",
+    "sha256": "90ace476bf97696987c6acba6e0ccd3c143d02e8d7f89e4ae172b962460dbc4f",
+    "convention": "Output samples current input(x+dx,y+dy)"
+  },
+  "masks": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v4-local\\support-mask.png",
+      "sha256": "290b063c1c506797846f5973f8f5db0425f90fc77c62f2b8bf376f62fbc67062",
+      "pixels": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v4-local\\taper-weight.png",
+      "sha256": "a79f47e3f45f61086fc7488f189d61f34cac2d92abe0bf39734b8028c4f8f1b5",
+      "pixels": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v4-local\\changed-pixels.png",
+      "sha256": "c88aeb985a19b96b54903e81a687b2c34ddb34da03da67ff76271a33ecde2ccb",
+      "pixels": [
+        4096,
+        4096
+      ],
+      "role": "Final combined geometry plus tone changed pixels relative to v3"
+    }
+  ],
+  "qaBoards": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v4-local\\qa\\wall-column-entire-before-after.png",
+      "sha256": "15fa511572f6efa0b8dbe42af39eed6998241201768b6adad6f5686b7e5045ef",
+      "pixels": [
+        928,
+        552
+      ],
+      "coreBoxLTRB": [
+        2400,
+        1920,
+        3328,
+        2176
+      ],
+      "scale": 1
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v4-local\\qa\\right-wall-detail-before-after.png",
+      "sha256": "1f632e1e80d3068989cc1ca30f5ac268c1c035d6e01d0e55fefc808e076eccb4",
+      "pixels": [
+        152,
+        296
+      ],
+      "coreBoxLTRB": [
+        2872,
+        1984,
+        3024,
+        2112
+      ],
+      "scale": 1
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v4-local\\qa\\post-detail-before-after.png",
+      "sha256": "6a389ddf049640186e8ac00ff95667cd4969d41859d5c56530a41a4db498e057",
+      "pixels": [
+        300,
+        296
+      ],
+      "coreBoxLTRB": [
+        2960,
+        1984,
+        3260,
+        2112
+      ],
+      "scale": 1
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v4-local\\qa\\local-shadow-detail-before-after.png",
+      "sha256": "0df052aec30101e598cf563f2526812a9dbb47fd7e3695233909066261059c78",
+      "pixels": [
+        48,
+        168
+      ],
+      "coreBoxLTRB": [
+        2904,
+        2016,
+        2952,
+        2080
+      ],
+      "scale": 1
+    }
+  ],
+  "formalAccepted": false,
+  "visualInspectionPerformed": true,
+  "sourceUnchanged": true,
+  "script": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v4-local\\finish_wall.py",
+    "sha256": "0564137341c119cbffa8f0076321895be95ed3346c118f9dc5062f9b17627dad"
+  },
+  "geometryStageOutput": {
+    "file": null,
+    "sha256": "7c4bef697cd47cba4d2f7126be7eaa82b952a0e9d05a6ce460b589a341ad5fc1",
+    "pixels": [
+      4096,
+      4096
+    ],
+    "status": "Transient stage pixels replaced in place by bounded tone stage; retained hash records provenance, not a live image reference"
+  },
+  "finalOutput": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v4-local\\core4096.png",
+    "sha256": "36fda33daf0f3d2b3c9842b269f0f95a877c2cada23bd4a92ef39f63925bb9c5",
+    "pixels": [
+      4096,
+      4096
+    ]
+  },
+  "perFeatureActualMasks": [
+    {
+      "feature": "shadow_plane",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v4-local\\shadow_plane-support-mask.png",
+      "sha256": "e5f8a4e940596bf48f7bb31ef498f449f49712c0b53227ef0dbb9d661ec1c352",
+      "maxAppliedDx": 4.0,
+      "maxAppliedDy": 0,
+      "supportPixels": 1988
+    },
+    {
+      "feature": "diagonal_bottom",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v4-local\\diagonal_bottom-support-mask.png",
+      "sha256": "9a48e32fcf74798e5f9d671cf5c2ad6772d0475f17570b024112f9c7212c95e7",
+      "maxAppliedDx": 1.2928212881088257,
+      "maxAppliedDy": 0,
+      "supportPixels": 880
+    },
+    {
+      "feature": "pillar_outline",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v4-local\\pillar_outline-support-mask.png",
+      "sha256": "db4e160370c4cfafcec50478fb50b863966e43c999bf2b6884bb869c4746f9a1",
+      "maxAppliedDx": 3.708838701248169,
+      "maxAppliedDy": 0,
+      "supportPixels": 1728
+    }
+  ],
+  "qaBoardsStage": "Final v4 geometry plus tone, replacing transient geometry-only boards at same paths"
+}
