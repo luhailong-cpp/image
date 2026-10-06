@@ -1,0 +1,88 @@
+{
+  "reviewedAtUtc": "2026-10-05T22:08:38.112853+00:00",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\shared-assembly\\output\\r08_c11-shared-unreviewed.png",
+    "sha256": "f04a27a2bed54a976cd12c1743ac183db86b1a867e6600b6e4b59e9e5b90c97b"
+  },
+  "actualViews": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\shared-assembly\\qa\\x1024-full4096.png",
+      "sha256": "8f85dfbb15789c55538637af10b0e287f1f199490433b3f5b29160bcfa3e326f",
+      "scope": "complete 4096-length, 256-wide band rearranged without resizing"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\shared-assembly\\qa\\x2048-full4096.png",
+      "sha256": "3c1a79891631ed08fc93e972a48e39d19e1553d620b8e8b6497f1d040e0951bb",
+      "scope": "complete 4096-length, 256-wide band rearranged without resizing"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\shared-assembly\\qa\\x3072-full4096.png",
+      "sha256": "69f2a01047a91d15b38f83f5997c564fadf2da76782fe9f983c43e04965658a5",
+      "scope": "complete 4096-length, 256-wide band rearranged without resizing"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\shared-assembly\\qa\\y1024-full4096.png",
+      "sha256": "d4f452c4badc34017b80d55edede1dbb6973bf29a12704dc177591a3e4901ba4",
+      "scope": "complete 4096-length, 256-wide band rearranged without resizing"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\shared-assembly\\qa\\y2048-full4096.png",
+      "sha256": "3cce414f772bb664f0849261008434be751a18620485635f0d2445c777204bc3",
+      "scope": "complete 4096-length, 256-wide band rearranged without resizing"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\shared-assembly\\qa\\y3072-full4096.png",
+      "sha256": "86c9bbd1bb798a5b3d66a3e294e2bbf3d1f18cd88a14d7f7d36f385fea244dbc",
+      "scope": "complete 4096-length, 256-wide band rearranged without resizing"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\shared-assembly\\qa\\west-c10-c11-full4096.png",
+      "sha256": "3860310cf5eb963e7a81b67836593c222ee6e27d2c6e907266db72c914207b36",
+      "scope": "complete 4096-length, 256-wide band rearranged without resizing"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\shared-assembly\\output\\preview-1024.png",
+      "sha256": "207bd556def07437395d44626f7b415d661dcbf1eb62d35877f4c4f3cb8428de",
+      "scope": "quarter-size overview only"
+    }
+  ],
+  "findings": [
+    {
+      "file": "x1024-full4096.png",
+      "finding": "Visible jagged light/color steps in wall areas in the third source segment; color continuity repair needed."
+    },
+    {
+      "file": "x3072-full4096.png",
+      "finding": "Visible light/color boundaries across pale wall and ground in middle segments; not accepted."
+    },
+    {
+      "file": "y1024-full4096.png",
+      "finding": "Second source segment has a pronounced dark-to-warm discontinuity across the timber wall, following the seam path."
+    },
+    {
+      "file": "y2048-full4096.png",
+      "finding": "Pale wall retains broad jagged color discontinuities; shared source ownership alone did not remove appearance mismatch."
+    },
+    {
+      "file": "y3072-full4096.png",
+      "finding": "Door/post warm-tone changes and nearby wall tone boundaries remain visible."
+    },
+    {
+      "file": "west-c10-c11-full4096.png",
+      "finding": "This is the unchanged hard juxtaposition of the existing c10 edge and new c11; no color or registration repair was applied. Keep pending parent edge review."
+    }
+  ],
+  "unreviewed": [
+    "24 wide512 QA segments",
+    "nine-junctions composite",
+    "four-corners composite",
+    "all non-seam pixels at native resolution",
+    "cross-appearance structural overlay",
+    "navigation/runtime acceptance"
+  ],
+  "formalAccepted": false,
+  "wholeCityComplete": false,
+  "newRepairCalls": 0,
+  "colorAdjustmentApplied": false,
+  "conclusion": "Initial unadjusted candidate proves reproducible source/mask composition and exact day ownership replay only. Parent should perform bounded color correction and targeted geometry review before any acceptance."
+}
