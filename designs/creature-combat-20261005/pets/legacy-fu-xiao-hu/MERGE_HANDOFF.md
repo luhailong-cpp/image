@@ -4,7 +4,7 @@
 
 ## 接收内容
 
-- `runtime/`：E/W各hit6、attack12、cast16，目标共68张1024RGBA。
+- `runtime/`：已完成E/W各hit6、attack12、cast16，共68张1024RGBA。
 - `manifest.json`：逐帧文件、SHA、像素SHA、尺寸、40/30/45ms时长、锚点、事件建议、来源索引；实际数量与完成状态以此和STATUS为准。
 - `preview/`：六组总览、独立HTML、正常及0.25慢放WebP、逐帧总览图。
 - `design/`与`POSES.md`：当前有效E/W方向身份和解剖规则；W是真斜后，不能以E镜像替换。
@@ -17,7 +17,7 @@ E朝右下斜前、W朝左上斜后；两向都是原宠坐姿，屁股和后足
 
 ## 验收与边界
 
-请读 `validation.json`、`records/source-audit.json`、`records/visual-review.json` 和 `STATUS.md`。技术检查覆盖缺帧、尺寸、alpha、可见边界、字节及像素重复、SHA来源；视觉检查单独记录，不能以技术通过代替。未接入客户端、未验真实游戏缩放/混合/受击事件/技能同步，不宣称客户端通过。
+请读 `validation.json`、`records/source-audit.json`、`records/visual-review.json` 和 `STATUS.md`。技术及来源检查通过；最终68帧已做全帧查看、六组正常/0.25慢放、逐帧与收势检查，视觉结论绑定最终SHA。校准证据在`records/final-direction-calibration.json`，12个动画预览的帧数和时长检查在`records/preview-audit.json`。未接入客户端、未验真实游戏缩放/混合/受击事件/技能同步，不宣称客户端通过。
 
 模型目标沿用用户Image2.5/max；宿主内置工具没有model/quality选择器，实际字段null。配置目标、公告和提示词不能证明API分支被显式锁定。未运行收费API/CLI。
 

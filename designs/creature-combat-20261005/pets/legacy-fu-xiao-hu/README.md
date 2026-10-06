@@ -1,6 +1,6 @@
 # 符小虎 · 两向战斗动作
 
-只使用 Image 原有「符小虎」身份制作。当前最终修图与验收进行中，完整状态以 [STATUS.md](STATUS.md) 为准。
+只使用 Image 原有「符小虎」身份制作。68张正式动作帧已完成并通过本包技术、来源与视觉检查，完整状态见 [STATUS.md](STATUS.md)。
 
 |动作|E斜前朝右下|W真正斜后朝左上|每帧时间|单向时长|
 |---|---:|---:|---:|---:|
@@ -25,7 +25,7 @@
 
 逐图索引为 [records/source-audit.json](records/source-audit.json)，对应manifest各行的sourceRecord、实际prompt/request、receipt、当次配置快照、原生SHA与导出链。旧候选记录保留文字证据，不把配置目标当作实际API选择器。原图/在制稿按最终引用核验后清理，当前方向设计保留；跨窗口原宠和风格参考没有删除。
 
-技术结果见 [validation.json](validation.json)，视觉检查见 `records/*review.md` 与最终 `records/visual-review.json`。帧文件与预览不等于客户端接入通过；未访问或接入客户端，未提交、推送、修改分支或索引。后续交接见 [MERGE_HANDOFF.md](MERGE_HANDOFF.md)。
+技术结果见 [validation.json](validation.json)，视觉检查见 [records/visual-review.json](records/visual-review.json)，12个动画预览的帧数与时长见 [records/preview-audit.json](records/preview-audit.json)。逐帧绘制保留轻微毛纹与轮廓变化，正常/慢放、触击/释放及末帧回首帧均已检查。帧文件与预览不等于客户端接入通过；未访问或接入客户端，未提交、推送、修改分支或索引。后续交接见 [MERGE_HANDOFF.md](MERGE_HANDOFF.md)。
 
 ## 本地检查工具
 
