@@ -1,0 +1,208 @@
+{
+  "createdAt": "2026-10-05T22:55:29.312048+00:00",
+  "kind": "native_pixel_color_only_trial",
+  "input": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\output\\r09_c13\\r09_c13.png",
+    "sha256": "efbbbb109885acf3f5c87467cad3b4b2e5dc84939681647aea5dfb235752f4b5"
+  },
+  "oldWesternSupport": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\penglai_mid_autumn\\r09_c10_c11_c12_joint\\output_v2_20260920\\penglai_mid_autumn_r09_c12_4k_joint_candidate_v2.png",
+    "sha256": "59b31c2d193a71fdfe516ad9d51c6d2bfea3881f5670dd9f53ba2a612ad59fd2"
+  },
+  "algorithm": "Per-row old last12 and new first12 native support. Robust4px medians with median local slope extrapolate to boundary. Reject support x-gradients>=10 or row-guide gradients>=9. Guided33-row weighted median (97-row fallback only if sparse), then guided5-row smoothing of correction field only. RGB correction clamped32; smoothstep return to zero at x256. No spatial coordinate change.",
+  "coreYRanges": [
+    [
+      0,
+      320
+    ],
+    [
+      1100,
+      1600
+    ]
+  ],
+  "transitionYRanges": [
+    [
+      320,
+      448
+    ],
+    [
+      1004,
+      1100
+    ],
+    [
+      1600,
+      1696
+    ]
+  ],
+  "editableXRange": [
+    0,
+    256
+  ],
+  "transitionReason": "Zero-ended color-field ramps prevent horizontal bands at the two defect-range endpoints; the broadened support only fades color, with unchanged geometry.",
+  "maximumAllowedColorCorrectionRGB": 32,
+  "actualMaximumColorCorrectionRGB": [
+    32.0,
+    32.0,
+    32.0
+  ],
+  "geometryDisplacement": 0,
+  "artworkBlurred": false,
+  "artworkResampled": false,
+  "sourceScale": 1,
+  "oldWesternTileUnchanged": true,
+  "productionOutputModified": false,
+  "metrics": [
+    {
+      "yRange": [
+        0,
+        320
+      ],
+      "medianRGBJumpBefore": [
+        25.5,
+        9.0,
+        -12.0
+      ],
+      "medianRGBJumpAfter": [
+        21.0,
+        4.0,
+        -14.0
+      ],
+      "meanAbsoluteJumpBefore": 17.842708587646484,
+      "meanAbsoluteJumpAfter": 17.416666666666668
+    },
+    {
+      "yRange": [
+        1100,
+        1600
+      ],
+      "medianRGBJumpBefore": [
+        -25.0,
+        -15.0,
+        13.0
+      ],
+      "medianRGBJumpAfter": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "meanAbsoluteJumpBefore": 18.092666625976562,
+      "meanAbsoluteJumpAfter": 1.7746666666666666
+    }
+  ],
+  "fields": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\qa\\west-final\\color-trial\\native-band.png",
+      "sha256": "11b87b6eb0078242c949d7e7d593a22254db07ca81a3d47cf8b93654d227d055"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\qa\\west-final\\color-trial\\mask.png",
+      "sha256": "8de8de228c5334ad0de17fe9bcf5db6e1d8a571a51f68d51bde3eb3db584ae5b"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\qa\\west-final\\color-trial\\color-field.npy",
+      "sha256": "96e8007025a850a8882dc6982f828a8dec90f395004d8f9ca22efc3f859724c9"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\qa\\west-final\\color-trial\\row-color-estimates.npy",
+      "sha256": "b472e73fe6eb259f95b75e09614b54b4739bc752379fa929fb3f4195a88b7ec5"
+    }
+  ],
+  "qa": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\qa\\west-final\\color-trial\\north-all.png",
+      "sha256": "23472fb96914251451e8b40c047000d61a740657e0d45e729642df2253b50c78",
+      "pixels": [
+        672,
+        608
+      ],
+      "pairCropLTRB": [
+        0,
+        0,
+        672,
+        608
+      ],
+      "sharedEdgeImageX": 160,
+      "return256ImageX": 416,
+      "actuallyViewed": false,
+      "scale": 1
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\qa\\west-final\\color-trial\\paving-all.png",
+      "sha256": "4829deed924ba16f58a284e387ad8854a50c20c6b1c24b4d8d0ccee790b0bf17",
+      "pixels": [
+        672,
+        1012
+      ],
+      "pairCropLTRB": [
+        0,
+        844,
+        672,
+        1856
+      ],
+      "sharedEdgeImageX": 160,
+      "return256ImageX": 416,
+      "actuallyViewed": false,
+      "scale": 1
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\qa\\west-final\\color-trial\\internal1024.png",
+      "sha256": "f30fd739e1d6b043aa9b058c0c4b2bbd9d950111cf1cf85ba86928b4009ab208",
+      "pixels": [
+        672,
+        256
+      ],
+      "pairCropLTRB": [
+        0,
+        896,
+        672,
+        1152
+      ],
+      "sharedEdgeImageX": 160,
+      "return256ImageX": 416,
+      "actuallyViewed": false,
+      "scale": 1
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\qa\\west-final\\color-trial\\repair1100.png",
+      "sha256": "8d54b490c99a1142da76f49d5aad8741228f73964ffad7081b757cfa1324be91",
+      "pixels": [
+        672,
+        256
+      ],
+      "pairCropLTRB": [
+        0,
+        972,
+        672,
+        1228
+      ],
+      "sharedEdgeImageX": 160,
+      "return256ImageX": 416,
+      "actuallyViewed": false,
+      "scale": 1
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\qa\\west-final\\color-trial\\fade1600.png",
+      "sha256": "0a15184cfab24c952262362bc74414b10e8475ed1bd4732b13c2153177b9ddfa",
+      "pixels": [
+        672,
+        256
+      ],
+      "pairCropLTRB": [
+        0,
+        1472,
+        672,
+        1728
+      ],
+      "sharedEdgeImageX": 160,
+      "return256ImageX": 416,
+      "actuallyViewed": false,
+      "scale": 1
+    }
+  ],
+  "visualReviewPending": true,
+  "formalAccepted": false,
+  "clientVerified": false,
+  "navigationVerified": false,
+  "rejected": true,
+  "reason": "Support crossed the post-shadow contour; native trial visibly produced horizontal color bands. Never applied to production. Superseded trial pixels were not retained as backup images."
+}
