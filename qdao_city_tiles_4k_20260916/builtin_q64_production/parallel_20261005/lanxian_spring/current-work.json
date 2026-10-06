@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "appearance": "lanxian_spring",
-  "updatedAtUtc": "2026-10-05T17:15:46.2987675Z",
+  "updatedAtUtc": "2026-10-05T19:27:35.572361+00:00",
   "readyForProduction": true,
-  "status": "complete_pixel_candidate_under_seam_repair",
+  "status": "partial_city_c09_repaired_c10_native_generation",
   "targetTiles": 256,
   "targetTilePixels": [
     4096,
@@ -16,21 +16,30 @@
   "baselineCandidateCount": 3,
   "baselineCurrent": true,
   "formalAccepted": 0,
-  "newComplete4KCandidates": 0,
+  "newComplete4KCandidates": 1,
   "nativeDetailPatchesGenerated": 3,
   "wholeCityComplete": false,
   "runtimePublished": false,
   "route": "builtin_image_gen",
   "paidApiAllowed": false,
   "sourceAudit": "preflight/source-audit.json",
-  "currentTile": "r08_c09",
+  "currentTile": "r08_c10",
   "requiredNativePatches": 16,
   "core": 1024,
   "halo": 115,
-  "currentPhase": "bounded_assembly_and_visual_review",
-  "nextAction": "Finish bounded seam assembly, verify all internal seams and west common edge, then expand r08_c10.",
+  "currentPhase": "native_detail_generation",
+  "nextAction": "Generate r08_c10 native pieces, assemble without upscaling, review internal seams and common c09 edge.",
   "nativeDetailPatchesAvailable": 16,
   "reusedSharedNativePatches": 13,
-  "completePixelCandidatesUnreviewed": 1,
-  "candidatePixelCoverage": "16/16 native1254 sources, one complete4096 candidate; quality repairs still in progress"
+  "completePixelCandidatesUnreviewed": 0,
+  "candidatePixelCoverage": "r08_c09:16/16 native pieces assembled and known seam repaired; north/east/south neighbor and navigation acceptance pending",
+  "currentCandidateCount": 4,
+  "nativeDetailPatchesByTile": {
+    "r08_c09": 16,
+    "r08_c10": 0
+  },
+  "generatedLocalRepairImages": 2,
+  "newRegionalReferences": 1,
+  "currentSelection": "current-selection.json",
+  "completePixelCandidatesPartiallyReviewed": 1
 }
