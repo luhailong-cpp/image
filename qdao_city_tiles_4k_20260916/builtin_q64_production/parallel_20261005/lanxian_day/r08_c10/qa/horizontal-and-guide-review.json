@@ -1,0 +1,2062 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-05T23:09:00.506155+00:00",
+  "source": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\candidate\\core4096.png",
+    "sha256": "1a2bb992de62dce69c9e77fb7ad0163aa7fa96f402156e8f8268ff8a09ccdd0f",
+    "pixels": [
+      4096,
+      4096
+    ]
+  },
+  "scope": {
+    "internalHorizontalSegments": 12,
+    "horizontalGuideBandSegments": 12,
+    "totalActuallyViewedRanges": 24,
+    "standardSeamCoreY": [
+      1024,
+      2048,
+      3072
+    ],
+    "guideBandCoreY": [
+      1139,
+      2163,
+      3187
+    ],
+    "standardSeamsAndGuideBandEndsReviewedSeparately": true
+  },
+  "method": "All 24 exported ranges were actually viewed as six 1:1 native-pixel boards using view_image(detail=original); suspected notches were viewed again as 1:1 local crops. No resampling, image edits or pixel metrics were used to declare acceptance.",
+  "summary": {
+    "missingStructureFoundInReviewedRanges": false,
+    "standardHorizontalBoundariesWithVisibleTargetIssues": 1,
+    "horizontalGuideRangesWithVisibleTargetIssues": 1,
+    "horizontalGuideContourROIs": 2,
+    "secondaryCrossAxisContourROIs": 1,
+    "hardHorizontalColorBandsObserved": true,
+    "status": "corrected after focused native review: local existing contour and tone refinement required; original candidate not accepted",
+    "formalAccepted": false,
+    "limitations": "This report covers only the requested 24 horizontal/guide ranges and visible secondary artifacts. It does not approve full tile, outer boundaries, all vertical seams, navigation or client display."
+  },
+  "findings": [
+    {
+      "id": "HG-01",
+      "classification": "existing_contour_misalignment",
+      "severity": "local_refinement_required",
+      "targetBoundaryType": "horizontal_guide_band_end",
+      "boundaryCoreY": 1139,
+      "primaryRange": "horizontal_r2_c1.png",
+      "alsoVisibleIn": [
+        "internal_horizontal_1_part1.png"
+      ],
+      "coreROIs": [
+        [
+          232,
+          1125,
+          262,
+          1157
+        ],
+        [
+          636,
+          1125,
+          668,
+          1157
+        ]
+      ],
+      "observation": "原像素实看，已有斜槽的米白亮边及棕色暗槽在参考带结束附近出现小台阶/折口，两个局部位于 x约245 与650；不是物件缺失，也不是需要新增墙或槽线。",
+      "missingStructure": false,
+      "colorDifferenceAlone": false,
+      "recommendation": "只修正已有亮边与暗槽的局部几何接续，保留槽线走向、宽度和地图占地；不能靠羽化模糊掩盖。"
+    },
+    {
+      "id": "HG-02",
+      "classification": "existing_contour_misalignment",
+      "severity": "local_refinement_required",
+      "targetBoundaryType": "cross_axis_vertical_guide_band_end",
+      "boundaryCoreX": 3187,
+      "primaryRange": "internal_horizontal_3_part4.png",
+      "coreROIs": [
+        [
+          3175,
+          2996,
+          3201,
+          3023
+        ]
+      ],
+      "observation": "原像素局部板可见斜槽亮边在 x3187、y约3008 处的小折口；该点属于竖向参考边带交界，位于 y3072 标准横缝上方。作为裁图内次要发现记录，不能据此判 y3072 横缝错位。",
+      "missingStructure": false,
+      "colorDifferenceAlone": false,
+      "recommendation": "与竖缝/竖向参考带审查结果去重，局部修已有斜槽亮边及暗边的连续性。"
+    },
+    {
+      "id": "HG-03",
+      "classification": "existing_contour_misalignment_with_local_tone_discontinuity",
+      "severity": "local_refinement_required",
+      "targetBoundaryType": "standard_horizontal_assembly_boundary",
+      "boundaryCoreY": 2048,
+      "primaryRange": "internal_horizontal_2_part3.png",
+      "coreROIs": [
+        [
+          2784,
+          2028,
+          2824,
+          2074
+        ]
+      ],
+      "observation": "追加局部实看发现栏板暗斜边原图接续回跳；对原首轮未发现问题的判断作更正。",
+      "missingStructure": false,
+      "colorDifferenceAlone": false,
+      "repairDerivative": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v2\\core4096.png",
+        "sha256": "e3f8230a2e8f04790e9743d01ce07cb25008fd157136d47e67b8745221aacd2f",
+        "supportRectangle": [
+          2740,
+          1990,
+          2870,
+          2110
+        ],
+        "actualMaxFlowPixels": 2.4731311798095703,
+        "formalAccepted": false
+      },
+      "evidence": {
+        "localOriginalCrop": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\qa\\H2c3-original-contour-detail.png",
+        "sha256": "86258986f3508b5c266b87cd4bb97641dc5bcdde222f4d4947c5cd70e6497ffd",
+        "originalScaleBeforeAfterBoard": {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v2\\before-after-native-board.png",
+          "sha256": "051dd72db43dd7b277eeb5d4e0744b502c8a1f84f3e095d78e7ccdc62e2b6402",
+          "pixels": [
+            512,
+            1008
+          ]
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_1_part1.png",
+      "sha256": "00d4da9277ed5d85a7e26fa94c601b4976165d418da452a068e22ca5ecd5c4e9",
+      "pixels": [
+        1024,
+        256
+      ],
+      "coreBoxLTRB": [
+        0,
+        896,
+        1024,
+        1152
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 1024,
+        "kind": "standard_1024_assembly_boundary"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-internal-1.png",
+        "boardSha256": "6b91f287468d38eca8519e0e48257e04421d1965c3ac7fdda0ba373b39ef7c43",
+        "boardPixelBox": [
+          0,
+          32,
+          1024,
+          288
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        0,
+        896,
+        1024,
+        1152
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            0,
+            896,
+            1024,
+            1152
+          ],
+          "description": "中央 y1024 处的三条斜向暗槽、米白高光和石面笔触连续；未见横向缺段或硬性色带。裁图下缘 y1139 另包含 HG-01 参考边带折口，不属于此标准横缝。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [
+        "HG-01"
+      ],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_1_part2.png",
+      "sha256": "7c19f6ec5db5c8d06597dea8feaf5a0b580a0a2ede75086a4fd6a4b61cd29930",
+      "pixels": [
+        1024,
+        256
+      ],
+      "coreBoxLTRB": [
+        1024,
+        896,
+        2048,
+        1152
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 1024,
+        "kind": "standard_1024_assembly_boundary"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-internal-1.png",
+        "boardSha256": "6b91f287468d38eca8519e0e48257e04421d1965c3ac7fdda0ba373b39ef7c43",
+        "boardPixelBox": [
+          0,
+          320,
+          1024,
+          576
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        1024,
+        896,
+        2048,
+        1152
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            1024,
+            896,
+            2048,
+            1152
+          ],
+          "description": "石路斜缝、绿色树冠与可见树干跨 y1024 连续，叶簇的深浅和重叠属于正常物体层次；未见横向切平的叶缘、缺叶带或突变色带。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_1_part3.png",
+      "sha256": "4d4f8d7599ba324bbf09fc85a100dfd3aa4237b1821be651153145c6c3950227",
+      "pixels": [
+        1024,
+        256
+      ],
+      "coreBoxLTRB": [
+        2048,
+        896,
+        3072,
+        1152
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 1024,
+        "kind": "standard_1024_assembly_boundary"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-internal-1.png",
+        "boardSha256": "6b91f287468d38eca8519e0e48257e04421d1965c3ac7fdda0ba373b39ef7c43",
+        "boardPixelBox": [
+          0,
+          608,
+          1024,
+          864
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        2048,
+        896,
+        3072,
+        1152
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            2048,
+            896,
+            3072,
+            1152
+          ],
+          "description": "左侧明暗叶簇及右侧石路跨 y1024 接续完整；树冠转入空石面是既有轮廓，右侧斜缝保持连续。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_1_part4.png",
+      "sha256": "7864e3efc12e803a569bbc32479d500a5d16c31698be652697862e62de07eb90",
+      "pixels": [
+        1024,
+        256
+      ],
+      "coreBoxLTRB": [
+        3072,
+        896,
+        4096,
+        1152
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 1024,
+        "kind": "standard_1024_assembly_boundary"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-internal-1.png",
+        "boardSha256": "6b91f287468d38eca8519e0e48257e04421d1965c3ac7fdda0ba373b39ef7c43",
+        "boardPixelBox": [
+          0,
+          896,
+          1024,
+          1152
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        3072,
+        896,
+        4096,
+        1152
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            3072,
+            896,
+            4096,
+            1152
+          ],
+          "description": "石路斜槽与横斜支缝经过 y1024 时连续，槽底深浅随接点变化；宽幅米色笔触是正常材质变化，没有整行硬色阶。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_2_part1.png",
+      "sha256": "df3e4ae032187fff50f93404e1d70d68bfafd31b047244b5757347790c8f1057",
+      "pixels": [
+        1024,
+        256
+      ],
+      "coreBoxLTRB": [
+        0,
+        1920,
+        1024,
+        2176
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 2048,
+        "kind": "standard_1024_assembly_boundary"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-internal-2.png",
+        "boardSha256": "ef4e67b6f6bb9680a0cec51ce20a99db452304aeb76aaa6d429fdd8877e36710",
+        "boardPixelBox": [
+          0,
+          32,
+          1024,
+          288
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        0,
+        1920,
+        1024,
+        2176
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            0,
+            1920,
+            1024,
+            2176
+          ],
+          "description": "米白地砖的斜向三岔槽与右侧灰紫树影在 y2048 接续完整；树影的圆叶形边缘属于自然物体变化，未见被水平截断。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_2_part2.png",
+      "sha256": "56dfe6b7da157e9ec4be64d08909c1655a58259b19d2926f9a31d11eacdd123f",
+      "pixels": [
+        1024,
+        256
+      ],
+      "coreBoxLTRB": [
+        1024,
+        1920,
+        2048,
+        2176
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 2048,
+        "kind": "standard_1024_assembly_boundary"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-internal-2.png",
+        "boardSha256": "ef4e67b6f6bb9680a0cec51ce20a99db452304aeb76aaa6d429fdd8877e36710",
+        "boardPixelBox": [
+          0,
+          320,
+          1024,
+          576
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        1024,
+        1920,
+        2048,
+        2176
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            1024,
+            1920,
+            2048,
+            2176
+          ],
+          "description": "暖橙墙帽、墙面竖缝和左侧树影穿过 y2048 没有缺段；墙帽亮面到侧面的颜色变化符合原有体积，未见整条横向色差。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_2_part3.png",
+      "sha256": "8718995e22668584f9ccb50fc9d5fd3ab225de758c5bc4f9a46169f3e3804b5a",
+      "pixels": [
+        1024,
+        256
+      ],
+      "coreBoxLTRB": [
+        2048,
+        1920,
+        3072,
+        2176
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 2048,
+        "kind": "standard_1024_assembly_boundary"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-internal-2.png",
+        "boardSha256": "ef4e67b6f6bb9680a0cec51ce20a99db452304aeb76aaa6d429fdd8877e36710",
+        "boardPixelBox": [
+          0,
+          608,
+          1024,
+          864
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        2048,
+        1920,
+        3072,
+        2176
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            2784,
+            2028,
+            2824,
+            2074
+          ],
+          "description": "追加原像素局部view确认：candidate在y2048栏板暗斜边约x2801..2805存在约5px含正常斜率在内的回跳，并有局部明暗阶差。先前全段板未辨出此局部，原无问题结论更正。结构完整，是已有轮廓错位，非缺失栏板。",
+          "classification": "existing_contour_misalignment_with_local_tone_discontinuity"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": true,
+      "hardColorDiscontinuityAtTargetObserved": true,
+      "findingIds": [
+        "HG-03"
+      ],
+      "reviewStatus": "local_contour_and_tone_refinement_required_on_original_candidate",
+      "formalAccepted": false,
+      "supersededFirstPassObservations": [
+        {
+          "coreROI": [
+            2048,
+            1920,
+            3072,
+            2176
+          ],
+          "description": "绿色叶簇、暖橙后墙及米白斜栏板跨 y2048 连接完整；右侧栏板暗线与柱体边缘均保持连续，没有新生成横墙或重复栏杆。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_2_part4.png",
+      "sha256": "4cf47198e70e49e0fe03684ba0a23d4a036bc19bc83357a00d3580083234430c",
+      "pixels": [
+        1024,
+        256
+      ],
+      "coreBoxLTRB": [
+        3072,
+        1920,
+        4096,
+        2176
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 2048,
+        "kind": "standard_1024_assembly_boundary"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-internal-2.png",
+        "boardSha256": "ef4e67b6f6bb9680a0cec51ce20a99db452304aeb76aaa6d429fdd8877e36710",
+        "boardPixelBox": [
+          0,
+          896,
+          1024,
+          1152
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        3072,
+        1920,
+        4096,
+        2176
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            3072,
+            1920,
+            4096,
+            2176
+          ],
+          "description": "左侧局部栏杆柱脚与米白石路跨 y2048 连续，柱脚投影和石路斜槽属于原有物体；未见结构缺口或贯穿色带。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_3_part1.png",
+      "sha256": "f34e8121794c98696e9b5b0d6ceadd0e10513fe0721d5d2faed53ffb308f77fa",
+      "pixels": [
+        1024,
+        256
+      ],
+      "coreBoxLTRB": [
+        0,
+        2944,
+        1024,
+        3200
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 3072,
+        "kind": "standard_1024_assembly_boundary"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-internal-3.png",
+        "boardSha256": "da8610ef6dd976a1d56ee7bbad1676fff0414672814a8ecf32f72502202dd944",
+        "boardPixelBox": [
+          0,
+          32,
+          1024,
+          288
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        0,
+        2944,
+        1024,
+        3200
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            0,
+            2944,
+            1024,
+            3200
+          ],
+          "description": "开阔米白石面与右上到右下的斜槽在 y3072 连续；软淡笔触没有形成水平切线，未见几何错位。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_3_part2.png",
+      "sha256": "9778a6b908ce1f91401dd1101bb203054b173f28df2698c1477b77f628bc88b8",
+      "pixels": [
+        1024,
+        256
+      ],
+      "coreBoxLTRB": [
+        1024,
+        2944,
+        2048,
+        3200
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 3072,
+        "kind": "standard_1024_assembly_boundary"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-internal-3.png",
+        "boardSha256": "da8610ef6dd976a1d56ee7bbad1676fff0414672814a8ecf32f72502202dd944",
+        "boardPixelBox": [
+          0,
+          320,
+          1024,
+          576
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        1024,
+        2944,
+        2048,
+        3200
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            1024,
+            2944,
+            2048,
+            3200
+          ],
+          "description": "空石面及右侧斜槽跨 y3072 连续，左下进入的支缝属于图内正常几何；没有缺失地面、错位轮廓或硬性色带。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_3_part3.png",
+      "sha256": "e01fea4a29f34a267ace4c89ee2b370d2dd37811da4ef33f31bf7be0fc5595f3",
+      "pixels": [
+        1024,
+        256
+      ],
+      "coreBoxLTRB": [
+        2048,
+        2944,
+        3072,
+        3200
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 3072,
+        "kind": "standard_1024_assembly_boundary"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-internal-3.png",
+        "boardSha256": "da8610ef6dd976a1d56ee7bbad1676fff0414672814a8ecf32f72502202dd944",
+        "boardPixelBox": [
+          0,
+          608,
+          1024,
+          864
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        2048,
+        2944,
+        3072,
+        3200
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            2048,
+            2944,
+            3072,
+            3200
+          ],
+          "description": "两条米白石路斜槽在 y3072 接续完整；中央石面保持低对比笔触，未见横向接缝线。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_3_part4.png",
+      "sha256": "d55c424a940f267f901efd627bb66a89fe1247118b80de8788cd9f8a200dec87",
+      "pixels": [
+        1024,
+        256
+      ],
+      "coreBoxLTRB": [
+        3072,
+        2944,
+        4096,
+        3200
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 3072,
+        "kind": "standard_1024_assembly_boundary"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-internal-3.png",
+        "boardSha256": "da8610ef6dd976a1d56ee7bbad1676fff0414672814a8ecf32f72502202dd944",
+        "boardPixelBox": [
+          0,
+          896,
+          1024,
+          1152
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        3072,
+        2944,
+        4096,
+        3200
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            3072,
+            2944,
+            4096,
+            3200
+          ],
+          "description": "y3072 本身跨石路及下方绿叶时未见缺段或整行色跳；石路转入树冠属于正常覆盖关系。裁图内另有 x3187/y约3008 的 HG-02 跨轴折口，位置不在本标准横缝。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [
+        "HG-02"
+      ],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r2_c1.png",
+      "sha256": "d5369c9537f98b5003b4921abf6802fcf109f77fa4806fa3a78298b656dac6c1",
+      "pixels": [
+        1024,
+        128
+      ],
+      "coreBoxLTRB": [
+        0,
+        1075,
+        1024,
+        1203
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 1139,
+        "kind": "reference_band_end_115px_inside_row_core"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-guide-1.png",
+        "boardSha256": "ba60087b36196f2504bbe5bfe20112ce3ef1759242e975038e61f4302d9a787c",
+        "boardPixelBox": [
+          0,
+          32,
+          1024,
+          160
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        0,
+        1075,
+        1024,
+        1203
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            0,
+            1075,
+            1024,
+            1203
+          ],
+          "description": "y1139 参考原生带结束处，左侧与右侧两条既有斜槽的亮边/暗边有小折口；中间斜槽整体连续。石面没有缺块或新造结构，也未见需要整段校色的水平色带。详见 HG-01 两个局部 ROI。",
+          "classification": "existing_contour_misalignment_at_guide_boundary"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": true,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [
+        "HG-01"
+      ],
+      "reviewStatus": "local_contour_refinement_required",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r2_c2.png",
+      "sha256": "aa91e52c9b0897592148c31f1fb61539b5ea1d8445edffc55a8706a70b68ef70",
+      "pixels": [
+        1024,
+        128
+      ],
+      "coreBoxLTRB": [
+        1024,
+        1075,
+        2048,
+        1203
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 1139,
+        "kind": "reference_band_end_115px_inside_row_core"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-guide-1.png",
+        "boardSha256": "ba60087b36196f2504bbe5bfe20112ce3ef1759242e975038e61f4302d9a787c",
+        "boardPixelBox": [
+          0,
+          192,
+          1024,
+          320
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        1024,
+        1075,
+        2048,
+        1203
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            1024,
+            1075,
+            2048,
+            1203
+          ],
+          "description": "y1139 穿过深浅绿色叶簇和米白空地，叶片边缘及树干连续；亮绿与深绿为正常体积、遮挡变化，未见水平切断或新增叶带。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r2_c3.png",
+      "sha256": "8a724718a373460c47a936bf23d94c532bed49a8063caa8d8229503e1225f639",
+      "pixels": [
+        1024,
+        128
+      ],
+      "coreBoxLTRB": [
+        2048,
+        1075,
+        3072,
+        1203
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 1139,
+        "kind": "reference_band_end_115px_inside_row_core"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-guide-1.png",
+        "boardSha256": "ba60087b36196f2504bbe5bfe20112ce3ef1759242e975038e61f4302d9a787c",
+        "boardPixelBox": [
+          0,
+          352,
+          1024,
+          480
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        2048,
+        1075,
+        3072,
+        1203
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            2048,
+            1075,
+            3072,
+            1203
+          ],
+          "description": "y1139 处亮绿叶片、深绿底叶和右側米白石面接续完整；斜路缝无可见折口，叶片亮暗变化不是参考带色阶。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r2_c4.png",
+      "sha256": "46a09359a26239206f732fd31f28835e3813b0cbcf1ee945d92706e5709ffdbb",
+      "pixels": [
+        1024,
+        128
+      ],
+      "coreBoxLTRB": [
+        3072,
+        1075,
+        4096,
+        1203
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 1139,
+        "kind": "reference_band_end_115px_inside_row_core"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-guide-1.png",
+        "boardSha256": "ba60087b36196f2504bbe5bfe20112ce3ef1759242e975038e61f4302d9a787c",
+        "boardPixelBox": [
+          0,
+          512,
+          1024,
+          640
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        3072,
+        1075,
+        4096,
+        1203
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            3072,
+            1075,
+            4096,
+            1203
+          ],
+          "description": "y1139 处两条左侧斜槽与右上斜向支缝连续；米白石面的宽笔触正常，无硬水平分界或缺结构。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r3_c1.png",
+      "sha256": "68e2d375cf678a888cb6a8a1a6e60a8573bbce93662748ebcc4fd68ed7685657",
+      "pixels": [
+        1024,
+        128
+      ],
+      "coreBoxLTRB": [
+        0,
+        2099,
+        1024,
+        2227
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 2163,
+        "kind": "reference_band_end_115px_inside_row_core"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-guide-2.png",
+        "boardSha256": "6af3314fc951c33b10bf0f5741e030e76802877e57c1edbca37a92735a150607",
+        "boardPixelBox": [
+          0,
+          32,
+          1024,
+          160
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        0,
+        2099,
+        1024,
+        2227
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            0,
+            2099,
+            1024,
+            2227
+          ],
+          "description": "y2163 跨石路斜槽和右端树影，槽线及树影叶形轮廓连续；浅米色笔触、灰紫树影均是正常材质或物体变化。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r3_c2.png",
+      "sha256": "430aedbb5a674c82c6ad38e8afd1781f49471b5e49dd44b1e8ef20f6a15b61f0",
+      "pixels": [
+        1024,
+        128
+      ],
+      "coreBoxLTRB": [
+        1024,
+        2099,
+        2048,
+        2227
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 2163,
+        "kind": "reference_band_end_115px_inside_row_core"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-guide-2.png",
+        "boardSha256": "6af3314fc951c33b10bf0f5741e030e76802877e57c1edbca37a92735a150607",
+        "boardPixelBox": [
+          0,
+          192,
+          1024,
+          320
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        1024,
+        2099,
+        2048,
+        2227
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            1024,
+            2099,
+            2048,
+            2227
+          ],
+          "description": "y2163 跨左侧树影、暖橙墙体和亮色墙帽；墙沿与竖向块缝没有错开，参考带灰紫色差没有形成水平矩形带。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r3_c3.png",
+      "sha256": "d991a953805ece9f6f98c669e4c0425d900076c65cae9726b28aafdf84f09918",
+      "pixels": [
+        1024,
+        128
+      ],
+      "coreBoxLTRB": [
+        2048,
+        2099,
+        3072,
+        2227
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 2163,
+        "kind": "reference_band_end_115px_inside_row_core"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-guide-2.png",
+        "boardSha256": "6af3314fc951c33b10bf0f5741e030e76802877e57c1edbca37a92735a150607",
+        "boardPixelBox": [
+          0,
+          352,
+          1024,
+          480
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        2048,
+        2099,
+        3072,
+        2227
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            2048,
+            2099,
+            3072,
+            2227
+          ],
+          "description": "y2163 穿过绿叶、立柱方帽及斜栏板；叶片和帽沿接续完整，柱体/栏板本身的亮暗面属于正常体积，无新增横墙。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r3_c4.png",
+      "sha256": "5d18babd2fa39ff6106e0b2f5358c6205690e5f8ebda4c17b2c123347dfb8ec4",
+      "pixels": [
+        1024,
+        128
+      ],
+      "coreBoxLTRB": [
+        3072,
+        2099,
+        4096,
+        2227
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 2163,
+        "kind": "reference_band_end_115px_inside_row_core"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-guide-2.png",
+        "boardSha256": "6af3314fc951c33b10bf0f5741e030e76802877e57c1edbca37a92735a150607",
+        "boardPixelBox": [
+          0,
+          512,
+          1024,
+          640
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        3072,
+        2099,
+        4096,
+        2227
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            3072,
+            2099,
+            4096,
+            2227
+          ],
+          "description": "y2163 跨局部柱脚和开阔石路，斜槽连续；未见植物、灰砖或横向阴影带凭空出现，地面色调渐变自然。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r4_c1.png",
+      "sha256": "9b58e6cc4a6ce25acba4489c0966b1df10bdd32a4060c501456e87acc79a61c8",
+      "pixels": [
+        1024,
+        128
+      ],
+      "coreBoxLTRB": [
+        0,
+        3123,
+        1024,
+        3251
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 3187,
+        "kind": "reference_band_end_115px_inside_row_core"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-guide-3.png",
+        "boardSha256": "9b73d2e15275e21f407babd5d216f98a6372e99d7db96de19e1782575b9eb959",
+        "boardPixelBox": [
+          0,
+          32,
+          1024,
+          160
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        0,
+        3123,
+        1024,
+        3251
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            0,
+            3123,
+            1024,
+            3251
+          ],
+          "description": "y3187 几乎全为安静米白石面，右侧斜槽连续；没有参考带矩形边界、缺块或横向亮暗跳变。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r4_c2.png",
+      "sha256": "0bf44884c91d59d280c2ce5f779b015c44c0ca027d116df78d1d6a61a24daf8f",
+      "pixels": [
+        1024,
+        128
+      ],
+      "coreBoxLTRB": [
+        1024,
+        3123,
+        2048,
+        3251
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 3187,
+        "kind": "reference_band_end_115px_inside_row_core"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-guide-3.png",
+        "boardSha256": "9b73d2e15275e21f407babd5d216f98a6372e99d7db96de19e1782575b9eb959",
+        "boardPixelBox": [
+          0,
+          192,
+          1024,
+          320
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        1024,
+        3123,
+        2048,
+        3251
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            1024,
+            3123,
+            2048,
+            3251
+          ],
+          "description": "y3187 的左缘支槽和右侧斜槽保持连续；大块石面低对比笔触自然，未見切线或造出的装饰结构。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r4_c3.png",
+      "sha256": "be5fadd760c69b4538e6340f1a64e742a99d18c68dab6c63edde70801b9c9bde",
+      "pixels": [
+        1024,
+        128
+      ],
+      "coreBoxLTRB": [
+        2048,
+        3123,
+        3072,
+        3251
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 3187,
+        "kind": "reference_band_end_115px_inside_row_core"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-guide-3.png",
+        "boardSha256": "9b73d2e15275e21f407babd5d216f98a6372e99d7db96de19e1782575b9eb959",
+        "boardPixelBox": [
+          0,
+          352,
+          1024,
+          480
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        2048,
+        3123,
+        3072,
+        3251
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            2048,
+            3123,
+            3072,
+            3251
+          ],
+          "description": "y3187 左侧斜槽的暗线和亮边连续；其余开阔石面没有水平色阶，未见结构缺失。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r4_c4.png",
+      "sha256": "0acecc4cefee248a25b17606e29a10b415a4fbc15bf2b8b68416853d6cc175fd",
+      "pixels": [
+        1024,
+        128
+      ],
+      "coreBoxLTRB": [
+        3072,
+        3123,
+        4096,
+        3251
+      ],
+      "targetBoundary": {
+        "axis": "y",
+        "coreCoordinate": 3187,
+        "kind": "reference_band_end_115px_inside_row_core"
+      },
+      "visualInspectionPerformed": true,
+      "viewingMethod": {
+        "board": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-guide-3.png",
+        "boardSha256": "9b73d2e15275e21f407babd5d216f98a6372e99d7db96de19e1782575b9eb959",
+        "boardPixelBox": [
+          0,
+          512,
+          1024,
+          640
+        ],
+        "scale": "1 native pixel to 1 board pixel; no resampling",
+        "tool": "view_image",
+        "detail": "original"
+      },
+      "reviewedCoreROI": [
+        3072,
+        3123,
+        4096,
+        3251
+      ],
+      "observations": [
+        {
+          "coreROI": [
+            3072,
+            3123,
+            4096,
+            3251
+          ],
+          "description": "y3187 穿过米白石路与密集绿叶，左侧石路斜缝及叶簇边缘连续；叶片深浅为正常重叠体积，无水平切叶或新增对象。",
+          "classification": "no_visible_anomaly_at_target_boundary; normal_material_or_object_variation"
+        }
+      ],
+      "missingStructureObserved": false,
+      "contourMisalignmentAtTargetObserved": false,
+      "hardColorDiscontinuityAtTargetObserved": false,
+      "findingIds": [],
+      "reviewStatus": "no_visible_issue_at_target_boundary",
+      "formalAccepted": false
+    }
+  ],
+  "derivedBoards": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-internal-1.png",
+      "sha256": "6b91f287468d38eca8519e0e48257e04421d1965c3ac7fdda0ba373b39ef7c43",
+      "pixels": [
+        1024,
+        1152
+      ],
+      "operation": "integer paste at 1:1 plus separate labels; no resampling",
+      "viewedWith": "view_image(detail=original)",
+      "mappings": [
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_1_part1.png",
+          "sha256": "00d4da9277ed5d85a7e26fa94c601b4976165d418da452a068e22ca5ecd5c4e9",
+          "coreBox": [
+            0,
+            896,
+            1024,
+            1152
+          ],
+          "boardPixelBox": [
+            0,
+            32,
+            1024,
+            288
+          ]
+        },
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_1_part2.png",
+          "sha256": "7c19f6ec5db5c8d06597dea8feaf5a0b580a0a2ede75086a4fd6a4b61cd29930",
+          "coreBox": [
+            1024,
+            896,
+            2048,
+            1152
+          ],
+          "boardPixelBox": [
+            0,
+            320,
+            1024,
+            576
+          ]
+        },
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_1_part3.png",
+          "sha256": "4d4f8d7599ba324bbf09fc85a100dfd3aa4237b1821be651153145c6c3950227",
+          "coreBox": [
+            2048,
+            896,
+            3072,
+            1152
+          ],
+          "boardPixelBox": [
+            0,
+            608,
+            1024,
+            864
+          ]
+        },
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_1_part4.png",
+          "sha256": "7864e3efc12e803a569bbc32479d500a5d16c31698be652697862e62de07eb90",
+          "coreBox": [
+            3072,
+            896,
+            4096,
+            1152
+          ],
+          "boardPixelBox": [
+            0,
+            896,
+            1024,
+            1152
+          ]
+        }
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-internal-2.png",
+      "sha256": "ef4e67b6f6bb9680a0cec51ce20a99db452304aeb76aaa6d429fdd8877e36710",
+      "pixels": [
+        1024,
+        1152
+      ],
+      "operation": "integer paste at 1:1 plus separate labels; no resampling",
+      "viewedWith": "view_image(detail=original)",
+      "mappings": [
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_2_part1.png",
+          "sha256": "df3e4ae032187fff50f93404e1d70d68bfafd31b047244b5757347790c8f1057",
+          "coreBox": [
+            0,
+            1920,
+            1024,
+            2176
+          ],
+          "boardPixelBox": [
+            0,
+            32,
+            1024,
+            288
+          ]
+        },
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_2_part2.png",
+          "sha256": "56dfe6b7da157e9ec4be64d08909c1655a58259b19d2926f9a31d11eacdd123f",
+          "coreBox": [
+            1024,
+            1920,
+            2048,
+            2176
+          ],
+          "boardPixelBox": [
+            0,
+            320,
+            1024,
+            576
+          ]
+        },
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_2_part3.png",
+          "sha256": "8718995e22668584f9ccb50fc9d5fd3ab225de758c5bc4f9a46169f3e3804b5a",
+          "coreBox": [
+            2048,
+            1920,
+            3072,
+            2176
+          ],
+          "boardPixelBox": [
+            0,
+            608,
+            1024,
+            864
+          ]
+        },
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_2_part4.png",
+          "sha256": "4cf47198e70e49e0fe03684ba0a23d4a036bc19bc83357a00d3580083234430c",
+          "coreBox": [
+            3072,
+            1920,
+            4096,
+            2176
+          ],
+          "boardPixelBox": [
+            0,
+            896,
+            1024,
+            1152
+          ]
+        }
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-internal-3.png",
+      "sha256": "da8610ef6dd976a1d56ee7bbad1676fff0414672814a8ecf32f72502202dd944",
+      "pixels": [
+        1024,
+        1152
+      ],
+      "operation": "integer paste at 1:1 plus separate labels; no resampling",
+      "viewedWith": "view_image(detail=original)",
+      "mappings": [
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_3_part1.png",
+          "sha256": "f34e8121794c98696e9b5b0d6ceadd0e10513fe0721d5d2faed53ffb308f77fa",
+          "coreBox": [
+            0,
+            2944,
+            1024,
+            3200
+          ],
+          "boardPixelBox": [
+            0,
+            32,
+            1024,
+            288
+          ]
+        },
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_3_part2.png",
+          "sha256": "9778a6b908ce1f91401dd1101bb203054b173f28df2698c1477b77f628bc88b8",
+          "coreBox": [
+            1024,
+            2944,
+            2048,
+            3200
+          ],
+          "boardPixelBox": [
+            0,
+            320,
+            1024,
+            576
+          ]
+        },
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_3_part3.png",
+          "sha256": "e01fea4a29f34a267ace4c89ee2b370d2dd37811da4ef33f31bf7be0fc5595f3",
+          "coreBox": [
+            2048,
+            2944,
+            3072,
+            3200
+          ],
+          "boardPixelBox": [
+            0,
+            608,
+            1024,
+            864
+          ]
+        },
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_horizontal_3_part4.png",
+          "sha256": "d55c424a940f267f901efd627bb66a89fe1247118b80de8788cd9f8a200dec87",
+          "coreBox": [
+            3072,
+            2944,
+            4096,
+            3200
+          ],
+          "boardPixelBox": [
+            0,
+            896,
+            1024,
+            1152
+          ]
+        }
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-guide-1.png",
+      "sha256": "ba60087b36196f2504bbe5bfe20112ce3ef1759242e975038e61f4302d9a787c",
+      "pixels": [
+        1024,
+        640
+      ],
+      "operation": "integer paste at 1:1 plus separate labels; no resampling",
+      "viewedWith": "view_image(detail=original)",
+      "mappings": [
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r2_c1.png",
+          "sha256": "d5369c9537f98b5003b4921abf6802fcf109f77fa4806fa3a78298b656dac6c1",
+          "coreBox": [
+            0,
+            1075,
+            1024,
+            1203
+          ],
+          "boardPixelBox": [
+            0,
+            32,
+            1024,
+            160
+          ]
+        },
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r2_c2.png",
+          "sha256": "aa91e52c9b0897592148c31f1fb61539b5ea1d8445edffc55a8706a70b68ef70",
+          "coreBox": [
+            1024,
+            1075,
+            2048,
+            1203
+          ],
+          "boardPixelBox": [
+            0,
+            192,
+            1024,
+            320
+          ]
+        },
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r2_c3.png",
+          "sha256": "8a724718a373460c47a936bf23d94c532bed49a8063caa8d8229503e1225f639",
+          "coreBox": [
+            2048,
+            1075,
+            3072,
+            1203
+          ],
+          "boardPixelBox": [
+            0,
+            352,
+            1024,
+            480
+          ]
+        },
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r2_c4.png",
+          "sha256": "46a09359a26239206f732fd31f28835e3813b0cbcf1ee945d92706e5709ffdbb",
+          "coreBox": [
+            3072,
+            1075,
+            4096,
+            1203
+          ],
+          "boardPixelBox": [
+            0,
+            512,
+            1024,
+            640
+          ]
+        }
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-guide-2.png",
+      "sha256": "6af3314fc951c33b10bf0f5741e030e76802877e57c1edbca37a92735a150607",
+      "pixels": [
+        1024,
+        640
+      ],
+      "operation": "integer paste at 1:1 plus separate labels; no resampling",
+      "viewedWith": "view_image(detail=original)",
+      "mappings": [
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r3_c1.png",
+          "sha256": "68e2d375cf678a888cb6a8a1a6e60a8573bbce93662748ebcc4fd68ed7685657",
+          "coreBox": [
+            0,
+            2099,
+            1024,
+            2227
+          ],
+          "boardPixelBox": [
+            0,
+            32,
+            1024,
+            160
+          ]
+        },
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r3_c2.png",
+          "sha256": "430aedbb5a674c82c6ad38e8afd1781f49471b5e49dd44b1e8ef20f6a15b61f0",
+          "coreBox": [
+            1024,
+            2099,
+            2048,
+            2227
+          ],
+          "boardPixelBox": [
+            0,
+            192,
+            1024,
+            320
+          ]
+        },
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r3_c3.png",
+          "sha256": "d991a953805ece9f6f98c669e4c0425d900076c65cae9726b28aafdf84f09918",
+          "coreBox": [
+            2048,
+            2099,
+            3072,
+            2227
+          ],
+          "boardPixelBox": [
+            0,
+            352,
+            1024,
+            480
+          ]
+        },
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r3_c4.png",
+          "sha256": "5d18babd2fa39ff6106e0b2f5358c6205690e5f8ebda4c17b2c123347dfb8ec4",
+          "coreBox": [
+            3072,
+            2099,
+            4096,
+            2227
+          ],
+          "boardPixelBox": [
+            0,
+            512,
+            1024,
+            640
+          ]
+        }
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-guide-3.png",
+      "sha256": "9b73d2e15275e21f407babd5d216f98a6372e99d7db96de19e1782575b9eb959",
+      "pixels": [
+        1024,
+        640
+      ],
+      "operation": "integer paste at 1:1 plus separate labels; no resampling",
+      "viewedWith": "view_image(detail=original)",
+      "mappings": [
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r4_c1.png",
+          "sha256": "9b58e6cc4a6ce25acba4489c0966b1df10bdd32a4060c501456e87acc79a61c8",
+          "coreBox": [
+            0,
+            3123,
+            1024,
+            3251
+          ],
+          "boardPixelBox": [
+            0,
+            32,
+            1024,
+            160
+          ]
+        },
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r4_c2.png",
+          "sha256": "0bf44884c91d59d280c2ce5f779b015c44c0ca027d116df78d1d6a61a24daf8f",
+          "coreBox": [
+            1024,
+            3123,
+            2048,
+            3251
+          ],
+          "boardPixelBox": [
+            0,
+            192,
+            1024,
+            320
+          ]
+        },
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r4_c3.png",
+          "sha256": "be5fadd760c69b4538e6340f1a64e742a99d18c68dab6c63edde70801b9c9bde",
+          "coreBox": [
+            2048,
+            3123,
+            3072,
+            3251
+          ],
+          "boardPixelBox": [
+            0,
+            352,
+            1024,
+            480
+          ]
+        },
+        {
+          "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\horizontal_r4_c4.png",
+          "sha256": "0acecc4cefee248a25b17606e29a10b415a4fbc15bf2b8b68416853d6cc175fd",
+          "coreBox": [
+            3072,
+            3123,
+            4096,
+            3251
+          ],
+          "boardPixelBox": [
+            0,
+            512,
+            1024,
+            640
+          ]
+        }
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\horizontal-review-board-detail.png",
+      "sha256": "ff873e9a57b5aa42ef2cd119f8537f0d462ec622756321614920aaae54ee74be",
+      "pixels": [
+        1024,
+        160
+      ],
+      "operation": "four integer 240x128 crops at 1:1 with label bars and gutter; no resampling",
+      "viewedWith": "view_image(detail=original)",
+      "mappings": [
+        {
+          "coreBox": [
+            140,
+            1075,
+            380,
+            1203
+          ],
+          "boardPixelBox": [
+            0,
+            32,
+            240,
+            160
+          ]
+        },
+        {
+          "coreBox": [
+            340,
+            1075,
+            580,
+            1203
+          ],
+          "boardPixelBox": [
+            256,
+            32,
+            496,
+            160
+          ]
+        },
+        {
+          "coreBox": [
+            550,
+            1075,
+            790,
+            1203
+          ],
+          "boardPixelBox": [
+            512,
+            32,
+            752,
+            160
+          ]
+        },
+        {
+          "coreBox": [
+            3080,
+            2960,
+            3320,
+            3088
+          ],
+          "boardPixelBox": [
+            768,
+            32,
+            1008,
+            160
+          ]
+        }
+      ]
+    }
+  ],
+  "imageMutationPerformed": false,
+  "correctionHistory": [
+    {
+      "at": "2026-10-05T23:56:53.697769+00:00",
+      "reason": "Supplemental original-scale H2c3 crop revealed a missed small contour step at the standard y2048 seam. Geometry-v2 now provides a separate local corrective derivative; original candidate stays unchanged."
+    }
+  ],
+  "correctionDerivatives": {
+    "geometryV2Report": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v2\\registration.json",
+    "geometryV2ReportSha256": "01664de9d5b2aa906777f45892419b7c62ed38ab537752adb9d20adcda695fb1",
+    "formalAccepted": false
+  }
+}
