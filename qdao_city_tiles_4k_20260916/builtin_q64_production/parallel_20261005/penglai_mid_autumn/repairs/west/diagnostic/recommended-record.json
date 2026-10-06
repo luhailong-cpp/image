@@ -1,0 +1,91 @@
+{
+  "createdAt": "2026-10-05T21:42:26.001431+00:00",
+  "kind": "diagnostic_native_pixel_registration_trial",
+  "inputCurrentSha256": "29a660de74aebc10331b9d0e0cbfaf015c6529b6bc0b929721a94b60686a02ee",
+  "sourceRawSha256": "eca396e5d87b325bc30411bf2fd34587086fb620e04f840e83362ffcdb8f23a3",
+  "sourceOldSha256": "59b31c2d193a71fdfe516ad9d51c6d2bfea3881f5670dd9f53ba2a612ad59fd2",
+  "flowConvention": "sample raw cropped512:1254 at(x+dx,y+dy)",
+  "oldOnlySupportX": [
+    590,
+    615
+  ],
+  "leftFlowSettings": {
+    "pyr_scale": 0.5,
+    "levels": 4,
+    "winsize": 51,
+    "iterations": 5,
+    "poly_n": 7,
+    "poly_sigma": 1.5,
+    "gaussianSigma": 5
+  },
+  "extrapolation": "per-y median support flow,11-row gaussian smooth; hold at new x0 then cubic smoothstep to original production field at new x100; activate over global y3692..3776",
+  "maximumAllowedVector": 12,
+  "actualMaximumVector": 12.000000953674316,
+  "actualMaxXY": [
+    11.715372085571289,
+    7.718789100646973
+  ],
+  "mask": "binary; geometry is registered before joining, no geometric feather",
+  "leftSupportToneClamp": 12,
+  "inheritedProductionToneClamp": 18,
+  "changedNewTileRectXYWH": [
+    0,
+    3692,
+    100,
+    404
+  ],
+  "oldNeighborUnchanged": true,
+  "unchangedBeyondNewTileX": 100,
+  "resampling": "bicubic of existing native source pixels, native dimensions retained; no enlargement and no generative drawing",
+  "metrics": {
+    "darkRoofJointLocalYAtSharedEdge": {
+      "old": 1169,
+      "raw": 1179,
+      "current": 1187,
+      "trial": 1169
+    },
+    "roofFaceHighlightRisingEdgeLocalY": {
+      "old": 1121,
+      "raw": 1129,
+      "current": 1135,
+      "trial": 1127
+    }
+  },
+  "files": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\repairs\\west\\diagnostic\\recommended-trial.png",
+      "sha256": "97a9def67c6fb50b5d1d6fad6725196ed1535fdc69bdda1ddcf73065345c0e3c"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\repairs\\west\\diagnostic\\recommended-mask.png",
+      "sha256": "4bc01c53cc77771a2496780dccf8f1228fad56bdf3bc4ca5c091bd9eb2bd1d25"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\repairs\\west\\diagnostic\\recommended-flow.npy",
+      "sha256": "9694024ce272f9f0caa13d5c3553224bba5ece446223845e67a4329b37b4b054"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\repairs\\west\\diagnostic\\recommended-tone.npy",
+      "sha256": "7fb25013ceb1b926b25701e5e80a927ac6b7ce72470fe42e6967321df62adf57"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\repairs\\west\\diagnostic\\recommended-native-comparison.png",
+      "sha256": "5f32e786bbe8cf4a5d15338b3f24def14345d6d8bf1393ff5f23e42a956b4008"
+    }
+  ],
+  "productionOutputModified": false,
+  "visualReviewPending": false,
+  "visualReview": {
+    "reviewedAt": "2026-10-05T21:50:39.228470+00:00",
+    "actuallyViewedFiles": [
+      "recommended-native-comparison.png",
+      "recommended-trial.png"
+    ],
+    "scale": "1:1",
+    "scope": "new tile x0..100, y3692..4096; entire404px transition and100px return included in comparison",
+    "finding": "Major endpoint dark joint stair-step removed; roof face highlight joins with a small change in painted highlight curvature. No missing roof component in this scope. Entire merged city seam and other y positions are not accepted by this trial.",
+    "canRecommendAlgorithm": true,
+    "productionAccepted": false
+  },
+  "integration": "Use recommended-trial pixel region x115..215,y850..1254 to replace current new tile x0..100,y3692..4096 only after verifying inputCurrentSha256. Do not copy trial left115px or any other region. Alternatively reproduce recommended_trial.py formula within merge_west; calculate its support flow on actual old c12 only."
+}

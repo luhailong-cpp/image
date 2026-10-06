@@ -1,0 +1,1282 @@
+{
+  "schemaVersion": 1,
+  "tile": "r08_c10",
+  "reviewer": "source_audit",
+  "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+  "sourceCore": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\candidate\\core4096.png",
+    "sha256": "1a2bb992de62dce69c9e77fb7ad0163aa7fa96f402156e8f8268ff8a09ccdd0f",
+    "assemblyManifest": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\candidate\\assembly.manifest.json",
+    "assemblyManifestSha256": "be023de7ee5b3ea49ec760d45141a9e735da75bc83c50b6813ba309411dfe0ca"
+  },
+  "status": "visual_defects_observed_pending_repair_and_recheck",
+  "formalAccepted": false,
+  "qualifiedComplete4KCandidateEstablishedByThisReview": false,
+  "coverage": {
+    "standardVerticalSegments": 12,
+    "fullLengthStandardVerticalSeams": 3,
+    "eachSeamPixels": 4096,
+    "intersections": 9,
+    "referenceBandEndVerticalSegments": 12,
+    "referenceBandEndX": [
+      1139,
+      2163,
+      3187
+    ],
+    "rangeCount": 33,
+    "allActuallyViewedAtOriginalPixels": true,
+    "sourceCropPixelIdentityVerified": true,
+    "resampling": "none"
+  },
+  "coordinateConvention": "All core ROI XYXY bounds are half-open in the 4096 x 4096 core; range crop boxes identify every actual inspected extent.",
+  "findings": [
+    {
+      "id": "V1",
+      "type": "color_texture_step",
+      "severity": "minor_visible_repair_recommended",
+      "coreRoiXYXYHalfOpen": [
+        1008,
+        1040,
+        1040,
+        1300
+      ],
+      "boundary": {
+        "axis": "x",
+        "coordinate": 1024
+      },
+      "observed": "Quiet ivory paving has a narrow straight change in brush-field brightness at the true column join, clearest just below row 1. This is not a paving groove. No missing geometry observed.",
+      "recommendation": "Constrain a local low-frequency color/texture transition to the stone plane; preserve the existing grooves and tree-shadow boundaries."
+    },
+    {
+      "id": "V2",
+      "type": "color_lighting_step_across_foliage",
+      "severity": "repair_recommended",
+      "coreRoiXYXYHalfOpen": [
+        2032,
+        1036,
+        2064,
+        1470
+      ],
+      "boundary": {
+        "axis": "x",
+        "coordinate": 2048
+      },
+      "observed": "A straight vertical light/dark slice passes through several otherwise continuous green leaf lobes and the crown undergrowth. The line is grid-aligned and not the contour of one leaf; no large missing lobe is observed.",
+      "recommendation": "Match lighting and color across this narrow seam while following existing leaf shapes; do not replace the seam with new leaf masses or blur leaf outlines.",
+      "detailEvidence": "vertical-review-detail-leaf-step-x2048.png",
+      "diagnosticOnly": {
+        "meanAdjacentColumnAbsoluteRGB": 7.330261136712749,
+        "p95": 25.9
+      }
+    },
+    {
+      "id": "V3",
+      "type": "color_lighting_step_across_planter",
+      "severity": "repair_recommended",
+      "coreRoiXYXYHalfOpen": [
+        2024,
+        1934,
+        2072,
+        2240
+      ],
+      "boundary": {
+        "axis": "x",
+        "coordinate": 2048
+      },
+      "observed": "Orange planter top and front face change luminance along a straight vertical cut; the top white bevel is substantially aligned. The horizontal row join also crosses the same curved block. This rectangular lighting split is unrelated to its rounded corner geometry.",
+      "recommendation": "Use the same underlying orange plane and continuous white bevel; correct the local color field around the cross seam, then inspect the bevel at 1:1.",
+      "detailEvidence": "vertical-review-detail-planter-cross.png"
+    },
+    {
+      "id": "V4",
+      "type": "color_texture_step",
+      "severity": "minor_visible_repair_recommended",
+      "coreRoiXYXYHalfOpen": [
+        2016,
+        3008,
+        2080,
+        3280
+      ],
+      "boundary": {
+        "axis": "x",
+        "coordinate": 2048
+      },
+      "observed": "A faint straight tonal/material boundary is visible on otherwise continuous ivory stone around the row-3/row-4 intersection. Crossing grooves are largely continuous; no large gap observed.",
+      "recommendation": "Match restrained stone brush scale and mean color locally without broad blurring or shifting the diagonal grooves."
+    },
+    {
+      "id": "G1",
+      "type": "geometric_contour_step",
+      "severity": "repair_recommended",
+      "coreRoiXYXYHalfOpen": [
+        3168,
+        2988,
+        3210,
+        3040
+      ],
+      "boundary": {
+        "axis": "x",
+        "coordinate": 3187,
+        "kind": "reference_band_end"
+      },
+      "observed": "At the guide-band end, the diagonal white paving bevel and dark groove make an abrupt approximately 2–3 px backward step. Both contour and dark channel change at the same vertical boundary; this is not normal material variation.",
+      "recommendation": "Repair the short bevel and groove within this small ROI, continuing the established slope through x3187; preserve the broad stone texture and do not adjust the whole cell.",
+      "detailEvidence": "vertical-review-detail-notch-x3187.png",
+      "diagnosticOnly": {
+        "darkestGrooveRowByColumn": {
+          "3183": 3021,
+          "3184": 3022,
+          "3185": 3022,
+          "3186": 3023,
+          "3187": 3021,
+          "3188": 3022,
+          "3189": 3021,
+          "3190": 3022,
+          "3191": 3022
+        },
+        "note": "Minimum-row samples support the viewed step; they are not a full subpixel geometry fit."
+      }
+    },
+    {
+      "id": "H1",
+      "type": "horizontal_color_lighting_step_at_intersections",
+      "severity": "repair_recommended",
+      "coreRoisXYXYHalfOpen": [
+        [
+          768,
+          1008,
+          1280,
+          1040
+        ],
+        [
+          1792,
+          1008,
+          2304,
+          1040
+        ],
+        [
+          2816,
+          1008,
+          3328,
+          1040
+        ]
+      ],
+      "boundary": {
+        "axis": "y",
+        "coordinate": 1024
+      },
+      "observed": "The three row-1 intersections show a horizontal tonal/brush-field join. It is strongest through the crown in c2, where the grid-aligned step cuts across independent leaves; the stone intersections are less pronounced.",
+      "recommendation": "Coordinate with the standard-horizontal reviewer. Correct color on each underlying surface and preserve leaf silhouettes and paving lines; these observations cover the three intersection crops only."
+    },
+    {
+      "id": "H2",
+      "type": "horizontal_color_lighting_step_at_intersections",
+      "severity": "repair_recommended",
+      "coreRoisXYXYHalfOpen": [
+        [
+          768,
+          2032,
+          1280,
+          2064
+        ],
+        [
+          1792,
+          2032,
+          2304,
+          2064
+        ],
+        [
+          2816,
+          2032,
+          3328,
+          2064
+        ]
+      ],
+      "boundary": {
+        "axis": "y",
+        "coordinate": 2048
+      },
+      "observed": "A straight row boundary crosses the tree shadow/stone in c1, the orange planter in c2, and the white wall/pillar base in c3. This crosses existing object shading rather than following physical contours.",
+      "recommendation": "Coordinate with the standard-horizontal reviewer and correct each surface independently; retain shadow shape and the stone/planter edges."
+    },
+    {
+      "id": "H3",
+      "type": "horizontal_material_transition_at_intersections",
+      "severity": "minor_visible_repair_recommended",
+      "coreRoisXYXYHalfOpen": [
+        [
+          768,
+          3056,
+          1280,
+          3088
+        ],
+        [
+          1792,
+          3056,
+          2304,
+          3088
+        ]
+      ],
+      "boundary": {
+        "axis": "y",
+        "coordinate": 3072
+      },
+      "observed": "At c1 and c2, the stone above the row boundary has broader painterly patches while the lower field is smoother. c2 also has the V4 column transition. No missing diagonal groove is observed in these two intersection crops.",
+      "recommendation": "Coordinate with the standard-horizontal reviewer; reconcile brush scale and low-frequency color without repainting mapped line geometry."
+    }
+  ],
+  "ranges": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_vertical_1_part1.png",
+      "sha256": "407e75ed7e3e56cca925ffefcfa6e94b259b1d9e3b8ef0ad3fac8fe7fc6855b6",
+      "coreBoxXYXYHalfOpen": [
+        896,
+        0,
+        1152,
+        1024
+      ],
+      "pixels": [
+        256,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        0,
+        28,
+        256,
+        1052
+      ],
+      "scopeKind": "standard_vertical_seam",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-vertical-1.png",
+      "boardSha256": "67f3f029a5610a7f0307820cf85c7de475041e360b7b6c2d6cae8eb863af8881",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "minor_material_variation",
+      "observed": "Stone brush scale changes mildly across the column; mapped white bevels and dark grooves remain connected in the viewed full segment.",
+      "findingIds": []
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_vertical_1_part2.png",
+      "sha256": "5334fb7da7a81cdd359bc54a2da8b24b84d03c3a6237c73a699ac917e0f2efb4",
+      "coreBoxXYXYHalfOpen": [
+        896,
+        1024,
+        1152,
+        2048
+      ],
+      "pixels": [
+        256,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        272,
+        28,
+        528,
+        1052
+      ],
+      "scopeKind": "standard_vertical_seam",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-vertical-1.png",
+      "boardSha256": "67f3f029a5610a7f0307820cf85c7de475041e360b7b6c2d6cae8eb863af8881",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "visible_color_step",
+      "observed": "Narrow rectangular tone change in upper stone field at x1024; diagonal groove and lower shadow silhouette remain connected.",
+      "findingIds": [
+        "V1"
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_vertical_1_part3.png",
+      "sha256": "9155f3a2593d0793722f9246040fa418f38e8142abe65555cab3c482ffdb6d33",
+      "coreBoxXYXYHalfOpen": [
+        896,
+        2048,
+        1152,
+        3072
+      ],
+      "pixels": [
+        256,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        544,
+        28,
+        800,
+        1052
+      ],
+      "scopeKind": "standard_vertical_seam",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-vertical-1.png",
+      "boardSha256": "67f3f029a5610a7f0307820cf85c7de475041e360b7b6c2d6cae8eb863af8881",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "no_obvious_new_vertical_defect",
+      "observed": "Existing broad blue-gray tree shadow and stone continue through the join. Brush patches vary, but no definite vertical cut or missing contour is visible in this segment.",
+      "findingIds": []
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_vertical_1_part4.png",
+      "sha256": "8beb1296f51268868f83cabf482df5369fa57a6a722c42ce18120bcaf7bcfe28",
+      "coreBoxXYXYHalfOpen": [
+        896,
+        3072,
+        1152,
+        4096
+      ],
+      "pixels": [
+        256,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        816,
+        28,
+        1072,
+        1052
+      ],
+      "scopeKind": "standard_vertical_seam",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-vertical-1.png",
+      "boardSha256": "67f3f029a5610a7f0307820cf85c7de475041e360b7b6c2d6cae8eb863af8881",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "no_obvious_new_vertical_defect",
+      "observed": "Smooth stone and three diagonal groove crossings remain continuous; no hard vertical light band observed.",
+      "findingIds": []
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_vertical_2_part1.png",
+      "sha256": "ecfb8a4e3a40ffbc181b8638efcb4590c1894c24b057d525619f076b61f31ee8",
+      "coreBoxXYXYHalfOpen": [
+        1920,
+        0,
+        2176,
+        1024
+      ],
+      "pixels": [
+        256,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        0,
+        28,
+        256,
+        1052
+      ],
+      "scopeKind": "standard_vertical_seam",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-vertical-2.png",
+      "boardSha256": "c07bda4fe0d0ab33ff1f84a109d62a5c0686bfc0ca7b1d278a9b8687c662cfc0",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "minor_material_variation",
+      "observed": "Ivory brush texture and upper crown lobes retain their silhouette. No large geometry gap observed at x2048; the nearby row junction is covered separately.",
+      "findingIds": []
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_vertical_2_part2.png",
+      "sha256": "0fad2fbfc789fd3b3adc3a445b9fa3b4f7f90c592890e6c2d9fd300a8b332146",
+      "coreBoxXYXYHalfOpen": [
+        1920,
+        1024,
+        2176,
+        2048
+      ],
+      "pixels": [
+        256,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        272,
+        28,
+        528,
+        1052
+      ],
+      "scopeKind": "standard_vertical_seam",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-vertical-2.png",
+      "boardSha256": "c07bda4fe0d0ab33ff1f84a109d62a5c0686bfc0ca7b1d278a9b8687c662cfc0",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "visible_color_step",
+      "observed": "Vertical tone slicing runs across independent leaf lobes near upper/middle crown; the bottom orange block also changes lighting across x2048.",
+      "findingIds": [
+        "V2",
+        "V3"
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_vertical_2_part3.png",
+      "sha256": "db913ee45042a21144f16b4d1309b09da76d9a4968c4ea0f3b74e6395c54bb84",
+      "coreBoxXYXYHalfOpen": [
+        1920,
+        2048,
+        2176,
+        3072
+      ],
+      "pixels": [
+        256,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        544,
+        28,
+        800,
+        1052
+      ],
+      "scopeKind": "standard_vertical_seam",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-vertical-2.png",
+      "boardSha256": "c07bda4fe0d0ab33ff1f84a109d62a5c0686bfc0ca7b1d278a9b8687c662cfc0",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "visible_color_step",
+      "observed": "Orange face near the top continues the straight x2048 lighting split. Green bushes, white rail and lower diagonal groove remain structurally present.",
+      "findingIds": [
+        "V3"
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_vertical_2_part4.png",
+      "sha256": "221e68a4027a243f5d9872332dee46f16824c9d736a63e6aa99bf5d5fe987927",
+      "coreBoxXYXYHalfOpen": [
+        1920,
+        3072,
+        2176,
+        4096
+      ],
+      "pixels": [
+        256,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        816,
+        28,
+        1072,
+        1052
+      ],
+      "scopeKind": "standard_vertical_seam",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-vertical-2.png",
+      "boardSha256": "c07bda4fe0d0ab33ff1f84a109d62a5c0686bfc0ca7b1d278a9b8687c662cfc0",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "minor_visible_color_step",
+      "observed": "Faint vertical tone/brush-field line on otherwise continuous cream paving; no new groove gap observed.",
+      "findingIds": [
+        "V4"
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_vertical_3_part1.png",
+      "sha256": "1bb0da63b4b5d2c64f9a29dbe516b79ddd72d3096d214adeb88574af485a3a57",
+      "coreBoxXYXYHalfOpen": [
+        2944,
+        0,
+        3200,
+        1024
+      ],
+      "pixels": [
+        256,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        0,
+        28,
+        256,
+        1052
+      ],
+      "scopeKind": "standard_vertical_seam",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-vertical-3.png",
+      "boardSha256": "e6dd66b415792887eb791122347e91de5d4b1f0cc07f4da9278ff996e9c2d368",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "no_obvious_new_vertical_defect",
+      "observed": "Broad stone brush patches and curved groove remain coherent at the main x3072 join; no hard vertical lighting jump confirmed.",
+      "findingIds": []
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_vertical_3_part2.png",
+      "sha256": "ea46570ca166d5483ed1b870274e87dcddffed96abf87346730f5b59178ff145",
+      "coreBoxXYXYHalfOpen": [
+        2944,
+        1024,
+        3200,
+        2048
+      ],
+      "pixels": [
+        256,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        272,
+        28,
+        528,
+        1052
+      ],
+      "scopeKind": "standard_vertical_seam",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-vertical-3.png",
+      "boardSha256": "e6dd66b415792887eb791122347e91de5d4b1f0cc07f4da9278ff996e9c2d368",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "no_obvious_new_vertical_geometry_defect",
+      "observed": "Pillar face has an existing narrow vertical chamfer near x3072. Additional original-pixel close-up confirms its form, so it is not classified as a new seam gap; horizontal join is reviewed in intersection r2c3.",
+      "findingIds": []
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_vertical_3_part3.png",
+      "sha256": "32fcf1071f4102a42d80fd76b498bd3f1713b454108c60f73b83112a2e37c8ca",
+      "coreBoxXYXYHalfOpen": [
+        2944,
+        2048,
+        3200,
+        3072
+      ],
+      "pixels": [
+        256,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        544,
+        28,
+        800,
+        1052
+      ],
+      "scopeKind": "standard_vertical_seam",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-vertical-3.png",
+      "boardSha256": "e6dd66b415792887eb791122347e91de5d4b1f0cc07f4da9278ff996e9c2d368",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "guide_boundary_contour_step",
+      "observed": "Main x3072 seam has no large geometry gap, but this crop also includes the x3187 reference-band end where the bottom diagonal bevel has a small notch/step.",
+      "findingIds": [
+        "G1"
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\internal_vertical_3_part4.png",
+      "sha256": "097e55658adada387f92ab903ffded4cbaef6addc5bc7f3c8da5511db7ae5ee7",
+      "coreBoxXYXYHalfOpen": [
+        2944,
+        3072,
+        3200,
+        4096
+      ],
+      "pixels": [
+        256,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        816,
+        28,
+        1072,
+        1052
+      ],
+      "scopeKind": "standard_vertical_seam",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-vertical-3.png",
+      "boardSha256": "e6dd66b415792887eb791122347e91de5d4b1f0cc07f4da9278ff996e9c2d368",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "no_obvious_new_vertical_defect",
+      "observed": "Quiet ivory field and lower diagonal border retain connected contours; no obvious new vertical hard band.",
+      "findingIds": []
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\intersection_r1_c1.png",
+      "sha256": "a3dc29dbbff63b860703987aa8d2e00517e76cefc07f99a9b796bb7ba2b3a126",
+      "coreBoxXYXYHalfOpen": [
+        768,
+        768,
+        1280,
+        1280
+      ],
+      "pixels": [
+        512,
+        512
+      ],
+      "boardBoxXYXYHalfOpen": [
+        0,
+        28,
+        512,
+        540
+      ],
+      "scopeKind": "intersection",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-intersections-r1.png",
+      "boardSha256": "322e6d0618b9b9c7112e8aa45665a76db94d460f6ecf49f1d879f46451f2e530",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "visible_color_step",
+      "observed": "Horizontal y1024 brush/light transition across stone; vertical V1 continues just below. The nearby diagonal groove remains connected.",
+      "findingIds": [
+        "H1",
+        "V1"
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\intersection_r1_c2.png",
+      "sha256": "04ddeaf7f562a166641c08927aba68c724d231e4650b4ff7a28dd0d60e83e82f",
+      "coreBoxXYXYHalfOpen": [
+        1792,
+        768,
+        2304,
+        1280
+      ],
+      "pixels": [
+        512,
+        512
+      ],
+      "boardBoxXYXYHalfOpen": [
+        528,
+        28,
+        1040,
+        540
+      ],
+      "scopeKind": "intersection",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-intersections-r1.png",
+      "boardSha256": "322e6d0618b9b9c7112e8aa45665a76db94d460f6ecf49f1d879f46451f2e530",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "visible_color_step_across_foliage",
+      "observed": "Grid-aligned horizontal exposure change crosses multiple leaves; x2048 vertical tone slicing continues below. These are not single-leaf shading boundaries.",
+      "findingIds": [
+        "H1",
+        "V2"
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\intersection_r1_c3.png",
+      "sha256": "04858cee3d9844d8013601ae6330db64cc0d6af0bdbde383936034f0b6768027",
+      "coreBoxXYXYHalfOpen": [
+        2816,
+        768,
+        3328,
+        1280
+      ],
+      "pixels": [
+        512,
+        512
+      ],
+      "boardBoxXYXYHalfOpen": [
+        1056,
+        28,
+        1568,
+        540
+      ],
+      "scopeKind": "intersection",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-intersections-r1.png",
+      "boardSha256": "322e6d0618b9b9c7112e8aa45665a76db94d460f6ecf49f1d879f46451f2e530",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "minor_visible_color_step",
+      "observed": "Subtle horizontal stone-field lighting change at y1024; curved/parallel grooves remain connected.",
+      "findingIds": [
+        "H1"
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\intersection_r2_c1.png",
+      "sha256": "513789480944d0d85665b3b29d826bf038188c752bcfc1f0d7f06f54b497e12b",
+      "coreBoxXYXYHalfOpen": [
+        768,
+        1792,
+        1280,
+        2304
+      ],
+      "pixels": [
+        512,
+        512
+      ],
+      "boardBoxXYXYHalfOpen": [
+        0,
+        28,
+        512,
+        540
+      ],
+      "scopeKind": "intersection",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-intersections-r2.png",
+      "boardSha256": "e956804b081eabadd630bc4bd234bbbd596ec23955fcbce17bfa704ec1584bac",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "visible_color_step_across_shadow",
+      "observed": "Straight y2048 exposure transition passes across both stone and the existing tree shadow; no new shadow silhouette is warranted.",
+      "findingIds": [
+        "H2"
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\intersection_r2_c2.png",
+      "sha256": "6c19674ade675ecb8076022cedee0e69a7fd58540ed85a3803e475edc78c5dba",
+      "coreBoxXYXYHalfOpen": [
+        1792,
+        1792,
+        2304,
+        2304
+      ],
+      "pixels": [
+        512,
+        512
+      ],
+      "boardBoxXYXYHalfOpen": [
+        528,
+        28,
+        1040,
+        540
+      ],
+      "scopeKind": "intersection",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-intersections-r2.png",
+      "boardSha256": "e956804b081eabadd630bc4bd234bbbd596ec23955fcbce17bfa704ec1584bac",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "visible_color_cross",
+      "observed": "Orange rounded planter has a rectangular light split at x2048/y2048; white bevel and block contour mostly align, rather than a missing block.",
+      "findingIds": [
+        "V3",
+        "H2"
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\intersection_r2_c3.png",
+      "sha256": "1ac7d389d5a4284efebd140f46119e4629c2c020dfe4e437cf4dbf9a75a7dc76",
+      "coreBoxXYXYHalfOpen": [
+        2816,
+        1792,
+        3328,
+        2304
+      ],
+      "pixels": [
+        512,
+        512
+      ],
+      "boardBoxXYXYHalfOpen": [
+        1056,
+        28,
+        1568,
+        540
+      ],
+      "scopeKind": "intersection",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-intersections-r2.png",
+      "boardSha256": "e956804b081eabadd630bc4bd234bbbd596ec23955fcbce17bfa704ec1584bac",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "visible_color_step_across_structure",
+      "observed": "Horizontal y2048 tone step traverses wall/pillar base; natural vertical pillar chamfer was separately inspected and not marked as a fabricated gap.",
+      "findingIds": [
+        "H2"
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\intersection_r3_c1.png",
+      "sha256": "4b084fe1854460e609375856abf61418e83d7503f5c8594fd4eff2c289429212",
+      "coreBoxXYXYHalfOpen": [
+        768,
+        2816,
+        1280,
+        3328
+      ],
+      "pixels": [
+        512,
+        512
+      ],
+      "boardBoxXYXYHalfOpen": [
+        0,
+        28,
+        512,
+        540
+      ],
+      "scopeKind": "intersection",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-intersections-r3.png",
+      "boardSha256": "7a436fa6b8fe7d0b40c975b31948b153c3c328fe3a4d6c2f0f0aad466879c5dc",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "minor_material_transition",
+      "observed": "Broader stone brush texture above y3072 changes to smoother stone below; diagonal dark line is connected.",
+      "findingIds": [
+        "H3"
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\intersection_r3_c2.png",
+      "sha256": "47540777c61d25af1fb8ece237ba6ebb0fe296509bd0594ad68b763efad7a63c",
+      "coreBoxXYXYHalfOpen": [
+        1792,
+        2816,
+        2304,
+        3328
+      ],
+      "pixels": [
+        512,
+        512
+      ],
+      "boardBoxXYXYHalfOpen": [
+        528,
+        28,
+        1040,
+        540
+      ],
+      "scopeKind": "intersection",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-intersections-r3.png",
+      "boardSha256": "7a436fa6b8fe7d0b40c975b31948b153c3c328fe3a4d6c2f0f0aad466879c5dc",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "minor_visible_color_cross",
+      "observed": "Faint x2048 vertical and y3072 horizontal stone tone/brush changes; diagonal cream/dark grooves remain substantially connected.",
+      "findingIds": [
+        "V4",
+        "H3"
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\intersection_r3_c3.png",
+      "sha256": "8e729406ea3747c18eafc320b34dfc85142946db4fb558ddb829c7a4c93654e3",
+      "coreBoxXYXYHalfOpen": [
+        2816,
+        2816,
+        3328,
+        3328
+      ],
+      "pixels": [
+        512,
+        512
+      ],
+      "boardBoxXYXYHalfOpen": [
+        1056,
+        28,
+        1568,
+        540
+      ],
+      "scopeKind": "intersection",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-intersections-r3.png",
+      "boardSha256": "7a436fa6b8fe7d0b40c975b31948b153c3c328fe3a4d6c2f0f0aad466879c5dc",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "guide_boundary_contour_step",
+      "observed": "Small white-bevel/dark-groove step occurs at x3187 near y3021, not at the primary x3072 cut. No separate large break observed at the center cross.",
+      "findingIds": [
+        "G1"
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\vertical_c2_r1.png",
+      "sha256": "a000e3ac16ac2fd32803096bdbe77be97edb16e8c77279946a136c5a48681a33",
+      "coreBoxXYXYHalfOpen": [
+        1075,
+        0,
+        1203,
+        1024
+      ],
+      "pixels": [
+        128,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        0,
+        28,
+        128,
+        1052
+      ],
+      "scopeKind": "reference_band_end",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-guide-c2.png",
+      "boardSha256": "5b43c0ed7bd6282c1527a4b9121014b9c677da23211fca66e52659789643f099",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "no_obvious_new_guide_boundary_defect",
+      "observed": "Curved stone border and lower diagonal groove cross the x1139 reference-band end without a confirmed new gap; mild brush-scale variation remains.",
+      "findingIds": []
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\vertical_c2_r2.png",
+      "sha256": "3c3c99c83b90db0b454455b3f7f9ce007d68561a61ab1a72734938407041a75b",
+      "coreBoxXYXYHalfOpen": [
+        1075,
+        1024,
+        1203,
+        2048
+      ],
+      "pixels": [
+        128,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        144,
+        28,
+        272,
+        1052
+      ],
+      "scopeKind": "reference_band_end",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-guide-c2.png",
+      "boardSha256": "5b43c0ed7bd6282c1527a4b9121014b9c677da23211fca66e52659789643f099",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "no_obvious_new_guide_boundary_defect",
+      "observed": "Ivory field, curved groove junction and lower shadow are continuous at x1139.",
+      "findingIds": []
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\vertical_c2_r3.png",
+      "sha256": "d0c5748608c969c3c6575cd4903c4bcc6fe0e7eb94f0d07a49c5bf1d4a22ef2c",
+      "coreBoxXYXYHalfOpen": [
+        1075,
+        2048,
+        1203,
+        3072
+      ],
+      "pixels": [
+        128,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        288,
+        28,
+        416,
+        1052
+      ],
+      "scopeKind": "reference_band_end",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-guide-c2.png",
+      "boardSha256": "5b43c0ed7bd6282c1527a4b9121014b9c677da23211fca66e52659789643f099",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "no_obvious_new_guide_boundary_defect",
+      "observed": "Broad tree shadow, its soft edge and adjacent white rim stay connected at x1139; no straight exposure stripe confirmed.",
+      "findingIds": []
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\vertical_c2_r4.png",
+      "sha256": "07317ece0b2c580188c196e7cc9f13e898cb8b76076b774dd29f36d67f981048",
+      "coreBoxXYXYHalfOpen": [
+        1075,
+        3072,
+        1203,
+        4096
+      ],
+      "pixels": [
+        128,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        432,
+        28,
+        560,
+        1052
+      ],
+      "scopeKind": "reference_band_end",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-guide-c2.png",
+      "boardSha256": "5b43c0ed7bd6282c1527a4b9121014b9c677da23211fca66e52659789643f099",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "no_obvious_new_guide_boundary_defect",
+      "observed": "All visible diagonal cream/dark grooves are connected through x1139; smooth paving tone has no confirmed hard step.",
+      "findingIds": []
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\vertical_c3_r1.png",
+      "sha256": "af87e53ddef7ff0ac723502c5e0b0e534f0abb4895768debc090939298eb817c",
+      "coreBoxXYXYHalfOpen": [
+        2099,
+        0,
+        2227,
+        1024
+      ],
+      "pixels": [
+        128,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        0,
+        28,
+        128,
+        1052
+      ],
+      "scopeKind": "reference_band_end",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-guide-c3.png",
+      "boardSha256": "1b9ddab27ce009c198350232b5ac477d60d70a52a2305adef770c867bdc54a5c",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "no_obvious_new_guide_boundary_defect",
+      "observed": "Upper ivory field and rounded canopy lobes remain connected through x2163; no confirmed artificial vertical edge.",
+      "findingIds": []
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\vertical_c3_r2.png",
+      "sha256": "a55829655f7e94b6860033ac9de01364c79a211f2d139b21bb01151517f5fae1",
+      "coreBoxXYXYHalfOpen": [
+        2099,
+        1024,
+        2227,
+        2048
+      ],
+      "pixels": [
+        128,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        144,
+        28,
+        272,
+        1052
+      ],
+      "scopeKind": "reference_band_end",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-guide-c3.png",
+      "boardSha256": "1b9ddab27ce009c198350232b5ac477d60d70a52a2305adef770c867bdc54a5c",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "no_obvious_new_guide_boundary_defect",
+      "observed": "Leaf lobes, trunk edge and orange planter retain their existing shapes at x2163. Normal leaf shading is not classified as a hard reference-band cut.",
+      "findingIds": []
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\vertical_c3_r3.png",
+      "sha256": "e9602fad715a4ab6e6736e91a9a391dfa78670e06d5ca8d343653ae4a52a3336",
+      "coreBoxXYXYHalfOpen": [
+        2099,
+        2048,
+        2227,
+        3072
+      ],
+      "pixels": [
+        128,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        288,
+        28,
+        416,
+        1052
+      ],
+      "scopeKind": "reference_band_end",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-guide-c3.png",
+      "boardSha256": "1b9ddab27ce009c198350232b5ac477d60d70a52a2305adef770c867bdc54a5c",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "no_obvious_new_guide_boundary_defect",
+      "observed": "Orange background, green bushes, white rail and base retain connected contours at x2163; no confirmed new vertical gap.",
+      "findingIds": []
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\vertical_c3_r4.png",
+      "sha256": "5fc1aba494c186ded8d7e7befe8414740939ae3980f44f1be57a5ab590d2f15d",
+      "coreBoxXYXYHalfOpen": [
+        2099,
+        3072,
+        2227,
+        4096
+      ],
+      "pixels": [
+        128,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        432,
+        28,
+        560,
+        1052
+      ],
+      "scopeKind": "reference_band_end",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-guide-c3.png",
+      "boardSha256": "1b9ddab27ce009c198350232b5ac477d60d70a52a2305adef770c867bdc54a5c",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "no_obvious_new_guide_boundary_defect",
+      "observed": "Plain paving and short upper diagonal groove are continuous at x2163.",
+      "findingIds": []
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\vertical_c4_r1.png",
+      "sha256": "9009999a9180ca538befe2c960807778575dd49202ebb12b163d144daeaa890c",
+      "coreBoxXYXYHalfOpen": [
+        3123,
+        0,
+        3251,
+        1024
+      ],
+      "pixels": [
+        128,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        0,
+        28,
+        128,
+        1052
+      ],
+      "scopeKind": "reference_band_end",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-guide-c4.png",
+      "boardSha256": "5b55ee5bb80dfa390ce648e572602ef9ac37553ec25d5a277ea554eea901a486",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "no_obvious_new_guide_boundary_defect",
+      "observed": "Ivory brush fields and oblique border remain continuous at x3187.",
+      "findingIds": []
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\vertical_c4_r2.png",
+      "sha256": "673b41b63501807ea4b0f64bf4c455319d97196b1f0d744b49846561c165ac32",
+      "coreBoxXYXYHalfOpen": [
+        3123,
+        1024,
+        3251,
+        2048
+      ],
+      "pixels": [
+        128,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        144,
+        28,
+        272,
+        1052
+      ],
+      "scopeKind": "reference_band_end",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-guide-c4.png",
+      "boardSha256": "5b55ee5bb80dfa390ce648e572602ef9ac37553ec25d5a277ea554eea901a486",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "no_obvious_new_guide_boundary_defect",
+      "observed": "Paving border and far-left pillar edge stay structurally connected at x3187; existing plane/chamfer contrast is not called a new gap.",
+      "findingIds": []
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\vertical_c4_r3.png",
+      "sha256": "51eedab7f6a4476894743584dea1948d1c8d0ad60929f12ee2df18c9622b715f",
+      "coreBoxXYXYHalfOpen": [
+        3123,
+        2048,
+        3251,
+        3072
+      ],
+      "pixels": [
+        128,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        288,
+        28,
+        416,
+        1052
+      ],
+      "scopeKind": "reference_band_end",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-guide-c4.png",
+      "boardSha256": "5b55ee5bb80dfa390ce648e572602ef9ac37553ec25d5a277ea554eea901a486",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "guide_boundary_contour_step",
+      "observed": "Bottom diagonal paving bevel/dark groove makes a small backward step exactly at x3187 near y3021.",
+      "findingIds": [
+        "G1"
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\guide-bands\\vertical_c4_r4.png",
+      "sha256": "5718455072cef520a36211ca2731814af1a0fa40c92a0c6a489bd5363696fe7d",
+      "coreBoxXYXYHalfOpen": [
+        3123,
+        3072,
+        3251,
+        4096
+      ],
+      "pixels": [
+        128,
+        1024
+      ],
+      "boardBoxXYXYHalfOpen": [
+        432,
+        28,
+        560,
+        1052
+      ],
+      "scopeKind": "reference_band_end",
+      "inspectionTool": "tools.view_image(detail=original) of lossless integer-paste board",
+      "boardFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-board-guide-c4.png",
+      "boardSha256": "5b55ee5bb80dfa390ce648e572602ef9ac37553ec25d5a277ea554eea901a486",
+      "actuallyViewedAtOriginalPixels": true,
+      "reviewedAtUtc": "2026-10-05T23:12:38.435860+00:00",
+      "reviewStatus": "no_obvious_new_guide_boundary_defect",
+      "observed": "Quiet ivory stone and the lower-right diagonal border stay connected at x3187.",
+      "findingIds": []
+    }
+  ],
+  "additionalOriginalPixelDetails": {
+    "source": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\candidate\\core4096.png",
+      "sha256": "1a2bb992de62dce69c9e77fb7ad0163aa7fa96f402156e8f8268ff8a09ccdd0f"
+    },
+    "details": [
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-detail-notch-x3187.png",
+        "sha256": "555b1f38726c39a40946ff9b14c1b6ff15c6661549e4b73b0085bbd9d9b5d464",
+        "coreBoxXYXYHalfOpen": [
+          3099,
+          2954,
+          3275,
+          3070
+        ],
+        "resampling": "none"
+      },
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-detail-leaf-step-x2048.png",
+        "sha256": "af674675d0de6b23d731fd9c4f58bed0242f0a3a601d647ecb03edc0d4b356fa",
+        "coreBoxXYXYHalfOpen": [
+          1984,
+          1036,
+          2112,
+          1470
+        ],
+        "resampling": "none"
+      },
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-detail-planter-cross.png",
+        "sha256": "18e31e8b2455414d3c7a1f3e89a94a8093df7ddc58e4a49b2a52445154193d89",
+        "coreBoxXYXYHalfOpen": [
+          1944,
+          1934,
+          2152,
+          2142
+        ],
+        "resampling": "none"
+      },
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-detail-pillar-x3072.png",
+        "sha256": "1df7ee4594b23ce879788dfa61e54835b7834130daa13abe1d686cd3ee24f486",
+        "coreBoxXYXYHalfOpen": [
+          3016,
+          1430,
+          3128,
+          1950
+        ],
+        "resampling": "none"
+      }
+    ]
+  },
+  "boardDerivationFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-review-boards.derivation.json",
+  "recommendation": "Prioritize the localized x3187 contour step and straight cross-surface lighting boundaries. Recheck every repaired ROI and any overlapping seam after correction; no image pixels were changed by this review.",
+  "limitations": [
+    "Only listed 33 requested ranges and 4 supplementary unscaled details were inspected, not every core pixel.",
+    "Horizontal defects are observations within the nine intersections; this report does not substitute for complete horizontal review.",
+    "Outer and neighbor edges are assigned to other reviewers.",
+    "No formal art acceptance, runtime validation or whole-tile completion is claimed."
+  ]
+}

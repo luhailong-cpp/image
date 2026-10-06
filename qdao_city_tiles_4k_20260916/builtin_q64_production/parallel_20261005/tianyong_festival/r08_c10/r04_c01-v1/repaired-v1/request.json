@@ -1,0 +1,46 @@
+{
+  "preparedAtUtc": "2026-10-05T19:33:56.593881+00:00",
+  "tile": "r08_c10",
+  "patch": "r04_c01",
+  "operation": "one localized AI redraw repair; no geometric warp",
+  "globalCropLTRB": [
+    36749,
+    31629,
+    38003,
+    32883
+  ],
+  "tileLocalCropLTRB": [
+    -115,
+    2957,
+    1139,
+    4211
+  ],
+  "payload": {
+    "prompt": "Use case: precise-object-edit / localized inpainting. Repair only the transparent holes of image 1. Return the same exact1254 by1254 opaque square at the same native scale and framing. This is a local seam/material repair of existing art, NOT a new whole composition.\nImage1 is the edit target. Most of its finished upper/central art, curved ivory bands and broad diagonal ivory cross-band remain visible and must be retained. The original authoritative native pixels have been restored on LEFT115 columns, RIGHT230 columns and BOTTOM115 rows, including the bottom-left115 square. The remaining opaque interior is the usable newly painted body; retain its already correct stone outlines and the broad ivory cross-band. Only the transparent central stone-face hole and lower connection hole need new paint.\nRepair1: The central middle stone face around x450..1024,y380..790 MUST be warm pale ivory/beige, exactly matching the original warm native surface entering from the RIGHT edge around x1024,y480..560. That warm reference is about RGB241,221,193 in its softly lit face. It is NOT slate gray. Continue that same single warm stone face across the hole, matching its top thin joint and its boundary above the broad ivory cross-band. Do not leave a cool-gray patch against the right edge, and do not merely tint an isolated strip. Draw one coherent quiet warm stone slab surface matching the visible original material.\nRepair2: In the lower hole, REDRAW the existing lower gray slab contour and the inner side of the right curved ivory band so they arrive at the exact real BOTTOM contour positions and tangents. At image row1143 the true right gray/ivory boundary is around x877, then around x858 at row1180 and x837 at row1220. Those original native pixels in the visible bottom strip are authoritative. The previous displaced contour has been removed. Join smoothly from the retained upper curved structure into these real endpoints; no sudden width change, bulge, double edge or bend at the hole boundary. Also reconnect the lower left slab contour to the exact visible original bottom edge. The lower gray face must match the quiet smooth original gray in the bottom strip (central face around RGB175,170,167), with only subtle low-contrast shading, not the pale dense clouded mottling of the previous attempt. No added new structure.\nImage2 is ONLY broad canonical geometry at these exact world coordinates. It guides existing curved paving arrangement and the broad diagonal cross-band, never pixels or texture. Preserve the already rendered broad diagonal ivory cross-band and its substantial width. The real opaque pixels of image1 always overrule the low-resolution guide. Do not enlarge/copy guide pixels into the finished art.\nImage3 is the approved primary STYLE reference only: clean, bright, rounded Daoist Q-version fantasy handpainting with controlled shallow bevels and restrained material texture. Do not import UI, text, frames, icons, characters or props.\nAll missing/opaque boundaries are invisible editing boundaries, not physical seams. Paint only their missing surfaces and reconnect all outlines to existing positions. No new buildings, motifs, borders, text, watermark, cracks or extra grout lines. No camera shift, zoom, resize, rotation, global recoloring or wholesale redraw. Preserve original lower-right relief and every real left/right/bottom landmark. Return one fully opaque1254 square with a coherent local repair and the highest finish available through the host.",
+    "referenced_image_paths": [
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r08_c10\\r04_c01-v1\\repaired-v1\\context.png",
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r08_c10\\r04_c01-v1\\repaired-v1\\layout-reference-only.png",
+      "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png"
+    ],
+    "transparent_background": false
+  },
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-04",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  },
+  "submittedModel": null,
+  "submittedQuality": null,
+  "submittedSize": null,
+  "repairPixels": 431429,
+  "retainedOriginalNativePixels": 537165,
+  "retainedCandidatePixels": 603922
+}

@@ -119,6 +119,8 @@ def collect_work(directories, selected):
                      "phase": phase, "lastSourceChangeUnix": max((p.stat().st_mtime for p in files), default=d.stat().st_mtime),
                      "fragmentsCountAsTiles": False})
         for p in sorted(d.rglob("*review*.json")):
+            if "preview" in p.name:
+                continue
             try:
                 data = load(p)
                 candidate = data.get("candidate", {})
@@ -202,14 +204,24 @@ def main():
     work, reviews = collect_work(directories, selected)
     active = max((w for w in work if not w["hasCompletePixelCandidate"]),
                  key=lambda w: w["lastSourceChangeUnix"], default=None)
+    if active and any(e["tile"] == active["tile"] for e in excluded):
+        active["phase"] = "candidate_validation_failed"
+    actions = {
+        "structure_preparation": "Prepare structure and neighbor inputs, then generate missing native patches.",
+        "native_expansion_in_progress": "Continue missing native patches, then assemble and inspect required scopes.",
+        "assembly_pending": "All 16 native patches are present; assemble the full tile and inspect required scopes.",
+        "candidate_validation_failed": "Resolve the excluded current candidate's file, dimensions or SHA evidence before counting it.",
+    }
     baseline_ids = {e["tile"] for e in h.get("baselineCandidates", [])}
     work_by_id = {w["tile"]: w for w in work}
+    excluded_ids = {e["tile"] for e in excluded}
     index = []
     for r in range(1, 17):
         for c in range(1, 17):
             name = f"r{r:02d}_c{c:02d}"
             e, w = selected.get(name), work_by_id.get(name)
             status = ("complete_pixel_candidate_pending_full_acceptance" if e else
+                      "current_candidate_validation_failed" if name in excluded_ids else
                       "native_fragments_in_progress" if w and w["nativePatchesSaved"] else
                       "prepared_no_complete_pixels" if w else "not_generated")
             index.append({"id": name, "globalRect": rect(name), "status": status,
@@ -227,7 +239,7 @@ def main():
              "phase": active["phase"] if active else "candidates_pending_full_acceptance",
              "workInProgress": work, "reviewReferences": reviews, "excludedCandidates": excluded,
              "wholeCityNavigationAlignment": "not verified", "nextTile": active["tile"] if active else None,
-             "nextAction": f"Continue {active['tile']} from missing native patches, then assemble and review required scopes." if active else
+             "nextAction": f"{active['tile']}: {actions[active['phase']]}" if active else
                            "Choose the next adjacent missing tile; scoped reviews do not constitute formal acceptance.",
              "currentPreview": str(ROOT / "current-preview.png"), "tileIndex": str(ROOT / "tile-index.json"),
              "candidates": entries, "builtinOnly": True, "paidApiUsed": False, "snapshotOnly": True,

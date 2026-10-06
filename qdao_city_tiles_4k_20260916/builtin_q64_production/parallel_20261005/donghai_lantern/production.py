@@ -57,6 +57,9 @@ def refresh_tile_index(state,selection):
  write(path,index)
 
 def status():
+ if (ROOT/'current-candidates.json').exists():
+  from publish_candidates import status as registry_status
+  return registry_status()
  natives=sorted((TILE/'native').glob('r??_c??.png'))
  day=sorted((DAY/'native').glob('r??_c??.png'))
  h=read(ROOT/'handoff.json');selection=selected_candidate();baseline=len(h['baselineCandidates']);new_count=int(selection is not None)

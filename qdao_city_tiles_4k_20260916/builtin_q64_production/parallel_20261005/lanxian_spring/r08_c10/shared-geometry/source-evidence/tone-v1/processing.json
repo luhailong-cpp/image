@@ -1,0 +1,458 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-05T23:22:45.188125+00:00",
+  "purpose": "Reduce confirmed local color discontinuities while retaining all source geometry and texture pixels.",
+  "inputs": {
+    "core": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\candidate\\core4096.png",
+      "sha256": "1a2bb992de62dce69c9e77fb7ad0163aa7fa96f402156e8f8268ff8a09ccdd0f"
+    },
+    "extended": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\candidate\\extended4326.png",
+      "sha256": "f4d2059a37599919d6e09aaa25c6e9ffc458bc70738c4ff13514400b324a9de9"
+    },
+    "review": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\vertical-and-guide-review.json",
+      "sha256": "e8ba578de8cbc6449e74188eb50fac0bbfc0aa872037fdb99e3438a384211b1a"
+    }
+  },
+  "operation": "One additive field computed exclusively from the original candidate. Correction profiles are robustly smoothed, gated by local color similarity and low native gradients, with cubic spatial tapers. Output=round(clip(source+clip(sum(fields),-12,12))). Original image is never blurred, resampled, warped, or filtered.",
+  "parameters": {
+    "normalHalfWidth": 32,
+    "tangentTaperPixels": 20,
+    "profileNeighborhoodRadius": 12,
+    "profileSpatialSigma": 5,
+    "compatibleSeamColorEuclideanMax": 42,
+    "materialSimilaritySigma": 28.0,
+    "maxSideGradientChannel": 15,
+    "maxCrossJumpChannelForEstimate": 40,
+    "gain": 0.85,
+    "profilePerChannelCap": 20.0,
+    "singlePassPerChannelCap": 9.0,
+    "cumulativePerChannelCap": 12.0
+  },
+  "exclusionsCoreXYXYHalfOpen": [
+    [
+      0,
+      0,
+      512,
+      4096
+    ],
+    [
+      220,
+      1110,
+      280,
+      1175
+    ],
+    [
+      620,
+      1110,
+      685,
+      1175
+    ],
+    [
+      3150,
+      2970,
+      3225,
+      3060
+    ]
+  ],
+  "excludedAreasPixelIdentical": true,
+  "deferredTextureOnlyFindings": [
+    "H3 brush-scale/material transition is not corrected by RGB; V1/V4 brush-scale mismatch also remains even where local mean color is adjusted."
+  ],
+  "passes": [
+    {
+      "id": "V1",
+      "axis": "x",
+      "coordinate": 1024,
+      "tangentIntervalHalfOpen": [
+        1040,
+        1300
+      ],
+      "supportCoreXYXYHalfOpen": [
+        992,
+        1040,
+        1056,
+        1300
+      ],
+      "field": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\V1-field.npz",
+        "sha256": "1821bd5b5fa9a7f504e1db7908d490b6b746e36a8567b076477240fcb9fd7328"
+      },
+      "mask": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\V1-mask.png",
+        "sha256": "90998742ecd536b9becbc392f5837a60e20632d87633129ee1a3039aa5e25a8e"
+      },
+      "maxSinglePassFieldAbsRGB": [
+        2.8019972224527057,
+        3.18192533893651,
+        2.780016197847596
+      ],
+      "sourceResidualAbsMean": 3.540384531021118,
+      "resultResidualAbsMean": 1.4333332777023315,
+      "residualAbsMeanReductionPercent": 59.51475707953877,
+      "metricScope": "Same source-selected low-gradient non-extreme seam samples only; not a score of all pixels or visual acceptance."
+    },
+    {
+      "id": "V2",
+      "axis": "x",
+      "coordinate": 2048,
+      "tangentIntervalHalfOpen": [
+        1036,
+        1470
+      ],
+      "supportCoreXYXYHalfOpen": [
+        2016,
+        1036,
+        2080,
+        1470
+      ],
+      "field": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\V2-field.npz",
+        "sha256": "0996bd8198ecd1e1dcdbf975246485dfde28f8b31ec8a76b6dbca6f70e370288"
+      },
+      "mask": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\V2-mask.png",
+        "sha256": "04bcb981add96295a68f393c11467b4c9c5fcb9827ce35ff8d1eacd6ad6351f3"
+      },
+      "maxSinglePassFieldAbsRGB": [
+        8.493643195079326,
+        5.9122665919333555,
+        6.811426751319854
+      ],
+      "sourceResidualAbsMean": 5.77257776260376,
+      "resultResidualAbsMean": 2.4125616550445557,
+      "residualAbsMeanReductionPercent": 58.20651095124696,
+      "metricScope": "Same source-selected low-gradient non-extreme seam samples only; not a score of all pixels or visual acceptance."
+    },
+    {
+      "id": "V3",
+      "axis": "x",
+      "coordinate": 2048,
+      "tangentIntervalHalfOpen": [
+        1934,
+        2240
+      ],
+      "supportCoreXYXYHalfOpen": [
+        2016,
+        1934,
+        2080,
+        2240
+      ],
+      "field": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\V3-field.npz",
+        "sha256": "a535ad065eaa0839bff7afb171a286196420a699906914fb0a14fc3fea5d5e98"
+      },
+      "mask": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\V3-mask.png",
+        "sha256": "ecfebaee525677374021b7600948ecf8d470e8e5288313c09c046e136d8ccd86"
+      },
+      "maxSinglePassFieldAbsRGB": [
+        6.887759242322146,
+        6.266777438151579,
+        6.196560309969297
+      ],
+      "sourceResidualAbsMean": 5.5591583251953125,
+      "resultResidualAbsMean": 2.2070534229278564,
+      "residualAbsMeanReductionPercent": 60.29878456735058,
+      "metricScope": "Same source-selected low-gradient non-extreme seam samples only; not a score of all pixels or visual acceptance."
+    },
+    {
+      "id": "V4",
+      "axis": "x",
+      "coordinate": 2048,
+      "tangentIntervalHalfOpen": [
+        3008,
+        3280
+      ],
+      "supportCoreXYXYHalfOpen": [
+        2016,
+        3008,
+        2080,
+        3280
+      ],
+      "field": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\V4-field.npz",
+        "sha256": "5a5bea94f5c1838980a520004ec8134c266c760ae5fc8ea320e7cc291f3663ac"
+      },
+      "mask": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\V4-mask.png",
+        "sha256": "0a60394e37edf32e202805eddbb554c132afe14b9ac8103a4ec7d531733f78d3"
+      },
+      "maxSinglePassFieldAbsRGB": [
+        3.892486168677864,
+        4.042336061915635,
+        4.912610968646714
+      ],
+      "sourceResidualAbsMean": 4.368951797485352,
+      "resultResidualAbsMean": 1.9596774578094482,
+      "residualAbsMeanReductionPercent": 55.145363266827886,
+      "metricScope": "Same source-selected low-gradient non-extreme seam samples only; not a score of all pixels or visual acceptance."
+    },
+    {
+      "id": "H1c1",
+      "axis": "y",
+      "coordinate": 1024,
+      "tangentIntervalHalfOpen": [
+        768,
+        1280
+      ],
+      "supportCoreXYXYHalfOpen": [
+        768,
+        992,
+        1280,
+        1056
+      ],
+      "field": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\H1c1-field.npz",
+        "sha256": "f91c13c276ee9b866b98c1cb793ee51670090025a1594b3c7c13f3a35129cf3a"
+      },
+      "mask": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\H1c1-mask.png",
+        "sha256": "229c23ac818f53241e523d712e2386592df0f6cf5345d47ce7606e1b7cb43eec"
+      },
+      "maxSinglePassFieldAbsRGB": [
+        3.5481232633333137,
+        4.046950728404508,
+        4.2091797054787214
+      ],
+      "sourceResidualAbsMean": 3.5328776836395264,
+      "resultResidualAbsMean": 1.4964193105697632,
+      "residualAbsMeanReductionPercent": 57.643047833227826,
+      "metricScope": "Same source-selected low-gradient non-extreme seam samples only; not a score of all pixels or visual acceptance."
+    },
+    {
+      "id": "H1c2",
+      "axis": "y",
+      "coordinate": 1024,
+      "tangentIntervalHalfOpen": [
+        1792,
+        2304
+      ],
+      "supportCoreXYXYHalfOpen": [
+        1792,
+        992,
+        2304,
+        1056
+      ],
+      "field": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\H1c2-field.npz",
+        "sha256": "dfcf4abeb341cca298d88787fa4c97d80dfbd56a9f2a5f8465888fc817f3564b"
+      },
+      "mask": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\H1c2-mask.png",
+        "sha256": "523cf464b46e400aa15ba004e4f0e7451e5d2fc555cab52cda2eacb47816cd39"
+      },
+      "maxSinglePassFieldAbsRGB": [
+        8.493643195079326,
+        8.493643195079326,
+        6.114934498240844
+      ],
+      "sourceResidualAbsMean": 7.4190673828125,
+      "resultResidualAbsMean": 2.4585049152374268,
+      "residualAbsMeanReductionPercent": 66.86234551619033,
+      "metricScope": "Same source-selected low-gradient non-extreme seam samples only; not a score of all pixels or visual acceptance."
+    },
+    {
+      "id": "H1c3",
+      "axis": "y",
+      "coordinate": 1024,
+      "tangentIntervalHalfOpen": [
+        2816,
+        3328
+      ],
+      "supportCoreXYXYHalfOpen": [
+        2816,
+        992,
+        3328,
+        1056
+      ],
+      "field": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\H1c3-field.npz",
+        "sha256": "3667d52324edfd9c5949e24e56690bcf4b0a02e58d08f0f57125d31a7b666aff"
+      },
+      "mask": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\H1c3-mask.png",
+        "sha256": "0133b26222a5b60248806b74dcd1a47d6520007ccfee637b2dc35e1136d960bc"
+      },
+      "maxSinglePassFieldAbsRGB": [
+        8.493643195079326,
+        7.870834132655106,
+        6.492261447836393
+      ],
+      "sourceResidualAbsMean": 2.7404427528381348,
+      "resultResidualAbsMean": 1.5164319276809692,
+      "residualAbsMeanReductionPercent": 44.66471061617765,
+      "metricScope": "Same source-selected low-gradient non-extreme seam samples only; not a score of all pixels or visual acceptance."
+    },
+    {
+      "id": "H2c1",
+      "axis": "y",
+      "coordinate": 2048,
+      "tangentIntervalHalfOpen": [
+        768,
+        1280
+      ],
+      "supportCoreXYXYHalfOpen": [
+        768,
+        2016,
+        1280,
+        2080
+      ],
+      "field": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\H2c1-field.npz",
+        "sha256": "5712bbd800f814cc07096b4372946f090a70a8ff239e084825f452931be0521a"
+      },
+      "mask": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\H2c1-mask.png",
+        "sha256": "edbc3a2353fa61c07ef1e47827ed639a336d6e688fe0dd0a8bfc855166f184c5"
+      },
+      "maxSinglePassFieldAbsRGB": [
+        8.493643195079326,
+        8.493643195079326,
+        4.7766520558578955
+      ],
+      "sourceResidualAbsMean": 8.2265625,
+      "resultResidualAbsMean": 2.1344401836395264,
+      "residualAbsMeanReductionPercent": 74.05428836601526,
+      "metricScope": "Same source-selected low-gradient non-extreme seam samples only; not a score of all pixels or visual acceptance."
+    },
+    {
+      "id": "H2c2",
+      "axis": "y",
+      "coordinate": 2048,
+      "tangentIntervalHalfOpen": [
+        1792,
+        2304
+      ],
+      "supportCoreXYXYHalfOpen": [
+        1792,
+        2016,
+        2304,
+        2080
+      ],
+      "field": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\H2c2-field.npz",
+        "sha256": "f159461f49d1d5661382e53272e37618804dd70683800be942efac2b436ad7c9"
+      },
+      "mask": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\H2c2-mask.png",
+        "sha256": "a1de6dc6e6d3a5d90159c4a82eedb78ae9e727f57e376213cd9b6dd89cdda215"
+      },
+      "maxSinglePassFieldAbsRGB": [
+        8.493643195079326,
+        7.217473661426109,
+        5.963113428787403
+      ],
+      "sourceResidualAbsMean": 5.816704273223877,
+      "resultResidualAbsMean": 2.543839693069458,
+      "residualAbsMeanReductionPercent": 56.26664905796305,
+      "metricScope": "Same source-selected low-gradient non-extreme seam samples only; not a score of all pixels or visual acceptance."
+    },
+    {
+      "id": "H2c3",
+      "axis": "y",
+      "coordinate": 2048,
+      "tangentIntervalHalfOpen": [
+        2816,
+        3328
+      ],
+      "supportCoreXYXYHalfOpen": [
+        2816,
+        2016,
+        3328,
+        2080
+      ],
+      "field": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\H2c3-field.npz",
+        "sha256": "fa24cf9710bef49e9dc10e005e1969c41aa57ce4faa8ba8c7faf00d5e42d4dc2"
+      },
+      "mask": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\H2c3-mask.png",
+        "sha256": "72be7707282f31262a690685da3f07101e738535c18a23307d77d66e8a4ad1b9"
+      },
+      "maxSinglePassFieldAbsRGB": [
+        8.493643195079326,
+        8.493643195079326,
+        8.493643195079326
+      ],
+      "sourceResidualAbsMean": 7.214439868927002,
+      "resultResidualAbsMean": 3.598060369491577,
+      "residualAbsMeanReductionPercent": 50.12696155402687,
+      "metricScope": "Same source-selected low-gradient non-extreme seam samples only; not a score of all pixels or visual acceptance."
+    }
+  ],
+  "cumulativeField": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\cumulative-correction-field.npz",
+    "sha256": "df9a49f31567eed1230238d515b4fbd12128cfd913f0a6a5ab4dcc85a1fb7a19"
+  },
+  "cumulativeMask": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\cumulative-mask.png",
+    "sha256": "eb5407817056e76791e5d7411ac0b81b8d522237519790a8b4fb4ef13eac4f19"
+  },
+  "outputs": {
+    "core": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\core4096.png",
+      "sha256": "b55ec7b928233922512e207957c167eeafa102fa518bdf0773be0b7ef1e523fd"
+    },
+    "extended": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\extended4326.png",
+      "sha256": "0789fae5270fae4cfb638eae08e88f1f3efc35cdb76c1fe2911ceb0480a0f4f6"
+    }
+  },
+  "maxCumulativeFloatFieldAbsRGB": [
+    8.493642807006836,
+    8.493642807006836,
+    8.493642807006836
+  ],
+  "maxActualChangeFromCandidateRGB": [
+    8,
+    8,
+    8
+  ],
+  "changedPixelCount": 155386,
+  "changedBoundsCoreXYXYHalfOpen": [
+    774,
+    997,
+    3325,
+    3262
+  ],
+  "checks": {
+    "outsideAllLocalSupportsUnchanged": true,
+    "coreLeft512Identical": true,
+    "allTinyGeometryExclusionsUnchanged": true,
+    "noSpatialResampling": true,
+    "sourceHaloUnchanged": true,
+    "fieldExactlyReconstructsSavedCore": true,
+    "allActualChangedPixelsInsideRecordedSupports": true,
+    "enlargedGeometryExclusionsHaveZeroFloatField": true
+  },
+  "derivationScript": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\derive_tone.py",
+    "sha256": "b7ae46be7af0bdf98ad280e9afca7288280079eee7786c0abe51d08da14227d7"
+  },
+  "formalAccepted": false,
+  "visualReviewPending": false,
+  "visualReviewFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v1\\review.json",
+  "additionalGeometryExclusionsVerifiedPixelIdentical": [
+    [
+      200,
+      1090,
+      290,
+      1210
+    ],
+    [
+      600,
+      1090,
+      710,
+      1210
+    ],
+    [
+      3120,
+      2960,
+      3260,
+      3080
+    ]
+  ]
+}

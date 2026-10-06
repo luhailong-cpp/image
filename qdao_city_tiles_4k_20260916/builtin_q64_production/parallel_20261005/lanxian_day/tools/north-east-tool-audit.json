@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-06T00:52:56.224Z",
+  "reviewer": "row02_relay",
+  "scope": "Independent static source/geometry audit of the two new north/east frontier tools only.",
+  "result": "Static coordinate and pixel-support logic consistent; scoped path and overwrite defects corrected. Actual guide execution and visual acceptance remain pending.",
+  "files": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\tools\\prepare_north_east_frontier.py",
+      "sha256": "79259aa91561b74af10f82d360338ddf57db3d084fa42750c258a0607a054a15",
+      "astParse": "pass",
+      "executed": false
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\tools\\prepare_native_east.py",
+      "sha256": "d627d12968e62812447f4627419c57e6886059ab1c97aaf338d3e8229c0edd75",
+      "astParse": "pass",
+      "executed": false
+    }
+  ],
+  "reviewedDependencies": [
+    "workflow.safe_output/atomic_write/save_image",
+    "prepare_frontier.source_image",
+    "prepare_native_frontier.load_native/native_weights"
+  ],
+  "geometryReview": {
+    "regional": {
+      "targetCoreOriginXY": [
+        32768,
+        32768
+      ],
+      "targetExtendedOriginXY": [
+        32653,
+        32653
+      ],
+      "eastNeighbor": "r09_c10",
+      "northNeighbor": "r08_c09",
+      "eastSourceBox": [
+        0,
+        0,
+        230,
+        4326
+      ],
+      "eastTargetBox": [
+        4096,
+        0,
+        4326,
+        4326
+      ],
+      "northSourceBox": [
+        0,
+        4096,
+        4326,
+        4326
+      ],
+      "northTargetBox": [
+        0,
+        0,
+        4326,
+        230
+      ],
+      "overlapWorldLTRB": [
+        36749,
+        32653,
+        36979,
+        32883
+      ],
+      "reason": "Both neighbor slices map to identical whole-city coordinates of the target extended overlap. North is pasted last and wins shared top-right230 square. East exact region excludes its top230 rows. Exact declarations explicitly apply before1254 guide downsample."
+    },
+    "native": {
+      "cellCoreBox": [
+        115,
+        115,
+        1139,
+        1139
+      ],
+      "traversal": "right_to_left_top_to_bottom",
+      "eastBandTargetBox": [
+        1024,
+        0,
+        1254,
+        1254
+      ],
+      "eastStrictTargetBox": [
+        1139,
+        115,
+        1254,
+        1254
+      ],
+      "northStrictTargetBox": [
+        0,
+        0,
+        1254,
+        115
+      ],
+      "northAlphaOverrideTargetBox": [
+        1139,
+        115,
+        1254,
+        230
+      ],
+      "reason": "Right-neighbor source first230 columns align with target final230. Reversed smoothstep gives zero native weight at x1024 through full weight at1138, then exact last115. North first115 rows take corner priority. The following north115 rows do not overwrite the east strict115. Shared-corner comparison uses east source local x115..229 and north source x1139..1253; these have identical map coordinates."
+    },
+    "pixelRestriction": "Native context is cropped at integer coordinates without resampling; only regional guides are enlarged/downsampled. New native pixels must come from built-in generation. All guide outputs remain guideOnly; no formal acceptance implied."
+  },
+  "fixedFindings": [
+    {
+      "id": "NE01",
+      "files": [
+        "prepare_north_east_frontier.py"
+      ],
+      "issue": "Existing east/north preview files were omitted from initial overwrite guard and could be replaced on a partial rerun.",
+      "fix": "Protect every written output plus an existing regional.png; repeat pre-write guard after input work."
+    },
+    {
+      "id": "NE02",
+      "files": [
+        "prepare_north_east_frontier.py",
+        "prepare_native_east.py"
+      ],
+      "issue": "Tile-level safe_output alone did not prevent child junctions targeting a different tile within the same root; raw mkdir and native prompt write lacked per-path requested-tile checks.",
+      "fix": "Validate exact tile parent/name and resolve every output and created directory through destination(), requiring it to stay within that requested tile. Prompt and job/image destinations are rechecked at writes."
+    },
+    {
+      "id": "NE03",
+      "files": [
+        "prepare_native_east.py"
+      ],
+      "issue": "Tile regex admitted out-of-grid indices and did not verify context file belonged to requested tile geometry.",
+      "fix": "Enforce north/east-compatible16x16 tile bounds and require context tile/pixelRectXYWH to match requested coordinates."
+    },
+    {
+      "id": "NE04",
+      "files": [
+        "prepare_north_east_frontier.py"
+      ],
+      "issue": "Tile dimension and layout dimension assertions were weaker than the established south tool; exact-region timing around downsample was implicit.",
+      "fix": "Check4096-square target tile, layout dimensions against handoff and explicitly record pre-preview pixel identity."
+    }
+  ],
+  "verification": {
+    "astParseBothFiles": "pass",
+    "executedNewTools": false,
+    "calledImageGeneration": false,
+    "generatedAnyGuide": false,
+    "changedExistingPrepareNativeFrontier": false,
+    "changedMapArt": false,
+    "mirrorTestsAdded": false
+  },
+  "pendingActualAcceptance": [
+    "Wait until r09_c10 complete candidate and north/east source pair are selected; do not run these tools before available source identity is confirmed.",
+    "On first regional preparation, inspect actual target guide and both neighbor previews, especially the north/east230-square conflict corner and locked layout footprints.",
+    "On first native cell, inspect exact declared strips and soft halo transition in actual guide; confirm the record hashes match submitted files.",
+    "Review generated native output and assembled tile seams at original pixel scale; static correctness does not certify model adherence or visual continuity."
+  ],
+  "formalAccepted": false
+}

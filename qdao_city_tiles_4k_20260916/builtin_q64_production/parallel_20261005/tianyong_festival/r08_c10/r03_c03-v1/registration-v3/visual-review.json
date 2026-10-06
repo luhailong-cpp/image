@@ -1,0 +1,70 @@
+{
+  "reviewedAtUtc": "2026-10-05T19:40:24.062745+00:00",
+  "reviewer": "Codex audit_layout",
+  "output": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r08_c10\\r03_c03-v1\\registration-v3\\joined.png",
+    "sha256": "468fd53d9cd9fcb21199d61f4db178e628669a3655c60bb195b75eba87ec9fac"
+  },
+  "viewed": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r08_c10\\r03_c03-v1\\registration-v3\\qa\\left-cross-band-return-650x350.png",
+      "sha256": "7e459f6241cd1225b1bc8f4c18062f3bdb168ca568c1529a214cd4ea4c7dbc7a"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r08_c10\\r03_c03-v1\\registration-v3\\qa\\upper-left-corner-400x300.png",
+      "sha256": "a6222aa79d388da1328372166236be6256089edd059f8ffbb0cb3179dcf5b189"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r08_c10\\r03_c03-v1\\registration-v3\\qa\\upper-right-corner-354x350.png",
+      "sha256": "71b16221bb62316e939370730ae8c8e1e6be9d33a07b5a237f7b8814628d6eb4"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r08_c10\\r03_c03-v1\\registration-v3\\qa\\lower-return-1254x454.png",
+      "sha256": "e58dc25d921c2a43343ae310fb7e0564a9adc8f415e05745e04cee2360ef92b9"
+    }
+  ],
+  "localAccepted": false,
+  "integrationReady": false,
+  "formalAccepted": false,
+  "passedScope": [
+    "Seven lower longitudinal contour continuations, no former sharp y1024 kink.",
+    "Right cloud and newest upper-right v005/r02_c04 corner show no visible structural step.",
+    "All known v005 pixels kept exactly."
+  ],
+  "failedScope": [
+    {
+      "patchLTRB": [
+        200,
+        650,
+        285,
+        715
+      ],
+      "issue": "At new/known x230 return, main cross-band rise is registered but upstream existing bevel/dark edge still steps. Main y684 rise does not prove the full bevel matched.",
+      "measuredAtX": 224,
+      "nativeNegativePeakY": 688,
+      "registeredNegativePeakY": 678,
+      "targetNegativePeakY": 669,
+      "nativePositivePeakY": 694,
+      "registeredPositivePeakY": 684,
+      "targetPositivePeakY": 684,
+      "requiredForEarlierNegativeEdge": "19px output upward movement, exceeds authorized10px vertical limit. The interval to the main positive edge is also different; no single rigid shift solves both."
+    },
+    {
+      "patchLTRB": [
+        0,
+        365,
+        230,
+        435
+      ],
+      "issue": "At the top of new left ownership y397, independent gray stone texture and small tonal changes still reveal the rectangular source return. Not marked passed."
+    }
+  ],
+  "boundedParameters": {
+    "horizontalMax": 19.733112335205078,
+    "verticalMax": 10,
+    "toneMaxRGB": 12,
+    "opticalFlowUsed": false
+  },
+  "notApplied": "No move above10px, no blur, no new structure, no current/root update.",
+  "next": "Needs explicit larger bound for the matching existing bevel interval or a local native repair; inspect complete left return afterwards."
+}

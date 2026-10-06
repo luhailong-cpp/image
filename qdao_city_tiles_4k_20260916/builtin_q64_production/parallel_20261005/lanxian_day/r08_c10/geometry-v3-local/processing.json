@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-06T00:23:44.029729+00:00",
+  "source": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\tone-v2-local\\core4096.png",
+    "sha256": "129b7fc447218e4bcc29359dedf87eee1c8124f10bbaa5487a61756b0f30a200",
+    "role": "Current tone-v2-local includes all previous geometry and RGB corrections"
+  },
+  "output": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v3-local\\core4096.png",
+    "sha256": "5114535256dd9f7a713464e7284f089c3805f75d253f5ac7175d4f66f389c483",
+    "pixels": [
+      4096,
+      4096
+    ]
+  },
+  "operation": "One NEW local displacement field on the gray bevel OUTER transition only; no previous field is reapplied",
+  "supportRectangleLTRB": [
+    2760,
+    1992,
+    2910,
+    2104
+  ],
+  "actualFlowBoundsLTRB": [
+    2771,
+    1993,
+    2890,
+    2103
+  ],
+  "actualFlowPixels": 3540,
+  "changedPixels": 1527,
+  "maxAllowedFlowPixels": 4,
+  "maxAppliedDxPixels": 2.667121648788452,
+  "appliedDyPixels": 0,
+  "minMappingJacobian": 0.6352227926254272,
+  "fitSlopesIntercepts": [
+    [
+      -0.7945630825091088,
+      2828.5673812728
+    ],
+    [
+      -0.7913870075428764,
+      2829.535685241786
+    ],
+    [
+      -0.7918934061942342,
+      2830.8038398111
+    ]
+  ],
+  "referenceContours": "Three levels across existing gray-bevel-to-beige-wall transition, not darkest-row alone",
+  "levels": [
+    180,
+    190,
+    205
+  ],
+  "fitRows": "10..34px above/below y2048; central discontinuity excluded",
+  "darkGrooveProtection": "All local output pixels x <= measured existing dark center +9 have exactly zero added flow and are byte-identical to current input",
+  "allDarkCentersUnchanged": true,
+  "protectedPixelsByteIdentical": true,
+  "outsideSupportUnchanged": true,
+  "priorFlowReapplied": false,
+  "resampling": {
+    "additionalPasses": 1,
+    "method": "cv2.INTER_LINEAR only within new local nonzero field",
+    "subpixel": true,
+    "RGBBlur": false,
+    "RGBColorChange": false,
+    "sharpening": false,
+    "fieldSmoothingOnly": {
+      "kernel": [
+        1,
+        3
+      ],
+      "sigmaY": 0.4
+    }
+  },
+  "masks": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v3-local\\support-mask.png",
+      "sha256": "67a46c92133c03dd74631f3a8f3048920aa6ac3332692291402701e4cfff796c",
+      "pixels": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v3-local\\taper-weight.png",
+      "sha256": "02de22a8f8daf592dce42079f005f6cdafe3e10176043cd8a5f425b057f48297",
+      "pixels": [
+        4096,
+        4096
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v3-local\\changed-pixels.png",
+      "sha256": "cd61213604a40c95192874ccaf0b2e56e5416360c2207c9a34784050ad7191a0",
+      "pixels": [
+        4096,
+        4096
+      ]
+    }
+  ],
+  "flow": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v3-local\\outer-bevel-flow.npz",
+    "sha256": "f8e3975c26bd8da6fe39d22122d25f23068edb99e99fcbb297818e45e002e5c1",
+    "convention": "Output(x,y) samples CURRENT input(x+dx,y), not the old raw candidate"
+  },
+  "diagnostics": {
+    "centralBeforeMaxAbsoluteContourResidual": [
+      2.740311034892329,
+      2.7643147582143683,
+      2.727410188900194
+    ],
+    "centralAfterMaxAbsoluteContourResidual": [
+      0.2619443553094243,
+      0.23616315841945834,
+      0.19616018890019404
+    ],
+    "threshold190SourceY2047": 2828.0,
+    "threshold190SourceY2048": 2832.3,
+    "interpretation": "Contour diagnostic supports, but does not replace, actual native full-plane review"
+  },
+  "qaBoards": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v3-local\\qa\\root-focus-before-after.png",
+      "sha256": "6cb8208b8b7f41fb4dfef2ee3c5edd942afeb3de6c99755d1105341b805ec62d",
+      "pixels": [
+        180,
+        360
+      ],
+      "coreBoxLTRB": [
+        2720,
+        1970,
+        2900,
+        2130
+      ],
+      "resampling": "none; integer crop and paste",
+      "layout": "before upper; after lower; separate20px labels"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v3-local\\qa\\wall-full-support-before-after.png",
+      "sha256": "aba0915aaded161ac21a689033fe8beaafa429370bd00ff18e0afc2c31568dd4",
+      "pixels": [
+        504,
+        552
+      ],
+      "coreBoxLTRB": [
+        2488,
+        1920,
+        2992,
+        2176
+      ],
+      "resampling": "none; integer crop and paste",
+      "layout": "before upper; after lower; separate20px labels"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v3-local\\qa\\outer-bevel-detail-before-after.png",
+      "sha256": "76d8bdcbe87b83cf4d314c7f7af0ed42bfc68fbb44d891a801c85d7658544af5",
+      "pixels": [
+        76,
+        168
+      ],
+      "coreBoxLTRB": [
+        2784,
+        2016,
+        2860,
+        2080
+      ],
+      "resampling": "none; integer crop and paste",
+      "layout": "before upper; after lower; separate20px labels"
+    }
+  ],
+  "visualInspectionPerformed": false,
+  "formalAccepted": false,
+  "sourceUnchangedVerified": true,
+  "script": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\geometry-v3-local\\repair_outer_bevel.py",
+    "sha256": "391817009a8a52150e3c83e75804c46e1204e52b67c2a095cfbfeb9af9049dd5"
+  }
+}

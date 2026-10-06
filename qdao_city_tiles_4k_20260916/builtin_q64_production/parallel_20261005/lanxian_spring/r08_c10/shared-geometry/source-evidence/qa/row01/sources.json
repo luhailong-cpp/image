@@ -1,0 +1,93 @@
+{
+  "nativeSources": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\native\\r01_c01.png",
+      "sha256": "b9519134bd830f09d721c2ddfa1180bec650497161f0ecddd035c0ac2fbcf51a"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\native\\r01_c02.png",
+      "sha256": "3c045c91ec553a4065c8e9168b86317e9b1fc48bbaad57334217d54c4924e616"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\native\\r01_c03.png",
+      "sha256": "83b97f0869ec8c70199eb1a6ef918b7a1ae7ebcade53aba28e1b62fae0de7aed"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\native\\r01_c04.png",
+      "sha256": "4b8724d28c5e6d19e8fb052f7c54edc1a355fa3ad00b533bb4ba2f3c4c86321b"
+    }
+  ],
+  "checks": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\row01\\vertical_1.png",
+      "sha256": "407e75ed7e3e56cca925ffefcfa6e94b259b1d9e3b8ef0ad3fac8fe7fc6855b6",
+      "coreBox": [
+        896,
+        0,
+        1152,
+        1024
+      ],
+      "operation": "integer crop/paste no resize"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\row01\\vertical_2.png",
+      "sha256": "ecfb8a4e3a40ffbc181b8638efcb4590c1894c24b057d525619f076b61f31ee8",
+      "coreBox": [
+        1920,
+        0,
+        2176,
+        1024
+      ],
+      "operation": "integer crop/paste no resize"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\row01\\vertical_3.png",
+      "sha256": "1bb0da63b4b5d2c64f9a29dbe516b79ddd72d3096d214adeb88574af485a3a57",
+      "coreBox": [
+        2944,
+        0,
+        3200,
+        1024
+      ],
+      "operation": "integer crop/paste no resize"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c10\\qa\\row01\\external_west.png",
+      "sha256": "e32998c453e44ee9b289de8361c0ea8a0357efd19ae23f76289a8e4a5f70a530",
+      "operation": "integer crop/paste no resize; seamX256"
+    }
+  ],
+  "reviewStatus": "actually_reviewed_repairs_pending",
+  "reviewedAtUtc": "2026-10-05T22:25:50.028081+00:00",
+  "reviewer": "root",
+  "inspectionTool": "view_image",
+  "detail": "original",
+  "inspectedImages": 4,
+  "observations": {
+    "vertical_1": "All1024 rows viewed; groove crossings near core y140 and820 continuous. No missing structure. Subtle surface style variation.",
+    "vertical_2": "All1024 rows viewed; leaf forms continuous across x2048. Slight brightness/profile differences across leaf pixels, no obvious missing foliage.",
+    "vertical_3": "All1024 rows viewed; ivory surface and lower curved groove continuous. No new gray wall from rejected c03.",
+    "external_west": "All1024 rows viewed. Actual external boundary at crop x256 mostly continuous. A separate discontinuity INSIDE c10 occurs at crop x371 (core x115/native x230), most visible through diagonal cream paving band at core y260..460: tonal material boundary and groove step. This matches the mixed-guide native band boundary; must repair, not mark whole row seam-approved."
+  },
+  "defects": [
+    {
+      "id": "C10-GUIDE-BAND-R01",
+      "coreBox": [
+        90,
+        0,
+        145,
+        1024
+      ],
+      "classification": "internal_native_guide_band_artifact",
+      "criticalCrossingCoreBox": [
+        80,
+        250,
+        160,
+        460
+      ],
+      "description": "Hard tonal change and few-pixel groove step where native west band met regional guide; not the tile external boundary. Existing structural groove present on both sides.",
+      "repairRequired": true
+    }
+  ],
+  "formalAccepted": false
+}
