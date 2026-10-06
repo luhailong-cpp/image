@@ -1,0 +1,1397 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-05T20:37:18.589688+00:00",
+  "tile": "r08_c09",
+  "status": "qualified_complete_4k_candidate_pending_adjacent_edges_and_formal_acceptance",
+  "qualifiedComplete4KCandidate": true,
+  "formalAccepted": false,
+  "clientValidated": false,
+  "wholeCityComplete": false,
+  "geometry": {
+    "grid": [
+      4,
+      4
+    ],
+    "native": [
+      1254,
+      1254
+    ],
+    "coreStep": 1024,
+    "halo": 115,
+    "overlap": 230,
+    "tilePixels": [
+      4096,
+      4096
+    ],
+    "extendedPixels": [
+      4326,
+      4326
+    ],
+    "coreInExtended": [
+      115,
+      115,
+      4211,
+      4211
+    ]
+  },
+  "pixelRectXYWH": [
+    32768,
+    28672,
+    4096,
+    4096
+  ],
+  "inputs": {
+    "commonToneV2": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v2\\extended4326.png",
+      "sha256": "2442528dfc63149279a441a6597796340c81a8a357a765f5fc2a59d411a5b407"
+    },
+    "toneV3": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\extended4326.png",
+      "sha256": "5c3cf07f4b2a4ba3aac7d489cf1062e81af7dcc89904b511ff59064bd5819c63"
+    },
+    "registrationWestV3": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\extended4326.png",
+      "sha256": "356a6bd4981093f8c1669115a3d869a611b43a48d84dd4a2ce5d22f063119ebb"
+    }
+  },
+  "operation": "Integer array copy: extended[:,0:435] from registration-west/v3; extended[:,435:4326] from tone-v3. Center core crop [115,115,4211,4211]. No new blend, filter, warp, resize or resampling in merge.",
+  "differenceProof": {
+    "bothRecordsNameSameToneV2Hash": true,
+    "toneV3ChangedPixelCount": 133504,
+    "toneV3ActualChangedExtendedXYXY": [
+      1143,
+      3019,
+      1712,
+      3355
+    ],
+    "registrationV3ChangedPixelCount": 1525339,
+    "registrationV3ActualChangedExtendedXYXY": [
+      0,
+      0,
+      431,
+      4326
+    ],
+    "intersectionChangedPixelCount": 0,
+    "supportsDisjoint": true,
+    "allLeft435ExactlyRegistrationV3": true,
+    "allRemainingExactlyToneV3": true,
+    "extendedEast230ExactlyRegistrationV3": true,
+    "coreEast230ExactlyRegistrationV3": true,
+    "coreExactlyIntegerCenterCrop": true,
+    "savedPngDecodesExactlyToComputedArray": true,
+    "east230RawRGBSha256": "54fed45db39ec84aafbbf36e6f84e53c84ee4f61dc82bb68717ce7ccea8f8833",
+    "coreEast230RawRGBSha256": "4d6db43c0125811d77401df9109724aaa532f4f3a77edf3bf8a1dc083acee1fa"
+  },
+  "outputs": {
+    "extended": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\selected\\extended4326.png",
+      "sha256": "2a4b8d427435f5595d179c63530b2e9bfa62656436b28f082bdbdedefbde860e",
+      "pixels": [
+        4326,
+        4326
+      ],
+      "productionPixels": true
+    },
+    "core": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\selected\\core4096.png",
+      "sha256": "f234b170956464dd3233207d38d6520d5388942b771a5b25c32683c4cecfdbeb",
+      "pixels": [
+        4096,
+        4096
+      ],
+      "productionPixels": true
+    },
+    "preview": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\selected\\preview1024.png",
+      "sha256": "cd4ef4379b7875af5d42c0f36750bd2c74d405e521b4ac617bcde2c77d9a27fa",
+      "pixels": [
+        1024,
+        1024
+      ],
+      "productionPixels": false
+    }
+  },
+  "sourceChain": {
+    "assembly": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\candidate\\assembly.manifest.json",
+      "sha256": "afbb4d0d885ca14d63b663fc71c3533a66bc28ee03541362517ffdec67b82f5b"
+    },
+    "rawExtended": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\candidate\\extended4326.png",
+      "sha256": "bfc3ccdd8bc4fafa4d2123af125adcbb7d0587485497e1dacde86586b7d4d18a"
+    },
+    "rawCore": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\candidate\\core4096.png",
+      "sha256": "bd9dea258c2cfd6a8c1843b1b6d0bf54b9aa595917a87f6b9755e8aca698317e"
+    },
+    "toneV2Processing": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v2\\processing.json",
+      "sha256": "7a803c4a25b8795c954acb0644ae7f06f69c0214fc8bb64086d8f5dc473e5b47"
+    },
+    "toneV3Processing": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\processing.json",
+      "sha256": "c2c53651e2ede3d236b5c7929b175fef5ffdfde89283d53b8ecc6bff00349358"
+    },
+    "registrationWestV3Processing": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\registration.manifest.json",
+      "sha256": "4fa8873c9dd99a03f0dcb41e4d8b8ff15c18dab4761b239862341555948db9df"
+    },
+    "westNeighbor": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\lanxian_day\\triple_r08_c06_c08\\output_v2\\r08_c08.png",
+      "sha256": "7e1f9c16f740cf19a9566d6a1efdedf36d1809c0841a2588a49b61f029bb1fa2",
+      "pixels": [
+        4096,
+        4096
+      ]
+    },
+    "nativeSources": [
+      {
+        "cell": "r01_c01",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r01_c01.png",
+        "sha256": "52dd3413b2fa93e930b1c7d8126ea86a2a46eab38aa93b7aebc9b5b151e9917c",
+        "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r01_c01.png.generation.json",
+        "generationRecordSha256": "66c4286943888cf7e26d964530792ec3b80c85597ad4255021e9630a7fe8a38d",
+        "nativePixels": [
+          1254,
+          1254
+        ],
+        "identityAndEvidence": {
+          "generatedAt": "2026-09-21T09:17:50.038895+00:00",
+          "tool": "image_gen.imagegen",
+          "route": "builtin",
+          "actualModel": null,
+          "actualQuality": null,
+          "unverifiedReason": "Historical actual backend not disclosed; original record preserved unchanged.",
+          "derivedFrom": [
+            {
+              "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\lanxian_day\\r08_c09\\native\\r01_c01.png",
+              "sha256": "52dd3413b2fa93e930b1c7d8126ea86a2a46eab38aa93b7aebc9b5b151e9917c",
+              "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\lanxian_day\\r08_c09\\native\\r01_c01.record.json",
+              "generationRecordSha256": "3a920ff5f1ac3d955f4668dba9a22ed539ee5d236512d25c507e198bfa7f9ac0"
+            }
+          ],
+          "role": "reused_historical_native_fragment",
+          "submittedModel": null,
+          "submittedQuality": null
+        },
+        "nativeAndGenerationRecordHashesVerified": true,
+        "reuse": true
+      },
+      {
+        "cell": "r01_c02",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r01_c02.png",
+        "sha256": "6086d65916a29419c8fa1a607433e8a7ca64a81b4c1d790ce4b55c6523aeb874",
+        "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r01_c02.png.generation.json",
+        "generationRecordSha256": "080dc6bd7554056ea51c98a1055a5152802b274e3be691a3d91dbfd6978c5e52",
+        "nativePixels": [
+          1254,
+          1254
+        ],
+        "identityAndEvidence": {
+          "generatedAt": "2026-10-05T13:34:08.180261+00:00",
+          "tool": "image_gen.imagegen",
+          "route": "builtin",
+          "configSnapshot": {
+            "schema_version": 1,
+            "model": "gpt-image-2.5-sunburst",
+            "quality": "max",
+            "builtin_product": "ChatGPT Images 2.5",
+            "selection": "latest_verified",
+            "preferred_route": "builtin",
+            "verified_on": "2026-10-04",
+            "sources": {
+              "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+              "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+            }
+          },
+          "actualModel": null,
+          "actualQuality": null,
+          "unverifiedReason": "宿主管理，工具未披露／无可核实元数据；配置和提示词不代表实际版本证据。",
+          "evidence": {
+            "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10baf-7a48-7811-ba55-23983983a89d\\exec-84efffab-53b2-4a5d-bab1-c35670476a6a.png",
+            "sourceOutputSha256": "6086d65916a29419c8fa1a607433e8a7ca64a81b4c1d790ce4b55c6523aeb874",
+            "toolResultPath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r01_c02-result.json",
+            "toolResultSha256": "c5a25950ca09a5ed4f7ea8b0bdbdc4d53d5b83edb51525e4af85a56444aff513"
+          },
+          "sourceJob": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r01_c02.json",
+          "sourceJobSha256": "1c62762103abd40ef9bf260861061a4fb4badcc38355ee83ebcffbfc97629eb1",
+          "promptSha256": "eba188f0d48211752e68ebbd619fbbd95b9ce79efe2f21c309b6704418b8d5c3",
+          "references": [
+            {
+              "path": "C:\\Users\\luyua\\.codex\\generated_images\\01a10baf-7a48-7811-ba55-23983983a89d\\exec-bcb3c2b2-0007-40e1-b770-2145ed2ef8f6.png",
+              "role": "Texture-only edit target; stone joints and geometry preserved",
+              "sha256": "6ee9bc5beaa82c0af8a1cfc143c2a214552b2a21c9e21d686e9e4ad0a86ddc7e",
+              "width": 1254,
+              "height": 1254
+            },
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r01_c01.png",
+              "role": "Restrained stone texture and color; not geometry",
+              "sha256": "52dd3413b2fa93e930b1c7d8126ea86a2a46eab38aa93b7aebc9b5b151e9917c",
+              "width": 1254,
+              "height": 1254
+            },
+            {
+              "path": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+              "role": "Confirmed primary painting style; no UI or content",
+              "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+              "width": 1931,
+              "height": 814
+            }
+          ],
+          "submittedModel": null,
+          "submittedQuality": null
+        },
+        "nativeAndGenerationRecordHashesVerified": true,
+        "reuse": false
+      },
+      {
+        "cell": "r01_c03",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r01_c03.png",
+        "sha256": "8f9177e3ce481d3c23483fc184ed88b777c259b05e7c00f1721bbae6be95956d",
+        "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r01_c03.png.generation.json",
+        "generationRecordSha256": "87d6f27dfd6c53db262243f51e78dd6fd88a90e2b7e1305d84c0aacc08206472",
+        "nativePixels": [
+          1254,
+          1254
+        ],
+        "identityAndEvidence": {
+          "generatedAt": "2026-10-05T13:48:56.880232+00:00",
+          "tool": "image_gen.imagegen",
+          "route": "builtin",
+          "configSnapshot": {
+            "schema_version": 1,
+            "model": "gpt-image-2.5-sunburst",
+            "quality": "max",
+            "builtin_product": "ChatGPT Images 2.5",
+            "selection": "latest_verified",
+            "preferred_route": "builtin",
+            "verified_on": "2026-10-04",
+            "sources": {
+              "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+              "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+            }
+          },
+          "actualModel": null,
+          "actualQuality": null,
+          "unverifiedReason": "宿主管理，工具未披露／无可核实元数据；配置和提示词不代表实际版本证据。",
+          "evidence": {
+            "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10baf-7a48-7811-ba55-23983983a89d\\exec-ba9b529d-e68f-4f51-aa83-a781ce905bbb.png",
+            "sourceOutputSha256": "8f9177e3ce481d3c23483fc184ed88b777c259b05e7c00f1721bbae6be95956d",
+            "toolResultPath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r01_c03-result.json",
+            "toolResultSha256": "66764b34bc3e375e6f48b3e4b67d10ba56c1cfd14655f22af550ca96fed0d32e"
+          },
+          "sourceJob": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r01_c03.json",
+          "sourceJobSha256": "c2b8b4a871751e96cfd2e32b4a12b1c70e7f5192845408d6e9bdde1fc33db23c",
+          "promptSha256": "5a4e26ee876e3cfdab7c0b879897a887e9c01ed87f4060c80d3485ca443528dc",
+          "references": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\guides\\r01_c03.layout-only.png",
+              "role": "Native edge-constrained target guide",
+              "sha256": "dfc4b69606efbca399ddbfc32f58576279fe763ee148ae76cb19f14b8e2e43d0",
+              "width": 1254,
+              "height": 1254
+            },
+            {
+              "path": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+              "role": "Confirmed primary painting style only; no objects copied",
+              "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+              "width": 1931,
+              "height": 814
+            }
+          ],
+          "submittedModel": null,
+          "submittedQuality": null
+        },
+        "nativeAndGenerationRecordHashesVerified": true,
+        "reuse": false
+      },
+      {
+        "cell": "r01_c04",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r01_c04.png",
+        "sha256": "79112871da8722d467fb114c1ce477d9f44f6af5c350c507fd88a51af60e730e",
+        "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r01_c04.png.generation.json",
+        "generationRecordSha256": "d7761a2321afccdad7b32d6d46ef511b5e79c75e41408c589258e475719c76e8",
+        "nativePixels": [
+          1254,
+          1254
+        ],
+        "identityAndEvidence": {
+          "generatedAt": "2026-10-05T13:53:14.473663+00:00",
+          "tool": "image_gen.imagegen",
+          "route": "builtin",
+          "configSnapshot": {
+            "schema_version": 1,
+            "model": "gpt-image-2.5-sunburst",
+            "quality": "max",
+            "builtin_product": "ChatGPT Images 2.5",
+            "selection": "latest_verified",
+            "preferred_route": "builtin",
+            "verified_on": "2026-10-04",
+            "sources": {
+              "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+              "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+            }
+          },
+          "actualModel": null,
+          "actualQuality": null,
+          "unverifiedReason": "宿主管理，工具未披露／无可核实元数据；配置和提示词不代表实际版本证据。",
+          "evidence": {
+            "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10baf-7a48-7811-ba55-23983983a89d\\exec-4118cb64-c9a0-451f-95ed-2f1c3053f446.png",
+            "sourceOutputSha256": "79112871da8722d467fb114c1ce477d9f44f6af5c350c507fd88a51af60e730e",
+            "toolResultPath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r01_c04-result.json",
+            "toolResultSha256": "d3ece9bc295febb9369ed4ca05d949e92cee9e3c22010465819ade7e81dfc9f1"
+          },
+          "sourceJob": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r01_c04.json",
+          "sourceJobSha256": "65b1066ea3eb28b56454007f9f305b9ba2072bfa42a01f7ef41b0b77365701e3",
+          "promptSha256": "500f70e1cf31dab22ebab180c64a738d1929dcc2b9f2e8caaae9df59b9423e9f",
+          "references": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\guides\\r01_c04.layout-only.png",
+              "role": "Native edge-constrained target guide",
+              "sha256": "ba39e217a8ae1b9038aed30b8567c8e1301ad458af322898406971ce9d1df04f",
+              "width": 1254,
+              "height": 1254
+            },
+            {
+              "path": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+              "role": "Confirmed primary painting style only; no objects copied",
+              "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+              "width": 1931,
+              "height": 814
+            }
+          ],
+          "submittedModel": null,
+          "submittedQuality": null
+        },
+        "nativeAndGenerationRecordHashesVerified": true,
+        "reuse": false
+      },
+      {
+        "cell": "r02_c01",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r02_c01.png",
+        "sha256": "d3eef3e0c2866ac0898bbf90673a8276df208c54f82716e1f28fcbd2a8dff606",
+        "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r02_c01.png.generation.json",
+        "generationRecordSha256": "4aa1a0c63f4682fb8e2d5bab81d846d2cf45225e488ba9299982b3c76f6c022d",
+        "nativePixels": [
+          1254,
+          1254
+        ],
+        "identityAndEvidence": {
+          "generatedAt": "2026-10-05T13:22:11.199Z",
+          "tool": "image_gen.imagegen",
+          "route": "builtin",
+          "configSnapshot": {
+            "schema_version": 1,
+            "model": "gpt-image-2.5-sunburst",
+            "quality": "max",
+            "builtin_product": "ChatGPT Images 2.5",
+            "selection": "latest_verified",
+            "preferred_route": "builtin",
+            "verified_on": "2026-10-04",
+            "sources": {
+              "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+              "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+            }
+          },
+          "actualModel": null,
+          "actualQuality": null,
+          "unverifiedReason": "宿主管理，工具未披露／无可核实元数据；配置和提示词不代表实际版本证据。",
+          "evidence": {
+            "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb0-2893-7c00-94a7-f9753edd1caf\\exec-67b194b0-d71f-415d-99c2-26b0b091d4d3.png",
+            "sourceOutputSha256": "d3eef3e0c2866ac0898bbf90673a8276df208c54f82716e1f28fcbd2a8dff606",
+            "toolResultPath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r02_c01.attempt2.tool-result.json",
+            "toolResultSha256": "e0000836eb4ff3e8987d3c566ee24cca936ca43b8083b548f5b18540b1dc65ab"
+          },
+          "sourceJob": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r02_c01.attempt2.json",
+          "sourceJobSha256": "af8f7b420053626e92ccdf1e552afa33a09ca6d446afb273c8e11f8dfe7361cc",
+          "promptSha256": "b469afab947a42ce70105d9b953fac66706cf5e225f2e639c5c598be1d349471",
+          "references": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\guides\\r02_c01.layout-only.png",
+              "role": "Target layout only with exact existing neighbor bands; every constrained coordinate is invariant",
+              "sha256": "86f11db1aca31a2172610b432de56539c3872d64bb984001c1f227fceb989a9a",
+              "width": 1254,
+              "height": 1254
+            },
+            {
+              "path": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+              "role": "User-confirmed primary painting/material style; no UI copied",
+              "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+              "width": 1931,
+              "height": 814
+            }
+          ],
+          "submittedModel": null,
+          "submittedQuality": null
+        },
+        "nativeAndGenerationRecordHashesVerified": true,
+        "reuse": false
+      },
+      {
+        "cell": "r02_c02",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r02_c02.png",
+        "sha256": "a3409a17ee8a6e7bef42e7d7bc1af82b54eec7fb0d80619b18f81c8046d74a2d",
+        "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r02_c02.png.generation.json",
+        "generationRecordSha256": "9ebc9e2877a7980f5788e6023cbec6fdf92f980769c87fb4efcbe849b61d6c49",
+        "nativePixels": [
+          1254,
+          1254
+        ],
+        "identityAndEvidence": {
+          "generatedAt": "2026-10-05T13:47:07.278Z",
+          "tool": "image_gen.imagegen",
+          "route": "builtin",
+          "configSnapshot": {
+            "schema_version": 1,
+            "model": "gpt-image-2.5-sunburst",
+            "quality": "max",
+            "builtin_product": "ChatGPT Images 2.5",
+            "selection": "latest_verified",
+            "preferred_route": "builtin",
+            "verified_on": "2026-10-04",
+            "sources": {
+              "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+              "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+            }
+          },
+          "actualModel": null,
+          "actualQuality": null,
+          "unverifiedReason": "宿主管理，工具未披露／无可核实元数据；配置和提示词不代表实际版本证据。",
+          "evidence": {
+            "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb0-2893-7c00-94a7-f9753edd1caf\\exec-f8e981bb-b48a-4f57-8070-b7547b0f2091.png",
+            "sourceOutputSha256": "a3409a17ee8a6e7bef42e7d7bc1af82b54eec7fb0d80619b18f81c8046d74a2d",
+            "toolResultPath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r02_c02.tool-result.json",
+            "toolResultSha256": "d33ee4e91beaaefcd8329bfb5c4c7ee82b659199112d59adc9f9a250911864d9"
+          },
+          "sourceJob": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r02_c02.json",
+          "sourceJobSha256": "a638908c783eb43858f3c393c75903c5373b519b11c624c8b6d39cb70cd0cb7f",
+          "promptSha256": "bbee15e21c5a92d4590da4ba84a967692cd737296c69debf0556a1eb6d3e81c4",
+          "references": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\guides\\r02_c02.layout-only.png",
+              "role": "Target layout only with exact existing neighbor bands; every constrained coordinate is invariant",
+              "sha256": "2c69b297843fca3bc9983aac2f940128da9a7a8c984ad5059bbaa57d4e903643",
+              "width": 1254,
+              "height": 1254
+            },
+            {
+              "path": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+              "role": "User-confirmed primary painting/material style; no UI copied",
+              "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+              "width": 1931,
+              "height": 814
+            }
+          ],
+          "submittedModel": null,
+          "submittedQuality": null
+        },
+        "nativeAndGenerationRecordHashesVerified": true,
+        "reuse": false
+      },
+      {
+        "cell": "r02_c03",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r02_c03.png",
+        "sha256": "4ee472a8f7c7663ccc093b3fb85e5c05d1b96e534e554712020a7d990029dcd6",
+        "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r02_c03.png.generation.json",
+        "generationRecordSha256": "32e863d8f28e49ddb987f275abc6e0527bfcfc36c13dd9c59f027b658bef951f",
+        "nativePixels": [
+          1254,
+          1254
+        ],
+        "identityAndEvidence": {
+          "generatedAt": "2026-10-05T14:14:14.924Z",
+          "tool": "image_gen.imagegen",
+          "route": "builtin",
+          "configSnapshot": {
+            "schema_version": 1,
+            "model": "gpt-image-2.5-sunburst",
+            "quality": "max",
+            "builtin_product": "ChatGPT Images 2.5",
+            "selection": "latest_verified",
+            "preferred_route": "builtin",
+            "verified_on": "2026-10-04",
+            "sources": {
+              "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+              "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+            }
+          },
+          "actualModel": null,
+          "actualQuality": null,
+          "unverifiedReason": "宿主管理，工具未披露／无可核实元数据；配置和提示词不代表实际版本证据。",
+          "evidence": {
+            "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb0-2893-7c00-94a7-f9753edd1caf\\exec-fb13431d-0d9f-4a81-9ca5-5f180416f30d.png",
+            "sourceOutputSha256": "4ee472a8f7c7663ccc093b3fb85e5c05d1b96e534e554712020a7d990029dcd6",
+            "toolResultPath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r02_c03.tool-result.json",
+            "toolResultSha256": "2c117214dc865207201d417cf5af8205a5382bc505bb51bb8ea34caae664b6f2"
+          },
+          "sourceJob": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r02_c03.json",
+          "sourceJobSha256": "d5a1824250a142bccceee078599faf37898ad9de8fb32cbd766675911e3eafe1",
+          "promptSha256": "0a8c5eb1e6246ffc4cdb4ac45b0e5e4352160d1dda4d0e1188ab558b11e5beb7",
+          "references": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\guides\\r02_c03.layout-only.png",
+              "role": "Target layout only with exact existing neighbor bands; every constrained coordinate is invariant",
+              "sha256": "a0b445144e1e84f675a60d1b9a68d259ad89c9bb9d88593be2b2e2d21a6e9117",
+              "width": 1254,
+              "height": 1254
+            },
+            {
+              "path": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+              "role": "User-confirmed primary painting/material style; no UI copied",
+              "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+              "width": 1931,
+              "height": 814
+            }
+          ],
+          "submittedModel": null,
+          "submittedQuality": null
+        },
+        "nativeAndGenerationRecordHashesVerified": true,
+        "reuse": false
+      },
+      {
+        "cell": "r02_c04",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r02_c04.png",
+        "sha256": "35d3de2a3a30367cce60fd67c4ea6acab4ce33a6c9c7fce60a5815d2949c29c9",
+        "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r02_c04.png.generation.json",
+        "generationRecordSha256": "6e2f5545aa3eacea74cbb4044e79cabdb83bd46c4633d46ff775972e6c3a39b7",
+        "nativePixels": [
+          1254,
+          1254
+        ],
+        "identityAndEvidence": {
+          "generatedAt": "2026-10-05T14:35:20.121Z",
+          "tool": "image_gen.imagegen",
+          "route": "builtin",
+          "configSnapshot": {
+            "schema_version": 1,
+            "model": "gpt-image-2.5-sunburst",
+            "quality": "max",
+            "builtin_product": "ChatGPT Images 2.5",
+            "selection": "latest_verified",
+            "preferred_route": "builtin",
+            "verified_on": "2026-10-04",
+            "sources": {
+              "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+              "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+            }
+          },
+          "actualModel": null,
+          "actualQuality": null,
+          "unverifiedReason": "宿主管理，工具未披露／无可核实元数据；配置和提示词不代表实际版本证据。",
+          "evidence": {
+            "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb0-2893-7c00-94a7-f9753edd1caf\\exec-f0e4e4f8-a9f0-42d6-97a1-2a2efe909d80.png",
+            "sourceOutputSha256": "35d3de2a3a30367cce60fd67c4ea6acab4ce33a6c9c7fce60a5815d2949c29c9",
+            "toolResultPath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r02_c04.tool-result.json",
+            "toolResultSha256": "ecb4e6ba9bdf1426cd011e589b2606563587c93c6f02e528a2e49681a5e68651"
+          },
+          "sourceJob": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r02_c04.json",
+          "sourceJobSha256": "3d8fb3c7e52a833bfd96765f3c994ce6aed365c2da17b9eac71568b673c7e5de",
+          "promptSha256": "f9562774fc1977ac86cd25d666aefb07b3bfdfeceb912241e83ef7c51eb450dd",
+          "references": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\guides\\r02_c04.layout-only.png",
+              "role": "Target layout only with exact existing neighbor bands; every constrained coordinate is invariant",
+              "sha256": "390b0a2e56d59877d3555e4bd735b1cd7faa6677468d002d68358d8a94cfcb12",
+              "width": 1254,
+              "height": 1254
+            },
+            {
+              "path": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+              "role": "User-confirmed primary painting/material style; no UI copied",
+              "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+              "width": 1931,
+              "height": 814
+            }
+          ],
+          "submittedModel": null,
+          "submittedQuality": null
+        },
+        "nativeAndGenerationRecordHashesVerified": true,
+        "reuse": false
+      },
+      {
+        "cell": "r03_c01",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r03_c01.png",
+        "sha256": "96fa0abb3d2e4875a09edc2932c12c19027214ba5e945a59a8827855368f2a26",
+        "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r03_c01.png.generation.json",
+        "generationRecordSha256": "2a0813be60566b253e465dfe59f280297e48789a787e65f9aebeaab2ab3939eb",
+        "nativePixels": [
+          1254,
+          1254
+        ],
+        "identityAndEvidence": {
+          "generatedAt": "2026-10-05T13:31:22.5506008Z",
+          "tool": "image_gen.imagegen",
+          "route": "builtin",
+          "configSnapshot": {
+            "schema_version": 1,
+            "model": "gpt-image-2.5-sunburst",
+            "quality": "max",
+            "builtin_product": "ChatGPT Images 2.5",
+            "selection": "latest_verified",
+            "preferred_route": "builtin",
+            "verified_on": "2026-10-04",
+            "sources": {
+              "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+              "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+            }
+          },
+          "actualModel": null,
+          "actualQuality": null,
+          "unverifiedReason": "宿主管理，工具未披露／无可核实元数据；配置和提示词不代表实际版本证据。",
+          "evidence": {
+            "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb0-db0d-7502-b752-f49628876778\\exec-202f58e1-ccc6-4a71-986d-ad4e550199b6.png",
+            "sourceOutputSha256": "96fa0abb3d2e4875a09edc2932c12c19027214ba5e945a59a8827855368f2a26",
+            "toolResultPath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r03_c01.receipt.json",
+            "toolResultSha256": "6b56c6f3e31385fd6db48ca002d369a59974b28d48cf2d51ef149a16bab167c3"
+          },
+          "sourceJob": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r03_c01.json",
+          "sourceJobSha256": "9d54a21dcdeea337b9b9f81cd4a5e90835dd578006eee91d8b1b62696404d449",
+          "promptSha256": "dd6a81e26c0aaeaeb8ab13b12b1a0b802a889c5f536e6a65fde9b2de3596a8d8",
+          "references": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\guides\\r03_c01.layout-only.png",
+              "role": "Target layout only with exact existing neighbor bands; every constrained coordinate is invariant",
+              "sha256": "980a20cd7c63cca882b5f31543b19c5d115ad9207560006652d1790cb76f74ad",
+              "width": 1254,
+              "height": 1254
+            },
+            {
+              "path": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+              "role": "User-confirmed primary painting/material style; no UI copied",
+              "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+              "width": 1931,
+              "height": 814
+            }
+          ],
+          "submittedModel": null,
+          "submittedQuality": null
+        },
+        "nativeAndGenerationRecordHashesVerified": true,
+        "reuse": false
+      },
+      {
+        "cell": "r03_c02",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r03_c02.png",
+        "sha256": "01e16a5314d133e769d3707145a98e4322b248f0fe48089f2adc4d5bc9110c67",
+        "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r03_c02.png.generation.json",
+        "generationRecordSha256": "f572ed4ef89859cab3664f7b23bb88949a68f05764c0687f69e3fdc967a535d1",
+        "nativePixels": [
+          1254,
+          1254
+        ],
+        "identityAndEvidence": {
+          "generatedAt": "2026-10-05T14:00:17.3189547Z",
+          "tool": "image_gen.imagegen",
+          "route": "builtin",
+          "configSnapshot": {
+            "schema_version": 1,
+            "model": "gpt-image-2.5-sunburst",
+            "quality": "max",
+            "builtin_product": "ChatGPT Images 2.5",
+            "selection": "latest_verified",
+            "preferred_route": "builtin",
+            "verified_on": "2026-10-04",
+            "sources": {
+              "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+              "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+            }
+          },
+          "actualModel": null,
+          "actualQuality": null,
+          "unverifiedReason": "宿主管理，工具未披露／无可核实元数据；配置和提示词不代表实际版本证据。",
+          "evidence": {
+            "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb0-db0d-7502-b752-f49628876778\\exec-6e44c6aa-a11e-4a98-ad9e-82998fb71110.png",
+            "sourceOutputSha256": "01e16a5314d133e769d3707145a98e4322b248f0fe48089f2adc4d5bc9110c67",
+            "toolResultPath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r03_c02.receipt.json",
+            "toolResultSha256": "f694d34508db9b1c005cbdc6570352ee421d1a11ce3c57e10017a4452069870b"
+          },
+          "sourceJob": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r03_c02.json",
+          "sourceJobSha256": "a200d8ecf28e161e5fed936b6a68258b1f724ce70811b955ce0b399e7867c029",
+          "promptSha256": "90cd32d12f959661e8cdce665dcd3aa57eb9d6ac80f802998996fbbc67cc6ba3",
+          "references": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\guides\\r03_c02.layout-only.png",
+              "role": "Target layout only with exact existing neighbor bands; every constrained coordinate is invariant",
+              "sha256": "2049bd37f74a43856e0ad148124961654b28f0902e8a9a72921184f440783da9",
+              "width": 1254,
+              "height": 1254
+            },
+            {
+              "path": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+              "role": "User-confirmed primary painting/material style; no UI copied",
+              "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+              "width": 1931,
+              "height": 814
+            }
+          ],
+          "submittedModel": null,
+          "submittedQuality": null
+        },
+        "nativeAndGenerationRecordHashesVerified": true,
+        "reuse": false
+      },
+      {
+        "cell": "r03_c03",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r03_c03.png",
+        "sha256": "eca2fd9d2c1936cf289688a25c0f21355ae7095cf709982397267b1c64e62bc2",
+        "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r03_c03.png.generation.json",
+        "generationRecordSha256": "096436abceb2c1367490c8dbe1cb7b36b077068a7f5c780af37463d288276492",
+        "nativePixels": [
+          1254,
+          1254
+        ],
+        "identityAndEvidence": {
+          "generatedAt": "2026-10-05T14:41:41.5090337Z",
+          "tool": "image_gen.imagegen",
+          "route": "builtin",
+          "configSnapshot": {
+            "schema_version": 1,
+            "model": "gpt-image-2.5-sunburst",
+            "quality": "max",
+            "builtin_product": "ChatGPT Images 2.5",
+            "selection": "latest_verified",
+            "preferred_route": "builtin",
+            "verified_on": "2026-10-04",
+            "sources": {
+              "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+              "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+            }
+          },
+          "actualModel": null,
+          "actualQuality": null,
+          "unverifiedReason": "宿主管理，工具未披露／无可核实元数据；配置和提示词不代表实际版本证据。",
+          "evidence": {
+            "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb0-db0d-7502-b752-f49628876778\\exec-a12abfe2-5cc0-4c29-8d16-1c1e2d87fbf1.png",
+            "sourceOutputSha256": "eca2fd9d2c1936cf289688a25c0f21355ae7095cf709982397267b1c64e62bc2",
+            "toolResultPath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r03_c03.receipt.json",
+            "toolResultSha256": "185245a91d298c224e25accfeb424fc3cf98556a93a9831e605d359a7d190066"
+          },
+          "sourceJob": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r03_c03.json",
+          "sourceJobSha256": "e46ec1a1360ca1a9c401f7e99af78dfbbb6cebf3026f1b729c9be6d0286897a8",
+          "promptSha256": "de8ffcaf7a1011dcbd7d1194e67f6d8e1e786368c479c2d793a35fcb3b394836",
+          "references": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\guides\\r03_c03.layout-only.png",
+              "role": "Target layout only with exact existing neighbor bands; every constrained coordinate is invariant",
+              "sha256": "5175933f38fd6ccfef3cb33c4a46e694a67cbbf50fabf9a6b2202730233c0aea",
+              "width": 1254,
+              "height": 1254
+            },
+            {
+              "path": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+              "role": "User-confirmed primary painting/material style; no UI copied",
+              "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+              "width": 1931,
+              "height": 814
+            }
+          ],
+          "submittedModel": null,
+          "submittedQuality": null
+        },
+        "nativeAndGenerationRecordHashesVerified": true,
+        "reuse": false
+      },
+      {
+        "cell": "r03_c04",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r03_c04.png",
+        "sha256": "22e64f9e2a3edc62d88cdbb99150354d264dd2d98c653598a3f31ed4e23518ea",
+        "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r03_c04.png.generation.json",
+        "generationRecordSha256": "796f6257a6588177c9dddf39edcb3865ddfec5bb6f87eb30011d70ddd936878f",
+        "nativePixels": [
+          1254,
+          1254
+        ],
+        "identityAndEvidence": {
+          "generatedAt": "2026-10-05T15:04:57.8728744Z",
+          "tool": "image_gen.imagegen",
+          "route": "builtin",
+          "configSnapshot": {
+            "schema_version": 1,
+            "model": "gpt-image-2.5-sunburst",
+            "quality": "max",
+            "builtin_product": "ChatGPT Images 2.5",
+            "selection": "latest_verified",
+            "preferred_route": "builtin",
+            "verified_on": "2026-10-04",
+            "sources": {
+              "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+              "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+            }
+          },
+          "actualModel": null,
+          "actualQuality": null,
+          "unverifiedReason": "宿主管理，工具未披露／无可核实元数据；配置和提示词不代表实际版本证据。",
+          "evidence": {
+            "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb0-db0d-7502-b752-f49628876778\\exec-9c709430-1aac-4b25-8c38-b4121ed3481e.png",
+            "sourceOutputSha256": "22e64f9e2a3edc62d88cdbb99150354d264dd2d98c653598a3f31ed4e23518ea",
+            "toolResultPath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r03_c04.receipt.json",
+            "toolResultSha256": "f6dacc44d5cffd9b99304b32c5e513243d5c503cb8eed4569b3cd49a8f82d2b9"
+          },
+          "sourceJob": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r03_c04.json",
+          "sourceJobSha256": "6a394adfc95a7127797d5697b3bbc9cf2bf3539b2757304e4085a4d12dfcc0a1",
+          "promptSha256": "a0357a65336d649f1b41a2be4eb0f8b8b293f43c1afec25a08507ff74ee33736",
+          "references": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\guides\\r03_c04.layout-only.png",
+              "role": "Target layout only with exact existing neighbor bands; every constrained coordinate is invariant",
+              "sha256": "7d05b943087bc651fe56088927173399f6b266c8e9c1d1fcfb1c723ebb242106",
+              "width": 1254,
+              "height": 1254
+            },
+            {
+              "path": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+              "role": "User-confirmed primary painting/material style; no UI copied",
+              "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+              "width": 1931,
+              "height": 814
+            }
+          ],
+          "submittedModel": null,
+          "submittedQuality": null
+        },
+        "nativeAndGenerationRecordHashesVerified": true,
+        "reuse": false
+      },
+      {
+        "cell": "r04_c01",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r04_c01.png",
+        "sha256": "39be0f308acdf76a6b4532e4b9349c41e34c9078e35b27f89548225c734c2391",
+        "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r04_c01.png.generation.json",
+        "generationRecordSha256": "c0688751fe3655c12477abba8ad4cc5d139f55b8af910979e41d492116ff32b9",
+        "nativePixels": [
+          1254,
+          1254
+        ],
+        "identityAndEvidence": {
+          "generatedAt": "2026-10-05T13:35:54Z",
+          "tool": "image_gen.imagegen",
+          "route": "builtin",
+          "configSnapshot": {
+            "schema_version": 1,
+            "model": "gpt-image-2.5-sunburst",
+            "quality": "max",
+            "builtin_product": "ChatGPT Images 2.5",
+            "selection": "latest_verified",
+            "preferred_route": "builtin",
+            "verified_on": "2026-10-04",
+            "sources": {
+              "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+              "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+            }
+          },
+          "actualModel": null,
+          "actualQuality": null,
+          "unverifiedReason": "宿主管理，工具未披露／无可核实元数据；配置和提示词不代表实际版本证据。",
+          "evidence": {
+            "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb2-a8ca-7050-a49a-5caf477f151a\\exec-b9e5dc1a-fa44-40be-b6a5-865f2a42f9da.png",
+            "sourceOutputSha256": "39be0f308acdf76a6b4532e4b9349c41e34c9078e35b27f89548225c734c2391",
+            "toolResultPath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r04_c01.repair-v2.receipt.json",
+            "toolResultSha256": "aa5d30642a48f21caa2e609035d490d0004f1242d0f5562897a318e2a39bd0c7"
+          },
+          "sourceJob": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r04_c01.repair-v2.json",
+          "sourceJobSha256": "98785a6958698940c002ee68f02336470fbdfced8f2954d4685e096533026eaf",
+          "promptSha256": "e15cfcbe277319a0143402f1fee6d7c468089276339a027dcafe953e1f7dd2c5",
+          "references": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\guides\\r04_c01.layout-only.png",
+              "role": "Target layout only with exact existing neighbor bands; every constrained coordinate is invariant",
+              "sha256": "577bd6ab53f43660d72b5e7c0f3ebdc30711fa839fce61c38406bcbc9620131e",
+              "width": 1254,
+              "height": 1254
+            },
+            {
+              "path": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+              "role": "User-confirmed primary painting/material style; no UI copied",
+              "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+              "width": 1931,
+              "height": 814
+            }
+          ],
+          "submittedModel": null,
+          "submittedQuality": null
+        },
+        "nativeAndGenerationRecordHashesVerified": true,
+        "reuse": false
+      },
+      {
+        "cell": "r04_c02",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r04_c02.png",
+        "sha256": "728e2d1163e4de73894a77267674a4d7c2241449797a6cdc04f1db2eafb7cbaa",
+        "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r04_c02.png.generation.json",
+        "generationRecordSha256": "7ad1c5b7c3686d974f6ccc3449219cce7c8d3fadb4c6bfc3916d9d35ecac2eb1",
+        "nativePixels": [
+          1254,
+          1254
+        ],
+        "identityAndEvidence": {
+          "generatedAt": "2026-10-05T14:05:59Z",
+          "tool": "image_gen.imagegen",
+          "route": "builtin",
+          "configSnapshot": {
+            "schema_version": 1,
+            "model": "gpt-image-2.5-sunburst",
+            "quality": "max",
+            "builtin_product": "ChatGPT Images 2.5",
+            "selection": "latest_verified",
+            "preferred_route": "builtin",
+            "verified_on": "2026-10-04",
+            "sources": {
+              "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+              "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+            }
+          },
+          "actualModel": null,
+          "actualQuality": null,
+          "unverifiedReason": "宿主管理，工具未披露／无可核实元数据；配置和提示词不代表实际版本证据。",
+          "evidence": {
+            "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb2-a8ca-7050-a49a-5caf477f151a\\exec-e625b554-3b55-48cd-900b-489ade28e79b.png",
+            "sourceOutputSha256": "728e2d1163e4de73894a77267674a4d7c2241449797a6cdc04f1db2eafb7cbaa",
+            "toolResultPath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r04_c02.receipt.json",
+            "toolResultSha256": "482f8f27b1556e706993715251c7a7ea3ac7a94bfb119ce28a1227235be8a467"
+          },
+          "sourceJob": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r04_c02.json",
+          "sourceJobSha256": "2fbd5a57e3190660d044c99d270b42a3c1fcb4b42da9fc02217d90e0b3eb7075",
+          "promptSha256": "f87288cf544da0fab63eac46b29e8be22804850449453df42af39af8db4e1b3d",
+          "references": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\guides\\r04_c02.layout-only.png",
+              "role": "Target layout only with exact existing neighbor bands; every constrained coordinate is invariant",
+              "sha256": "683b50ae16ad0ade9426fd53f30946a4573405b9ad072201c6702ba1f4f1d035",
+              "width": 1254,
+              "height": 1254
+            },
+            {
+              "path": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+              "role": "User-confirmed primary painting/material style; no UI copied",
+              "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+              "width": 1931,
+              "height": 814
+            }
+          ],
+          "submittedModel": null,
+          "submittedQuality": null
+        },
+        "nativeAndGenerationRecordHashesVerified": true,
+        "reuse": false
+      },
+      {
+        "cell": "r04_c03",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r04_c03.png",
+        "sha256": "c70e357cab4e179d2eae7762526c666ec3c7e23d75da6de8732eb48e8cae1dbb",
+        "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r04_c03.png.generation.json",
+        "generationRecordSha256": "162e461adf72e29f9bd949148ebaa3be5047a7cf026f0a85f121f7945b3fadfd",
+        "nativePixels": [
+          1254,
+          1254
+        ],
+        "identityAndEvidence": {
+          "generatedAt": "2026-10-05T14:49:19Z",
+          "tool": "image_gen.imagegen",
+          "route": "builtin",
+          "configSnapshot": {
+            "schema_version": 1,
+            "model": "gpt-image-2.5-sunburst",
+            "quality": "max",
+            "builtin_product": "ChatGPT Images 2.5",
+            "selection": "latest_verified",
+            "preferred_route": "builtin",
+            "verified_on": "2026-10-04",
+            "sources": {
+              "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+              "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+            }
+          },
+          "actualModel": null,
+          "actualQuality": null,
+          "unverifiedReason": "宿主管理，工具未披露／无可核实元数据；配置和提示词不代表实际版本证据。",
+          "evidence": {
+            "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb2-a8ca-7050-a49a-5caf477f151a\\exec-81cf8c2d-50ef-4439-9018-8cde4858cb8f.png",
+            "sourceOutputSha256": "c70e357cab4e179d2eae7762526c666ec3c7e23d75da6de8732eb48e8cae1dbb",
+            "toolResultPath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r04_c03.receipt.json",
+            "toolResultSha256": "81dcede34960d84e65fdaf157fc41096d8cfbb7ef7157c197bfd9cabc2e72717"
+          },
+          "sourceJob": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r04_c03.json",
+          "sourceJobSha256": "1e5a587a0d6865ded624dddc6e8136bbb3ed3aaafd8d9ae62eb72f587b0ad12e",
+          "promptSha256": "a5a370fe396e813b700643c409522f7c05c3ed20dd26583b8a12dff647326507",
+          "references": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\guides\\r04_c03.layout-only.png",
+              "role": "Target layout only with exact existing neighbor bands; every constrained coordinate is invariant",
+              "sha256": "1fd8624aef9813e6fe6a2701ad02e7975608b84432da6d38997ec1459d8a19fd",
+              "width": 1254,
+              "height": 1254
+            },
+            {
+              "path": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+              "role": "User-confirmed primary painting/material style; no UI copied",
+              "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+              "width": 1931,
+              "height": 814
+            }
+          ],
+          "submittedModel": null,
+          "submittedQuality": null
+        },
+        "nativeAndGenerationRecordHashesVerified": true,
+        "reuse": false
+      },
+      {
+        "cell": "r04_c04",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r04_c04.png",
+        "sha256": "b7bca935ded4860001a848b3fe4771c825045f7db0c95a51467e34dceffc7612",
+        "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\native\\r04_c04.png.generation.json",
+        "generationRecordSha256": "d5a1064e68087c4918857372c88e4ab6055f91847952a75761df820a58b28907",
+        "nativePixels": [
+          1254,
+          1254
+        ],
+        "identityAndEvidence": {
+          "generatedAt": "2026-10-05T15:17:46Z",
+          "tool": "image_gen.imagegen",
+          "route": "builtin",
+          "configSnapshot": {
+            "schema_version": 1,
+            "model": "gpt-image-2.5-sunburst",
+            "quality": "max",
+            "builtin_product": "ChatGPT Images 2.5",
+            "selection": "latest_verified",
+            "preferred_route": "builtin",
+            "verified_on": "2026-10-04",
+            "sources": {
+              "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+              "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+            }
+          },
+          "actualModel": null,
+          "actualQuality": null,
+          "unverifiedReason": "宿主管理，工具未披露／无可核实元数据；配置和提示词不代表实际版本证据。",
+          "evidence": {
+            "sourceOutputPath": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb2-a8ca-7050-a49a-5caf477f151a\\exec-e99388d9-f9bd-466c-adbc-05d3a39f7312.png",
+            "sourceOutputSha256": "b7bca935ded4860001a848b3fe4771c825045f7db0c95a51467e34dceffc7612",
+            "toolResultPath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r04_c04.receipt.json",
+            "toolResultSha256": "51fd51a7a29d24ed5c18f59b0821f01004ac8f8e1da3de4e4170abe6b7415c3c"
+          },
+          "sourceJob": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\jobs\\r04_c04.json",
+          "sourceJobSha256": "6e462c08427cf3643b896c17259f0829a77966a0b42015ea8e01af5ee2d0a3b8",
+          "promptSha256": "4fe19399a5bebe517b9cc6e663bb9ae3f5dc40a65c0467498073e3fff00a3e3a",
+          "references": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\guides\\r04_c04.layout-only.png",
+              "role": "Target layout only with exact existing neighbor bands; every constrained coordinate is invariant",
+              "sha256": "e8e5ed6b8186f2a8340391a3135f01bf42e8f0025c48d7b445bd12da75a10477",
+              "width": 1254,
+              "height": 1254
+            },
+            {
+              "path": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+              "role": "User-confirmed primary painting/material style; no UI copied",
+              "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+              "width": 1931,
+              "height": 814
+            }
+          ],
+          "submittedModel": null,
+          "submittedQuality": null
+        },
+        "nativeAndGenerationRecordHashesVerified": true,
+        "reuse": false
+      }
+    ],
+    "processingFields": [
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v2\\y1024-correction.npy",
+        "sha256": "e287a29397c39b2ac530c275e27e454e0eb1dca144aa555c1c900b0a53c41a1d"
+      },
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v2\\y1024-mask.png",
+        "sha256": "6967a036daeb4b58eb922a6ee2fc964338566e7dafbaec5765ae1fa445c5f33b"
+      },
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v2\\y2048-correction.npy",
+        "sha256": "fae1c2c3ede3ce6314d982dd65cd50cc0edfc90449bc8f5e46e686c54bff9c0e"
+      },
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v2\\y2048-mask.png",
+        "sha256": "6967a036daeb4b58eb922a6ee2fc964338566e7dafbaec5765ae1fa445c5f33b"
+      },
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v2\\y3072-correction.npy",
+        "sha256": "af861f64d438cca791974f020ab717af0b50a45f0201519c91f9d35a44cf482d"
+      },
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v2\\y3072-mask.png",
+        "sha256": "6967a036daeb4b58eb922a6ee2fc964338566e7dafbaec5765ae1fa445c5f33b"
+      },
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v2\\x1024-correction.npy",
+        "sha256": "1ec59085a7a81806baddbe03b715758ab069594d8636426fc40acb41e6fe0181"
+      },
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v2\\x1024-mask.png",
+        "sha256": "90c07adba5eb13314836d16cd25fe9a7fa3e2b8a4fd1bc647a966e9f61bda190"
+      },
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\y3072-undo-mask.npy",
+        "sha256": "a44722ed3fe6eeb344e322f280a1f30a5ecb97e0d27eda4de07563df4301ed95"
+      },
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\y3072-undo-mask.png",
+        "sha256": "365021469b207bfacc2b6bb3e0c4c79e1e2285795919128a0c7db6cfb494ed1b"
+      },
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\y3072-field-adjustment.npy",
+        "sha256": "fe784d8d0c70ff6a6ddd36a26f782c0a9fb37a4f97f7a251b2a4210c612ebc21"
+      },
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\y3072-correction.npy",
+        "sha256": "f6241982008c0a4fa1f6d86a859c087ea2906090a9de1732719a4b37da12be0b"
+      },
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\mask.png",
+        "sha256": "681be6cf8a2aac8913ba84235327ee833441f80a26b8981c744f0e405bc899a9",
+        "pixels": [
+          4326,
+          4326
+        ]
+      },
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\flow-correction.npz",
+        "sha256": "5e463a4142d639f69da47849a232623ebf6fe4ff7382c425a5813c73f2022d3c"
+      }
+    ],
+    "currentReferencedStageAndQaHashesVerified": true,
+    "verifiedStageAndQaReferencedFileCount": 96
+  },
+  "nativeCounts": {
+    "newlyGenerated": 15,
+    "historicalReuse": 1,
+    "total": 16
+  },
+  "qaReportEvidence": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\qa\\vertical-review.json",
+      "sha256": "58a13c3746e80812781712fda3e8e8081ab29ed6ceb84eb1690e3a792ab471f3"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\qa\\horizontal-root-review.json",
+      "sha256": "892a33d27af936da715542b08e26b503085fb59d8109c920bce4d836711cb288"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\qa\\west-corner-review.json",
+      "sha256": "d37fe1b0c0ce3be48ae4d6ed6f0ce55536bf92b3146851cb3cd6ebe367843fe8"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v2\\review.json",
+      "sha256": "13113311845fb72d50deb6651c75b119740da140cc1f80fc10daa09df5d33d2a"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\review.json",
+      "sha256": "9e5ea5263e0e78aafb997ae1b89b0798da800d3e51e90885ca4f3e39863b9e6b"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\review.json",
+      "sha256": "c8dfd05097a784b7b8e6185362cbb24b2a33b8f5f5b43513c3bc74ea1ed086e2"
+    }
+  ],
+  "mergeBoundaryQA": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\selected\\qa\\merge-boundary-native-board.png",
+    "sha256": "0d938046c0cd87f5d632bf77e536556ea38492c817241d03dd50c2c16c9a398f",
+    "pixels": [
+      512,
+      840
+    ],
+    "sourceBoxExtendedXYXY": [
+      179,
+      640,
+      691,
+      896
+    ],
+    "layout": "registration-v3 top at y24; selected middle at y304; tone-v3 bottom at y584; each crop512x256; original pixels integer pasted; 24px label bands",
+    "joinBoardColumn": 256,
+    "joinExtendedX": 435,
+    "resampling": "none",
+    "leftHalfExactlyRegistrationV3": true,
+    "rightHalfExactlyToneV3": true,
+    "actuallyViewedAtNativeResolution": true,
+    "viewedAtUtc": "2026-10-05T20:39:55.887010+00:00",
+    "reviewer": "workflow_helper",
+    "inspectionTool": "tools.view_image(detail=original)",
+    "finding": "All three unscaled512x256 crops actually viewed. Selected inherits left registration pixels and right tone pixels exactly. Around extended x435 (core x320), ring grooves, ivory bevel and paving stay continuous; no new line step or vertical exposure band observed. This one local merge check supplements existing complete QA scopes rather than repeating them."
+  },
+  "retention": "No images deleted. registration-west/v3 is still referenced by r08_c10; raw16 retained for parent source-reference audit.",
+  "finalizedAtUtc": "2026-10-05T20:39:55.887010+00:00",
+  "qaSummary": {
+    "scope": "57 raw inspection scopes inherited through exact pixel provenance, complete changed-band reviews, and one new original-pixel merge-boundary comparison. Not a claim that every4096-square pixel was visually inspected or that adjacent ungenerated tiles were validated.",
+    "rawCoreSha256": "bd9dea258c2cfd6a8c1843b1b6d0bf54b9aa595917a87f6b9755e8aca698317e",
+    "rawUniqueScopeCount": 57,
+    "rawCoverage": {
+      "verticalInternalSeamSegments": 12,
+      "horizontalInternalSeamSegments": 12,
+      "internalCrossings512Square": 9,
+      "outerEdgeSegments": 16,
+      "ownCorners512Square": 4,
+      "externalWestSegments": 4,
+      "eachInternalSeamLengthPixels": 4096,
+      "eachOuterEdgeLengthPixels": 4096,
+      "externalWestLengthPixels": 4096,
+      "allListedScopesActuallyViewedAtOriginalPixelsByTeam": true
+    },
+    "rawReviewCoverage": [
+      {
+        "report": {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\qa\\vertical-review.json",
+          "sha256": "58a13c3746e80812781712fda3e8e8081ab29ed6ceb84eb1690e3a792ab471f3"
+        },
+        "reviewer": "layout_audit",
+        "scopeCount": 21,
+        "scopes": "12 vertical seam segments plus9 internal crossings"
+      },
+      {
+        "report": {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\qa\\horizontal-root-review.json",
+          "sha256": "892a33d27af936da715542b08e26b503085fb59d8109c920bce4d836711cb288"
+        },
+        "reviewer": "root",
+        "scopeCount": 24,
+        "scopes": "12 horizontal seam segments plus12 north/east/south outer edge segments"
+      },
+      {
+        "report": {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\qa\\west-corner-review.json",
+          "sha256": "d37fe1b0c0ce3be48ae4d6ed6f0ce55536bf92b3146851cb3cd6ebe367843fe8"
+        },
+        "reviewer": "workflow_helper",
+        "scopeCount": 12,
+        "scopes": "4 full west neighbor comparison segments plus4 own west edge segments plus4 own corners"
+      }
+    ],
+    "repairReviews": [
+      {
+        "report": {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v2\\review.json",
+          "sha256": "13113311845fb72d50deb6651c75b119740da140cc1f80fc10daa09df5d33d2a"
+        },
+        "originalPixelComparisonBoardCount": 23,
+        "scope": "All12 horizontal seam segments,2 selected x1024 vertical portions and9 crossings. One new RGBstripe at core x1264:1360,y2944:3200 required correction; other reviewed scopes had no newly observed hard stripe/geometric discontinuity."
+      },
+      {
+        "report": {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\review.json",
+          "sha256": "9e5ea5263e0e78aafb997ae1b89b0798da800d3e51e90885ca4f3e39863b9e6b"
+        },
+        "originalPixelComparisonBoardCount": 4,
+        "scope": "Localized y3072 field undo, full changed field and adjacent crossing. All4 viewed; new stripe removed, taper and grooves remained continuous. Supersedes tone-v2 requiredRepair; earlier minor brush-scale differences retained."
+      },
+      {
+        "report": {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\registration-west\\v3\\review.json",
+          "sha256": "c8dfd05097a784b7b8e6185362cbb24b2a33b8f5f5b43513c3bc74ea1ed086e2"
+        },
+        "originalPixelImageCount": 12,
+        "scope": "Full4096 west neighbor edge,full4096 own west edge and4 own corners. Earlier5-9px offsets reduced to max1px measured residual. No obvious new gap, missing geometry or exposure band in reviewed scope."
+      }
+    ],
+    "mergePreservesReviewedPixels": {
+      "toneV3ChangedRegionExactlyPreserved": true,
+      "registrationV3ChangedRegionExactlyPreserved": true,
+      "noChangesOutsideUnionOfReviewedDerivationSupports": true,
+      "rawUnchangedScopesNotReopenedDuringMerge": true
+    },
+    "formalAcceptanceEstablished": false
+  },
+  "processingDeclaration": {
+    "nativeGenerationRoute": "builtin image_gen.imagegen; no new model invocation during this deterministic merge",
+    "actualGenerationModel": null,
+    "actualGenerationQuality": null,
+    "actualModelQualityReason": "Builtin tool exposes no returned verified model/quality metadata; per-image records distinguish configured target and submitted values. Configuration/prompt is not evidence of actual branch.",
+    "nativeAssembly": "16 actual1254x1254 images, core1024 withhalo115; original assembly integer crop/paste1:1; no native enlargement.",
+    "toneV2": "Additive RGB fields only, actual maximum cumulative RGB12/channel from raw; original artwork raster not filtered, resized or geometrically moved.",
+    "toneV3": "Localized undo of y3072 correction; actual maximum change fromv2 RGB12/channel; no raster resampling or geometry change.",
+    "westV3": {
+      "operation": "Bounded local vertical existing-geometry registration followed by bounded low-frequency RGB residual correction",
+      "supportExtendedXYXY": [
+        0,
+        0,
+        435,
+        4326
+      ],
+      "maximumAbsoluteVerticalDisplacementPixels": 8.319887161254883,
+      "maximumIncrementalTonePerChannel": 8,
+      "interpolation": "OpenCV INTER_CUBIC",
+      "subpixelResamplingPerformed": true,
+      "enlargementPerformed": false,
+      "westNeighborChanged": false
+    },
+    "merge": "No additional resampling; copied exact final source pixels across x435 and integer-cropped centeredcore.",
+    "noEnlargement": true,
+    "entireFinalProductionRasterNeverResampled": false,
+    "reason": "West435 columns were locally resampled in the upstream registration pass. Do not describe final output as globally pixel-identical to native sources or globally no-resampling.",
+    "preview": "1024-square LANCZOS downsample for overview only; not production detail and not used to establish QA.",
+    "actualFinalMaximumAbsoluteRGBDifferenceFromRawIncludingGeometry": [
+      236,
+      244,
+      252
+    ]
+  },
+  "remaining": [
+    {
+      "kind": "minor_material_consistency",
+      "locationsCoreXYXY": [
+        [
+          960,
+          0,
+          1088,
+          520
+        ],
+        [
+          896,
+          768,
+          1152,
+          1024
+        ],
+        [
+          960,
+          1344,
+          1088,
+          1704
+        ]
+      ],
+      "description": "Existing broader western versus finer eastern stone brush-scale difference near internal x1024 remains; RGB matching improves illumination but does not recreate material detail. Nonblocking for this qualified candidate; disclosed for formal art review."
+    },
+    {
+      "kind": "west_edge_profile_residual",
+      "locationsCoreY": [
+        [
+          640,
+          682
+        ],
+        [
+          3809,
+          3862
+        ]
+      ],
+      "description": "Darkest-row residuals +1px near y653/654 and -1px near y3839/3838; other12 measured grooves align. Not visually blocking in full-edge original-pixel review."
+    },
+    {
+      "kind": "unproduced_adjacent_edges",
+      "edges": [
+        "north",
+        "east",
+        "south"
+      ],
+      "description": "Own tile edges inspected, but neighbor continuity must be checked after those neighboring tiles are generated; east neighbor r08_c10 is now being produced."
+    },
+    {
+      "kind": "neighbor_corner_junctions",
+      "description": "Four-tile corner junction continuity has not been established."
+    },
+    {
+      "kind": "formal_and_runtime_acceptance",
+      "description": "No formal art acceptance, client validation, runtime publication or whole-city completion is claimed."
+    }
+  ],
+  "runtimePublished": false
+}
