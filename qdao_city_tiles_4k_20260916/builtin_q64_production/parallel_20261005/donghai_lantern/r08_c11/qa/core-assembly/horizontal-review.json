@@ -1,0 +1,1156 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-05T21:06:47.428411+00:00",
+  "reviewerTask": "row2_native",
+  "asset": "donghai_lantern",
+  "tile": "r08_c11",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\output\\r08_c11-unreviewed.png",
+    "sha256": "e0fd677104143631229561f417d96dd9783e6d225eedb94410805ec45d760b8c",
+    "pixels": [
+      4096,
+      4096
+    ]
+  },
+  "coordinateSystem": {
+    "tileOriginGlobalXY": [
+      40960,
+      28672
+    ],
+    "localOrigin": "top-left of r08_c11; x right, y down",
+    "globalConversion": "globalXY = localXY + [40960,28672]",
+    "coordinatePrecision": "representative anchors and defect extents are visual estimates; full inspected band bounds are exact"
+  },
+  "scope": "全部3条水平内部缝，每条4096像素长，缝上下各128像素；逐段无缩放原像素检查。未修改任何图片。",
+  "evidence": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\core-assembly\\y1024-full4096.png",
+      "sha256": "72e2b4ac644d419a4a1df7e7c9dc16aaeaef945597071fae84437c463e50b597",
+      "pixels": [
+        1024,
+        1024
+      ],
+      "viewedAtNativePixels": true,
+      "sourceBandLocalXYXY": [
+        0,
+        896,
+        4096,
+        1152
+      ],
+      "segmentOrder": "4 source segments of width 1024 arranged top-to-bottom, each 256 high; displayed seam y = 128,384,640,896",
+      "displayToTileFormula": "segment=floor(displayY/256); tileX=displayX+1024*segment; tileY=displayY%256+seamY-128"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\core-assembly\\y2048-full4096.png",
+      "sha256": "730ed9ab3d39b59c99a49d63a6425996d9f4e308cad0377da5050c2deaadd86c",
+      "pixels": [
+        1024,
+        1024
+      ],
+      "viewedAtNativePixels": true,
+      "sourceBandLocalXYXY": [
+        0,
+        1920,
+        4096,
+        2176
+      ],
+      "segmentOrder": "4 source segments of width 1024 arranged top-to-bottom, each 256 high; displayed seam y = 128,384,640,896",
+      "displayToTileFormula": "segment=floor(displayY/256); tileX=displayX+1024*segment; tileY=displayY%256+seamY-128"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\core-assembly\\y3072-full4096.png",
+      "sha256": "f38202afdcf573af7ad4538de6fc83ae51f591ee08834fc540572e07e0ae1fcc",
+      "pixels": [
+        1024,
+        1024
+      ],
+      "viewedAtNativePixels": true,
+      "sourceBandLocalXYXY": [
+        0,
+        2944,
+        4096,
+        3200
+      ],
+      "segmentOrder": "4 source segments of width 1024 arranged top-to-bottom, each 256 high; displayed seam y = 128,384,640,896",
+      "displayToTileFormula": "segment=floor(displayY/256); tileX=displayX+1024*segment; tileY=displayY%256+seamY-128"
+    }
+  ],
+  "findings": [
+    {
+      "id": "H1024-C1",
+      "evidenceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\core-assembly\\y1024-full4096.png",
+      "displaySegment": 1,
+      "seamLocalXYXY": [
+        0,
+        1024,
+        1024,
+        1024
+      ],
+      "inspectedLocalXYXY": [
+        0,
+        896,
+        1024,
+        1152
+      ],
+      "inspectedGlobalXYXY": [
+        40960,
+        29568,
+        41984,
+        29824
+      ],
+      "representativeLocalXY": [
+        [
+          200,
+          1024
+        ],
+        [
+          650,
+          1024
+        ],
+        [
+          870,
+          1024
+        ]
+      ],
+      "representativeGlobalXY": [
+        [
+          41160,
+          29696
+        ],
+        [
+          41610,
+          29696
+        ],
+        [
+          41830,
+          29696
+        ]
+      ],
+      "subject": "树叶、树干",
+      "finding": "全段可见暖度/明度台阶，x约80–450的亮叶和x约570–900的树干、暗叶最清楚。树干与主要叶团轮廓跨缝保持连续，未确认大结构缺失。",
+      "classification": "appearance_discontinuity_visible; no large structural break confirmed within inspected band",
+      "formalPassed": false,
+      "recommendedAction": "先保留结构做有记录的局部颜色/低频光照匹配；如局部细线在差色消除后仍有错位，再做有限配准并复查。不要以模糊羽化替代结构修复。",
+      "quantitativeSupport": {
+        "metric": "mean absolute RGB difference between adjacent rows at seam; not a geometry acceptance metric",
+        "seamMeanAbsRgb": 14.231,
+        "nearbyWithinImageMeanAbsRgb": 2.562
+      }
+    },
+    {
+      "id": "H1024-C2",
+      "evidenceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\core-assembly\\y1024-full4096.png",
+      "displaySegment": 2,
+      "seamLocalXYXY": [
+        1024,
+        1024,
+        2048,
+        1024
+      ],
+      "inspectedLocalXYXY": [
+        1024,
+        896,
+        2048,
+        1152
+      ],
+      "inspectedGlobalXYXY": [
+        41984,
+        29568,
+        43008,
+        29824
+      ],
+      "representativeLocalXY": [
+        [
+          1360,
+          1024
+        ],
+        [
+          1740,
+          1024
+        ],
+        [
+          1960,
+          1024
+        ]
+      ],
+      "representativeGlobalXY": [
+        [
+          42320,
+          29696
+        ],
+        [
+          42700,
+          29696
+        ],
+        [
+          42920,
+          29696
+        ]
+      ],
+      "subject": "木墙、蓝瓦、屋脊",
+      "finding": "x约1280–1500木墙下侧明显更暖亮；x约1550–2010蓝瓦及灰蓝脊瓦也有色相和反光强度变化。瓦缝、木板竖向轮廓大体接续。",
+      "classification": "appearance_discontinuity_visible; no large structural break confirmed within inspected band",
+      "formalPassed": false,
+      "recommendedAction": "先保留结构做有记录的局部颜色/低频光照匹配；如局部细线在差色消除后仍有错位，再做有限配准并复查。不要以模糊羽化替代结构修复。",
+      "quantitativeSupport": {
+        "metric": "mean absolute RGB difference between adjacent rows at seam; not a geometry acceptance metric",
+        "seamMeanAbsRgb": 15.394,
+        "nearbyWithinImageMeanAbsRgb": 2.29
+      }
+    },
+    {
+      "id": "H1024-C3",
+      "evidenceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\core-assembly\\y1024-full4096.png",
+      "displaySegment": 3,
+      "seamLocalXYXY": [
+        2048,
+        1024,
+        3072,
+        1024
+      ],
+      "inspectedLocalXYXY": [
+        2048,
+        896,
+        3072,
+        1152
+      ],
+      "inspectedGlobalXYXY": [
+        43008,
+        29568,
+        44032,
+        29824
+      ],
+      "representativeLocalXY": [
+        [
+          2200,
+          1024
+        ],
+        [
+          2900,
+          1024
+        ]
+      ],
+      "representativeGlobalXY": [
+        [
+          43160,
+          29696
+        ],
+        [
+          43860,
+          29696
+        ]
+      ],
+      "subject": "蓝瓦面与屋脊端头",
+      "finding": "蓝瓦与淡色屋脊在接缝处发生色相/亮度跳变，x约2140–2420和x约2850–3020的暖高光最明显。瓦片排列和端头外轮廓未见大段错断。",
+      "classification": "appearance_discontinuity_visible; no large structural break confirmed within inspected band",
+      "formalPassed": false,
+      "recommendedAction": "先保留结构做有记录的局部颜色/低频光照匹配；如局部细线在差色消除后仍有错位，再做有限配准并复查。不要以模糊羽化替代结构修复。",
+      "quantitativeSupport": {
+        "metric": "mean absolute RGB difference between adjacent rows at seam; not a geometry acceptance metric",
+        "seamMeanAbsRgb": 13.671,
+        "nearbyWithinImageMeanAbsRgb": 2.995
+      }
+    },
+    {
+      "id": "H1024-C4",
+      "evidenceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\core-assembly\\y1024-full4096.png",
+      "displaySegment": 4,
+      "seamLocalXYXY": [
+        3072,
+        1024,
+        4096,
+        1024
+      ],
+      "inspectedLocalXYXY": [
+        3072,
+        896,
+        4096,
+        1152
+      ],
+      "inspectedGlobalXYXY": [
+        44032,
+        29568,
+        45056,
+        29824
+      ],
+      "representativeLocalXY": [
+        [
+          3250,
+          1024
+        ],
+        [
+          3680,
+          1024
+        ],
+        [
+          3960,
+          1024
+        ]
+      ],
+      "representativeGlobalXY": [
+        [
+          44210,
+          29696
+        ],
+        [
+          44640,
+          29696
+        ],
+        [
+          44920,
+          29696
+        ]
+      ],
+      "subject": "屋角、木梁、白墙",
+      "finding": "x约3090–3470蓝瓦/檐口及x约3840–4070木梁有水平色阶；白墙桃紫色和暖光强度也略变。现有屋角与木梁轮廓保持衔接。",
+      "classification": "appearance_discontinuity_visible; no large structural break confirmed within inspected band",
+      "formalPassed": false,
+      "recommendedAction": "先保留结构做有记录的局部颜色/低频光照匹配；如局部细线在差色消除后仍有错位，再做有限配准并复查。不要以模糊羽化替代结构修复。",
+      "quantitativeSupport": {
+        "metric": "mean absolute RGB difference between adjacent rows at seam; not a geometry acceptance metric",
+        "seamMeanAbsRgb": 11.222,
+        "nearbyWithinImageMeanAbsRgb": 2.155
+      }
+    },
+    {
+      "id": "H2048-C1",
+      "evidenceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\core-assembly\\y2048-full4096.png",
+      "displaySegment": 1,
+      "seamLocalXYXY": [
+        0,
+        2048,
+        1024,
+        2048
+      ],
+      "inspectedLocalXYXY": [
+        0,
+        1920,
+        1024,
+        2176
+      ],
+      "inspectedGlobalXYXY": [
+        40960,
+        30592,
+        41984,
+        30848
+      ],
+      "representativeLocalXY": [
+        [
+          340,
+          2048
+        ],
+        [
+          750,
+          2048
+        ],
+        [
+          910,
+          2048
+        ]
+      ],
+      "representativeGlobalXY": [
+        [
+          41300,
+          30720
+        ],
+        [
+          41710,
+          30720
+        ],
+        [
+          41870,
+          30720
+        ]
+      ],
+      "subject": "树冠、立木、白墙",
+      "finding": "叶团与背景暖冷变化可见；x约700–800立木亮度台阶及x约800–1024白墙亮斑强度变化较清楚。主叶团边界和立木外沿没有可确认的大错位。",
+      "classification": "appearance_discontinuity_visible; no large structural break confirmed within inspected band",
+      "formalPassed": false,
+      "recommendedAction": "先保留结构做有记录的局部颜色/低频光照匹配；如局部细线在差色消除后仍有错位，再做有限配准并复查。不要以模糊羽化替代结构修复。",
+      "quantitativeSupport": {
+        "metric": "mean absolute RGB difference between adjacent rows at seam; not a geometry acceptance metric",
+        "seamMeanAbsRgb": 10.746,
+        "nearbyWithinImageMeanAbsRgb": 2.06
+      }
+    },
+    {
+      "id": "H2048-C2",
+      "evidenceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\core-assembly\\y2048-full4096.png",
+      "displaySegment": 2,
+      "seamLocalXYXY": [
+        1024,
+        2048,
+        2048,
+        2048
+      ],
+      "inspectedLocalXYXY": [
+        1024,
+        1920,
+        2048,
+        2176
+      ],
+      "inspectedGlobalXYXY": [
+        41984,
+        30592,
+        43008,
+        30848
+      ],
+      "representativeLocalXY": [
+        [
+          1190,
+          2048
+        ],
+        [
+          1570,
+          2048
+        ],
+        [
+          1900,
+          2048
+        ]
+      ],
+      "representativeGlobalXY": [
+        [
+          42150,
+          30720
+        ],
+        [
+          42530,
+          30720
+        ],
+        [
+          42860,
+          30720
+        ]
+      ],
+      "subject": "白墙、斜木梁、蓝瓦",
+      "finding": "x约1024–1630墙面桃紫色/光斑强度略跳；x约1700–2048檐梁与瓦脊有较明显亮度变化。大轮廓连续，局部画笔/反光差异应保守校正。",
+      "classification": "appearance_discontinuity_visible; no large structural break confirmed within inspected band",
+      "formalPassed": false,
+      "recommendedAction": "先保留结构做有记录的局部颜色/低频光照匹配；如局部细线在差色消除后仍有错位，再做有限配准并复查。不要以模糊羽化替代结构修复。",
+      "quantitativeSupport": {
+        "metric": "mean absolute RGB difference between adjacent rows at seam; not a geometry acceptance metric",
+        "seamMeanAbsRgb": 11.481,
+        "nearbyWithinImageMeanAbsRgb": 2.129
+      }
+    },
+    {
+      "id": "H2048-C3",
+      "evidenceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\core-assembly\\y2048-full4096.png",
+      "displaySegment": 3,
+      "seamLocalXYXY": [
+        2048,
+        2048,
+        3072,
+        2048
+      ],
+      "inspectedLocalXYXY": [
+        2048,
+        1920,
+        3072,
+        2176
+      ],
+      "inspectedGlobalXYXY": [
+        43008,
+        30592,
+        44032,
+        30848
+      ],
+      "representativeLocalXY": [
+        [
+          2420,
+          2048
+        ],
+        [
+          2720,
+          2048
+        ],
+        [
+          2990,
+          2048
+        ]
+      ],
+      "representativeGlobalXY": [
+        [
+          43380,
+          30720
+        ],
+        [
+          43680,
+          30720
+        ],
+        [
+          43950,
+          30720
+        ]
+      ],
+      "subject": "檐边、白墙、横木",
+      "finding": "x约2300–2820墙面暖光/紫影有直线分界，斜檐与横木的亮边强度略变。未在本256像素带内确认投影轮廓大错断。",
+      "classification": "appearance_discontinuity_visible; no large structural break confirmed within inspected band",
+      "formalPassed": false,
+      "recommendedAction": "先保留结构做有记录的局部颜色/低频光照匹配；如局部细线在差色消除后仍有错位，再做有限配准并复查。不要以模糊羽化替代结构修复。",
+      "quantitativeSupport": {
+        "metric": "mean absolute RGB difference between adjacent rows at seam; not a geometry acceptance metric",
+        "seamMeanAbsRgb": 10.578,
+        "nearbyWithinImageMeanAbsRgb": 2.803
+      }
+    },
+    {
+      "id": "H2048-C4",
+      "evidenceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\core-assembly\\y2048-full4096.png",
+      "displaySegment": 4,
+      "seamLocalXYXY": [
+        3072,
+        2048,
+        4096,
+        2048
+      ],
+      "inspectedLocalXYXY": [
+        3072,
+        1920,
+        4096,
+        2176
+      ],
+      "inspectedGlobalXYXY": [
+        44032,
+        30592,
+        45056,
+        30848
+      ],
+      "representativeLocalXY": [
+        [
+          3400,
+          2048
+        ],
+        [
+          3740,
+          2048
+        ],
+        [
+          3970,
+          2048
+        ]
+      ],
+      "representativeGlobalXY": [
+        [
+          44360,
+          30720
+        ],
+        [
+          44700,
+          30720
+        ],
+        [
+          44930,
+          30720
+        ]
+      ],
+      "subject": "立木、栏杆、红布",
+      "finding": "x约3310–3550竖木色阶和x约3560–4050栏杆/红布明度变化可见。梁、栏杆和红布大轮廓接续，缺失结构未确认。",
+      "classification": "appearance_discontinuity_visible; no large structural break confirmed within inspected band",
+      "formalPassed": false,
+      "recommendedAction": "先保留结构做有记录的局部颜色/低频光照匹配；如局部细线在差色消除后仍有错位，再做有限配准并复查。不要以模糊羽化替代结构修复。",
+      "quantitativeSupport": {
+        "metric": "mean absolute RGB difference between adjacent rows at seam; not a geometry acceptance metric",
+        "seamMeanAbsRgb": 8.508,
+        "nearbyWithinImageMeanAbsRgb": 1.783
+      }
+    },
+    {
+      "id": "H3072-C1",
+      "evidenceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\core-assembly\\y3072-full4096.png",
+      "displaySegment": 1,
+      "seamLocalXYXY": [
+        0,
+        3072,
+        1024,
+        3072
+      ],
+      "inspectedLocalXYXY": [
+        0,
+        2944,
+        1024,
+        3200
+      ],
+      "inspectedGlobalXYXY": [
+        40960,
+        31616,
+        41984,
+        31872
+      ],
+      "representativeLocalXY": [
+        [
+          260,
+          3072
+        ],
+        [
+          590,
+          3072
+        ]
+      ],
+      "representativeGlobalXY": [
+        [
+          41220,
+          31744
+        ],
+        [
+          41550,
+          31744
+        ]
+      ],
+      "subject": "石砖、植被、编织篮",
+      "finding": "x约0–440石砖/暗叶和x约450–790编织篮有轻到中等暖度差；篮编纹、篮沿和地砖缝总体接续，局部笔触变动不等于已证实几何缺口。",
+      "classification": "appearance_discontinuity_visible; no large structural break confirmed within inspected band",
+      "formalPassed": false,
+      "recommendedAction": "先保留结构做有记录的局部颜色/低频光照匹配；如局部细线在差色消除后仍有错位，再做有限配准并复查。不要以模糊羽化替代结构修复。",
+      "quantitativeSupport": {
+        "metric": "mean absolute RGB difference between adjacent rows at seam; not a geometry acceptance metric",
+        "seamMeanAbsRgb": 6.972,
+        "nearbyWithinImageMeanAbsRgb": 2.41
+      }
+    },
+    {
+      "id": "H3072-C2",
+      "evidenceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\core-assembly\\y3072-full4096.png",
+      "displaySegment": 2,
+      "seamLocalXYXY": [
+        1024,
+        3072,
+        2048,
+        3072
+      ],
+      "inspectedLocalXYXY": [
+        1024,
+        2944,
+        2048,
+        3200
+      ],
+      "inspectedGlobalXYXY": [
+        41984,
+        31616,
+        43008,
+        31872
+      ],
+      "representativeLocalXY": [
+        [
+          1300,
+          3072
+        ],
+        [
+          1610,
+          3072
+        ],
+        [
+          1900,
+          3072
+        ]
+      ],
+      "representativeGlobalXY": [
+        [
+          42260,
+          31744
+        ],
+        [
+          42570,
+          31744
+        ],
+        [
+          42860,
+          31744
+        ]
+      ],
+      "subject": "绳结、栏杆、墙面",
+      "finding": "x约1080–1640栏杆及绳结存在暖度跳变，x约1690–2020墙面明度/光斑变化更易看出。木杆与绳结大轮廓保持，未确认必须重画的结构。",
+      "classification": "appearance_discontinuity_visible; no large structural break confirmed within inspected band",
+      "formalPassed": false,
+      "recommendedAction": "先保留结构做有记录的局部颜色/低频光照匹配；如局部细线在差色消除后仍有错位，再做有限配准并复查。不要以模糊羽化替代结构修复。",
+      "quantitativeSupport": {
+        "metric": "mean absolute RGB difference between adjacent rows at seam; not a geometry acceptance metric",
+        "seamMeanAbsRgb": 8.713,
+        "nearbyWithinImageMeanAbsRgb": 2.335
+      }
+    },
+    {
+      "id": "H3072-C3",
+      "evidenceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\core-assembly\\y3072-full4096.png",
+      "displaySegment": 3,
+      "seamLocalXYXY": [
+        2048,
+        3072,
+        3072,
+        3072
+      ],
+      "inspectedLocalXYXY": [
+        2048,
+        2944,
+        3072,
+        3200
+      ],
+      "inspectedGlobalXYXY": [
+        43008,
+        31616,
+        44032,
+        31872
+      ],
+      "representativeLocalXY": [
+        [
+          2270,
+          3072
+        ],
+        [
+          2440,
+          3072
+        ],
+        [
+          2890,
+          3072
+        ]
+      ],
+      "representativeGlobalXY": [
+        [
+          43230,
+          31744
+        ],
+        [
+          43400,
+          31744
+        ],
+        [
+          43850,
+          31744
+        ]
+      ],
+      "subject": "墙面、门柱、门板、基石",
+      "finding": "墙面及门柱有水平暖光差，x约2260–2530竖木最直观；x约2770–3010门槛/基石反光略变。直线外轮廓和石基连接总体连续。",
+      "classification": "appearance_discontinuity_visible; no large structural break confirmed within inspected band",
+      "formalPassed": false,
+      "recommendedAction": "先保留结构做有记录的局部颜色/低频光照匹配；如局部细线在差色消除后仍有错位，再做有限配准并复查。不要以模糊羽化替代结构修复。",
+      "quantitativeSupport": {
+        "metric": "mean absolute RGB difference between adjacent rows at seam; not a geometry acceptance metric",
+        "seamMeanAbsRgb": 9.365,
+        "nearbyWithinImageMeanAbsRgb": 2.178
+      }
+    },
+    {
+      "id": "H3072-C4",
+      "evidenceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\core-assembly\\y3072-full4096.png",
+      "displaySegment": 4,
+      "seamLocalXYXY": [
+        3072,
+        3072,
+        4096,
+        3072
+      ],
+      "inspectedLocalXYXY": [
+        3072,
+        2944,
+        4096,
+        3200
+      ],
+      "inspectedGlobalXYXY": [
+        44032,
+        31616,
+        45056,
+        31872
+      ],
+      "representativeLocalXY": [
+        [
+          3180,
+          3072
+        ],
+        [
+          3470,
+          3072
+        ],
+        [
+          3770,
+          3072
+        ],
+        [
+          4000,
+          3072
+        ]
+      ],
+      "representativeGlobalXY": [
+        [
+          44140,
+          31744
+        ],
+        [
+          44430,
+          31744
+        ],
+        [
+          44730,
+          31744
+        ],
+        [
+          44960,
+          31744
+        ]
+      ],
+      "subject": "树叶、柱脚、石路",
+      "finding": "本缝最显眼的色阶区：x约3072–3400叶团/柱脚和x约3530–4096石路在y=3072处亮度与紫色阴影强度改变。柱脚石轮廓、圆石板分界总体接续，未确认大型几何断裂。",
+      "classification": "appearance_discontinuity_visible; no large structural break confirmed within inspected band",
+      "formalPassed": false,
+      "recommendedAction": "先保留结构做有记录的局部颜色/低频光照匹配；如局部细线在差色消除后仍有错位，再做有限配准并复查。不要以模糊羽化替代结构修复。",
+      "quantitativeSupport": {
+        "metric": "mean absolute RGB difference between adjacent rows at seam; not a geometry acceptance metric",
+        "seamMeanAbsRgb": 15.7,
+        "nearbyWithinImageMeanAbsRgb": 2.263
+      }
+    }
+  ],
+  "summary": {
+    "fullHorizontalSeamsReviewed": 3,
+    "sourceBandSegmentsReviewed": 12,
+    "appearanceDiscontinuitiesFound": true,
+    "largeStructuralBreakConfirmedInTheseBands": false,
+    "horizontalSeamsAccepted": false,
+    "mandatoryNew1254StructuralRepairWindowsFromThisReview": 0,
+    "minimum1254WindowsIfAllHorizontalSeamsAreRepaintedWith1024EffectiveCore": 12,
+    "rationale": "当前证据支持先对已有结构做局部色差/低频光照匹配，不能仅凭颜色差异要求重画全部结构。若后续决定全用AI覆盖3条全宽水平缝，每窗1024有效宽，4窗一条，共12窗；这是AI全宽替代方案的覆盖下限，不是要求立即调用12次。",
+    "mostVisibleRanges": [
+      {
+        "localXYXY": [
+          1280,
+          896,
+          1536,
+          1152
+        ],
+        "problem": "第一条缝木墙亮度/暖度跳变"
+      },
+      {
+        "localXYXY": [
+          768,
+          1920,
+          1024,
+          2176
+        ],
+        "problem": "第二条缝立木/白墙亮度跳变"
+      },
+      {
+        "localXYXY": [
+          3072,
+          2944,
+          4096,
+          3200
+        ],
+        "problem": "第三条缝叶团、柱脚和石路色相/明度台阶"
+      }
+    ]
+  },
+  "optional1254AppearanceRepairWindows": [
+    {
+      "id": "optional-H1024-C1",
+      "purpose": "仅在局部校正无法统一外观、决定使用AI编辑整条接缝时启用；本审查未认定为强制结构重绘",
+      "nativeWindowLocalXYWH": [
+        -115,
+        397,
+        1254,
+        1254
+      ],
+      "nativeWindowGlobalXYWH": [
+        40845,
+        29069,
+        1254,
+        1254
+      ],
+      "effectiveCoreLocalXYWH": [
+        0,
+        512,
+        1024,
+        1024
+      ],
+      "seamPassesThroughCoreCenter": true,
+      "outsideTileContextRequired": true,
+      "outsideContextSource": "边缘窗使用现有native片段的115像素外侧halo及已绑定相邻上下文；不得把缺失上下文填成新结构。"
+    },
+    {
+      "id": "optional-H1024-C2",
+      "purpose": "仅在局部校正无法统一外观、决定使用AI编辑整条接缝时启用；本审查未认定为强制结构重绘",
+      "nativeWindowLocalXYWH": [
+        909,
+        397,
+        1254,
+        1254
+      ],
+      "nativeWindowGlobalXYWH": [
+        41869,
+        29069,
+        1254,
+        1254
+      ],
+      "effectiveCoreLocalXYWH": [
+        1024,
+        512,
+        1024,
+        1024
+      ],
+      "seamPassesThroughCoreCenter": true,
+      "outsideTileContextRequired": false,
+      "outsideContextSource": null
+    },
+    {
+      "id": "optional-H1024-C3",
+      "purpose": "仅在局部校正无法统一外观、决定使用AI编辑整条接缝时启用；本审查未认定为强制结构重绘",
+      "nativeWindowLocalXYWH": [
+        1933,
+        397,
+        1254,
+        1254
+      ],
+      "nativeWindowGlobalXYWH": [
+        42893,
+        29069,
+        1254,
+        1254
+      ],
+      "effectiveCoreLocalXYWH": [
+        2048,
+        512,
+        1024,
+        1024
+      ],
+      "seamPassesThroughCoreCenter": true,
+      "outsideTileContextRequired": false,
+      "outsideContextSource": null
+    },
+    {
+      "id": "optional-H1024-C4",
+      "purpose": "仅在局部校正无法统一外观、决定使用AI编辑整条接缝时启用；本审查未认定为强制结构重绘",
+      "nativeWindowLocalXYWH": [
+        2957,
+        397,
+        1254,
+        1254
+      ],
+      "nativeWindowGlobalXYWH": [
+        43917,
+        29069,
+        1254,
+        1254
+      ],
+      "effectiveCoreLocalXYWH": [
+        3072,
+        512,
+        1024,
+        1024
+      ],
+      "seamPassesThroughCoreCenter": true,
+      "outsideTileContextRequired": true,
+      "outsideContextSource": "边缘窗使用现有native片段的115像素外侧halo及已绑定相邻上下文；不得把缺失上下文填成新结构。"
+    },
+    {
+      "id": "optional-H2048-C1",
+      "purpose": "仅在局部校正无法统一外观、决定使用AI编辑整条接缝时启用；本审查未认定为强制结构重绘",
+      "nativeWindowLocalXYWH": [
+        -115,
+        1421,
+        1254,
+        1254
+      ],
+      "nativeWindowGlobalXYWH": [
+        40845,
+        30093,
+        1254,
+        1254
+      ],
+      "effectiveCoreLocalXYWH": [
+        0,
+        1536,
+        1024,
+        1024
+      ],
+      "seamPassesThroughCoreCenter": true,
+      "outsideTileContextRequired": true,
+      "outsideContextSource": "边缘窗使用现有native片段的115像素外侧halo及已绑定相邻上下文；不得把缺失上下文填成新结构。"
+    },
+    {
+      "id": "optional-H2048-C2",
+      "purpose": "仅在局部校正无法统一外观、决定使用AI编辑整条接缝时启用；本审查未认定为强制结构重绘",
+      "nativeWindowLocalXYWH": [
+        909,
+        1421,
+        1254,
+        1254
+      ],
+      "nativeWindowGlobalXYWH": [
+        41869,
+        30093,
+        1254,
+        1254
+      ],
+      "effectiveCoreLocalXYWH": [
+        1024,
+        1536,
+        1024,
+        1024
+      ],
+      "seamPassesThroughCoreCenter": true,
+      "outsideTileContextRequired": false,
+      "outsideContextSource": null
+    },
+    {
+      "id": "optional-H2048-C3",
+      "purpose": "仅在局部校正无法统一外观、决定使用AI编辑整条接缝时启用；本审查未认定为强制结构重绘",
+      "nativeWindowLocalXYWH": [
+        1933,
+        1421,
+        1254,
+        1254
+      ],
+      "nativeWindowGlobalXYWH": [
+        42893,
+        30093,
+        1254,
+        1254
+      ],
+      "effectiveCoreLocalXYWH": [
+        2048,
+        1536,
+        1024,
+        1024
+      ],
+      "seamPassesThroughCoreCenter": true,
+      "outsideTileContextRequired": false,
+      "outsideContextSource": null
+    },
+    {
+      "id": "optional-H2048-C4",
+      "purpose": "仅在局部校正无法统一外观、决定使用AI编辑整条接缝时启用；本审查未认定为强制结构重绘",
+      "nativeWindowLocalXYWH": [
+        2957,
+        1421,
+        1254,
+        1254
+      ],
+      "nativeWindowGlobalXYWH": [
+        43917,
+        30093,
+        1254,
+        1254
+      ],
+      "effectiveCoreLocalXYWH": [
+        3072,
+        1536,
+        1024,
+        1024
+      ],
+      "seamPassesThroughCoreCenter": true,
+      "outsideTileContextRequired": true,
+      "outsideContextSource": "边缘窗使用现有native片段的115像素外侧halo及已绑定相邻上下文；不得把缺失上下文填成新结构。"
+    },
+    {
+      "id": "optional-H3072-C1",
+      "purpose": "仅在局部校正无法统一外观、决定使用AI编辑整条接缝时启用；本审查未认定为强制结构重绘",
+      "nativeWindowLocalXYWH": [
+        -115,
+        2445,
+        1254,
+        1254
+      ],
+      "nativeWindowGlobalXYWH": [
+        40845,
+        31117,
+        1254,
+        1254
+      ],
+      "effectiveCoreLocalXYWH": [
+        0,
+        2560,
+        1024,
+        1024
+      ],
+      "seamPassesThroughCoreCenter": true,
+      "outsideTileContextRequired": true,
+      "outsideContextSource": "边缘窗使用现有native片段的115像素外侧halo及已绑定相邻上下文；不得把缺失上下文填成新结构。"
+    },
+    {
+      "id": "optional-H3072-C2",
+      "purpose": "仅在局部校正无法统一外观、决定使用AI编辑整条接缝时启用；本审查未认定为强制结构重绘",
+      "nativeWindowLocalXYWH": [
+        909,
+        2445,
+        1254,
+        1254
+      ],
+      "nativeWindowGlobalXYWH": [
+        41869,
+        31117,
+        1254,
+        1254
+      ],
+      "effectiveCoreLocalXYWH": [
+        1024,
+        2560,
+        1024,
+        1024
+      ],
+      "seamPassesThroughCoreCenter": true,
+      "outsideTileContextRequired": false,
+      "outsideContextSource": null
+    },
+    {
+      "id": "optional-H3072-C3",
+      "purpose": "仅在局部校正无法统一外观、决定使用AI编辑整条接缝时启用；本审查未认定为强制结构重绘",
+      "nativeWindowLocalXYWH": [
+        1933,
+        2445,
+        1254,
+        1254
+      ],
+      "nativeWindowGlobalXYWH": [
+        42893,
+        31117,
+        1254,
+        1254
+      ],
+      "effectiveCoreLocalXYWH": [
+        2048,
+        2560,
+        1024,
+        1024
+      ],
+      "seamPassesThroughCoreCenter": true,
+      "outsideTileContextRequired": false,
+      "outsideContextSource": null
+    },
+    {
+      "id": "optional-H3072-C4",
+      "purpose": "仅在局部校正无法统一外观、决定使用AI编辑整条接缝时启用；本审查未认定为强制结构重绘",
+      "nativeWindowLocalXYWH": [
+        2957,
+        2445,
+        1254,
+        1254
+      ],
+      "nativeWindowGlobalXYWH": [
+        43917,
+        31117,
+        1254,
+        1254
+      ],
+      "effectiveCoreLocalXYWH": [
+        3072,
+        2560,
+        1024,
+        1024
+      ],
+      "seamPassesThroughCoreCenter": true,
+      "outsideTileContextRequired": true,
+      "outsideContextSource": "边缘窗使用现有native片段的115像素外侧halo及已绑定相邻上下文；不得把缺失上下文填成新结构。"
+    }
+  ],
+  "outsideScopeKnownIssue": {
+    "description": "之前row02-review已确认r02_c03/r02_c04竖向共边的白墙投影轮廓断裂，且日景源中已存在；此结构问题不因本次水平缝没有确认大结构断裂而被豁免。",
+    "report": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\qa\\row02-review.json"
+  },
+  "limitations": [
+    "本次未审查3条竖缝、西侧共边、九个四片交点或客户端导航。",
+    "没有执行配准、颜色修正、混合或AI重绘。",
+    "数值仅辅助定位颜色/亮度台阶；不能替代几何与美术验收。"
+  ],
+  "formalAccepted": false,
+  "clientAccepted": false
+}
