@@ -22,11 +22,13 @@
   "counts": {
     "totalPositions": 256,
     "existingCompletePixelCandidates": 3,
-    "newCompletePixelCandidates": 0,
-    "inProgress": 1,
+    "newCompletePixelCandidates": 1,
+    "inProgress": 0,
     "missing": 252,
     "formalAccepted": 0,
-    "clientAccepted": 0
+    "clientAccepted": 0,
+    "completePixelCandidates": 4,
+    "qaOrRepairInProgress": 1
   },
   "wholeCityComplete": false,
   "runtimePublished": false,
@@ -2766,14 +2768,34 @@
         "width": 18.75,
         "height": 18.75
       },
-      "status": "in_progress",
-      "completePixelCandidate": false,
+      "status": "complete_pixel_candidate_qa_pending",
+      "completePixelCandidate": true,
       "formalAccepted": false,
       "clientAccepted": false,
-      "sourceFile": null,
+      "sourceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\internal-repaired\\output\\r08_c11.png",
       "activeOutputDirectory": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11",
       "geometryContract": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\audit\\shared-geometry-contract.json",
-      "reason": "Adjacent expansion in progress; geometry paired to day native patches when present; fragments never counted as completed 4K tile"
+      "reason": "Complete and inspect west c10/c11 shared edge; convert available day r08_c12 native patches into festival appearance.",
+      "expectedSha256": "acebd3b85a9ef152ea9b927d70b4818ad4a6076e6ded3f3192a7a09904c8df15",
+      "actualSha256": "acebd3b85a9ef152ea9b927d70b4818ad4a6076e6ded3f3192a7a09904c8df15",
+      "shaMatches": true,
+      "actualPixels": [
+        4096,
+        4096
+      ],
+      "fullDecode": true,
+      "selectionFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\current-selection.json",
+      "qaStatus": "internal_scope_pass_west_pending",
+      "phase": "west_seam_repair_and_east_expansion",
+      "extendedContext": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\internal-repaired\\output\\extended-context.png",
+        "sha256": "0365fbc2fedd91a1a33673e6eed90f10607785cf3a2ff703b216c25f0c20e9a0",
+        "pixels": [
+          4326,
+          4326
+        ],
+        "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c11\\internal-repaired\\output\\extended-context.png.generation.json"
+      }
     },
     {
       "id": "r08_c12",
@@ -5701,5 +5723,7 @@
       "clientAccepted": false,
       "sourceFile": null
     }
-  ]
+  ],
+  "updatedAtUtc": "2026-10-05T23:20:38.293498+00:00",
+  "currentSelectionFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\current-selection.json"
 }

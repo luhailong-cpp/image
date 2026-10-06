@@ -26,21 +26,65 @@ def init():
  out=TILE/'guides/neighbor-tone-native.png';Image.open(WEST).crop((2842,550,4096,1804)).save(out)
  write(str(out)+'.generation.json',{'file':str(out),'sha256':sha(out),'operation':'unscaled native crop for festival tone only','cropXYXY':[2842,550,4096,1804],'derivedFrom':[item(WEST,'existing west festival candidate')],'finalArt':False})
  status()
+def selected_candidate():
+ selection_path=ROOT/'current-selection.json'
+ if not selection_path.exists():return None
+ selection=read(selection_path)
+ assert selection['tile']=='r08_c11','Unexpected selected tile'
+ for key,size in [('core',(4096,4096)),('extendedContext',(4326,4326))]:
+  entry=selection[key];p=Path(entry['file']).resolve()
+  assert p.is_relative_to(ROOT.resolve()),'Selected candidate must stay in this task directory'
+  assert p.is_file() and sha(p)==entry['sha256'],f'Selected {key} missing or changed: {p}'
+  with Image.open(p) as im:
+   im.load();assert im.format=='PNG' and im.size==size,f'Invalid selected {key} pixels'
+  if entry.get('generationRecord'):
+   record=read(entry['generationRecord']);assert record['sha256']==entry['sha256'],'Selected record disagrees with image'
+ assert selection.get('completePixelCandidate') is True,'Selection must explicitly identify a complete pixel candidate'
+ return selection
+
+def refresh_tile_index(state,selection):
+ path=ROOT/'audit/tile-index.json'
+ if not path.exists():return
+ index=read(path)
+ for entry in index['tiles']:
+  if entry['id']!='r08_c11':continue
+  entry.update(status='complete_pixel_candidate_qa_pending' if selection else 'in_progress',completePixelCandidate=bool(selection),formalAccepted=False,clientAccepted=False,sourceFile=selection['core']['file'] if selection else None,activeOutputDirectory=str(TILE),reason=state['nextAction'])
+  if selection:
+   entry.update(expectedSha256=selection['core']['sha256'],actualSha256=selection['core']['sha256'],shaMatches=True,actualPixels=[4096,4096],fullDecode=True,selectionFile=str(ROOT/'current-selection.json'),qaStatus=selection['qaStatus'],phase=state['phase'],extendedContext=selection['extendedContext'])
+ index['updatedAtUtc']=state['updatedAtUtc']
+ index['counts'].update(existingCompletePixelCandidates=state['baselineCompletePixelCandidates'],newCompletePixelCandidates=state['newCompletePixelCandidates'],completePixelCandidates=state['completePixelCandidates'],inProgress=0 if selection else 1,qaOrRepairInProgress=1 if selection else 0,missing=state['missingTiles'],formalAccepted=0,clientAccepted=0)
+ index.update(wholeCityComplete=False,runtimePublished=False,currentSelectionFile=str(ROOT/'current-selection.json') if selection else None)
+ write(path,index)
+
 def status():
  natives=sorted((TILE/'native').glob('r??_c??.png'))
  day=sorted((DAY/'native').glob('r??_c??.png'))
- state={'appearance':'donghai_lantern','title':'05 渔村元宵地图','updatedAtUtc':now(),'targetCityPixels':[65536,65536],'targetTiles':256,'targetTilePixels':[4096,4096],'baselineCompletePixelCandidates':3,'newCompletePixelCandidates':int((TILE/'output/r08_c11.png').exists()),'formalAccepted':0,'wholeCityComplete':False,'clientAccepted':False,'activeTile':'r08_c11','activeGlobalRectXYWH':[40960,28672,4096,4096],'nativeCorePixels':1024,'nativeHaloPixels':115,'nativePatchesSaved':len(natives),'nativePatchesRequiredForActiveTile':16,'fragmentsCountAsTiles':False,'dayGeometryPatchesAvailable':len(day),'phase':'native_expansion_in_progress' if natives else 'preparing_exact_day_geometry_input','nextAction':'Convert each actual day native geometry patch to matching festival appearance with exact west and generated-neighbor context; no independent geometry substitution.','sharedGeometryContract':str(ROOT/'audit/shared-geometry-contract.json'),'baselineVerification':str(ROOT/'source-verification.json')}
- write(ROOT/'current-work.json',state);write(ROOT/'progress.json',state)
+ h=read(ROOT/'handoff.json');selection=selected_candidate();baseline=len(h['baselineCandidates']);new_count=int(selection is not None)
+ phase=selection.get('phase','candidate_qa_pending') if selection else ('native_expansion_in_progress' if natives else 'preparing_exact_day_geometry_input')
+ next_action=selection.get('nextAction','Review selected candidate internal seams and shared edges.') if selection else 'Convert each actual day native geometry patch to matching festival appearance with exact west and generated-neighbor context; no independent geometry substitution.'
+ state={'appearance':'donghai_lantern','title':'05 渔村元宵地图','updatedAtUtc':now(),'targetCityPixels':[65536,65536],'targetTiles':256,'targetTilePixels':[4096,4096],'baselineCompletePixelCandidates':baseline,'newCompletePixelCandidates':new_count,'completePixelCandidates':baseline+new_count,'missingTiles':256-baseline-new_count-(0 if selection else 1),'formalAccepted':0,'wholeCityComplete':False,'clientAccepted':False,'activeTile':'r08_c11','activeGlobalRectXYWH':[40960,28672,4096,4096],'nativeCorePixels':1024,'nativeHaloPixels':115,'nativePatchesSaved':len(natives),'nativePatchesRequiredForActiveTile':16,'fragmentsCountAsTiles':False,'dayGeometryPatchesAvailable':len(day),'phase':phase,'nextAction':next_action,'currentSelectionFile':str(ROOT/'current-selection.json') if selection else None,'currentCompleteCandidate':selection['core'] if selection else None,'qaStatus':selection['qaStatus'] if selection else 'not_ready','sharedGeometryContract':str(ROOT/'audit/shared-geometry-contract.json'),'baselineVerification':str(ROOT/'source-verification.json'),'nativeSourceVerification':str(ROOT/'audit/native-source-verification.json')}
  preview=Image.new('RGB',(2048,1024),(38,49,58));draw=ImageDraw.Draw(preview)
- h=read(ROOT/'handoff.json')
- for i,e in enumerate(h['baselineCandidates']):preview.paste(Image.open(e['file']).resize((512,512),Image.Resampling.LANCZOS),(i*512,0))
- for p in natives:
-  r,c=map(int,(p.stem[1:3],p.stem[5:7]));preview.paste(Image.open(p).crop((115,115,1139,1139)).resize((128,128),Image.Resampling.LANCZOS),(1536+(c-1)*128,(r-1)*128))
- draw.text((15,540),'Existing r08_c08 - c10 | Active r08_c11 (dark = missing)',fill='white')
- draw.text((15,565),f'Existing pixel candidates: 3 | New 4K candidates: {state["newCompletePixelCandidates"]} | Native fragments: {len(natives)}/16 | Formal accepted: 0/256',fill='white')
- draw.text((15,590),'Overview only, downscaled for inspection; not final art or native-resolution seam QA.',fill='white')
+ derived=[]
+ for i,e in enumerate(h['baselineCandidates']):
+  assert sha(e['file'])==e['sha256'],'Baseline source changed'
+  with Image.open(e['file']) as im:
+   im.load();assert im.size==(4096,4096),'Baseline is not a complete 4K candidate'
+   preview.paste(im.resize((512,512),Image.Resampling.LANCZOS),(i*512,0))
+  derived.append(item(e['file'],'existing read-only 4K candidate'))
+ if selection:
+  with Image.open(selection['core']['file']) as im:preview.paste(im.resize((512,512),Image.Resampling.LANCZOS),(1536,0))
+  derived.append(item(selection['core']['file'],'selected current complete 4K pixel candidate; QA pending'))
+ else:
+  for p in natives:
+   r,c=map(int,(p.stem[1:3],p.stem[5:7]));preview.paste(Image.open(p).crop((115,115,1139,1139)).resize((128,128),Image.Resampling.LANCZOS),(1536+(c-1)*128,(r-1)*128))
+   derived.append(item(p,'native fragment; not a completed tile'))
+ draw.text((15,540),'Existing r08_c08 - c10 | Selected current r08_c11 candidate' if selection else 'Existing r08_c08 - c10 | Active r08_c11 fragments (dark = missing)',fill='white')
+ draw.text((15,565),f'Complete pixel candidates: {baseline+new_count}/256 ({baseline} baseline + {new_count} new) | Native fragments: {len(natives)}/16 | Formal accepted: 0/256',fill='white')
+ draw.text((15,590),f'Phase: {phase} | Missing tiles: {state["missingTiles"]} | Client acceptance: pending',fill='white')
+ draw.text((15,615),'Overview only, downscaled for inspection; not final art or native-resolution seam QA.',fill='white')
  preview.save(ROOT/'current-preview.png')
- write(ROOT/'current-preview.png.generation.json',{'file':str(ROOT/'current-preview.png'),'sha256':sha(ROOT/'current-preview.png'),'operation':'downscaled placement preview; empty regions dark, not counted as artwork','derivedFrom':[item(e['file'],'existing 4K candidate') for e in h['baselineCandidates']]+[item(p,'new native fragment') for p in natives],'finalArt':False})
+ write(ROOT/'current-preview.png.generation.json',{'file':str(ROOT/'current-preview.png'),'sha256':sha(ROOT/'current-preview.png'),'operation':'downscaled placement preview of authoritative selected candidate; fragments shown only when no candidate is selected','selectionFile':str(ROOT/'current-selection.json') if selection else None,'derivedFrom':derived,'finalArt':False})
+ write(ROOT/'current-work.json',state);write(ROOT/'progress.json',state);refresh_tile_index(state,selection)
 def prepare(r,c):
  name=f'r{r:02}_c{c:02}';src=DAY/'native'/f'{name}.png';record=Path(str(src)+'.generation.json')
  assert src.exists() and record.exists(),'Exact day native pixels and provenance not ready'

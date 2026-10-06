@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "reviewedAtUtc": "2026-10-05T22:37:05.516843+00:00",
+  "question": "Whether bounded mechanical seam color matching is permitted and which existing local utilities can inform it.",
+  "policyConclusion": "Permitted for already drawn, structurally continuous seams under the explicit project/user instructions. Geometry defects or missing structure still require redraw. The current review did not authorize or apply pixel changes.",
+  "rules": [
+    {
+      "file": "D:\\work\\image\\主城地图切图规范.md",
+      "line": 21,
+      "quote": "几何错位应重绘修正；羽化只用于细小纹理过渡，不能用模糊掩盖错位。",
+      "application": "Exclude west round-stone/squared-stone mismatch and any subsequently confirmed geometry break from tone-only correction."
+    },
+    {
+      "file": "D:\\work\\image\\主城地图切图规范.md",
+      "line": 22,
+      "quote": "对已重绘完成的接缝，可在保留原生尺寸的前提下做有限的亚像素配准和局部色彩匹配。须记录位移上限、实际位移、重采样、遮罩及校正场，并复查原像素效果。",
+      "application": "RGB-only addition with zero displacement and no raster resampling is within the allowed local color matching scope. Store exact field, mask, bounds, hashes and native-pixel QA."
+    },
+    {
+      "file": "D:\\work\\image\\docs\\IMAGE_MODEL_POLICY.md",
+      "line": 43,
+      "quote": "裁切、缩放、拼接、去背景等未再次调用生成模型的派生图，记录 derivedFrom 及 operation，由此追溯原始模型与质量；多来源拼接逐一列出来源，不把后处理记成新模型生成。",
+      "application": "Record tone correction as a mechanical derivative; retain source model/quality uncertainty and source SHA chains."
+    }
+  ],
+  "utilities": [
+    {
+      "source": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\tools\\match_internal_tone.py",
+        "sha256": "ba000172c45c9f2d9278c3007c0882b9efdda08be83590797481a2782ea8df3d"
+      },
+      "readNotRun": true,
+      "suitability": "Most directly reusable algorithm for current color-only internal seams.",
+      "algorithm": "Samples RGB jump at seam while excluding high-variation rows; interpolates valid samples along seam, smooths correction field only, clips estimated jump to +/-24, splits it between two sides for <=12 per-channel per-pass addition, uses smoothstep falloff within 192 pixels of seam and optional longitudinal segments. No raster blur, geometric movement or resampling.",
+      "evidenceWrittenByUtility": [
+        "per-seam correction.npy",
+        "per-seam mask.png",
+        "field/mask/source/output SHA256",
+        "actual maximum channel change",
+        "zero shift and resampling none",
+        "processing.json",
+        "native output and QA preview"
+      ],
+      "adaptationRequired": [
+        "Hardcoded to another appearance r08_c09, 4326 extended canvas and +115 offset. Must not import or run unchanged: top-level code creates outputs and applies all listed seams.",
+        "Current r08_c11 source is 4096 core, so coordinate system and mask support need explicit conversion.",
+        "Low-gradient validity threshold |jump|<30 may exclude strongest observed red-channel roof discontinuities; do not silently increase bounds or interpolate across different materials.",
+        "Validate per-material masks and co-located 230-pixel native overlaps; correction field interpolation can itself make a stripe. Track cumulative, not only per-pass, change."
+      ]
+    },
+    {
+      "source": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r08_c09\\tone-v3\\derive_local_field.py",
+        "sha256": "f03277790f207609f1353f8a13b665b2905adac7a7e796dd59faee5266d2cea1"
+      },
+      "readNotRun": true,
+      "suitability": "Useful exact replay and locally attenuated-field repair pattern.",
+      "algorithm": "Reconstructs an already corrected band from original pixels plus saved RGB field; attenuates a visually confirmed spurious stripe with a bounded smooth mask. Asserts exact preservation outside support and stores replacement field, adjustment field and masks.",
+      "adaptationRequired": [
+        "Its observed tone-v2 stripe proves the first utility is not automatically safe or visually accepted.",
+        "Hardcoded source hashes/rectangles are specific to another task. Reuse the replay/unchanged-outside-mask checks, not its coordinates or source files."
+      ]
+    },
+    {
+      "source": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\tools\\align_west.py",
+        "sha256": "5203e31c78a286d2ed01c31d4a4b6126205cfe87ece41d945d6f0b37ec630d0f"
+      },
+      "readNotRun": true,
+      "suitability": "Useful bounded parameter/field reporting, not needed for current purely tonal vertical findings.",
+      "algorithm": "Estimates regularized vertical subpixel displacement (<=10 pixels), uses bicubic remap, then smooths median overlap RGB residual and clips tone to <=12. Stores mask and flow/correction archive.",
+      "adaptationRequired": [
+        "Do not apply geometry warp to an already connected seam merely to correct color.",
+        "Any future registration needs separate observed geometry evidence and explicit resampling record."
+      ]
+    },
+    {
+      "source": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\repairs\\west\\diagnostic\\recommended_trial.py",
+        "sha256": "4ff8edb7b70d4167faea4148fa7ae3882db227d509ef7e12c54e7e94e31b2e6e"
+      },
+      "readNotRun": true,
+      "suitability": "Useful narrow ROI, bounded additive tone and exact outside-mask preservation checks after actual structural redraw.",
+      "algorithm": "Uses existing registered repair field, a 12-pixel vector bound, local tone clamp and binary crop mask; leaves old neighbor and pixels outside a 100x404 new-tile corridor exact.",
+      "adaptationRequired": [
+        "This is a structural-repair follow-up with optical flow and inherited tone. It is not a drop-in color-only process.",
+        "Runs imported source text from another file at top level; inspect/adapt into own scope rather than execute unchanged."
+      ]
+    },
+    {
+      "source": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\donghai_lantern\\r08_c10\\assemble_builtin.py",
+        "sha256": "7f1fedd0b499ad1f6658a3549483d1ec7f19862c3079bfa7cd7085eed521850b"
+      },
+      "readNotRun": true,
+      "suitability": "Existing same-appearance assembly pattern, not a bounded tonal matcher.",
+      "algorithm": "Chooses minimum-error seam in 230-pixel overlaps, then alpha-blends using a radius-2 mask; source raster dimensions are preserved.",
+      "adaptationRequired": [
+        "Hardcoded E:/ path and old record schema.",
+        "Does not produce an explicit bounded additive color field; blending cannot be used to hide the western stone geometry mismatch."
+      ]
+    }
+  ],
+  "recommendedScopedApproach": [
+    "Start from verified r08_c11 source and correction masks that cover only reviewed color discontinuities. Keep geometry unchanged (shift 0, resampling none).",
+    "Estimate low-frequency color residual from corresponding native overlap pixels only where structural alignment is visually confirmed, segmenting by material/shadow when needed.",
+    "Use conservative bounded additive RGB fields; record chosen per-pass and cumulative channel limits, actual maximum, clipping counts and changed-pixel bounding boxes. Smooth the field rather than the source raster.",
+    "Save source SHA, reproducible script/parameters, float field, exact mask and derived output sidecar. Assert bit-identical pixels outside mask.",
+    "Review all affected full seams, mask boundaries and crossings at native pixels; do not treat numerical seam-error reduction as visual acceptance.",
+    "If tone field cannot resolve a seam without damaging highlights or material, use the already documented native AI repair window with exact geometry context."
+  ],
+  "noOperationsExecuted": true,
+  "assemblyOrStateChanged": false
+}
