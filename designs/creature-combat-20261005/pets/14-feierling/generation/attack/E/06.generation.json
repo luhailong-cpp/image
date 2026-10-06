@@ -1,5 +1,5 @@
 {
-  "frame": "06",
+  "frame": 6,
   "direction": "E",
   "tool": "image_gen.imagegen",
   "route": "builtin",
@@ -37,7 +37,9 @@
     {
       "path": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bba-9aa1-7de3-9096-f1442f489780\\exec-aa9d18bf-82fd-4dd9-81c7-aab97987c39d.png",
       "role": "accepted E01 animation anchor",
-      "sha256": "fade6e3af74c22d0550b6bc403e73c61967e86bcb1fd39340173f412f5647f6a"
+      "sha256": "fade6e3af74c22d0550b6bc403e73c61967e86bcb1fd39340173f412f5647f6a",
+      "historicalOnly": true,
+      "retentionStatus": "historical model input; host cache outside task write scope, not a delivery dependency"
     }
   ],
   "receipt": {
@@ -55,30 +57,84 @@
     "format": "PNG"
   },
   "exported": {
-    "file": "D:\\work\\image\\designs\\creature-combat-20261005\\pets\\14-feierling\\runtime\\attack\\E\\06.png",
-    "sha256": "a75617602532f27dbf19acc646b6adfdca2c2bfbfc1cfb34fe079f442957dffc",
+    "file": "runtime/attack/E/06.png",
+    "sha256": "6e583350baa81a8f517ac5f99de1ee9c0c8991575e27420f92e50ad95573e76c",
     "width": 1024,
     "height": 1024,
     "mode": "RGBA",
     "alphaMinMax": [
       0,
       255
-    ],
-    "transparentPixels": 589981,
-    "partialAlphaPixels": 457552,
-    "opaquePixels": 1043,
-    "alphaBBox": [
-      30,
-      19,
-      1006,
-      1024
     ]
   },
   "derivedFrom": {
-    "path": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bba-9aa1-7de3-9096-f1442f489780\\exec-90fb0f8c-d1b2-4126-be7e-9e42bf2b7c8e.png",
-    "sha256": "f91c0e4806a5cab50bc2ebc0b5bc4a1aee3609f19bbf838b730cbc2a5c5acc53"
+    "sha256": "f91c0e4806a5cab50bc2ebc0b5bc4a1aee3609f19bbf838b730cbc2a5c5acc53",
+    "nativeFile": "D:\\work\\image\\designs\\creature-combat-20261005\\pets\\14-feierling\\generation\\attack\\E\\06.native.png",
+    "operation": {
+      "type": "fixed-direction-export",
+      "nativeCanvas": [
+        1254,
+        1254
+      ],
+      "resizedCanvas": [
+        853,
+        853
+      ],
+      "scale": 0.6802232854864434,
+      "offset": [
+        0,
+        126
+      ],
+      "outputCanvas": [
+        1024,
+        1024
+      ],
+      "footAnchorTopLeft": [
+        512,
+        942
+      ],
+      "perFrameAlignment": false,
+      "resampling": "LANCZOS",
+      "crop": false,
+      "nominalNativeRoot": [
+        752.6940211019929,
+        1199.6060961313012
+      ],
+      "calibration": "Direction-wide nominal standing support root estimated from ready poses; feet may move around this root naturally. Entire native canvas retained. No per-frame adjustment."
+    }
   },
-  "operation": "whole-canvas uniform resize to 1024x1024 with LANCZOS; no crop, alignment, mirroring, interpolation or pose synthesis",
+  "operation": {
+    "type": "fixed-direction-export",
+    "nativeCanvas": [
+      1254,
+      1254
+    ],
+    "resizedCanvas": [
+      853,
+      853
+    ],
+    "scale": 0.6802232854864434,
+    "offset": [
+      0,
+      126
+    ],
+    "outputCanvas": [
+      1024,
+      1024
+    ],
+    "footAnchorTopLeft": [
+      512,
+      942
+    ],
+    "perFrameAlignment": false,
+    "resampling": "LANCZOS",
+    "crop": false,
+    "nominalNativeRoot": [
+      752.6940211019929,
+      1199.6060961313012
+    ],
+    "calibration": "Direction-wide nominal standing support root estimated from ready poses; feet may move around this root naturally. Entire native canvas retained. No per-frame adjustment."
+  },
   "durationMs": 30,
   "pivot": [
     0.5,
@@ -100,5 +156,42 @@
       "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
       "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
     }
+  },
+  "preFinalExport": {
+    "sha256": "a75617602532f27dbf19acc646b6adfdca2c2bfbfc1cfb34fe079f442957dffc",
+    "operation": "whole-canvas uniform resize to 1024x1024 with LANCZOS; no crop, alignment, mirroring, interpolation or pose synthesis"
+  },
+  "file": "runtime/attack/E/06.png",
+  "sha256": "6e583350baa81a8f517ac5f99de1ee9c0c8991575e27420f92e50ad95573e76c",
+  "width": 1024,
+  "height": 1024,
+  "mode": "RGBA",
+  "format": "PNG",
+  "footAnchorTopLeft": [
+    512,
+    942
+  ],
+  "finalExportAt": "2026-10-05T22:01:27.009483+00:00",
+  "alpha": {
+    "extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      28,
+      195,
+      834,
+      979
+    ],
+    "transparentPixels": 730448,
+    "partialPixels": 316812,
+    "opaquePixels": 1316
+  },
+  "visualStatus": "reviewed in final contact sheets and local browser playback; QA/visual-review.json",
+  "retention": {
+    "policy": "Final game frames and current supporting files only; no project image backups. Prompts, receipts, historical paths and source SHA retained.",
+    "nativePixels": "not part of delivery; local intermediate removed after verified final export",
+    "externalSourceCache": "host-generated cache is outside the exclusive write scope and is not a required delivery dependency",
+    "submittedReferencePaths": "historical generation inputs; original shared identity/style files remain current and read-only"
   }
 }
