@@ -59,6 +59,10 @@ def main():
                     if rec.get("sha256")!=digest:errors.append({"file":relative,"error":"record_sha_mismatch"})
                     if rec.get("file")!=relative:errors.append({"file":relative,"error":"record_file_mismatch"})
                     if (rec.get("action"),rec.get("direction"),rec.get("frame"),rec.get("durationMs"))!=(action,direction,index,duration):errors.append({"file":relative,"error":"record_identity_or_duration_mismatch"})
+                    op=rec.get("operation",{})
+                    if op.get("resize")!=[960,960] or op.get("offset")!=[32,16] or op.get("perFrameAlignment") is not False:errors.append({"file":relative,"error":"nonuniform_export_transform"})
+                    core={Path(ref["path"]).name for ref in rec.get("references",[])}
+                    if not {"12-yuexianshi-E.png","12-yuexianshi-W.png","01-character-ui-no-affinity.png"}.issubset(core):errors.append({"file":relative,"error":"missing_required_identity_or_style_input"})
                     for kind,value in (("prompt",rec.get("prompt")),("receipt",rec.get("evidence",{}).get("receipt"))):
                         if not value or not resolve(value).exists():errors.append({"file":relative,"error":kind+"_missing","path":value})
                     ref_checks=[]
@@ -82,10 +86,10 @@ def main():
     if duplicates:errors.append({"error":"duplicate_runtime_pixels","groups":duplicates})
     complete=len(missing)==0 and not errors
     technical={"status":"passed" if complete else "partial" if missing and not errors else "failed","expectedFrames":68,"presentFrames":sum(x["available"] for x in frames),"missing":missing,"errors":errors,"warnings":warnings,"duplicatePixels":duplicates,"duplicateFiles":[v for v in file_groups.values() if len(v)>1],"checkedAt":datetime.now(timezone.utc).isoformat(),"limits":"Format/hash/completeness checks do not establish animation, art or client approval."}
-    manifest={"schemaVersion":1,"character":"12-yuexianshi","name":"月弦师","status":"complete" if complete else "partial","expectedFrames":68,"presentFrames":technical["presentFrames"],"technicalStatus":technical["status"],"visualStatus":"per-frame records and manual group review; not inferred from technical checks","clientStatus":"not-integrated","generatedAt":technical["checkedAt"],"groups":groups,"frames":frames}
+    manifest={"schemaVersion":1,"character":"12-yuexianshi","name":"月弦师","status":"assets-complete-playback-pending" if complete else "partial","expectedFrames":68,"presentFrames":technical["presentFrames"],"technicalStatus":technical["status"],"visualStatus":"per-frame records and manual group review; not inferred from technical checks","playbackStatus":"not-verified-browser-policy-blocked","playbackEvidence":"records/cast-E/browser-policy-rejection.json","clientStatus":"not-integrated","generatedAt":technical["checkedAt"],"groups":groups,"frames":frames}
     save(ROOT/"manifest.json",manifest);save(ROOT/"technical-validation.json",technical)
+    save(ROOT/"preview"/"contact-records.json",[{"file":g["contact"],"sha256":sha(ROOT/g["contact"]),"derivedFrom":[{"path":f["file"],"sha256":f.get("sha256"),"generationRecord":f["record"]} for f in g["frames"] if f["available"]],"operation":"uniform resize each final frame to256 square; composite with checkerboard and frame labels, four columns; review-only contact sheet"} for g in groups])
     (ROOT/"SHA256SUMS").write_text("\n".join(hashes)+"\n",encoding="utf-8")
     (ROOT/"preview"/"manifest.js").write_text("window.SPRITE_MANIFEST = "+json.dumps(manifest,ensure_ascii=False)+";\n",encoding="utf-8")
     print(json.dumps({k:technical[k] for k in ("status","expectedFrames","presentFrames","missing","errors")},ensure_ascii=False))
 if __name__=="__main__":main()
-

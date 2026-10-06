@@ -18,6 +18,7 @@ function makePlayer(group){
  const card=document.createElement("section");card.className="card";
  card.innerHTML='<h2>'+labels[group.action]+' · '+group.direction+'　'+group.availableFrames+'/'+group.expectedFrames+' 帧</h2><div class="stage"><img alt="'+labels[group.action]+' '+group.direction+' 动画帧"><span class="missing" hidden></span></div><div class="row"><button data-play>播放</button><button data-normal>1×</button><button data-slow>0.25×</button><button data-prev>上一帧</button><button data-next>下一帧</button><span class="frame"></span></div><input type="range" min="1" max="'+group.expectedFrames+'" value="1" aria-label="'+group.id+' 帧序"><div class="note">'+group.durationMs+'ms / 帧 · 总长 '+group.totalDurationMs+'ms · <a href="'+group.contact+'">全帧联系表</a><br><span data-review></span></div>';
  document.querySelector("#groups").append(card);
+ const links=document.createElement("div");links.className="note row";links.innerHTML='<a href="preview/'+group.id+'-normal.apng">正常速度 APNG</a> · <a href="preview/'+group.id+'-quarter-speed.apng">0.25× APNG</a>';card.append(links);
  const img=card.querySelector("img"),missing=card.querySelector(".missing"),slider=card.querySelector("input"),counter=card.querySelector(".frame"),review=card.querySelector("[data-review]");
  const cache=group.frames.map(f=>{if(!f.available)return null;const p=new Image();p.src=f.file;return p});
  let index=0,speed=1,playing=false,last=performance.now(),acc=0,seen=new Set();
