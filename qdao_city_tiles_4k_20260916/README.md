@@ -1,6 +1,10 @@
-> **2026-10-05 当前入口：** 用户已确认[七套主城各一个独立任务并行制作](builtin_q64_production/parallel_20261005/README.md)，全部任务已实际创建，来源交接已就绪。[当前父任务源集](builtin_q64_production/resume_single_city_20260921/completion_20261004/current-work.json)为29个4K在制坐标，正式验收0、完整城市0；新产出以各任务记录为准。继续内置生图和GPT Image 2.5目标配置，不使用付费API。下文旧批次数量与旧单城优先安排均为历史快照。
+> **当前入口（2026-10-08范围变更）：仅保留原编号01/04/05/06/07五套，39/1280完整4K候选，尚缺1241，正式0、整套0/5。02小镇日景与03小镇春节已按用户要求取消，已有素材保留。** [当前汇总](builtin_q64_production/parallel_20261005/parent_audit_20261008/README.md) · [权威范围](builtin_q64_production/parallel_20261005/production-scope.json) · [五处父修补](builtin_q64_production/parallel_20261005/parent_audit_20261008/parent-repair-current-overlay-v3.json)
 
-> **2026-10-04 最新续作：** [天墉城节庆当前在制稿与来源](builtin_q64_production/resume_single_city_20260921/continuation_20261004/README.md)。本轮 7 次内置原生修补、恢复 1 张已有修补，更新 4 张 4K 在制稿；最新工作集合覆盖 11/256 个坐标，正式验收仍为 0，64K 整城未完成。下面的冻结数量和旧原生累计为历史检查点，续修请先读本入口。
+> 以下旧正文和七套计数仅为历史资料；与当前权威范围冲突时，以最新范围为准，不再制作或交付02/03。
+
+> **2026-10-05 历史并行开工快照：** 用户已确认[七套主城各一个独立任务并行制作](builtin_q64_production/parallel_20261005/README.md)，全部任务已实际创建，来源交接已就绪。[当前父任务源集](builtin_q64_production/resume_single_city_20260921/completion_20261004/current-work.json)为29个4K在制坐标，正式验收0、完整城市0；新产出以各任务记录为准。继续内置生图和GPT Image 2.5目标配置，不使用付费API。下文旧批次数量与旧单城优先安排均为历史快照。
+
+> **2026-10-04 历史续作：** [天墉城节庆当前在制稿与来源](builtin_q64_production/resume_single_city_20260921/continuation_20261004/README.md)。本轮 7 次内置原生修补、恢复 1 张已有修补，更新 4 张 4K 在制稿；最新工作集合覆盖 11/256 个坐标，正式验收仍为 0，64K 整城未完成。下面的冻结数量和旧原生累计为历史检查点，续修请先读本入口。
 
 > 2026-09-22 已按用户授权清理旧原图／回退图，最新保留范围及实际数量见[清理记录](cleanup-current-assets/README.md)。此前原生累计数字是历史生成记录，不表示清理后仍保留同等数量的原图。
 
@@ -12,7 +16,7 @@
 
 
 
-累计生成 **24个独立坐标的4096×4096局部候选**。**完整64K整城0/7套，正式验收0/1792块**。同一坐标的返修版本不重复计数。用户已确认继续全部主城至完成，维持原64K目标，无待确认的范围问题。
+2026-09 历史批次累计生成 **24个独立坐标的4096×4096局部候选**。**完整64K整城0/7套，正式验收0/1792块**。同一坐标的返修版本不重复计数。用户已确认继续全部主城至完成，维持原64K目标，无待确认的范围问题。
 
 
 
@@ -20,7 +24,7 @@
 
 
 
-[本批总览](builtin_q64_production/current-batch-overview.jpg) · [来源与数量核验](builtin_q64_production/current-batch.json) · [状态JSON](status.json)
+[历史批次总览](builtin_q64_production/current-batch-overview.jpg) · [来源与数量核验](builtin_q64_production/current-batch.json) · [状态JSON](status.json)
 
 
 
