@@ -1,0 +1,141 @@
+{
+  "createdAt": "2026-10-08T10:54:09.834622+00:00",
+  "repairs": [
+    {
+      "name": "north",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\parent_expansion_20261008\\integration-v1\\outer-fix\\north\\joined.png",
+      "sha256": "580e941a11b703582be836021a9b8b8865e4b488fb03e9a62b35c5bf14e4af17",
+      "sourceWindow": [
+        0,
+        500,
+        1254,
+        1754
+      ],
+      "mask": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\parent_expansion_20261008\\integration-v1\\outer-fix\\north\\mask.png",
+        "sha256": "e7a57dbcd5d6d15b305952d1693b8b74193cc69fa7ce7b0b0fac9d6582362457",
+        "boundsLocalLTRB": [
+          150,
+          305,
+          890,
+          530
+        ],
+        "alphaTransitionLTRB": [
+          32,
+          32,
+          32,
+          32
+        ]
+      },
+      "manifest": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\parent_expansion_20261008\\integration-v1\\outer-fix\\north\\manifest.json"
+    },
+    {
+      "name": "south",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\parent_expansion_20261008\\integration-v1\\outer-fix\\south\\joined.png",
+      "sha256": "73233cc602e0fe1dbe30519eba393a978db64cf4d3662f5b99797a57cdd3c312",
+      "sourceWindow": [
+        0,
+        1700,
+        1254,
+        2954
+      ],
+      "mask": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\parent_expansion_20261008\\integration-v1\\outer-fix\\south\\mask.png",
+        "sha256": "9d74e090b9c5ebedb3013d0b18be983f80410a7f4c6b9e84fc220b488ad08afe",
+        "boundsLocalLTRB": [
+          375,
+          340,
+          900,
+          650
+        ],
+        "alphaTransitionLTRB": [
+          28,
+          40,
+          10,
+          40
+        ]
+      },
+      "manifest": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\parent_expansion_20261008\\integration-v1\\outer-fix\\south\\manifest.json"
+    }
+  ],
+  "westPairedUpdate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\parent_expansion_20261008\\integration-v1\\outer-fix\\west-c09-strip.png",
+    "sha256": "c0e573744fb8c2e4a82b5a078ebf1a9bf1fac54bd9ab87c55e356d0fc6ecfeb5",
+    "operation": "Exact native left115 crop from repaired c01 for paired c09 update; no resize.",
+    "derivedFrom": [
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\parent_expansion_20261008\\r02_c01\\edge-fix-v2\\joined.png",
+        "sha256": "da7dca975a9dd69bf2d6f7e20cab1eff2df090660b50f313f311ed880215450a",
+        "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\parent_expansion_20261008\\r02_c01\\edge-fix-v2\\joined.png.generation.json",
+        "cropLTRB": [
+          0,
+          0,
+          115,
+          1254
+        ]
+      }
+    ],
+    "targetTile": "r08_c09",
+    "targetLTRB": [
+      3981,
+      909,
+      4096,
+      2163
+    ],
+    "boundTargetSource": {
+      "appearance": "tianyong_festival",
+      "tile": "r08_c09",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r08_c10\\current\\v014\\r08_c09.png",
+      "sha256": "5a6adfbaa9f168a06bb5f2e72bf618e74309566167b4db65bf3c98144f9a3029",
+      "pixels": [
+        4096,
+        4096
+      ],
+      "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r08_c10\\current\\v014\\r08_c09.png.generation.json",
+      "selectionRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume_single_city_20260921\\completion_20261004\\c08\\adjacent-qa\\current-selection.json",
+      "selectionRecordSha256": "0fc2c578bae2efc8a1115e78e48b2ed3c5ec9a83f306e19a3a1ebb580096b45e",
+      "remainingLimitations": [
+        {
+          "id": "old-material-step-west-upper",
+          "between": [
+            "r08_c07",
+            "r08_c08"
+          ],
+          "coordinates": "shared x4096, row8 local y approximately930..1200",
+          "finding": "Visible pre-existing ivory/slate material and luminance step outside the three repair windows. Requires structural redraw, not acceptance by colour metrics."
+        },
+        {
+          "id": "old-corner-return-continuation",
+          "coordinates": "corner-left perimeter: x4096 near y3370; y4096 west of x3469; corner-right perimeter: x8192 near y3309",
+          "finding": "Old fine contour/colour discontinuities remain outside repaired corner interiors; repairs pass their central intersections but the complete borders do not."
+        },
+        {
+          "id": "old-east-lower-small-line",
+          "between": [
+            "r09_c08",
+            "r09_c09"
+          ],
+          "coordinates": "row9 local y around1750..1850, thin highlight crossing",
+          "finding": "Small pre-existing discontinuity remains in ivory trim, not part of three repaired windows."
+        },
+        {
+          "id": "external-neighbours-and-runtime",
+          "finding": "Outer border neighbours, wholecity256 tiles, complete internal seam re-audit and nearest-camera runtime validation are not covered by this checkpoint."
+        }
+      ],
+      "formalAccepted": false,
+      "nativeScale": 1
+    },
+    "changedMask": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\parent_expansion_20261008\\integration-v1\\outer-fix\\west-c09-changed-mask.png",
+      "sha256": "5e1a07df15ec01542805689eb03e2ce1e0949cb1963081344671ed80a8e54c9c"
+    },
+    "changedPixels": 62003,
+    "oldRegionPixelSha256": "507deea308d2a24da6fb1f7f5d499ef88b0928099594276bd4517eef62673e5d",
+    "actualVisualQA": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\parent_expansion_20261008\\integration-v1\\outer-qa\\manifest.json",
+    "writtenBackToChild": false,
+    "formalAccepted": false
+  },
+  "formalAccepted": false,
+  "status": "pending_visual_review"
+}

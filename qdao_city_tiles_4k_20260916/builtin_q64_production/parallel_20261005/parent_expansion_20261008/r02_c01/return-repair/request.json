@@ -1,0 +1,36 @@
+{
+  "patch": "r02_c01",
+  "operation": "two_limited_horizontal_return_repairs",
+  "started": "2026-10-08 09:28:26 UTC",
+  "payload": {
+    "prompt": "Use case: precise-object-edit. Image 1 is the exact current 1254x1254 plaza map patch, and is the edit target. Repair ONLY the two accidental horizontal pasted boundaries: first at y=230 (about 18% image height), second at y=1024 (about 82% image height). They are visible straight cuts across otherwise sloping stone bands. Work in narrow neighborhoods y=170..310 and y=940..1100. Join each ivory edge, brown bevel, thin white highlight and gold strip into one smooth continuous existing contour through these cuts, especially the right-side ivory/gold band and gray slab at the lower boundary. Match each upper and lower anchor exactly; correct the local geometry, do not soften or blur misaligned contours. Remove only the abrupt stone-surface texture transition at the upper cut by locally matching the quiet surrounding stone paint. Keep all other existing geometry, framing, angle, gray stone panels, ornaments and broad colors unchanged. Keep the leftmost 70px, topmost 100px and bottommost 80px pixel-aligned with the input. No new paving sections, props, cracks, text, border or UI. Image 2 is the primary approved rounded clean painterly style only; do not copy its UI. Return the same square composition at native detail, no crop, shift, rotation or scaling.",
+    "referenced_image_paths": [
+      "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/parent_expansion_20261008/r02_c01/initial-check/joined-missing-only.png",
+      "D:/work/image/designs/gameplay-ui/04-guild.png"
+    ],
+    "transparent_background": false
+  },
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-04",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  },
+  "references": [
+    {
+      "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/parent_expansion_20261008/r02_c01/initial-check/joined-missing-only.png",
+      "sha256": "7b04ec7df41e219b9a3a2f84c2e799348d47780bbf157ea64509f88903089ea7"
+    },
+    {
+      "file": "D:/work/image/designs/gameplay-ui/04-guild.png",
+      "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6"
+    }
+  ]
+}
