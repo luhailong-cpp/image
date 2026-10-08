@@ -22,7 +22,7 @@ def ingest(action, direction, number, source, receipt):
       'actualModel':None,'actualQuality':None,
       'unverifiedReason':'宿主管理；工具无 model/quality 选择器，返回结果未披露实际模型或质量。',
       'prompt':f'prompts/{action}/{direction}/{nn}.txt',
-      'references':[{'path':p,'role':role,'sha256':sha(Path(p))} for p,role in zip(raw['references'],['原有E身份与解剖','原有W身份与解剖','主要画法材质完成度'])],
+      'references':[{'path':p,'role':(['原有E身份与解剖','原有W身份与解剖','主要画法材质完成度'][i] if i<3 else '本只动作连续性或定点修复参考'),'sha256':sha(Path(p))} for i,p in enumerate(raw['references'])],
       'evidence':{'receipt':str(Path(receipt).relative_to(ROOT)).replace('\\','/'),'outputHint':raw['output_hint'],'hostSourcePath':str(source)},
       'visualStatus':'pending-final-sequence-review'
     }

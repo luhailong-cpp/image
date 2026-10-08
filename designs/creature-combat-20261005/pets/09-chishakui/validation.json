@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-05T23:01:36.155635+00:00",
+  "checkedAt": "2026-10-08T11:49:47.767075+00:00",
   "expected": 68,
   "found": 68,
   "missing": [],
@@ -260,6 +260,18 @@
   ],
   "visualPlayback": {
     "status": "not-verified",
-    "reason": "Browser security policy rejected file: URL; no workaround attempted. APNG timeline and frame files are checked separately."
-  }
+    "reason": "Browser local-file policy rejection; native Media Player APNG unsupported and AVI control lost its window. No bypass or further retry. Offline decode does not establish artistic playback quality.",
+    "evidence": [
+      "records/preview-policy-error.json",
+      "records/native-media-audit-20261008.json"
+    ]
+  },
+  "offlinePreviewAudit": {
+    "APNG": "records/preview-pixel-audit-20261008.json",
+    "nativeVideo": "records/native-media-audit-20261008.json",
+    "APNGDecodedFrames": 136,
+    "AVIDecodedFrames": 544,
+    "visualPlaybackVerified": false
+  },
+  "supportRepair": "records/cast-W-support-repair-20261008.json"
 }

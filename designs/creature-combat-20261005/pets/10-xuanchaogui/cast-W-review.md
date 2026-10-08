@@ -13,7 +13,7 @@
 
 ## 实际看过的内容
 
-- 重新生成并实际查看完整 16 帧联系表：[`preview/qa/cast-W-review-contact.jpg`](preview/qa/cast-W-review-contact.jpg)。缩略图保持同一 1024 舞台比例，不根据轮廓贴底或对齐。
+- 重新生成并实际查看完整 16 帧联系表。该阶段临时拼图已在最终交付时删除，当前完整联系表为 [`preview/contact-sheets/cast-W.jpg`](preview/contact-sheets/cast-W.jpg)。缩略图保持同一 1024 舞台比例，不根据轮廓贴底或对齐。
 - 重新单独打开 1024 原图 W05、W06、W07、W10、W11、W16，以及 W01 的基准构图。其他帧在全帧联系表中逐一复核；本组最初生成时 16 张原生返回图亦均已查看。
 - 本次审核文件哈希：[ `preview/qa/cast-W-reviewed-files.json`](preview/qa/cast-W-reviewed-files.json)。将来重画应以新哈希重新复审，不能沿用本报告的像素结论。
 

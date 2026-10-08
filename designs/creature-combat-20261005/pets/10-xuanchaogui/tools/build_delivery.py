@@ -308,6 +308,25 @@ def html_preview() -> None:
     path.write_text(template.replace("__GROUPS_JSON__", json.dumps(groups)), encoding="utf-8")
 
 
+def apply_visual_review(manifest: dict, validation: dict) -> None:
+    """Reuse a separately recorded human review only for exactly the reviewed art."""
+    path = ROOT / "visual-review.json"
+    if not path.exists():
+        return
+    review = read_json(path)
+    current = {f["file"]: f.get("sha256") for f in manifest["frames"]}
+    valid = review.get("frameSha256") == current and not validation["errors"]
+    validation["visualReviewRecord"] = "visual-review.json"
+    validation["visualReviewHashesMatch"] = valid
+    if not valid:
+        validation["limitations"].append("Stored visual review is stale; current PNG hashes require fresh review.")
+        return
+    validation["manualReview"] = review["checks"]
+    manifest["review"].update(visual=review["visualStatus"], animation=review["animationStatus"], record="visual-review.json")
+    for frame in manifest["frames"]:
+        frame["visualStatus"] = review["visualStatus"]
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", default="preview/audit", help="Audit JSON directory relative to character root; use '.' for delivery manifest.json and validation.json")
@@ -320,6 +339,7 @@ def main() -> int:
         return 0
     output = safe_output(args.output_dir)
     manifest, validation = audit()
+    apply_visual_review(manifest, validation)
     if not args.no_contact_sheets:
         validation["inspectionContactSheets"] = contact_sheets()
     write_json(output / "manifest.json", manifest)
