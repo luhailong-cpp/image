@@ -241,7 +241,9 @@ def main():
                 digest = sha256(path)
                 frame["sha256"] = digest
                 review = visual_frames.get(rel(path), {})
-                if review.get("sha256") == digest and review.get("staticStatus") == "reviewed":
+                evidence = review.get("evidence", [])
+                if (review.get("sha256") == digest and review.get("staticStatus") == "reviewed"
+                        and evidence and all((ROOT / item).is_file() for item in evidence)):
                     frame["visualStatus"] = "static-reviewed"
                     frame["visualEvidence"] = review.get("evidence", [])
                 elif review:
@@ -322,7 +324,7 @@ def main():
                 "eventSource": "POSES.md", "framePathsRelativeTo": "pet-root",
                 "visualReview": {"report": "qa/final-visual-review.json" if visual_report else None,
                                  "shaMatchedStaticFrames": sum(f["visualStatus"] == "static-reviewed" for f in all_frames),
-                                 "scope": "Human static evidence bound to the current image SHA; builder does not perform visual review.",
+                                 "scope": "Actual static visual-inspection evidence bound to the current image SHA; builder does not perform visual review.",
                                  "playbackReport": "qa/playback-status.json"}, "clientIntegration": "not-tested",
                 "groups": groups}
     validation = {"schemaVersion": 1, "builtAt": timestamp, "status": status, "counts": counts,
@@ -351,6 +353,17 @@ def main():
                  ROOT / "MERGE_HANDOFF.md", ROOT / "generation-index.md"):
         if file.is_file():
             sums[rel(file)] = sha256(file)
+    for reviewed in visual_frames.values():
+        for name in reviewed.get("evidence", []):
+            evidence_file = ROOT / name
+            if evidence_file.is_file():
+                sums[rel(evidence_file)] = sha256(evidence_file)
+    for directory in (ROOT / "preview" / "media", ROOT / "preview" / "video", ROOT / "qa" / "contact"):
+        for file in directory.iterdir():
+            if file.is_file():
+                sums[rel(file)] = sha256(file)
+    for file in (ROOT / "qa").rglob("*cleanup*.json"):
+        sums[rel(file)] = sha256(file)
     (ROOT / "SHA256SUMS.txt").write_text("".join(f"{sums[name]}  {name}\n" for name in sorted(sums)), encoding="utf-8")
     print(json.dumps({"status": status, **counts, "preview": str(preview)}, ensure_ascii=False))
     return 1 if args.strict and status != "complete" else 0

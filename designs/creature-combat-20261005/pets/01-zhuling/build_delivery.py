@@ -12,6 +12,9 @@ def digest(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p,v): p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 groups=[];frames=[];missing=[];problems=[];hashes={};pixels={}
 qa=ROOT/'qa'; qa.mkdir(exist_ok=True)
+review_path=qa/'visual-review.json'
+review=json.loads(review_path.read_text(encoding='utf-8')) if review_path.exists() else {}
+reviewed={f['file']:f for f in review.get('frames',[])}
 for action,(count,ms) in SPECS.items():
  for direction in ('E','W'):
   group={'action':action,'direction':direction,'durationMs':ms,'expectedFrames':count,'totalDurationMs':count*ms,'frames':[]}
@@ -33,13 +36,17 @@ for action,(count,ms) in SPECS.items():
    bbox=a.getbbox() if a else None
    if bbox and (bbox[0]==0 or bbox[1]==0 or bbox[2]==1024 or bbox[3]==1024): problems.append({'file':rel,'issue':'alpha touches canvas edge'})
    source=record.get('derivedFrom') or record.get('source') or record.get('native')
+   if isinstance(source,dict) and not (source.get('file') or source.get('path')) and record.get('sourcePath'):
+    source={**source,'file':record['sourcePath']}
+   reviewed_frame=reviewed.get(rel,{})
+   visual_status=reviewed_frame.get('status') if reviewed_frame.get('sha256')==sha else 'requires review of current SHA'
    event=('impact' if action=='attack' and index==7 else 'release' if action=='cast' and index==10 else None)
    frame={'file':rel,'frame':index,'direction':direction,'action':action,'width':im.width,'height':im.height,'durationMs':ms,
     'pivot':[0.5,0.08],'anchorTopLeftPx':[512,942],'anchorType':'virtual hover anchor; not per-frame claw registration',
     'event':event,'phase':PHASES[action][index-1],'sha256':sha,'pixelSHA256':ph,'alphaRange':list(a.getextrema()) if a else None,'alphaBBox':bbox,
     'generationRecord':record_path.relative_to(ROOT).as_posix() if record_path.exists() else None,
     'targetModel':record.get('configSnapshot',{}).get('model'),'actualModel':record.get('actualModel'),'actualQuality':record.get('actualQuality'),
-    'source':source,'visualStatus':record.get('visualStatus','pending sequence QA')}
+    'source':source,'visualStatus':visual_status,'visualReview':'qa/visual-review.json'}
    frames.append(frame);group['frames'].append(frame)
   groups.append(group)
   # Contact sheets retain every frame at 320px, four columns and up to two rows per page.
@@ -55,9 +62,12 @@ for action,(count,ms) in SPECS.items():
     draw.text((x+10,y+326),f"{action} {direction} {f['frame']:02} / {count}  {f['phase']}",fill=(240,227,193))
    sheet.save(qa/f'{action}-{direction}-frames-{offset+1:02}-{offset+len(chunk):02}.jpg',quality=94)
 duplicates=[v for v in hashes.values() if len(v)>1]; pixel_duplicates=[v for v in pixels.values() if len(v)>1]
+review_current=len(frames)==68 and all(reviewed.get(f['file'],{}).get('sha256')==f['sha256'] for f in frames)
 report={'checkedAt':datetime.now(timezone.utc).isoformat(),'expected':68,'present':len(frames),'missing':missing,'problems':problems,'duplicateFiles':duplicates,'duplicatePixels':pixel_duplicates,
  'technicalStatus':'passed' if len(frames)==68 and not problems and not duplicates and not pixel_duplicates else 'incomplete-or-failed',
- 'artAndMotionStatus':'requires actual visual review; technical checks do not imply art approval','clientStatus':'not read, not integrated, not tested'}
+ 'artAndMotionStatus':review.get('status') if review_current else 'requires visual review of current files',
+ 'visualReviewMatchesCurrentSHA':review_current,'visualReview':'qa/visual-review.json',
+ 'clientStatus':'not read, not integrated, not tested'}
 manifest={'schemaVersion':1,'pet':'烛翎','petId':'01-zhuling','createdAt':report['checkedAt'],'expectedFrameCount':68,'presentFrameCount':len(frames),
  'coordinateSystem':'top-left origin image pixels; bottom-left normalized pivot','exportTransform':{'wholeCanvasResize':[820,820],'offset':[102,102],'output':[1024,1024],'perFrameAlignment':False},
  'groups':groups,'frames':frames,'validation':'validation.json','visualQA':'qa/visual-review.json','clientStatus':'not integrated'}

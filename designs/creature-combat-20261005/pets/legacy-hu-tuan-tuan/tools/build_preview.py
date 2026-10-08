@@ -281,6 +281,9 @@ def preview_html(report: dict) -> None:
 
 
 def main() -> int:
+    # Windows的默认代码页可能无法输出中文验收结论；文件和终端统一UTF-8。
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check-only", action="store_true", help="Print report summary without writing any files")
     parser.add_argument("--manifest-out", default="preview/manifest-candidate.json", help="Manifest output relative to pet root (default: preview/manifest-candidate.json)")
@@ -297,6 +300,8 @@ def main() -> int:
             report['verification']['visualFrameReview'] = visual.get('individualFrameReview', 'pending-visual-review')
             report['verification']['animationPlaybackReview'] = visual.get('playbackReview', 'pending-visual-review')
             report['verification']['visualReviewRecord'] = 'records/final-visual-review.json'
+            report['verification']['animationAcceptance'] = visual.get('animationAcceptance', 'not-recorded')
+            report['verification']['unresolvedVisualIssues'] = visual.get('unresolvedVisualIssues', [])
             for frame in report['frames']:
                 frame['visualStatus'] = visual.get('individualFrameReview', 'pending-visual-review')
     if not args.check_only:
@@ -307,7 +312,7 @@ def main() -> int:
         preview_html(report)
         (ROOT / "preview" / "checksums.sha256").write_text("".join(f"{f['sha256']}  {f['file']}\n" for f in report["frames"] if f.get("sha256")), encoding="utf-8")
     status = report["verification"]
-    print(json.dumps({"presentFrames": status["presentFrames"], "expectedFrames": 68, "technicalPassed": status["technicalPassed"], "errorCount": len(status["errors"]), "warningCount": len(status["warnings"]), "errors": status["errors"], "warnings": status["warnings"], "visualReview": "pending-human-review", "playbackReview": "pending-human-review", "wroteArtifacts": not args.check_only}, ensure_ascii=False, indent=2))
+    print(json.dumps({"presentFrames": status["presentFrames"], "expectedFrames": 68, "technicalPassed": status["technicalPassed"], "errorCount": len(status["errors"]), "warningCount": len(status["warnings"]), "errors": status["errors"], "warnings": status["warnings"], "visualReview": status["visualFrameReview"], "playbackReview": status["animationPlaybackReview"], "animationAcceptance": status.get("animationAcceptance", "not-recorded"), "unresolvedVisualIssues": status.get("unresolvedVisualIssues", []), "wroteArtifacts": not args.check_only}, ensure_ascii=False, indent=2))
     return 0 if status["technicalPassed"] else 1
 
 

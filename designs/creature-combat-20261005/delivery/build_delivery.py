@@ -52,14 +52,20 @@ for item in roster['entries']:
 data = {'builtAtUTC': datetime.now(timezone.utc).isoformat(), 'scope': 'Image原有20个形象；三种战斗动作；不含移动',
         'expectedFrames': len(entries) * 68, 'presentFrames': sum(e['present'] for e in entries),
         'clientIntegrated': False, 'entries': entries}
+data['materialsReady'] = all(e['present'] == 68 and e['review']['state'] != 'pending' for e in entries)
+data['playbackUnverified'] = [e['name'] for e in entries if e['review']['state'] in {'materials-ready-playback-unverified', 'materials-ready-playback-partially-verified'}]
 (HERE / 'inventory.json').write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 (HERE / 'SHA256SUMS.txt').write_text('\n'.join(checksums) + '\n', encoding='utf-8')
 template = (HERE / 'preview.template.html').read_text(encoding='utf-8')
 (HERE / 'index.html').write_text(template.replace('__DATA__', json.dumps(data, ensure_ascii=False).replace('</', '<\\/')), encoding='utf-8')
-lines = ['# Image 原有宠物战斗动作交付', '', '[统一动作预览](index.html)', '',
+lines = ['# Image 原有宠物战斗动作交付', '', '[统一动作预览](index.html) · [异机合并说明](MERGE_HANDOFF.md) · [本轮独立复核](audits/README.md)', '',
          f"正式图片：{data['presentFrames']}/{data['expectedFrames']}。这是数量统计，验收结论以各只记录为准。", '',
-         '每只E斜前、W真实斜后；受击各6帧×40ms，普攻各12帧×30ms，施法各16帧×45ms。客户端未接入。', '',
-         '| 宠物 | 图片 | 当前验收 | 说明 |', '| --- | --- | --- | --- |']
+         '每只E斜前、W真实斜后；受击各6帧×40ms，普攻各12帧×30ms，施法各16帧×45ms。客户端未接入。', '']
+if data['materialsReady']:
+    lines += ['20只素材与配套交付已完成，已确认的本轮修图问题均已处理。', '']
+if data['playbackUnverified']:
+    lines += ['尚未完成完整连播验证：' + '、'.join(data['playbackUnverified']) + '。文件、来源和静态复核已经完成，已核验的播放范围和工具限制详见各只记录；其余个别动作的残余观察项也保留在记录中。', '']
+lines += ['| 宠物 | 图片 | 当前验收 | 说明 |', '| --- | --- | --- | --- |']
 for e in entries:
     link = f"[交付说明]({e['docs']['README.md']})" if 'README.md' in e['docs'] else '整理中'
     lines.append(f"| {e['name']} | {e['present']}/68 | {e['review']['note'].replace('|', '/')} | {link} |")

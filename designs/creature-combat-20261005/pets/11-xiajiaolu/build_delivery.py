@@ -39,7 +39,22 @@ def events(action,n):
     return points[action].get(n)
 def resolve_ref(p):
     p=Path(p)
-    return p if p.is_absolute() else ROOT/p
+    return (p if p.is_absolute() else ROOT/p).resolve()
+def removed_source_entry(cleanup,path,digest):
+    """A flag or availability label alone cannot prove a source was retained correctly."""
+    if cleanup.get("status")!="completed" or not digest:
+        return None
+    if resolve_ref(cleanup.get("root",""))!=ROOT:
+        return None
+    matches=[item for item in cleanup.get("deletedImages",[])
+             if resolve_ref(item.get("path",""))==path.resolve()]
+    if len(matches)!=1:
+        return None
+    item=matches[0]
+    if (item.get("status")!="removed" or item.get("sha256")!=digest
+            or resolve_ref(item.get("absolutePath",""))!=path.resolve()):
+        return None
+    return item
 def checker(size):
     out=Image.new("RGBA",size,(224,226,229,255))
     draw=ImageDraw.Draw(out)
@@ -52,11 +67,13 @@ def checker(size):
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("--allow-removed-sources",action="store_true",
-                        help="After authorized source cleanup, validate archived source evidence by hash.")
+                        help="Compatibility option: removed sources always require completed cleanup evidence and matching hashes.")
     args=parser.parse_args()
     errors=[]; warnings=[]; frames=[]; groups=[]; missing=[]; native_sizes=set()
     review_path=ROOT/"visual-review.json"
     review=read(review_path) if review_path.exists() else {}
+    cleanup_path=ROOT/"cleanup.json"
+    cleanup=read(cleanup_path) if cleanup_path.exists() else {}
     preview=ROOT/"preview"
     preview.mkdir(exist_ok=True)
     for action,(count,duration) in SPECS.items():
@@ -112,13 +129,28 @@ def main():
                     if not exported.exists():
                         errors.append({"frame":key,"issue":"missing-export-record-after-source-removal"}); continue
                     export_record=read(exported)
-                    if not args.allow_removed_sources and export_record.get("sourceAvailability")!="removed-after-final-export":
-                        errors.append({"frame":key,"issue":"native-source-missing-without-retention-note"})
+                    derived=export_record.get("derivedFrom",{})
+                    retained=removed_source_entry(cleanup,source,rec.get("sha256"))
+                    source_chain_ok=(retained is not None
+                        and resolve_ref(rec.get("file",""))==source.resolve()
+                        and resolve_ref(derived.get("file",""))==source.resolve()
+                        and derived.get("sha256")==rec.get("sha256")
+                        and derived.get("generationRecord")==rel(generation)
+                        and rel(generation) in retained.get("generationRecords",[])
+                        and rec.get("sourceAvailability")=="removed-after-final-export"
+                        and export_record.get("sourceAvailability")=="removed-after-final-export"
+                        and rec.get("retentionRecord")=="cleanup.json"
+                        and export_record.get("retentionRecord")=="cleanup.json")
+                    if not source_chain_ok:
+                        errors.append({"frame":key,"issue":"removed-source-evidence-chain-mismatch",
+                                       "path":rel(source),"cleanupStatus":cleanup.get("status")})
+                        continue
+                    if export_record.get("file")!=rel(runtime):
+                        errors.append({"frame":key,"issue":"export-runtime-path-mismatch"})
                     if sha(runtime)!=export_record.get("sha256"):
                         errors.append({"frame":key,"issue":"runtime-sha-mismatch"})
                     with Image.open(runtime) as current:
                         image=current.convert("RGBA")
-                    export_record["sourceAvailability"]="removed-after-final-export"
                 for ref in rec.get("references",[]):
                     refpath=resolve_ref(ref["path"])
                     if refpath.exists():
@@ -126,9 +158,46 @@ def main():
                             errors.append({"frame":key,"issue":"reference-sha-mismatch","path":ref["path"]})
                     else:
                         is_internal_work=refpath.is_relative_to(ROOT/"work")
-                        retained_evidence=is_internal_work and ref.get("sha256") and (args.allow_removed_sources or ref.get("availability")=="removed-after-final-export")
+                        retained=removed_source_entry(cleanup,refpath,ref.get("sha256")) if is_internal_work else None
+                        retained_evidence=(retained is not None
+                            and ref.get("availability")=="removed-after-final-export"
+                            and ref.get("retentionRecord")=="cleanup.json")
                         if not retained_evidence:
-                            errors.append({"frame":key,"issue":"missing-reference","path":ref["path"]})
+                            errors.append({"frame":key,"issue":"missing-reference-cleanup-evidence","path":ref["path"]})
+                        elif ref.get("sourceGenerationRecord"):
+                            source_record_path=resolve_ref(ref["sourceGenerationRecord"])
+                            if (not source_record_path.is_relative_to(ROOT/"provenance")
+                                    or not source_record_path.is_file()
+                                    or ref["sourceGenerationRecord"] not in retained.get("generationRecords",[])):
+                                errors.append({"frame":key,"issue":"reference-source-record-missing","path":ref["path"]})
+                            else:
+                                source_record=read(source_record_path)
+                                if (source_record.get("sha256")!=ref.get("sha256")
+                                        or resolve_ref(source_record.get("file",""))!=refpath
+                                        or source_record.get("sourceAvailability")!="removed-after-final-export"):
+                                    errors.append({"frame":key,"issue":"reference-source-record-mismatch","path":ref["path"]})
+                    if ref.get("submittedPath"):
+                        matching_remaps=[r for r in cleanup.get("referenceRemaps",[])
+                            if r.get("record")==rel(generation)
+                            and r.get("submittedPath")==ref["submittedPath"]
+                            and resolve_ref(r.get("resolvedHistoricalPath",""))==refpath
+                            and r.get("sha256")==ref.get("sha256")
+                            and r.get("sourceGenerationRecord")==ref.get("sourceGenerationRecord")]
+                        submitted=rec.get("submittedParameters",{}).get("referenced_image_paths",[])
+                        if len(matching_remaps)!=1 or ref["submittedPath"] not in submitted:
+                            errors.append({"frame":key,"issue":"reference-remap-evidence-mismatch","path":ref["path"]})
+                # A recorded remap must still be represented in the generation metadata.
+                for remap in cleanup.get("referenceRemaps",[]):
+                    if remap.get("record")!=rel(generation):
+                        continue
+                    matching_refs=[ref for ref in rec.get("references",[])
+                        if ref.get("submittedPath")==remap.get("submittedPath")
+                        and resolve_ref(ref.get("path",""))==resolve_ref(remap.get("resolvedHistoricalPath",""))
+                        and ref.get("sha256")==remap.get("sha256")
+                        and ref.get("sourceGenerationRecord")==remap.get("sourceGenerationRecord")]
+                    if len(matching_refs)!=1:
+                        errors.append({"frame":key,"issue":"cleanup-reference-remap-missing-from-generation",
+                                       "submittedPath":remap.get("submittedPath")})
                 with Image.open(runtime) as check:
                     if check.mode!="RGBA" or check.size!=SIZE:
                         errors.append({"frame":key,"issue":"bad-runtime-dimensions-or-mode","size":check.size,"mode":check.mode})

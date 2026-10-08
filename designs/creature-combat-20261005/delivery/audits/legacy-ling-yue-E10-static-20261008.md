@@ -7,3 +7,10 @@
 被检第 10 帧 SHA256：`bc0559e451e6b0b3c51c657557eb38634e0a873d015878e42569e49b633e87d4`。正式 PNG、逐图来源记录及总 manifest 的 SHA 一致，manifest 标记文件存在。
 
 本报告仅确认本次变更的静态外观、相邻姿态与来源一致性，不代表动态播放通过。全套最终验收、预览与来源清单以 `../../pets/legacy-ling-yue/` 的最终记录为准；若第 10 帧 SHA 改变，本结论需要重新核对。
+
+
+## 最终文件绑定复核：2026-10-08T12:04:01.695639+00:00
+
+原窗口现已完成68帧素材、六组原速/慢放播放截图取样、首末步进及修后E施法07复查。主窗口重新计算68张PNG与68份sidecar的SHA，全部同时匹配manifest和receipts/final-review-frame-binding.json，文件集合完整。README/STATUS/MERGE_HANDOFF/preview.html与playback-review.md齐全。manifest内not_performed_by_this_tool表示技术构建脚本没有执行视觉验收；人工实际记录保存在上述独立绑定文件，并非动态未验。releaseReady仍false，客户端未接入。
+
+保留原窗口记录的E普攻20–45px、施法部分10–20px的局部支撑差异及W施法首尾头尾扇变化，不声称脚点完全锁定或客户端发布就绪。此追加只验证记录与当前文件一致，没有新增独立动态播放。

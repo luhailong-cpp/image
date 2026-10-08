@@ -1,5 +1,7 @@
 # 霜团貂 cast E 后足支撑修正实看记录
 
+本文件是后足修正阶段的历史检查记录。右须触边随后确认为连续细线截断并完成定点AI窄修；当前16帧静态结论与SHA以 `final-static-review.json/md`、`edge-review.json/md` 为准。`E-contact-repaired.png` 与 `technical.json` 已更新至最终当前图。
+
 2026-10-08。范围仅本只 cast E。已读取 TASK / COMBAT_SPEC / POSES、项目根规则、已确认画法与模型策略；实际查看原有 E/W 身份、主要画法及本组目标图后，按逐帧局部编辑执行。
 
 ## 修正内容

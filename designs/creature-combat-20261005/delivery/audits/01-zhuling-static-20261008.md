@@ -40,3 +40,25 @@ W08已真实替换为下面的新SHA。先前三翼拒稿和旧SHA只属于历�
 
 写本记录前已再次只读复算以上9张SHA，与实际查看时的版本相同。没有修改任何宠物正式目录、图片或生成记录。
 
+## 收尾技术复核补记 · 2026-10-08 11:47 UTC
+
+本节是只读技术/文档复核，不是新增静态或动态目视验收。检查期间owner仍在写最后的播放记录与清理结果，因此不提前标为全部交付完成。
+
+- 总manifest版本为2026-10-08T11:06:22.341738+00:00，索引68张正式帧；逐一重算，68个PNG SHA全部匹配manifest，68份generationRecord均存在且正式SHA匹配。validation同版本为passed，无缺帧/重复/来源问题。
+- root辅助补出的cast W13/15/16都在总manifest中，指向正式runtime图旁 .png.generation.json；正式图SHA与本报告前表一致。逐图prompt、receipt及原生证据已复制到宠物自身prompts/records目录，均存在。
+- 正式播放器preview/index.html引用runtime帧，不包含delivery/assist或helper预览引用。三张图derivedFrom.file保留辅助原生图的绝对路径，是来源文字证据，并非播放器运行依赖；正式图及其说明不需要从helper预览加载。
+- **当前确切metadata残留：** 三张正式sidecar仍继承原生候选的status=candidate-for-owner-review、writeScope=delivery/assist/01-zhuling-cast-W only; formal pet runtime and manifest not modified，以及visualReview待owner播放审核。总manifest的visualStatus也仍写候选/待最终播放。前者writeScope在正式导出后已经不准确，需owner更新正式导出状态/采用范围/最终验收索引；records内root-assist-native原生历史记录应保留当时真实状态，不回写旧史。
+- README与MERGE_HANDOFF已存在，指向正确的正式runtime、manifest和本地preview，声明客户端未接入。但STATUS.md尚不存在，README中的状态链接未完整。
+- manifest指定的qa/visual-review.json尚不存在，无法核对最终视觉记录的68个SHA。现有qa/final-static-review.json只覆盖40张静态帧，不能代替最终六组连播记录或68张最终像素绑定。
+- MERGE_HANDOFF提到cleanup.json，检查时该文件尚不存在，不能声称最后清理记录已经完成。
+
+结论：正式68张图片、总清单SHA与逐图来源链已齐且相符；最终视觉记录、STATUS、清理记录及三张正式sidecar采用状态仍待owner收尾。没有据历史拒稿重复要求修当前图片，没有修改宠物目录或删除原生图。
+
+
+
+
+## 主窗口最终补充：2026-10-08T11:56:38.808493+00:00
+
+此前11:47 UTC的待收尾项现已全部解决。重新计算全部68张正式PNG，与当前manifest及qa/visual-review的68项SHA逐一一致；README、STATUS、MERGE_HANDOFF、validation及正式预览齐全。W13/15/16正式sidecar已为adopted-final-runtime，writeScope和最终视觉引用正确。当前正式预览只引用runtime，不依赖辅助预览。来源prompt、receipt及原生文字记录齐全。最终记录的播放方法为原窗口浏览器正常/慢放抽样和六个逐帧控件操作，主窗口本次仅做文件/SHA验证，不新增动态实播声明。
+
+逐项证据见../assist/01-zhuling-cast-W/adoption-verification.json；较早阶段的待审核结论为历史快照，不代表当前状态。

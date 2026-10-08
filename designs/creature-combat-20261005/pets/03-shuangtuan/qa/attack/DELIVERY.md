@@ -1,3 +1,5 @@
+> 历史快照（2026-10-05）：本记录保留原验收经过，不能代表2026-10-08修后的当前像素。当前验收及SHA以根目录README、qa/final-visual-review.json为准。原接触图已清理，当前全帧图位于qa/contact。
+
 # 普攻子任务交付
 
 24/24正式帧：runtime/attack/E/01.png–12.png及runtime/attack/W/01.png–12.png。每帧30ms，第08帧事件attack-contact。两向均为独立内置AI姿态，不做镜像、复制、平移或插值补帧。

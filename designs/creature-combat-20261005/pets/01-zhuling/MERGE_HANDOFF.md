@@ -1,6 +1,6 @@
 # 烛翎接入交接
 
-仅交付本目录资源与资料。客户端未读取、未接入、未运行；不能把本地HTML播放与PNG检查称为游戏接入通过。
+68/68帧资源与本目录资料已完成。当前SHA绑定的静态检视、浏览器正常/慢放画面抽查及逐帧操作记录见STATUS.md与qa/visual-review.json。客户端未读取、未接入、未运行；不能把本地HTML播放与PNG检查称为游戏接入通过。
 
 以manifest.json为资源真值，使用`runtime/<action>/<direction>/<NN>.png`。E为斜前朝右下，W为独立AI绘制的真斜后朝左上，禁止运行时把E镜像作为W。透明PNG为1024×1024 RGBA，颜色与alpha未经额外抠图。
 

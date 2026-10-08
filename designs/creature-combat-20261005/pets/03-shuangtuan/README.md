@@ -1,48 +1,54 @@
 # 霜团貂 · 受击 / 普攻 / 施法
 
-2026-10-05。**68张独立AI姿态透明PNG已落盘，六组静态全帧已实际查看。连续播放实看尚未完成，客户端未读取或接入。**
+2026-10-08最终素材交付。68张独立AI姿态、1024×1024透明PNG已补齐、修正并完成静态复核。本目录只制作原有霜团貂的三种战斗动作。[完整状态](STATUS.md)。
 
-## 查看成品
+最终原速视频仅完成播放器截图抽查；最终慢放因播放器窗口退出未完成实看。素材、静态验收与预览编码检查已完成，完整动态与客户端验收尚未完成。
 
-[六组交互预览](preview/index.html)：正常速度、0.25慢放、暂停、逐帧前后与滑块；完整本地文件，无外部资源。用本机浏览器打开即可。当前自动化浏览器禁止file://，未改用其它入口绕过，故本次没有把预览文件生成当成连播实看通过。
+## 查看与接入文件
+
+[正常速度总览视频](preview/video/six-groups-normal.mp4) · [0.25慢放总览视频](preview/video/six-groups-slow.mp4) · [六组逐帧交互预览](preview/index.html)
 
 |动作|E斜前朝右下|W真斜后朝左上|每向规格|
 |---|---|---|---|
-|受击|[正常](preview/media/hit-E-normal.webp) · [0.25慢放](preview/media/hit-E-slow.webp)|[正常](preview/media/hit-W-normal.webp) · [0.25慢放](preview/media/hit-W-slow.webp)|6帧 ×40ms =240ms|
-|普攻|[正常](preview/media/attack-E-normal.webp) · [0.25慢放](preview/media/attack-E-slow.webp)|[正常](preview/media/attack-W-normal.webp) · [0.25慢放](preview/media/attack-W-slow.webp)|12帧 ×30ms =360ms|
-|施法|[正常](preview/media/cast-E-normal.webp) · [0.25慢放](preview/media/cast-E-slow.webp)|[正常](preview/media/cast-W-normal.webp) · [0.25慢放](preview/media/cast-W-slow.webp)|16帧 ×45ms =720ms|
+|受击|[正常](preview/media/hit-E-normal.webp) · [慢放](preview/media/hit-E-slow.webp)|[正常](preview/media/hit-W-normal.webp) · [慢放](preview/media/hit-W-slow.webp)|6帧×40ms，240ms|
+|普攻|[正常](preview/media/attack-E-normal.webp) · [慢放](preview/media/attack-E-slow.webp)|[正常](preview/media/attack-W-normal.webp) · [慢放](preview/media/attack-W-slow.webp)|12帧×30ms，360ms|
+|施法|[正常](preview/media/cast-E-normal.webp) · [慢放](preview/media/cast-E-slow.webp)|[正常](preview/media/cast-W-normal.webp) · [慢放](preview/media/cast-W-slow.webp)|16帧×45ms，720ms|
 
-WebP为512方形、浅灰底的无损查看文件。正式游戏素材只用runtime中的1024透明PNG；预览没有生成插帧，也没有替换正式帧。
+正式图片位于 `runtime/{hit|attack|cast}/{E|W}/{NN}.png`。WebP与MP4是带浅底的查看文件；交互预览支持暂停、原时长、0.25慢放和逐帧定位。各预览只依序显示既有正式帧，无插值造帧。
 
-## 身份与输出
+[manifest](manifest.json) · [SHA256](SHA256SUMS.txt) · [技术检查](validation.json) · [像素与Alpha](qa/pixel-alpha-audit.json) · [动画编码与来源检查](qa/animation-encoding.json)
 
-角色沿用Image原有霜团貂：珠灰圆耳灵貂、琥珀眼、四足、浅玉宽卷单尾、象牙青瓷丝巾与月玉露坠。原有E/W身份图与人物属性手绘风格样板实际附入每次生成/编辑。没有导入新宠物、尖耳狐改造、移动循环或客户端资源。
+## 身份、导出和事件
 
-文件为runtime/{hit|attack|cast}/{E|W}/{01..N}.png。统一1024×1024 RGBA；本批AI原生1254×1254，使用同一整画布等比缩放1024/1254导出，未逐帧对齐脚点、平移、镜像、复制或插值补帧。锚点合同为顶部原点[512,942]，左下归一pivot[0.5,0.08]；画内自然反冲与重心变化保留。
+沿用Image原有珠灰圆耳灵貂：琥珀眼、四足、浅玉宽卷单尾、象牙青瓷丝巾、月玉露坠和花饰。生成与编辑实际附原有E/W身份图及指定手绘风格参考。
 
-[POSES](POSES.md)记录动作阶段、四肢解剖归属与事件；普攻第08帧attack-contact，施法第11帧cast-release。建议动作单次播放；预览循环用于检查，不能把重复首尾当作移动。
+E为斜前朝右下；W独立绘制真正斜后朝左上。全帧使用同一整画布1254→1024等比导出，保留画内重心变化。顶部原点锚点为 `[512,942]`；左下归一pivot为 `[0.5,0.08]`。没有逐帧脚点重定位、镜像、复制、插值或移动循环。
 
-## 验收与剩余范围
+[POSES](POSES.md)记录解剖归属和阶段。普攻08帧为 `attack-contact`，施法11帧为 `cast-release`。动作按单次事件播放；预览循环用于检查收势。
 
-[manifest](manifest.json) · [技术校验](validation.json) · [逐像素/Alpha校验](qa/pixel-alpha-audit.json) · [SHA256](SHA256SUMS.txt)
+## 当前验收证据
 
-68帧均有独立来源记录、实际提示词、回执与SHA；文件和解码像素无重复。透明尺寸、缺帧和来源路径按清理后的状态复核。少量极弱Alpha散点触及画布边界：attack/E03为2像素max9、E05为4像素max22；主体alpha≥128轮廓均在画内，未将这类低透明度散点等同于主体裁切。
+验收必须匹配正式图片当前SHA；旧来源和旧验收文字保留历史用途，不能套用到修后像素。
 
-[受击逐帧检查](qa/hit-visual-review.md) · [独立受击复核](qa/hit-independent-review.md) · [普攻检查](qa/attack/DELIVERY.md) · [施法E检查](qa/cast/E-visual-review.md) · [施法W检查](qa/cast/W/static-review.json)
+- [受击与普攻36帧独立静态复核](qa/attack/final-static-review-20261008.md)
+- [普攻W10–12后足修正](qa/attack/repair-20261008-accepted.md)
+- [施法E最终16帧静态复核](qa/cast/repair-E-20261008/final-static-review.md)
+- [施法W最终16帧静态复核与修复](qa/cast/repair-W-20261008/review.md)
+- [68帧当前SHA与静态验收总表](qa/final-visual-review.json)
+- [播放实看状态与覆盖范围](qa/playback-status.json)
 
-静态已核对方向、四肢/单尾、饰品归属和主要动作阶段，明显多爪、越界光效等已定点AI修正。**动态支撑与衔接仍待实播复核**：普攻W09→10后足收势变化，施法E03→05、11→16和W04→05、11→12的重心/抬爪过渡，以及各组末帧→首帧循环接缝。静态接触表不能证明正常速度无抖动或滑步。[播放验证状态](qa/playback-status.json)
+技术检查只核对文件、透明、尺寸、重复、引用与SHA。连续播放的实际观察范围单独记录；客户端未读取、未接入、未验收。
 
-## 模型与来源
+## 模型与素材保留
 
-[逐图记录索引](generation-index.md) · [官方目标核对与工具证据](qa/model-evidence.md)
+[逐图来源索引](generation-index.md) · [官方目标核对与工具证据](qa/model-evidence.md)
 
-本批使用内置image_gen；配置目标gpt-image-2.5-sunburst/max。工具无model/quality选择器，且未披露真实型号/质量，submitted与actual对应值均为null。每张图保留当次配置快照，不能把目标或提示词当作已确认型号。没有切换付费API/CLI。
+使用内置 `image_gen`，配置目标 `gpt-image-2.5-sunburst/max`。工具没有暴露型号/质量选择器或真实返回值，实际提交与实际型号/质量均按未知记为 `null`，不把提示词或目标配置当作已锁定型号。逐图保留提示词、参考来源、回执、原生尺寸和SHA；未使用付费API/CLI。
 
-## 素材清理与继续接手
+按项目规则，最终输出和引用确认后清理本目录原生图、拒稿、回退和加工中间图，保留文字来源与最终资源。公共身份/风格参考和范围外宿主缓存不动。
 
-本目录成品、提示词与引用核实后，source/attack及source/cast中的原生与拒稿图片已清理，仅保留来源文字/SHA及最终PNG、预览、QA与接入文件。根生成缓存位于本次唯一写入范围之外，未作越界删除；公共原有身份/风格参考未动。
+## 重新构建
 
-[普攻清理](qa/attack/cleanup.json) · [施法E清理](qa/cast/E-cleanup.json) · [施法W清理](qa/cast/W/cleanup.json) · [交接](MERGE_HANDOFF.md) · [状态](STATUS.md)
+按顺序运行 `tools/build_media.py`、`tools/build_video_preview.py`、`tools/audit_pixels.py`、`tools/verify_previews.py`、`tools/build_delivery.py --strict`。素材预览需要Pillow，视频另需 `imageio-ffmpeg==0.6.0`；清单构建只用Python标准库。脚本不会创造缺失姿态。
 
-tools/build_delivery.py重建清单与离线预览数据；tools/build_media.py重建接触表与无损动画预览；tools/audit_pixels.py检查像素重复并重建逐图索引。它们只处理已有独立AI帧，不会创造缺失姿态。
-
+[交接说明](MERGE_HANDOFF.md) · [状态](STATUS.md)

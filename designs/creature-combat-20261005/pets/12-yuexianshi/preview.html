@@ -13,7 +13,7 @@
 <script>
 const data=window.SPRITE_MANIFEST;
 const labels={hit:"受击",attack:"普攻",cast:"施法"},players=[];
-document.querySelector("#summary").textContent="文件 "+data.presentFrames+"/"+data.expectedFrames+"；技术状态 "+data.technicalStatus+"。\n"+(data.acceptanceStatus==="requires-repair"?"当前静态验收未通过：E普攻首帧与W受击/普攻收势脚位需要修正，详见 VERIFICATION.md。":"逐帧视觉状态来自生成记录。")+"\n实际连播未验；未接入客户端。";
+document.querySelector("#summary").textContent="文件 "+data.presentFrames+"/"+data.expectedFrames+"；技术状态 "+data.technicalStatus+"。\n"+(data.acceptanceStatus==="requires-repair"?"当前静态验收未通过，详见 VERIFICATION.md。":data.acceptanceStatus==="static-reviewed-playback-pending"?"脚位问题已修正，静态复核通过；详细证据见 VERIFICATION.md。":"逐帧视觉状态来自生成记录。")+"\n实际连播未验；未接入客户端。";
 function makePlayer(group){
  const card=document.createElement("section");card.className="card";
  card.innerHTML='<h2>'+labels[group.action]+' · '+group.direction+'　'+group.availableFrames+'/'+group.expectedFrames+' 帧</h2><div class="stage"><img alt="'+labels[group.action]+' '+group.direction+' 动画帧"><span class="missing" hidden></span></div><div class="row"><button data-play>播放</button><button data-normal>1×</button><button data-slow>0.25×</button><button data-prev>上一帧</button><button data-next>下一帧</button><span class="frame"></span></div><input type="range" min="1" max="'+group.expectedFrames+'" value="1" aria-label="'+group.id+' 帧序"><div class="note">'+group.durationMs+'ms / 帧 · 总长 '+group.totalDurationMs+'ms · <a href="'+group.contact+'">全帧联系表</a><br><span data-review></span></div>';

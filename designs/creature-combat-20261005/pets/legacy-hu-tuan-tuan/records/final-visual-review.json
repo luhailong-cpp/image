@@ -194,7 +194,7 @@
     },
     {
       "file": "runtime/cast/W/08.png",
-      "sha256": "2c9e650d1289de903965c9296ff56c509f21dae58c636bb1b90f4fea556cc9bf"
+      "sha256": "15e5a73fd7551d453c278d04cf39a92fb84da6191d595ecd4409ae38ff7e2831"
     },
     {
       "file": "runtime/cast/W/09.png",
@@ -303,7 +303,7 @@
     "Browser observation consists of live playback screenshot samples plus full contact-sheet inspection, not a retained continuous video",
     "Browser simultaneous playback reported scheduling delays; no engine timing or device FPS guarantee is claimed",
     "APNG encodes exact requested40/30/45ms durations and4x slow durations; viewer scheduling can vary",
-    "No client or sibling repository was read or modified; no client integration or gameplay validation performed"
+    "No client integration or gameplay validation performed; this pet repair writes only its own directory."
   ],
   "records": [
     "records/hit-E-pre-registration-review.json",
@@ -314,6 +314,103 @@
     "records/cast-W-review.json",
     "records/cast-independent-review.json",
     "records/final-registration.json",
-    "records/apng-validation.json"
-  ]
+    "records/apng-validation.json",
+    "records/repair-registration-20261008.json"
+  ],
+  "lastRecheckedAt": "2026-10-08T13:00:58.305504+00:00",
+  "animationAcceptance": "passed-frame-review-and-browser-playback-sampling",
+  "unresolvedVisualIssues": [],
+  "recheck20261008": {
+    "reviewedAt": "2026-10-08T07:34:28.693718-04:00",
+    "runtimeHashesUnchanged": true,
+    "individualFrameCoverage": {
+      "root": [
+        "hit/E/01-06",
+        "attack/E/01-12"
+      ],
+      "west_identity": [
+        "hit/W/01-06",
+        "attack/W/01-12",
+        "cast/W/01-16"
+      ],
+      "east_cast": [
+        "cast/E/01-16"
+      ]
+    },
+    "method": "实际view_image逐张查看最终68帧；六组在真实浏览器1x与0.25x播放，现场截图抽样；深色背景和W施法07/08逐帧对照。",
+    "technicalEvidence": "独立审计68PNG/manifest/sidecar/来源链SHA；12APNG解码逐帧像素等于runtime，帧数和正常/4x慢放时长均匹配；0技术错误。",
+    "confirmedGood": [
+      "单尾、原有身份、E/W方向和坐姿持葫芦保持",
+      "未见新增肢体、葫芦脱手或主体裁边",
+      "浏览器深色样本没有出现view_image黑底展示中那种强烈彩色散点；未据此宣称所有像素边缘完美"
+    ],
+    "continuityNotes": [
+      "attack E/W 08到09回收较快，仍沿规定360ms动作阶段；不保证平滑插值",
+      "cast W 01到02低头、03回升符合现有POSES，但头轮廓变化较明显",
+      "cast E 09到10、15到16存在手绘轮廓与持握位置变化，首尾不是像素闭环"
+    ],
+    "limits": [
+      "现场截图抽样不等于逐毫秒连续视频感知",
+      "浏览器同时播放报告计时延迟，未做游戏引擎或客户端帧率验收",
+      "W施法07到08光效待修，两个试修稿未通过局部编辑要求"
+    ],
+    "changes": [
+      "修复build_preview stdout错误硬编码pending",
+      "预览新增深/浅/棋盘背景用于真实透明合成查看",
+      "未修改任何runtime像素",
+      "拒稿2张及检查导出1张已按保留规则删除，文字证据留存"
+    ]
+  },
+  "resolvedVisualIssues": [
+    {
+      "id": "cast-W-07-08-glow",
+      "severity": "visual-polish-required",
+      "frames": [
+        "runtime/cast/W/07.png",
+        "runtime/cast/W/08.png"
+      ],
+      "finding": "W施法07的较大金色光晕到08骤缩为微光点，蓄力过渡偏急。",
+      "status": "resolved",
+      "repairAttempts": [
+        {
+          "record": "source/cast/W/07-glow-repair-20261008.png.generation.json",
+          "result": "rejected: enlarged head/tail and changed canvas registration"
+        },
+        {
+          "record": "source/cast/W/07-glow-repair-20261008-r2.png.generation.json",
+          "result": "rejected: enlarged subject and reduced tail margin"
+        },
+        {
+          "record": "source/cast/W/08-glow-repair-20261008.png.generation.json",
+          "result": "intermediate; body retained but halo too wide; used as next edit input"
+        },
+        {
+          "record": "source/cast/W/08-glow-repair-20261008-r2.png.generation.json",
+          "result": "accepted; compact halo bridges07 to09, original body scale/pose preserved"
+        }
+      ],
+      "currentDecision": "采用原生08局部修订第二稿，按原统一变换导出，仅替换runtime/cast/W/08.png；07散光收束为08紧凑光团，09/10继续增亮。",
+      "resolvedAt": "2026-10-08T13:00:58.305504+00:00",
+      "acceptedGenerationRecord": "source/cast/W/08-glow-repair-20261008-r2.png.generation.json",
+      "acceptedSha256": "15e5a73fd7551d453c278d04cf39a92fb84da6191d595ecd4409ae38ff7e2831"
+    }
+  ],
+  "repairCompletion20261008": {
+    "completedAt": "2026-10-08T13:00:58.305504+00:00",
+    "changedRuntimeFiles": [
+      "runtime/cast/W/08.png"
+    ],
+    "unchangedRuntimeFrames": 67,
+    "acceptedSha256": "15e5a73fd7551d453c278d04cf39a92fb84da6191d595ecd4409ae38ff7e2831",
+    "staticReview": "Root and west_identity independently viewed new08 against06/07/old08/09/10; no new limbs, crop, subject rescaling or prop loss; small hand-painted contour changes remain.",
+    "browserReview": "Root replayed repaired W cast at1x and0.25x in actual browser; sampled live screenshots, stepped07 and08, checked new08 on dark and light backgrounds. Images are requested with SHA query strings to avoid stale cached frames.",
+    "result": "Prior glow-collapse issue resolved within frame review and live-playback-sampling scope.",
+    "limits": [
+      "No retained continuous video or engine/client integration test.",
+      "Browser reported4 scheduling delays even during single-group review; timing is not a device FPS guarantee.",
+      "Other67 frame pixels unchanged; full68 individual/six-group playback review evidence retained from earlier Oct8 inspection."
+    ],
+    "registrationRecord": "records/repair-registration-20261008.json",
+    "historicalReviewSnapshot": "records/final-visual-review-before-glow-repair-20261008.json"
+  }
 }

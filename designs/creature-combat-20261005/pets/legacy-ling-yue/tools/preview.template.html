@@ -9,7 +9,7 @@
 <header>
   <h1>灵玥 · 三种战斗动作</h1>
   <p>雪白九尾灵狐　／　E 右下斜正面 · W 左上真正斜背面</p>
-  <p class="muted">独立检查工具。按完整画布播放，不移动角色或重新定位脚点；初始暂停。浏览器可能跳过显示帧，逐帧检查请用下方滑条。</p>
+  <p class="muted">独立检查工具。每组全部帧加载并解码后才允许播放；Canvas 始终使用完整 1024 画布，不移动角色或重新定位脚点。初始暂停，逐帧检查请用下方滑条。</p>
   <div class="controls">
     <button id="playAll">全部播放</button><button id="pauseAll">全部暂停</button><button id="resetAll">回到首帧</button>
     <label>全局速度 <select id="globalSpeed"><option value="1">1× 原时间</option><option value="0.25">0.25× 慢放</option></select></label>
@@ -30,6 +30,7 @@ const {manifest, report} = JSON.parse(document.getElementById("deliveryData").te
 const names={hit:"受击",attack:"普攻",cast:"施法"};
 const frameMap=new Map(manifest.frames.map(frame=>[frame.file,frame]));
 const players=[];
+const playAll=document.getElementById("playAll");playAll.disabled=true;
 const el=(tag,text,cls)=>{const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(cls)node.className=cls;return node;};
 document.getElementById("summary").textContent=`真实帧 ${report.presentCount} / ${report.expectedCount} · 技术检查${report.technicalPassed?"通过":"未通过"} · ${report.errorCount} 项错误 / ${report.warningCount} 项提示`;
 document.getElementById("scope").textContent="美术与动态：本工具未验收。客户端：未接入。缺失、读取失败或重复帧会显示提示，绝不跳过缺帧补齐动画。";
@@ -45,32 +46,42 @@ for(const seq of manifest.sequences){
   for(const [value,text] of [["1","1× 原时间"],["0.25","0.25× 慢放"]]){const option=el("option",text);option.value=value;speed.append(option);}
   const range=el("input",undefined,"range");range.type="range";range.min="0";range.max=String(seq.frameCount-1);range.value="0";range.step="1";range.setAttribute("aria-label",`${names[seq.action]} ${seq.direction} 逐帧`);
   const path=el("div",undefined,"path"), issue=el("div",undefined,"issue");
-  const player={seq,index:0,playing:false,speed:1,elapsed:0,images:[],loaded:[],stage,anchor};
+  const canvas=el("canvas");canvas.width=1024;canvas.height=1024;canvas.style.cssText="position:absolute;inset:0;width:100%;height:100%";canvas.setAttribute("role","img");
+  const context=canvas.getContext("2d");stage.append(canvas);
+  const player={seq,index:0,playing:false,ready:false,speed:1,elapsed:0,images:[],loaded:[],stage,anchor};
+  const preload=[];
   for(let i=0;i<seq.frames.length;i++){
     const frame=frameMap.get(seq.frames[i]);const image=el("img");image.alt=`灵玥 ${names[seq.action]} ${seq.direction} 第${i+1}帧`;image.decoding="async";
     player.loaded[i]=frame.present?"loading":"missing";
-    image.onload=()=>{player.loaded[i]="ok";if(player.index===i)render();};
-    image.onerror=()=>{player.loaded[i]="error";if(player.index===i)render();};
-    if(frame.present)image.src=frame.file;
-    stage.append(image);player.images.push(image);
+    player.images.push(image);
+    preload.push(new Promise(resolve=>{
+      if(!frame.present){resolve(false);return;}
+      image.onload=async()=>{try{await image.decode();if(image.naturalWidth!==1024||image.naturalHeight!==1024)throw Error("wrong dimensions");player.loaded[i]="ok";resolve(true);}catch{player.loaded[i]="error";resolve(false);}render();};
+      image.onerror=()=>{player.loaded[i]="error";resolve(false);render();};
+      image.src=frame.file+"?sha="+encodeURIComponent(frame.sha256||manifest.generatedAt);
+    }));
   }
   stage.append(anchor,missing);controls.append(prev,play,next,speed);body.append(info,range,controls,path,issue);card.append(stage,body);document.getElementById("grid").append(card);
   function render(){
     const i=player.index,frame=frameMap.get(seq.frames[i]),state=player.loaded[i];
-    player.images.forEach((image,n)=>image.classList.toggle("visible",n===i&&state==="ok"));
-    missing.hidden=state==="ok";missing.textContent=state==="loading"?`第 ${i+1} 帧正在加载`:state==="error"?`第 ${i+1} 帧读取失败`: `第 ${i+1} 帧缺失 · 未生成占位图`;
+    if(state==="ok"){context.clearRect(0,0,1024,1024);context.drawImage(player.images[i],0,0,1024,1024);canvas.setAttribute("aria-label",`灵玥 ${names[seq.action]} ${seq.direction} 第${i+1}帧`);}
+    const loaded=player.loaded.filter(value=>value==="ok").length;
+    const failed=player.loaded.some(value=>value==="error"||value==="missing");
+    missing.hidden=state==="ok";
+    missing.textContent=state==="loading"?`正在解码 ${loaded} / ${seq.frameCount} 帧`:state==="error"?`第 ${i+1} 帧读取或解码失败`: `第 ${i+1} 帧缺失 · 未生成占位图`;
     info.textContent=`${String(i+1).padStart(2,"0")} / ${seq.frameCount} · ${seq.durationMs} ms/帧 · 原动作 ${seq.totalDurationMs} ms · ${player.speed}×`;
-    range.value=String(i);play.textContent=player.playing?"暂停":"播放";play.setAttribute("aria-pressed",String(player.playing));
+    range.value=String(i);play.textContent=player.playing?"暂停":player.ready?"播放":failed?"本组不完整":"正在加载";play.disabled=!player.ready;play.setAttribute("aria-pressed",String(player.playing));
     path.replaceChildren();if(frame.present){const link=el("a",frame.file);link.href=frame.file;link.target="_blank";link.rel="noopener";path.append(link);}else path.textContent=frame.file;
-    issue.textContent=frame.issues.map(item=>item.code).join(" · ");
+    issue.textContent=[...frame.issues.map(item=>item.code),...(player.ready?[]:[`解码 ${loaded}/${seq.frameCount}；本组全部成功前禁止播放`])].join(" · ");
   }
-  player.setPlaying=value=>{player.playing=value;player.elapsed=0;render();};
+  player.setPlaying=value=>{player.playing=Boolean(value&&player.ready);player.elapsed=0;render();};
   player.jump=value=>{player.index=(value+seq.frameCount)%seq.frameCount;player.elapsed=0;render();};
   player.setSpeed=value=>{player.speed=value;speed.value=String(value);player.elapsed=0;render();};
-  player.tick=delta=>{if(!player.playing)return;player.elapsed+=delta*player.speed;const count=Math.floor(player.elapsed/seq.durationMs);if(count){player.elapsed-=count*seq.durationMs;player.index=(player.index+count)%seq.frameCount;render();}};
+  player.tick=delta=>{if(!player.playing||!player.ready)return;player.elapsed+=delta*player.speed;if(player.elapsed>=seq.durationMs){player.elapsed-=seq.durationMs;player.index=(player.index+1)%seq.frameCount;render();}};
   play.onclick=()=>player.setPlaying(!player.playing);prev.onclick=()=>{player.setPlaying(false);player.jump(player.index-1);};next.onclick=()=>{player.setPlaying(false);player.jump(player.index+1);};
   range.oninput=()=>{player.setPlaying(false);player.jump(Number(range.value));};speed.onchange=()=>player.setSpeed(Number(speed.value));
   players.push(player);render();
+  Promise.all(preload).then(results=>{player.ready=results.every(Boolean);render();playAll.disabled=!players.every(item=>item.ready);});
 }
 document.getElementById("playAll").onclick=()=>players.forEach(player=>player.setPlaying(true));
 document.getElementById("pauseAll").onclick=()=>players.forEach(player=>player.setPlaying(false));

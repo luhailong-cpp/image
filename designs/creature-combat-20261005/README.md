@@ -1,6 +1,8 @@
 # Image 原有宠物战斗动作窗口
 
-2026-10-08 续作：[统一动作预览](delivery/index.html) · [当前交付总表](delivery/README.md) · [独立复核快照](delivery/AUDIT_20261008.md)。下面是10月5日创建记录，不能代替当前完成状态。
+2026-10-08 素材交付完成：Image 已确认的20个原有形象，共1360张正式透明PNG，受击、普攻、施法各有E/W两方向，不含移动。图像、来源和静态验收已核验；完整连播验证仍有工具受限项，未接入客户端。
+
+[统一动作预览](delivery/index.html) · [最终交付总表](delivery/README.md) · [异机合并说明](delivery/MERGE_HANDOFF.md) · [本轮独立复核](delivery/audits/README.md)。下文保留10月5日窗口创建历史，不能代替当前完成状态。
 
 用户指定范围：只用 D:/work/image 原本已有的形象。此前6种客户端来源怪物窗口已归档并排除。
 

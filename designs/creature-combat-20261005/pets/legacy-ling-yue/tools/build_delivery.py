@@ -292,7 +292,7 @@ def audit() -> tuple[dict, dict]:
               "technicalPassed": passed, "errorCount": len(errors), "warningCount": len(warnings),
               "errors": errors, "warnings": warnings, "duplicates": duplicate_groups,
               "artisticReview": "not_performed_by_this_tool", "motionReview": "not_performed_by_this_tool",
-              "clientIntegration": "not_performed", "independentPoseProof": "exact duplicates detected; anatomical continuity and non-interpolated provenance require human/tool-receipt review"}
+              "clientIntegration": "not_performed", "independentPoseProof": "this audit detects exact duplicates only; anatomical continuity and non-interpolated provenance require visual/tool-receipt review"}
     manifest = {"schemaVersion": 1, "character": "灵玥", "slug": "legacy-ling-yue", "generatedAt": stamp,
                 "contract": {"expectedCount": EXPECTED_COUNT, "width": 1024, "height": 1024, "mode": "RGBA", "format": "PNG",
                              "pivot": [0.5, 0.08], "anchorTopLeftPixels": [512, 942],

@@ -6,11 +6,16 @@ import json
 
 ROOT = Path(__file__).resolve().parents[1]
 note = "> 历史快照（2026-10-05）：本记录保留原验收经过，不能代表2026-10-08修后的当前像素。当前验收及SHA以根目录README、qa/final-visual-review.json为准。原接触图已清理，当前全帧图位于qa/contact。\n\n"
-for name in ("qa/attack/DELIVERY.md", "qa/attack/W-static-review.md", "qa/attack/W-handoff.md", "qa/cast/E-visual-review.md"):
+for name in ("qa/attack/DELIVERY.md", "qa/attack/E-static-review.md", "qa/attack/W-static-review.md", "qa/attack/W-handoff.md", "qa/cast/E-visual-review.md"):
     p = ROOT / name
     content = p.read_text(encoding="utf-8-sig")
     if not content.startswith(note):
         p.write_text(note + content, encoding="utf-8")
+p = ROOT / "qa/attack/review-20261008.md"
+content = p.read_text(encoding="utf-8-sig")
+repair_note = "> 历史修前检查：本记录指出的W09→10问题已完成定点修复；当前结论以final-static-review-20261008.md和根目录qa/final-visual-review.json为准。\n\n"
+if not content.startswith(repair_note):
+    p.write_text(repair_note + content, encoding="utf-8")
 for name in ("qa/attack/W-technical.json", "qa/cast/E-technical.json", "qa/cast/W/technical-check.json", "qa/cast/W/static-review.json"):
     p = ROOT / name
     value = json.loads(p.read_text(encoding="utf-8-sig"))

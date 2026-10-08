@@ -17,4 +17,4 @@ $petCheck = 'D:\work\image\designs\creature-combat-20261005\pets\legacy-hu-tuan-
 
 逐图来源记录优先名称为 `01.png.generation.json`，也兼容 `01.generation.json`，两种同时存在视为歧义。原生生成记录检查政策要求的字段、时区、配置快照、SHA、输入引用、未知模型说明。裁切缩放派生记录使用 `derivedFrom`（对象或数组，必须有 `file/path`、`sha256`、`generationRecord`）及 `operation`；递归检查原始文字记录。已经按保留规则删掉的源图片，在 `derivedFrom` 对象中注明 `deleted: true`，保留 SHA 和原生成记录，工具会提示而不当作缺图错误。有效参考必须在 D:/work/image 内；工具不会读取兄弟仓库、客户端或其他电脑。
 
-预览中所有图共用原生画布及 [512,942] 标记，未进行逐帧包围盒定位。manifest 技术项通过后，`visualFrameReview`、`animationPlaybackReview` 仍为 `pending-human-review`；`clientIntegration` 始终为 `not-performed`，应由实际验收者另行记录真实结论。
+预览中所有图共用正式1024画布及 [512,942] 标记，未进行逐帧包围盒定位；可切换棋盘格、深色和浅色背景检查透明边缘。技术检查不会自行得出视觉结论：只有 `records/final-visual-review.json` 中68张SHA与当前正式图全部匹配时，manifest和命令输出才导入其真实逐帧／播放检查范围；缺失或不匹配时保持 `pending-human-review`。`clientIntegration` 仍为 `not-performed`。
