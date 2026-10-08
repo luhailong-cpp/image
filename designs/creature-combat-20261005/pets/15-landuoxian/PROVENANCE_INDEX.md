@@ -38,6 +38,8 @@
 |[runtime/attack/W/08.png](runtime/attack/W/08.png)|[记录](runtime/attack/W/08.png.generation.json)|未确认|未确认|
 |[runtime/attack/W/09.png](runtime/attack/W/09.png)|[记录](runtime/attack/W/09.png.generation.json)|未确认|未确认|
 |[runtime/attack/W/10.png](runtime/attack/W/10.png)|[记录](runtime/attack/W/10.png.generation.json)|未确认|未确认|
+|[runtime/attack/W/11.png](runtime/attack/W/11.png)|[记录](runtime/attack/W/11.png.generation.json)|未确认|未确认|
+|[runtime/attack/W/12.png](runtime/attack/W/12.png)|[记录](runtime/attack/W/12.png.generation.json)|未确认|未确认|
 |[runtime/cast/E/01.png](runtime/cast/E/01.png)|[记录](provenance/cast/E/01.generation.json)|未确认|未确认|
 |[runtime/cast/E/02.png](runtime/cast/E/02.png)|[记录](provenance/cast/E/02.generation.json)|未确认|未确认|
 |[runtime/cast/E/03.png](runtime/cast/E/03.png)|[记录](provenance/cast/E/03.generation.json)|未确认|未确认|
@@ -53,6 +55,7 @@
 |[runtime/cast/E/13.png](runtime/cast/E/13.png)|[记录](provenance/cast/E/13.generation.json)|未确认|未确认|
 |[runtime/cast/E/14.png](runtime/cast/E/14.png)|[记录](provenance/cast/E/14.generation.json)|未确认|未确认|
 |[runtime/cast/E/15.png](runtime/cast/E/15.png)|[记录](provenance/cast/E/15.generation.json)|未确认|未确认|
+|[runtime/cast/E/16.png](runtime/cast/E/16.png)|[记录](provenance/cast/E/16.generation.json)|未确认|未确认|
 |[runtime/cast/W/01.png](runtime/cast/W/01.png)|[记录](provenance/cast/W/01.generation.json)|未确认|未确认|
 |[runtime/cast/W/02.png](runtime/cast/W/02.png)|[记录](provenance/cast/W/02.generation.json)|未确认|未确认|
 |[runtime/cast/W/03.png](runtime/cast/W/03.png)|[记录](provenance/cast/W/03.generation.json)|未确认|未确认|

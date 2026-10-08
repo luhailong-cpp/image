@@ -1,6 +1,7 @@
 from pathlib import Path
 from PIL import Image, ImageDraw
 import hashlib, json
+from io import BytesIO
 from datetime import datetime, timezone
 
 ROOT=Path(__file__).resolve().parent
@@ -55,7 +56,10 @@ def main():
             im=Image.open(ROOT/f['file']);im.thumbnail((280,280),Image.Resampling.LANCZOS)
             board.paste(im,(x,y),im)
             draw.text((x+10,y+284),f"{group['id']} {f['index']:02d} / {f['durationMs']}ms",fill='#19392d')
-        board.save(preview/(group['id'].replace('/','-')+'-contact.png'))
+        contact=preview/(group['id'].replace('/','-')+'-contact.png')
+        encoded=BytesIO();board.save(encoded,format='PNG');payload=encoded.getvalue()
+        if not contact.exists() or contact.read_bytes()!=payload:
+            temp=contact.with_suffix('.new.png');temp.write_bytes(payload);temp.replace(contact)
     template=(ROOT/'preview-template.html').read_text(encoding='utf-8')
     (preview/'index.html').write_text(template.replace('__GROUP_DATA__',json.dumps(groups,ensure_ascii=False)),encoding='utf-8')
     for group in groups:
