@@ -403,6 +403,10 @@ def main(argv=None):
     modes.add_argument("--preview", action="store_true", help="Write transparent core progress previews only; never a tile candidate")
     modes.add_argument("--validate-only", action="store_true", help="Check all present source provenance and report missing patches; write nothing")
     args = parser.parse_args(argv)
+    existing_manifest = OUT / "assembly-manifest.json"
+    if not args.validate_only and not args.preview and existing_manifest.is_file():
+        require(not load_json(existing_manifest).get("postprocessingProtected"),
+                "Refusing to overwrite visually reviewed postprocessed c16; use its recorded integration workflow")
     arrays, entries, missing = load_sources()
     if args.validate_only:
         print(json.dumps({"validatedPatches": len(entries), "missing": missing, "complete": not missing}, indent=2))
