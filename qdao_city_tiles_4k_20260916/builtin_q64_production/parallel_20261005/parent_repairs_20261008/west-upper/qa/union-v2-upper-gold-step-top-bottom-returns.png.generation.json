@@ -1,0 +1,148 @@
+{
+  "createdAt": "2026-10-08T06:23:09.748106+00:00",
+  "iteration": "union-v2",
+  "formalAccepted": false,
+  "clientVerified": false,
+  "productionSelectionChanged": false,
+  "operation": {
+    "kind": "single_union_mask_native_coordinate_composite",
+    "sourcePixelScale": 1,
+    "sourceUpscaling": false,
+    "sourceResampling": false,
+    "geometricRegistration": null,
+    "actualMechanicalDisplacementXY": [
+      0,
+      0
+    ],
+    "colorCorrection": false,
+    "imageBlur": false,
+    "regions": [
+      {
+        "id": "triangle",
+        "outerRectLTRB": [
+          570,
+          472,
+          822,
+          820
+        ],
+        "fullAIWeightRectLTRB": [
+          610,
+          512,
+          782,
+          780
+        ]
+      },
+      {
+        "id": "upper-gold-step",
+        "outerRectLTRB": [
+          550,
+          330,
+          735,
+          580
+        ],
+        "fullAIWeightRectLTRB": [
+          592,
+          354,
+          695,
+          540
+        ]
+      },
+      {
+        "id": "horizontal-gray-step",
+        "outerRectLTRB": [
+          80,
+          492,
+          646,
+          612
+        ],
+        "fullAIWeightRectLTRB": [
+          120,
+          522,
+          606,
+          572
+        ]
+      }
+    ],
+    "union": "pixelwise maximum of smoothstep component masks; one composite against original context",
+    "mask": {
+      "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/parent_repairs_20261008/west-upper/merge-mask.png",
+      "sha256": "436ab3cb8c7cfab869bcbd1e74cf1a85748fd61684304c9199998cde9d353f6b"
+    },
+    "maskZeroPixelsUnchanged": true
+  },
+  "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/parent_repairs_20261008/west-upper/qa/union-v2-upper-gold-step-top-bottom-returns.png",
+  "sha256": "e94383cee041c910b24c126c7ca7e6de18ab5bc393f11056ad28b2ba58c20cfa",
+  "scope": "upper-gold-step-top-bottom-returns",
+  "width": 502,
+  "height": 100,
+  "nativeScale": 1,
+  "resized": false,
+  "mappings": [
+    {
+      "boardRectLTRB": [
+        0,
+        0,
+        245,
+        100
+      ],
+      "contextRectLTRB": [
+        520,
+        290,
+        765,
+        390
+      ],
+      "source": "actual_exported_coupled_tiles"
+    },
+    {
+      "boardRectLTRB": [
+        257,
+        0,
+        502,
+        100
+      ],
+      "contextRectLTRB": [
+        520,
+        520,
+        765,
+        620
+      ],
+      "source": "actual_exported_coupled_tiles"
+    }
+  ],
+  "actuallyViewed": true,
+  "derivedFromOutputs": [
+    {
+      "tileId": "r08_c07",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/parent_repairs_20261008/west-upper/coupled/r08_c07.png",
+      "sha256": "40b8ba13f0f7c34d90b062d76c0974b69f5e527ea4507b8aa1e3c3a727b817cd",
+      "sourcePath": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/resume_single_city_20260921/completion_20261004/c08/adjacent-qa/coupled-v2/r08_c07.png",
+      "sourceSha256": "839795ebc1fa1c86253ca552e7bc658ac47a6daeeef18712c73086791e112171",
+      "changedPixelCount": 77506,
+      "changedBoundingBoxLTRB": [
+        3555,
+        813,
+        4096,
+        1296
+      ],
+      "generationRecord": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/parent_repairs_20261008/west-upper/coupled/r08_c07.png.generation.json"
+    },
+    {
+      "tileId": "r08_c08",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/parent_repairs_20261008/west-upper/coupled/r08_c08.png",
+      "sha256": "beb89f97c8218a1d4a23cbecf7b4f2a6436418476c0bc54aec431b130b10f45e",
+      "sourcePath": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/resume_single_city_20260921/completion_20261004/c08/adjacent-qa/coupled-v2/r08_c08.png",
+      "sourceSha256": "0e673e180733271895da62ec141a90ccbc0a55632968725e19e29bdb0662a0f0",
+      "changedPixelCount": 77161,
+      "changedBoundingBoxLTRB": [
+        0,
+        813,
+        193,
+        1297
+      ],
+      "generationRecord": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/parent_repairs_20261008/west-upper/coupled/r08_c08.png.generation.json"
+    }
+  ],
+  "viewedAt": "2026-10-08T06:26:13.493143+00:00",
+  "result": "old_upper_gray_boundary_outside_scope",
+  "finding": "Bottom return blends into repaired slab cleanly. Top return visibly includes the inherited x627 gray-slab vertical step above the chosen gold-strip mask; it is not claimed resolved."
+}

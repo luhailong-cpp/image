@@ -1,0 +1,46 @@
+{
+  "payload": {
+    "prompt": "Use case: precise-object-edit / inpainting. Image1 is the exact edit target, a game paving crop with ONE small transparent rectangle cut out near its upper center. Fill ONLY this small transparent rectangle. Continue the thin white diagonal highlight straight through the missing section with exactly the same width and tangent as its two existing endpoints. It is a continuous straight diagonal edge, with NO vertical step, corner, notch, kink or bump inside the missing section. Continue the adjacent gold flat face and softly shaded gold bevel naturally. Preserve every existing opaque pixel in place, including the stone face and relief. Image2 is style only, not layout/UI. Same square framing, clean rounded painterly native game art. Return the image fully opaque after filling the small hole, no checkerboard, no text, no new joints or objects.",
+    "referenced_image_paths": [
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\parent_repairs_20261008\\west-upper-tone\\trim-gap\\context.png",
+      "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png"
+    ],
+    "transparent_background": false
+  },
+  "references": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\parent_repairs_20261008\\west-upper-tone\\trim-gap\\context.png",
+      "sha256": "4028159f90809677765ffd525f3596429eb95a2e8641c75a479a62dda8698a9b",
+      "role": "small masked edit target"
+    },
+    {
+      "file": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+      "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+      "role": "approved style only"
+    }
+  ],
+  "derivedFrom": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\parent_repairs_20261008\\west-upper-tone\\joined.png",
+    "sha256": "dd5ed941f70d281cf89e0e64ea268bd60db718450a8e4e65c2a679ca28ab5e5f",
+    "operation": "prepare transparent rectangular editing mask; no repainting, resize or warp",
+    "maskLTRB": [
+      572,
+      201,
+      692,
+      321
+    ]
+  },
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-04",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  }
+}

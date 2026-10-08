@@ -1,0 +1,103 @@
+{
+  "createdAt": "2026-10-08T06:23:09.748106+00:00",
+  "iteration": "union-v2",
+  "formalAccepted": false,
+  "clientVerified": false,
+  "productionSelectionChanged": false,
+  "operation": {
+    "kind": "single_union_mask_native_coordinate_composite",
+    "sourcePixelScale": 1,
+    "sourceUpscaling": false,
+    "sourceResampling": false,
+    "geometricRegistration": null,
+    "actualMechanicalDisplacementXY": [
+      0,
+      0
+    ],
+    "colorCorrection": false,
+    "imageBlur": false,
+    "regions": [
+      {
+        "id": "triangle",
+        "outerRectLTRB": [
+          570,
+          472,
+          822,
+          820
+        ],
+        "fullAIWeightRectLTRB": [
+          610,
+          512,
+          782,
+          780
+        ]
+      },
+      {
+        "id": "upper-gold-step",
+        "outerRectLTRB": [
+          550,
+          330,
+          735,
+          580
+        ],
+        "fullAIWeightRectLTRB": [
+          592,
+          354,
+          695,
+          540
+        ]
+      },
+      {
+        "id": "horizontal-gray-step",
+        "outerRectLTRB": [
+          80,
+          492,
+          646,
+          612
+        ],
+        "fullAIWeightRectLTRB": [
+          120,
+          522,
+          606,
+          572
+        ]
+      }
+    ],
+    "union": "pixelwise maximum of smoothstep component masks; one composite against original context",
+    "mask": {
+      "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/parent_repairs_20261008/west-upper/merge-mask.png",
+      "sha256": "436ab3cb8c7cfab869bcbd1e74cf1a85748fd61684304c9199998cde9d353f6b"
+    },
+    "maskZeroPixelsUnchanged": true
+  },
+  "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/parent_repairs_20261008/west-upper/coupled/r08_c08.png",
+  "sha256": "beb89f97c8218a1d4a23cbecf7b4f2a6436418476c0bc54aec431b130b10f45e",
+  "width": 4096,
+  "height": 4096,
+  "derivedFrom": [
+    {
+      "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/resume_single_city_20260921/completion_20261004/c08/adjacent-qa/coupled-v2/r08_c08.png",
+      "sha256": "0e673e180733271895da62ec141a90ccbc0a55632968725e19e29bdb0662a0f0"
+    },
+    {
+      "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/parent_repairs_20261008/west-upper/merged-context.png",
+      "sha256": "8f08e76001ae21a639577e09b6311057699f452336848823b402d0ac49792aba"
+    }
+  ],
+  "changedPixelCount": 77161,
+  "changedBoundingBoxLTRB": [
+    0,
+    813,
+    193,
+    1297
+  ],
+  "status": "three_targeted_defects_improved_old_upper_gray_step_remaining",
+  "qa": {
+    "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/parent_repairs_20261008/west-upper/review.json",
+    "sha256": "f8f5d86395f99664bb8f05963e6cbd92729b88fea2023804bbd0105d98477448"
+  },
+  "targetedBlueTriangleResolved": true,
+  "targetedGoldStripStepResolved": true,
+  "targetedHorizontalGrayStepResolved": true,
+  "entireSharedEdgePassed": false
+}
