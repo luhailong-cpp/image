@@ -14,6 +14,7 @@ from pathlib import Path
 import sys
 
 from PIL import Image, ImageDraw, ImageFont
+from playback_evidence import load_playback_review, PLAYBACK_RECORD, PLAYBACK_SEQUENCE, PENDING_SEQUENCE
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECT = ROOT.parents[3]
@@ -162,6 +163,8 @@ def audit_frame(action: str, direction: str, n: int) -> dict:
         matching = next((r for r in review.get("frames", []) if r.get("file") == f["file"] and r.get("sha256") == f["sha256"]), None)
         if matching:
             f["visual"] = {k: matching[k] for k in ("stillReview", "sequenceReview", "clientReview", "evidence")}
+            if "sequenceEvidence" in matching:
+                f["visual"]["sequenceEvidence"] = matching["sequenceEvidence"]
     try:
         with Image.open(path) as image:
             image.load()
@@ -249,7 +252,8 @@ def contact_sheets(frames: list[dict]) -> list[str]:
                 sheet.paste(cell.convert("RGB"), (x, y))
                 event = f" · {frame['event']}" if frame["event"] else ""
                 draw.text((x + 8, y + thumb + 4), f"{direction} / {action} / {frame['frame']:02d}{event}", font=font(22), fill="#194f47")
-                status = ("单帧已实看 · 连播待验" if frame["visual"]["stillReview"] == "reviewed" else "待美术实看") if not frame["errors"] else f"技术问题 {len(frame['errors'])} 项"
+                playback_label = "原生连播已抽验" if frame["visual"].get("sequenceEvidence") == PLAYBACK_RECORD else "连播待验"
+                status = (f"单帧已实看 · {playback_label}" if frame["visual"]["stillReview"] == "reviewed" else "待美术实看") if not frame["errors"] else f"技术问题 {len(frame['errors'])} 项"
                 draw.text((x + 8, y + thumb + 34), status, font=font(19), fill="#725e3f")
             target = ROOT / "qa" / f"technical-contact-{action}-{direction}.jpg"
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -264,7 +268,17 @@ def main() -> int:
     parser.add_argument("--manifest", action="store_true", help="Write manifest.json and SHA256SUMS.txt (opt-in only).")
     parser.add_argument("--require-complete", action="store_true", help="Exit 2 for any technical error, including absent frames/records.")
     args = parser.parse_args()
+    playback = load_playback_review(ROOT)
     frames = [audit_frame(a, d, n) for a, (count, *_rest) in ACTIONS.items() for d in DIRECTIONS for n in range(1, count + 1)]
+    for frame in frames:
+        visual = frame["visual"]
+        if playback:
+            visual["sequenceReview"] = PLAYBACK_SEQUENCE
+            visual["sequenceEvidence"] = PLAYBACK_RECORD
+        else:
+            visual.pop("sequenceEvidence", None)
+            if visual["stillReview"] == "reviewed":
+                visual["sequenceReview"] = PENDING_SEQUENCE
     expected = {f["file"] for f in frames}
     actual = {relative(p) for p in (ROOT / "runtime").rglob("*.png")} if (ROOT / "runtime").exists() else set()
     duplicates = {}
@@ -285,12 +299,15 @@ def main() -> int:
     errors = sum(len(f["errors"]) for f in frames)
     extras = sorted(actual - expected)
     status = "passed" if errors == 0 and not extras else "incomplete" if present < 68 else "failed"
+    delivery_status = ("assets_complete_native_playback_reviewed" if playback else "assets_complete_continuous_playback_pending") if status == "passed" else status
+    visual_review = (f"qa/visual-review.json; independent_record: {PLAYBACK_RECORD}; native live playback sampled at 1x and 0.25x"
+                     if playback else "qa/visual-review.json; continuous playback not observed")
     report = {"schemaVersion": 1, "pet": "02-jiangling", "name": "绛铃", "checkedAt": now,
-              "status": status, "scope": "technical_files_only", "expectedFrames": 68, "presentFrames": present,
+              "status": status, "deliveryStatus": delivery_status, "scope": "technical_files_only", "expectedFrames": 68, "presentFrames": present,
               "missingFrames": [f["file"] for f in frames if not f["present"]], "unexpectedRuntimePngs": extras,
               "errorCount": errors, "warningCount": sum(len(f["warnings"]) for f in frames),
               "duplicates": duplicates, "frames": frames,
-              "visualReview": "qa/visual-review.json; continuous playback not observed", "clientReview": "not_tested",
+              "visualReview": visual_review, "clientReview": "not_tested",
               "limitations": ["Exact duplicate detection does not prove independent AI generation.",
                               "Bounding boxes do not verify anatomy, direction, pivot stability or animation quality.",
                               "Source metadata is checked for consistency; model assertions are not independently authenticated.",
@@ -300,15 +317,15 @@ def main() -> int:
     save_json(ROOT / "qa/technical-check.json", report)
     if args.manifest:
         manifest = {"schemaVersion": 1, "pet": "02-jiangling", "name": "绛铃", "generatedAt": now,
-                    "deliveryStatus": "assets_complete_continuous_playback_pending" if status == "passed" else status, "technicalStatus": status, "frameCount": present, "expectedFrameCount": 68,
+                    "deliveryStatus": delivery_status, "technicalStatus": status, "frameCount": present, "expectedFrameCount": 68,
                     "canvas": {"width": 1024, "height": 1024, "format": "PNG", "mode": "RGBA"},
                     "coordinates": {"pivot": PIVOT, "pivotOrigin": "bottom-left", "neutralAnchorTopLeftPx": [512, 942],
                                     "alignment": "single_uniform_export_transform_per_direction; no per-frame foot realignment"},
                     "directions": DIRECTIONS,
                     "actions": {a: {"framesPerDirection": c, "durationMs": ms, "totalDurationMs": c * ms,
                                     "eventFrame": event, "event": name} for a, (c, ms, event, name) in ACTIONS.items()},
-                    "technicalReport": "qa/technical-check.json", "preview": "preview.html", "frames": frames,
-                    "visualReview": "qa/visual-review.json; continuous playback not observed", "clientReview": "not_tested", "sourceAudit": "qa/source-audit.json"}
+                    "technicalReport": "qa/technical-check.json", "preview": "preview.html", "nativePreview": "preview-native.cmd", "frames": frames,
+                    "visualReview": visual_review, "clientReview": "not_tested", "sourceAudit": "qa/source-audit.json"}
         save_json(ROOT / "manifest.json", manifest)
         checksum_paths = [ROOT / f["file"] for f in frames if f["present"]]
         checksum_paths += [ROOT / f["sourceRecord"]["path"] for f in frames if f.get("sourceRecord", {}).get("path")]
