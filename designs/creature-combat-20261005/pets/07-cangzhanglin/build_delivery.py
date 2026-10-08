@@ -386,10 +386,18 @@ def build(dry_run=False):
     warnings = [{'file': f['file'], 'issues': f['warnings']} for f in flat if f['warnings']]
     generated_at = datetime.now(timezone.utc).isoformat()
     passed = not (errors or duplicate_files or duplicate_pixels or extra_frames or parse_errors)
+    review_path = ROOT / 'qa' / 'final-review.json'
+    review = json.loads(review_path.read_text(encoding='utf-8-sig')) if review_path.is_file() else None
+    reviewed_shas = {f['file']: f['sha256'] for f in (review or {}).get('frames', [])}
+    review_current = bool(review and len(reviewed_shas) == 68 and all(reviewed_shas.get(f['file']) == f.get('sha256') for f in flat))
+    if review_current:
+        for frame in flat:
+            frame['visualStatus'] = 'reviewed-with-notes'
     manifest = {'schemaVersion': 1, 'pet': '苍嶂麟', 'slug': '07-cangzhanglin', 'generatedAt': generated_at,
                 'expectedFrames': 68, 'presentFrames': sum(f['exists'] for f in flat), 'canvas': [1024, 1024],
                 'pivot': PIVOT, 'anchorTopLeft': ANCHOR, 'directions': {'E': '斜前朝右下', 'W': '真斜后朝左上'},
-                'technicalPassed': passed, 'visualStatus': 'not-verified-by-build-script',
+                'technicalPassed': passed, 'visualStatus': 'reviewed-with-notes' if review_current else 'not-verified-by-build-script',
+                'visualReviewRecord': 'qa/final-review.json' if review_current else None,
                 'clientIntegration': 'not-tested', 'groups': groups}
     validation = {'schemaVersion': 1, 'generatedAt': generated_at, 'technicalPassed': passed,
                   'expectedFrames': 68, 'presentFrames': manifest['presentFrames'],
@@ -398,11 +406,15 @@ def build(dry_run=False):
                   'duplicateFileSha256': duplicate_files, 'duplicatePixelSha256': duplicate_pixels,
                   'errors': errors, 'warnings': warnings,
                   'referenceFilesAllPresent': all(r['exists'] for f in flat for r in f.get('references', [])) and all('references' in f for f in flat),
+                  'requiredIdentityAndStyleReferencesPresent': all((PROJECT / p).is_file() for p in REQUIRED_REFS),
+                  'runtimeConsumerReferencesPresent': all(f['exists'] for f in flat),
                   'actualModelAndQualityFullyDisclosed': all(f.get('generation', {}).get('actualModel') is not None and f.get('generation', {}).get('actualQuality') is not None for f in flat),
                   'visualReview': {'status': 'not-performed-by-build-script', 'requires': ['all 68 frames', 'six groups at 1x', 'six groups at 0.25x', 'frame stepping']},
                   'gameIntegration': {'status': 'not-tested', 'clientReadOrWritten': False},
                   'scope': 'runtime frames and evidence only; technical pass does not approve anatomy or animation'}
     if not dry_run:
+        if review_current:
+            validation['visualReview'] = {'status': 'reviewed-with-notes', 'record': 'qa/final-review.json', 'currentFrameShaMatch': True, 'method': review['method']}
         for group in groups:
             create_contact_sheet(group)
         (ROOT / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
@@ -413,6 +425,12 @@ def build(dry_run=False):
         template = (PREVIEW / 'template.html').read_text(encoding='utf-8')
         safe_json = json.dumps(data, ensure_ascii=False).replace('<', '\\u003c').replace('&', '\\u0026')
         (PREVIEW / 'index.html').write_text(template.replace('__PREVIEW_DATA__', safe_json), encoding='utf-8')
+        for group in groups:
+            single = dict(data, groups=[group], expectedFrames=group['expectedFrames'], presentFrames=group['presentFrames'])
+            single_json = json.dumps(single, ensure_ascii=False).replace('<', '\\u003c').replace('&', '\\u0026')
+            single_template = template.replace('六组已齐全', '本组已齐全').replace('六组共用播放起点，分别按 40 / 30 / 45 ms 每帧循环。', '按本组原时序循环播放。').replace('六组各', '本组')
+            single_template = single_template.replace('<div class="grid" id="groups">', '<div class="grid" style="display:block;max-width:600px" id="groups">')
+            (PREVIEW / f"{group['id']}.html").write_text(single_template.replace('__PREVIEW_DATA__', single_json), encoding='utf-8')
     summary = {'technicalPassed': passed, 'presentFrames': manifest['presentFrames'], 'expectedFrames': 68,
                'missingFrames': len(validation['missingFrames']), 'frameErrors': len(errors),
                'duplicatePixelGroups': len(duplicate_pixels), 'recordParseErrors': len(parse_errors),
