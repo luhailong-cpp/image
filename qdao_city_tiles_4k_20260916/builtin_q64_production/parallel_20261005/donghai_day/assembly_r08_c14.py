@@ -411,6 +411,9 @@ def main(argv=None):
         result = preview(arrays, entries, missing)
         print(json.dumps({"preview": result["displayPreview"]["file"], "validatedPatches": len(entries), "missing": missing}, indent=2))
         return 0
+    existing_manifest = OUT / "assembly-manifest.json"
+    if existing_manifest.is_file() and load_json(existing_manifest).get("postAssemblyRepair"):
+        raise ValueError("Current tile includes reviewed post-assembly water repairs. Base-only assembly would discard them; use --validate-only to check native inputs.")
     require(not missing, "Assembly refused: missing " + ", ".join(missing) + "; use --preview for transparent progress")
     counts, coverage = source_coverage(arrays)
     require(coverage["fullCoverage"], "Incomplete pixel coverage; no candidate may be written")

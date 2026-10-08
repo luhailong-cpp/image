@@ -1,0 +1,12 @@
+{
+  "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r08_c15\\repairs\\water-seams\\b-right-cross\\water-only-eligibility.png",
+  "sha256": "ca1f912880a44d5fdcf3d3cc0d00fdc166f2edde7df96940a8a9b7964f216033",
+  "input": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r08_c15\\repairs\\water-seams\\b-right-cross\\input.png",
+    "sha256": "d97ae644ab80022fada104b5a00404aa53586af3bd3e699858e3a81acb1e5ae6"
+  },
+  "maskMeaning": "255 permits edited water pixels; 0 requires exact original pixels; intersect with chosen repair/seam mask. Conservative water-only eligibility, not an alpha blend.",
+  "method": "B>R+30 and G>R+15, binary 8px erosion. For columns whose first water starts below the image top, preserve first-water+64px to protect hull and cyan waterline.",
+  "effect": "No art color changes; binary mask only",
+  "formalAccepted": false
+}

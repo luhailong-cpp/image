@@ -2,7 +2,7 @@
 
 本页由 save_progress.py 按磁盘当前事实生成。内部资产 ID：donghai_day；正式项目采用《五行奇谈》原创命名，旧 ID 不代表已确认的新旧地名映射。
 
-目标65536×65536，16×16共256块，每块4096×4096。当前完整像素候选 **5/256**，基线坐标 3 个、新增坐标 2 个。正式验收 **0**；整城未完成、未客户端验收。
+目标65536×65536，16×16共256块，每块4096×4096。当前完整像素候选 **7/256**，基线坐标 3 个、新增坐标 4 个。正式验收 **0**；整城未完成、未客户端验收。
 
 当前状态见 [progress.json](progress.json)，逐坐标状态见 [tile-index.json](tile-index.json)。[当前预览](current-preview.png)仅缩小展示候选，不能用于原像素验收。
 
@@ -16,14 +16,18 @@
 | r08_c09 | [PNG](D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/donghai_day/r08_c08_c09_c10_joint/output_v3/r08_c09.png) | handoff_baseline | 2595df0fb75328de5fc748da03a08d6ebf8c64ef10f331bdc408a1a6c2921caa |
 | r08_c10 | [PNG](tiles/r08_c10.png) | current_tiles | b3c8ff658caf55ef4e7adccac38a0dd02de2fd4b874b371668b2493624f692cc |
 | r08_c11 | [PNG](tiles/r08_c11.png) | current_tiles | 5c62427846f8cbde26d94390666257ddb6a5d35926f4bf301bd9badf11247b2f |
-| r08_c12 | [PNG](tiles/r08_c12.png) | current_tiles | bb0618d75e9fc58f822f952dd52b7dedac2dc0e65f4786bfcdf9a3c2b5ade1ce |
+| r08_c12 | [PNG](tiles/r08_c12.png) | current_tiles | 69baa04bc59853455e76fd11d9a88e3b4b85c8470bac67245546cfa7139caf99 |
+| r08_c13 | [PNG](tiles/r08_c13.png) | current_tiles | 4f97a018ca09c9c1b96f2c71e4fdd8ed601ab72d2374a5f094653ba8785d5b16 |
+| r08_c14 | [PNG](tiles/r08_c14.png) | current_tiles | ed9ff4e38f96a1ad32a42fb185e4bc841626dea6add65f1d9bcfc899e79140e8 |
 
-当前优先在制块：**r08_c13**；阶段：native_expansion_in_progress。
+当前优先在制块：**r08_c16**；阶段：native_expansion_in_progress。
 
 - r08_c11：已核验原生片 16/16；已有完整像素候选。片段、结构参考和透明进度图不计整块。
 - r08_c12：已核验原生片 16/16；已有完整像素候选。片段、结构参考和透明进度图不计整块。
-- r08_c13：已核验原生片 5/16；尚无完整像素候选。片段、结构参考和透明进度图不计整块。
-- r08_c14：已核验原生片 0/16；尚无完整像素候选。片段、结构参考和透明进度图不计整块。
+- r08_c13：已核验原生片 16/16；已有完整像素候选。片段、结构参考和透明进度图不计整块。
+- r08_c14：已核验原生片 16/16；已有完整像素候选。片段、结构参考和透明进度图不计整块。
+- r08_c15：已核验原生片 16/16；尚无完整像素候选。片段、结构参考和透明进度图不计整块。
+- r08_c16：已核验原生片 5/16；尚无完整像素候选。片段、结构参考和透明进度图不计整块。
 
 ## 检查范围与来源限制
 
@@ -39,10 +43,30 @@
 - [r08_c11/repairs/west-leaf-01/qa/review.json](r08_c11/repairs/west-leaf-01/qa/review.json)：历史版本或无直接当前SHA绑定；须查范围。
 - [r08_c11/repairs/west-leaf-02/qa/review.json](r08_c11/repairs/west-leaf-02/qa/review.json)：历史版本或无直接当前SHA绑定；须查范围。
 - [r08_c12/qa/internal-review.json](r08_c12/qa/internal-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c12/qa/root-initial-edge-review.json](r08_c12/qa/root-initial-edge-review.json)：历史版本或无直接当前SHA绑定；须查范围。
 - [r08_c12/qa/row03-generation-review.json](r08_c12/qa/row03-generation-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c12/qa/row04-generation-review.json](r08_c12/qa/row04-generation-review.json)：历史版本或无直接当前SHA绑定；须查范围。
 - [r08_c12/qa/rows01-02-generation-review.json](r08_c12/qa/rows01-02-generation-review.json)：历史版本或无直接当前SHA绑定；须查范围。
 - [r08_c12/repairs/west-common-edge/integration-qa/integration-review.json](r08_c12/repairs/west-common-edge/integration-qa/integration-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c13/qa/internal-review.json](r08_c13/qa/internal-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c13/qa/r03-native-review.json](r08_c13/qa/r03-native-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c13/qa/row04-generation-review.json](r08_c13/qa/row04-generation-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c13/qa/rows01-02-generation-review.json](r08_c13/qa/rows01-02-generation-review.json)：历史版本或无直接当前SHA绑定；须查范围。
 - [r08_c13/qa/structure-review.json](r08_c13/qa/structure-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c13/qa/west-joint-review.json](r08_c13/qa/west-joint-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c14/qa/rows01-02-left3-generation-review.json](r08_c14/qa/rows01-02-left3-generation-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c14/qa/rows03-04-generation-review.json](r08_c14/qa/rows03-04-generation-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c14/qa/structure-review.json](r08_c14/qa/structure-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c14/qa/water-repair-final-review.json](r08_c14/qa/water-repair-final-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c14/repairs/west-common-edge/integration-qa/review.json](r08_c14/repairs/west-common-edge/integration-qa/review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c15/qa/column04-generation-review.json](r08_c15/qa/column04-generation-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c15/qa/columns01-02-generation-review.json](r08_c15/qa/columns01-02-generation-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c15/qa/structure-review.json](r08_c15/qa/structure-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c16/qa/column04-generation-review.json](r08_c16/qa/column04-generation-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c16/repairs/r01_c03-quiet-water/review.json](r08_c16/repairs/r01_c03-quiet-water/review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c16/repairs/r01_c04-quiet-water/review.json](r08_c16/repairs/r01_c04-quiet-water/review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c16/repairs/r02_c04-quiet-water/review.json](r08_c16/repairs/r02_c04-quiet-water/review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r08_c16/repairs/r04_c04-quiet-water/review.json](r08_c16/repairs/r04_c04-quiet-water/review.json)：历史版本或无直接当前SHA绑定；须查范围。
 
 ## 逐图模型、拼接与保留
 
