@@ -1,0 +1,34 @@
+{
+  "status": "schema_only_not_acceptance",
+  "explicitFinalShaRequired": true,
+  "command": "finalize_local.py --finalsha <verified-final-candidate-sha256> [--approve]",
+  "defaultBehavior": "Validate only; no writes",
+  "requiredReviews": {
+    "horizontal-review.json": {"passFlag": "scopedPass", "requiredStandardImages": 15},
+    "external-review.json": {"passFlag": "externalScopedPass", "requiredStandardImages": 2},
+    "root-review.json": {"passFlag": "scopedPass", "requiredStandardImages": 9, "requiredAdditionalImages": ["north-no-neighbor-unverified.png"]}
+  },
+  "standardQACount": 26,
+  "everyItemMustHave": ["file", "sha256", "actuallyViewed=true", "nativeScale=1", "passing verdict"],
+  "validation": [
+    "Explicit final SHA equals candidate PNG and current generation record",
+    "All source review pass flags true and issue lists empty",
+    "Every QA PNG SHA equals its actual visual review item",
+    "Every inspected QA image is reproduced pixel-for-pixel from current candidate and west neighbor",
+    "All 26 standard images and additional north boundary covered",
+    "Only west neighbor is used and its SHA remains unchanged"
+  ],
+  "historicalReviewReuse": {
+    "allowedOnlyForExactQAImageSha256Match": true,
+    "alsoRequiresCurrentCandidatePixelReproduction": true,
+    "preserveOriginalReport": true,
+    "recordFields": ["originalCandidateSha256", "originalReview", "originalQAImageSha256", "currentQAImageSha256", "exactQAImageSha256Match", "reason"],
+    "newVisualInspectionClaimed": false
+  },
+  "outputRecordsOnlyOnApprove": ["output/manifest.json", "qa/final-local-review.json", "progress.json"],
+  "candidateOrQAImageMutation": false,
+  "missingExternalNeighbors": ["north", "east", "south"],
+  "formalAccepted": false,
+  "navigationVerified": false,
+  "clientVerified": false
+}

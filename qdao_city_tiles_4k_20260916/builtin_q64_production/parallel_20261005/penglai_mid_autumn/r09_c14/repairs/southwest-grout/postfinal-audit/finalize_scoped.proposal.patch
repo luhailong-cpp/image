@@ -1,0 +1,69 @@
+--- a/tools/finalize_scoped.py
++++ b/tools/finalize_scoped.py
+@@ -196,11 +196,58 @@
+     return ref(snapshot)
+ 
+ 
++def source_metadata(ctx, previous):
++    """Current source pointers plus explicit immutable acquisition/lifecycle history."""
++    folder=ctx['folder'];assembly=ctx['assembly']
++    current={k:copy.deepcopy(v) for k,v in ctx['references'].items() if k!='current'}
++    result=dict(plan=ref(folder/'plan.json'),neighbors=current,currentNeighbors=copy.deepcopy(current),
++                assemblyPlan=copy.deepcopy(assembly['plan']),assemblyNeighbors=copy.deepcopy(assembly.get('neighbors',{})),
++                patches=copy.deepcopy(assembly.get('patches',[])),sourceAssemblyRecordsAreHistorical=True,
++                sourceReferencePolicy='plan/neighbors/currentNeighbors are current; assemblyPlan/assemblyNeighbors/patches preserve dated acquisition. Actual retired availability is declared only by the verified completed retention ledger.')
++    result['assemblyPlan']['historicalAcquisitionReference']=True
++    for value in result['assemblyNeighbors'].values():value['historicalAcquisitionReference']=True
++    def references(value):
++        if isinstance(value,dict):
++            if isinstance(value.get('file'),str) and isinstance(value.get('sha256'),str):yield value
++            for child in value.values():yield from references(child)
++        elif isinstance(value,list):
++            for child in value:yield from references(child)
++    # Preserve concrete current applied-repair/source records, never arbitrary
++    # old acceptance flags or unvalidated prior image pointers.
++    for field in ['currentAppliedRepair','currentNorthSourceMigration']:
++        if field in previous:
++            value=copy.deepcopy(previous[field])
++            for record in references(value):check(sha(record['file'])==record['sha256'],'Stale retained current source record: '+record['file'])
++            result[field]=value
++    ledger_ref=previous.get('retentionLog')
++    if ledger_ref is None:return result
++    ledger_path=Path(ledger_ref['file'] if isinstance(ledger_ref,dict) else ledger_ref)
++    check(ledger_path.resolve().is_relative_to(folder.resolve()),'Retention ledger outside tile')
++    ledger_hash=sha(ledger_path);ledger=read(ledger_path)
++    declared=previous.get('retentionRecord',ledger_ref if isinstance(ledger_ref,dict) else None)
++    if declared:check(declared.get('sha256')==ledger_hash,'Stale retention ledger hash')
++    retired={}
++    for record in ledger.get('removed',[]):
++        if record.get('retiredAfterExport') is not True:continue
++        check(record.get('sourceImageAvailable') is False,'Contradictory completed retirement entry')
++        path=Path(record['file']);check(path.resolve().is_relative_to(folder.resolve()),'Retired source outside tile')
++        check(not path.exists(),'Retired source unexpectedly available: '+str(path))
++        retired[(key(path),record['sha256'])]=record
++    for record in references(result):
++        if (key(record['file']),record['sha256']) in retired:
++            record.update(retiredAfterExport=True,sourceImageAvailable=False,sourceFileLifecycle='historical_pixels_removed_after_final_export',runtimeDependency=False,retentionLog=str(ledger_path))
++    check(sha(ledger_path)==ledger_hash,'Retention ledger changed during validation')
++    result.update(sourceRecordsHistoricalAfterRetention=True,retentionLog=str(ledger_path),retentionRecord={'file':str(ledger_path),'sha256':ledger_hash},
++                  sourcePolicy=previous.get('sourcePolicy','Only actually completed retirement entries are unavailable; all acquisition TEXT remains immutable.'))
++    return result
++
++
+ def approve(ctx,required,covered,reports):
+     folder=ctx['folder'];mp=folder/'output/manifest.json';review_path=folder/'qa/final-local-review.json';progress_path=folder/'progress.json'
+     # Check all protected records before writing even a text snapshot.
+     for p in [mp,review_path,progress_path]:
+         if p.exists():check(read(p).get('scopedLocalSeamsPassed') is not True,'Refuse to overwrite scoped-pass metadata: '+str(p))
++    source_overrides=source_metadata(ctx,read(mp) if mp.exists() else {})
+     frozen(ctx);frozen_reviews(covered,reports);snapshots=[record for record in [pending_snapshot(mp),pending_snapshot(review_path),pending_snapshot(progress_path)] if record]
+     sides=['north','east','south','west'];verified={s:s in ctx['neighbors'] for s in sides};missing=[s for s in sides if not verified[s]]
+     r,c=int(ctx['tile'][1:3]),int(ctx['tile'][5:7]);outer=[s for s,(dr,dc) in engine.ROLES.items() if s in sides and not(1<=r+dr<=16 and 1<=c+dc<=16)]
+@@ -208,6 +255,7 @@
+     timestamp=now();review=dict(reviewedAt=timestamp,candidate=ref(ctx['candidate']),sourceReviews=reports,items=list(covered.values()),requiredQACount=len(required),allRequiredQAImagesActuallyViewed=True,scopedLocalSeamsPassed=True,issueCount=0,issues=[],externalSeamsVerified=verified,missingExternalNeighbors=missing,missingInteriorNeighbors=interior_missing,intentionalWorldBoundarySides=outer,formalAccepted=False,navigationVerified=False,clientVerified=False,pendingMetadataSnapshots=snapshots,acceptanceNote='Visual reports accept this tile internal seams and supplied actual-neighbor edges only. Unprovided interior neighbors remain pending; coverage is not whole-city, navigation or client acceptance.')
+     write(review_path,review)
+     manifest=copy.deepcopy(ctx['assembly']);manifest.update(file=str(ctx['candidate']),sha256=ctx['finalsha'],status='native_4K_candidate_available_scoped_neighbor_QA_passed',scopedLocalSeamsPassed=True,acceptedAtScoped=timestamp,sourceManifest=ref(ctx['assemblyPath']),assemblyCandidateSha256=ctx['assembly']['sha256'],currentCandidateGeneration=ref(ctx['generation']),currentNeighbors={k:v for k,v in ctx['references'].items() if k!='current'},qa=[covered[k] for k in required],scopedReview=str(review_path),scopedReviewRecord=ref(review_path),runtimeDependencies=[ref(ctx['candidate'])],externalSeamsVerified=verified,missingExternalNeighbors=missing,missingInteriorNeighbors=interior_missing,intentionalWorldBoundarySides=outer,pendingMetadataSnapshots=snapshots,formalAccepted=False,navigationVerified=False,clientVerified=False,acceptanceNote=review['acceptanceNote'])
++    manifest.update(source_overrides)
+     write(mp,manifest)
+     write(progress_path,dict(updatedAt=timestamp,tile=ctx['tile'],nativePatches=16,pixels=[4096,4096],completePixelCoverage=True,file=str(ctx['candidate']),sha256=ctx['finalsha'],scopedLocalSeamsPassed=True,externalSeamsVerified=verified,missingExternalNeighbors=missing,missingInteriorNeighbors=interior_missing,intentionalWorldBoundarySides=outer,formalAccepted=False,navigationVerified=False,clientVerified=False))
+     return dict(scopedAcceptanceWritten=True,manifest=ref(mp),candidateSha256=ctx['finalsha'],requiredQACount=len(required))

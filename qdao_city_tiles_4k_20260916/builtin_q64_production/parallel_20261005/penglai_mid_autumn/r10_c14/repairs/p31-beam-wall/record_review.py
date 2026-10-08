@@ -1,0 +1,10 @@
+from pathlib import Path
+import json,hashlib,datetime
+D=Path(__file__).resolve().parent
+def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+files=["v2-proposal-frame.png","v2-qa-detail.png","v2-qa-wall-post-joint.png","v2-qa-repair-surround.png"]
+reviews=["Full native 1254 frame viewed. Erroneous translucent short beam is absent; original large post, left rail, forward diagonal rail, planks and water remain coherent.","Root's exact native detail crop viewed. Wall/grout restored behind post with no golden stripe or rectangular pasted color region.","Native close view of repair boundary viewed. Vertical masonry joint connects down to the existing diagonal dock edge; no detached wood stub or opaque mask edge.","Native surrounding wall and post view checked. Blue-purple broad stone brushwork and local color transition remain coherent, dock/post geometry preserved."]
+report=dict(reviewedAt=datetime.datetime.now(datetime.timezone.utc).isoformat(),reviewer="/root/r09c14_row3_resume",proposal=dict(file=str(D/"v2-proposal-candidate.png"),sha256=sha(D/"v2-proposal-candidate.png")),sourceCandidate=json.loads((D/"mapping.json").read_text())["candidate"],items=[dict(file=str(D/n),sha256=sha(D/n),actuallyViewed=True,nativeScale=1,viewTool="view_image; detail=original",verdict="scoped_pass",review=r) for n,r in zip(files,reviews)],localRepairRecommended=True,approved=False,rootApprovalPending=True,productionCandidateModified=False,previousAttempt=dict(file=str(D/"proposal-candidate.png"),sha256=sha(D/"proposal-candidate.png"),verdict="rejected",reason="Hard polygon compositing produced visible color boundary."),compositeDescription="Same AI host with core opaque and a <=40 native-pixel cosine alpha return only into clean existing wall; no structure synthesized by code, no registration warp.")
+(D/"v2-visual-review.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+print(json.dumps(dict(report=str(D/"v2-visual-review.json"),sha256=sha(D/"v2-visual-review.json"))))
+

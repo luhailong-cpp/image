@@ -1,53 +1,248 @@
 {
+  "updatedAt": "2026-10-08T22:57:13.462286+00:00",
   "clientDate": "2026-10-08",
-  "objective": "Finish07 Penglai Mid-Autumn genuine65536x65536,256 tiles4096; no enlarged layout substitute",
+  "objective": "Finish07 Penglai Mid-Autumn genuine65536x65536;256 tiles4096; no enlarged-layout substitute",
+  "scope": "Write only this penglai_mid_autumn root. Day and other maps read-only. Builtin imagegen only. Actual host model/quality unknown.",
   "wholeCityComplete": false,
-  "completePixelCandidates": 7,
-  "missingTiles": 249,
+  "completePixelCandidates": 9,
+  "missingTiles": 247,
+  "scopedOrInheritedAvailableCount": 7,
   "formallyAcceptedTiles": 0,
-  "scope": "Write only this penglai_mid_autumn root. Day task and other maps read-only. Builtin imagegen only; actual model/quality unknown.",
-  "r09_c14": {
-    "candidate": "r09_c14/output/r09_c14-candidate.png",
-    "sha256": "4644eb1abda4cea7c23d82cf72f387e9a5c97985ccf497d0149069f0a67daf07",
-    "nativePatches": 16,
-    "internalQA": "all15 horizontal/junction plus root6 vertical and3 boundary/return checked; extra north boundary also checked",
-    "rootReview": "r09_c14/qa/root-review.json",
-    "horizontalReview": "r09_c14/qa/horizontal-review.json",
-    "externalReview": "r09_c14/qa/external-review.json",
-    "outstanding": "West foliage cut at y1140..2220. Proposal-v6 heals most but root still sees vertical brush/highlight edge in upper-detail-v6 x120,y370..500. Not accepted, not applied.",
-    "latestProposal": "r09_c14/repairs/west-foliage/proposal-v6.json",
-    "repairAgent": "/root/r09c14_row2_resume",
-    "nextRepairStep": "Try strictly bounded native registration on already-matching leaf geometry using true old neighbor320px support, <=6px displacement, <=18RGB, finite return, record fields/Jacobian; oldneighbor immutable. If structure differs, builtin localized repaint required.",
-    "protectedFromRepair": "south320 andx800+ unchanged; nexttile north context frozen from south320",
-    "manifest": "output/manifest.json currently pending copy of native-assembly, deliberately not scoped accepted",
-    "finalize": "r09_c14/finalize_local.py --finalsha ACTUALSHA [--approve]. Requires actual passed reports and exact reproduced QA. Root amended to snapshot and replace only unaccepted pending manifest. Do not approve v6."
-  },
-  "r10_c14": {
-    "nativePatches": 0,
-    "currentStructure": "r10_c14/references/structure-lamp-aligned.png",
-    "structureSha256": "124297419bcee15e34286e8831c7bda282728158e59a9023d8b703f9895122da",
-    "guides": "r10_c14/guides",
-    "remainingStructureIssue": "Westsegment4 wooden beam has major vertical step versus actual west neighbor. Root rejected leaving it to native. Agent correcting local structure/sharedgeometry beforenative.",
-    "structureAgent": "/root/r09c14_row4_resume",
-    "parallelRequest": "If local beam correction can preserve upper guides p11..p24 byte/pixelexact (at leastfirstrow), confirm so root may start firstrow while lowerstructure repairs. No confirmation yet at this checkpoint.",
-    "north320FrozenFileSha256": "882b62cb3037e3e685153e354e846e18b2f011048131f15b759bc1fa63f1b961",
-    "north320FrozenRGBSha256": "09c2a10820d3e9252af52e0b1892cddb440faf3f107b7260eccab08b87a3f766",
-    "northWholeSourceStillUnderQA": true,
-    "laterRevalidateNorthPixelsAndUpdatePlanWholeSha": true,
-    "dayTaskAdopted": false
-  },
-  "fullMapTraversal": {
-    "report": "evidence/full-map-traversal-review.json",
-    "verifiedPlan": "249 remainingtiles +7 existing=256;480 totaledges;225cornerjunctions;1or2 adjoiningknownedgesperstep",
-    "nextAfter_r10_c14": ["r10_c11", "r10_c10"],
-    "toolAgent": "/root/r09c14_row3_resume",
-    "isolatedImplementationInProgress": "tools/multi_edge;E/S+NE/SWdirection support with meaningfulcoordinate-arraychecks, existinghelpersmustnotchange, no productionusebefore review",
-    "rootHelperFix": "refresh_delivery.py now assigns inherited candidates an available status instead of missing and chooses active candidate when available"
+  "runtimePublished": false,
+  "clientVerified": false,
+  "navigationVerified": false,
+  "completed": [
+    {
+      "id": "r09_c10",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\penglai_mid_autumn\\r09_c10_c11_c12_joint\\output_v2_20260920\\penglai_mid_autumn_r09_c10_4k_joint_candidate_v2.png",
+      "sha256": "aa1148a1da005126d29d8227c86a43ebb66f37c302cbdf6699410c64f6b729e5",
+      "status": "inherited_4K_candidate_available",
+      "inheritedCandidate": true
+    },
+    {
+      "id": "r09_c11",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\penglai_mid_autumn\\r09_c10_c11_c12_joint\\output_v2_20260920\\penglai_mid_autumn_r09_c11_4k_joint_candidate_v2.png",
+      "sha256": "b371fbeb821493dcdab7398b90a44fc409bbebfe5963f583a7b6b9a509f01b14",
+      "status": "inherited_4K_candidate_available",
+      "inheritedCandidate": true
+    },
+    {
+      "id": "r09_c12",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\penglai_mid_autumn\\r09_c10_c11_c12_joint\\output_v2_20260920\\penglai_mid_autumn_r09_c12_4k_joint_candidate_v2.png",
+      "sha256": "59b31c2d193a71fdfe516ad9d51c6d2bfea3881f5670dd9f53ba2a612ad59fd2",
+      "status": "inherited_4K_candidate_available",
+      "inheritedCandidate": true
+    },
+    {
+      "id": "r09_c13",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\output\\r09_c13\\r09_c13.png",
+      "sha256": "9de5b3325de9ba147072aab2b5e7effbbd10a033894b928711e572b895429e4d",
+      "status": "scoped_local_seams_passed",
+      "manifest": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\output\\r09_c13\\manifest.json",
+        "sha256": "e5d9581161b17be3ae129f1aa8a96ae9524f27c724dbe6fe3e9cc9bae1ffad0a"
+      },
+      "scopedLocalSeamsPassed": true
+    },
+    {
+      "id": "r09_c14",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\output\\r09_c14-candidate.png",
+      "sha256": "3e8b712967d34934645eb60a94ab57981e944ddcb7557c4dd765546d87be30b2",
+      "status": "native_4K_candidate_available_scoped_neighbor_QA_passed",
+      "manifest": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\output\\manifest.json",
+        "sha256": "de9442630091ec41bd105f1785b7195aaee0a4095f26cf15e1d040414cb586af"
+      },
+      "scopedLocalSeamsPassed": true
+    },
+    {
+      "id": "r10_c13",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c13\\output\\r10_c13-candidate.png",
+      "sha256": "c6c7176ea72228aca772c78a17fe8e3b5fc699904f46205d62ae482f420d1a5b",
+      "status": "native_4K_candidate_available_internal_north_west_corner_QA_passed",
+      "manifest": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c13\\output\\manifest.json",
+        "sha256": "5dfef82a7ee819a0fddb708c81692c942ead919fa6f159ee5538473acad7f40a"
+      },
+      "scopedLocalSeamsPassed": true
+    },
+    {
+      "id": "r10_c14",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c14\\output\\r10_c14-candidate.png",
+      "sha256": "963d29bf2b73c9ff400d29689a43023135b7653e0cd0159b80f7fc0d6b6f70f3",
+      "status": "native_4K_candidate_available_scoped_neighbor_QA_passed",
+      "manifest": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c14\\output\\manifest.json",
+        "sha256": "d2c34220ae7f8c0d35ad75ddfcf8be37b162357199bd3b7e5f18b6cfb6927c3e"
+      },
+      "scopedLocalSeamsPassed": true
+    }
+  ],
+  "completePixelsPendingQA": [
+    {
+      "id": "r09_c15",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\output\\r09_c15-candidate.png",
+      "sha256": "957194bcbf888cac88f8b0a3d79d055f8ce69a76846590f174eee7e6f8b9e456",
+      "status": "native_4K_candidate_available_pending_visual_QA",
+      "manifest": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\output\\manifest.json",
+        "sha256": "82b453406b663d8287767bc21569cfc575a8e6b18235842aaea1de700da1733d"
+      },
+      "scopedLocalSeamsPassed": false
+    },
+    {
+      "id": "r10_c12",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\output\\r10_c12.png",
+      "sha256": "3ca7d1d8b5711e0b8d315fe9f3c0a4fe5f032ba3dc2555edfa9854eca6dc2be2",
+      "status": "reopened_for_northwest_source_tone_repair",
+      "manifest": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\output\\manifest.json",
+        "sha256": "1278b2d69f59b765ceb9f4d3569966a81b355e843a609f754f0e831abf0a8e46"
+      },
+      "scopedLocalSeamsPassed": false
+    }
+  ],
+  "active": {
+    "r09_c15": {
+      "stage": "complete_native_pixels_west_paving_repair_pending",
+      "nativePatches": 16,
+      "candidate": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\output\\r09_c15-candidate.png",
+        "sha256": "957194bcbf888cac88f8b0a3d79d055f8ce69a76846590f174eee7e6f8b9e456"
+      },
+      "owner": "/root/r09c14_row2_resume",
+      "repairDirectory": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\repairs\\west-paving",
+      "latestReviewedProposal": "v4: geometry joins improved, rectangular paint/lighting returns still visible; v5 requested. No repair promoted.",
+      "unchangedReview": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\qa\\root-review.json",
+        "sha256": "472d938e7e6265211ac47d44074304d635fc3a80ba92b2f85c70c0d29d0aef74"
+      }
+    },
+    "r10_c11": {
+      "stage": "NE_p14_joint_source_repair_pending",
+      "nativePatches": 1,
+      "owner": "/root/r09c14_row3_resume",
+      "plan": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c11\\plan.json",
+        "sha256": "c84b60746ed717dcbef8882980504acc2fab35414d13f0b6cc9af7630fe0f2f3"
+      },
+      "repairDirectory": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c11\\repairs\\p14-north-join",
+      "eastV3LocalPassed": true,
+      "northStillPending": true,
+      "p14Promoted": false,
+      "downstreamNativeAuthorized": false,
+      "specialP44Preparation": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c11\\prepare_p44_with_native_post.py"
+    },
+    "r10_c12": {
+      "stage": "reopened_for_northwest_source_tone_repair",
+      "owner": "/root/r09c14_row3_resume",
+      "candidate": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\output\\r10_c12.png",
+        "sha256": "3ca7d1d8b5711e0b8d315fe9f3c0a4fe5f032ba3dc2555edfa9854eca6dc2be2"
+      },
+      "sourceReview": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\repairs\\northwest-source-joint\\source-review.json",
+        "sha256": "4b84bd2e2764dbade511172c124adb0de8f5a862cd67f208b9ad6a31862c49ef"
+      },
+      "consumerMigrationPlan": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\repairs\\northwest-source-joint\\consumer-migration-plan.json",
+        "sha256": "c41504dc289d007864d725c93b49cd15559d1b6bdeba2fa560bb28c5b372a263"
+      },
+      "rootFirstJointRepair": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\repairs\\northwest-source-joint\\root-v1.png",
+        "sha256": "fd05b45b4fef9b01edaf8eb33a393a24a9439bb5da519cec2e9d83f4916d40c0"
+      },
+      "knownDefect": "Northwestern true N water border has a straight tone jump to approximately x1152; current pixels remain unchanged until reviewed joint repair.",
+      "historicalScopeReopened": true
+    },
+    "r11_c13": {
+      "stage": "independent_north_supported_structure_planning",
+      "owner": "/root/r09c14_row4_resume",
+      "northCandidate": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c13\\output\\r10_c13-candidate.png",
+        "sha256": "c6c7176ea72228aca772c78a17fe8e3b5fc699904f46205d62ae482f420d1a5b"
+      },
+      "nativeAuthorized": false
+    }
   },
   "retention": {
-    "r10_c13CleanupBlocked": true,
-    "reason": "Automatic approval rejected scoped PowerShell deletion with blocked by policy. No deletion performed. Do not bypass/retry through another route.",
-    "userAlreadyInformed": true,
-    "reportAgainInEventualFinal": true
-  }
+    "r09_c14": {
+      "completedAt": "2026-10-08T22:01:50.0388777Z",
+      "status": "retired_after_final_export_and_scoped_QA",
+      "newRemovedCount": 86,
+      "priorRetiredCount": 115,
+      "ledger": {
+        "sha256": "a178f143542147acd6054d2dce4487a6a4ac0ddda72c81ee8adf817ee51fb8c0",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\retention-postfinal-log.json"
+      },
+      "final": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\output\\r09_c14-candidate.png",
+        "sha256": "3e8b712967d34934645eb60a94ab57981e944ddcb7557c4dd765546d87be30b2"
+      },
+      "manifest": {
+        "sha256": "de9442630091ec41bd105f1785b7195aaee0a4095f26cf15e1d040414cb586af",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\output\\manifest.json"
+      },
+      "generation": {
+        "sha256": "2f14b7ca224c3150f5ebc6361ec4f612b38997ffab9cead06d28db3160d8ba4a",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\output\\r09_c14-candidate.png.generation.json"
+      },
+      "currentPlan": {
+        "sha256": "5b36567f63ba12e5f6c143c525f8b42066ba2b6d8717da7f8cadc6f99858a9e3",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\plan.json"
+      },
+      "immutableAssemblyUnchanged": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\output\\native-assembly.json",
+        "sha256": "c59baca3d552bb773ce428b8deb29212888e6ff1401df7f88c7deabeee69ed3b"
+      },
+      "failure": ""
+    },
+    "r10_c14": {
+      "completedAt": "2026-10-08T22:20:43.6799502Z",
+      "status": "retired_after_final_export_and_scoped_QA",
+      "newRemovedCount": 203,
+      "priorRetiredCount": 0,
+      "ledger": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c14\\retention-postfinal-log.json",
+        "sha256": "d3d9600dd93b5c6ca3660ec614da62be0380b3e538bebbd4f1a31d1879e18e5b"
+      },
+      "final": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c14\\output\\r10_c14-candidate.png",
+        "sha256": "963d29bf2b73c9ff400d29689a43023135b7653e0cd0159b80f7fc0d6b6f70f3"
+      },
+      "manifest": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c14\\output\\manifest.json",
+        "sha256": "d2c34220ae7f8c0d35ad75ddfcf8be37b162357199bd3b7e5f18b6cfb6927c3e"
+      },
+      "generation": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c14\\output\\r10_c14-candidate.png.generation.json",
+        "sha256": "956166a31d9b50705520576e49859b324bb22ede2621020a6797e2fb2278923c"
+      },
+      "currentPlan": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c14\\plan.json",
+        "sha256": "71d0b0d292710338b899517a21146e369fecc05cf8680ad6d646e1e5b7463c53"
+      },
+      "immutableAssemblyUnchanged": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c14\\output\\native-assembly.json",
+        "sha256": "bec1cf63e22494402c4f7668e1501edfed3b26a47a2988c8d62e9b8b90bbb68f"
+      },
+      "failure": ""
+    },
+    "r10_c13": {
+      "cleanupBlocked": true,
+      "reason": "Automatic approval rejected scoped PowerShell deletion: blocked by policy. No retry or bypass authorized by this continuation.",
+      "userAlreadyInformed": true,
+      "reportAgainInEventualFinal": true
+    }
+  },
+  "deliveryIndex": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\delivery-index.json",
+    "sha256": "6942e438dea5fe5f7cc7afd330a529ccc86866eec1b441ded93e5867876bf651"
+  },
+  "genericFinalizer": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\tools\\finalize_scoped.py",
+    "sha256": "e0ea7d8615a914a3f96274522fb949dddf23cacf16572b0cac32a2d3183d0f97"
+  },
+  "finalizerUsage": "Read-only unless explicit --approve after all actual QA reports pass; never reapprove protected completed tiles.",
+  "previousUpdateScriptObsolete": "Do not run update_checkpoint.py; it contains stale hardcoded state."
 }

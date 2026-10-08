@@ -1,0 +1,60 @@
+{
+  "preparedAt": "2026-10-08T17:05:20.517540+00:00",
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-04",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  },
+  "submittedParameters": {
+    "model": null,
+    "quality": null,
+    "prompt": "Use case: precise-object-edit. Image1 is the edit target. Correct ONLY the WATER BACKGROUND of this continuous isometric top-down game-map crop. The invented moon, sky, clouds, stars and distant horizontal horizon across its upper150px are wrong: remove all of them and replace that area with the same harbor WATER SURFACE extending upward out of the crop. This view is entirely looking down onto water and land; no sky or horizon is visible anywhere. Match Image2's water-only background geometry and wave flow, translated into the current luminous cobalt-blue NIGHT palette. Simplify the rest of the water into broad clean hand-painted cyan wave ribbons and calm cobalt areas like Image2, removing the narrow glittery vertical moon-reflection stripe and noisy photographic ripples. Keep readable night water, not cyan daylight.\nImage2 supplies the exact shared daylight map geometry and water composition only. Image3 is the actual WEST NIGHT neighbor, supplying blue-violet rock, jade foliage and honey-gold wood colors; only its rightmost edge touches Image1's leftmost edge. Image4 is the approved bright, rounded Daoist chibi painted art style only; copy no UI or text.\nPreserve Image1's exact1254x1254 frame, camera, scale, all rock silhouettes and occupied footprints, plant positions, fence slope, post counts and positions, ropes, coral and ivory cloth panels, paving, cropped foreground timber and square stone bollard. Preserve the SINGLE EXISTING warm lantern with its red-brown stand and rounded jade base at lower center-left exactly as shown in Image1; it belongs to the night map, even though absent in Image2. Keep all cropped objects cropped. Do not add, move or redesign anything. Do not add moon, sky, cloud, horizon, text, border, watermarks, boats, extra lights or decorative objects. Make only the water correction. Return one opaque1254x1254 full-frame image with the same composition.",
+    "referenced_image_paths": [
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\references\\structure.png",
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\r09_c15\\references\\structure.png",
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\references\\west-preview.png",
+      "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png"
+    ],
+    "transparent_background": false
+  },
+  "prompt": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\night-water-fix.prompt.txt",
+  "promptSha256": "922b3b3c6a25289f08624f670a19e8c2ce1d197a5a7fc308e7526ac511167bbb",
+  "references": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\references\\structure.png",
+      "sha256": "8eb74e578fa26434dd374b47b1d4c07c595f66d51607a168b8e3325963a189ae",
+      "role": "edit target, rejected sky/water only"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\r09_c15\\references\\structure.png",
+      "sha256": "1d0362414df322ffff61339fca5f82e7639fc08e95934ee0a80535eec3bace2f",
+      "role": "shared water geometry, read-only"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\references\\west-preview.png",
+      "sha256": "260ffa995034e5eb544f1439e88c3417a2b0df9c5cbcaea0de8d78b9169f7f09",
+      "role": "actual W night colors and boundary"
+    },
+    {
+      "file": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+      "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+      "role": "approved style"
+    }
+  ],
+  "planningFrameGlobalXYWH": [
+    57229,
+    32653,
+    4326,
+    4326
+  ],
+  "productionPixels": false,
+  "formalAccepted": false
+}

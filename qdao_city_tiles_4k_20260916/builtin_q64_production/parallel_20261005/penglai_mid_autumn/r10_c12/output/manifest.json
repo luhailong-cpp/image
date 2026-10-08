@@ -80,13 +80,22 @@
   "formalAccepted": false,
   "navigationVerified": false,
   "clientVerified": false,
-  "status": "scoped_internal_and_northern_shared_seams_passed",
+  "status": "reopened_for_northwest_source_tone_repair",
   "northScopedQA": {
-    "result": "passed",
+    "result": "reopened_for_northwest_source_tone_repair",
     "scope": "full4096 northern sharededge320wide, fullreturn y256 and3crossings actually viewed at1:1",
-    "oldNeighborUnchanged": true
+    "oldNeighborUnchanged": true,
+    "priorActualReviewPreservedIn": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\repairs\\northwest-source-joint\\manifest-before-source-reopen.json",
+      "sha256": "dfe600809e3df9d4b8f6d602005efd1c6d6a00190b4ba1a5a60f0f780ccda682"
+    },
+    "sourceReinspection": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\repairs\\northwest-source-joint\\source-review.json",
+      "sha256": "4b84bd2e2764dbade511172c124adb0de8f5a862cd67f208b9ad6a31862c49ef"
+    },
+    "reopenedAt": "2026-10-08T22:54:59.000583+00:00"
   },
-  "updatedAt": "2026-10-06T00:09:05.584969+00:00",
+  "updatedAt": "2026-10-08T22:54:59.000583+00:00",
   "internalRepairs": [
     {
       "id": "leaf",
@@ -277,8 +286,22 @@
     "allOutsideRepairRectsUnchanged": true,
     "north256PixelsUnchanged": true
   },
-  "scopedLocalSeamsPassed": true,
+  "scopedLocalSeamsPassed": false,
   "retentionLog": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\retention-log.json",
   "currentGameImage": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\output\\r10_c12.png",
-  "sourcePolicy": "Current game image and design/verification fields retained; retired source filenames and hashes are historical provenance, not runtime dependencies."
+  "sourcePolicy": "Current game image and design/verification fields retained; retired source filenames and hashes are historical provenance, not runtime dependencies.",
+  "sourceScopeReopened": {
+    "finding": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\repairs\\northwest-source-joint\\source-review.json",
+      "sha256": "4b84bd2e2764dbade511172c124adb0de8f5a862cd67f208b9ad6a31862c49ef"
+    },
+    "priorManifest": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\repairs\\northwest-source-joint\\manifest-before-source-reopen.json",
+      "sha256": "dfe600809e3df9d4b8f6d602005efd1c6d6a00190b4ba1a5a60f0f780ccda682"
+    },
+    "scope": "northwest portion of northern shared seam only; existing internal scoped reviews not withdrawn",
+    "priorQAActuallyViewedRecordsRetained": true,
+    "sourcePNGUnchanged": true,
+    "parentAuthorization": "Root message: source defect proven permits scopedLocalSeamsPassed false/status reopened_for_northwest_source_tone_repair; text snapshot required; no PNG/plan/p14/immutable assembly modification."
+  }
 }

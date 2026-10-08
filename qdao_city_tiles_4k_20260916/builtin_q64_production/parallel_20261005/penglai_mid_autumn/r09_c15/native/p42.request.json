@@ -1,0 +1,106 @@
+{
+  "id": "p42",
+  "tile": "r09_c15",
+  "startedAt": "2026-10-08T18:36:18.749229+00:00",
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-04",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  },
+  "prompt": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\native\\p42.prompt.txt",
+  "promptSha256": "0aa12ccbdd5408068f1f3cc007fdf3be036fdae4c69553f4a35faa94bb4ef7a0",
+  "references": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\native\\p42-edit-target.png",
+      "sha256": "bf70e2c52183a32690016785f9b84ee1584e804262cbcf7ebd9c555e3c62e01c",
+      "role": "exact-frame layout target plus native context"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\guides\\p42.png",
+      "sha256": "7cc8cc69a01a6f9ace54d433a75d55f2efed3536c241769b9c31e742e7cccdbd",
+      "role": "structure guide only"
+    },
+    {
+      "file": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+      "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+      "role": "approved style"
+    }
+  ],
+  "submittedParameters": {
+    "model": null,
+    "quality": null,
+    "prompt": "Use case: detail restoration with strict composition preservation. Edit Image1, the exact1254x1254 game map r09_c15 micro-patch p42. Return a fully opaque square with EXACTLY the same crop, camera, scale, object outlines and object positions.\nImage1 already contains the complete intended picture. Keep its composition. Its top and/or left strips are real native neighboring pixels; preserve their line endpoints, silhouettes, colors and brushwork. Its remaining soft area needs freshly painted crisp native detail at this1254 resolution. Naturally connect the existing native contours into that area. Heal the temporary straight composite boundary without retaining any rectangular line, ridge or band. Do not change architecture or invent a different continuation.\nImage2 reinforces the exact SAME framing and geometry. This is a tightly cropped fragment of a much larger scene; objects intentionally exit the frame. NEVER complete an object inside this square if it is cut off in the reference. Do not zoom out, reveal extra eave ends, add foliage or widen the view. Keep every roof/tile seam, support, road grout line, furniture and crate footprint at the reference positions; actual native Image1 boundary endpoints take precedence for small alignment discrepancies.\nImage3 is only the approved art style: clean, bright, rounded Daoist chibi hand painting, ivory/jade/gold materials, controlled highlights and organized subtle brushwork. No UI, writing or characters. Preserve the Mid-Autumn blue-violet evening stones, cobalt water, amber light and jade foliage in Images1/2. Smooth goods stay smooth, fabric stays fabric, foliage stays foliage. Do not add fine noise, blur, sharpening halos, photographic grain, extra decorations, grout branches, text, border or watermark. Generate real native paint detail, retaining the exact Image1 composition.",
+    "referenced_image_paths": [
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\native\\p42-edit-target.png",
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\guides\\p42.png",
+      "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png"
+    ],
+    "transparent_background": false
+  },
+  "globalPatchXYWH": [
+    58253,
+    35725,
+    1254,
+    1254
+  ],
+  "core": 1024,
+  "halo": 115,
+  "contextRegions": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\native\\p41.png",
+      "sha256": "6c0850d7708da85e0d1a18e1433d1efa76a122fe8c65ddf068ab978079110b7c",
+      "cropLTRB": [
+        1024,
+        0,
+        1254,
+        1254
+      ],
+      "pasteXY": [
+        0,
+        0
+      ],
+      "role": "native western overlap",
+      "scale": 1
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\native\\p32.png",
+      "sha256": "5611c93887a4bfeb00ded7b570aa766d4cad2a82ea5c056f81dfcb35b9c33f3b",
+      "cropLTRB": [
+        0,
+        1024,
+        1254,
+        1254
+      ],
+      "pasteXY": [
+        0,
+        0
+      ],
+      "role": "native northern overlap",
+      "scale": 1
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\native\\p31.png",
+      "sha256": "80988eb9118bf0ebf1c5c0d8684234ac0339b8547c45ca399bc4f5775a198ae8",
+      "cropLTRB": [
+        1024,
+        1024,
+        1254,
+        1254
+      ],
+      "pasteXY": [
+        0,
+        0
+      ],
+      "role": "authoritative shared native corner",
+      "scale": 1
+    }
+  ]
+}
