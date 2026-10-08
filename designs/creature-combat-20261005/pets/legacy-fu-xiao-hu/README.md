@@ -12,6 +12,7 @@
 
 ## 打开与使用
 
+- 完整交付包：`delivery/fu-xiao-hu-combat-68frames.zip`；解压后打开`fu-xiao-hu-combat/preview/index.html`。压缩包外附SHA256与打包核验记录，包含正式帧、预览、manifest和逐图来源文字。
 - [六组总预览](preview/index.html)：正常1×、0.25×慢放、逐帧滑条、前后帧与深浅底。
 - [受击E](preview/hit-E.html) · [受击W](preview/hit-W.html) · [普攻E](preview/attack-E.html) · [普攻W](preview/attack-W.html) · [施法E](preview/cast-E.html) · [施法W](preview/cast-W.html)。各页含正常/慢放WebP与逐帧总览链接。
 - 正式路径为 `runtime/<hit|attack|cast>/<E|W>/01.png` 起连续编号；[manifest.json](manifest.json) 含每帧尺寸、时间、逻辑脚点、事件建议、SHA及来源。
