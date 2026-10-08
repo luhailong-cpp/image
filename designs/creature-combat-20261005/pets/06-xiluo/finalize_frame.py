@@ -10,7 +10,7 @@ CONFIG = json.loads((ROOT.parents[3] / 'config/image-generation.json').read_text
 def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
-def finalize(action, direction, frame, source, receipt, review):
+def finalize(action, direction, frame, source, receipt, review, replace=False):
     source, receipt = Path(source), Path(receipt)
     native = Image.open(source)
     if native.size != (1254,1254):
@@ -23,7 +23,7 @@ def finalize(action, direction, frame, source, receipt, review):
     outdir=ROOT/'runtime'/action/direction
     outdir.mkdir(parents=True,exist_ok=True)
     out=outdir/f'{frame:02}.png'
-    if out.exists():
+    if out.exists() and not replace:
         raise FileExistsError(out)
     # Same whole-canvas transform for all actions in each direction.
     # E/W offsets are fixed once from the existing identity images, never per frame.
@@ -58,4 +58,5 @@ def finalize(action, direction, frame, source, receipt, review):
 if __name__=='__main__':
     p=argparse.ArgumentParser()
     p.add_argument('action');p.add_argument('direction');p.add_argument('frame',type=int);p.add_argument('source');p.add_argument('receipt');p.add_argument('--review',required=True)
-    a=p.parse_args();finalize(a.action,a.direction,a.frame,a.source,a.receipt,a.review)
+    p.add_argument('--replace',action='store_true')
+    a=p.parse_args();finalize(a.action,a.direction,a.frame,a.source,a.receipt,a.review,a.replace)

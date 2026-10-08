@@ -215,6 +215,9 @@ def main():
     args = parser.parse_args()
     timestamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
     events, poses_error = events_from_poses()
+    visual_path = ROOT / "qa" / "final-visual-review.json"
+    visual_report = json.loads(visual_path.read_text(encoding="utf-8")) if visual_path.is_file() else {}
+    visual_frames = {item["path"]: item for item in visual_report.get("frames", [])}
     groups, all_frames, sums, hashes, problems = [], [], {}, {}, []
     if poses_error:
         problems.append({"code": "poses-missing", "detail": poses_error})
@@ -237,6 +240,12 @@ def main():
                     continue
                 digest = sha256(path)
                 frame["sha256"] = digest
+                review = visual_frames.get(rel(path), {})
+                if review.get("sha256") == digest and review.get("staticStatus") == "reviewed":
+                    frame["visualStatus"] = "static-reviewed"
+                    frame["visualEvidence"] = review.get("evidence", [])
+                elif review:
+                    frame["warnings"].append("visual-review-sha-mismatch-or-not-accepted")
                 sums[rel(path)] = digest
                 hashes.setdefault(digest, []).append(rel(path))
                 try:
@@ -311,7 +320,10 @@ def main():
                 "status": status, "counts": counts, "coordinateOrigin": "top-left",
                 "pivotOrigin": "bottom-left", "pivot": [0.5, 0.08], "anchor": [512, 942],
                 "eventSource": "POSES.md", "framePathsRelativeTo": "pet-root",
-                "visualReview": "unverified-by-builder", "clientIntegration": "not-tested",
+                "visualReview": {"report": "qa/final-visual-review.json" if visual_report else None,
+                                 "shaMatchedStaticFrames": sum(f["visualStatus"] == "static-reviewed" for f in all_frames),
+                                 "scope": "Human static evidence bound to the current image SHA; builder does not perform visual review.",
+                                 "playbackReport": "qa/playback-status.json"}, "clientIntegration": "not-tested",
                 "groups": groups}
     validation = {"schemaVersion": 1, "builtAt": timestamp, "status": status, "counts": counts,
                   "scope": "Technical file/provenance checks only; no anatomy, animation or client approval inferred.",
@@ -332,7 +344,11 @@ def main():
     write_json(ROOT / "validation.json", validation)
     preview.write_text(html, encoding="utf-8")
     for file in (ROOT / "manifest.json", ROOT / "validation.json", ROOT / "POSES.md", ROOT / "tools" / "build_delivery.py",
-                 preview, ROOT / "preview" / "preview.js", ROOT / "preview" / "preview.css"):
+                 preview, ROOT / "preview" / "preview.js", ROOT / "preview" / "preview.css",
+                 visual_path, ROOT / "qa" / "playback-status.json", ROOT / "qa" / "animation-encoding.json",
+                 ROOT / "qa" / "pixel-alpha-audit.json", ROOT / "preview" / "media-manifest.json",
+                 ROOT / "preview" / "video" / "manifest.json", ROOT / "README.md", ROOT / "STATUS.md",
+                 ROOT / "MERGE_HANDOFF.md", ROOT / "generation-index.md"):
         if file.is_file():
             sums[rel(file)] = sha256(file)
     (ROOT / "SHA256SUMS.txt").write_text("".join(f"{sums[name]}  {name}\n" for name in sorted(sums)), encoding="utf-8")
