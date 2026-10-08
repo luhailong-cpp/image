@@ -1,0 +1,50 @@
+{
+  "reviewedAtUtc": "2026-10-08T12:24:36Z",
+  "scope": "Actual unscaled core-pixel review of four south segments, the west bottom segment, and the southwest four-tile intersection only. This is not full tile or formal acceptance.",
+  "allFourSouthSegmentsActuallyViewedAt1to1": true,
+  "westBottomSegmentActuallyViewedAt1to1": true,
+  "fourCoreCornerActuallyViewedAt1to1Sizes": [320, 640],
+  "haloSourceContactActuallyViewedAt1to1": true,
+  "peakEdgeFocusCropsActuallyViewed": true,
+  "sourceImagesUnchanged": true,
+  "exteriorHaloDecision": {
+    "owner": "south",
+    "reason": "r09_c11 selected extended [0,115,115,230] exactly equals diagonal r09_c10 selected-v2 extended [4096,115,4211,230]. This is the diagonal committed core at the target exterior halo. West r08_c10 extended [4096,4211,4211,4326] differs.",
+    "southVsDiagonalDifferingPixels": 0,
+    "pixelsCompared": 13225,
+    "southAndDiagonalCropPngSha256": "f3ba9cea05f60472ec9c7af96ab66a52ed58bcb874a8f83785be428266372ca1",
+    "southAndDiagonalRawRGBSha256": "5dbc5aa226a90e0301e67228e6f2e740e1de1586a375a1a532ec28566a1c8559",
+    "westVsDiagonalDifferingPixels": 13224,
+    "westVsDiagonalMeanAbsRGB": [4.905633270321361, 5.140945179584121, 4.086049149338375],
+    "simultaneousBothSourceEqualityClaim": false,
+    "changesSelectedSourceImages": false
+  },
+  "observations": [
+    {
+      "area": "south segments 1 to 3",
+      "result": "The broadleaf groups, trunk branches and hanging willow leaf contours continue across the core border. No large displacement, missing branch, duplicated foliage strip or missing geometry was observed. Minor local leaf contour and shading differences remain visible at some crossings; no final seam acceptance is inferred from numerical coverage.",
+      "largeGeometryBlockerObserved": false,
+      "formalAccepted": false
+    },
+    {
+      "area": "west bottom segment and southwest four-core corner",
+      "result": "At 320 and 640 native pixels the green canopy silhouette, paving gap, shadow and leaf organization connect across the four core quadrants. The guide-only 115-row corner split is not present as a conspicuous rectangular artifact in these core joins. Minor local leaf shading differences remain; no large branch/leaf-group break was observed.",
+      "largeGeometryBlockerObserved": false,
+      "formalAccepted": false
+    },
+    {
+      "area": "south segment 4 water at the extreme right",
+      "result": "Willow silhouettes connect. Water is broadly consistent but the last approximately 32 core columns contain an abrupt pale-reflection value/shape transition at the south border; the step grows toward x=4095. This local reflection join should be resolved before selecting the complete tile. It is not a missing shoreline or tree geometry issue.",
+      "targetCoreRegionLTRB": [4064, 4000, 4096, 4096],
+      "neighborCoreRegionLTRB": [4064, 0, 4096, 96],
+      "boundaryAtTargetCoreY": 4096,
+      "largestSingleAdjacentRowMeanAbsRGB": 68.0,
+      "followUpRequired": true,
+      "formalAccepted": false
+    }
+  ],
+  "suggestedFollowUp": "Keep all selected neighboring cores unchanged. In the eventual assembled candidate inspect the south/east water corner in context. If the local reflection discrepancy persists, redraw only a bounded new-core water patch using exact southern core context and an explicit protected mask. A broad uniform RGB field may address small tone bias, but must not be used to hide a mismatched reflection contour or tree edge. Re-view all four south segments and the corner after any assembly correction.",
+  "rowBoundarySelectionReady": false,
+  "fullTileAccepted": false,
+  "formalAccepted": false
+}

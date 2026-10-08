@@ -1,0 +1,77 @@
+{
+  "guideOnly": true,
+  "wholeCityCornerLTRB": [
+    40845,
+    32653,
+    41075,
+    32883
+  ],
+  "targetExtendedCornerLTRB": [
+    0,
+    4096,
+    230,
+    4326
+  ],
+  "splitYInTargetExtended": 4211,
+  "guidePastePolicy": "Paste west230 and south230; restore the upper115 rows of their southwest230 square from west. Lower115 rows remain south. Exact unblended source choice, no resampling at4326.",
+  "cornerGuideOwnerRects": [
+    {
+      "targetExtendedLTRB": [
+        0,
+        4096,
+        230,
+        4211
+      ],
+      "source": "west",
+      "sourceCropLTRB": [
+        4096,
+        4096,
+        4326,
+        4211
+      ]
+    },
+    {
+      "targetExtendedLTRB": [
+        0,
+        4211,
+        230,
+        4326
+      ],
+      "source": "south",
+      "sourceCropLTRB": [
+        0,
+        115,
+        230,
+        230
+      ]
+    }
+  ],
+  "committedCoreAuthority": [
+    {
+      "targetExtendedLTRB": [
+        0,
+        115,
+        115,
+        4211
+      ],
+      "source": "west",
+      "reason": "Actual existing r08_c10 core; preserve exact when reusing outside target core."
+    },
+    {
+      "targetExtendedLTRB": [
+        115,
+        4211,
+        4211,
+        4326
+      ],
+      "source": "south",
+      "reason": "Actual existing r09_c11 core; preserve exact when reusing outside target core."
+    }
+  ],
+  "provisionalHaloPolicy": "The west right115 and south upper115 are provisional generated halos, not independently accepted target-core geometry. Their disagreement cannot be solved by claiming both230 strips exact. Use both as references and inspect/redraw the new target core to connect the committed neighbor core edges.",
+  "diagonalCornerPolicy": "Lower-left115 square belongs to diagonal r09_c10, absent from the two immediate core domains. Guide takes south halo provisionally; final four-tile corner must verify against diagonal selected source.",
+  "knownConflict": "Leaf contours and tones differ visibly in the overlapping230 square. Hard split has a visible leaf step. Guide preparation is ready; pixel continuity and final corner acceptance remain pending.",
+  "requiresNativeSouthwestCornerReview": true,
+  "simultaneousFull230EqualityClaimAllowed": false,
+  "finalCornerAccepted": false
+}

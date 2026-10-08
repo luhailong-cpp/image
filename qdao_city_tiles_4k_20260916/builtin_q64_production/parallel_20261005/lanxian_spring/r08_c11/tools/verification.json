@@ -1,0 +1,39 @@
+{
+  "checkedAtUtc": "2026-10-08T11:02:03.657752+00:00",
+  "scriptsParsed": [
+    "assemble.py",
+    "check_ready.py",
+    "common.py",
+    "prepare_native.py",
+    "verify_logic.py"
+  ],
+  "checks": [
+    "1D ownership covers all 4326 pixels once",
+    "All native core origins map to correct world positions",
+    "Selected exterior halo crop coordinates are correct",
+    "Bottom-to-top 230-pixel context mapping is correct",
+    "Unequal corner without source decision fails",
+    "Explicit west/south corner decisions are honored",
+    "Explicit core-split assigns upper 115 rows west and lower 115 south",
+    "Native r04_c01 core-split coordinates match regional guide ownership at extended y=4211",
+    "core-split rejects 115 by 115 exterior halo dimensions",
+    "Real west selected PNG, manifest tile identity and SHA verify"
+  ],
+  "westSource": {
+    "side": "west",
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c10\\selected-v2\\extended4326.png",
+    "sha256": "06bd63d0da7240864a45dd7fee4f38ef8382ceba7a6c9e6bff1e0f2bcd591072",
+    "deliveryManifest": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c10\\selected-v2\\delivery.manifest.json",
+      "sha256": "e176113fc63dd4f47f67fd2b95d4c6d0925633fb4665b1f73ac93a6c7c9c4ae5"
+    },
+    "qualifiedComplete4KCandidate": true,
+    "formalAccepted": false,
+    "resized": false
+  },
+  "southReadiness": "qualified_selected_available",
+  "fullAssemblyExecuted": false,
+  "generationSubmitted": false,
+  "filesOutsideToolsWritten": false,
+  "passed": true
+}

@@ -1,0 +1,119 @@
+{
+  "reviewedAtUtc": "2026-10-08T12:17:07.586718+00:00",
+  "schemaVersion": 1,
+  "tile": "r08_c11",
+  "authorScope": "river_row2 only; one issue",
+  "regions": [
+    {
+      "id": "r02_c04_paste_context_tone_step",
+      "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c11\\native\\r02_c04.png",
+      "sourceSha256": "1a314d7bb04d2ae231d8f5e1733579e94970bf3c68135c958d55308590d3477e",
+      "observedNativeBBox": [
+        200,
+        1000,
+        266,
+        1139
+      ],
+      "proposedSupportNativeBBox": [
+        158,
+        1000,
+        302,
+        1139
+      ],
+      "proposedSupportExtendedBBox": [
+        3230,
+        2024,
+        3374,
+        2163
+      ],
+      "proposedSupportCoreBBox": [
+        3115,
+        1909,
+        3259,
+        2048
+      ],
+      "actualRetainedCoreNativeBBox": [
+        115,
+        115,
+        1139,
+        1139
+      ],
+      "actualProblem": "Vertical rectangular source-context tint step through blue water and yellow-green leaf surface near x230; lower native halo beyond1139 is owned by row3 in hardcut.",
+      "visualEvidence": [
+        "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c11\\qa\\row2-issue\\r02_c04-step-native-guide-1to1.png",
+        "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c11\\qa\\row2-issue\\bounded-trial-comparison-1to1.png",
+        "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c11\\qa\\row2-issue\\horizontal-context-step-1to1.png"
+      ],
+      "geometryAssessment": "Viewed crop shows connected existing leaf silhouettes and water reflection shapes; no macrostructure displacement requiring regeneration found. Leaf-edge microalignment must be rechecked after assembly.",
+      "proposedMethod": "Two separate material masks, symmetric additive RGB field across x230. Max absolute channel16; smoothstep spatial support, same-material narrow 3px paired samples, 13row median neighborhoods. No image blur, resizing, registration or geometry changes.",
+      "profiles": {
+        "water": {
+          "maxProposedChannelCorrection": [
+            0.4999279969350137,
+            4.499351972415123,
+            6.998991957090192
+          ],
+          "rowsWithStablePairSamples": 93,
+          "verticalDomain": [
+            1000,
+            1092
+          ]
+        },
+        "leaf": {
+          "maxProposedChannelCorrection": [
+            3.9994239754801097,
+            0.4999279969350137,
+            5.499207966285151
+          ],
+          "rowsWithStablePairSamples": 53,
+          "verticalDomain": [
+            1086,
+            1138
+          ]
+        }
+      },
+      "masks": {
+        "water": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c11\\qa\\row2-issue\\proposed-water-mask1254.png",
+        "leaf": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c11\\qa\\row2-issue\\proposed-leaf-mask1254.png"
+      },
+      "field": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_spring\\r08_c11\\qa\\row2-issue\\proposed-rgb-field1254.npz",
+      "maximumProposedRGBChange": [
+        3.9994239807128906,
+        4.499351978302002,
+        6.998991966247559
+      ],
+      "rawNativeModified": false,
+      "trialIsFinalRepair": false,
+      "proposalFeasible": true,
+      "acceptancePending": [
+        "Actual assembly may use a different seam path; recompute against assembled pixels.",
+        "Color field returning to zero near y1139 may leave a residual at row2/3 join; inspect transverse seam.",
+        "If actual 1:1 assembled leaf contour has discontinuity, use small masked imagegen repair rather than widening this color field."
+      ],
+      "blockingUntilRepaired": true,
+      "accepted": false,
+      "trialActuallyViewedAtUtc": "2026-10-08T12:19:27.962507+00:00",
+      "trialVisualResult": "Symmetric separate-material field with actual maxRGB[4,4.5,7] reduces vertical water and leaf tint step without moving contours. A short horizontal top edge at native y1024 remains near x230..430, so this one-axis trial is not a complete repair.",
+      "recommendedFinalMethod": "After assembly, estimate two-axis additive RGB bias for the existing rectangular context boundary using separate water/leaf masks. Keep absRGB<=16, no blur/no movement. First diagnose x230/y1024 junction together; do not apply only the saved vertical trial and accept it.",
+      "additionalHorizontalBoundaryNativeBBox": [
+        230,
+        1000,
+        430,
+        1108
+      ],
+      "additionalHorizontalBoundaryExtendedBBox": [
+        3302,
+        2024,
+        3502,
+        2132
+      ],
+      "additionalHorizontalBoundaryCoreBBox": [
+        3187,
+        1909,
+        3387,
+        2017
+      ],
+      "proposalFeasibleReason": "Observed color offsets fit within allowed additive bounds; no major silhouette movement visible. Feasibility is conditional on rechecking the 2D rectangle return edges and actual assembled transverse seam."
+    }
+  ]
+}

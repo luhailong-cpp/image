@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "appearance": "lanxian_spring",
-  "updatedAtUtc": "2026-10-05T19:27:35.572361+00:00",
-  "readyForProduction": true,
-  "status": "partial_city_c09_repaired_c10_native_generation",
+  "updatedAtUtc": "2026-10-08T13:35:20.0182678Z",
+  "readyForProduction": false,
+  "status": "cancelled_by_user",
   "targetTiles": 256,
   "targetTilePixels": [
     4096,
@@ -16,30 +16,38 @@
   "baselineCandidateCount": 3,
   "baselineCurrent": true,
   "formalAccepted": 0,
-  "newComplete4KCandidates": 1,
-  "nativeDetailPatchesGenerated": 3,
+  "newComplete4KCandidates": 4,
   "wholeCityComplete": false,
   "runtimePublished": false,
   "route": "builtin_image_gen",
   "paidApiAllowed": false,
   "sourceAudit": "preflight/source-audit.json",
-  "currentTile": "r08_c10",
+  "currentTile": "r08_c11",
   "requiredNativePatches": 16,
   "core": 1024,
   "halo": 115,
-  "currentPhase": "native_detail_generation",
-  "nextAction": "Generate r08_c10 native pieces, assemble without upscaling, review internal seams and common c09 edge.",
-  "nativeDetailPatchesAvailable": 16,
-  "reusedSharedNativePatches": 13,
-  "completePixelCandidatesUnreviewed": 0,
-  "candidatePixelCoverage": "r08_c09:16/16 native pieces assembled and known seam repaired; north/east/south neighbor and navigation acceptance pending",
-  "currentCandidateCount": 4,
-  "nativeDetailPatchesByTile": {
-    "r08_c09": 16,
-    "r08_c10": 0
-  },
-  "generatedLocalRepairImages": 2,
-  "newRegionalReferences": 1,
+  "currentPhase": "complete_native_4k_assembly_under_local_repair",
+  "nextAction": "Finish local riverbank water/color repairs; compose the existing pillar seasonal surface variant and complete seam review before selecting the eighth candidate.",
+  "currentCandidateCount": 7,
   "currentSelection": "current-selection.json",
-  "completePixelCandidatesPartiallyReviewed": 1
+  "remainingCoverageTiles": 249,
+  "supersededWorkflow": "Independent c10 regional and4native candidates replaced by exact shared day geometry; legacy native preparation scripts no longer used for c10.",
+  "currentNativePresent": 16,
+  "currentNativeRequired": 16,
+  "statusBeforeCancellation": "partial_city_shared_geometry_production",
+  "cancelledByUser": true,
+  "includedInCurrentDelivery": false,
+  "cancellation": {
+    "status": "cancelled_by_user",
+    "recordedAtUtc": "2026-10-08T13:48:40.010037+00:00",
+    "userConfirmation": [
+      "02、03 都取消",
+      "取消吧"
+    ],
+    "productionScope": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/production-scope.json",
+    "threadReceipt": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/town-cancellation-thread-receipt-20261008.json",
+    "includedInCurrentDelivery": false,
+    "mayContinueGeneration": false,
+    "priorWorkMeaning": "Existing counts, selections and provenance are historical work; they do not authorize further production."
+  }
 }

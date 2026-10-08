@@ -1,0 +1,150 @@
+{
+  "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/lanxian_spring/r08_c11/guides/shared-layout-with-west-south-context-4326.png",
+  "sha256": "1f780fbcc36c39b00dff2b534124192f6ca93a642755905ad95c5bbdfd1d1ca5",
+  "bytes": 9236079,
+  "role": "Shared day/spring structural guide only",
+  "pixels": [
+    4326,
+    4326
+  ],
+  "createdAtUtc": "2026-10-08T10:43:40.378696+00:00",
+  "newAIGeneration": false,
+  "actualModel": null,
+  "actualQuality": null,
+  "derivedFrom": [
+    {
+      "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/lanxian_spring/r08_c11/guides/common-day-layout-only-4326.png",
+      "sha256": "a8a479e23f544287c572185599018fd2658dd1fcc6b62378143072a960f513a0",
+      "bytes": 7656325,
+      "role": "True mapped whole-city crop; enlarged layout only",
+      "pixels": [
+        4326,
+        4326
+      ]
+    },
+    {
+      "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/lanxian_spring/r08_c11/guides/west-r08_c10-exact230x4326.png",
+      "sha256": "426a2c5b558ece9248a5b27ef20dc107f0fb938b3ebd9a5d68555b3db08d2971",
+      "bytes": 897773,
+      "role": "Exact west native context",
+      "pixels": [
+        230,
+        4326
+      ]
+    },
+    {
+      "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/lanxian_spring/r08_c11/guides/south-r09_c11-exact4326x230.png",
+      "sha256": "696955d557fa9a599d52305ea16f3d2b6a84fb3ca6c74999dd3699931783e8d8",
+      "bytes": 1210320,
+      "role": "Exact south native context",
+      "pixels": [
+        4326,
+        230
+      ]
+    },
+    {
+      "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/lanxian_spring/r08_c10/selected-v2/delivery.manifest.json",
+      "sha256": "e176113fc63dd4f47f67fd2b95d4c6d0925633fb4665b1f73ac93a6c7c9c4ae5",
+      "bytes": 6362,
+      "role": "Current west selection"
+    },
+    {
+      "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/lanxian_spring/r09_c11/selected/delivery.manifest.json",
+      "sha256": "098734aab55fc12d0bbfe96be06155b0755be16261dcf9f923cb19ab9cbcaf26",
+      "bytes": 24262,
+      "role": "Current south selection"
+    }
+  ],
+  "operation": "Unblended exact native neighbor strips pasted over layout-only guide. Corner follows explicit split ownership.",
+  "ownership": {
+    "guideOnly": true,
+    "wholeCityCornerLTRB": [
+      40845,
+      32653,
+      41075,
+      32883
+    ],
+    "targetExtendedCornerLTRB": [
+      0,
+      4096,
+      230,
+      4326
+    ],
+    "splitYInTargetExtended": 4211,
+    "guidePastePolicy": "Paste west230 and south230; restore the upper115 rows of their southwest230 square from west. Lower115 rows remain south. Exact unblended source choice, no resampling at4326.",
+    "cornerGuideOwnerRects": [
+      {
+        "targetExtendedLTRB": [
+          0,
+          4096,
+          230,
+          4211
+        ],
+        "source": "west",
+        "sourceCropLTRB": [
+          4096,
+          4096,
+          4326,
+          4211
+        ]
+      },
+      {
+        "targetExtendedLTRB": [
+          0,
+          4211,
+          230,
+          4326
+        ],
+        "source": "south",
+        "sourceCropLTRB": [
+          0,
+          115,
+          230,
+          230
+        ]
+      }
+    ],
+    "committedCoreAuthority": [
+      {
+        "targetExtendedLTRB": [
+          0,
+          115,
+          115,
+          4211
+        ],
+        "source": "west",
+        "reason": "Actual existing r08_c10 core; preserve exact when reusing outside target core."
+      },
+      {
+        "targetExtendedLTRB": [
+          115,
+          4211,
+          4211,
+          4326
+        ],
+        "source": "south",
+        "reason": "Actual existing r09_c11 core; preserve exact when reusing outside target core."
+      }
+    ],
+    "provisionalHaloPolicy": "The west right115 and south upper115 are provisional generated halos, not independently accepted target-core geometry. Their disagreement cannot be solved by claiming both230 strips exact. Use both as references and inspect/redraw the new target core to connect the committed neighbor core edges.",
+    "diagonalCornerPolicy": "Lower-left115 square belongs to diagonal r09_c10, absent from the two immediate core domains. Guide takes south halo provisionally; final four-tile corner must verify against diagonal selected source.",
+    "knownConflict": "Leaf contours and tones differ visibly in the overlapping230 square. Hard split has a visible leaf step. Guide preparation is ready; pixel continuity and final corner acceptance remain pending.",
+    "requiresNativeSouthwestCornerReview": true,
+    "simultaneousFull230EqualityClaimAllowed": false,
+    "finalCornerAccepted": false
+  },
+  "productionPixelsAllowed": false,
+  "formalAccepted": false,
+  "wholeCityExtendedLTRB": [
+    40845,
+    28557,
+    45171,
+    32883
+  ],
+  "coreInExtendedLTRB": [
+    115,
+    115,
+    4211,
+    4211
+  ]
+}
