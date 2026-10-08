@@ -1,17 +1,9 @@
 {
-  "checkedAt": "2026-10-05T19:20:48.995257+00:00",
-  "technicalStatus": "incomplete",
+  "checkedAt": "2026-10-08T12:06:49.914133+00:00",
+  "technicalStatus": "passed",
   "expectedFrames": 68,
-  "presentFrames": 61,
-  "missingFrames": [
-    "attack/W/07",
-    "attack/W/08",
-    "attack/W/09",
-    "attack/W/10",
-    "attack/W/11",
-    "attack/W/12",
-    "cast/E/16"
-  ],
+  "presentFrames": 68,
+  "missingFrames": [],
   "errors": [],
   "warnings": [
     {
@@ -26,6 +18,11 @@
     },
     {
       "frame": "hit/E/03",
+      "issue": "nonzero-alpha-at-canvas-edge",
+      "alpha": 1
+    },
+    {
+      "frame": "hit/E/04",
       "issue": "nonzero-alpha-at-canvas-edge",
       "alpha": 1
     },
@@ -130,6 +127,21 @@
       "alpha": 1
     },
     {
+      "frame": "attack/W/07",
+      "issue": "nonzero-alpha-at-canvas-edge",
+      "alpha": 1
+    },
+    {
+      "frame": "attack/W/08",
+      "issue": "nonzero-alpha-at-canvas-edge",
+      "alpha": 1
+    },
+    {
+      "frame": "attack/W/11",
+      "issue": "nonzero-alpha-at-canvas-edge",
+      "alpha": 1
+    },
+    {
       "frame": "cast/E/01",
       "issue": "nonzero-alpha-at-canvas-edge",
       "alpha": 1
@@ -195,6 +207,11 @@
       "alpha": 1
     },
     {
+      "frame": "cast/E/16",
+      "issue": "nonzero-alpha-at-canvas-edge",
+      "alpha": 1
+    },
+    {
       "frame": "cast/W/03",
       "issue": "nonzero-alpha-at-canvas-edge",
       "alpha": 1
@@ -253,7 +270,7 @@
   "duplicateRuntimeHashes": [],
   "duplicateNativeHashes": [],
   "duplicatePixelHashes": [],
-  "visualReview": "Pending final full-frame and normal/slow sequence review",
+  "visualReview": "68帧静态覆盖完成；六组在本地交互预览以1×及0.25×播放并抽查画面，关键修正帧逐帧复核后接受交付。W受击04→05回位偏快，保留备注。客户端not-tested。",
   "clientIntegration": "not-tested",
   "scope": "Files, dimensions, RGBA alpha, SHA, source/record/prompt references only; this does not certify anatomy, motion or game integration."
 }
