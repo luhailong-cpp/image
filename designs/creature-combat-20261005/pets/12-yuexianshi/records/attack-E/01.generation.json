@@ -1,8 +1,8 @@
 {
   "file": "runtime/attack/E/01.png",
-  "sha256": "91dbff56147165ac9f61fbfaeccf18fc3a4b9e846be0f60df706a2c9cef9b91f",
-  "generatedAt": "2026-10-05T11:11:46.404Z",
-  "recordedAt": "2026-10-05T11:11:47.052799+00:00",
+  "sha256": "15069725e57c876838aa41dfbe19a65d53fb740a1df695f2abab5c34d0ab535c",
+  "generatedAt": "2026-10-08T10:17:07.670Z",
+  "recordedAt": "2026-10-08T10:26:57.293575+00:00",
   "action": "attack",
   "direction": "E",
   "frame": 1,
@@ -16,7 +16,7 @@
     "height": 1254,
     "mode": "RGBA",
     "format": "PNG",
-    "sha256": "b920a592f17c7a1c8c16a99d8ad150e9fc67451a3c6e9ed97de5822e42b0c8d7"
+    "sha256": "473570765c158fb420f1d58db819e7e91aeb8eab51943a74fa126e39157da82d"
   },
   "tool": "image_gen.imagegen",
   "route": "builtin",
@@ -40,13 +40,15 @@
     "referenced_image_paths": [
       "D:/work/image/designs/pets-xianling-20260924/source/12-yuexianshi-E.png",
       "D:/work/image/designs/pets-xianling-20260924/source/12-yuexianshi-W.png",
-      "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png"
+      "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
+      "D:/work/image/designs/creature-combat-20261005/pets/12-yuexianshi/repair-inputs/attack-E-01.png",
+      "D:/work/image/designs/creature-combat-20261005/pets/12-yuexianshi/repair-inputs/baseline-E.png"
     ]
   },
   "actualModel": null,
   "actualQuality": null,
   "unverifiedReason": "宿主管理，工具未开放 model/quality 选择器，返回未披露可核实的型号和质量。",
-  "prompt": "prompts/attack-E/01.txt",
+  "prompt": "prompts/attack-E/01.guardfix-20261008.txt",
   "references": [
     {
       "path": "D:/work/image/designs/pets-xianling-20260924/source/12-yuexianshi-E.png",
@@ -60,16 +62,28 @@
     },
     {
       "path": "D:/work/image/designs/attribute-panels/v2-painted/01-character-ui-no-affinity.png",
-      "role": "primary painting/material style",
+      "role": "primary hand-painted material style",
       "sha256": "e64a817c55b59cf5cc47533428f2e560c64a83f3577067a6fb5969244baf3d6b"
+    },
+    {
+      "path": "D:/work/image/designs/creature-combat-20261005/pets/12-yuexianshi/repair-inputs/attack-E-01.png",
+      "role": "historical edit target before support repair",
+      "historicalGenerationInput": true,
+      "sha256": "23b9c4111900d85966799e9bfefdea4ae27af7630f473f17ac4cdd32db0b2945"
+    },
+    {
+      "path": "D:/work/image/designs/creature-combat-20261005/pets/12-yuexianshi/repair-inputs/baseline-E.png",
+      "role": "authoritative same-scale E guard support reference",
+      "historicalGenerationInput": true,
+      "sha256": "23145de9a39dad78eaf10d271007b7d4a2628fb348cf2878a0f407682708ecfb"
     }
   ],
   "evidence": {
-    "receipt": "records/attack-E/01.receipt.json"
+    "receipt": "records/attack-E/01.guardfix-20261008.receipt.json"
   },
   "derivedFrom": {
-    "path": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb9-18c6-78d1-805d-30c6562481ee\\exec-06e13f51-988b-43cf-aa74-b9d7e1f17c6b.png",
-    "sha256": "b920a592f17c7a1c8c16a99d8ad150e9fc67451a3c6e9ed97de5822e42b0c8d7",
+    "path": "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb6-4e59-76c1-94bb-a58739163335\\exec-2a0ac83d-d2d2-4e8a-9adc-9505d053004d.png",
+    "sha256": "473570765c158fb420f1d58db819e7e91aeb8eab51943a74fa126e39157da82d",
     "nativeSize": [
       1254,
       1254
@@ -99,15 +113,7 @@
     512,
     942
   ],
-  "visualStatus": "Generated image visually inspected: identity/direction/hands/harp intact; final playback review pending",
-  "sourceRetention": {
-    "state": "deleted-after-final-export-verification",
-    "completedAt": "2026-10-06T00:09:17.7123306Z",
-    "cleanupRecord": "cleanup.json",
-    "removedNativeSources": [
-      "C:\\Users\\luyua\\.codex\\generated_images\\01a10bb9-18c6-78d1-805d-30c6562481ee\\exec-06e13f51-988b-43cf-aa74-b9d7e1f17c6b.png"
-    ],
-    "removedHistoricalGenerationInputs": [],
-    "note": "User-confirmed final-assets-only retention; original identity/style references, final runtime frames, generation parameters, prompts, receipts and SHA evidence retained. Historical generation fields remain unchanged."
-  }
+  "visualStatus": "reviewed-static-after-guardfix: original81px first-to-second right-shoe mismatch reduced to3.98px. Final-to-first right-shoe dark-centroid difference24.51px remains a small pose variation to inspect in playback. E identity, two hands/two shoes, left harp support and right plucking preserved.",
+  "visualReview": "records/guardfix-20261008-measurements.json",
+  "replacesRecord": "records/attack-E/01.pre-guardfix-20261008.generation.json"
 }

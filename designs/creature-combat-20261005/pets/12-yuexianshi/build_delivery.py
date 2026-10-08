@@ -28,9 +28,15 @@ def contact(action,direction,count):
         else:text=f"{action} {direction} {index:02} MISSING"
         draw.text((x+8,y+tile+5),text,fill=(240,235,220))
     dest=ROOT/"preview"/f"{action}-{direction}-contact.png"
-    dest.parent.mkdir(parents=True,exist_ok=True);sheet.save(dest)
+    dest.parent.mkdir(parents=True,exist_ok=True)
+    pending=dest.with_suffix(".pending.png")
+    sheet.save(pending,format="PNG")
+    pending.replace(dest)
     return dest.relative_to(ROOT).as_posix()
 def main():
+    review_path=ROOT/"records"/"sequence-continuity-review.json"
+    sequence_review=read(review_path) if review_path.exists() else {}
+    static_failed=sequence_review.get("status")=="requires-repair"
     errors=[];warnings=[];missing=[];frames=[];groups=[];hashes=[];pixel_groups=defaultdict(list);file_groups=defaultdict(list)
     for action,(count,duration) in SPECS.items():
         for direction in ("E","W"):
@@ -67,7 +73,7 @@ def main():
                         if not value or not resolve(value).exists():errors.append({"file":relative,"error":kind+"_missing","path":value})
                     ref_checks=[]
                     for ref in rec.get("references",[]):
-                        ref_path=resolve(ref["path"]);exists=ref_path.exists();historical="generated_images" in str(ref_path);entry={"path":ref["path"],"role":ref.get("role"),"exists":exists,"historicalGenerationInput":historical}
+                        ref_path=resolve(ref["path"]);exists=ref_path.exists();historical=ref.get("historicalGenerationInput") is True or "generated_images" in str(ref_path);entry={"path":ref["path"],"role":ref.get("role"),"exists":exists,"historicalGenerationInput":historical}
                         if exists:
                             entry["shaMatches"]=not ref.get("sha256") or sha(ref_path)==ref["sha256"]
                             if not entry["shaMatches"]:errors.append({"file":relative,"error":"reference_sha_mismatch","path":ref["path"]})
@@ -87,6 +93,18 @@ def main():
     complete=len(missing)==0 and not errors
     technical={"status":"passed" if complete else "partial" if missing and not errors else "failed","expectedFrames":68,"presentFrames":sum(x["available"] for x in frames),"missing":missing,"errors":errors,"warnings":warnings,"duplicatePixels":duplicates,"duplicateFiles":[v for v in file_groups.values() if len(v)>1],"checkedAt":datetime.now(timezone.utc).isoformat(),"limits":"Format/hash/completeness checks do not establish animation, art or client approval."}
     manifest={"schemaVersion":1,"character":"12-yuexianshi","name":"月弦师","status":"assets-complete-playback-pending" if complete else "partial","expectedFrames":68,"presentFrames":technical["presentFrames"],"technicalStatus":technical["status"],"visualStatus":"per-frame records and manual group review; not inferred from technical checks","playbackStatus":"not-verified-browser-policy-blocked","playbackEvidence":"records/cast-E/browser-policy-rejection.json","clientStatus":"not-integrated","generatedAt":technical["checkedAt"],"groups":groups,"frames":frames}
+    if static_failed:
+        manifest.update({"status":"assets-present-static-review-failed" if complete else "partial","visualStatus":"static-review-failed","acceptanceStatus":"requires-repair","staticReviewRecord":"records/sequence-continuity-review.json"})
+        affected_groups={group for finding in sequence_review.get("confirmedFindings",[]) for group in finding.get("affectedGroups",[])}
+        affected_files={file for finding in sequence_review.get("confirmedFindings",[]) for file in finding.get("affectedFiles",[])}
+        for group in groups:
+            group["currentStaticReview"]={"status":"requires-repair" if group["id"] in affected_groups else "reviewed-static-only","record":"records/sequence-continuity-review.json"}
+        for frame in frames:
+            frame["currentStaticReview"]={"status":"requires-repair" if frame["file"] in affected_files else "see-group-review","record":"records/sequence-continuity-review.json"}
+    elif sequence_review.get("status")=="static-repairs-complete-playback-pending":
+        manifest.update({"status":"assets-complete-playback-pending" if complete else "partial","visualStatus":"static-reviewed-after-guard-repair","acceptanceStatus":"static-reviewed-playback-pending","staticReviewRecord":"records/sequence-continuity-review.json"})
+        for group in groups:
+            group["currentStaticReview"]={"status":"reviewed-static-after-repair","record":"records/sequence-continuity-review.json"}
     save(ROOT/"manifest.json",manifest);save(ROOT/"technical-validation.json",technical)
     save(ROOT/"preview"/"contact-records.json",[{"file":g["contact"],"sha256":sha(ROOT/g["contact"]),"derivedFrom":[{"path":f["file"],"sha256":f.get("sha256"),"generationRecord":f["record"]} for f in g["frames"] if f["available"]],"operation":"uniform resize each final frame to256 square; composite with checkerboard and frame labels, four columns; review-only contact sheet"} for g in groups])
     (ROOT/"SHA256SUMS").write_text("\n".join(hashes)+"\n",encoding="utf-8")
