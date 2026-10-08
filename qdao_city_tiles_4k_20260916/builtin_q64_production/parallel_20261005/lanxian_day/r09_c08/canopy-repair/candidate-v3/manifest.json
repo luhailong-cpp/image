@@ -1,0 +1,253 @@
+{
+  "createdAtUtc": "2026-10-08T11:04:05.322256+00:00",
+  "status": "rejected_not_ingested",
+  "operation": "Native integer crop/patch with bounded per-channel RGB leaf correction. No new AI call, no image scaling or blur. Bounded integer source-row registration 0..2px near the right canopy outline only.",
+  "sourceNativeImages": {
+    "baseRejectedAttempt04": {
+      "file": "C:\\Users\\luyua\\.codex\\generated_images\\01a11ab8-70d6-73e3-98b9-8233e86c8e74\\exec-a3258e86-b156-4704-ac9d-90d9bfb10410.png",
+      "sha256": "1669647c1981b69de5ad38402ef66424d0dd691060669bebc75c5d196d5f5158"
+    },
+    "newBridgeBuiltin": {
+      "file": "C:\\Users\\luyua\\.codex\\generated_images\\01a10baf-7a48-7811-ba55-23983983a89d\\exec-1496dc29-aaaf-417f-9b76-03827f6b1428.png",
+      "sha256": "f008e59f89dc87fefd192d96d6980d71665c2b75c692438a3308c4f41c59e235"
+    },
+    "authenticNorthCore": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\lanxian_day\\triple_r08_c06_c08\\output_v2\\r08_c08.png",
+      "sha256": "7e1f9c16f740cf19a9566d6a1efdedf36d1809c0841a2588a49b61f029bb1fa2"
+    },
+    "authenticEastNative": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r01_c04.png",
+      "sha256": "7228da4adee630f4c1aab89d1710cce9a5c2704ba5dfcee466183fbdc4951be4"
+    }
+  },
+  "pixelMappings": [
+    {
+      "source": "newBridgeBuiltin",
+      "sourceBox": [
+        0,
+        627,
+        640,
+        862
+      ],
+      "destinationBox": [
+        0,
+        115,
+        640,
+        350
+      ],
+      "maskedBy": "replacement-mask.png"
+    },
+    {
+      "source": "authenticNorthCore",
+      "sourceBox": [
+        1933,
+        3981,
+        3187,
+        4096
+      ],
+      "destinationBox": [
+        0,
+        0,
+        1254,
+        115
+      ]
+    },
+    {
+      "source": "authenticEastNative",
+      "sourceBox": [
+        115,
+        115,
+        230,
+        1254
+      ],
+      "destinationBox": [
+        1139,
+        115,
+        1254,
+        1254
+      ]
+    }
+  ],
+  "geometricRegistration": {
+    "source": "newBridgeBuiltin",
+    "maximumSourceOffsetXY": [
+      0,
+      2
+    ],
+    "sourceCoordinates": "patch x=cell x, patch y=cell y+512+geometry_source_dy",
+    "supportBoxCellXYXY": [
+      540,
+      115,
+      625,
+      135
+    ],
+    "xWeight": "smoothstep((x-540)/20) * (1-smoothstep((x-600)/25))",
+    "yWeight": "1-smoothstep((y-117)/18), zero outside115..134",
+    "integerSampling": "round-to-nearest offset, exact source pixels, no interpolation",
+    "appliedOnlyInReplacementMask": true,
+    "appliedPixelCount": 976
+  },
+  "replacementMask": {
+    "logic": "Continuous native rectangle x0..639/y115..349, no holes or binary green boundary; original base pixels outside this rectangle plus exact native neighbor reference bands remain unchanged",
+    "alphaForColorOnly": "smoothstep(clamp((G-max(R,B)+6)/18,0,1)); continuous real-valued leaf confidence, zero outside rectangle",
+    "pixelCount": 150400,
+    "outsideNativeHaloAndMaskPixelIdentityVerified": true
+  },
+  "rgbCorrection": {
+    "onlyNewGreenLeafPixels": "Continuous leaf alpha including anti-alias transition; no hard predicate correction edge",
+    "maskPixelCount": 65395,
+    "limitPerChannelRGB": [
+      32,
+      64,
+      32
+    ],
+    "actualMinPerChannelRGB": [
+      -32,
+      -64,
+      -20
+    ],
+    "actualMaxPerChannelRGB": [
+      32,
+      64,
+      32
+    ],
+    "referenceTrueNorthBox": [
+      1933,
+      4094,
+      3187,
+      4096
+    ],
+    "referenceActualSouthCellBox": [
+      0,
+      115,
+      1254,
+      117
+    ],
+    "referenceActualSouthUsesRegisteredNativePatch": true,
+    "fieldEstimation": "Per-column median authentic north final2 rows minus actual registered south first2 rows over green intersection; min1 valid row; interpolate unsupported columns; 5-column median then3-column mean of numeric correction field only; clip per channel.",
+    "taper": "Full correction weight y115..180, then1-smoothstep((cell_y-180)/170), zero outside y115..349; multiply by continuous leaf alpha",
+    "noImageBlur": true,
+    "fields": "rgb-fields.npz"
+  },
+  "unchangedNorthAndEastPixelIdentityVerified": true,
+  "boundaryStatisticsDiagnosticOnly": {
+    "canopy": {
+      "meanSignedRGBJump": [
+        1.1648,
+        1.872,
+        0.1408
+      ],
+      "meanAbsoluteChannelJump": 3.188266666666667,
+      "maximumAbsoluteChannelJump": 90
+    },
+    "left": {
+      "meanSignedRGBJump": [
+        -0.3466666666666667,
+        3.5,
+        1.4666666666666666
+      ],
+      "meanAbsoluteChannelJump": 3.2244444444444444,
+      "maximumAbsoluteChannelJump": 15
+    },
+    "middle": {
+      "meanSignedRGBJump": [
+        0.815,
+        1.865,
+        0.08
+      ],
+      "meanAbsoluteChannelJump": 2.263333333333333,
+      "maximumAbsoluteChannelJump": 17
+    },
+    "bright": {
+      "meanSignedRGBJump": [
+        4.654545454545454,
+        2.2181818181818183,
+        -0.11515151515151516
+      ],
+      "meanAbsoluteChannelJump": 4.240404040404041,
+      "maximumAbsoluteChannelJump": 71
+    },
+    "outer": {
+      "meanSignedRGBJump": [
+        -1.3727272727272728,
+        -0.8545454545454545,
+        -1.1727272727272726
+      ],
+      "meanAbsoluteChannelJump": 3.242424242424242,
+      "maximumAbsoluteChannelJump": 90
+    },
+    "ground": {
+      "meanSignedRGBJump": [
+        1.2069536423841059,
+        -4.2781456953642385,
+        -2.6556291390728477
+      ],
+      "meanAbsoluteChannelJump": 3.2775938189845473,
+      "maximumAbsoluteChannelJump": 12
+    }
+  },
+  "knownGeometryTarget": "Previous right silhouette protrusion near cell x574..590/y115..116 targeted by maximum2px integer source-row shift; pending actual visual review, not automatically accepted.",
+  "outputFiles": {
+    "candidate1254.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3\\candidate1254.png",
+      "sha256": "b9dc50642c258da8f1c03bdd7e03be800211aac727f1a470ed91086ddaa1dffe"
+    },
+    "geometry-mask.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3\\geometry-mask.png",
+      "sha256": "b5879ec3ad7297425ac2e7053190e888c83eb70ca86d6bc42c83ec63664559c2"
+    },
+    "qa-bottom-mask-edge700x120.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3\\qa-bottom-mask-edge700x120.png",
+      "sha256": "2a667051772677faa73628e74338dadb1dbca0dae01706611e01b29fc1351290"
+    },
+    "qa-canopy-mask-surround700x420.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3\\qa-canopy-mask-surround700x420.png",
+      "sha256": "652df43e828c7862ad3a88d0315f85144b7fe2f3225982c362802f2a04a094a4"
+    },
+    "qa-real-north1254x512.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3\\qa-real-north1254x512.png",
+      "sha256": "2b6ab402d1dcb40a3a8dc32b0cd689e8792c963e7d4408bafe5ce517de4d95af"
+    },
+    "qa-right-mask-edge160x290.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3\\qa-right-mask-edge160x290.png",
+      "sha256": "a36004e56954ad69bbfe53ce30ee9917dd3c3642fdab5aadaf9cefb3fbfedd72"
+    },
+    "replacement-mask.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3\\replacement-mask.png",
+      "sha256": "5297e719b33575468593f357aa57299411d41119ed9b8f452151c298842152b9"
+    },
+    "rgb-continuous-alpha.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3\\rgb-continuous-alpha.png",
+      "sha256": "989030de9f6d9580e3ceeeace9b0a6cee6c9bf32870d414dab7d3cd048906b00"
+    },
+    "rgb-correction-mask.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3\\rgb-correction-mask.png",
+      "sha256": "177e5437397c1f0d23df17df87d211cfa64a5ea4bac705245d61f51a64b7c65f"
+    },
+    "rgb-fields.npz": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3\\rgb-fields.npz",
+      "sha256": "cd35b6494200ebea91c8b4421b21dc27a342d88d087444fb258dfc717320cc92"
+    }
+  },
+  "actualModel": null,
+  "actualQuality": null,
+  "generationParameters": "No generation call performed by this derivation; actual AI submission evidence remains bridge.receipt01.json and attempt04 records.",
+  "formalAccepted": false,
+  "clientValidated": false,
+  "visualReviewPending": false,
+  "visualReview": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3\\review.json",
+    "sha256": "52626a0ef14a2d346c16f0243d63dcd79b0291b337f70df422d75d561cb0adaf",
+    "result": "rejected_not_ingested"
+  },
+  "generationEvidence": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\bridge.receipt01.json",
+      "sha256": "f50aa62c2677d705b8bb2f2408660e1008a4de7e0319a666e105c9115029af05"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\jobs\\r01_c03.attempt04.generation.json",
+      "sha256": "0d742f901c267770e344c2dc5d1f069e2ed20397130a296e9193dc5822a18408"
+    }
+  ]
+}

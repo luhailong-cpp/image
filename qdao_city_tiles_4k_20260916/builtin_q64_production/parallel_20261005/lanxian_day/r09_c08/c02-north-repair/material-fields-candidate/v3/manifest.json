@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-08T13:34:38.947010+00:00",
+  "operation": "Single per-channel affine color mapping inside deep brown inner-tree/soil material; no geometry/no AI/no image blur",
+  "status": "candidate_pending_actual_review_not_adopted",
+  "source": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\c02-north-repair\\material-fields-candidate\\v2\\candidate1254.png",
+    "sha256": "5c2ae91444efcfbfc13a6fab6deb375257708610f372c1919d3214ed72d74fd8",
+    "role": "Exact v2 orange/leaf candidate baseline"
+  },
+  "inheritV2": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\c02-north-repair\\material-fields-candidate\\v2\\manifest.json",
+    "sha256": "760d40664f590170c805dfc675ebdde58a09569906122d5937357ed9bc6b68a6",
+    "role": "Unchanged v2 processing and selected fields"
+  },
+  "sourceV4": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\c02-north-repair\\candidate-v4\\candidate1254.png",
+    "sha256": "3ad00fa37e398ad9983a36f210d5b8d6c7f996edd8b1819a23b7de5cc734fb7e",
+    "role": "Original baseline for any future merged operation"
+  },
+  "fit": "Per-channel least-squares affine from actual south first2 column medians to true north last2 column medians, columns0..144; no per-column correction values; fixed3scale+bias coefficients apply only through material alpha",
+  "channelScaleBias": [
+    [
+      0.36932000517845154,
+      53.2755126953125
+    ],
+    [
+      0.5148806571960449,
+      20.61359405517578
+    ],
+    [
+      0.6348694562911987,
+      7.921370983123779
+    ]
+  ],
+  "limit": [
+    24,
+    16,
+    10
+  ],
+  "actualFloatMin": [
+    -24.0,
+    -16.0,
+    -8.14437484741211
+  ],
+  "actualFloatMax": [
+    7.698398590087891,
+    2.1324784755706787,
+    1.3392415046691895
+  ],
+  "alphaBoxXYXY": [
+    0,
+    115,
+    145,
+    139
+  ],
+  "alphaFormula": "Smooth confidence R<155 and R-G>10 and G-B>5; x120..145 smooth fade, y125..185 smooth fade; trueNorth y<115 and x>=145 unchanged. Orange/highlight pixels excluded by high R.",
+  "unchangedTrueNorth115": true,
+  "unchangedRows400To1253": true,
+  "unchangedWoodSeatX430Plus": true,
+  "unchangedV2OrangeAndLeafOutsideBrownSupport": true,
+  "mergeRule": "Inherit v2 collision checks against original v4. For brown delta require future source pixel equals saved source_v2_pixels at every affected pixel; apply no geometry and reject conflicts. Brown field bounded separately and cannot touch wood seat.",
+  "technicalArtifacts": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\c02-north-repair\\material-fields-candidate\\v3\\brown-alpha.png",
+      "sha256": "31c9cb1c99b3692070cb440252f0499d4225636aed261a6aa815ae624bbcca98",
+      "role": "Brown material continuous alpha"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\c02-north-repair\\material-fields-candidate\\v3\\brown-changed-mask.png",
+      "sha256": "507f90b767a908345564881cc95b675d8ae3d2ca58040f11b3811f3e1ef73f2e",
+      "role": "Exact brown changed support"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\c02-north-repair\\material-fields-candidate\\v3\\brown-fields.npz",
+      "sha256": "569dac66bb54b65760b48ead31b5d14ef9a0344fb8123b3c6d520196a24a69d9",
+      "role": "Brown RGB field and affine coefficients with source guard pixels"
+    }
+  ],
+  "outputs": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\c02-north-repair\\material-fields-candidate\\v3\\candidate1254.png",
+      "sha256": "1c715d610fd68c988f59574aeba467619c974afa44f17eb27ed3088115c91b03",
+      "role": "Candidate or exact original-pixel QA"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\c02-north-repair\\material-fields-candidate\\v3\\north1254x512.png",
+      "sha256": "50267e0fbeba3f4615953580c021847a6843b923440780ddc781eb243772c6f5",
+      "role": "Candidate or exact original-pixel QA"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\c02-north-repair\\material-fields-candidate\\v3\\orange-plus-brown.png",
+      "sha256": "51573535d944ab0d35c7317057907beee9899fa1884b621b72b5bbc14c5efe19",
+      "role": "Candidate or exact original-pixel QA"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\c02-north-repair\\material-fields-candidate\\v3\\brown.png",
+      "sha256": "fd17232f1f85cbed7054db82496465691ed9d3739c81468e8699e56bc41f56af",
+      "role": "Candidate or exact original-pixel QA"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\c02-north-repair\\material-fields-candidate\\v3\\leaves-unchanged.png",
+      "sha256": "44011eb73ed32cbbc429a77befa01bf24b09d3152b3343f40be9b86cdebbc3fa",
+      "role": "Candidate or exact original-pixel QA"
+    }
+  ],
+  "formalAccepted": false
+}

@@ -26,13 +26,15 @@ def run(a):
                     if not isinstance(output,dict) or 'file' not in output:continue
                     if sha256(Path(output['file']))!=output['sha256']:raise ValueError('Selected output mismatch')
                 selected.append({'tile':tile.name,'manifest':str(manifest),'manifestSha256':sha256(manifest),
+                                 'selectedAt':d.get('createdAtUtc',d.get('createdAt')),
                                  'core':d['outputs']['core'],'preview':d['outputs']['preview']})
         counts[tile.name]={'newNativeGenerated':len(items)-reused,'nativeReused':reused,
             'nativeIngestedHistorically':len(items),'nativePngRetained':sum(x['nativePngRetained'] for x in items),
             'qualifiedComplete4KCandidates':int(qualified)};snapshots[tile.name]=items
     handoff=read_json(OUTPUT_ROOT/'handoff.json')
     new_count=sum(v['newNativeGenerated'] for v in counts.values())
-    active=counts.get(a.active,{});regional_count=len(list(OUTPUT_ROOT.glob('r??_c??/regional/generation.json')))
+    active=counts.get(a.active,{})
+    regional_count=sum((p/'regional/generation.json').exists() or any((p/'regional').glob('*.png.generation.json')) for p in OUTPUT_ROOT.glob('r??_c??'))
     common={'schemaVersion':2,'updatedAtUtc':datetime.now(timezone.utc).isoformat(),
         'targetTiles':256,'targetTilePixels':[4096,4096],'wholeCityPixels':[65536,65536],
         'wholeCityComplete':False,'formalAccepted':0,'clientValidated':False,'runtimePublished':False,
@@ -42,14 +44,17 @@ def run(a):
         'nativeDetailPatchesGenerated':new_count,'nativeDetailPatchesReused':sum(v['nativeReused'] for v in counts.values()),
         'nativeDetailPatchesIngestedHistorically':sum(v['nativeIngestedHistorically'] for v in counts.values()),
         'nativeCountScope':'Selected native cell generations only; regional guides, rejected attempts and local AI repair outputs counted separately in their immutable records.',
-        'regionalGuidesGenerated':regional_count,'tileSourceCounts':counts,'currentTile':a.active,
+        'regionalGuidesGenerated':regional_count,
+        'regionalCountScope':'Tiles with recorded selected regional guide; rejected/revised attempts counted separately in per-tile source evidence.',
+        'tileSourceCounts':counts,'currentTile':a.active,
         'currentPhase':a.phase,'status':'production_in_progress','currentTileNativeCount':active.get('nativeIngestedHistorically',0),
         'currentTileRequiredNativeCount':16,'currentTileNativeSnapshot':snapshots.get(a.active,[]),
         'selectedTiles':selected,'nextAction':a.next,
         'retention':'Completed tile PNG intermediates retired per each cleanup manifest; final art, technical masks, text provenance and current active reference dependencies retained. Unfinished native sources remain in use.',
         'productionCountPolicy':'Only complete native-pixel4096 composites with recorded inspection count; formal acceptance and client validation remain separate.'}
     if selected:
-        last=selected[-1];common.update(lastCompletedTile=last['tile'],candidateTile=last['tile'],
+        last=max(selected,key=lambda item:datetime.fromisoformat(item['selectedAt'].replace('Z','+00:00')))
+        common.update(lastCompletedTile=last['tile'],candidateTile=last['tile'],
             candidateFile=last['core']['file'],candidateSha256=last['core']['sha256'],preview=last['preview']['file'],
             previewRole='Latest qualified complete candidate overview; preview downsample only',
             selectedDeliveryManifest={'file':last['manifest'],'sha256':last['manifestSha256']})

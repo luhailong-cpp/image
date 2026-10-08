@@ -1,0 +1,210 @@
+{
+  "createdAtUtc": "2026-10-08T10:53:27.677534+00:00",
+  "status": "candidate_only_pending_root_review_not_ingested",
+  "operation": "Native integer crop/patch with bounded per-channel RGB leaf correction. No new AI call, no image resampling, no image blur, no geometric transform.",
+  "sourceNativeImages": {
+    "baseRejectedAttempt04": {
+      "file": "C:\\Users\\luyua\\.codex\\generated_images\\01a11ab8-70d6-73e3-98b9-8233e86c8e74\\exec-a3258e86-b156-4704-ac9d-90d9bfb10410.png",
+      "sha256": "1669647c1981b69de5ad38402ef66424d0dd691060669bebc75c5d196d5f5158"
+    },
+    "newBridgeBuiltin": {
+      "file": "C:\\Users\\luyua\\.codex\\generated_images\\01a10baf-7a48-7811-ba55-23983983a89d\\exec-1496dc29-aaaf-417f-9b76-03827f6b1428.png",
+      "sha256": "f008e59f89dc87fefd192d96d6980d71665c2b75c692438a3308c4f41c59e235"
+    },
+    "authenticNorthCore": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\lanxian_day\\triple_r08_c06_c08\\output_v2\\r08_c08.png",
+      "sha256": "7e1f9c16f740cf19a9566d6a1efdedf36d1809c0841a2588a49b61f029bb1fa2"
+    },
+    "authenticEastNative": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r01_c04.png",
+      "sha256": "7228da4adee630f4c1aab89d1710cce9a5c2704ba5dfcee466183fbdc4951be4"
+    }
+  },
+  "pixelMappings": [
+    {
+      "source": "newBridgeBuiltin",
+      "sourceBox": [
+        0,
+        627,
+        650,
+        832
+      ],
+      "destinationBox": [
+        0,
+        115,
+        650,
+        320
+      ],
+      "maskedBy": "replacement-mask.png"
+    },
+    {
+      "source": "authenticNorthCore",
+      "sourceBox": [
+        1933,
+        3981,
+        3187,
+        4096
+      ],
+      "destinationBox": [
+        0,
+        0,
+        1254,
+        115
+      ]
+    },
+    {
+      "source": "authenticEastNative",
+      "sourceBox": [
+        115,
+        115,
+        230,
+        1254
+      ],
+      "destinationBox": [
+        1139,
+        115,
+        1254,
+        1254
+      ]
+    }
+  ],
+  "replacementMask": {
+    "logic": "Union of original and new canopy green pixels, 2px binary outline margin, intersected with x0..649/y115..319",
+    "greenPredicate": "G>R+12 and G>B+12 and G>35",
+    "pixelCount": 62339,
+    "outsideNativeHaloAndMaskPixelIdentityVerified": true
+  },
+  "rgbCorrection": {
+    "onlyNewGreenLeafPixels": true,
+    "maskPixelCount": 57680,
+    "limitPerChannelRGB": [
+      16,
+      40,
+      16
+    ],
+    "actualMinPerChannelRGB": [
+      -16,
+      -40,
+      -1
+    ],
+    "actualMaxPerChannelRGB": [
+      16,
+      19,
+      16
+    ],
+    "referenceTrueNorthBox": [
+      1933,
+      4080,
+      3187,
+      4096
+    ],
+    "referenceGeneratedBoardBox": [
+      0,
+      611,
+      1254,
+      627
+    ],
+    "fieldEstimation": "Per-column median authentic minus generated north RGB over green intersection; min4 valid rows; interpolate unsupported columns; 17-column moving average of numeric field only; clip per channel.",
+    "taper": "1-smoothstep((cell_y-115)/205), zero outside y115..319",
+    "noImageBlur": true,
+    "fields": "rgb-fields.npz"
+  },
+  "unchangedNorthAndEastPixelIdentityVerified": true,
+  "boundaryStatisticsDiagnosticOnly": {
+    "canopy": {
+      "meanSignedRGBJump": [
+        5.3552,
+        12.1344,
+        -2.6112
+      ],
+      "meanAbsoluteChannelJump": 17.615466666666666,
+      "maximumAbsoluteChannelJump": 197
+    },
+    "left": {
+      "meanSignedRGBJump": [
+        -5.6,
+        -0.24666666666666667,
+        0.04666666666666667
+      ],
+      "meanAbsoluteChannelJump": 8.555555555555555,
+      "maximumAbsoluteChannelJump": 31
+    },
+    "middle": {
+      "meanSignedRGBJump": [
+        14.27,
+        25.56,
+        1.035
+      ],
+      "meanAbsoluteChannelJump": 16.155,
+      "maximumAbsoluteChannelJump": 67
+    },
+    "bright": {
+      "meanSignedRGBJump": [
+        22.8,
+        26.12727272727273,
+        4.472727272727273
+      ],
+      "meanAbsoluteChannelJump": 22.236363636363638,
+      "maximumAbsoluteChannelJump": 101
+    },
+    "outer": {
+      "meanSignedRGBJump": [
+        -22.081818181818182,
+        -16.381818181818183,
+        -23.490909090909092
+      ],
+      "meanAbsoluteChannelJump": 25.693939393939395,
+      "maximumAbsoluteChannelJump": 197
+    },
+    "ground": {
+      "meanSignedRGBJump": [
+        1.2069536423841059,
+        -4.2781456953642385,
+        -2.6556291390728477
+      ],
+      "meanAbsoluteChannelJump": 3.2775938189845473,
+      "maximumAbsoluteChannelJump": 12
+    }
+  },
+  "knownUnresolvedGeometry": "Near cell x574..590, y115..116 right silhouette protrudes relative to actual north. No geometry edit applied.",
+  "outputFiles": {
+    "candidate1254.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v1\\candidate1254.png",
+      "sha256": "264e0999a56309bfc43e5d26f0d85c83f2d024a8bd6c0bc695969803ab41d6a5"
+    },
+    "qa-bottom-mask-edge650x110.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v1\\qa-bottom-mask-edge650x110.png",
+      "sha256": "4fbbbc2ff8579067f3b339a99d631c833106a17224a7e9c48ca998c8654b1b30"
+    },
+    "qa-canopy-mask-surround700x420.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v1\\qa-canopy-mask-surround700x420.png",
+      "sha256": "0e8563a4d77bfcbe066caaeca544ffde9045562012530d25cd972f1b921237fa"
+    },
+    "qa-real-north1254x512.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v1\\qa-real-north1254x512.png",
+      "sha256": "ee1937d306fd26cde7c30de26910d68e62b525b2f85b42699e4f065ea208eeb3"
+    },
+    "qa-right-mask-edge160x260.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v1\\qa-right-mask-edge160x260.png",
+      "sha256": "d8029fb6e84eebe96f20ab50b61d1238eca0d0673fcb763bd9981fef26dd9aa1"
+    },
+    "replacement-mask.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v1\\replacement-mask.png",
+      "sha256": "0dac62d20064a9cd898526f2c8bafaa0e4e447ce1ff0630f701c6efcdf516970"
+    },
+    "rgb-correction-mask.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v1\\rgb-correction-mask.png",
+      "sha256": "38723adf2013c82641c1c16067d0b92720b9de0476bc47e38b6c0301b8bf8651"
+    },
+    "rgb-fields.npz": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v1\\rgb-fields.npz",
+      "sha256": "a5957722aec9bcba91461bc53f39576a514e309f3708fb96e2341b239ad85794"
+    }
+  },
+  "actualModel": null,
+  "actualQuality": null,
+  "generationParameters": "No generation call performed by this derivation; actual AI submission evidence remains bridge.receipt01.json and attempt04 records.",
+  "formalAccepted": false,
+  "clientValidated": false,
+  "visualReviewPending": true
+}

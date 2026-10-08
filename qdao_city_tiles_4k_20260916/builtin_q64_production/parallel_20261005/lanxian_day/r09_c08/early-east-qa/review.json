@@ -1,0 +1,727 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-08T10:30:29.350984+00:00",
+  "tile": "r09_c08",
+  "reviewer": "/root/c08_east_qa",
+  "manifestPath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\early-east-qa\\manifest.json",
+  "manifestSha256": "6ac451703d803e27d872746f01aa1cd1765c7c5bc6859237ecbc49d468522062",
+  "scopeCount": 14,
+  "actualViewCount": 15,
+  "scopesWithNoActionableDefectSeen": 13,
+  "openGeometryReviewItems": 1,
+  "imageEditsPerformed": false,
+  "automaticAcceptance": false,
+  "entireTileAccepted": false,
+  "scopeLimit": "Only already complete c04 native column and its east neighbor; no north y115 guide strip included. Remaining columns and full tile still require review.",
+  "openItem": {
+    "scopeId": "east-r04",
+    "severity": "Localized groove direction kink and dark-channel vertical step; no white gap.",
+    "displayLocation": [
+      256,
+      145
+    ],
+    "tileBoundaryX": 4096,
+    "tileYApprox": 3217,
+    "requestedAction": "Resolve the local groove step and slope mismatch, then re-export/review affected east-r04 plus guide and horizontal scopes if pixels change there. This review does not authorize accepting the defect.",
+    "supportingMeasurement": {
+      "method": "Supporting only: darkest RGB-mean pixel in display y50..199 for each x. Not an automatic visual verdict.",
+      "leftFitX": [
+        160,
+        240
+      ],
+      "leftSlopeDyDx": 0.09840600093764656,
+      "rightFitX": [
+        272,
+        352
+      ],
+      "rightSlopeDyDx": -0.026242381622128306,
+      "darkestYAtSampleX": {
+        "160": 134,
+        "200": 138,
+        "240": 141,
+        "255": 143,
+        "256": 158,
+        "272": 155,
+        "312": 156,
+        "352": 155
+      },
+      "thresholdEvidence": {
+        "method": "RGB mean <160 within y50..199; supplemental geometry measurement, not automatic acceptance.",
+        "darkSpanAtX255": [
+          140,
+          147
+        ],
+        "darkSpanAtX256": [
+          149,
+          159
+        ],
+        "topEdgeJumpPixels": 9
+      }
+    }
+  },
+  "views": [
+    {
+      "scopeId": "east-r01",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\early-east-qa\\east-r01.png",
+      "sha256": "fc8e59dbaca887a591abbc19d6521be1447819bed6fd210f73067701393c322d",
+      "rgbSha256": "af4908e6332bcab58a873262accfc5af2385ee648076d8cd82b471e14878c823",
+      "sourceMappings": [
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r01_c04.png",
+          "sourceSha256": "7228da4adee630f4c1aab89d1710cce9a5c2704ba5dfcee466183fbdc4951be4",
+          "sourceCrop": [
+            883,
+            115,
+            1139,
+            1139
+          ],
+          "destinationBox": [
+            0,
+            0,
+            256,
+            1024
+          ],
+          "tileCoreBox": [
+            3840,
+            0,
+            4096,
+            1024
+          ]
+        },
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c09\\selected\\core4096.png",
+          "sourceSha256": "1d9206adb5744cf1f54153ae9b42d19d6f4225ea81aa6842b305233c38af709f",
+          "sourceCrop": [
+            0,
+            0,
+            256,
+            1024
+          ],
+          "destinationBox": [
+            256,
+            0,
+            512,
+            1024
+          ]
+        }
+      ],
+      "actualViewCompleted": true,
+      "viewTool": "tools.view_image",
+      "viewDetail": "original",
+      "viewCount": 1,
+      "status": "no-actionable-defect-seen",
+      "observation": "两条近水平弧形石槽在东邻拼接处连续，未见槽口跳位、垂直曝光带或新增物体。低对比宽笔触保持一致。"
+    },
+    {
+      "scopeId": "guide-x3981-r01",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\early-east-qa\\guide-x3981-r01.png",
+      "sha256": "16163f4f9027e67bfea090873aa9f89e5867330b67474453bab6a15f3c4ae4b3",
+      "rgbSha256": "563d1e6c8eeb2e94adc29ff63cdf541976a88a519cc4eafa174ae8fd77526348",
+      "sourceMappings": [
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r01_c04.png",
+          "sourceSha256": "7228da4adee630f4c1aab89d1710cce9a5c2704ba5dfcee466183fbdc4951be4",
+          "sourceCrop": [
+            960,
+            115,
+            1088,
+            1139
+          ],
+          "destinationBox": [
+            0,
+            0,
+            128,
+            1024
+          ],
+          "tileCoreBox": [
+            3917,
+            0,
+            4045,
+            1024
+          ]
+        }
+      ],
+      "actualViewCompleted": true,
+      "viewTool": "tools.view_image",
+      "viewDetail": "original",
+      "viewCount": 1,
+      "status": "no-actionable-defect-seen",
+      "observation": "guide 过渡切口处两条槽线连续，石面未见沿切口形成的竖直色带。"
+    },
+    {
+      "scopeId": "east-r02",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\early-east-qa\\east-r02.png",
+      "sha256": "c75ccf5dd386dfe100db97b66b030eb0d3055e67aa784f2fdf12078675131273",
+      "rgbSha256": "e00873719628586e7d4c87317efe3b53a1b88b60a00b098bb9a6ac7452ba01ef",
+      "sourceMappings": [
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r02_c04.png",
+          "sourceSha256": "035e35f995a24d1ce6a1b8b0b9ab52e112a6c5bdf28040a0521244fd07f0180d",
+          "sourceCrop": [
+            883,
+            115,
+            1139,
+            1139
+          ],
+          "destinationBox": [
+            0,
+            0,
+            256,
+            1024
+          ],
+          "tileCoreBox": [
+            3840,
+            1024,
+            4096,
+            2048
+          ]
+        },
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c09\\selected\\core4096.png",
+          "sourceSha256": "1d9206adb5744cf1f54153ae9b42d19d6f4225ea81aa6842b305233c38af709f",
+          "sourceCrop": [
+            0,
+            1024,
+            256,
+            2048
+          ],
+          "destinationBox": [
+            256,
+            0,
+            512,
+            1024
+          ]
+        }
+      ],
+      "actualViewCompleted": true,
+      "viewTool": "tools.view_image",
+      "viewDetail": "original",
+      "viewCount": 1,
+      "status": "no-actionable-defect-seen",
+      "observation": "中段石槽在拼接处延续，未见断槽或竖直色带。"
+    },
+    {
+      "scopeId": "guide-x3981-r02",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\early-east-qa\\guide-x3981-r02.png",
+      "sha256": "e65b0f7ac20907ffaa7feb6861eb010aee16188b8ad63e3be55159ccb58dc33c",
+      "rgbSha256": "720035ac894e7ae01b04597285fb5bf81db00739d596869e259b271c8f5fc004",
+      "sourceMappings": [
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r02_c04.png",
+          "sourceSha256": "035e35f995a24d1ce6a1b8b0b9ab52e112a6c5bdf28040a0521244fd07f0180d",
+          "sourceCrop": [
+            960,
+            115,
+            1088,
+            1139
+          ],
+          "destinationBox": [
+            0,
+            0,
+            128,
+            1024
+          ],
+          "tileCoreBox": [
+            3917,
+            1024,
+            4045,
+            2048
+          ]
+        }
+      ],
+      "actualViewCompleted": true,
+      "viewTool": "tools.view_image",
+      "viewDetail": "original",
+      "viewCount": 1,
+      "status": "no-actionable-defect-seen",
+      "observation": "单条横向槽线与底材连续，未见 guide 切口印痕。"
+    },
+    {
+      "scopeId": "east-r03",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\early-east-qa\\east-r03.png",
+      "sha256": "de0983787fb03251fdb6e055a61b298bc619d94472f2ae3e536071b87798e64b",
+      "rgbSha256": "36f93b5c33e2024416588ddd56d632633b855f723ade464ee4bfe386dfbcf4bd",
+      "sourceMappings": [
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r03_c04.png",
+          "sourceSha256": "4bdb0c1c4a9ef6b8a2e30ff97caa986295156cac2a8822d09d75160dcf71b964",
+          "sourceCrop": [
+            883,
+            115,
+            1139,
+            1139
+          ],
+          "destinationBox": [
+            0,
+            0,
+            256,
+            1024
+          ],
+          "tileCoreBox": [
+            3840,
+            2048,
+            4096,
+            3072
+          ]
+        },
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c09\\selected\\core4096.png",
+          "sourceSha256": "1d9206adb5744cf1f54153ae9b42d19d6f4225ea81aa6842b305233c38af709f",
+          "sourceCrop": [
+            0,
+            2048,
+            256,
+            3072
+          ],
+          "destinationBox": [
+            256,
+            0,
+            512,
+            1024
+          ]
+        }
+      ],
+      "actualViewCompleted": true,
+      "viewTool": "tools.view_image",
+      "viewDetail": "original",
+      "viewCount": 1,
+      "status": "no-actionable-defect-seen",
+      "observation": "安静石面与宽幅低对比斜笔触延续，未见拼接线曝光阶跃。"
+    },
+    {
+      "scopeId": "guide-x3981-r03",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\early-east-qa\\guide-x3981-r03.png",
+      "sha256": "b96188f3b6db155e0d2fa9a14a6d6efec75de947f9065639c7ec517fc9668e98",
+      "rgbSha256": "87491cf2771f2b9824a8f1fc76320426132dfb966eef4537fbe817c87697d7fe",
+      "sourceMappings": [
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r03_c04.png",
+          "sourceSha256": "4bdb0c1c4a9ef6b8a2e30ff97caa986295156cac2a8822d09d75160dcf71b964",
+          "sourceCrop": [
+            960,
+            115,
+            1088,
+            1139
+          ],
+          "destinationBox": [
+            0,
+            0,
+            128,
+            1024
+          ],
+          "tileCoreBox": [
+            3917,
+            2048,
+            4045,
+            3072
+          ]
+        }
+      ],
+      "actualViewCompleted": true,
+      "viewTool": "tools.view_image",
+      "viewDetail": "original",
+      "viewCount": 1,
+      "status": "no-actionable-defect-seen",
+      "observation": "无结构物穿过该切口，宽笔触未形成固定 x 位置的曝光带。"
+    },
+    {
+      "scopeId": "east-r04",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\early-east-qa\\east-r04.png",
+      "sha256": "ef15e80c64658f0899936e4131dee2cbc994d1554a1ea999e1226b9882b0f130",
+      "rgbSha256": "132390e900d93ba48b037a69739fe4231f163bd5d030b9f3d1714d6974fbe634",
+      "sourceMappings": [
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r04_c04.png",
+          "sourceSha256": "a116f105c7e0cb962f10dca5e1d8f9f797866928551bec8ffe6e69f952491468",
+          "sourceCrop": [
+            883,
+            115,
+            1139,
+            1139
+          ],
+          "destinationBox": [
+            0,
+            0,
+            256,
+            1024
+          ],
+          "tileCoreBox": [
+            3840,
+            3072,
+            4096,
+            4096
+          ]
+        },
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c09\\selected\\core4096.png",
+          "sourceSha256": "1d9206adb5744cf1f54153ae9b42d19d6f4225ea81aa6842b305233c38af709f",
+          "sourceCrop": [
+            0,
+            3072,
+            256,
+            4096
+          ],
+          "destinationBox": [
+            256,
+            0,
+            512,
+            1024
+          ]
+        }
+      ],
+      "actualViewCompleted": true,
+      "viewTool": "tools.view_image",
+      "viewDetail": "original",
+      "viewCount": 1,
+      "status": "needs-parent-geometry-review",
+      "observation": "上部槽线在显示 x256 附近（本块 x4096 边界、row4 局部 y约145）斜率由向右下倾转为向右微上倾，形成浅 V 折角。补看 128×112 原像素细节后确认暗槽存在小台阶与厚度变化；RGB 均值低于160的深色上缘在相邻 x255→256 从 y140 到 y149，约9 px阶跃。无露白缺口，但属于需要局部修复 / 复核的几何不连续。其余石面无明显曝光带。"
+    },
+    {
+      "scopeId": "guide-x3981-r04",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\early-east-qa\\guide-x3981-r04.png",
+      "sha256": "7f3dfc2be0bbf61ecea313985898666dea74c9a34a35e615175f234cda5cdfb7",
+      "rgbSha256": "f314e5d32f0b57e4b1950061a1cab5855f5203fdfbceb4b85bd1158211ef1a53",
+      "sourceMappings": [
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r04_c04.png",
+          "sourceSha256": "a116f105c7e0cb962f10dca5e1d8f9f797866928551bec8ffe6e69f952491468",
+          "sourceCrop": [
+            960,
+            115,
+            1088,
+            1139
+          ],
+          "destinationBox": [
+            0,
+            0,
+            128,
+            1024
+          ],
+          "tileCoreBox": [
+            3917,
+            3072,
+            4045,
+            4096
+          ]
+        }
+      ],
+      "actualViewCompleted": true,
+      "viewTool": "tools.view_image",
+      "viewDetail": "original",
+      "viewCount": 1,
+      "status": "no-actionable-defect-seen",
+      "observation": "斜槽线经过 guide 切口连续，未见断槽或沿切口竖直色带。东邻边界折角不在本 scope 内。"
+    },
+    {
+      "scopeId": "internal-y1024-c04",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\early-east-qa\\internal-y1024-c04.png",
+      "sha256": "c7944ebb5d0e823733c0669fa445985158d9ea55c0ef1d82e0c788e668f6032b",
+      "rgbSha256": "6ed6d1d785f63554f5f159ce18becd74254d7ccf14e083202f80149b8ee1e890",
+      "sourceMappings": [
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r01_c04.png",
+          "sourceSha256": "7228da4adee630f4c1aab89d1710cce9a5c2704ba5dfcee466183fbdc4951be4",
+          "sourceCrop": [
+            115,
+            1011,
+            1139,
+            1139
+          ],
+          "destinationBox": [
+            0,
+            0,
+            1024,
+            128
+          ],
+          "tileCoreBox": [
+            3072,
+            896,
+            4096,
+            1024
+          ]
+        },
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r02_c04.png",
+          "sourceSha256": "035e35f995a24d1ce6a1b8b0b9ab52e112a6c5bdf28040a0521244fd07f0180d",
+          "sourceCrop": [
+            115,
+            115,
+            1139,
+            243
+          ],
+          "destinationBox": [
+            0,
+            128,
+            1024,
+            256
+          ],
+          "tileCoreBox": [
+            3072,
+            1024,
+            4096,
+            1152
+          ]
+        }
+      ],
+      "actualViewCompleted": true,
+      "viewTool": "tools.view_image",
+      "viewDetail": "original",
+      "viewCount": 1,
+      "status": "no-actionable-defect-seen",
+      "observation": "槽线位于实际水平拼接线以上；拼接线两侧石面与笔触连续，未见横向曝光带。"
+    },
+    {
+      "scopeId": "guide-y1139-c04",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\early-east-qa\\guide-y1139-c04.png",
+      "sha256": "5d9b86820b1aa72aa28150de949eb24fead52a2bd6996b1b370e0dd234970e1c",
+      "rgbSha256": "6757151140e3bb8c749e8e3f12ec65562977ba88aa7d22959a9b17660babbc22",
+      "sourceMappings": [
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r02_c04.png",
+          "sourceSha256": "035e35f995a24d1ce6a1b8b0b9ab52e112a6c5bdf28040a0521244fd07f0180d",
+          "sourceCrop": [
+            115,
+            166,
+            1139,
+            294
+          ],
+          "destinationBox": [
+            0,
+            0,
+            1024,
+            128
+          ],
+          "tileCoreBox": [
+            3072,
+            1075,
+            4096,
+            1203
+          ]
+        }
+      ],
+      "actualViewCompleted": true,
+      "viewTool": "tools.view_image",
+      "viewDetail": "original",
+      "viewCount": 1,
+      "status": "no-actionable-defect-seen",
+      "observation": "安静石面未见水平 guide 过渡条带。"
+    },
+    {
+      "scopeId": "internal-y2048-c04",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\early-east-qa\\internal-y2048-c04.png",
+      "sha256": "b3c2ceaa3025f7d11c2910afba7713e9212e52223ec6d261adc4f3bb05a5127d",
+      "rgbSha256": "45c572ab24af8e2f21c9064f549eaed24a4a8740f69c83ef912c2c894d7c0f3a",
+      "sourceMappings": [
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r02_c04.png",
+          "sourceSha256": "035e35f995a24d1ce6a1b8b0b9ab52e112a6c5bdf28040a0521244fd07f0180d",
+          "sourceCrop": [
+            115,
+            1011,
+            1139,
+            1139
+          ],
+          "destinationBox": [
+            0,
+            0,
+            1024,
+            128
+          ],
+          "tileCoreBox": [
+            3072,
+            1920,
+            4096,
+            2048
+          ]
+        },
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r03_c04.png",
+          "sourceSha256": "4bdb0c1c4a9ef6b8a2e30ff97caa986295156cac2a8822d09d75160dcf71b964",
+          "sourceCrop": [
+            115,
+            115,
+            1139,
+            243
+          ],
+          "destinationBox": [
+            0,
+            128,
+            1024,
+            256
+          ],
+          "tileCoreBox": [
+            3072,
+            2048,
+            4096,
+            2176
+          ]
+        }
+      ],
+      "actualViewCompleted": true,
+      "viewTool": "tools.view_image",
+      "viewDetail": "original",
+      "viewCount": 1,
+      "status": "no-actionable-defect-seen",
+      "observation": "宽幅斜笔触连续，未见水平亮度阶跃或画布边线。"
+    },
+    {
+      "scopeId": "guide-y2163-c04",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\early-east-qa\\guide-y2163-c04.png",
+      "sha256": "cf86f09488275619f619033cc13fe98c6a770c1fda6d96004219586dfe662225",
+      "rgbSha256": "c7a850d03f3c8519bc7717d7ed426567e8a89ba621dddab559671d4eea372a7e",
+      "sourceMappings": [
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r03_c04.png",
+          "sourceSha256": "4bdb0c1c4a9ef6b8a2e30ff97caa986295156cac2a8822d09d75160dcf71b964",
+          "sourceCrop": [
+            115,
+            166,
+            1139,
+            294
+          ],
+          "destinationBox": [
+            0,
+            0,
+            1024,
+            128
+          ],
+          "tileCoreBox": [
+            3072,
+            2099,
+            4096,
+            2227
+          ]
+        }
+      ],
+      "actualViewCompleted": true,
+      "viewTool": "tools.view_image",
+      "viewDetail": "original",
+      "viewCount": 1,
+      "status": "no-actionable-defect-seen",
+      "observation": "斜笔触穿过过渡区保持低对比，未见水平边界线。"
+    },
+    {
+      "scopeId": "internal-y3072-c04",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\early-east-qa\\internal-y3072-c04.png",
+      "sha256": "5c7e5c319c786dd61328b8a7618c300733ac410405ef980ac4f37578e6eb1512",
+      "rgbSha256": "e06d52ca70cd7309470457b688914486f4692b8bc661cf9acdf0f3aebf8b3d5c",
+      "sourceMappings": [
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r03_c04.png",
+          "sourceSha256": "4bdb0c1c4a9ef6b8a2e30ff97caa986295156cac2a8822d09d75160dcf71b964",
+          "sourceCrop": [
+            115,
+            1011,
+            1139,
+            1139
+          ],
+          "destinationBox": [
+            0,
+            0,
+            1024,
+            128
+          ],
+          "tileCoreBox": [
+            3072,
+            2944,
+            4096,
+            3072
+          ]
+        },
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r04_c04.png",
+          "sourceSha256": "a116f105c7e0cb962f10dca5e1d8f9f797866928551bec8ffe6e69f952491468",
+          "sourceCrop": [
+            115,
+            115,
+            1139,
+            243
+          ],
+          "destinationBox": [
+            0,
+            128,
+            1024,
+            256
+          ],
+          "tileCoreBox": [
+            3072,
+            3072,
+            4096,
+            3200
+          ]
+        }
+      ],
+      "actualViewCompleted": true,
+      "viewTool": "tools.view_image",
+      "viewDetail": "original",
+      "viewCount": 1,
+      "status": "no-actionable-defect-seen",
+      "observation": "斜向石槽穿过水平拼接线处连续，边缘和阴影无可见跳位；无横向曝光带。"
+    },
+    {
+      "scopeId": "guide-y3187-c04",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\early-east-qa\\guide-y3187-c04.png",
+      "sha256": "23b18314481c9af01608a0c2a33eacf17fcddbf7ca19cae353eb27cda1d346ac",
+      "rgbSha256": "68be429313efff671defd16ceb01fb29dca046c01aeae1895022a1564763dc32",
+      "sourceMappings": [
+        {
+          "sourcePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r04_c04.png",
+          "sourceSha256": "a116f105c7e0cb962f10dca5e1d8f9f797866928551bec8ffe6e69f952491468",
+          "sourceCrop": [
+            115,
+            166,
+            1139,
+            294
+          ],
+          "destinationBox": [
+            0,
+            0,
+            1024,
+            128
+          ],
+          "tileCoreBox": [
+            3072,
+            3123,
+            4096,
+            3251
+          ]
+        }
+      ],
+      "actualViewCompleted": true,
+      "viewTool": "tools.view_image",
+      "viewDetail": "original",
+      "viewCount": 1,
+      "status": "no-actionable-defect-seen",
+      "observation": "弧形石槽和石面连续穿过过渡区，未见横向断槽或曝光条带。"
+    }
+  ],
+  "uniquePrimaryScopeCount": 14,
+  "supplementaryDiagnosticViewCount": 1,
+  "supplementaryDiagnostic": {
+    "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\early-east-qa\\east-r04-kink-detail.png",
+    "sha256": "1288e182853470c57e5d4c68ec5b6928e2ea0f972ac729dab29be849cbd0e895",
+    "width": 128,
+    "height": 112,
+    "rgbSha256": "0fe9de187126eb46f2a42d388024c37694221ab75b5966178ac547586246687f",
+    "parentScopeId": "east-r04",
+    "sourceImagePath": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\early-east-qa\\east-r04.png",
+    "sourceImageSha256": "ef15e80c64658f0899936e4131dee2cbc994d1554a1ea999e1226b9882b0f130",
+    "sourceCrop": [
+      192,
+      88,
+      320,
+      200
+    ],
+    "destinationBox": [
+      0,
+      0,
+      128,
+      112
+    ],
+    "operation": "Integer crop only; no resampling or edits. Underlying native/east source mapping inherited exactly from east-r04 scope.",
+    "actualViewCompleted": true,
+    "viewTool": "tools.view_image",
+    "viewDetail": "original",
+    "viewCount": 1
+  }
+}

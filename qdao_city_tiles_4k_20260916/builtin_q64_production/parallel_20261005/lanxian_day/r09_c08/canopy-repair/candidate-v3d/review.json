@@ -1,0 +1,92 @@
+{
+  "createdAtUtc": "2026-10-08T11:27:24.890464+00:00",
+  "reviewer": "c08_seam_diagnosis",
+  "status": "canopy_scope_pass_pending_root_and_full_tile_qa",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3d\\candidate1254.png",
+    "sha256": "d1cfdb0cf595c49ba0df01c22dc0c4afd68cd4895bfb2d66713b6a470436c7ab"
+  },
+  "actualViews": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3d\\qa-real-north1254x512.png",
+      "sha256": "e298974bfaa71dd16a3f39ad7868d685b1c89600e71a0091671d68b4a97e29b0",
+      "actualVisualInspection": true,
+      "resampling": "none"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3d\\qa-canopy-mask-surround700x420.png",
+      "sha256": "7d7e5985e8e202a00e3a8eb66b032dfa22d1d76051e11c985528100c937b595b",
+      "actualVisualInspection": true,
+      "resampling": "none"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3d\\qa-right-mask-edge160x290.png",
+      "sha256": "666541794e0023eafbc80e6cd1d99e0fe47bad3cae2de97d826af646c60e4f9a",
+      "actualVisualInspection": true,
+      "resampling": "none"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3d\\qa-bottom-mask-edge700x120.png",
+      "sha256": "db51a3e1cebcb01637a05c65c9bfbcdfebd024237e4941f76fea1b0615326f01",
+      "actualVisualInspection": true,
+      "resampling": "none"
+    }
+  ],
+  "findings": [
+    "Actual north join: no remaining actionable crown contour cut or broad horizontal color block observed.",
+    "Previous left green fragments/white holes, vertical mask needles, color columns and rectangle-bottom steps resolved.",
+    "Right/background scope: low-contrast horizontal ground-material change at cell y115 remains perceptible outside canopy; this was not part of foliage RGB correction. Parent must judge full north-ground continuity in tile QA."
+  ],
+  "RGBLimitPerChannel": [
+    32,
+    64,
+    32
+  ],
+  "actualMinimumRGBDelta": [
+    -32,
+    -64,
+    -20
+  ],
+  "actualMaximumRGBDelta": [
+    32,
+    64,
+    32
+  ],
+  "maximumSourceGeometryOffsetXY": [
+    0,
+    2
+  ],
+  "imagePixelBlurApplied": false,
+  "nativeSourceUpscalingApplied": false,
+  "ingested": false,
+  "formalAccepted": false,
+  "clientValidated": false,
+  "independentReview": {
+    "reviewer": "c08_remaining_top",
+    "actualViews": [
+      "qa-real-north1254x512.png",
+      "qa-canopy-mask-surround700x420.png",
+      "qa-right-mask-edge160x290.png",
+      "qa-bottom-mask-edge700x120.png"
+    ],
+    "verdict": "Canopy scope suitable for root ingestion review. No actionable crown contour cut or clear horizontal crown color block at real boundary. Low-contrast ground-material transition remains outside canopy at cell y115; root should judge full north strip.",
+    "evidence": "Direct collaboration message received after requested four image views."
+  },
+  "processingHistory": [
+    {
+      "version": "candidate-v3",
+      "review": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3\\review.json",
+      "outcome": "rejected"
+    },
+    {
+      "version": "candidate-v3b",
+      "review": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3b\\review.json",
+      "outcome": "rejected"
+    },
+    {
+      "version": "candidate-v3c",
+      "review": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v3c\\review.json",
+      "outcome": "rejected"
+    }
+  ]
+}

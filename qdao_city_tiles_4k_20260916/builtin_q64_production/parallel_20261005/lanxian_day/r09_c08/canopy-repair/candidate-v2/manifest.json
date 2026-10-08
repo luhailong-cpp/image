@@ -1,0 +1,238 @@
+{
+  "createdAtUtc": "2026-10-08T10:55:54.273508+00:00",
+  "status": "candidate_only_pending_root_review_not_ingested",
+  "operation": "Native integer crop/patch with bounded per-channel RGB leaf correction. No new AI call, no image scaling or blur. Bounded integer source-row registration 0..2px near the right canopy outline only.",
+  "sourceNativeImages": {
+    "baseRejectedAttempt04": {
+      "file": "C:\\Users\\luyua\\.codex\\generated_images\\01a11ab8-70d6-73e3-98b9-8233e86c8e74\\exec-a3258e86-b156-4704-ac9d-90d9bfb10410.png",
+      "sha256": "1669647c1981b69de5ad38402ef66424d0dd691060669bebc75c5d196d5f5158"
+    },
+    "newBridgeBuiltin": {
+      "file": "C:\\Users\\luyua\\.codex\\generated_images\\01a10baf-7a48-7811-ba55-23983983a89d\\exec-1496dc29-aaaf-417f-9b76-03827f6b1428.png",
+      "sha256": "f008e59f89dc87fefd192d96d6980d71665c2b75c692438a3308c4f41c59e235"
+    },
+    "authenticNorthCore": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\lanxian_day\\triple_r08_c06_c08\\output_v2\\r08_c08.png",
+      "sha256": "7e1f9c16f740cf19a9566d6a1efdedf36d1809c0841a2588a49b61f029bb1fa2"
+    },
+    "authenticEastNative": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\native\\r01_c04.png",
+      "sha256": "7228da4adee630f4c1aab89d1710cce9a5c2704ba5dfcee466183fbdc4951be4"
+    }
+  },
+  "pixelMappings": [
+    {
+      "source": "newBridgeBuiltin",
+      "sourceBox": [
+        0,
+        627,
+        650,
+        832
+      ],
+      "destinationBox": [
+        0,
+        115,
+        650,
+        320
+      ],
+      "maskedBy": "replacement-mask.png"
+    },
+    {
+      "source": "authenticNorthCore",
+      "sourceBox": [
+        1933,
+        3981,
+        3187,
+        4096
+      ],
+      "destinationBox": [
+        0,
+        0,
+        1254,
+        115
+      ]
+    },
+    {
+      "source": "authenticEastNative",
+      "sourceBox": [
+        115,
+        115,
+        230,
+        1254
+      ],
+      "destinationBox": [
+        1139,
+        115,
+        1254,
+        1254
+      ]
+    }
+  ],
+  "geometricRegistration": {
+    "source": "newBridgeBuiltin",
+    "maximumSourceOffsetXY": [
+      0,
+      2
+    ],
+    "sourceCoordinates": "patch x=cell x, patch y=cell y+512+geometry_source_dy",
+    "supportBoxCellXYXY": [
+      540,
+      115,
+      625,
+      135
+    ],
+    "xWeight": "smoothstep((x-540)/20) * (1-smoothstep((x-600)/25))",
+    "yWeight": "1-smoothstep((y-117)/18), zero outside115..134",
+    "integerSampling": "round-to-nearest offset, exact source pixels, no interpolation",
+    "appliedOnlyInReplacementMask": true,
+    "appliedPixelCount": 562
+  },
+  "replacementMask": {
+    "logic": "Union of original and new canopy green pixels, 2px binary outline margin, intersected with x0..649/y115..319",
+    "greenPredicate": "G>R+12 and G>B+12 and G>35",
+    "pixelCount": 62305,
+    "outsideNativeHaloAndMaskPixelIdentityVerified": true
+  },
+  "rgbCorrection": {
+    "onlyNewGreenLeafPixels": true,
+    "maskPixelCount": 57658,
+    "limitPerChannelRGB": [
+      16,
+      40,
+      16
+    ],
+    "actualMinPerChannelRGB": [
+      -16,
+      -40,
+      -5
+    ],
+    "actualMaxPerChannelRGB": [
+      16,
+      38,
+      16
+    ],
+    "referenceTrueNorthBox": [
+      1933,
+      4094,
+      3187,
+      4096
+    ],
+    "referenceGeneratedBoardBox": [
+      0,
+      625,
+      1254,
+      627
+    ],
+    "fieldEstimation": "Per-column median authentic minus generated north RGB over green intersection; min1 valid row from final2 northern rows; interpolate unsupported columns; 17-column moving average of numeric field only; clip per channel.",
+    "taper": "1-smoothstep((cell_y-115)/205), zero outside y115..319",
+    "noImageBlur": true,
+    "fields": "rgb-fields.npz"
+  },
+  "unchangedNorthAndEastPixelIdentityVerified": true,
+  "boundaryStatisticsDiagnosticOnly": {
+    "canopy": {
+      "meanSignedRGBJump": [
+        5.6448,
+        9.3712,
+        0.2928
+      ],
+      "meanAbsoluteChannelJump": 8.842666666666666,
+      "maximumAbsoluteChannelJump": 106
+    },
+    "left": {
+      "meanSignedRGBJump": [
+        -0.5133333333333333,
+        6.8133333333333335,
+        2.9133333333333336
+      ],
+      "meanAbsoluteChannelJump": 6.248888888888889,
+      "maximumAbsoluteChannelJump": 23
+    },
+    "middle": {
+      "meanSignedRGBJump": [
+        5.91,
+        12.38,
+        0.27
+      ],
+      "meanAbsoluteChannelJump": 9.213333333333333,
+      "maximumAbsoluteChannelJump": 41
+    },
+    "bright": {
+      "meanSignedRGBJump": [
+        14.006060606060606,
+        13.406060606060606,
+        -0.3515151515151515
+      ],
+      "meanAbsoluteChannelJump": 12.858585858585858,
+      "maximumAbsoluteChannelJump": 92
+    },
+    "outer": {
+      "meanSignedRGBJump": [
+        1.018181818181818,
+        1.3363636363636364,
+        -2.272727272727273
+      ],
+      "meanAbsoluteChannelJump": 5.681818181818182,
+      "maximumAbsoluteChannelJump": 106
+    },
+    "ground": {
+      "meanSignedRGBJump": [
+        1.2069536423841059,
+        -4.2781456953642385,
+        -2.6556291390728477
+      ],
+      "meanAbsoluteChannelJump": 3.2775938189845473,
+      "maximumAbsoluteChannelJump": 12
+    }
+  },
+  "knownGeometryTarget": "Previous right silhouette protrusion near cell x574..590/y115..116 targeted by maximum2px integer source-row shift; pending actual visual review, not automatically accepted.",
+  "outputFiles": {
+    "candidate1254.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v2\\candidate1254.png",
+      "sha256": "eefe6eb94ba808e7785a8e499f3b0391bbc387622fd52c9fece503fd14c15c77"
+    },
+    "geometry-mask.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v2\\geometry-mask.png",
+      "sha256": "6c91abef0cabe04ab69b7601728af9cc0559274138c38ed23bc3ed94e1b308f2"
+    },
+    "qa-bottom-mask-edge650x110.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v2\\qa-bottom-mask-edge650x110.png",
+      "sha256": "b6b407cf47d9fed37624c040f5f41fc8f9e48bbde80843d8218ca81b6bfd72d3"
+    },
+    "qa-canopy-mask-surround700x420.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v2\\qa-canopy-mask-surround700x420.png",
+      "sha256": "c288c65b07cb116dc9639f8234252d0b0e52a6928912751c5f809139726cdb9e"
+    },
+    "qa-real-north1254x512.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v2\\qa-real-north1254x512.png",
+      "sha256": "dc9381995591b9b78eca57d2f879d64c789e42ae44a256dd0b5c9b16934c9380"
+    },
+    "qa-right-mask-edge160x260.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v2\\qa-right-mask-edge160x260.png",
+      "sha256": "d8029fb6e84eebe96f20ab50b61d1238eca0d0673fcb763bd9981fef26dd9aa1"
+    },
+    "replacement-mask.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v2\\replacement-mask.png",
+      "sha256": "006ed8de52a3b0cbcc7a85bb010b5d893ba6898297578d0d6b83b0a7814504dd"
+    },
+    "rgb-correction-mask.png": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v2\\rgb-correction-mask.png",
+      "sha256": "9a43b5ed701c6da7aad472b5ff23d9b8d7029e07aee5a74601bdaeb47e81f590"
+    },
+    "rgb-fields.npz": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v2\\rgb-fields.npz",
+      "sha256": "63474d91240c37f7f6472e4f1e4efe274af4a954de44204f9050301c0bed5f24"
+    }
+  },
+  "actualModel": null,
+  "actualQuality": null,
+  "generationParameters": "No generation call performed by this derivation; actual AI submission evidence remains bridge.receipt01.json and attempt04 records.",
+  "formalAccepted": false,
+  "clientValidated": false,
+  "visualReviewPending": false,
+  "visualReview": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\lanxian_day\\r09_c08\\canopy-repair\\candidate-v2\\review.json",
+    "sha256": "ecf42833be77279c46720c01e629b10839a83e459ada5b2f9c0ac232de14a275",
+    "result": "rejected_not_ingested"
+  }
+}
