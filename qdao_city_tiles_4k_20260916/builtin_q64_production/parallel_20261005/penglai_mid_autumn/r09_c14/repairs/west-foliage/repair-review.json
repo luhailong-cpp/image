@@ -1,0 +1,93 @@
+{
+  "reviewedAt": "2026-10-08T13:34:41.929990+00:00",
+  "status": "reviewable_proposal_not_promoted_pending_root_review",
+  "rootCandidateChanged": false,
+  "baseCandidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\output\\r09_c14-candidate.png",
+    "sha256": "4644eb1abda4cea7c23d82cf72f387e9a5c97985ccf497d0149069f0a67daf07"
+  },
+  "latestPreview": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\repairs\\west-foliage\\proposed-joint-preview-v6.png",
+    "sha256": "158d113addfa8884f2778c7547ee00f468ba1500956559e5626bd8f7a2d7176a"
+  },
+  "nativeDetail": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\repairs\\west-foliage\\upper-detail-v6.png",
+    "sha256": "3f0e7281751e6b4c5f392914e3a12075c710f5c9b165d34779a19dd153c64618"
+  },
+  "proposedMerge": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\repairs\\west-foliage\\proposed-merge-v6.png",
+    "sha256": "c5a76ebca8e925c481f6354ebeb230a13a561581e94adcd266fd3134a6a471bf",
+    "candidateRectLTRB": [
+      0,
+      1085,
+      455,
+      2269
+    ],
+    "applyRule": "Root may paste this exact native crop at candidateRectLTRB top-left after review; no resizing. Entire existing candidate otherwise unchanged."
+  },
+  "sourcesUsed": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\repairs\\west-foliage\\repair-native.png",
+      "sha256": "2a05c43633a43e85489f661f5714c6f21da2198cca5aaeee9350395e471b2222"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\repairs\\west-foliage\\upper-return-native.png",
+      "sha256": "6c4f757d7537a48130feab88595cd98581e9e56e1e665c2a516f90aeb6de76bf"
+    }
+  ],
+  "masks": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\repairs\\west-foliage\\proposed.mask.png",
+      "sha256": "9dc84c66aed891e2a4e569b05a028243c6e9134c1a6c9a64e3ad2060e62cb818"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\repairs\\west-foliage\\upper-return-filled-material.mask.png",
+      "sha256": "4beb443596980ecd9b4cd976baff23aa38fec06ab41feca600215503636aa5c4"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\repairs\\west-foliage\\proposal-v6.changed-mask.png",
+      "sha256": "831f507e6c17ff0974ee9cf43880a783ec4d0ec76bdcaae6e656f422b2231e6c"
+    }
+  ],
+  "colorField": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\repairs\\west-foliage\\proposal-v6.colorCorrection.npy",
+    "sha256": "9d9d1b4099d026b1b1257879443625422e682ba8660049edb211fd29f06f4aa8",
+    "maxAbsRGB": [
+      2,
+      4,
+      6
+    ],
+    "application": "Background-only crop x320..480,y32..290; finite return160; no artwork blur."
+  },
+  "geometryDisplacement": 0,
+  "sourceUpscaled": false,
+  "fixedNeighborLeft320BitExact": true,
+  "unaffectedCandidateRegions": {
+    "xFrom800": true,
+    "south320": true,
+    "north1084": true
+  },
+  "observations": [
+    "Primary foliage discontinuities repainted with native AI output.",
+    "The first AI output supplied the existing entering blue/teal leaf and rounded yellow leaf; material selection preserves these, including highlight pixels.",
+    "Second AI output supplies empty upper wall continuation; no new structure drawn by code.",
+    "Third raw inpaint output retained for evidence but not selected because it altered the neighboring foliage.",
+    "Local preview v6 was actually viewed; final external/full horizontal seam review remains the root decision."
+  ],
+  "notSelectedVersions": {
+    "v2": "rectangle cut the fixed blue leaf",
+    "v3": "small upper return/leaf boundary still visible",
+    "v4": "material selection omitted an internal highlight (mask hole)",
+    "v5": "row-dependent colour field created horizontal hue bands; rejected",
+    "upper-inpaint-native.png": "changed foliage in fixed left region, not selected"
+  },
+  "requiredRechecks": [
+    "Full west shared edge",
+    "West x256 return",
+    "All affected horizontal seam/return bands and junction scope",
+    "Exact minimal repair perimeter",
+    "All unaffected strips can be hash/pixel-equality inherited"
+  ],
+  "externalScopedPass": false,
+  "formalAccepted": false
+}

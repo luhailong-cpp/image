@@ -1,0 +1,87 @@
+{
+  "reviewedAt": "2026-10-08T11:31:00.420609+00:00",
+  "reviewer": "r09c14_row2_resume",
+  "scope": "Actual full 4096 west-neighbor seam and x256 registration return at 1:1, plus four actual unrotated 512x1024 west seam details. No north/east/south neighbor exists in this workflow.",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\output\\r09_c14-candidate.png",
+    "sha256": "4644eb1abda4cea7c23d82cf72f387e9a5c97985ccf497d0149069f0a67daf07"
+  },
+  "items": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\qa\\native-candidate\\west-shared-full.png",
+      "sha256": "c6e52aae5c3237193e61a78ca2d25be895dd2a90ca10c78eef3978a5d6bfb3c2",
+      "actuallyViewed": true,
+      "nativeScale": 1,
+      "verdict": "fail",
+      "review": "All four 1024-long edge sections inspected in the documented CCW90 fold. Real vertical tile seam cuts foliage silhouettes in second section and upper third. Lantern, wall cap and staircase geometry otherwise joins; cannot pass full west edge."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\qa\\native-candidate\\west-return-256-full.png",
+      "sha256": "90088ce3f1047bae34c6619adb56cc14a3e4506e2f7dc56298f1ef21c2d5f746",
+      "actuallyViewed": true,
+      "nativeScale": 1,
+      "verdict": "pass",
+      "review": "All four 1024 sections at candidate x256 return inspected at 1:1. No rectangular tone strip, contour offset, doubled edge or return discontinuity visible."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\qa\\external-details\\west-segment-1.png",
+      "sha256": "70a9e3a8e0c03b3e4ea8c74183b1eb41c8d603dec9fa0ea698de13c9a9f061f4",
+      "actuallyViewed": true,
+      "nativeScale": 1,
+      "verdict": "pass",
+      "review": "Unrotated actual west seam tile y0..1024 inspected. Lantern curl, lamp edge and wall illumination contours preserve continuation without a geometry break."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\qa\\external-details\\west-segment-2.png",
+      "sha256": "d17773bee55043e4897f76b16067413f3c88103f96800a14f8c67574646feffa",
+      "actuallyViewed": true,
+      "nativeScale": 1,
+      "verdict": "fail",
+      "review": "Unrotated tile y1024..2048: straight x256 sheet seam (candidate x0) visibly clips leaf outlines and switches foliage arrangements from roughly local y1140 onward. Actual edge needs AI repair, not tone-only adjustment."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\qa\\external-details\\west-segment-3.png",
+      "sha256": "56541b55f4b05c584a4150dc5407dd50ee4517a1c2ec3de9fe00f07b73ce7bcf",
+      "actuallyViewed": true,
+      "nativeScale": 1,
+      "verdict": "fail",
+      "review": "Unrotated tile y2048..3072: mismatched leaf shapes remain at top, approximately tile y2048..2220. Curved wall cap and stair endpoints below align; no false wall-top drop seen."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\qa\\external-details\\west-segment-4.png",
+      "sha256": "fe07b22208fafd2c0883a258108c5731023d8029aca3f627dbfa4cb6fd7c1df1",
+      "actuallyViewed": true,
+      "nativeScale": 1,
+      "verdict": "pass",
+      "review": "Unrotated tile y3072..4096: staircase tread widths, riser lines and lower paving contours continue across actual seam. Broad surface brushwork is visible, with no abrupt material band exactly at the boundary."
+    }
+  ],
+  "externalScopedPass": false,
+  "issues": [
+    {
+      "id": "west-foliage-cut",
+      "severity": "blocking_local_seam_acceptance",
+      "candidateLocalRegionXYWH": [
+        0,
+        1120,
+        300,
+        1120
+      ],
+      "neighbor": "r09_c13",
+      "description": "Straight actual tile boundary bisects foliage and changes leaf silhouettes on its two sides; visible in full edge sheet and two unrotated details.",
+      "recommendedAction": "Use native AI local repair with actual r09_c13 west pixels and current r09_c14 pixels as joint context. Continue existing leaf outlines into the new tile while holding surrounding flowers, wall and lamp geometry; then inspect the whole west edge and repair return again.",
+      "evidence": [
+        "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\qa\\external-details\\west-segment-2.png",
+        "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\qa\\external-details\\west-segment-3.png"
+      ]
+    }
+  ],
+  "unverifiedSides": [
+    "north",
+    "east",
+    "south"
+  ],
+  "formalAccepted": false,
+  "navigationVerified": false,
+  "clientVerified": false
+}

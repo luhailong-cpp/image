@@ -1,0 +1,53 @@
+{
+  "clientDate": "2026-10-08",
+  "objective": "Finish07 Penglai Mid-Autumn genuine65536x65536,256 tiles4096; no enlarged layout substitute",
+  "wholeCityComplete": false,
+  "completePixelCandidates": 7,
+  "missingTiles": 249,
+  "formallyAcceptedTiles": 0,
+  "scope": "Write only this penglai_mid_autumn root. Day task and other maps read-only. Builtin imagegen only; actual model/quality unknown.",
+  "r09_c14": {
+    "candidate": "r09_c14/output/r09_c14-candidate.png",
+    "sha256": "4644eb1abda4cea7c23d82cf72f387e9a5c97985ccf497d0149069f0a67daf07",
+    "nativePatches": 16,
+    "internalQA": "all15 horizontal/junction plus root6 vertical and3 boundary/return checked; extra north boundary also checked",
+    "rootReview": "r09_c14/qa/root-review.json",
+    "horizontalReview": "r09_c14/qa/horizontal-review.json",
+    "externalReview": "r09_c14/qa/external-review.json",
+    "outstanding": "West foliage cut at y1140..2220. Proposal-v6 heals most but root still sees vertical brush/highlight edge in upper-detail-v6 x120,y370..500. Not accepted, not applied.",
+    "latestProposal": "r09_c14/repairs/west-foliage/proposal-v6.json",
+    "repairAgent": "/root/r09c14_row2_resume",
+    "nextRepairStep": "Try strictly bounded native registration on already-matching leaf geometry using true old neighbor320px support, <=6px displacement, <=18RGB, finite return, record fields/Jacobian; oldneighbor immutable. If structure differs, builtin localized repaint required.",
+    "protectedFromRepair": "south320 andx800+ unchanged; nexttile north context frozen from south320",
+    "manifest": "output/manifest.json currently pending copy of native-assembly, deliberately not scoped accepted",
+    "finalize": "r09_c14/finalize_local.py --finalsha ACTUALSHA [--approve]. Requires actual passed reports and exact reproduced QA. Root amended to snapshot and replace only unaccepted pending manifest. Do not approve v6."
+  },
+  "r10_c14": {
+    "nativePatches": 0,
+    "currentStructure": "r10_c14/references/structure-lamp-aligned.png",
+    "structureSha256": "124297419bcee15e34286e8831c7bda282728158e59a9023d8b703f9895122da",
+    "guides": "r10_c14/guides",
+    "remainingStructureIssue": "Westsegment4 wooden beam has major vertical step versus actual west neighbor. Root rejected leaving it to native. Agent correcting local structure/sharedgeometry beforenative.",
+    "structureAgent": "/root/r09c14_row4_resume",
+    "parallelRequest": "If local beam correction can preserve upper guides p11..p24 byte/pixelexact (at leastfirstrow), confirm so root may start firstrow while lowerstructure repairs. No confirmation yet at this checkpoint.",
+    "north320FrozenFileSha256": "882b62cb3037e3e685153e354e846e18b2f011048131f15b759bc1fa63f1b961",
+    "north320FrozenRGBSha256": "09c2a10820d3e9252af52e0b1892cddb440faf3f107b7260eccab08b87a3f766",
+    "northWholeSourceStillUnderQA": true,
+    "laterRevalidateNorthPixelsAndUpdatePlanWholeSha": true,
+    "dayTaskAdopted": false
+  },
+  "fullMapTraversal": {
+    "report": "evidence/full-map-traversal-review.json",
+    "verifiedPlan": "249 remainingtiles +7 existing=256;480 totaledges;225cornerjunctions;1or2 adjoiningknownedgesperstep",
+    "nextAfter_r10_c14": ["r10_c11", "r10_c10"],
+    "toolAgent": "/root/r09c14_row3_resume",
+    "isolatedImplementationInProgress": "tools/multi_edge;E/S+NE/SWdirection support with meaningfulcoordinate-arraychecks, existinghelpersmustnotchange, no productionusebefore review",
+    "rootHelperFix": "refresh_delivery.py now assigns inherited candidates an available status instead of missing and chooses active candidate when available"
+  },
+  "retention": {
+    "r10_c13CleanupBlocked": true,
+    "reason": "Automatic approval rejected scoped PowerShell deletion with blocked by policy. No deletion performed. Do not bypass/retry through another route.",
+    "userAlreadyInformed": true,
+    "reportAgainInEventualFinal": true
+  }
+}

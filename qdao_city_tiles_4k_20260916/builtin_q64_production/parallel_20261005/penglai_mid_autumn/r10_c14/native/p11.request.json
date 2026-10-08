@@ -1,0 +1,106 @@
+{
+  "id": "p11",
+  "tile": "r10_c14",
+  "startedAt": "2026-10-08T13:55:16.462881+00:00",
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-04",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  },
+  "prompt": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c14\\native\\p11.prompt.txt",
+  "promptSha256": "a3451a34a5d00c10e807d8e5b8e3cea1d938d2cd665781fa0c50bed26c49d2ab",
+  "references": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c14\\native\\p11-edit-target.png",
+      "sha256": "7733209e248cd105ff097418b1c256927b8ccdea90cc7ad2bc627d486ff0d1fa",
+      "role": "exact-frame layout target plus native context"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c14\\guides\\p11.png",
+      "sha256": "454b39e84499dccfbba85735fd73c0489a9033f92f586b7430dfe1f47958344f",
+      "role": "structure guide only"
+    },
+    {
+      "file": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+      "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+      "role": "approved style"
+    }
+  ],
+  "submittedParameters": {
+    "model": null,
+    "quality": null,
+    "prompt": "Use case: detail restoration with strict composition preservation. Edit Image1, the exact1254x1254 game map r10_c14 micro-patch p11. Return a fully opaque square with EXACTLY the same crop, camera, scale, object outlines and object positions.\nImage1 already contains the complete intended picture. Keep its composition. Its top and/or left strips are real native neighboring pixels; preserve their line endpoints, silhouettes, colors and brushwork. Its remaining soft area needs freshly painted crisp native detail at this1254 resolution. Naturally connect the existing native contours into that area. Heal the temporary straight composite boundary without retaining any rectangular line, ridge or band. Do not change architecture or invent a different continuation.\nImage2 reinforces the exact SAME framing and geometry. This is a tightly cropped fragment of a much larger scene; objects intentionally exit the frame. NEVER complete an object inside this square if it is cut off in the reference. Do not zoom out, reveal extra eave ends, add foliage or widen the view. Keep every roof/tile seam, support, road grout line, furniture and crate footprint at the reference positions; actual native Image1 boundary endpoints take precedence for small alignment discrepancies.\nImage3 is only the approved art style: clean, bright, rounded Daoist chibi hand painting, ivory/jade/gold materials, controlled highlights and organized subtle brushwork. No UI, writing or characters. Preserve the Mid-Autumn blue-violet evening stones, cobalt water, amber light and jade foliage in Images1/2. Smooth goods stay smooth, fabric stays fabric, foliage stays foliage. Do not add fine noise, blur, sharpening halos, photographic grain, extra decorations, grout branches, text, border or watermark. Generate real native paint detail, retaining the exact Image1 composition.\nSpecific local geometry constraint: Actual native northern paving endpoints and western paving endpoints are authoritative. Continue the exact widths and slopes into the core; the softened planning grid must not introduce extra grout branches or shift the shared northwest corner.",
+    "referenced_image_paths": [
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c14\\native\\p11-edit-target.png",
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c14\\guides\\p11.png",
+      "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png"
+    ],
+    "transparent_background": false
+  },
+  "globalPatchXYWH": [
+    53133,
+    36749,
+    1254,
+    1254
+  ],
+  "core": 1024,
+  "halo": 115,
+  "contextRegions": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c14\\output\\r09_c14-candidate.png",
+      "sha256": "4644eb1abda4cea7c23d82cf72f387e9a5c97985ccf497d0149069f0a67daf07",
+      "cropLTRB": [
+        0,
+        3981,
+        1139,
+        4096
+      ],
+      "pasteXY": [
+        115,
+        0
+      ],
+      "role": "actual northern tile bottom115",
+      "scale": 1
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c13\\output\\r10_c13-candidate.png",
+      "sha256": "c6c7176ea72228aca772c78a17fe8e3b5fc699904f46205d62ae482f420d1a5b",
+      "cropLTRB": [
+        3981,
+        0,
+        4096,
+        1139
+      ],
+      "pasteXY": [
+        0,
+        115
+      ],
+      "role": "actual western tile right115",
+      "scale": 1
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\output\\r09_c13\\r09_c13.png",
+      "sha256": "9de5b3325de9ba147072aab2b5e7effbbd10a033894b928711e572b895429e4d",
+      "cropLTRB": [
+        3981,
+        3981,
+        4096,
+        4096
+      ],
+      "pasteXY": [
+        0,
+        0
+      ],
+      "role": "actual north-west tile common corner",
+      "scale": 1
+    }
+  ]
+}

@@ -131,6 +131,20 @@ def register_native(context, patch, known, owner, edges, layout, max_shift=6., t
     magnitude = np.linalg.norm(field, axis=2)
     flow = field * np.minimum(1, max_shift / np.maximum(magnitude, 1e-6))[:, :, None]
     flow *= weight[:, :, None]
+    # A bounded displacement can still fold if adjacent vectors change too fast.
+    # Only reduce the proposed registration until its local mapping stays positive.
+    flow_scale = 1.0
+    jacobian_before = None
+    for _ in range(20):
+        dy_u, dx_u = np.gradient(flow[:, :, 0])
+        dy_v, dx_v = np.gradient(flow[:, :, 1])
+        field_jacobian = (1 + dx_u) * (1 + dy_v) - dy_u * dx_v
+        minimum = float(field_jacobian[owner].min())
+        if jacobian_before is None: jacobian_before = minimum
+        if minimum >= .25: break
+        flow *= .75
+        flow_scale *= .75
+    else: raise RuntimeError('Unable to keep finite registration orientation positive')
     aligned = cv.remap(patch, xx + flow[:, :, 0], yy + flow[:, :, 1], cv.INTER_CUBIC,
                        borderMode=cv.BORDER_REPLICATE)
     # Estimate color only from low-gradient, similar material support; never blur artwork.
@@ -169,6 +183,9 @@ def register_native(context, patch, known, owner, edges, layout, max_shift=6., t
         'maxAllowedDisplacementVector': max_shift,
         'actualMaxDisplacementVector': float(np.linalg.norm(flow, axis=2).max()),
         'actualMaxDisplacementXY': np.abs(flow).max(axis=(0, 1)).tolist(),
+        'orientationSafetyScale': flow_scale,
+        'jacobianMinimumBeforeSafetyReduction': jacobian_before,
+        'orientationSafetyMargin': .25,
         'rawSupportMaxDisplacementVector': float(np.linalg.norm(raw[known], axis=1).max()),
         'clippedSupportFraction': float(np.mean(magnitude[known] > max_shift)),
         'maxAllowedColorCorrectionRGB': tone_cap,
