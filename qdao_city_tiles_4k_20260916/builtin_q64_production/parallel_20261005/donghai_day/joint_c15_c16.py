@@ -1,0 +1,28 @@
+"""Native joint edits constrained to c16; c15 is immutable source context."""
+from pathlib import Path
+from PIL import Image
+import sys,json,hashlib,shutil
+from datetime import datetime,timezone
+R=Path(__file__).resolve().parent;T=R/'r08_c16';D=T/'repairs/west-only-joint';W=R/'r08_c15/output/r08_c15.png';E=T/'output/r08_c16.png';STYLE=R.parents[3]/'designs/gameplay-ui/04-guild.png'
+WSHA='70ce623a54fb8419b951b7372a88e95db2c8b5ae9e04845c2af2c1fd18312585';ESHA='8c6871e74071f25997e4263bc21518f8b151a97c1b3408546e288f01867c3115';STARTS=[0,1024,2048,2842]
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+load=lambda p:json.loads(Path(p).read_text(encoding='utf-8-sig'))
+def js(p,v):p.parent.mkdir(parents=True,exist_ok=True);tmp=Path(str(p)+'.writing');tmp.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');tmp.replace(p)
+def prepare(i):
+ assert sha(W)==WSHA and sha(E)==ESHA;D.mkdir(parents=True,exist_ok=True);start=STARTS[i-1]
+ pair=Image.new('RGB',(8192,4096));pair.paste(Image.open(W),(0,0));pair.paste(Image.open(E),(4096,0));box=[3469,start,4723,start+1254];baseline=pair.crop(box);raw=hashlib.sha256(baseline.tobytes()).hexdigest();guide=baseline.copy()
+ sources=[{'file':str(W),'sha256':WSHA,'role':'immutable c15 left half, exact neighbor geometry and material'},{'file':str(E),'sha256':ESHA,'role':'frozen c16 right half that may be corrected'}]
+ if i>1:
+  prev=D/f's{i-1}.png';assert prev.exists();overlap=STARTS[i-2]+1254-start;guide.paste(Image.open(prev).crop((627,1254-overlap,1254,1254)),(627,0));sources.append({'file':str(prev),'sha256':sha(prev),'role':f'previous repaired c16-side upper {overlap}px overlap; c15 half remains exact current c15 pixels'})
+ p=D/f's{i}-input.png';assert not p.exists();guide.save(p)
+ js(Path(str(p)+'.generation.json'),{'file':str(p),'sha256':sha(p),'sourceRectInPairXYXY':box,'rawSourceRGBSha256':raw,'derivedFrom':sources,'immutableLeftColumns':[0,627],'finalAllowedC16RectXYXY':[0,start,627,start+1254],'resized':False,'operation':'exact 1254 native joint crop; previous native overlap on c16 half only'})
+ prompt='Use case: precise-object-edit. IMAGE 1 is an exact native joint crop of adjacent fishing-village map tiles. The vertical line at x=627 is an artificial image stitch. The LEFT HALF, x0 through626, is FINISHED IMMUTABLE ART. Copy it exactly; do not alter its geometry, colors, objects or shadows. Repair the RIGHT HALF ONLY so every shape that reaches the left half boundary continues into the right half at its EXACT existing endpoint, angle, thickness and material. The right half currently has misaligned timber rails/diagonal boat board contours and mismatched blue canopy/water fields. The left half is the authority; adapt the right half smoothly to meet it while retaining the unchanged rightmost150 pixels of composition. Reconnect the original shapes, do not add new parts or a divider. Any top overlap in the right half is previously repaired context; continue it naturally. Preserve the rounded wood posts, rope winding, blue-painted hull, brown plank divisions, lantern and narrow blue waterline where present. Keep the same camera, object scale, positions and overall layout. Water must remain calm with broad soft blue/cyan fields; continue the existing broad reflections from the immutable left, do not simplify them into a blank cut or add fine ripples, foam, white glare or netlike caustics. Preserve original lights/shadows and material character; do not globally recolor or relight. IMAGE 2 is primary confirmed bright clean rounded Q-style material rendering quality only; no UI. No new decoration, nails, grain, cracks, characters, text, border, crop, blur, upscaling or artificial sharpening. Return one opaque native1254x1254 corrected IMAGE 1 at highest available finish. Only the right half is editable; exact left-side contour endpoints take precedence over erroneous right-side guide geometry.'
+ (D/f's{i}.txt').write_text(prompt,encoding='utf-8');refs=[{'file':str(p),'sha256':sha(p),'role':'native edit target; left627 columns immutable, connect geometry and materials only on right627 columns'},{'file':str(STYLE),'sha256':sha(STYLE),'role':'primary confirmed rounded Q-style rendering/material reference only'}];js(D/f's{i}.references.json',refs);print(json.dumps({'prompt':prompt,'references':[x['file'] for x in refs]}))
+def record(i,src):
+ src=Path(src);out=D/f's{i}.png';assert not out.exists()
+ with Image.open(src) as im:assert im.size==(1254,1254)
+ shutil.copyfile(src,out);refs=load(D/f's{i}.references.json')
+ js(Path(str(out)+'.generation.json'),{'file':str(out),'sha256':sha(out),'width':1254,'height':1254,'format':'PNG','generatedAt':datetime.now(timezone.utc).isoformat(),'tool':'image_gen.imagegen','route':'builtin','configSnapshot':load(R.parents[3]/'config/image-generation.json'),'submittedParameters':{'model':None,'quality':None,'transparent_background':False,'referenced_image_paths':[x['file'] for x in refs]},'actualModel':None,'actualQuality':None,'unverifiedReason':'Host managed built-in path exposes no selector or returned model/quality metadata.','evidence':{'toolResultSourcePath':str(src),'toolResultSha256':sha(src)},'prompt':str(D/f's{i}.txt'),'promptSha256':sha(D/f's{i}.txt'),'references':refs,'resizedAfterGeneration':False,'finalArtUpscaled':False,'finalAllowedC16RectXYXY':[0,STARTS[i-1],627,STARTS[i-1]+1254],'c15UnchangedRequired':True,'formalAccepted':False});print(json.dumps({'file':str(out),'sha256':sha(out)}))
+if __name__=='__main__':
+ if sys.argv[1]=='prepare':prepare(int(sys.argv[2]))
+ elif sys.argv[1]=='record':record(int(sys.argv[2]),sys.argv[3])

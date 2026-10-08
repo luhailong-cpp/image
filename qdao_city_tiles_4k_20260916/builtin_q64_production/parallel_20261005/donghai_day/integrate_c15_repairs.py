@@ -4,7 +4,7 @@ Default writes a review candidate only. --commit requires saved visual approval.
 All art outside explicit insertion masks remains byte-for-byte identical.
 """
 from pathlib import Path
-import sys,json,hashlib,shutil
+import sys,json,hashlib,shutil,uuid
 import numpy as np
 from PIL import Image,ImageFilter
 import assembly_r08_c15 as a
@@ -13,8 +13,9 @@ import integrate_west as joint
 R=Path(__file__).resolve().parent;T=R/'r08_c15';D=T/'repairs/consolidated'
 if '--broad' in sys.argv:D=T/'repairs/consolidated-broad'
 if '--color' in sys.argv:D=T/'repairs/consolidated-color'
+if '--final' in sys.argv:D=T/'repairs/final-integration'
 S=T/'output/r08_c15.png';BASE='41cd6b8daffcee9e67069688f5b3d5150fbf7576975545ee2287cac44201f50b'
-M=D/'masks';Q=D/'qa';C=D/'candidate.png';EX=D/'extended-context.png'
+M=D/'masks'/('run-'+uuid.uuid4().hex[:8]);Q=D/'qa';C=D/'candidate.png';EX=D/'extended-context.png'
 sha=a.sha;load=a.load_json;js=a.save_json;save=a.save_image
 def rgb(p):
  with Image.open(p) as im:
@@ -45,10 +46,14 @@ def join(patches,starts,orient,x0,y0,label):
  for i,nxt in enumerate(patches[1:],1):
   start=starts[i];axis=1 if orient=='vertical' else 0;ov=out.shape[axis]-start
   if axis==1:
-   mixed,_=seam(out[:,-ov:],nxt[:,:ov],orient,[x0+start,y0,x0+start+ov,y0+out.shape[0]],f'{label}-{i}-{i+1}')
+   mixed,mask=seam(out[:,-ov:],nxt[:,:ov],orient,[x0+start,y0,x0+start+ov,y0+out.shape[0]],f'{label}-{i}-{i+1}')
+   if '--color' in sys.argv:
+    adjusted,correction=match_boundary_color(out[:,-ov:],nxt[:,:ov],mask,f'{label}-{i}-{i+1}-overlap');mixed=a.blend(out[:,-ov:],adjusted,mask);SEAMS[-1]['localColorMatch']=correction
    out=np.concatenate((out[:,:-ov],mixed,nxt[:,ov:]),axis=1)
   else:
-   mixed,_=seam(out[-ov:],nxt[:ov],orient,[x0,y0+start,x0+out.shape[1],y0+start+ov],f'{label}-{i}-{i+1}')
+   mixed,mask=seam(out[-ov:],nxt[:ov],orient,[x0,y0+start,x0+out.shape[1],y0+start+ov],f'{label}-{i}-{i+1}')
+   if '--color' in sys.argv:
+    adjusted,correction=match_boundary_color(out[-ov:],nxt[:ov],mask,f'{label}-{i}-{i+1}-overlap');mixed=a.blend(out[-ov:],adjusted,mask);SEAMS[-1]['localColorMatch']=correction
    out=np.concatenate((out[:-ov],mixed,nxt[ov:]),axis=0)
  return out
 def rect_alpha(base,patch,box,edge,label,boundary_full=()):
@@ -72,7 +77,7 @@ def insert(image,patch,box,edge,label,eligibility=None,rects=None):
   alpha=np.zeros((h,w),np.uint8)
   for i,b in enumerate(rects):
    local=[b[0]-box[0],b[1]-box[1],b[2]-box[0],b[3]-box[1]]
-   allowed=('bottom',) if b[3]==4096 else ()
+   allowed=tuple(side for side,value in [('left',b[0]),('top',b[1]),('right',b[2]),('bottom',b[3])] if value==(0 if side in ('left','top') else 4096))
    m=rect_alpha(cut(before,local),cut(patch,local),b,edge,f'{label}-roi{i+1}',allowed)
    v=cut(alpha,local);np.maximum(v,m,out=v)
  if eligibility is not None:
@@ -102,7 +107,10 @@ def match_boundary_color(before,patch,alpha,label):
  weight[alpha==0]=0
  field=np.clip(field,-32,32)*weight[:,:,None]
  adjusted=np.clip(np.rint(patch.astype(np.float32)+field),0,255).astype(np.uint8)
- fp=M/(label+'-local-color-field.npz');fp.parent.mkdir(parents=True,exist_ok=True);np.savez_compressed(fp,delta_rgb=field.astype(np.float16),weight=weight.astype(np.float16))
+ field16=field.astype(np.float16);weight16=weight.astype(np.float16);key=hashlib.sha256(field16.tobytes()+weight16.tobytes()).hexdigest()[:12]
+ fp=M/(label+'-color-'+key+'.npz');fp.parent.mkdir(parents=True,exist_ok=True)
+ if not fp.exists():
+  with fp.open('wb') as stream:np.savez_compressed(stream,delta_rgb=field16,weight=weight16)
  return adjusted,dict(ref(fp),method='separate-material normalized low-frequency RGB difference field within insertion boundary only',fieldFilter='three separable 49px box passes on RGB DIFFERENCE only',maximumChannelDelta=32,innerFadeDistancePixels=112,distance='Manhattan to insertion-mask zero',fade='quadratic',artImageBlur=False,resampling=False,shapeWarp=False,changedPixels=int(np.any(adjusted!=patch,axis=2).sum()))
 
 def lowpass_field(v):
@@ -115,13 +123,13 @@ def lowpass_field(v):
  return v.astype(np.float32)
 
 def mask_distance(mask):
- mask=np.pad(mask,1);h,w=mask.shape;xx=np.arange(w)[None,:]
+ h,w=mask.shape;xx=np.arange(w)[None,:]
  left=xx-np.maximum.accumulate(np.where(mask,-w,xx),axis=1)
  right=np.minimum.accumulate(np.where(mask,2*w,xx)[:,::-1],axis=1)[:,::-1]-xx
  d=np.minimum(left,right).astype(np.int32)
  for y in range(1,h):np.minimum(d[y],d[y-1]+1,out=d[y])
  for y in range(h-2,-1,-1):np.minimum(d[y],d[y+1]+1,out=d[y])
- return d[1:-1,1:-1]
+ return d
 def qa_extra(image):
  items=[];im=Image.fromarray(image)
  def add(name,box):
@@ -145,6 +153,8 @@ def qa_extra(image):
  add('wood-r-top',[2445,1491,3699,1811]);add('wood-r-bottom',[2445,3769,3699,4089])
  add('wood-r-overlap',[2445,2643,3699,2937])
  for name,box in [('water-a',[796,1956,1654,3229]),('water-b',[1396,2606,2304,3714]),('water-c',[796,2996,1264,4096]),('water-d',[1816,3476,2304,4096])]:add(name,box)
+ for name,box in [('extra-e',[786,1816,1654,2314]),('extra-f',[1776,1736,2694,2364]),('extra-roof',[1776,0,2354,700]),('extra-left-insertion',[2150,1651,2950,2905])]:add(name,box)
+ add('extra-water-horizontal',[0,2990,1024,3390])
  return items
 def build():
  assert sha(S)==BASE,'Source changed; cannot rebuild blindly.'
@@ -187,6 +197,25 @@ def build():
     original=cut(base,box).astype(np.int16);eligible=(original[:,:,2]>original[:,:,0]+25)&(original[:,:,1]>original[:,:,0]+10)
     eligibility=np.asarray(Image.fromarray(eligible.astype(np.uint8)*255).filter(ImageFilter.MinFilter(13)));save(M/'lantern-original-protection.png',Image.fromarray(eligibility))
    e.update(sourceROIValidated=True,sourceRectXYXY=box,rawSourceRGBSha256=meta['rawSourceRGBSha256']);sources.append(e);insert(image,arr,box,64,name,eligibility,rects)
+  frozenpath=T/'repairs/consolidated/candidate.png';assert sha(frozenpath)=='da5d4547ccff249545efc387f6fd0b4ebb88519dc98cbda1c4943b7fc8f13c1f';frozen=rgb(frozenpath)
+  rightfix=[]
+  for name in ('right-upper','right-lower'):
+   d=T/'repairs/insertion-boundaries'/name;arr,e=valid_patch(d/'edited-native.png');meta=load(d/'input.png.generation.json');box=meta['sourceRectXYXY']
+   assert raw(cut(frozen,box))==meta['rawSourceRGBSha256'] and np.array_equal(cut(frozen,box),rgb(d/'input.png'))
+   e.update(sourceROIValidated=True,sourceRectXYXY=box,rawSourceRGBSha256=meta['rawSourceRGBSha256'],sourceCandidate=ref(frozenpath));sources.append(e);rightfix.append(arr)
+  joined=join(rightfix,[0,794],'horizontal',2842,2048,'right-insertion-finish')
+  insert(image,joined,[2842,2048,4096,4096],100,'right-insertion-finish',rects=[[3320,2140,3890,3800]])
+  for relative in ('water-seams/g-left-insertion','root-finishing/roof','root-finishing/left-insertion'):
+   d=T/'repairs'/relative
+   if not (d/'edited-native.png').exists():continue
+   arr,e=valid_patch(d/'edited-native.png');meta=load(d/'input.png.generation.json');box=meta['sourceRectXYXY']
+   assert raw(cut(frozen,box))==meta['rawSourceRGBSha256'] and np.array_equal(cut(frozen,box),rgb(d/'input.png'))
+   eligibility=None
+   if (d/'water-only-eligibility.png').exists():eligibility=np.asarray(Image.open(d/'water-only-eligibility.png').convert('L'));e['protectionMask']=ref(d/'water-only-eligibility.png')
+   e.update(sourceROIValidated=True,sourceRectXYXY=box,rawSourceRGBSha256=meta['rawSourceRGBSha256'],sourceCandidate=ref(frozenpath));sources.append(e);insert(image,arr,box,64,relative.replace('/','-'),eligibility,meta['intendedRepairRectsXYXY'])
+  d=T/'repairs/insertion-boundaries/water-left-horizontal';arr,e=valid_patch(d/'edited-native.png');meta=load(d/'input.png.generation.json');box=meta['sourceRectXYXY']
+  assert raw(cut(frozen,box))==meta['rawSourceRGBSha256'] and np.array_equal(cut(frozen,box),rgb(d/'input.png'))
+  e.update(sourceROIValidated=True,sourceRectXYXY=box,rawSourceRGBSha256=meta['rawSourceRGBSha256'],sourceCandidate=ref(frozenpath));sources.append(e);insert(image,arr,box,64,'water-left-horizontal',rects=[[128,3070,930,3310]])
  assert np.array_equal(image[GLOBAL_MASK==0],base[GLOBAL_MASK==0])
  assert np.array_equal(image[:,:128],base[:,:128]) and np.array_equal(image[:,-128:],base[:,-128:])
  candidate=save(C,Image.fromarray(image));oldex=T/'output/extended-context.png';assert sha(oldex)==oldmanifest['extendedContext']['sha256']

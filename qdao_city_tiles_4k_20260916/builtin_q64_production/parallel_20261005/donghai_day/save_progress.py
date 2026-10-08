@@ -113,10 +113,24 @@ def collect_work(directories, selected):
         files = [p for p in d.rglob("*") if p.is_file()]
         phase = ("candidate_pending_scoped_review" if d.name in selected else
                  "assembly_pending" if not missing else "native_expansion_in_progress" if valid else "structure_preparation")
+        pending_review = False
+        local_state = None
+        manifest_path = d / "output/assembly-manifest.json"
+        if d.name in selected and manifest_path.is_file():
+            try:
+                manifest = load(manifest_path)
+                if manifest.get("output", {}).get("sha256") == selected[d.name]["sha256"]:
+                    local_state = manifest.get("status", "")
+                    pending_review = "pending" in local_state or "repair-required" in local_state
+                    if not pending_review and ("reviewed" in local_state or manifest.get("postprocessingProtected")):
+                        phase = "scoped_review_complete_pending_city_acceptance"
+            except (OSError, ValueError, KeyError, TypeError):
+                pass
         work.append({"tile": d.name, "globalRect": rect(d.name), "nativePatchesSaved": len(valid),
                      "nativePatchesRequired": 16, "nativePatchIds": valid, "missingNativePatchIds": missing,
                      "invalidNativeFiles": invalid, "hasCompletePixelCandidate": d.name in selected,
-                     "phase": phase, "lastSourceChangeUnix": max((p.stat().st_mtime for p in files), default=d.stat().st_mtime),
+                     "phase": phase, "localCandidateStatus": local_state, "pendingLocalReviewOrRepair": pending_review,
+                     "lastSourceChangeUnix": max((p.stat().st_mtime for p in files), default=d.stat().st_mtime),
                      "fragmentsCountAsTiles": False})
         for p in sorted(d.rglob("*review*.json")):
             if "preview" in p.name:
@@ -124,9 +138,9 @@ def collect_work(directories, selected):
             try:
                 data = load(p)
                 candidate = data.get("candidate", {})
-                bound = data.get("candidateSha256") or (candidate.get("sha256") if isinstance(candidate, dict) else None)
+                bound = data.get("candidateSha256") or data.get("finalCandidateSha256") or (candidate.get("sha256") if isinstance(candidate, dict) else None)
                 current = selected.get(d.name)
-                reviews.append({"tile": d.name, "file": str(p), "sha256": sha(p), "declaredStatus": data.get("status"),
+                reviews.append({"tile": d.name, "file": str(p), "sha256": sha(p), "declaredStatus": data.get("status", data.get("result")),
                                 "candidateSha256": bound,
                                 "matchesCurrentTileSha": bool(bound and current and bound == current["sha256"]),
                                 "scopeMustBeRead": True, "promotesFormalAcceptance": False})
@@ -170,7 +184,7 @@ def save_readme(s):
              "| 坐标 | 当前候选 | 来源 | SHA-256 |", "|---|---|---|---|"]
     for e in s["candidates"]:
         lines.append(f"| {e['tile']} | [PNG]({link(e['file'])}) | {e['source']} | {e['sha256']} |")
-    lines += ["", f"当前优先在制块：**{s['activeTile'] or '无缺片在制块'}**；阶段：{s['phase']}。", ""]
+    lines += ["", f"当前优先在制块：**{s['activeTile'] or '无缺片或明确待局部修补块'}**；阶段：{s['phase']}。", ""]
     for w in s["workInProgress"]:
         lines.append(f"- {w['tile']}：已核验原生片 {w['nativePatchesSaved']}/16；{'已有完整像素候选' if w['hasCompletePixelCandidate'] else '尚无完整像素候选'}。片段、结构参考和透明进度图不计整块。")
     if s["excludedCandidates"]:
@@ -202,7 +216,7 @@ def main():
     entries, thumbs, excluded = collect_candidates(h, directories)
     selected = {e["tile"]: e for e in entries}
     work, reviews = collect_work(directories, selected)
-    active = max((w for w in work if not w["hasCompletePixelCandidate"]),
+    active = max((w for w in work if not w["hasCompletePixelCandidate"] or w["pendingLocalReviewOrRepair"]),
                  key=lambda w: w["lastSourceChangeUnix"], default=None)
     if active and any(e["tile"] == active["tile"] for e in excluded):
         active["phase"] = "candidate_validation_failed"
@@ -211,6 +225,7 @@ def main():
         "native_expansion_in_progress": "Continue missing native patches, then assemble and inspect required scopes.",
         "assembly_pending": "All 16 native patches are present; assemble the full tile and inspect required scopes.",
         "candidate_validation_failed": "Resolve the excluded current candidate's file, dimensions or SHA evidence before counting it.",
+        "candidate_pending_scoped_review": "Complete the active candidate's documented local seam repairs and scoped native-pixel review before stabilizing this tile.",
     }
     baseline_ids = {e["tile"] for e in h.get("baselineCandidates", [])}
     work_by_id = {w["tile"]: w for w in work}

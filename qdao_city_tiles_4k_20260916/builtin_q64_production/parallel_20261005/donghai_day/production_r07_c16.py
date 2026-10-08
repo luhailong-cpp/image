@@ -68,6 +68,9 @@ def guide(row,column):
         if not src.exists():continue
         sx=x-115+(cc-1)*1024;sy=y-115+(rr-1)*1024
         paste(src,(sx,sy,sx+1254,sy+1254),'actual overlapping same-tile native neighbor pixels')
+    if row==4:
+        n=checked_neighbor('south');nx,ny,nw,nh=n['globalRect']
+        paste(Path(n['file']),(nx,ny,nx+nw,ny+nh),'authoritative final south neighbor pixels restored after same-tile contexts; exact geometry takes precedence')
     path=p.T/'guides'/f'{name}.png';g.save(path)
     record={'file':str(path),'sha256':p.sha(path),'operation':'reference-only structure crop plus exact global rectangle intersections of verified neighbor pixels','derivedFrom':refs,'globalBox':list(box),'allowedInFinal':False,'resampledNativeContext':False}
     if column==4:record['mapBoundaryContext']={'mapRightExclusive':65536,'contextRightExclusive':65651,'outOfCityRightPixels':115,'handling':'native continued context only, excluded from final core','finalPixelsPaddedOrUpscaled':False}
@@ -89,6 +92,7 @@ def prepare(row,column):
     target=guide(row,column)
     prompt='''Use case: precise-object-edit. Edit IMAGE 1 only for a native-pixel crop of a bright clean rounded Q-style fishing village. Preserve the quiet smooth blue/cyan WATER as broad soft low-contrast color fields. Do not add water details, ripple contours, cells, foam, bright streaks, wave blocks, caustic lines, pale patches or grain. This calm blue plane is intentional final art. Polish only existing pictured cropped boat, timber, mast or rope if present, retaining every original shape, position, outline, proportion, color and light. No new object, structure, rope, plank joint or decoration. Sharp strips at any edge are actual already generated neighboring context: preserve their geometry and colors, continue smoothly across the sharp/soft boundary without a line. Do not treat the strip boundary as a physical object. If the crop only contains water, return quiet water only. IMAGE 2 is the PRIMARY confirmed style: controlled clean outlines, rounded volumes, warm hand-painted timber; no UI. Keep the camera and crop fixed. One opaque 1254x1254 native image, highest available finish, no text, characters, border, crop, zoom, blur filter, oversharpening or photoreal texture.'''
     if column==4:prompt+=' The outermost right 115 pixels are out-of-map continuation context and will be excluded from the final core.'
+    if row==4:prompt+=' The bottom 115-pixel sharp strip contains the final south neighbor and is immutable geometry: keep every rail, mast or rope endpoint at its exact existing position, width and angle. Adapt the softer interior to meet those endpoints smoothly; a conflict in the soft guide is not permission to move the bottom strip. Keep open water calm and match the existing broad low-contrast blue color fields.'
     save_prompt(f'r{row:02d}_c{column:02d}',prompt,target,'edit target; exact field of view, reference-only interior with actual native neighboring strips')
 
 if __name__=='__main__':
