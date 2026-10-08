@@ -1,0 +1,36 @@
+{
+  "reviewer": "root",
+  "source": "r08_c13/tone-assembly/output/r08_c13.png",
+  "sourceSha256": "1716a3d15381c91019b6e58b0bde3acdb361e64f468697a90b3b5ad66e540b54",
+  "scope": "Actual native-scale viewing of all twelve horizontal return images and the nine-junction sheet. Later localized repairs are recorded separately and preserve their exterior pixels.",
+  "actualViewed": [
+    "y1024-return-part01.png", "y1024-return-part02.png", "y1024-return-part03.png", "y1024-return-part04.png",
+    "y2048-return-part01.png", "y2048-return-part02.png", "y2048-return-part03.png", "y2048-return-part04.png",
+    "y3072-return-part01.png", "y3072-return-part02.png", "y3072-return-part03.png", "y3072-return-part04.png",
+    "nine-internal-junctions.png"
+  ],
+  "findings": [
+    {"id": "C13-SHADOW-VERTICAL-LIGHTING", "status": "resolved_by_internal_shadow_repair", "note": "Artificial x1139 shadow brightness step, confirmed by vertical reviewer and visible in first junction crop."},
+    {"id": "C13-WALL-HORIZONTAL-LIGHTING", "status": "resolved_by_completed_candidate_wall_repair", "note": "Near-horizontal color cutoff at tile y1139 on retaining-wall face in y1024-return-part03. DAY comparison confirms it is not mortar."}
+  ],
+  "otherScopeObservation": "Timber, post, rope and main paving lines remain continuous over remaining reviewed horizontal returns. Stone contours with irregular corners are retained from geometry sources; no ungrounded shape cleanup is treated as QA.",
+  "additionalActualViewed": [
+    "r08_c13/west-final/qa/old-paving-offset-focus.png",
+    "r08_c13/west-final/qa/longitudinal-2-return.png",
+    "r08_c13/completed-candidate/qa/paving-upper-center-focus.png",
+    "r08_c13/completed-candidate-v2/qa/color-complete-return.png"
+  ],
+  "additionalObservation": "Root independently confirmed two truncated paving joints and the later faint vertical color step. Their dedicated repairs have native-scale child-agent complete-crop and four-return reviews. Root viewed final color complete return: paving now continuous and the faint straight color edge no longer apparent.",
+  "finalCandidate": "r08_c13/completed-candidate-v2/output/r08_c13.png",
+  "finalCandidateSha256": "bd2ccf25c06f3e22797cd153c26df45247ee9d099adb8d191a72d282cb78b1c6",
+  "inherits": [
+    "r08_c13/tone-assembly/qa/vertical-review.json",
+    "r08_c13/internal-repaired/qa/vertical-review.json",
+    "r08_c13/west-final/qa/review.json",
+    "r08_c13/completed-candidate/qa/review.json",
+    "r08_c13/completed-candidate-v2/qa/review.json"
+  ],
+  "formalAccepted": false,
+  "clientAccepted": false,
+  "remaining": "Other neighbors and whole-city/client review; DAY local paving geometry synchronization as separately documented."
+}

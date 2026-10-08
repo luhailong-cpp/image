@@ -78,7 +78,12 @@ def load_rgb(path, expected_hash, expected_size):
 def validate_inputs():
     """Return lantern arrays, day arrays and immutable evidence for all 16."""
     manifest_hash = sha(DAY_MANIFEST)
+    preflight = read(TILE / "qa/assembly-preflight.json")
+    require(manifest_hash == preflight["dayManifest"]["sha256"], "Day manifest changed from the reviewed c13 geometry contract")
     manifest = read(DAY_MANIFEST)
+    cleanup_path = ROOT / "audit/duplicate-cache-cleanup.json"
+    cleanup = read(cleanup_path)
+    cleanup_entries = {str(Path(e["recordFile"]).resolve()): e for e in cleanup["entries"] if e.get("status") == "deleted"}
     require(manifest["parameters"]["order"] == "assemble each row left-to-right, then rows top-to-bottom", "Unknown day assembly order")
     for key in ("registration", "colorCorrection", "spatialResampling", "imageBlur", "maskBlur"):
         require(manifest["parameters"][key] is False, f"Unsupported day geometry/processing field: {key}")
@@ -105,6 +110,15 @@ def validate_inputs():
             require(isinstance(raw, str) and raw, f"Missing actual tool path: {name}")
             if Path(raw).is_file():
                 require(sha(raw) == record["sha256"], f"Available tool-result bytes differ: {name}")
+                raw_evidence = {"status": "present-and-byte-identical"}
+            else:
+                deleted = cleanup_entries.get(str(record_path.resolve()))
+                require(deleted is not None, f"Missing tool cache without recorded retention cleanup: {name}")
+                require(same_path(deleted["originalToolResultSourcePath"], raw), f"Cleanup original path differs: {name}")
+                require(same_path(deleted["nativeFile"], path), f"Cleanup retained path differs: {name}")
+                require(all(deleted[key] == record["sha256"] for key in ("verifiedNativeSha256", "verifiedCacheSha256", "retainedNativeSha256AfterDeletion")), f"Cleanup byte-identity proof differs: {name}")
+                require(deleted["retainedRecordSha256AfterDeletion"] == sha(record_path), f"Record changed since cache cleanup: {name}")
+                raw_evidence = {"status": "byte-identical-cache-deleted-under-retention-policy", "auditFile": str(cleanup_path), "auditSha256": sha(cleanup_path), "deletedAtUtc": deleted["deletedAtUtc"], "receiptRecreated": False}
             refs, submitted = record["references"], record["submittedParameters"]
             require(len(refs) == len(submitted["referenced_image_paths"]) and len(refs) >= 3, f"Incomplete actual references: {name}")
             for ref, actual_path in zip(refs, submitted["referenced_image_paths"]):
@@ -130,6 +144,7 @@ def validate_inputs():
                             "extendedRectXYWH": [(column - 1) * CORE, (row - 1) * CORE, PATCH, PATCH],
                             "sourceResized": False, "geometryVisuallyAccepted": False,
                             "toolResultSourcePath": raw, "toolResultAvailable": Path(raw).is_file(),
+                            "toolResultAvailabilityEvidence": raw_evidence,
                             "allActualReferenceHashesVerified": True,
                             "submittedModel": None, "submittedQuality": None, "actualModel": None, "actualQuality": None})
     require(sha(DAY_MANIFEST) == manifest_hash, "Day manifest changed during validation; rerun against a stable snapshot")
