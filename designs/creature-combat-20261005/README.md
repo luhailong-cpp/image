@@ -1,5 +1,7 @@
 # Image 原有宠物战斗动作窗口
 
+2026-10-08 续作：[统一动作预览](delivery/index.html) · [当前交付总表](delivery/README.md) · [独立复核快照](delivery/AUDIT_20261008.md)。下面是10月5日创建记录，不能代替当前完成状态。
+
 用户指定范围：只用 D:/work/image 原本已有的形象。此前6种客户端来源怪物窗口已归档并排除。
 
 误导入参考和衍生拒稿图的删除操作被自动审批以“blocked by policy”拦截，未执行删除；原图和文字来源记录仍在隔离目录，但全部排除于本次名单与使用范围。见 [清理状态](D:/work/image/designs/creature-combat-20261005/excluded-image-cleanup-status.json)。
