@@ -21,3 +21,5 @@
 普攻08首稿头抬得过早，未作为最终图使用。拒稿文字记录为`attack-W-08.attempt-01.json`，对应原提示词在`prompts/w-hit-attack/attack-W-08.attempt-01.txt`。第一次修正请求返回`image generation failed: connection failed: error sending request`，没有输出，原文与输入保存在`attack-W-08.retry-02-error.json`。随后仍通过内置工具重试成功，实际附入普攻07作为第四张姿态连续性参考，得到低头顶击极点；当前`attack-W-08.json`为最终记录。
 
 本组未写公共README、manifest、STATUS或MERGE_HANDOFF，未触碰客户端与Git。项目目录没有生成原图副本；宿主自动落盘路径仍可由每帧source字段追溯，待总资源引用确认后按根素材保留规则统一处理。
+
+2026-10-08：以上为初次分组检查历史。所列旧总览已按素材保留规则清理，当前全帧图在 preview/contact；W attack06 后续已定点修订，最终以 qa/W-final-review.json 和 qa/final-review.json 为准。

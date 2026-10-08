@@ -24,7 +24,7 @@ button,select,input{font:inherit}button,select{background:#26392e;color:var(--in
 </div>
 <div class="grid" id="groups"></div>
 <p class="review-note">六组共用播放起点，分别按 40 / 30 / 45 ms 每帧循环。暂停后可独立拖动每组帧号；十字为统一落地锚点。</p>
-<footer class="foot"><span id="playState" role="status">正在载入图片…</span><span>画面与动态需人工验收 · 游戏接入未验证</span></footer>
+<footer class="foot"><span id="playState" role="status">正在载入图片…</span><span>游戏接入未验证</span></footer>
 </main>
 <dialog id="zoom"><div class="dialog-head"><h2 id="zoomTitle"></h2><button id="zoomClose">关闭</button></div><div class="stage" id="zoomStage"><img id="zoomImage" alt=""><div class="missing" hidden id="zoomMissing">该帧尚未提供</div><span class="anchor"><i></i></span></div><div class="dialog-controls"><button id="zoomBack">←</button><input id="zoomSlider" type="range" min="1" value="1" aria-label="放大帧号"><button id="zoomNext">→</button><span id="zoomFrame"></span></div></dialog>
 <script id="previewData" type="application/json">__PREVIEW_DATA__</script>
@@ -63,3 +63,4 @@ Promise.all(states.flatMap(state=>state.group.frames.map(frame=>new Promise(reso
 </script>
 </body>
 </html>
+
