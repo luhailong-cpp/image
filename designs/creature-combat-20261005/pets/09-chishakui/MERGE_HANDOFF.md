@@ -1,15 +1,11 @@
 # 赤砂魁交接
 
-本目录为Image原有宠物赤砂魁战斗动作任务，非新增身份。只制作hit/attack/cast两向；没有移动序列。
+本包为Image原有赤砂魁的受击、普攻、施法E/W六组，共68张1024 RGBA；不含移动序列。2026-10-08已用内置AI定点修正cast W08–10支撑，其他65张复用，当前事实以STATUS.md、manifest.json和validation.json为准。
 
-正式帧68/68及交付包已完成；技术检查通过，六组全帧已静态实看，连续播放视觉待验。最终状态见STATUS.md；工具来源见records/、prompts/与PNG旁.generation.json。旧静态身份、公共规范及其它宠物未修改。
+只接收本目录。runtime是正式透明图，PNG旁generation.json关联实际来源；prompts/records保存模型目标、实际未披露字段、原生SHA和拒稿文字历史。旧静态身份、公共规范、其他角色和客户端未修改，无Git操作。
 
-合并只接收本目录。不要复制旧身份图为缺失帧，不镜像E当W，不用整体平移、插值或复制帧补数量。E朝右下斜前；W朝左上斜后；解剖右手锤，空左手，窑炉背中央。
+E斜前朝右下，W真正斜后朝左上。解剖右手持单柄玉锤、左掌施法、背中央窑炉、双臂双靴。整画布统一1254→1024导出，无逐帧脚位对齐、裁边、镜像、整体平移或鞋子粘贴。名义pivot[0.5,0.08]/顶部锚点[512,942]与真实绘制坐标分开记录。
 
-导出为整个原生方形画布统一等比到1024，无逐帧裁边、重新对脚或动作插值。合同名义pivot[0.5,0.08]、顶部锚点[512,942]；实际绘制位置需参考preview及manifest alpha包围盒。
+preview/index.html需连同playback-state.js/player.js使用，含正常/0.25倍/暂停/逐帧。六张联系表、十二条APNG、十二条AVI审阅视频与来源已更新；AVI为棋盘底/帧号的MJPEG预览，不替代runtime透明图。工具包括package.py、finalize.py、make-native-previews.py、verify-current-previews.py和measure-cast-support.py。
 
-客户端未接入或验证。浏览器file:安全策略拒绝导致连续播放实看尚未完成，不得标动态验收通过。
-
-接收文件包括runtime正式PNG与逐图记录、manifest/SHA256SUMS、preview六组全帧/原速/慢放与逐帧HTML、来源索引、prompt/receipt文字、POSES/README/STATUS/VISUAL_REVIEW和工具。清理证明见cleanup.json；被删除的参考裁图仅是历史生成输入，不是运行依赖。
-
-须复核的运动细节：cast W08–10纵向脚位/尺度仍有波动；attack W10采用自然抬右腿回收，仍有约20px轮廓/支撑差；cast E约12px底边差。不要用逐帧脚点重对齐掩盖这些差异。动态验收应覆盖六组正常速度、0.25倍、收势到首帧与跨动作切换。
+当前静态证据与支撑修正见VISUAL_REVIEW.md、records/cast-W-support-repair-20261008.json及before/after测量。旧无须修图判断与旧SHA均为历史，不能用于当前验收。仍需六组真实原速/慢放连播及收势衔接验收：工具访问/原生播放器故障使其未完成，不得标动态通过。客户端集成未执行。

@@ -12,6 +12,11 @@ def resolve(p):
     return p if p.is_absolute() else ROOT/p
 preview=ROOT/'preview'; preview.mkdir(exist_ok=True)
 qa=ROOT/'qa'; qa.mkdir(exist_ok=True)
+review_path=qa/'visual-review.json'
+review=json.loads(review_path.read_text(encoding='utf-8')) if review_path.exists() else {}
+reviewed_hashes={f['file']:f['sha256'] for f in review.get('frameSnapshot',[])}
+reviewed_indices={f['file']:i for i,f in enumerate(review.get('frameSnapshot',[]))}
+review_sha=sha(review_path) if review_path.exists() else None
 frames=[]; missing=[]; issues=[]; seen={}; groups=[]; preview_records=[]
 for action,(count,ms) in SPECS.items():
  for direction in ['E','W']:
@@ -38,6 +43,9 @@ for action,(count,ms) in SPECS.items():
    bbox=Image.fromarray((a>=16).astype('uint8')*255).getbbox()
    edge=int(np.count_nonzero(a[0]>=16)+np.count_nonzero(a[-1]>=16)+np.count_nonzero(a[:,0]>=16)+np.count_nonzero(a[:,-1]>=16))
    f={'file':rel(p),'action':action,'direction':direction,'frame':i,'width':im.width,'height':im.height,'mode':im.mode,'durationMs':ms,'pivot':[0.5,0.08],'anchorTopLeft':[512,942],'event':('attack' if action=='attack' and i==7 else 'cast' if action=='cast' and i==9 else None),'sha256':digest,'sourceRecord':rel(side) if side.exists() else None,'visualStatus':'pending full sequence review','technical':{'alphaExtrema':[int(a.min()),int(a.max())],'alpha16BBox':bbox,'alpha16EdgePixels':edge,'nonzeroEdgePixels':int(np.count_nonzero(a[0])+np.count_nonzero(a[-1])+np.count_nonzero(a[:,0])+np.count_nonzero(a[:,-1])),'transparentPixels':int(np.count_nonzero(a==0)),'issues':bad}}
+   if review.get('status')=='reviewed-with-notes' and not review.get('blockingFindings') and reviewed_hashes.get(rel(p))==digest:
+    f['visualStatus']='reviewed-with-notes'
+    f['visualReview']={'file':rel(review_path),'sha256':review_sha,'jsonPointer':f'/frameSnapshot/{reviewed_indices[rel(p)]}','frameSHA256':digest}
    frames.append(f);group['frames'].append(f)
    if bad: issues.append({'file':rel(p),'issues':bad})
    if edge:issues.append({'file':rel(p),'issues':['alpha16 touches canvas'],'pixels':edge})
@@ -46,8 +54,9 @@ for action,(count,ms) in SPECS.items():
   if thumbs:
    cols=4;rows=math.ceil(len(thumbs)/cols);sheet=Image.new('RGB',(cols*256,rows*282),'#172b28')
    for n,t in enumerate(thumbs):sheet.paste(t,((n%cols)*256,(n//cols)*282))
-   sheet.save(preview/f'{action}-{direction}-contact.jpg',quality=93)
-   preview_records.append({'file':f'preview/{action}-{direction}-contact.jpg','operation':'Scale to256 and composite ordered preview on dark background with labels; not game frames.','derivedFrom':[{'file':f['file'],'sha256':f['sha256']} for f in group['frames']]})
+   contact=preview/f'{action}-{direction}-contact.jpg'
+   sheet.save(contact,quality=93)
+   preview_records.append({'file':rel(contact),'sha256':sha(contact),'operation':'Scale to256 and composite ordered preview on dark background with labels; not game frames.','derivedFrom':[{'file':f['file'],'sha256':f['sha256']} for f in group['frames']]})
   if len(playback)==count:
    for speed,multiplier in [('1x',1),('025x',4)]:
     output=preview/f'{action}-{direction}-{speed}.png'
@@ -55,9 +64,16 @@ for action,(count,ms) in SPECS.items():
     preview_records.append({'file':rel(output),'sha256':sha(output),'format':'APNG','width':384,'height':384,'frameDurationMs':ms*multiplier,'operation':'Whole-canvas384 preview with original ordered AI frames, no motion interpolation.','derivedFrom':[{'file':f['file'],'sha256':f['sha256']} for f in group['frames']]})
   groups.append(group)
 manifest={'schemaVersion':1,'pet':'08-zhufengli','name':'竹风狸','expectedFrameCount':68,'frameCount':len(frames),'complete':not missing,'coordinateConvention':'Top-left origin; pivot normalized from bottom-left. Same whole-native-canvas resize to 1024 in every action/direction; no per-frame crop or foot alignment.','clientIntegration':'not performed; asset-only','frames':frames}
+manifest['technicalStatus']='pass' if not missing and not issues else 'incomplete-or-needs-review'
+manifest['visualStatus']='reviewed-with-notes' if len(frames)==68 and all(f['visualStatus']=='reviewed-with-notes' for f in frames) else 'pending full sequence review'
+manifest['visualReview']='qa/visual-review.json' if review else None
+manifest['visualReviewSHA256']=review_sha
+manifest['deliveryComplete']=manifest['complete'] and manifest['technicalStatus']=='pass' and manifest['visualStatus']=='reviewed-with-notes'
 (ROOT/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
 (ROOT/'SHA256SUMS.txt').write_text('\n'.join(f["sha256"]+'  '+f['file'] for f in frames)+'\n',encoding='utf-8')
 (qa/'technical.json').write_text(json.dumps({'checkedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'expected':68,'found':len(frames),'missing':missing,'issues':issues,'duplicateCount':len(frames)-len(seen),'status':'pass' if not missing and not issues else 'incomplete-or-needs-review','scope':'Technical checks only, not art or client acceptance.'},ensure_ascii=False,indent=2),encoding='utf-8')
 (preview/'data.js').write_text('window.GROUPS='+json.dumps(groups,ensure_ascii=False)+';',encoding='utf-8')
 (preview/'sources.json').write_text(json.dumps(preview_records,ensure_ascii=False,indent=2),encoding='utf-8')
+document_files=sorted(p for p in ROOT.rglob('*') if p.is_file() and p.suffix.lower() in {'.md','.json','.txt','.html','.js','.py'} and p.name!='DOCUMENT_SHA256SUMS.txt')
+(ROOT/'DOCUMENT_SHA256SUMS.txt').write_text('\n'.join(sha(p)+'  '+rel(p) for p in document_files)+'\n',encoding='utf-8')
 print(json.dumps({'found':len(frames),'missing':len(missing),'issues':issues},ensure_ascii=False))
