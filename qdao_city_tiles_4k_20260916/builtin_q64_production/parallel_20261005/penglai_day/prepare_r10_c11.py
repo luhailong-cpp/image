@@ -1,0 +1,16 @@
+from pathlib import Path
+B=Path(__file__).resolve().parent
+R=B/'r10_c11';R.mkdir(exist_ok=True)
+s=(B/'r10_c14/helper.py').read_text(encoding='utf8')
+s=s.replace('r10_c14','r10_c11').replace('GX,GY=53248,36864','GX,GY=40960,36864')
+s=s.replace("north=BASE/'r09_c14/repairs/west/output/r09_c14-left-candidate-v1.png';west=BASE/'r10_c13/tiles/r10_c13-candidate.png'","north=Path(h['baselineCandidates'][1]['file']);west=BASE/'r10_c12/repairs/north/joint-v4/r10_c12-north-joint-candidate.png'")
+s=s.replace('west','east').replace("'stable':False","'stable':True")
+s=s.replace('Interim source geometry, final boundary candidate will be locked before top/left detail where available','Verified source geometry, north inherited candidate and east repaired v4 frozen by SHA')
+s=s.replace('(3981,0,4096,4096)','(0,0,115,4096)')
+s=s.replace("(0,33));dest=ROOT/'references/layout-anchors-only.png'","(1221,33));dest=ROOT/'references/layout-anchors-only.png'")
+s=s.replace("('east',(0,115))","('east',(4211,115))")
+s=s.replace("('east',c==1)","('east',c==4)")
+s=s.replace('else (2957,lo,4096,hi)','else (0,lo,1139,hi)')
+s=s.replace('right115px corresponds to target left115px','left115px corresponds to target right115px')
+(R/'helper.py').write_text(s,encoding='utf8')
+print(R/'helper.py')

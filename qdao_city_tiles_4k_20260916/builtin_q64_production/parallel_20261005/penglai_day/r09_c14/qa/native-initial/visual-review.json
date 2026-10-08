@@ -1,0 +1,48 @@
+{
+  "reviewedAt": "2026-10-08T10:48:05.491Z",
+  "candidate": "tiles/r09_c14-candidate.png",
+  "method": "Actual view_image inspection of six full native 256px-wide line sheets, nine 400px junctions, four 320px west shared strips. Integer crops and 90-degree rotations only; native boards max1376.",
+  "all16NativePatches": true,
+  "fullPixelCandidate": true,
+  "formalAccepted": false,
+  "summary": "Geometry is mostly well aligned. Straight color/brush texture changes remain on all six internal cuts and west joint. Candidate is NOT seamless or final.",
+  "findings": [
+    {
+      "region": "x1024 y0..600",
+      "issue": "flower petals and foliage have conspicuous horizontal material/colour break in rotated strip; prefer ownership cut or native edit where petal appearance differs"
+    },
+    {
+      "region": "x1024 y~1600..2300 and y~3072..4096",
+      "issue": "wall and ground textures/color jump; major geometry not visibly broken"
+    },
+    {
+      "region": "x2048 y0..1024; x3072 y0..1024; all y1024",
+      "issue": "broad rock facets show straight rectangular texture discontinuities"
+    },
+    {
+      "region": "x2048 y~2400..3072; x3072 y~2400..3072",
+      "issue": "wood posts/rails small texture discontinuity; inspect narrow tangent after matching"
+    },
+    {
+      "region": "y2048 x1024..4096",
+      "issue": "foliage and wood material/colour seam with small leaf contour stepping"
+    },
+    {
+      "region": "y3072 x1024..2048",
+      "issue": "basket-weave ornament transition and wood texture seam; preserve whole pattern with source ownership if possible"
+    },
+    {
+      "region": "y3072 x3072..4096",
+      "issue": "shadow/cream paving horizontal paint boundary"
+    },
+    {
+      "region": "west x0 full4096",
+      "issue": "two sides differ visibly in painting strength/colour, especially lamp near y0..1300 and foliage y1024..2048; requires shared joint treatment"
+    },
+    {
+      "region": "nine junctions",
+      "issue": "square quadrant texture/colour changes visible at several centers; all audited, not accepted"
+    }
+  ],
+  "next": "Joint native overlap assembly with bounded recorded color matching; AI where incompatible texture/geometry cannot be matched; no blur over geometry"
+}

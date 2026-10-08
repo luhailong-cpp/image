@@ -1,0 +1,40 @@
+{
+  "reviewedAt": "2026-10-08T06:06:50.231935+00:00",
+  "decision": "accept_local_v3_repair_for_integration_and_north_anchor",
+  "formalCityAccepted": false,
+  "clientValidated": false,
+  "inspectedAtNativePixels": true,
+  "reviewer": "verify_left_joint independent agent",
+  "inspectedFiles": [
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\left-edge\\both-side\\qa-review-20261008\\left-outer-four-segments-native.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\left-edge\\both-side\\qa-review-20261008\\shared-four-segments-native.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\left-edge\\both-side\\qa-review-20261008\\right-outer-four-segments-native.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\left-edge\\both-side\\qa-v3-junction-y1024.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\left-edge\\both-side\\qa-v3-junction-y2048.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\left-edge\\both-side\\qa-v3-junction-y3072.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\left-edge\\both-side\\qa-v3-endpoints.png"
+  ],
+  "findings": {
+    "sharedAllFour": "Timber ends, stone railings, paving grooves and golden roof edges remain continuous; no doubled post, split object or missing contour at tile boundary.",
+    "leftOuterAllFour": "No structural break. Minor painted-surface and bevel brightness transitions in segments 3 and 4 remain visible at native scale but do not create a geometry discontinuity.",
+    "rightOuterAllFour": "Timber and stone contours remain connected; painted paving variation remains plausible and does not create a straight tile-grid stripe.",
+    "segmentJunctions": "All three native overlap junctions maintain paving or railing/roof topology. Small bevel changes follow existing painted forms.",
+    "endpoints": "Top wood and bottom golden roof endpoint geometry is continuous."
+  },
+  "technicalAudit": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\left-edge\\both-side\\qa-review-20261008\\technical-audit.json",
+  "integration": {
+    "jointStrip": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\left-edge\\both-side\\joint-quilt-native-v3.png",
+    "binaryMask": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\repairs\\left-edge\\both-side\\joint-quilt-mask-v2.png",
+    "jointGlobalRectXYWH": [
+      48525,
+      32768,
+      1254,
+      4096
+    ],
+    "jointTileBoundaryX": 627,
+    "c12": "Use c12-right-revised-candidate-v3.png as the new derived tile. Original c12 source is unchanged. Only x >= 3509 can differ.",
+    "c13": "Do NOT replace the complete internal-seam candidate with the raw-based c13-left-revised candidate. Paste quilt crop [627,0,1254,4096] at destination [0,0] using identically cropped binary mask. Mask values are 0 or 255, no feather. c13 columns x >= 587 are untouched by this operation. Inspect merged outer perimeter after internal corrections.",
+    "northAnchor": "For r10_c12 use the revised c12 candidate bottom crop [0,3981,4096,4096] as the north 115-pixel anchor. Its modified columns are confined to x >= 3509 and therefore affect p14; existing p11-p13 references end before this extent.",
+    "scope": "Approval covers the reviewed local c12/c13 joint only, not entire c13 internal seams, city completeness, navigation, or client loading."
+  }
+}

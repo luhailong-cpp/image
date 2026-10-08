@@ -1,0 +1,105 @@
+{
+  "rawTile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\r10_c13\\tiles\\r10_c13-candidate.png",
+  "rawSha256": "ecc9d7b1dbc6bc1dd0b540a22ba4ad2f7ced23def75dd6c39be1135cbca27319",
+  "repairs": {
+    "stripe1024-v1": {
+      "input": "stripe1024-input.png",
+      "origin": [
+        397,
+        2842
+      ],
+      "cutRanges": [
+        [
+          100,
+          520
+        ],
+        [
+          770,
+          1150
+        ]
+      ],
+      "replacement": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\r10_c13\\repairs\\fabric-repairs\\stripe1024-v1-replacement-v4.png",
+      "mask": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\r10_c13\\repairs\\fabric-repairs\\stripe1024-v1-mask-v4.png",
+      "composite": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\r10_c13\\repairs\\fabric-repairs\\stripe1024-v1-composite-v4.png",
+      "replacementSha256": "d24cb31f363c809da463dd247056d460d09bff93dca783f7921b890be4f451f8",
+      "maskSha256": "7f29cf11b384378d252d3a1e510efec286efd69a58cdba553c8671f61a718613",
+      "status": "native_crop_review_passed_pending_whole_tile_merge",
+      "changedAreaMaxTileLTRB": [
+        530,
+        3025,
+        1546,
+        4096
+      ],
+      "maskPixelCount": 759340
+    },
+    "stripe2048-v1": {
+      "input": "stripe2048-input.png",
+      "origin": [
+        1421,
+        2842
+      ],
+      "cutRanges": [
+        [
+          80,
+          420
+        ],
+        [
+          840,
+          1080
+        ]
+      ],
+      "replacement": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\r10_c13\\repairs\\fabric-repairs\\stripe2048-v1-replacement-v4.png",
+      "mask": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\r10_c13\\repairs\\fabric-repairs\\stripe2048-v1-mask-v4.png",
+      "composite": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\r10_c13\\repairs\\fabric-repairs\\stripe2048-v1-composite-v4.png",
+      "replacementSha256": "b47a04e0c8ecdd3fb8ea9a628979373b53aaae2be3adf567404ed86e416a16f4",
+      "maskSha256": "2ba25f79d9b54d9e06ff64603a3375687fb36b4d8c0cb5726f7ca733b2e7dc0a",
+      "status": "native_crop_review_passed_pending_whole_tile_merge",
+      "changedAreaMaxTileLTRB": [
+        1504,
+        2874,
+        2475,
+        4021
+      ],
+      "maskPixelCount": 539159
+    },
+    "p31-bevel-v4": {
+      "input": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\r10_c13\\native\\p31.png",
+      "origin": [
+        -115,
+        1933
+      ],
+      "replacement": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\r10_c13\\repairs\\fabric-repairs\\p31-bevel-v4-generated.png",
+      "mask": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\r10_c13\\repairs\\fabric-repairs\\p31-bevel-v4-mask.png",
+      "composite": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_day\\r10_c13\\repairs\\fabric-repairs\\p31-bevel-v4-composite.png",
+      "replacementSha256": "e8bd776f37a76b00cd0d15a739afb864dd4f5fc12d002244b64f0c4402c113b9",
+      "maskSha256": "a44b9396f94241143c8eaf3f22106bdd28dddb3f43b2de851f9832bf789798ee",
+      "status": "native_crop_review_passed_pending_whole_tile_merge",
+      "changedAreaMaxTileLTRB": [
+        45,
+        2318,
+        201,
+        2964
+      ],
+      "maskPixelCount": 41652
+    }
+  },
+  "review": {
+    "at": "2026-10-08T11:02:29.930170+00:00",
+    "reviewedFiles": [
+      "stripe1024-v1-composite-v4.png",
+      "stripe2048-v1-composite-v4.png",
+      "p31-bevel-v4-native-review.png",
+      "blue-masks-overlap-review.png"
+    ],
+    "scale": "1 source pixel to 1 output pixel; 1254 native views / 680x520 native crop board",
+    "findings": [
+      "p31 two artificial 3-6px bevel steps removed; both local returns checked. Correct centers approximately native(230,445) and(230,965), not y565.",
+      "x1024 main and bottom white canopy stripe geometry now continuous.",
+      "x2048 false raised stripe stub removed and incoming stripe joined; lower separate stripe kept with mask.",
+      "Masks preserve all unrelated source pixels exactly. Bounded RGB correction <=12/255 per channel only near reliable mask perimeter; no geometric transform, image blur, resize, or feather.",
+      "Remaining pre-existing raw horizontal paving jump at crop y230 is outside fabric masks and belongs to tile assembly repair. Minor handpaint texture changes at source ownership perimeter do not alter object geometry.",
+      "Two fabric masks overlap in only1304 pixels, tile bbox [1504,3498,1544,3568]; native700x1254 combined review found both white bands continuous."
+    ],
+    "formalAccepted": false
+  }
+}
