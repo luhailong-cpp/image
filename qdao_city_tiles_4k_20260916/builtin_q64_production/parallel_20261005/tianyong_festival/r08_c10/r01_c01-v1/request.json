@@ -1,0 +1,51 @@
+{
+  "preparedAtUtc": "2026-10-08T06:14:27.983827+00:00",
+  "patch": "r01_c01",
+  "tile": "r08_c10",
+  "globalCropLTRB": [
+    36749,
+    28557,
+    38003,
+    29811
+  ],
+  "tileLocalCropLTRB": [
+    -115,
+    -115,
+    1139,
+    1139
+  ],
+  "knownPixels": 419405,
+  "missingPixels": 1153111,
+  "payload": {
+    "prompt": "Use case: precise-object-edit / outpainting. Continue an exact native-detail crop of the original Daoist fantasy game 五行奇谈. Return one opaque 1254 by 1254 image, identical framing and scale to image 1.\nImage 1 is the EDIT TARGET: authentic finished stone map pixels form narrow left and right strips, with transparent missing area in between. Keep ALL visible pixels as precisely as possible: edge positions, tangents, broad bevel widths, light/shadow and ivory/slate colors. Paint only the transparent missing area as the continuous same plaza surface. The left strip starts 115 pixels below the top. The right strip spans the full image height; neither boundary is an actual architectural edge.\nImage 2 is the same-world canonical LAYOUT ONLY. It determines which broad plaza ring bands and existing carvings are in the missing area. Do not copy its blurred low-resolution pixels or accidental marks. Draw fresh sharp native detail while joining EXACTLY to both visible strips of image 1. The two sides belong to a single continuous map, never separate panels.\nImage 3 is the primary approved STYLE ONLY: bright clean rounded full Q-style Daoist fantasy handpainted rendering; quiet warm ivory stone, fine restrained warm-gold shading, clean contours and gentle bevels. Do not import its UI, text, icons, figures or frames.\nPreserve the existing map camera, proportions and lighting. Newly painted surfaces must be smooth and clean, not grainy, cracked, veiny or noisy. Broad stone architectural bands and softly carved relief have consistent thickness and no wobbles. Do not add extra seams or decorative symbols beyond the canonical layout. The transparent boundaries must disappear; do not draw borders or straight seams at them. No characters, buildings, foliage or props. No text, watermark, UI, frame, transparent output, zoom, rescale, rotation or camera change. Highest visual finish available through the host.",
+    "referenced_image_paths": [
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r08_c10\\r01_c01-v1\\context.png",
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r08_c10\\r01_c01-v1\\layout-reference-only.png",
+      "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png"
+    ],
+    "transparent_background": false
+  },
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-04",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  },
+  "submittedParameters": {
+    "model": null,
+    "quality": null,
+    "size": null
+  },
+  "referenceRoles": [
+    "edit target: exact native ownership context",
+    "reference-only canonical geometry",
+    "approved primary art style"
+  ]
+}

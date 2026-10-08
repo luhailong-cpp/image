@@ -1,0 +1,147 @@
+{
+  "auditType": "native-pixel visual audit, crops only",
+  "sourceVersion": "v014",
+  "sourceSha256": "01bb56d14a7ef490d2d244d22aea62e7aa6f8065a98e8f8a80d0bd1e2d8145a1",
+  "formalAccepted": false,
+  "rootCheckpointModified": false,
+  "newModelCalls": 0,
+  "scope": {
+    "tile": "r08_c10",
+    "horizontalBands": [
+      {
+        "tileLocalLTRB": [
+          0,
+          2780,
+          4096,
+          3280
+        ],
+        "seamsReviewed": [
+          2957,
+          3072
+        ]
+      }
+    ],
+    "verticalBands": [
+      {
+        "tileLocalLTRB": [
+          709,
+          0,
+          1224,
+          4096
+        ],
+        "seamsReviewed": [
+          909,
+          1024
+        ]
+      },
+      {
+        "tileLocalLTRB": [
+          1733,
+          0,
+          2248,
+          4096
+        ],
+        "seamsReviewed": [
+          1933,
+          2048
+        ]
+      }
+    ],
+    "junctionCenters": [
+      [
+        909,
+        2957
+      ],
+      [
+        1024,
+        3072
+      ],
+      [
+        1933,
+        2957
+      ],
+      [
+        2048,
+        3072
+      ],
+      [
+        1024,
+        2048
+      ],
+      [
+        2048,
+        2048
+      ],
+      [
+        3072,
+        3072
+      ]
+    ],
+    "extraNativeCoverage": [
+      [
+        0,
+        1933,
+        1139,
+        3072
+      ],
+      [
+        0,
+        2957,
+        1139,
+        4096
+      ],
+      [
+        909,
+        2330,
+        2163,
+        3584
+      ]
+    ],
+    "missingAreaCaveat": "Transparent center y1139..1933 in these vertical bands is unfinished and excluded from acceptance; partial junctions around y2048 viewed only on opaque sides."
+  },
+  "findings": [
+    {
+      "id": "c02-c03-upper-highlight-width-step",
+      "priority": "P2",
+      "tileLocalLTRB": [
+        2155,
+        1973,
+        2200,
+        1987
+      ],
+      "exactSplitX": 2163,
+      "description": "Bottom white highlight of the upper ivory slab has a hard square-headed transition at x2163. Left highlight is approximately2px thick and muted; immediately right it becomes about7px thick and near white. This is visibly an ownership-boundary step, not a natural stone joint or a brightness-metric false alarm.",
+      "evidence": "suspect-x2163-y1980.png",
+      "pixelEvidence": {
+        "y": 1976,
+        "x2162": [
+          252,
+          237,
+          206
+        ],
+        "x2163": [
+          254,
+          254,
+          243
+        ]
+      },
+      "recommendation": "Repair only the short highlight connection using a window that includes both sides of x2163, or explicitly match the left highlight to the existing right-side width. Preserve the shared stone contour and all panel geometry. Standard r02c02 window stops at x2163 and should not automatically count as resolving this finding."
+    }
+  ],
+  "passedObservations": [
+    {
+      "scope": "full-width local y2957/3072",
+      "observation": "No conspicuous multi-step edge, broken stone border, rectangular tone return or duplicate outline visible in the four native1024x500 strips. Curved gray/ivory edges remain continuous through these bands."
+    },
+    {
+      "scope": "x909/1024 and x1933/2048, opaque lower area y2048..4096",
+      "observation": "No independent whole vertical strip mismatch or abrupt panel-size shift at these stitching coordinates. Actual horizontal ivory dividers intentionally separate rows of differing slab geometry; their continuous painted edges were checked rather than flagged from brightness alone."
+    },
+    {
+      "scope": "junctions near y2957/3072",
+      "observation": "The seven specified junction crops show continuous curved borders in their opaque areas, except the upper x2163 highlight finding outside the nominal junction center."
+    }
+  ],
+  "evidenceIndex": "crop-index.json",
+  "c09ExternalAuditRepeated": false
+}

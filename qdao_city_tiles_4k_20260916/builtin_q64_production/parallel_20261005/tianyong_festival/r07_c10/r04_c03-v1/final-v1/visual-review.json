@@ -1,0 +1,46 @@
+{
+  "reviewedAtUtc": "2026-10-08T09:20:36.185824+00:00",
+  "image": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r07_c10\\r04_c03-v1\\final-v1\\joined.png",
+    "sha256": "4f065c3eca0e386dff415b1b5bc00f1d1fda6a3c590e6f95209e947a91df7d8c"
+  },
+  "reviewMethod": "Full 1254 native image, full right and bottom return strips, lower-right corner, and complete repaired diagonal strip viewed at original pixel size.",
+  "inspectedImages": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r07_c10\\r04_c03-v1\\final-v1\\qa\\band-detail.png",
+      "sha256": "b1c7e509da94e560c7e3ebf4a8a0dd591c66a90a57ab7d4258bf5be549d61508"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r07_c10\\r04_c03-v1\\final-v1\\qa\\bottom-right.png",
+      "sha256": "7ae155f7b4a58bfc8c6ae7b63f59702d61d59c84a84c8e515c7cda749f80c7b7"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r07_c10\\r04_c03-v1\\final-v1\\qa\\bottom.png",
+      "sha256": "fd064644082897bc5d7218e2ed22957be6bb52603a04b7b4e4a03481c3edac74"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r07_c10\\r04_c03-v1\\final-v1\\qa\\full-native.png",
+      "sha256": "4f065c3eca0e386dff415b1b5bc00f1d1fda6a3c590e6f95209e947a91df7d8c"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\tianyong_festival\\r07_c10\\r04_c03-v1\\final-v1\\qa\\right.png",
+      "sha256": "a69112aa0553e375add261ddd940402d6e2fb4d49835db34db34b6ae33530e4f"
+    }
+  ],
+  "localVisualAccepted": true,
+  "formalAccepted": false,
+  "wholeTileAccepted": false,
+  "findings": [
+    "New rectangular ivory paving follows the canonical world layout and the real right/bottom finished context.",
+    "The initial native bevel differed from the bottom source and the first AI repair did not resolve its angle. They were not accepted as final.",
+    "A second AI inpaint redrew the entire lower-left diagonal strip. Complete generated contour is retained above y1120 and only matched lower endpoints transition to existing context. This removes the double edge without geometric warping.",
+    "Right return contours remain continuous, source beyond x1200 is exact, and bottom source beyond y1200 is exact.",
+    "No resize, geometric registration, tone adjustment or blur was applied.",
+    "New core, right return, and r08_c10 bottom return must be applied together after r04_c04 manifest."
+  ],
+  "actualModel": null,
+  "actualQuality": null,
+  "limitations": [
+    "Only this native patch and its returns are accepted locally. Full tile, exterior neighbor and city review are required."
+  ]
+}

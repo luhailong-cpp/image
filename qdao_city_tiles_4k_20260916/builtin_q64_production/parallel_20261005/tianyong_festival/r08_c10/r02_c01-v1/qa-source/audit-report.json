@@ -1,0 +1,81 @@
+{
+  "auditedAtUtc": "2026-10-08T06:16:00Z",
+  "status": "source_audited_waiting_for_top_and_right_checkpoint",
+  "nativeScale": 1,
+  "currentRootModified": false,
+  "newGenerationCalls": 0,
+  "contextWindowTileLocalLTRB": [
+    -115,
+    909,
+    1139,
+    2163
+  ],
+  "contextWindowGlobalLTRB": [
+    36749,
+    29581,
+    38003,
+    30835
+  ],
+  "sourceVersion": "v012",
+  "observations": [
+    {
+      "id": "shared-vertical-edge",
+      "scope": "c09 x4096 / c10 x0; y1933..4096 available",
+      "finding": "Native side-by-side rows show the reviewed new c10 ivory material and curved borders meet the current c09 edge without a new straight vertical texture box. y0..1933 is still missing c10 artwork and cannot pass edge audit yet."
+    },
+    {
+      "id": "c09-y2048",
+      "scope": "c09 local y2048, viewed x0..4096",
+      "finding": "Pre-existing horizontal seam is visible mainly across x1536..4096: at thin inlay around x1600..2100, dark curved grooves around x2100..2350, gold edge around x2850..3150, and ivory/brown curved planes toward x3650..4096. The broad dark field x0..1536 has low row deltas and no conspicuous seam in the native strips. Both tone and contour continuity need review; whole-row blur would be inappropriate.",
+      "relevantToNextWindow": "At r02c01 window y1139 in bottom known strip, west/source-owned area. Its continuation outside the 115px left halo must not be silently claimed fixed."
+    },
+    {
+      "id": "c09-y3072",
+      "scope": "c09 local y3072, viewed x0..4096",
+      "finding": "Pre-existing horizontal step is visible from dark ornament region around x1100 through central spiral/curves, gold edge, pale raised ornament x3200..3570 and outer ivory ring x3700..4096. It combines a material value step with discrete contour offsets. Leftmost light field x0..1024 is much less conspicuous. This is outside r02c01 window.",
+      "strongestMeasured256pxBand": {
+        "xRange": [
+          3328,
+          3584
+        ],
+        "meanAbsAdjacentRowRGB": [
+          10.62890625,
+          11.99609375,
+          12.9609375
+        ]
+      }
+    }
+  ],
+  "repairPlan": {
+    "approvedNow": false,
+    "method": "After active-tile fill, use localized built-in AI edits of seam strips with authentic native context above/below and real approved style attached. Treat tone steps and shifted outlines separately; preserve outside window pixels and list all affected tile returns.",
+    "windows": "For each c09 seam, several overlapping1254-square native windows spanning affected x range, with only a narrow seam strip made editable; never stretch the full4096-wide band from one generated image.",
+    "constraints": [
+      "Do not globally recolor or blur c09.",
+      "Do not overwrite root/current during source audit.",
+      "If a repair crosses x4096, couple c09 and c10 returned pixels from the same reviewed native result.",
+      "Keep the unaffected slabs, carvings, material colors and object locations fixed; recheck every contour crossing and window exterior at native pixels."
+    ]
+  },
+  "nextPatchLayout": {
+    "description": "Large gently curving ivory ring and slate-gray panels; one broad approximately diagonal/radial ivory divider crosses the crop. Bottom source fixes all curve endpoints. Right ornate slab corner is only an edge reference; do not invent decoration in quiet left and central slabs.",
+    "generationGate": "Wait for root message confirming both r01c01 and r02c02 are committed; then prepare fresh checkpoint/context and require four sides opaque, center only missing (expected909x794 pixels)."
+  },
+  "evidence": [
+    "source-measurements.json",
+    "v012-context-study.png",
+    "layout-reference-only.png",
+    "c09-y2048-x0.png",
+    "c09-y2048-x1024.png",
+    "c09-y2048-x2048.png",
+    "c09-y2048-x3072.png",
+    "c09-y3072-x0.png",
+    "c09-y3072-x1024.png",
+    "c09-y3072-x2048.png",
+    "c09-y3072-x3072.png",
+    "common-edge-y0.png",
+    "common-edge-y1024.png",
+    "common-edge-y2048.png",
+    "common-edge-y3072.png"
+  ]
+}

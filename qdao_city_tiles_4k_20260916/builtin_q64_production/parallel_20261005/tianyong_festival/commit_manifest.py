@@ -24,6 +24,7 @@ TASK = Path(__file__).resolve().parent
 TILE_SIZE = 4096
 ACTIVE = "r08_c10"
 BOTTOM = "r09_c10"
+ANCHOR_KEY = "bottom"
 
 
 def require(condition, message):
@@ -140,6 +141,9 @@ def build_plan(manifest_path, version, expected_checkpoint):
     require(sha(checkpoint_path) == expected_checkpoint.lower(), "Current checkpoint changed; review ownership before committing")
     checkpoint_ref, handoff_ref = info(checkpoint_path), info(handoff_path)
     previous, handoff, manifest = read(checkpoint_path), read(handoff_path), read(manifest_path)
+    require(previous['fragment'].get('tile') == ACTIVE, 'Checkpoint active tile does not match requested active tile')
+    require(previous.get(ANCHOR_KEY, {}).get('tile') == BOTTOM, 'Checkpoint anchor does not match requested adjacent tile')
+    require(manifest.get('tile', ACTIVE) == ACTIVE, 'Manifest is for another active tile')
     require(re.fullmatch(r"v[0-9]{3,}", version) is not None, "Version must be v followed by at least three digits")
     output = TASK / ACTIVE / "current" / version
     require(not output.exists(), f"Version already exists: {output}")
@@ -175,8 +179,7 @@ def build_plan(manifest_path, version, expected_checkpoint):
     for item in entries(previous.get("coupledNeighbors")):
         candidates[item["tile"]] = deepcopy(item)
     candidates[ACTIVE] = {**deepcopy(previous["fragment"]), "tile": ACTIVE}
-    candidates[BOTTOM] = {**deepcopy(previous["bottom"]), "tile": BOTTOM}
-    require("r08_c09" in candidates and "r09_c09" in candidates, "Missing latest coupled baseline")
+    candidates[BOTTOM] = {**deepcopy(previous[ANCHOR_KEY]), "tile": BOTTOM}
     for item in candidates.values():
         checked_ref(item)
 
@@ -265,23 +268,23 @@ def commit(plan):
             name = tile + ("-fragment.png" if tile == ACTIVE else ".png")
             pixels = record["pixels"]
             image = Image.fromarray(pixels, "RGBA")
-            if tile != ACTIVE:
-                require(np.all(pixels[:,:,3] == 255), f"External tile has missing pixels: {tile}")
+            if tile != ACTIVE and np.all(pixels[:,:,3] == 255):
                 image = image.convert("RGB")
             image.save(stage/name)
             with Image.open(stage/name) as check:
                 require(np.array_equal(np.asarray(check.convert("RGBA")), pixels), "PNG save changed native pixels")
             item = {**candidates[tile], **future_info(name), "tile": tile, "pixels": list(image.size), "nativeScale": 1, "formalAccepted": False, "generationRecord": str(out/(name+".generation.json"))}
-            if tile == ACTIVE:
-                item["tileLocalLTRB"] = record["box"]
-                item["partialFragment"] = True
+            item["tileLocalLTRB"] = record["box"]
+            item["partialFragment"] = record['covered'] != TILE_SIZE*TILE_SIZE
+            item["fullyPainted"] = record['covered'] == TILE_SIZE*TILE_SIZE
             candidates[tile] = item
             modified[tile] = item
         candidate_list = [candidates[k] for k in sorted(candidates)]
+        complete_count = sum(item.get('pixels') == [TILE_SIZE,TILE_SIZE] and not item.get('partialFragment', False) for item in candidate_list)
         candidate_document = {"createdAtUtc": now(), "candidates": candidate_list, "sourcePrecedence": ["handoff.baselineCandidates", "handoff.currentCandidates", "checkpoint.coupledNeighbors", "checkpoint.fragment/bottom", "this reviewed manifest"], "handoffInput": future_info("handoff-input.json"), "priorCheckpoint": future_info("source-checkpoint-input.json"), "formalAccepted": False}
         write(stage/"candidate-set.json", candidate_document)
         active = plan["outputs"][ACTIVE]
-        operation = {"createdAtUtc": now(), "operation": "Indivisible native1:1 patch-set placement onto latest owned sources; original pixels outside patches unchanged", "manifest": plan["manifestRef"], "visualReview": plan["reviewRef"], "inputCheckpoint": plan["checkpointRef"], "inputHandoff": plan["handoffRef"], "sourceInputs": [plan["candidates"][k] for k in sorted(plan["outputs"])], "patches": plan["manifest"]["patches"], "outputs": modified, "roiProofs": future_info("roi-proofs.json"), "unchangedPixels": future_info("unchanged-pixels-proof.json"), "candidateSet": future_info("candidate-set.json"), "newMissingPixelsFilledInsideTile": active["covered"]-active["beforeCovered"], "coveredNativeTilePixels": active["covered"], "newModelCalls": 0, "nativeScale": 1, "complete4KTilesAdded": 0, "localAccepted": True, "formalAccepted": False}
+        operation = {"createdAtUtc": now(), "operation": "Indivisible native1:1 patch-set placement onto latest owned sources; original pixels outside patches unchanged", "manifest": plan["manifestRef"], "visualReview": plan["reviewRef"], "inputCheckpoint": plan["checkpointRef"], "inputHandoff": plan["handoffRef"], "sourceInputs": [plan["candidates"][k] for k in sorted(plan["outputs"])], "patches": plan["manifest"]["patches"], "outputs": modified, "roiProofs": future_info("roi-proofs.json"), "unchangedPixels": future_info("unchanged-pixels-proof.json"), "candidateSet": future_info("candidate-set.json"), "newMissingPixelsFilledInsideTile": active["covered"]-active["beforeCovered"], "coveredNativeTilePixels": active["covered"], "newModelCalls": 0, "nativeScale": 1, "complete4KTilesAdded": max(0, complete_count-11), "localAccepted": True, "formalAccepted": False}
         write(stage/"assembly.json", operation)
         for tile, item in modified.items():
             name = Path(item["file"]).name
@@ -291,7 +294,11 @@ def commit(plan):
         for tile, item in modified.items():
             if tile not in (ACTIVE, BOTTOM):
                 coupled[tile] = item
-        checkpoint = {**deepcopy(previous), "createdAtUtc": now(), "version": out.name, "resumeAuthorizedByUser": True, "sourcePairVerified": True, "fragment": modified[ACTIVE], "bottom": candidates[BOTTOM], "coupledNeighbors": coupled, "baselineSet": future_info("handoff-input.json"), "candidateSet": candidate_list, "candidateSetRecord": future_info("candidate-set.json"), "evidence": [future_info("assembly.json"), plan["reviewRef"], future_info("roi-proofs.json")], "formalAccepted": False, "geometryAndNavigationAcceptance": False, "complete4KTilesAdded": 0}
+        checkpoint = {**deepcopy(previous), "createdAtUtc": now(), "version": out.name, "resumeAuthorizedByUser": True, "sourcePairVerified": True, "fragment": modified[ACTIVE], "bottom": candidates[BOTTOM], "coupledNeighbors": coupled, "baselineSet": future_info("handoff-input.json"), "candidateSet": candidate_list, "candidateSetRecord": future_info("candidate-set.json"), "evidence": [future_info("assembly.json"), plan["reviewRef"], future_info("roi-proofs.json")], "formalAccepted": False, "geometryAndNavigationAcceptance": False, "complete4KTilesAdded": max(0, complete_count-11)}
+        if ANCHOR_KEY == 'anchor':
+            checkpoint['anchor'] = candidates[BOTTOM]
+            below = previous.get('bottom')
+            checkpoint['bottom'] = candidates.get(below['tile']) if below else None
         write(stage/"source-checkpoint.json", checkpoint)
         canvas = Image.new("RGBA", (TILE_SIZE,TILE_SIZE), (0,0,0,0))
         canvas.paste(Image.fromarray(active["pixels"], "RGBA"), tuple(active["box"][:2]))
@@ -303,6 +310,8 @@ def commit(plan):
         native_calls = len(list(TASK.rglob("native.png.generation.json")))
         progress = read(TASK/"progress.json") if (TASK/"progress.json").exists() else {}
         progress.update(updatedAtUtc=now(), appearance="tianyong_festival", status="native_expansion_in_progress", targetTiles=256, activeTile=ACTIVE, checkpointVersion=out.name, nativeCallsInThisTask=native_calls, newCompleteTileCount=0, complete4KTilesAdded=0, formalAccepted=False, wholeCityComplete=False, clientAccepted=False, currentFragmentPixels=[active["pixels"].shape[1],active["pixels"].shape[0]], currentFragmentTileLocalLTRB=active["box"], coveredNativeTilePixels=active["covered"], tileCoverageFraction=active["covered"]/(TILE_SIZE*TILE_SIZE), sourceCheckpoint=str(TASK/"source-checkpoint.json"), currentPreview=str(preview_root), candidateSet=str(out/"candidate-set.json"), nextAction="Continue adjacent missing native patch and review every affected return.")
+        write(stage/"progress.json", progress)
+        progress.update(completeCandidateCount=complete_count, remainingUnpaintedTileCount=256-complete_count, newCompleteTileCount=max(0,complete_count-11), complete4KTilesAdded=max(0,complete_count-11))
         write(stage/"progress.json", progress)
         if (TASK/"current-work.json").exists():
             write(stage/"previous-current-work.json", read(TASK/"current-work.json"))
@@ -326,7 +335,7 @@ def commit(plan):
         for name in names:
             os.replace(pending[name], TASK/name)
         require(sha(TASK/"source-checkpoint.json") == sha(out/"source-checkpoint.json"), "Checkpoint publication failed")
-        print(json.dumps({"version": out.name, "sourceCheckpoint": info(TASK/"source-checkpoint.json"), "candidateSet": info(out/"candidate-set.json"), "newPixels": operation["newMissingPixelsFilledInsideTile"], "coveredPixels": active["covered"], "nativeCallsInThisTask": native_calls, "complete4KTilesAdded": 0, "formalAccepted": False}, ensure_ascii=False))
+        print(json.dumps({"version": out.name, "sourceCheckpoint": info(TASK/"source-checkpoint.json"), "candidateSet": info(out/"candidate-set.json"), "newPixels": operation["newMissingPixelsFilledInsideTile"], "coveredPixels": active["covered"], "nativeCallsInThisTask": native_calls, "complete4KTilesAdded": max(0, complete_count-11), "formalAccepted": False}, ensure_ascii=False))
     finally:
         if not lock.closed:
             lock.close()
@@ -334,12 +343,28 @@ def commit(plan):
 
 
 def main():
+    global ACTIVE, BOTTOM, ANCHOR_KEY
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("manifest", type=Path)
     parser.add_argument("version")
     parser.add_argument("--checkpoint-sha", required=True)
+    parser.add_argument('--active-tile', default='r08_c10', help='Explicit active tile; checkpoint and manifest must match')
+    parser.add_argument('--bottom-tile', default='r09_c10', help='Explicit directly adjacent lower tile')
+    parser.add_argument('--anchor-tile', help='Use a known adjacent anchor when no lower tile exists')
+    parser.add_argument('--anchor-side', choices=['north','south','west','east'])
     parser.add_argument("--validate-only", action="store_true", help="Check all pixel/source conditions without writing anything")
     args = parser.parse_args()
+    ACTIVE, BOTTOM = args.active_tile, args.anchor_tile or args.bottom_tile
+    active_origin, bottom_origin = tile_origin(ACTIVE), tile_origin(BOTTOM)
+    if args.anchor_tile:
+        require(args.anchor_side is not None, 'Explicit anchor side is required')
+        dx,dy = {'north':(0,-TILE_SIZE),'south':(0,TILE_SIZE),'west':(-TILE_SIZE,0),'east':(TILE_SIZE,0)}[args.anchor_side]
+        require(bottom_origin == [active_origin[0]+dx,active_origin[1]+dy], 'Anchor is not the specified adjacent tile')
+        require(read(TASK/'source-checkpoint.json').get('anchorSide') == args.anchor_side, 'Checkpoint anchor direction differs')
+        ANCHOR_KEY = 'anchor'
+    else:
+        require(args.anchor_side is None, 'Anchor side without anchor tile')
+        require(bottom_origin == [active_origin[0],active_origin[1]+TILE_SIZE], 'Bottom source is not the directly adjacent tile')
     plan = build_plan(args.manifest, args.version, args.checkpoint_sha)
     if args.validate_only:
         print(json.dumps({"valid": True, "writesPerformed": False, "output": str(plan["out"]), "modifiedTiles": list(plan["outputs"]), "roiProofs": plan["proofs"], "checkpoint": plan["checkpointRef"]}, ensure_ascii=False))

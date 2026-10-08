@@ -1,0 +1,23 @@
+from pathlib import Path
+import json,hashlib,datetime
+from PIL import Image
+import numpy as np
+D=Path(__file__).parent;F=D/'final-v1'
+ref=lambda p:{'file':str(p),'sha256':hashlib.sha256(Path(p).read_bytes()).hexdigest()}
+read=lambda p:json.loads(Path(p).read_text(encoding='utf-8-sig'))
+save=lambda p,o:Path(p).write_text(json.dumps(o,ensure_ascii=False,indent=2),encoding='utf8')
+prep=read(D/'preparation.json');J=Image.open(F/'joined.png').convert('RGB')
+save(F/'visual-review.json',{'reviewedAtUtc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'image':ref(F/'joined.png'),'reviewMethod':'Native image followed by complete joined bottom/right return strips and bottom-right corner viewed at original pixel size.','inspectedImages':[ref(p) for p in (F/'qa').glob('*.png')],'localVisualAccepted':True,'formalAccepted':False,'wholeTileAccepted':False,'findings':['Canonical paving courses continue diagonally into the unchanged real right and bottom contours.','Both current c01 lower overlaps against root r08_c10 and r08_c09 were verified pixel exact before generating.','No visible doubled contours, added seam at transparency boundary or abrupt color step in returned strips.','No resizing, registration, tone adjustment or blur was applied; only known native overlap compositing.','Broad profile diagnostics near the bottom-right inset corner have nonzero shifts from competing profiles, but complete corner visual inspection shows continuous relief. Measurements retained as diagnostics, not evidence of geometric alignment.','New core and all three returns must be applied together after c02 manifest. Left r07_c09 halo is in-progress native reference only and does not claim an existing neighbor.'],'actualModel':None,'actualQuality':None})
+prior={**prep['northPriorFragment'],'tile':'r07_c10','tileLocalLTRB':[0,0,4096,4096],'nativeScale':1}
+left={**prep['bottomLeftTile'],'tile':'r08_c09','tileLocalLTRB':[0,0,4096,4096],'nativeScale':1}
+patches=[]
+for name,crop,tile,dest,src in [('new-core',[115,0,1024,1139],'r07_c10',[0,2957,909,4096],None),('right-return',[1024,0,1200,1139],'r07_c10',[909,2957,1085,4096],prior),('bottom-return',[115,1139,1200,1200],'r08_c10',[0,0,1085,61],prep['sourceTile']),('bottom-left-return',[0,1139,115,1200],'r08_c09',[3981,0,4096,61],left)]:
+ p=F/(name+'.png');J.crop(crop).save(p);patches.append({'name':name,'asset':ref(p),'cropFromJoinedLTRB':crop,'destinationTile':tile,'destinationTileLTRB':dest,'requiredPriorSource':src,'nativeScale':1,'mustApplyTogether':True})
+m={'createdAtUtc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'appearance':'tianyong_festival','tile':'r07_c10','tileGlobalOrigin':[36864,24576],'nativeScale':1,'windowTileLocalLTRB':[-115,2957,1139,4211],'windowGlobalLTRB':[36749,27533,38003,28787],'joined':ref(F/'joined.png'),'visualReview':ref(F/'visual-review.json'),'assembly':ref(F/'assembly.json'),'localVisualAccepted':True,'formalAccepted':False,'patches':patches,'sourceCheckpoint':prep['savedCheckpoint'],'requiresPriorManifest':prep['requiresPriorManifest'],'note':'Root review and ROI validation before publication. Required prior is latest root source with preceding north manifests return overlays. Left r07_c09 future halo is retained in joined but not published as a full tile.'}
+save(F/'manifest.json',m)
+save(F/'joined.png.generation.json',{'operation':'native-preserving composite','sources':[ref(D/'native.png'),ref(D/'context.png')],'assembly':ref(F/'assembly.json'),'output':ref(F/'joined.png'),'actualModel':None,'actualQuality':None,'nativeScale':1,'noUpscale':True,'formalAccepted':False})
+fragment=Image.open(prior['file']).convert('RGBA');fragment.paste(J.crop((115,0,1200,1139)).convert('RGBA'),(0,2957));fragment.save(F/'r07_c10-fragment.png')
+coverage=int(np.count_nonzero(np.array(fragment)[:,:,3]==255));assert coverage==4665344
+save(F/'r07_c10-fragment.png.generation.json',{'operation':'1:1 native patch composition','sources':[prior,ref(F/'joined.png')],'manifest':ref(F/'manifest.json'),'output':ref(F/'r07_c10-fragment.png'),'actualModel':None,'actualQuality':None,'nativeScale':1,'coveragePixels':coverage,'noUpscale':True,'formalAccepted':False})
+save(D.parent/'local-source-checkpoint.json',{'createdAtUtc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'tile':'r07_c10','fragment':ref(F/'r07_c10-fragment.png'),'nativeScale':1,'coveragePixels':coverage,'formalAccepted':False,'rootPublished':False,'manifest':ref(F/'manifest.json'),'previousManifest':prep['requiresPriorManifest'],'contextJoined':ref(F/'joined.png'),'bottomReturn':patches[2],'bottomLeftReturn':patches[3]})
+print(json.dumps({'manifest':ref(F/'manifest.json'),'joined':ref(F/'joined.png'),'localCoveragePixels':coverage}))

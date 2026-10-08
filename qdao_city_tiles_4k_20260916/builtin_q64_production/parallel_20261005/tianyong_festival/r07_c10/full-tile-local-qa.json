@@ -1,0 +1,36 @@
+{
+  "reviewedAtUtc": "2026-10-08T12:33:40.180Z",
+  "tile": "r07_c10",
+  "image": {
+    "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/tianyong_festival/r07_c10/r01_c04-v1/final-v1/r07_c10-fragment.png",
+    "sha256": "ad2b93b2e728bb8c6c620917b1cd7cd411dfcba19e8057db9ae33721471b31b5"
+  },
+  "pixelDimensions": [
+    4096,
+    4096
+  ],
+  "coveragePixels": 16777216,
+  "reviewEvidence": [
+    "Each new row 2 and row 1 patch was inspected as native 1254x1254 output plus the assembled known boundary strips.",
+    "Complete 4096x4096 tile reviewed in an overview shown at 1600x1600 by the viewer; native seam detail was reviewed at patch stage.",
+    "Reconstruction of thirteen ordered manifests from the prior r04_c02 fragment was exact, including all mandatory return strips and unchanged pixels outside patch destinations."
+  ],
+  "findings": {
+    "completeCoverage": true,
+    "paletteAndMaterialConsistent": true,
+    "canonicalPedestalAndCastShadowsPreserved": true,
+    "noVisibleGlobalBrightnessRectangles": true,
+    "noVisibleBrokenJoinInNewEightPatches": true,
+    "newEightPatchesResizedOrWarped": false
+  },
+  "localReviewAccepted": false,
+  "knownPending": [{"patch":"r01_c01-v1","issue":"Fine diagonal crack at native patch x590..800/y430..645 and pointed notch at x300..390/y20..100 identified during parent review; close_c03 performing native AI clean-surface-v1 repair. Original chain intentionally unchanged.","tileCoreCrackApproxLTRB":[475,315,685,530],"topNotchInExternalHaloOnly":true,"owner":"close_c03","status":"pending AI repair and final replacement verification"}],
+  "formalAccepted": false,
+  "rootPublished": false,
+  "limitations": [
+    "No claim of cross-tile QA for unknown top, left or right neighboring tiles.",
+    "Root must apply manifests with required prior ROI checks and perform whole-map acceptance.",
+    "Actual model version and quality are not disclosed by host; retained as unknown in per-image records.",
+    "Previously rejected/intermediate assets remain because automatic approval review rejected deletion; deletion was not retried."
+  ]
+}
