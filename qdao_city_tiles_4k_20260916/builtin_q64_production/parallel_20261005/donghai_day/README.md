@@ -2,7 +2,7 @@
 
 本页由 save_progress.py 按磁盘当前事实生成。内部资产 ID：donghai_day；正式项目采用《五行奇谈》原创命名，旧 ID 不代表已确认的新旧地名映射。
 
-目标65536×65536，16×16共256块，每块4096×4096。当前完整像素候选 **13/256**，基线坐标 3 个、新增坐标 10 个。正式验收 **0**；整城未完成、未客户端验收。
+目标65536×65536，16×16共256块，每块4096×4096。当前完整像素候选 **15/256**，基线坐标 3 个、新增坐标 12 个。正式验收 **0**；整城未完成、未客户端验收。
 
 当前状态见 [progress.json](progress.json)，逐坐标状态见 [tile-index.json](tile-index.json)。[当前预览](current-preview.png)仅缩小展示候选，不能用于原像素验收。
 
@@ -12,8 +12,8 @@
 
 | 坐标 | 当前候选 | 来源 | SHA-256 |
 |---|---|---|---|
-| r07_c15 | [PNG](r07_c15/output/r07_c15.png) | assembled_output | 3d6784d05e08447095081e0a2c425a1d11b2f7c461a7ff1dd74d9efa7644ea13 |
-| r07_c16 | [PNG](r07_c16/output/r07_c16.png) | assembled_output | 2dbf08054591651fb62f3477ef79926f2d7696f773eaf26b5f8f1b18d886a06a |
+| r07_c15 | [PNG](r07_c15/output/r07_c15.png) | assembled_output | 4e9e6677f9f456422de5d1acceb359d63bd8908656784f44c30acc20118eff4b |
+| r07_c16 | [PNG](r07_c16/output/r07_c16.png) | assembled_output | de2ffe83eff08483741521f59e81bbc1ea62927024a86229cb6890eb55477ad0 |
 | r08_c08 | [PNG](D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/donghai_day/r08_c08_c09_c10_joint/output_v3/r08_c08.png) | handoff_baseline | cc2369d3bfd61a71104cc53cc330e37034367761094d54de8d437da3eaed9ff2 |
 | r08_c09 | [PNG](D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/donghai_day/r08_c08_c09_c10_joint/output_v3/r08_c09.png) | handoff_baseline | 2595df0fb75328de5fc748da03a08d6ebf8c64ef10f331bdc408a1a6c2921caa |
 | r08_c10 | [PNG](tiles/r08_c10.png) | current_tiles | b3c8ff658caf55ef4e7adccac38a0dd02de2fd4b874b371668b2493624f692cc |
@@ -24,10 +24,13 @@
 | r08_c15 | [PNG](r08_c15/output/r08_c15.png) | assembled_output | 70ce623a54fb8419b951b7372a88e95db2c8b5ae9e04845c2af2c1fd18312585 |
 | r08_c16 | [PNG](r08_c16/output/r08_c16.png) | assembled_output | 3e4a1a64a96d894531f6f1f7189287276b401e58f6805a9e6242c422e22b96de |
 | r09_c15 | [PNG](r09_c15/output/r09_c15.png) | assembled_output | 33abbb4345add5b42b8020ce1c6dd4b40a44d4fdb7dd96fc3b37220006c5c6ff |
-| r09_c16 | [PNG](r09_c16/output/r09_c16.png) | assembled_output | ff169961a00d04558464d4436397938b02ac4e53fd492f7a74122b49eda53095 |
+| r09_c16 | [PNG](r09_c16/output/r09_c16.png) | assembled_output | 75e40578e8c29233bd6b73fbf60a3ea0d7eec917769b93de51404ad34e99a5f9 |
+| r10_c15 | [PNG](r10_c15/output/r10_c15.png) | assembled_output | 0b32765cd251e3fb0adb873d202035d4f66aed0d60ebef663f442df2ca8c0fa3 |
+| r10_c16 | [PNG](r10_c16/output/r10_c16.png) | assembled_output | 76171e89da5aa391e359c9c6095f3a09bf46912a8f876f0f4a059d6459b608e7 |
 
-当前优先在制块：**r07_c16**；阶段：candidate_pending_scoped_review。
+当前优先在制块：**r10_c16**；阶段：candidate_pending_scoped_review。
 
+- r07_c14：已核验原生片 3/16；尚无完整像素候选。片段、结构参考和透明进度图不计整块。
 - r07_c15：已核验原生片 16/16；已有完整像素候选。片段、结构参考和透明进度图不计整块。
 - r07_c16：已核验原生片 16/16；已有完整像素候选。片段、结构参考和透明进度图不计整块。
 - r08_c11：已核验原生片 16/16；已有完整像素候选。片段、结构参考和透明进度图不计整块。
@@ -38,6 +41,10 @@
 - r08_c16：已核验原生片 16/16；已有完整像素候选。片段、结构参考和透明进度图不计整块。
 - r09_c15：已核验原生片 16/16；已有完整像素候选。片段、结构参考和透明进度图不计整块。
 - r09_c16：已核验原生片 16/16；已有完整像素候选。片段、结构参考和透明进度图不计整块。
+- r10_c15：已核验原生片 16/16；已有完整像素候选。片段、结构参考和透明进度图不计整块。
+- r10_c16：已核验原生片 16/16；已有完整像素候选。片段、结构参考和透明进度图不计整块。
+- r11_c15：已核验原生片 9/16；尚无完整像素候选。片段、结构参考和透明进度图不计整块。
+- r11_c16：已核验原生片 12/16；尚无完整像素候选。片段、结构参考和透明进度图不计整块。
 
 ## 检查范围与来源限制
 
@@ -46,10 +53,29 @@
 - 未补齐邻接边、跨排四块交点、全城布局、日景/节庆共用结构、导航、前景遮挡和客户端最近镜头仍待核验。
 - [布局与导航审计](layout-audit.json)保留原导航多边形来源；独立风格母图不视为已几何对齐。道路、桥栏、台阶、建筑占地、入口及投影须保持连续。
 
-- [r07_c15/qa/root-initial-review.json](r07_c15/qa/root-initial-review.json)：匹配当前图块SHA；仅报告范围有效。
+- [r07_c15/qa/root-initial-review.json](r07_c15/qa/root-initial-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r07_c15/repairs/unified/independent-internal-review.json](r07_c15/repairs/unified/independent-internal-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r07_c15/repairs/unified/producer-internal-insertion-review.json](r07_c15/repairs/unified/producer-internal-insertion-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r07_c15/repairs/unified/producer-unchanged-internal-review.json](r07_c15/repairs/unified/producer-unchanged-internal-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r07_c15/repairs/unified/refined/producer-review-draft.json](r07_c15/repairs/unified/refined/producer-review-draft.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r07_c15/repairs/unified/straight-integrated/close14-preliminary-internal-review.json](r07_c15/repairs/unified/straight-integrated/close14-preliminary-internal-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r07_c15/repairs/unified/straight-integrated/independent-panel-review.json](r07_c15/repairs/unified/straight-integrated/independent-panel-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r07_c15/repairs/unified/straight-integrated-v5/producer-review.json](r07_c15/repairs/unified/straight-integrated-v5/producer-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r07_c15/repairs/unified/straight-integrated-v6/independent-review.json](r07_c15/repairs/unified/straight-integrated-v6/independent-review.json)：匹配当前图块SHA；仅报告范围有效。
+- [r07_c15/repairs/unified/straight-integrated-v6/producer-review.json](r07_c15/repairs/unified/straight-integrated-v6/producer-review.json)：匹配当前图块SHA；仅报告范围有效。
+- [r07_c16/qa/row04-generation-review.json](r07_c16/qa/row04-generation-review.json)：历史版本或无直接当前SHA绑定；须查范围。
 - [r07_c16/qa/rows02-03-generation-review.json](r07_c16/qa/rows02-03-generation-review.json)：历史版本或无直接当前SHA绑定；须查范围。
 - [r07_c16/qa/structure-review.json](r07_c16/qa/structure-review.json)：历史版本或无直接当前SHA绑定；须查范围。
 - [r07_c16/qa/top-row-generation-review.json](r07_c16/qa/top-row-generation-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r07_c16/repairs/final-rail-v2/independent-review.json](r07_c16/repairs/final-rail-v2/independent-review.json)：匹配当前图块SHA；仅报告范围有效。
+- [r07_c16/repairs/final-rail-v2/review.json](r07_c16/repairs/final-rail-v2/review.json)：匹配当前图块SHA；仅报告范围有效。
+- [r07_c16/repairs/final-west-joint/independent-fill15-initial-review.json](r07_c16/repairs/final-west-joint/independent-fill15-initial-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r07_c16/repairs/integrated-south-v2/local-review.json](r07_c16/repairs/integrated-south-v2/local-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r07_c16/repairs/internal-color-match/visual-review.json](r07_c16/repairs/internal-color-match/visual-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r07_c16/repairs/south-joint-color-v4/independent-south-review.json](r07_c16/repairs/south-joint-color-v4/independent-south-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r07_c16/repairs/south-joint-color-v4/visual-review.json](r07_c16/repairs/south-joint-color-v4/visual-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r07_c16/repairs/south-native-selection-review.json](r07_c16/repairs/south-native-selection-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r07_c16/repairs/west-upper-three/local-review.json](r07_c16/repairs/west-upper-three/local-review.json)：历史版本或无直接当前SHA绑定；须查范围。
 - [r08_c11/qa/internal-review.json](r08_c11/qa/internal-review.json)：历史版本或无直接当前SHA绑定；须查范围。
 - [r08_c11/qa/r04-native-review.json](r08_c11/qa/r04-native-review.json)：历史版本或无直接当前SHA绑定；须查范围。
 - [r08_c11/qa/root-initial-edge-review.json](r08_c11/qa/root-initial-edge-review.json)：历史版本或无直接当前SHA绑定；须查范围。
@@ -103,10 +129,32 @@
 - [r09_c15/qa/top-row-generation-review.json](r09_c15/qa/top-row-generation-review.json)：历史版本或无直接当前SHA绑定；须查范围。
 - [r09_c15/repairs/color-match/producer-review.json](r09_c15/repairs/color-match/producer-review.json)：匹配当前图块SHA；仅报告范围有效。
 - [r09_c15/repairs/color-match/root-independent-review.json](r09_c15/repairs/color-match/root-independent-review.json)：匹配当前图块SHA；仅报告范围有效。
-- [r09_c16/qa/root-initial-review.json](r09_c16/qa/root-initial-review.json)：匹配当前图块SHA；仅报告范围有效。
+- [r09_c16/qa/root-initial-review.json](r09_c16/qa/root-initial-review.json)：历史版本或无直接当前SHA绑定；须查范围。
 - [r09_c16/qa/rows02-04-cols02-04-generation-review.json](r09_c16/qa/rows02-04-cols02-04-generation-review.json)：历史版本或无直接当前SHA绑定；须查范围。
 - [r09_c16/qa/top-row-generation-review.json](r09_c16/qa/top-row-generation-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r09_c16/repairs/color-match-v2/independent-internal-review.json](r09_c16/repairs/color-match-v2/independent-internal-review.json)：历史版本或无直接当前SHA绑定；须查范围。
 - [r09_c16/repairs/color-match-v2/root-external-review.json](r09_c16/repairs/color-match-v2/root-external-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r09_c16/repairs/post-integrated-masked/independent-internal-review.json](r09_c16/repairs/post-integrated-masked/independent-internal-review.json)：匹配当前图块SHA；仅报告范围有效。
+- [r09_c16/repairs/post-integrated-masked/root-external-review.json](r09_c16/repairs/post-integrated-masked/root-external-review.json)：匹配当前图块SHA；仅报告范围有效。
+- [r10_c15/qa/assembly-initial-review.json](r10_c15/qa/assembly-initial-review.json)：匹配当前图块SHA；仅报告范围有效。
+- [r10_c15/qa/native-source-review.json](r10_c15/qa/native-source-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r10_c15/qa/structure-review.json](r10_c15/qa/structure-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r10_c15/repairs/color-match/visual-review.json](r10_c15/repairs/color-match/visual-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r10_c15/repairs/east-integrated/root-independent-east-geometry-review.json](r10_c15/repairs/east-integrated/root-independent-east-geometry-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r10_c15/repairs/east-integrated/visual-review.json](r10_c15/repairs/east-integrated/visual-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r10_c15/repairs/internal-integrated-v2/root-independent-internal-review.json](r10_c15/repairs/internal-integrated-v2/root-independent-internal-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r10_c15/repairs/internal-integrated-v2/visual-review.json](r10_c15/repairs/internal-integrated-v2/visual-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r10_c15/repairs/north-integrated-v2/visual-review.json](r10_c15/repairs/north-integrated-v2/visual-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r10_c15/repairs/north-joint/n3/rejected-review.json](r10_c15/repairs/north-joint/n3/rejected-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r10_c15/repairs/north-joint/n3-retry/rejected-review.json](r10_c15/repairs/north-joint/n3-retry/rejected-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r10_c15/repairs/north-joint/qa/outside-scope-review.json](r10_c15/repairs/north-joint/qa/outside-scope-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r10_c16/qa/structure-review.json](r10_c16/qa/structure-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r10_c16/repairs/internal-final-v2/visual-review.json](r10_c16/repairs/internal-final-v2/visual-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r10_c16/repairs/north-integrated-color-v3/independent-internal-review.json](r10_c16/repairs/north-integrated-color-v3/independent-internal-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r10_c16/repairs/north-integrated-color-v3/root-north-review.json](r10_c16/repairs/north-integrated-color-v3/root-north-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r10_c16/repairs/north-integrated-color-v3/visual-review.json](r10_c16/repairs/north-integrated-color-v3/visual-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r10_c16/repairs/west-color-v1/independent-west-internal-review.json](r10_c16/repairs/west-color-v1/independent-west-internal-review.json)：历史版本或无直接当前SHA绑定；须查范围。
+- [r10_c16/repairs/west-color-v1/root-west-scope-review.json](r10_c16/repairs/west-color-v1/root-west-scope-review.json)：历史版本或无直接当前SHA绑定；须查范围。
 
 ## 逐图模型、拼接与保留
 

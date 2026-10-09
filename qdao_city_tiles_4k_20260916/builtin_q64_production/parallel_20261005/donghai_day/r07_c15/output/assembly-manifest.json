@@ -1,15 +1,15 @@
 {
-  "createdAtUtc": "2026-10-08T16:54:21.001304+00:00",
+  "createdAtUtc": "2026-10-09T01:53:00.193219+00:00",
   "appearance": "donghai_day",
   "tile": "r07_c15",
-  "status": "complete-pixel-candidate-pending-visual-review",
+  "status": "complete-tile-producer-and-independent-reviewed",
   "formalAccepted": false,
   "wholeCityComplete": false,
   "clientAcceptance": false,
   "visualInspectionPerformedByScript": false,
   "script": {
     "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\assembly_r07_c15.py",
-    "sha256": "5f67bcbc2913e56a8318b8d06ba851f74ec95ee396bcaa1508e84de773431d6a"
+    "sha256": "65d55669980d142c7075172a5538e4001024f2f746f2a369b6081b3ad497d440"
   },
   "seamHelper": {
     "file": "D:\\work\\image\\tianyong_festival_hd_20260910\\seam_helpers.py",
@@ -46,14 +46,18 @@
     ],
     "order": "assemble each row left-to-right, then rows top-to-bottom",
     "transitionWidthPixels": 2,
-    "registration": false,
-    "colorCorrection": false,
-    "spatialResampling": false,
+    "registration": true,
+    "colorCorrection": true,
+    "spatialResampling": true,
     "imageBlur": false,
     "maskBlur": false,
     "noUpscaling": true,
     "singleNative4KGeneration": false,
-    "sourcePixelsUnchangedOutsideNarrowBlendTransitions": true
+    "sourcePixelsUnchangedOutsideNarrowBlendTransitions": false,
+    "nativeAISeamRepairs": true,
+    "boundedLocalRGBDifferenceCorrection": true,
+    "localRegistration": "single straight-preserving horizontal affine in S3, recorded scale 1.00990099009901 and offset -16.584158415841614; final S4 geometry is native AI; no nonlinear final timber warp",
+    "resampledForUpscaling": false
   },
   "coverage": {
     "extendedPixels": 18714276,
@@ -1896,7 +1900,7 @@
   ],
   "output": {
     "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\output\\r07_c15.png",
-    "sha256": "3d6784d05e08447095081e0a2c425a1d11b2f7c461a7ff1dd74d9efa7644ea13",
+    "sha256": "4e9e6677f9f456422de5d1acceb359d63bd8908656784f44c30acc20118eff4b",
     "pixels": [
       4096,
       4096
@@ -1904,7 +1908,7 @@
   },
   "extendedContext": {
     "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\output\\extended-context.png",
-    "sha256": "6ba25159c79399913480ddd65409413d88862a8940495692da3848074c8d05b4",
+    "sha256": "2587e1dc66efda0bb56205f29ab75f5d362070479cd1d25e4034537b1f75aae3",
     "pixels": [
       4326,
       4326
@@ -1940,7 +1944,7 @@
   "qa": [
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\internal-vertical-x1024-full.png",
-      "sha256": "4e07017c487d7f765c9fe93cbaf128bd560757e4dedde808d7fc8a58c9f6072d",
+      "sha256": "62ed3414e031c709da90794c9ae2c6f6e3577327b2a35a1f47913272d7c90a49",
       "pixels": [
         1024,
         1024
@@ -2013,11 +2017,11 @@
       "coveredLengthPixels": 4096,
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\internal-horizontal-y1024-full.png",
-      "sha256": "b423bfe538a92dec3505124c111dad837920137d5451f7688bd96f67cf52c596",
+      "sha256": "4d3a22fcc1061027d4e686b47b2d22679f9c155fc6d5c5fb07851a9d0c88d2fc",
       "pixels": [
         1024,
         1024
@@ -2090,11 +2094,11 @@
       "coveredLengthPixels": 4096,
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\internal-vertical-x2048-full.png",
-      "sha256": "d016d6f5b05f033a231403eb69db031697393b6fe92d048acd2cbabd656877ff",
+      "sha256": "1c5cd983e2cbbae6addb4b026a143126345674b4a0342215ef3202b384e208ed",
       "pixels": [
         1024,
         1024
@@ -2167,11 +2171,11 @@
       "coveredLengthPixels": 4096,
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\internal-horizontal-y2048-full.png",
-      "sha256": "4ee1dbee6792311ca541ccf5053996d5fc09e0464f13be0c99ce71060748ef27",
+      "sha256": "f0cae4bf432b0ff96fe68cafee2e2a4e93c05c0de4fae2747f8c3cbafbb8df35",
       "pixels": [
         1024,
         1024
@@ -2244,11 +2248,11 @@
       "coveredLengthPixels": 4096,
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\internal-vertical-x3072-full.png",
-      "sha256": "017faeed77c3891013ac41a631d032b65b0763554654979d5e7f7ff39eb710eb",
+      "sha256": "ec151d9ff2a578b6ca0fcd571ab8e964d169fe7f60386179f786a4fd9a551fe2",
       "pixels": [
         1024,
         1024
@@ -2321,11 +2325,11 @@
       "coveredLengthPixels": 4096,
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\internal-horizontal-y3072-full.png",
-      "sha256": "740805d04f6e89a75c5be60ab26a66923401e44855925b942cd3fce89553f355",
+      "sha256": "9f377a33f49624dba6d9a3bb7b93b36a02eaedfc9cbd9e2272822087b729cf8c",
       "pixels": [
         1024,
         1024
@@ -2398,11 +2402,11 @@
       "coveredLengthPixels": 4096,
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\intersection-x1024-y1024.png",
-      "sha256": "cdf87db6c56f213b6792d717de8c6468f1238917688c8deb0365439e03c4d893",
+      "sha256": "84e4ed1694ffe5e417687a80c019214a0f95702ccdf3e4ed7ab7d735fa948b00",
       "pixels": [
         512,
         512
@@ -2417,11 +2421,11 @@
       ],
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\intersection-x2048-y1024.png",
-      "sha256": "35926d43257009b0c9a4bd35cf197129bc33df191e7c144abefdb27f627cbde7",
+      "sha256": "51e62d9e406ffe258913fbed36e6f9cd6d50904f007bdf9bfab3c89c961a6297",
       "pixels": [
         512,
         512
@@ -2436,11 +2440,11 @@
       ],
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\intersection-x3072-y1024.png",
-      "sha256": "3b8ddb25b890a52cfa0458475b0fb807d69b67f1aa97b566ab9cc10c3fc9720f",
+      "sha256": "c60103d4d2e15707d7b40c2e7da3959ef2afaf8fcf396045fa0ab074e7a96c29",
       "pixels": [
         512,
         512
@@ -2455,11 +2459,11 @@
       ],
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\intersection-x1024-y2048.png",
-      "sha256": "0db3a486a4e0132726be2c2638c1cc3a4fd4c3652410c6a1a9743d13c6b0e359",
+      "sha256": "ab3ee5c1e079b79e5ae58d8e433c465fd8e7afc31c2318d1502ae54dbc90f7df",
       "pixels": [
         512,
         512
@@ -2474,11 +2478,11 @@
       ],
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\intersection-x2048-y2048.png",
-      "sha256": "09ca67c5ca917490d53fb6b16b8b1dec9f1e09b680d75ab0cb275193ef8d1608",
+      "sha256": "e01e6eb6f9a861fad6d3975f6d941fcad014a0bae4c15770b99f05520b1c58e8",
       "pixels": [
         512,
         512
@@ -2493,11 +2497,11 @@
       ],
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\intersection-x3072-y2048.png",
-      "sha256": "a16918816b06dfee5f1c9f1ea8d6505e98c113da0a3965998721578bbae7467d",
+      "sha256": "fc27869d121b407996252715e2e67790dcf3c117789f9bfdf77e67fadc5dd314",
       "pixels": [
         512,
         512
@@ -2512,11 +2516,11 @@
       ],
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\intersection-x1024-y3072.png",
-      "sha256": "52201040c3874969c8901cb15e4db00414dd31d86efb5176ac32b9b5e4dbff2f",
+      "sha256": "d62fcf1860dc49511b1411216075baf5bb2b67ded1132dd7c69888444e62977b",
       "pixels": [
         512,
         512
@@ -2531,11 +2535,11 @@
       ],
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\intersection-x2048-y3072.png",
-      "sha256": "1f490e8cfd395049b82d0e17cb8ac613f82a9d106802f1c7d2fe7cd4ddb1ba18",
+      "sha256": "3bf29bebe6c375a06004aae468b3cf7e01826642c8d4c7a959b167ee51301410",
       "pixels": [
         512,
         512
@@ -2550,11 +2554,11 @@
       ],
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\intersection-x3072-y3072.png",
-      "sha256": "0e5d9196f6e673479a87f79d04fc7f6a6052d2dffcb041a13c8f9318f8500566",
+      "sha256": "573226b51217404a295d70d81806c470a315a9c41d1154dac441bf714046a35a",
       "pixels": [
         512,
         512
@@ -2569,7 +2573,7 @@
       ],
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\corner-nw.png",
@@ -2588,7 +2592,7 @@
       ],
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\corner-ne.png",
@@ -2607,11 +2611,11 @@
       ],
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\corner-sw.png",
-      "sha256": "dd36e9f4ed3672da7081cbb21daf8959af2100bf12580ce6e8cdffa02f86d928",
+      "sha256": "f6034b4e7ffb2aa96247e3873b56297b752383549f3ff34e28796e190404abbf",
       "pixels": [
         512,
         512
@@ -2626,11 +2630,11 @@
       ],
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\corner-se.png",
-      "sha256": "fb8ac58df0f20ef80014d290d8694f65002bcff4c7a1742da29c0416baa4f5c5",
+      "sha256": "fb679000ae66c1dcbe37bc97ed4cc8229242a549b2bd32dd6529a6873cdcfa72",
       "pixels": [
         512,
         512
@@ -2645,11 +2649,11 @@
       ],
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\south-r07-r08-common-edge-full.png",
-      "sha256": "18c7aac7d0c8fd56723c5f693827c95d86089e4b45bad1d79f78783b9090a44d",
+      "sha256": "4681b7b889a6bdd481817d0d28e57c99c3ccfd72559bcf3b205eb0620657c0bf",
       "pixels": [
         1024,
         1024
@@ -2739,11 +2743,11 @@
       "coveredLengthPixels": 4096,
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\south-halo-comparison-full.png",
-      "sha256": "e203a627e44a8f2fbf8ced4394d2b24ebecf961bf0ec5c72f3c46163f1c5dc27",
+      "sha256": "c4fd1a81e4cc0edbb3f67f9b6310a39bcb868a834ab22e0a26fb5e9619ca5ae8",
       "pixels": [
         1024,
         1024
@@ -2830,18 +2834,19 @@
       "coveredLengthPixels": 4096,
       "resized": false,
       "pixelScale": 1,
-      "visualInspection": "pending"
+      "visualInspection": "diagnostic-not-acceptance"
     },
     {
       "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\qa\\assembly\\overview-preview-1024.png",
-      "sha256": "1ed3307d7a58be93169763956b83445dc8fe4930fdc380fc3a8a8d46c7d82fa9",
+      "sha256": "e23e71ac9800245eeaebf733ed0f31dcabb2db172af4890ba2cca601c5479919",
       "pixels": [
         1024,
         1024
       ],
       "kind": "downsampled-overview-only",
       "scale": 0.25,
-      "notNativePixelQA": true
+      "notNativePixelQA": true,
+      "visualInspection": "passed-by-producer-and-independent-reviewer-at-identical-candidate-pixels"
     }
   ],
   "qaCoverage": {
@@ -2852,6 +2857,20 @@
     "completeSouthCommonEdge": true,
     "allNativeQASheetsAtMost1536PixelsPerDimension": true,
     "nativePixelQAResized": false,
-    "inspectionStatus": "pending"
+    "inspectionStatus": "producer-and-independent-reviewer-passed"
+  },
+  "historicalStatus": null,
+  "localRepair": {
+    "manifest": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\repairs\\unified\\straight-integrated-v6\\manifest.json",
+    "sha256": "862d039d55d2fa0f69bac33d8335f9a835ba174d8a02df6f402274a6718e4959",
+    "producerReview": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\repairs\\unified\\straight-integrated-v6\\producer-review.json",
+    "producerReviewSha256": "66d10e3bd39eef2a4eda0fbe71678475948df7e0c305d5a8a53c45c70bce8794",
+    "independentReview": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r07_c15\\repairs\\unified\\straight-integrated-v6\\independent-review.json",
+    "independentReviewSha256": "8a28ca2f621d50fd9a869d2224629398b8b61e42a9ec5361dc3a4ded402a928c"
+  },
+  "originalAssemblyScriptSha256": "5f67bcbc2913e56a8318b8d06ba851f74ec95ee396bcaa1508e84de773431d6a",
+  "commitScript": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\commit_r07_c15.py",
+    "sha256": "22f313ab42d9b33fcc31b9098a000aff54390c424c6d3be4de1c6fb35f275829"
   }
 }

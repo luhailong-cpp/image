@@ -1,7 +1,19 @@
 """Refresh only this map's production inventory; never claims runtime acceptance."""
 import production as p
 from PIL import Image, ImageDraw
+import os,time,uuid
 b=p.ROOT
+
+def save_preview(image,target):
+    temp=target.with_name(target.stem+'.write-'+uuid.uuid4().hex+'.png')
+    image.save(temp)
+    for attempt in range(4):
+        try:
+            os.replace(temp,target)
+            return
+        except OSError:
+            if attempt==3: raise
+            time.sleep(.5)
 
 def rel(path):
     path=p.Path(path)
@@ -60,15 +72,17 @@ def main():
     for tile,item in active.items(): lines.append(f'- {tile}：{item["nativePatches"]}/16张原生细节片；{item["stage"]}。')
     lines+=['','## 文件与检查入口','','- [当前区域预览](current-region-preview.png) / [全城覆盖位置](coverage-preview.png)','- [256块清单](tile-manifest.json) / [逐图来源索引](asset-index.json)','- [进度](progress.json) / [继续制作位置](current-work.json)','- [r09整合复查](qa/integrated-r09/root-review.json)','- [导航与日景/节庆约束](evidence/structure-navigation-review.json)','','## 生图与保留规则','','使用宿主内置image_gen。所有生图和AI编辑均有独立记录；配置目标与实际参数分开，工具未披露的型号和质量为未确认。实际提示词、参考图角色、工具来源、原生尺寸和SHA可从逐图索引查询。结构稿及低清布局仅用于参考，未作为高清成品放大。','','当前用于邻块衔接、尚未导出最终成品的唯一在制稿及修补依赖暂留。成品与引用核验完成后，按用户规则清除拒稿、回退图和中间图，保留来源文字证据。','','刷新本索引使用 `refresh_index.py`。']
     (b/'README.md').write_text('\n'.join(lines)+'\n',encoding='utf8')
-    region=Image.new('RGB',(2000,854),(32,41,44));dr=ImageDraw.Draw(region)
+    rows=[int(t[1:3]) for t in current];cols=[int(t[5:7]) for t in current]
+    r0,r1=min(rows),max(rows);c0,c1=min(cols),max(cols);cell=min(400,2000//(c1-c0+1))
+    region=Image.new('RGB',(cell*(c1-c0+1),54+cell*(r1-r0+1)),(32,41,44));dr=ImageDraw.Draw(region)
     dr.text((12,10),'PENGLAI DAY - CURRENT CANDIDATES / PREVIEW ONLY',fill='white',font_size=24)
     for tile,item in current.items():
         row=int(tile[1:3]);col=int(tile[5:7])
-        if 9<=row<=10 and 10<=col<=14:
-            x=(col-10)*400;y=54+(row-9)*400
-            region.paste(Image.open(item['file']).convert('RGB').resize((400,400),Image.Resampling.LANCZOS),(x,y))
-    region.save(b/'current-region-preview.png')
-    p.derived(b/'current-region-preview.png',[v['file'] for v in current.values()],{'method':'downscale-only 5-column by 2-row spatial overview; blank cells have no complete candidate','productionArt':False,'notNativeQAEvidence':True})
+        if r0<=row<=r1 and c0<=col<=c1:
+            x=(col-c0)*cell;y=54+(row-r0)*cell
+            region.paste(Image.open(item['file']).convert('RGB').resize((cell,cell),Image.Resampling.LANCZOS),(x,y))
+    save_preview(region,b/'current-region-preview.png')
+    p.derived(b/'current-region-preview.png',[v['file'] for v in current.values()],{'method':'downscale-only spatial overview; blank cells have no complete candidate','rows':[r0,r1],'columns':[c0,c1],'productionArt':False,'notNativeQAEvidence':True})
     print({'fullPixelCandidates':len(current),'nativeDetailPatches':count,'activeTiles':active,'formalAccepted':0})
 
 if __name__=='__main__': main()

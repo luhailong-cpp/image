@@ -15,12 +15,15 @@ import compose_west as cw
 import finish_west as fw
 
 ROOT = Path(__file__).resolve().parent
-DEST = ROOT/'r08_c14/west-final'
+PRE_WATER = '--pre-water' in sys.argv
+DEST = ROOT/('r08_c14/west-pre-water' if PRE_WATER else 'r08_c14/west-final')
 OUT, QA, FIELDS = DEST/'output', DEST/'qa', DEST/'fields'
 DAY_MANIFEST = ROOT.parent/'donghai_day/tiles/west-integration-r08_c14-manifest.json'
+EAST_META = (cw.read(ROOT/'r08_c14/repairs/west-common-edge/source-contract.json')['festivalBaselines'][1]
+             if PRE_WATER else cw.read(ROOT/'r08_c14/repairs/west-common-edge/final-base.json'))
 BASES = [
  ('r08_c13',ROOT/'r08_c13/completed-candidate-v2/output/r08_c13.png','bd2ccf25c06f3e22797cd153c26df45247ee9d099adb8d191a72d282cb78b1c6'),
- ('r08_c14',Path(cw.read(ROOT/'r08_c14/repairs/west-common-edge/final-base.json')['file']),cw.read(ROOT/'r08_c14/repairs/west-common-edge/final-base.json')['sha256']),
+ ('r08_c14',Path(EAST_META['file']),EAST_META['sha256']),
 ]
 
 def setup():
@@ -125,7 +128,7 @@ def main():
         cw.save_json(cw.MASKS/(seam['id']+'.json'),seam)
     dependencies=baselines+sources
     common={'derivedFrom':dependencies,'dayGeometryContract':contract,'daySeams':seams,'colorCorrection':True,
-      'colorCorrectionField':final_field,'geometryFlow':False,'spatialResampling':False,'formalAccepted':False,'visualReview':'pending'}
+      'colorCorrectionField':final_field,'geometryFlow':False,'spatialResampling':False,'formalAccepted':False,'visualReview':'pending','waterRepairsAppliedToEastBase':not PRE_WATER,'productionStage':'pre-water-joint-scope-only' if PRE_WATER else 'final-base-joint-composition'}
     outputs=[]
     for name,pixels,rect in (('pair-r08_c13-c14',result,[0,0,8192,4096]),('r08_c13',result[:,:4096],[0,0,4096,4096]),('r08_c14',result[:,4096:],[4096,0,8192,4096])):
         saved=cw.save_image(OUT/(name+'.png'),pixels,{**common,'pairRectXYXY':rect,'globalOriginXY':[49152,28672]})

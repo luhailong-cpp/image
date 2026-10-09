@@ -21,7 +21,7 @@ for y in range(start,796):
  mapx[y]=np.interp(np.arange(1254),[0,*target,1253],[0,*s,1253]);rows.append({'y':y,'sourceEdges':s.tolist(),'targetEdges':target.tolist()})
 out=cv2.remap(p,mapx,Y,cv2.INTER_LINEAR,borderMode=cv2.BORDER_REPLICATE)
 Image.fromarray(out).save(F/'registered-upper.png')
-np.savez_compressed(F/'semantic-registration.npz',map_x=mapx.astype(np.float16),map_y=Y.astype(np.float16))
+np.savez_compressed(F/'semantic-registration.npz',map_x=mapx,map_y=Y)
 meta={'operation':'Bounded monotone horizontal registration of existing broad-beam inner groove and outer silhouette. Known halo measured at each row, fit degree2; fade to zero at y380. No vertical warp.','sourceSha256':hashlib.sha256((F/'edited-native.png').read_bytes()).hexdigest(),'targetSha256':hashlib.sha256((F/'composition-reference.png').read_bytes()).hexdigest(),'maxDisplacement':float(np.abs(mapx-X).max()),'sourceEdgePolynomials':np.asarray(ps).tolist(),'targetEdgePolynomials':np.asarray(ts).tolist(),'fittedRows':[681,821],'appliedRows':[start,796],'sampling':'bilinear local registration','rowKnots':rows,'authoritativeHaloTransition':{'rows':[681,796],'weight':'smoothstep0to1; exact target last row'}}
 (F/'semantic-registration.json').write_text(json.dumps(meta,indent=2))
 out=out.astype(float);w=np.linspace(0,1,115);w=w*w*(3-2*w);out[681:796]=out[681:796]*(1-w[:,None,None])+t[681:796]*w[:,None,None];out=np.rint(out).astype('uint8')

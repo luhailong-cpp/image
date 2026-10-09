@@ -5,17 +5,25 @@ import numpy as np
 from PIL import Image
 import assembly_r09_c16 as a
 from qa_r09_c16_external import probes
-D=a.TILE/'repairs/color-match-v2'
-EXPECTED='093589a138671f1112dc25835f7857871bccbc44bf5a9df3a835e12cf63c6f96'
+D=a.TILE/'repairs/post-integrated-masked'
+EXPECTED='75e40578e8c29233bd6b73fbf60a3ea0d7eec917769b93de51404ad34e99a5f9'
 INITIAL='ff169961a00d04558464d4436397938b02ac4e53fd492f7a74122b49eda53095'
 def external_review():
  qa=D/'qa';candidate=D/'candidate.png'
  a.require(a.sha(candidate)==EXPECTED,'Candidate changed')
  names=['overview-preview-1024','north-r08-r09-common-edge-full','west-r09-c15-c16-common-edge-full','northwest-four-tiles']+['corner-'+c for c in ('nw','ne','sw','se')]
+ prior=a.TILE/'repairs/color-match-v2'
+ inherited=[]
+ for n in names:
+  if n!='overview-preview-1024':
+   a.require(a.sha(qa/(n+'.png'))==a.sha(prior/'qa'/(n+'.png')),'Prior external QA pixels changed')
+   inherited.append(n)
  a.save_json(D/'root-external-review.json',{'reviewedAtUtc':a.utc_now(),'reviewer':'root','actualVisualInspection':True,
   'candidateSha256':EXPECTED,'result':'pass','scope':'Overview, full north and west common edges, northwest four-tile intersection and four native corners',
   'observations':['Water and existing hull contact highlight continue across north boundary; original vertical tonal cut reaching north edge has been corrected.','West water and lower timber continue across the complete common edge. Northwest four-tile junction has no displaced geometry or straight tone split.','Four native corners retain clean water and existing timber detail.'],
   'viewedSheets':[{'file':str(qa/(n+'.png')),'sha256':a.sha(qa/(n+'.png')),'nativePixelQA':n!='overview-preview-1024'} for n in names],
+  'unchangedSheetsInheritedByExactSha256':inherited,
+  'priorActualViewReport':{'file':str(prior/'root-external-review.json'),'sha256':a.sha(prior/'root-external-review.json')},
   'formalAccepted':False,'clientAcceptance':False})
 def main():
  c=D/'candidate.png';e=D/'extended-context.png'
@@ -23,7 +31,6 @@ def main():
  external=a.load_json(D/'root-external-review.json');internal=a.load_json(D/'independent-internal-review.json')
  a.require(external['candidateSha256']==EXPECTED and external['result']=='pass','External review incomplete')
  # The independent report schema is checked when present; do not infer from existence.
- print(json.dumps({'independentReview':internal},ensure_ascii=False))
  expected_values=[v for k,v in internal.items() if 'sha256' in k.lower()]
  candidate_obj=internal.get('candidate')
  if isinstance(candidate_obj,dict):expected_values.append(candidate_obj.get('sha256'))
@@ -43,6 +50,9 @@ def main():
  fi=a.save_image(a.ART,final);ei=a.save_image(a.OUT/'extended-context.png',ext)
  a.require(fi['sha256']==EXPECTED,'Commit altered pixels')
  north,ni=a.checked_north();qa=a.write_qa(final,ext,north)
+ extra=correction['extraQA'];extra_dst=a.QA/Path(extra['file']).name
+ shutil.copyfile(extra['file'],extra_dst);a.require(a.sha(extra_dst)==extra['sha256'],'Insertion QA changed')
+ qa.append({**extra,'file':str(extra_dst),'kind':'native-insertion-boundary-probe','resized':False})
  probes(a.ART,a.QA)
  extmanifest=a.load_json(a.QA/'external-manifest.json')
  for sheet in extmanifest['sheets']:qa.append({**sheet,'kind':'native-external-probe','resized':False,'pixelScale':1})
@@ -61,17 +71,21 @@ def main():
   relocate(review);a.save_json(D/name,review)
  correction.update(candidate=fi,extendedContext=ei,qa=qa,status='integrated-current-output',visualReview='root-external-and-independent-internal-passed',
   capInterpretation='32 is a per-stage per-channel bound. Sequential internal overlap and north edge corrections have actual aggregate maximum34, recorded explicitly.')
+ correction['extraQA']={**extra,'file':str(extra_dst)}
  a.save_json(D/'manifest.json',correction)
  coverage={**old['qaCoverage'],'inspectionStatus':'passed','completeWestCommonEdge':True,'northwestFourTileIntersection':True}
  params={**old['parameters'],'colorCorrection':True,'boundedLocalRGBDifferenceCorrection':True,'perStageChannelCap':32,
-  'maxAggregateChannelCorrection':34,'imageBlur':False,'spatialResampling':False,
-  'sourcePixelsUnchangedOutsideNarrowBlendTransitions':False,'sourcePixelsUnchangedOutsideOriginalOverlapAndNorth230':True,
+  'maxColorFieldChannelCorrectionBeforeNativeRepair':34,'imageBlur':False,'spatialResampling':False,
+  'sourcePixelsUnchangedOutsideNarrowBlendTransitions':False,'sourcePixelsUnchangedOutsideOverlapNorth230AndNativeRepairROIs':True,
+  'nativeRepairROIs':correction['authorizedROI'],
   'northHaloUnchanged':True}
  manifest={**old,'historicalStatus':None,'createdAtUtc':a.utc_now(),'status':'complete-tile-visually-reviewed',
   'formalAccepted':False,'wholeCityComplete':False,'clientAcceptance':False,'postprocessingProtected':True,
   'output':fi,'extendedContext':ei,'parameters':params,'nativeSources':entries,'northBaseline':ni,
   'qa':qa,'qaCoverage':coverage,'boundaryDiagnostics':a.boundary_diagnostics(final,ext,north),
   'postprocessing':{'manifest':str(D/'manifest.json'),'sha256':a.sha(D/'manifest.json'),
+    'priorColorCorrectionManifest':str(a.TILE/'repairs/color-match-v2/manifest.json'),
+    'priorColorCorrectionManifestSha256':a.sha(a.TILE/'repairs/color-match-v2/manifest.json'),
     'externalReview':str(D/'root-external-review.json'),'externalReviewSha256':a.sha(D/'root-external-review.json'),
     'internalReview':str(D/'independent-internal-review.json'),'internalReviewSha256':a.sha(D/'independent-internal-review.json')}}
  a.save_json(a.OUT/'assembly-manifest.json',manifest)
@@ -83,6 +97,12 @@ def main():
   'status':'complete-tile-visually-reviewed','output':fi,'visualReview':'passed','formalAccepted':False,'wholeCityComplete':False}
  for name in ('progress.json','current-work.json'):a.save_json(a.TILE/name,state)
  p=a.load_json(a.TILE/'plan.json');p.update(status='complete-tile-visually-reviewed',candidate=fi,formalAccepted=False);a.save_json(a.TILE/'plan.json',p)
+ historical_review=a.TILE/'qa/root-initial-review.json'
+ if historical_review.exists():
+  v=a.load_json(historical_review)
+  v['availability']='superseded-initial-candidate-and-QA; textual review hashes retained'
+  v['pixelValidation']='historical-record-only; current canonical QA uses final candidate'
+  a.save_json(historical_review,v)
  # Remove only verified byte-identical duplicates after relocating current refs.
  removed=[]
  pairs=[(c,a.ART),(e,a.OUT/'extended-context.png')]+[(f,a.QA/f.name) for f in (D/'qa').glob('*.png')]

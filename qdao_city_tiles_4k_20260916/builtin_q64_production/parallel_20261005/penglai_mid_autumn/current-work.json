@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-10-08T22:57:13.465306+00:00",
+  "updatedAt": "2026-10-09T03:21:35.600816+00:00",
   "appearance": "penglai_mid_autumn",
   "tile": "r09_c15",
   "stage": "complete_pixels_under_scoped_QA",
-  "next": "Repair and actually inspect r09_c15 west paving returns; finish r10_c11 NE pilot geometry; independently prepare r11_c13 night structure.",
+  "next": "Finish r09_c15 upper/middle west paving endpoint paint; finish r10_c11 p11/p24 repairs then native wavefront; finish r11_c13 native rows then assemble and actually inspect.",
   "outputDirectory": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn",
   "currentCandidate": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\output\\r09_c15-candidate.png",
   "internalQA": "r09_c15_internal_passed_west_repair_pending",
@@ -17,57 +17,62 @@
       },
       "owner": "/root/r09c14_row2_resume",
       "repairDirectory": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\repairs\\west-paving",
-      "latestReviewedProposal": "v4: geometry joins improved, rectangular paint/lighting returns still visible; v5 requested. No repair promoted.",
+      "latestReviewedProposal": "v18: root actually viewed whole joint and6 native QA; lower groove and outer returns pass, upper/middle endpoint paint steps remain pending. No repair promoted.",
       "unchangedReview": {
         "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r09_c15\\qa\\root-review.json",
         "sha256": "472d938e7e6265211ac47d44074304d635fc3a80ba92b2f85c70c0d29d0aef74"
       }
     },
     "r10_c11": {
-      "stage": "NE_p14_joint_source_repair_pending",
-      "nativePatches": 1,
+      "stage": "NE_native_generation_and_local_seam_repair",
+      "nativePatches": 5,
       "owner": "/root/r09c14_row3_resume",
       "plan": {
         "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c11\\plan.json",
-        "sha256": "c84b60746ed717dcbef8882980504acc2fab35414d13f0b6cc9af7630fe0f2f3"
+        "sha256": "92fae4c8243273872574987d2e82105713d7612eb455c0a88e2117c62c10ec39"
       },
-      "repairDirectory": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c11\\repairs\\p14-north-join",
-      "eastV3LocalPassed": true,
-      "northStillPending": true,
-      "p14Promoted": false,
-      "downstreamNativeAuthorized": false,
+      "p14Promoted": true,
+      "p14CurrentReview": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c11\\qa\\p14-joint-repair-current.json",
+        "sha256": "4a8d654801b0d8c167721e446846228f5900a72bd73f8c0297e1bd8d0cca5f5c"
+      },
+      "downstreamNativeAuthorized": true,
+      "pendingRepairs": [
+        "p11 north leaves",
+        "p24 incoming water seam"
+      ],
       "specialP44Preparation": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c11\\prepare_p44_with_native_post.py"
     },
     "r10_c12": {
-      "stage": "reopened_for_northwest_source_tone_repair",
-      "owner": "/root/r09c14_row3_resume",
+      "stage": "scoped_local_seams_passed_after_joint_source_repair",
       "candidate": {
         "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\output\\r10_c12.png",
-        "sha256": "3ca7d1d8b5711e0b8d315fe9f3c0a4fe5f032ba3dc2555edfa9854eca6dc2be2"
+        "sha256": "4dc21b33dea8fa9a35e2c5a556e8495ecc9cda3e173457fb060682dd1b4a438b"
       },
-      "sourceReview": {
-        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\repairs\\northwest-source-joint\\source-review.json",
-        "sha256": "4b84bd2e2764dbade511172c124adb0de8f5a862cd67f208b9ad6a31862c49ef"
+      "jointSourceRepairApplied": true,
+      "independentAfterAudit": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\repairs\\northwest-source-joint\\independent-after-audit.json",
+        "sha256": "5332c854986264dfa585406afcd63e255ef58617cf4819b91dc5cc5998d1c628"
       },
-      "consumerMigrationPlan": {
-        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\repairs\\northwest-source-joint\\consumer-migration-plan.json",
-        "sha256": "c41504dc289d007864d725c93b49cd15559d1b6bdeba2fa560bb28c5b372a263"
+      "migrationApplied": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\repairs\\northwest-source-joint\\migration-applied.json",
+        "sha256": "4ecf4a05a3f765986c23c989d16efb47ff7dc315cc96d6af6cabe7668c2ec346"
       },
-      "rootFirstJointRepair": {
-        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\repairs\\northwest-source-joint\\root-v1.png",
-        "sha256": "fd05b45b4fef9b01edaf8eb33a393a24a9439bb5da519cec2e9d83f4916d40c0"
-      },
-      "knownDefect": "Northwestern true N water border has a straight tone jump to approximately x1152; current pixels remain unchanged until reviewed joint repair.",
-      "historicalScopeReopened": true
+      "historicalScopeReopenedThenRepaired": true
     },
     "r11_c13": {
-      "stage": "independent_north_supported_structure_planning",
+      "stage": "native_generation_pending_assembly_QA",
       "owner": "/root/r09c14_row4_resume",
       "northCandidate": {
         "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c13\\output\\r10_c13-candidate.png",
         "sha256": "c6c7176ea72228aca772c78a17fe8e3b5fc699904f46205d62ae482f420d1a5b"
       },
-      "nativeAuthorized": false
+      "nativeAuthorized": true,
+      "nativePatches": 15,
+      "plan": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r11_c13\\plan.json",
+        "sha256": "5e1121efeb9a33338ccbf125ac3ffbddb2c3b08daa32f319102afc8978bda591"
+      }
     }
   },
   "latestCompletedCandidate": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c14\\output\\r10_c14-candidate.png"

@@ -26,7 +26,7 @@ for y in range(start,796):
  rows.append({'y':y,'sourceEdges':s.tolist(),'targetEdges':target.tolist()})
 out=cv2.remap(p,mapx,Y,cv2.INTER_LINEAR,borderMode=cv2.BORDER_REPLICATE)
 Image.fromarray(out).save(F/'registered-upper.png')
-np.savez_compressed(F/'semantic-registration.npz',map_x=mapx.astype(np.float16),map_y=Y.astype(np.float16))
+np.savez_compressed(F/'semantic-registration.npz',map_x=mapx,map_y=Y)
 (F/'semantic-registration.json').write_text(json.dumps({'operation':'Bounded object-edge registration by monotone per-row horizontal coordinates. Fit physical beam and frame edges in authoritative halo and fade correction to zero at first valid two-object row.','maxDisplacement':float(np.abs(mapx-X).max()),'sourceEdgePolynomials':np.asarray(ps).tolist(),'targetEdgePolynomials':np.asarray(ts).tolist(),'fittedRows':[681,821],'appliedRows':[start,796],'sampling':'bilinear local registration','rowKnots':rows},indent=2))
 south=np.asarray(Image.open(R/'r08_c15/output/r08_c15.png').convert('RGB'))
 sheet=Image.new('RGB',(1254,400));sheet.paste(Image.fromarray(out[-200:]),(0,0));sheet.paste(Image.fromarray(south[:200,2842:4096]),(0,200));sheet.save(D/'qa-probes/s4-semantic-common-edge.png')

@@ -45,15 +45,19 @@ def status():
     for entry in entries: verify(entry)
     complete = {e['tile']: e for e in entries}
     active = registry['activeTile']
-    native_dir = ROOT / active / 'native'
-    natives = sorted(native_dir.glob('r??_c??.png'))
-    for p in natives:
-        r = read(str(p) + '.generation.json')
-        assert sha(p) == r['sha256']
-        with Image.open(p) as im: im.load(); assert im.size == (1254, 1254)
+    active_tiles = sorted(set(registry.get('activeTiles', [active]) + [active]))
+    native_by_tile = {}
+    for tile in active_tiles:
+        native_by_tile[tile] = sorted((ROOT / tile / 'native').glob('r??_c??.png'))
+        for p in native_by_tile[tile]:
+            r = read(str(p) + '.generation.json')
+            assert sha(p) == r['sha256']
+            with Image.open(p) as im: im.load(); assert im.size == (1254, 1254)
+    natives = native_by_tile[active]
+    in_progress = [tile for tile in active_tiles if tile not in complete]
     count = len(entries)
     baseline = sum(e.get('baseline', False) for e in entries)
-    active_incomplete = int(active not in complete)
+    active_incomplete = len(in_progress)
     timestamp = now()
     state = {'appearance': 'donghai_lantern', 'title': '05 渔村元宵地图',
         'updatedAtUtc': timestamp, 'targetCityPixels': [65536, 65536],
@@ -63,6 +67,7 @@ def status():
         'tilesWithNoCompletePixels': 256-count, 'tilesWithoutAnyCurrentProduction': 256-count-active_incomplete,
         'formalAccepted': 0, 'clientAccepted': False, 'wholeCityComplete': False,
         'runtimePublished': False, 'activeTile': active, 'nativePatchesSaved': len(natives),
+        'activeTiles': active_tiles, 'inProgressNativePatches': {t:len(native_by_tile[t]) for t in in_progress},
         'nativePatchesRequiredForActiveTile': 16, 'fragmentsCountAsTiles': False,
         'phase': 'native_expansion_and_scoped_seam_repairs',
         'qaStatus': 'candidate_scope_only_not_whole_city_or_client_acceptance',
@@ -81,43 +86,64 @@ def status():
             tile = f'r{row:02}_c{col:02}'
             e = complete.get(tile)
             index['tiles'].append({'id': tile, 'globalRectXYWH': [(col-1)*4096,(row-1)*4096,4096,4096],
-                'status': 'complete_pixel_candidate' if e else ('in_progress' if tile==active else 'missing'),
+                'status': 'complete_pixel_candidate' if e else ('in_progress' if tile in in_progress else 'missing'),
                 'completePixelCandidate': bool(e), 'formalAccepted': False, 'clientAccepted': False,
                 'sourceFile': e['file'] if e else None, 'actualSha256': e['sha256'] if e else None,
                 'shaMatches': True if e else None, 'actualPixels': [4096,4096] if e else None,
                 'fullDecode': bool(e), 'qaStatus': e['qaStatus'] if e else 'not_ready',
                 'qaRecords': e.get('qaRecords',[]) if e else []})
-    shown = entries + ([{'tile': active, 'partial': True}] if active_incomplete else [])
-    preview = Image.new('RGB', (384*len(shown),544), (38,49,58))
+    shown = entries + [{'tile': tile, 'partial': True} for tile in in_progress]
+    # Show the real row/column positions, including empty neighbors, so a new
+    # southern tile is not mistaken for a continuation of the eastern edge.
+    coordinates = {e['tile']:(int(e['tile'][1:3]),int(e['tile'][5:7])) for e in shown}
+    min_row=min(r for r,c in coordinates.values()); max_row=max(r for r,c in coordinates.values())
+    min_col=min(c for r,c in coordinates.values()); max_col=max(c for r,c in coordinates.values())
+    cell=384; label_height=36; row_height=cell+label_height
+    grid_height=(max_row-min_row+1)*row_height
+    preview = Image.new('RGB', (cell*(max_col-min_col+1),grid_height+124), (38,49,58))
     draw = ImageDraw.Draw(preview)
     refs = []
-    for i,e in enumerate(shown):
-        x = i*384
-        draw.text((x+10,10),e['tile'] + (' / native fragments' if e.get('partial') else ' / 4096 candidate'),fill='white')
+    for row in range(min_row,max_row+1):
+        for col in range(min_col,max_col+1):
+            tile=f'r{row:02}_c{col:02}'; x=(col-min_col)*cell; y=(row-min_row)*row_height
+            if tile not in coordinates:
+                draw.rectangle((x+1,y+label_height+1,x+cell-2,y+row_height-2),outline=(62,73,82))
+                draw.text((x+10,y+10),tile+' / no current pixels',fill=(150,161,170))
+    for e in shown:
+        row,col=coordinates[e['tile']]
+        x=(col-min_col)*cell; y=(row-min_row)*row_height
+        draw.text((x+10,y+10),e['tile'] + (' / native fragments' if e.get('partial') else ' / 4096 candidate'),fill='white')
         if e.get('partial'):
-            for p in natives:
+            for p in native_by_tile[e['tile']]:
                 row,col = int(p.stem[1:3]),int(p.stem[5:7])
-                with Image.open(p) as im: preview.paste(im.crop((115,115,1139,1139)).resize((96,96),Image.Resampling.LANCZOS),(x+(col-1)*96,36+(row-1)*96))
+                with Image.open(p) as im: preview.paste(im.crop((115,115,1139,1139)).resize((96,96),Image.Resampling.LANCZOS),(x+(col-1)*96,y+label_height+(row-1)*96))
                 refs.append({'file':str(p),'sha256':sha(p),'role':'native fragment, not a complete tile'})
         else:
-            with Image.open(e['file']) as im: preview.paste(im.convert('RGB').resize((384,384),Image.Resampling.LANCZOS),(x,36))
+            with Image.open(e['file']) as im: preview.paste(im.convert('RGB').resize((cell,cell),Image.Resampling.LANCZOS),(x,y+label_height))
             refs.append({'file':e['file'],'sha256':e['sha256'],'role':'current complete pixel candidate'})
-    draw.text((12,438), f'Complete pixel candidates {count}/256 | Formal accepted 0/256 | Client acceptance pending',fill='white')
-    draw.text((12,462), f'Active {active}: {len(natives)}/16 native fragments | {256-count} tiles lack complete current pixels',fill='white')
-    draw.text((12,486), 'Downscaled placement preview only. Full city is incomplete; seam QA is recorded per candidate.',fill='white')
-    preview.save(ROOT/'current-preview.png')
+    draw.text((12,grid_height+18), f'Complete pixel candidates {count}/256 | Formal accepted 0/256 | Client acceptance pending',fill='white')
+    fragment_summary = ' | '.join(f'{t}: {len(native_by_tile[t])}/16 fragments' for t in in_progress)
+    draw.text((12,grid_height+42), f'{fragment_summary} | {256-count} tiles lack complete current pixels',fill='white')
+    draw.text((12,grid_height+66), 'Actual tile row/column positions. Downscaled preview only; full city incomplete; seam QA recorded per candidate.',fill='white')
+    fd, preview_temp = tempfile.mkstemp(prefix='.preview-', suffix='.png', dir=ROOT)
+    os.close(fd)
+    try:
+        preview.save(preview_temp, format='PNG')
+        os.replace(preview_temp, ROOT/'current-preview.png')
+    finally:
+        if os.path.exists(preview_temp): os.unlink(preview_temp)
     write(ROOT/'current-preview.png.generation.json', {'file':str(ROOT/'current-preview.png'), 'sha256':sha(ROOT/'current-preview.png'),
         'operation':'downscaled placement preview of SHA-verified complete candidates and separately labelled fragments',
         'finalArt':False,'derivedFrom':refs,'registry':str(REGISTRY)})
     registry['updatedAtUtc']=timestamp
     write(REGISTRY,registry)
     write(ROOT/'current-selection.json', {'schemaVersion':2,'authoritativeRegistry':str(REGISTRY),
-        'updatedAtUtc':timestamp,'candidates':entries,'activeTile':active,'wholeCityComplete':False,'formalAccepted':False})
+        'updatedAtUtc':timestamp,'candidates':entries,'activeTile':active,'activeTiles':active_tiles,'wholeCityComplete':False,'formalAccepted':False})
     write(ROOT/'current-work.json',state); write(ROOT/'progress.json',state)
     write(ROOT/'audit/tile-index.json',index)
     (ROOT/'integration-delivery-status.txt').write_text(
         f'05 渔村元宵地图：完整像素候选 {count}/256；正式验收 0/256；客户端未验收。\n'
-        f'当前扩展 {active}：原生片段 {len(natives)}/16；尚无完整像素图块 {256-count} 张。\n'
+        f'当前扩展：{fragment_summary}；尚无完整像素图块 {256-count} 张。\n'
         '候选、SHA 和检查范围以 current-candidates.json 为准；current-preview.png 仅为缩略总览。\n', encoding='utf-8')
     return {k:state[k] for k in ('completePixelCandidates','missingTiles','activeTile','nativePatchesSaved','formalAccepted')}
 

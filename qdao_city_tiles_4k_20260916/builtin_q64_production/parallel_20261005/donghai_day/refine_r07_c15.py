@@ -19,9 +19,14 @@ def main():
   patches.append(up[350:796])
   regs.append({'id':n,'registeredPatch':i.ref(h),'registrationRecord':i.ref(f/'semantic-registration.json'),'coordinateMap':i.ref(f/'semantic-registration.npz')})
  joined=i.join(patches,[0,1024,2048,2842],3650,'masked-south')
+ joined[-1]=i.rgb(i.SEX)[114,115:4211]
  # Known last row is identical in all overlapping patches and therefore remains exact.
  i.insert(im,joined,[0,3650,4096,4096],80,'masked-south',boundary_full=('left','right','bottom'))
- assert np.array_equal(im[:3650],before[:3650])
+ # Restore the real dark wall above the rectangular south insertion, using the same existing-material mask.
+ darkup=i.rgb(F/'s1'/'halo-matched-upper.png')
+ with np.load(F/'s1'/'existing-dark-wall-mask.npz') as z:wall=z['alpha_f16'].astype(np.float32)
+ im[3300:4096,:1254]=np.rint(im[3300:4096,:1254]*(1-wall[:,:,None])+darkup*wall[:,:,None]).astype(np.uint8)
+ assert np.array_equal(im[:3300],before[:3300])
  sex=i.rgb(i.SEX);south=i.rgb(i.SOUTH);assert np.array_equal(im[-1],sex[114,115:4211])
  assert a.sha(i.SOUTH)==i.SOUTH_SHA and a.sha(i.SEX)==i.SEX_SHA
  ex=i.rgb(D/'extended-context.png');assert np.array_equal(ex[115:4211,115:4211],before)
@@ -32,7 +37,7 @@ def main():
  # Full crop at native pixels, four overlapped join segments.
  for j,x in enumerate([0,1024,2048,2842],1):
   sh=Image.new('RGB',(1254,896));sh.paste(Image.fromarray(im[3400:4096,x:x+1254]),(0,0));sh.paste(Image.fromarray(south[:200,x:x+1254]),(0,696));a.save_image(O/f'qa/full-south-{j}.png',sh)
- manifest={'createdAtUtc':a.utc_now(),'input':i.ref(BASE),'inputManifest':i.ref(D/'manifest.json'),'candidate':ci,'extendedContext':ei,'south':i.ref(i.SOUTH),'southExtended':i.ref(i.SEX),'nativeMaskedSources':i.SOURCES,'registrations':regs,'seams':i.SEAMS,'insertions':i.INSERTIONS,'outsideRectUnchanged':{'rect':[0,3650,4096,4096],'confirmed':True},'southUnchanged':True,'lastRowExactAuthoritativeHalo':True,'imageBlur':False,'localSourceResampling':'bilinear horizontal object-edge registration only; no art upscale','qa':qa,'insertionQA':extras,'script':i.ref(__file__),'visualReview':'pending','formalAccepted':False}
+ manifest={'createdAtUtc':a.utc_now(),'input':i.ref(BASE),'inputManifest':i.ref(D/'manifest.json'),'candidate':ci,'extendedContext':ei,'south':i.ref(i.SOUTH),'southExtended':i.ref(i.SEX),'nativeMaskedSources':i.SOURCES,'registrations':regs,'seams':i.SEAMS,'insertions':i.INSERTIONS,'outsideRectUnchanged':{'rect':[0,3300,4096,4096],'confirmed':True},'southUnchanged':True,'lastRowExactAuthoritativeHalo':True,'imageBlur':False,'localSourceResampling':'bilinear horizontal object-edge registration only; no art upscale','qa':qa,'insertionQA':extras,'script':i.ref(__file__),'visualReview':'pending','formalAccepted':False}
  a.save_json(O/'manifest.json',manifest);print(json.dumps(ci))
 if __name__=='__main__':main()
 

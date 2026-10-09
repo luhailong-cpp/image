@@ -2,28 +2,49 @@
 
 内部资产 ID：`penglai_day`。仅在本目录继续制作，旧来源只读。
 
-目标为65536×65536、16×16共256张4096×4096。目前有 **7张完整像素候选**，尚缺249张完整像素图块。正式验收0张；整城和客户端验收尚未完成。
+目标为65536×65536、16×16共256张4096×4096。目前有 **17张完整像素候选**，尚缺239张完整像素图块。正式验收0张；整城和客户端验收尚未完成。
 
 ## 当前图块
 
 | 图块 | 当前图片 | 检查状态 |
 |---|---|---|
-| r09_c10 | [4096×4096 PNG](D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/penglai_day/r09_c10_c11_c12_joint/output_v2_20260918/penglai_day_r09_c10_4k_joint_candidate_v2.png) | 继承候选，已核对来源 |
-| r09_c11 | [4096×4096 PNG](D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/penglai_day/r09_c10_c11_c12_joint/output_v2_20260918/penglai_day_r09_c11_4k_joint_candidate_v2.png) | 继承候选，已核对来源 |
-| r09_c12 | [4096×4096 PNG](r10_c12/repairs/north/joint-v4/r09_c12-north-joint-candidate.png) | 完整像素，接缝验收处理中 |
-| r09_c13 | [4096×4096 PNG](tiles/current/r09_c13-candidate-v4b.png) | 局部图像及接缝已复查；其余相邻块待完成 |
-| r09_c14 | [4096×4096 PNG](r09_c14/tiles/r09_c14-candidate.png) | 完整像素，接缝验收处理中 |
-| r10_c12 | [4096×4096 PNG](r10_c12/repairs/north/joint-v4/r10_c12-north-joint-candidate.png) | 完整像素，接缝验收处理中 |
-| r10_c13 | [4096×4096 PNG](r10_c13/tiles/r10_c13-candidate.png) | 完整像素，接缝验收处理中 |
+| r08_c12 | [4096×4096 PNG](tiles/current/region-v7/r08_c12-step1.png) | 局部图像及接缝已复查；其余相邻块待完成 |
+| r09_c10 | [4096×4096 PNG](tiles/current/region-v6/r09_c10-candidate.png) | 局部图像及接缝已复查；其余相邻块待完成 |
+| r09_c11 | [4096×4096 PNG](tiles/current/region-v6/r09_c11-candidate.png) | 局部图像及接缝已复查；其余相邻块待完成 |
+| r09_c12 | [4096×4096 PNG](tiles/current/region-v7/r09_c12-step2.png) | 局部图像及接缝已复查；其余相邻块待完成 |
+| r09_c13 | [4096×4096 PNG](tiles/current/region-v3/r09_c13-candidate.png) | 完整像素，接缝验收处理中 |
+| r09_c14 | [4096×4096 PNG](tiles/current/region-v5/r09_c14-candidate.png) | 完整像素，接缝验收处理中 |
+| r09_c15 | [4096×4096 PNG](tiles/current/region-v7/r09_c15-step4.png) | 局部图像及接缝已复查；其余相邻块待完成 |
+| r10_c10 | [4096×4096 PNG](tiles/current/region-v7/r10_c10-step6.png) | 局部图像及接缝已复查；其余相邻块待完成 |
+| r10_c11 | [4096×4096 PNG](tiles/current/region-v6/r10_c11-candidate.png) | 局部图像及接缝已复查；其余相邻块待完成 |
+| r10_c12 | [4096×4096 PNG](tiles/current/region-v4/r10_c12-candidate.png) | 局部图像及接缝已复查；其余相邻块待完成 |
+| r10_c13 | [4096×4096 PNG](r11_c13/repairs/north/joint-v3/r10_c13-candidate.png) | 局部图像及接缝已复查；其余相邻块待完成 |
+| r10_c14 | [4096×4096 PNG](tiles/current/region-v7/r10_c14-step5.png) | 局部图像及接缝已复查；其余相邻块待完成 |
+| r10_c15 | [4096×4096 PNG](tiles/current/region-v7/r10_c15-step9.png) | 局部图像及接缝已复查；其余相邻块待完成 |
+| r11_c10 | [4096×4096 PNG](tiles/current/region-v7/r11_c10-step7.png) | 局部图像及接缝已复查；其余相邻块待完成 |
+| r11_c13 | [4096×4096 PNG](r11_c13/repairs/north/joint-v3/r11_c13-candidate.png) | 局部图像及接缝已复查；其余相邻块待完成 |
+| r11_c14 | [4096×4096 PNG](r11_c14/tiles/r11_c14-candidate.png) | 完整像素，接缝验收处理中 |
+| r11_c15 | [4096×4096 PNG](tiles/current/region-v7/r11_c15-step8.png) | 局部图像及接缝已复查；其余相邻块待完成 |
 
 r09_c13 已合并内部修缝、两处AI木纹修补及c12共享边，轮廓微阶已修复。实际像素来源、早期配准和色彩场保留完整记录，不将拼合图标成单次原生4K。
 
 ## 正在补齐
 
+- r08_c11：9/16张原生细节片；native_details。
+- r08_c12：16/16张原生细节片；complete_pixel_candidate_pending_qa。
 - r09_c14：16/16张原生细节片；complete_pixel_candidate_pending_qa。
+- r09_c15：16/16张原生细节片；local_candidate_complete_global_integration_pending。
+- r10_c10：16/16张原生细节片；local_native_qa_complete_shared_mask_proposal_ready。
+- r10_c11：16/16张原生细节片；internal_qa_completed_shared_north_east_pending。
 - r10_c12：16/16张原生细节片；complete_pixel_candidate_pending_qa。
 - r10_c13：16/16张原生细节片；complete_native_pixel_candidate_pending_seam_qa。
-- r10_c14：0/16张原生细节片；structure_pending。
+- r10_c14：16/16张原生细节片；complete_pixel_candidate_pending_qa。
+- r10_c15：16/16张原生细节片；ready_for_root_integration。
+- r11_c10：16/16张原生细节片；local_native_qa_complete_handoff_ready。
+- r11_c11：3/16张原生细节片；native_details。
+- r11_c13：16/16张原生细节片；local_candidate_complete_north_shared_review_passed。
+- r11_c14：16/16张原生细节片；complete_pixel_candidate_pending_qa。
+- r11_c15：16/16张原生细节片；local_internal_and_north_complete_ready_for_root_integration。
 
 ## 文件与检查入口
 

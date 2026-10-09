@@ -8,6 +8,8 @@ import integrate_c15_repairs as m
 from qa_r09_c16_external import probes
 R=Path(__file__).resolve().parent;T=a.TILE;D=T/'repairs/post-integrated';P=T/'repairs/post-tonal-fix'
 BASE=T/'repairs/color-match-v2';EXPECTED='093589a138671f1112dc25835f7857871bccbc44bf5a9df3a835e12cf63c6f96'
+MASKED='--masked' in sys.argv
+if MASKED:D=T/'repairs/post-integrated-masked';P=T/'repairs/post-tonal-masked'
 def main():
  assert a.sha(BASE/'candidate.png')==EXPECTED
  m.a=a;m.sha=a.sha;m.load=a.load_json;m.js=a.save_json;m.save=a.save_image
@@ -16,10 +18,10 @@ def main():
  base=m.rgb(BASE/'candidate.png');image=base.copy()
  patch,source=m.valid_patch(P/'edited-native.png')
  meta=a.load_json(str(P/'input.png')+'.generation.json');box=meta['sourceRectXYXY']
- assert np.array_equal(m.cut(base,box),m.rgb(P/'input.png'))
+ assert np.array_equal(m.cut(base,box),m.rgb(P/('composition-reference.png' if MASKED else 'input.png')))
  sys.argv.append('--color')
- roi=[1920,2910,2250,3370]
- m.insert(image,patch,box,64,'lantern-post-and-banner',rects=[roi])
+ roi=[[1938,3035,2058,3235],[2096,2980,2230,3250]] if MASKED else [[1920,2910,2250,3370]]
+ m.insert(image,patch,box,30 if MASKED else 64,'lantern-post-and-banner',rects=roi)
  assert np.array_equal(image[m.GLOBAL_MASK==0],base[m.GLOBAL_MASK==0])
  ext=m.rgb(BASE/'extended-context.png');assert np.array_equal(ext[115:4211,115:4211],base)
  ext[115:4211,115:4211]=image

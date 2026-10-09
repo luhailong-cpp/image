@@ -13,6 +13,10 @@ if '--thin' in sys.argv:
  D=T/'repairs/south-thin';M=D/'masks'/('run-'+uuid.uuid4().hex[:8]);Q=D/'qa'
 if '--protect-wood' in sys.argv:
  D=T/'repairs/south-final';M=D/'masks'/('run-'+uuid.uuid4().hex[:8]);Q=D/'qa'
+if '--protect-spar' in sys.argv:
+ D=T/'repairs/south-spar';M=D/'masks'/('run-'+uuid.uuid4().hex[:8]);Q=D/'qa'
+if '--protect-cap' in sys.argv:
+ D=T/'repairs/south-cap';M=D/'masks'/('run-'+uuid.uuid4().hex[:8]);Q=D/'qa'
 SO=R/'r08_c16/output/r08_c16.png';SS='3e4a1a64a96d894531f6f1f7189287276b401e58f6805a9e6242c422e22b96de';SX=R/'r08_c16/output/extended-context.png';XS='0055b578b51057e9c05d6ca050bd83d84c20aae92bc72cd47d424610b6e02689'
 j.a=a;j.sha=a.sha;j.load=a.load_json;j.js=a.save_json;j.save=a.save_image;j.M=M;j.Q=Q;j.joint.MASKS=M;j.joint.save_image=a.save_image;j.joint.save_json=a.save_json
 j.SEAMS=[];j.INSERTIONS=[];j.GLOBAL_MASK=np.zeros((4096,4096),np.uint8)
@@ -31,10 +35,16 @@ if '--anchor-only' in sys.argv:
 joined=j.join([north,anchor],[0,512],'horizontal',1250,3469,'north-to-final-south-halo')
 joined[-16:]=anchor[-16:]
 eligibility=None;protection=None
-if '--protect-wood' in sys.argv:
+if any(x in sys.argv for x in ('--protect-wood','--protect-spar','--protect-cap')):
  poly=[(0,400),(204,267),(214,230),(260,181),(315,144),(355,150),(400,169),(449,208),(477,260),(474,308),(460,352),(420,386),(386,405),(358,420),(338,445),(295,471),(0,640)]
- protected=Image.new('L',(1254,627));ImageDraw.Draw(protected).polygon(poly,fill=255);protected=protected.filter(ImageFilter.MaxFilter(7));eligibility=255-np.asarray(protected)
- protection=dict(a.save_image(M/'original-wood-protection.png',protected),polygonLocalXY=poly,dilationPixels=3,purpose='Keep original occluding wood cap and diagonal spar pixels; only rope/water may change')
+ if '--protect-spar' in sys.argv:poly=[(0,400),(210,262),(235,286),(275,309),(307,340),(313,394),(287,443),(0,640)]
+ dilation=3
+ if '--protect-cap' in sys.argv:
+  poly=[(0,400),(204,267),(214,230),(260,181),(315,144),(355,150),(392,170),(430,200),(455,230),(467,260),(469,285),(463,310),(455,330),(448,350),(439,370),(406,390),(360,410),(320,430),(313,442),(295,455),(0,660)];dilation=0
+ protected=Image.new('L',(1254,627));ImageDraw.Draw(protected).polygon(poly,fill=255)
+ if dilation:protected=protected.filter(ImageFilter.MaxFilter(2*dilation+1))
+ eligibility=255-np.asarray(protected)
+ protection=dict(a.save_image(M/'original-wood-protection.png',protected),polygonLocalXY=poly,dilationPixels=dilation,purpose='Keep original occluding wood cap and diagonal spar pixels; only rope/water may change')
 image=base.copy();j.insert(image,joined,[1250,3469,2504,4096],96,'south-rope',eligibility=eligibility,rects=meta['intendedRepairRectsXYXY'])
 assert np.array_equal(image[j.GLOBAL_MASK==0],base[j.GLOBAL_MASK==0])
 assert a.sha(SO)==SS and a.sha(SX)==XS
