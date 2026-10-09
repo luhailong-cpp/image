@@ -1,9 +1,0 @@
-from pathlib import Path
-import sys,json
-from PIL import Image
-O=Path(__file__).resolve().parent
-sys.path.insert(0,str(O));import ai_helper as h
-common='Edit reference 1 at exactly its native 1254x1254 size, no framing or camera change. Repair only the stated tiny assembly discontinuities; retain every real object and material joint, all detailed hand-painted textures and original geometry. Reference 2 is the approved actual style: bright rounded polished Taoist Q-game art, used only for rendering style, no UI or text. Preserve sharp detail. No blurring, no extra ornaments. '
-h.savecall('hull-mid-keep-joint',common+'There are small pixel steps in the two long diagonal golden rails and horizontal wood grooves near x627. Make each rail highlight and its contours continuous. Crucially KEEP the genuine thin dark vertical plank joint at x554 from y291 to y439, linking the upper rail underside to the next diagonal plank groove. It is an actual wooden construction joint and must remain, with the same position, thickness and connected endpoints. Retain all other board joints, rail post, yellow sun patch and deck layout exactly. Only repair the tiny artificial pixel steps.',[O/'hull-mid-source.png',h.STYLE],['native edit target','approved actual style'])
-src=O/'r11_c15-internal-candidate-v1.png';p=O/'hull-low-source.png';Image.open(src).crop((750,2445,2004,3699)).save(p);h.derived(p,[src],{'crop':[750,2445,2004,3699],'nativeNoRescale':True})
-h.savecall('hull-low',common+'Repair the tiny artificial step at y627 crossing the diagonal dark outer hull edge and associated wooden board grooves, and any tiny artificial x274 cut. Continue each existing curve, rim highlight, board groove and water line smoothly through the cuts, preserving all genuine plank joints. No change to the boat silhouette beyond the few-pixel correction.',[p,h.STYLE],['native edit target','approved actual style'])
