@@ -1,0 +1,96 @@
+{
+  "status": "stopped-on-root-directed-layout-change-to-6x6",
+  "scope": "Old r08_c16 west repair halted. Do not treat pending derived candidates as visually approved.",
+  "reason": "User's map scope changed to 6x6 tiles at 4096 pixels each; old 16x16 work stopped at next tool boundary.",
+  "currentWorkOrSelectionWritten": false,
+  "dayWritten": false,
+  "c15Written": false,
+  "imagesDeleted": false,
+  "inflightImageGeneration": false,
+  "inflightComposition": false,
+  "reliableImmutableReferences": {
+    "c15": {
+      "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/donghai_lantern/r08_c15/west-common-edge-v3/output/r08_c15.png",
+      "sha256": "7c18bf09e962b458ee285c04067655d6198c426d2bb53cccbe13bc58f24c8a4f",
+      "status": "Previously actual QA passed immutable neighbor"
+    },
+    "c16Base": {
+      "file": "../approved-sync/output/r08_c16.png",
+      "sha256": "7d821e83179cae126dd4e0f1be7f6b83f6a762bfe7b0f0caa4bfa3ec8de0bb22",
+      "status": "Fixed original baseline; actual QA complete with unresolved color-return defects, not formally seamless"
+    },
+    "baseVisualReview": {
+      "file": "../approved-sync/qa/review-west-and-joins.json",
+      "sha256": "ee3aeb85174a436080856bcbbeb813b9e39e63bab4b20b8a9595156fd0ed61db",
+      "actualViewedCount": 29
+    }
+  },
+  "newBuiltinNatives": [
+    {
+      "id": "s1",
+      "file": "native/s1.png",
+      "sha256": "a5331fe6545227db675ad03f9d4a01722aa609308f9ea42ad35ba3bbf4e04501"
+    },
+    {
+      "id": "s2",
+      "file": "native/s2.png",
+      "sha256": "2f1585c5ce98171d7fe6442d909fe38b67d215054da6f7ffc3c6c37da2a132ac"
+    },
+    {
+      "id": "s3",
+      "file": "native/s3.png",
+      "sha256": "e1ef2d80c0ac848f960890d8c29a459ab15306414bd9463a3aa87a2416d040d5"
+    },
+    {
+      "id": "s4",
+      "file": "native/s4.png",
+      "sha256": "5dde4386bf292400e743e29365e45b0b3751b354825505cb45a66c4b1d1149fb"
+    }
+  ],
+  "nativeRecordPolicy": "Each native has original 1254x1254 bytes and adjacent .generation.json, actual submitted prompts and all three reference hashes; submitted/actual model and quality are null as builtin did not disclose selectors or returned version. Full returned native images were actually visible/reviewed; final unchanged-c15 pair continuity is a separate unpassed requirement.",
+  "completedInFlightCandidate": {
+    "file": "output-refined/r08_c16.png",
+    "sha256": "840071d4b7178381ad1b337d4dc24c74c083fbafe95d21c7831d05ee42e11482",
+    "manifest": {
+      "file": "output-refined/manifest.json",
+      "sha256": "da800972fa51fd702afd32035d8a9a7853fc287cf4b45bec00601f1bcaf01f4a"
+    },
+    "status": "Unreviewed pending candidate; in-flight composition completed after stop message, no further refinement",
+    "actualViewedQaCount": 0,
+    "qaCount": 14,
+    "outsideAuthorizedScopeChangedPixels": 0,
+    "immutableC15ShaRetained": true,
+    "authorizedScope": [
+      [
+        0,
+        0,
+        220,
+        4096
+      ],
+      [
+        0,
+        2050,
+        350,
+        2350
+      ]
+    ],
+    "application": "Only if subsequently visually approved: copy already-composited candidate using output-refined/copy-support.png. Never blend again using display alpha.",
+    "RGBFieldMax24": true,
+    "RGBFieldAppliedOnce": "Convex combination of local material-affine and immediate-boundary residual transport; not cumulative repeated correction."
+  },
+  "knownUnresolved": [
+    "Original baseline actual shared x0 boundary has visible material tint steps through top water/cloth, timbers, blue panel and hull; bottom c15 reflections terminate abruptly.",
+    "Initial uncalibrated native composition 485bd9… retained vertical color seams after immutable c15 pixels were restored; not accepted.",
+    "Global/local affine color corrections reduced average residual but left some local seam segments; no pass.",
+    "Broad boundary residual transport 16d710… reduced immediate boundary error but created unwanted horizontal/local tint shapes around ropes and rails; rejected.",
+    "Final in-flight refined blend narrows boundary residual transport to first80 right pixels, but was not visually checked before scope stop; no pass claim.",
+    "Earlier s4 generated hull-gap alignment near shared boundary differed by a few pixels; final refined geometry/return requires actual inspection if reused.",
+    "Other workers' x>=350 fixes are independent and were not incorporated or rechecked here."
+  ],
+  "newAssignment": {
+    "directory": "compact-production-20261009/donghai_lantern/east",
+    "tileColumns": "c4–c6 across all rows",
+    "state": "Waiting for shared layout freeze; no new-layout image generation started"
+  },
+  "finalArtAccepted": false
+}

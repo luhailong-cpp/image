@@ -1,0 +1,1046 @@
+{
+  "schemaVersion": 1,
+  "reviewedUtc": "2026-10-09T04:20:51Z",
+  "reviewer": "c14_shared_edge",
+  "status": "complete-actual-review-local-color-repairs-required",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\output\\r08_c16.png",
+    "sha256": "7d821e83179cae126dd4e0f1be7f6b83f6a762bfe7b0f0caa4bfa3ec8de0bb22",
+    "pixels": [
+      4096,
+      4096
+    ],
+    "generationRecord": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\output\\r08_c16.png.generation.json",
+      "sha256": "2092a2575e817101140712a7f068b61ed05807b090fde2b123339b506b1e35d0"
+    }
+  },
+  "extendedContext": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\output\\extended-context.png",
+    "sha256": "7a6c1c38892ca9a35f3b433b27b960660af00d9415df37f2f72304efe52a4cb6",
+    "pixels": [
+      4326,
+      4326
+    ],
+    "generationRecord": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\output\\extended-context.png.generation.json",
+      "sha256": "6d19c7faf3febb83ebfe75346cd3c75f71f462e48da34de599c70e4adecd7764"
+    }
+  },
+  "manifest": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\output\\integration-manifest.json",
+    "sha256": "f68ce50702262eaa53b40fe7a63eabae081e32d2c882e933637f695cb371a268"
+  },
+  "assignedCount": 29,
+  "actualViewedCount": 29,
+  "missingActualViews": [],
+  "allFilesRehashedAfterReview": true,
+  "geometryDisplacementIdentified": false,
+  "formalSeamAccepted": false,
+  "scope": "west-only-joint s1..s4 full+4returns; four complete shared-edge parts; all five repair joins",
+  "unmodifiedFinalPixels": true,
+  "coordinateSystem": "c16 tile pixels; x<0 is immutable c15 right edge; c16 x0 equals pair x4096; rects are XYXY and targeted visual defect bounds, not full masks",
+  "findings": [
+    {
+      "id": "W01",
+      "type": "shared-boundary-material-tone",
+      "severity": "visible-return-needs-repair",
+      "tileRectsXYXY": [
+        [
+          -40,
+          0,
+          100,
+          780
+        ]
+      ],
+      "preciseDescription": "Actual c15/c16 boundary x=0 has a vertical tint/brushwork change through top water, upper timber crossbeam and blue canopy. Geometry and rope contours remain aligned. Assess material-specific transition on c16 side; preserve immutable c15.",
+      "qaIndices": [
+        0,
+        1,
+        20
+      ]
+    },
+    {
+      "id": "W02",
+      "type": "shared-boundary-material-tone",
+      "severity": "visible-return-needs-repair",
+      "tileRectsXYXY": [
+        [
+          -40,
+          1450,
+          100,
+          1750
+        ],
+        [
+          -40,
+          2520,
+          100,
+          3650
+        ]
+      ],
+      "preciseDescription": "At x=0 the continuous diagonal timber rail, exterior blue panel and lower hull wood retain vertical light/tint steps. Several posts naturally coincide with the boundary; do not treat those actual structural edges as defects.",
+      "qaIndices": [
+        5,
+        6,
+        10,
+        11,
+        15,
+        16,
+        21,
+        22,
+        23
+      ]
+    },
+    {
+      "id": "W03",
+      "type": "shared-boundary-existing-reflection-return",
+      "severity": "visible-return-needs-repair",
+      "tileRectsXYXY": [
+        [
+          -120,
+          3650,
+          180,
+          4096
+        ]
+      ],
+      "preciseDescription": "Existing gold/purple water reflections on immutable c15 abruptly lose their continuation at x=0 into the c16 blue water. This concerns matching existing reflected marks, not inventing new light sources or reflected objects.",
+      "qaIndices": [
+        15,
+        16,
+        19,
+        23
+      ]
+    },
+    {
+      "id": "W04",
+      "type": "internal-timber-color-islands",
+      "severity": "visible-patch-edge-needs-repair",
+      "tileRectsXYXY": [
+        [
+          665,
+          1780,
+          815,
+          1950
+        ],
+        [
+          55,
+          2120,
+          265,
+          2290
+        ]
+      ],
+      "preciseDescription": "Two timber faces carry orange color islands with jagged edges crossing otherwise continuous brushwork. Rail silhouettes are continuous.",
+      "qaIndices": [
+        5,
+        7,
+        9,
+        10,
+        13,
+        25
+      ],
+      "diagnostic": "upper-timber-and-blue-floor.png"
+    },
+    {
+      "id": "W05",
+      "type": "internal-blue-plank-mask-artifacts",
+      "severity": "visible-patch-edge-needs-repair",
+      "tileRectsXYXY": [
+        [
+          675,
+          2150,
+          845,
+          2540
+        ],
+        [
+          380,
+          2700,
+          625,
+          2915
+        ]
+      ],
+      "preciseDescription": "Inner blue planks show jagged tint changes and a dark granular triangle by the lower rail. Exterior blue panel shows a diagonal polygon tint patch with granular upper edge. Board outlines and lantern rope remain continuous.",
+      "qaIndices": [
+        7,
+        9,
+        10,
+        12,
+        15,
+        17,
+        18,
+        26
+      ],
+      "diagnostics": [
+        "upper-timber-and-blue-floor.png",
+        "blue-panel-patches.png"
+      ]
+    },
+    {
+      "id": "W06",
+      "type": "hull-blue-material-return",
+      "severity": "visible-return-needs-repair",
+      "tileRectsXYXY": [
+        [
+          1810,
+          2890,
+          1870,
+          3150
+        ],
+        [
+          2220,
+          2890,
+          2270,
+          3150
+        ]
+      ],
+      "preciseDescription": "Within the hull-pair overlap, the continuous curved blue band shows left and right nearly vertical jagged color steps. Curved gold borders remain geometrically smooth.",
+      "qaIndices": [
+        27
+      ],
+      "diagnostic": "hull-blue-join-returns.png"
+    },
+    {
+      "id": "W07",
+      "type": "water-color-return",
+      "severity": "visible-return-needs-repair",
+      "tileRectsXYXY": [
+        [
+          2895,
+          950,
+          2960,
+          1370
+        ]
+      ],
+      "preciseDescription": "The reviewed water-pair left return has a nearly vertical scalloped tint/reflection boundary. Rect covers observed diagnostic extent only, not the full water insertion support.",
+      "qaIndices": [
+        28
+      ],
+      "diagnostic": "water-join-left-return.png"
+    },
+    {
+      "id": "W08",
+      "type": "west-water-right-return-tone",
+      "severity": "visible-return-for-consolidated-review",
+      "tileRectsXYXY": [
+        [
+          550,
+          3710,
+          690,
+          4096
+        ]
+      ],
+      "preciseDescription": "Near the right return of west s4, broad blue water planes meet at a nearly vertical jagged tint edge around x=600. Review with the consolidated water repair so this is not accidentally accepted as a seamless return.",
+      "qaIndices": [
+        17,
+        19
+      ]
+    }
+  ],
+  "qa": [
+    {
+      "index": 0,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s1-full1254.png",
+      "sha256": "a8fbf8baa79b83fd4688c1c144fb9859590161a0ca4bb5c2887f5d017d6681b5",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "actualTileAndHaloRectXYXY": [
+        -627,
+        0,
+        627,
+        1254
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W01"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Full actual pair confirms W01; no contour displacement."
+    },
+    {
+      "index": 1,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s1-return-left.png",
+      "sha256": "d16a87d5a2ce3575d40ab83ae5d63e4769aad09da02288f07d750b01354b7bf6",
+      "pixels": [
+        448,
+        1254
+      ],
+      "actualTileAndHaloRectXYXY": [
+        -224,
+        0,
+        224,
+        1254
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W01"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Actual shared edge confirms W01."
+    },
+    {
+      "index": 2,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s1-return-right.png",
+      "sha256": "e85aa89fec4e5b7ded21c682b8e224422f8d019052b2e47228c03ece86e682eb",
+      "pixels": [
+        448,
+        1254
+      ],
+      "actualTileAndHaloRectXYXY": [
+        403,
+        0,
+        851,
+        1254
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [],
+      "result": "pass-within-window",
+      "notes": "Rope/timber right return continuous; no identified issue in this window."
+    },
+    {
+      "index": 3,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s1-return-top.png",
+      "sha256": "c92ba677c900cf08cf0b509acda5fc0c5e12397505e38972c6e6395e6c9a9c38",
+      "pixels": [
+        627,
+        224
+      ],
+      "actualTileAndHaloRectXYXY": [
+        0,
+        0,
+        627,
+        224
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [],
+      "result": "pass-within-window",
+      "notes": "Top cropped return has calm water and no newly invented objects; x=0 matching is judged in actual pair windows."
+    },
+    {
+      "index": 4,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s1-return-bottom.png",
+      "sha256": "c97290f246902ea6e929f26a0556676a6f90fe2dbffa6633454b5ae9ee370d66",
+      "pixels": [
+        627,
+        448
+      ],
+      "actualTileAndHaloRectXYXY": [
+        0,
+        1030,
+        627,
+        1478
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [],
+      "result": "pass-within-window",
+      "notes": "Lower return post, rail and support continuous; no identified structural break."
+    },
+    {
+      "index": 5,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s2-full1254.png",
+      "sha256": "318e5ac7a1ed4f1d10b4309c5b56de831fd1a022a74d58b905fa81e1e19070c2",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "actualTileAndHaloRectXYXY": [
+        -627,
+        1024,
+        627,
+        2278
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W02",
+        "W04"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Actual shared rail tone W02 and timber patch W04."
+    },
+    {
+      "index": 6,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s2-return-left.png",
+      "sha256": "573a93edca2a518e9d04fb194c885eff07f965a1929bbd3d83a6c10c6dc19662",
+      "pixels": [
+        448,
+        1254
+      ],
+      "actualTileAndHaloRectXYXY": [
+        -224,
+        1024,
+        224,
+        2278
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W02"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Continuous diagonal rail has W02; true post edges remain intentional."
+    },
+    {
+      "index": 7,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s2-return-right.png",
+      "sha256": "fa7109fb42ecbb85e98a3286f7fd5b4b64257b88a4eb17507c87e1ffd251fc26",
+      "pixels": [
+        448,
+        1254
+      ],
+      "actualTileAndHaloRectXYXY": [
+        403,
+        1024,
+        851,
+        2278
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W04",
+        "W05"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Right return intersects W04 and W05; no rail contour shift."
+    },
+    {
+      "index": 8,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s2-return-top.png",
+      "sha256": "f3b78beb1e8f937b51bd06ec9598bb9933c9cc6543092f2f5cc4c6c5656fb5f6",
+      "pixels": [
+        627,
+        448
+      ],
+      "actualTileAndHaloRectXYXY": [
+        0,
+        800,
+        627,
+        1248
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [],
+      "result": "pass-within-window",
+      "notes": "Top source return geometry continuous; no identified issue in this window."
+    },
+    {
+      "index": 9,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s2-return-bottom.png",
+      "sha256": "d1a4d01ecda35704aeb971c196d0d235b5afada41d7847154b8ca9e0b63cccbd",
+      "pixels": [
+        627,
+        448
+      ],
+      "actualTileAndHaloRectXYXY": [
+        0,
+        2054,
+        627,
+        2502
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W04",
+        "W05"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Bottom return shows timber patch and blue tint footprint W04/W05."
+    },
+    {
+      "index": 10,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s3-full1254.png",
+      "sha256": "f3a2bb89f3cf69d10635991a6764b52656ee08ecd1abfe51dfcec04af618fa93",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "actualTileAndHaloRectXYXY": [
+        -627,
+        2048,
+        627,
+        3302
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W02",
+        "W04",
+        "W05"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Full pair confirms W02 and local timber/blue material patches W04/W05."
+    },
+    {
+      "index": 11,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s3-return-left.png",
+      "sha256": "45096e90b6856cc90b09389c726cd7bc180ac9e312791cf2af6ddd6282574b1c",
+      "pixels": [
+        448,
+        1254
+      ],
+      "actualTileAndHaloRectXYXY": [
+        -224,
+        2048,
+        224,
+        3302
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W02"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Shared blue/wood color step W02, outlines aligned."
+    },
+    {
+      "index": 12,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s3-return-right.png",
+      "sha256": "4aad88764efeb18cf48523f74d77e30869f9d0c67f625397eb2ead211f83c23b",
+      "pixels": [
+        448,
+        1254
+      ],
+      "actualTileAndHaloRectXYXY": [
+        403,
+        2048,
+        851,
+        3302
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W05"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Right return shows jagged/ granular blue plank patches W05."
+    },
+    {
+      "index": 13,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s3-return-top.png",
+      "sha256": "02ef34b3fb37946ec554ece19788526f307b9ad90d6b80b9dfa13997be9b89a5",
+      "pixels": [
+        627,
+        448
+      ],
+      "actualTileAndHaloRectXYXY": [
+        0,
+        1824,
+        627,
+        2272
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W04"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Top return includes lower timber color island W04."
+    },
+    {
+      "index": 14,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s3-return-bottom.png",
+      "sha256": "613e60528d8b325b67c5f556948aa4de7933d8ed1893737120a0379f09f44e9b",
+      "pixels": [
+        627,
+        448
+      ],
+      "actualTileAndHaloRectXYXY": [
+        0,
+        3078,
+        627,
+        3526
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [],
+      "result": "pass-within-window",
+      "notes": "Lantern lower body/timber return continuous; no identified issue in this window."
+    },
+    {
+      "index": 15,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s4-full1254.png",
+      "sha256": "ff7e4c3ba0ad88d7ef14f4d17dca51bf027d59dec2018937caac08f167f83b17",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "actualTileAndHaloRectXYXY": [
+        -627,
+        2842,
+        627,
+        4096
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W02",
+        "W03",
+        "W05"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Full pair confirms hull boundary and lower reflections W02/W03; blue-panel patch W05."
+    },
+    {
+      "index": 16,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s4-return-left.png",
+      "sha256": "d7fed80ebcca17578e7afad138c9b432579541d662e85d8f8aca67e0f18e907f",
+      "pixels": [
+        448,
+        1254
+      ],
+      "actualTileAndHaloRectXYXY": [
+        -224,
+        2842,
+        224,
+        4096
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W02",
+        "W03"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Shared hull tone/reflection boundary W02/W03."
+    },
+    {
+      "index": 17,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s4-return-right.png",
+      "sha256": "947d74082d303f39fdfe7569c607cad5ea6155a62974b8b880083ef4c6bc8473",
+      "pixels": [
+        448,
+        1254
+      ],
+      "actualTileAndHaloRectXYXY": [
+        403,
+        2842,
+        851,
+        4096
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W05",
+        "W08"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Right return blue panel footprint W05 and lower water tint edge W08."
+    },
+    {
+      "index": 18,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s4-return-top.png",
+      "sha256": "2bdbd5f5b2f2dcffd23ba0c5f5c49d2aba7a4e0d193cd31b2765f3ff6089f6e6",
+      "pixels": [
+        627,
+        448
+      ],
+      "actualTileAndHaloRectXYXY": [
+        0,
+        2618,
+        627,
+        3066
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W05"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Top return exterior blue panel patch W05."
+    },
+    {
+      "index": 19,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-only-joint-s4-return-bottom.png",
+      "sha256": "8b0cc8898b63f39b0f09b773a4a0bef32c1671ee95271f1604cc8a3a9aeb51ed",
+      "pixels": [
+        627,
+        224
+      ],
+      "actualTileAndHaloRectXYXY": [
+        0,
+        3872,
+        627,
+        4096
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W03",
+        "W08"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Bottom water includes truncated reflection return W03 and right-edge tint W08."
+    },
+    {
+      "index": 20,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-shared-edge-part01.png",
+      "sha256": "cf2917218f74754192517a8d92a69712ecbc73cd738ea3b99e841940ad53c841",
+      "pixels": [
+        896,
+        1024
+      ],
+      "actualTileAndHaloRectXYXY": [
+        -448,
+        0,
+        448,
+        1024
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W01"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Full upper shared edge confirms W01; geometry continuous."
+    },
+    {
+      "index": 21,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-shared-edge-part02.png",
+      "sha256": "4c61819b4fab269853d23eafff98410404e3d60414e12b2ce853f270bcdf7241",
+      "pixels": [
+        896,
+        1024
+      ],
+      "actualTileAndHaloRectXYXY": [
+        -448,
+        1024,
+        448,
+        2048
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W02"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Mid shared edge confirms diagonal rail tone W02."
+    },
+    {
+      "index": 22,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-shared-edge-part03.png",
+      "sha256": "60893ba416fc29d7ddaba8f6327a56bbb58c42954e2e25499175dc2fa56397a1",
+      "pixels": [
+        896,
+        1024
+      ],
+      "actualTileAndHaloRectXYXY": [
+        -448,
+        2048,
+        448,
+        3072
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W02"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Lower shared edge confirms blue panel/wood tone W02; post/rope geometry intact."
+    },
+    {
+      "index": 23,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-shared-edge-part04.png",
+      "sha256": "87ed2317356833a460587d5afbdd86cbf8e9f5c5e1220d1899aba8e45cb5e6d8",
+      "pixels": [
+        896,
+        1024
+      ],
+      "actualTileAndHaloRectXYXY": [
+        -448,
+        3072,
+        448,
+        4096
+      ],
+      "sourceCanvas": "immutable-c15-plus-c16-core-pair",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W02",
+        "W03"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Bottom shared edge confirms hull tone and existing reflected-mark return W02/W03."
+    },
+    {
+      "index": 24,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\repair-join-west-joint-1-2.png",
+      "sha256": "009f3a1fd272507da8cfa5543b246b3c063d0e79cfc988ec8913f6dbf4715366",
+      "pixels": [
+        627,
+        230
+      ],
+      "actualTileAndHaloRectXYXY": [
+        0,
+        1024,
+        627,
+        1254
+      ],
+      "sourceCanvas": "c16-extended",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [],
+      "result": "pass-within-window",
+      "notes": "Complete west 1-2 overlap passes: timber, water and rope contours continuous without a horizontal join."
+    },
+    {
+      "index": 25,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\repair-join-west-joint-2-3.png",
+      "sha256": "0d4cce7a0eab797be44a830abd03e256b41d028b28e79027d9e4a09dab6c84f7",
+      "pixels": [
+        627,
+        230
+      ],
+      "actualTileAndHaloRectXYXY": [
+        0,
+        2048,
+        627,
+        2278
+      ],
+      "sourceCanvas": "c16-extended",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W04"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Complete west 2-3 overlap has timber patch W04, not geometry mismatch."
+    },
+    {
+      "index": 26,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\repair-join-west-joint-3-4.png",
+      "sha256": "181dc790abe797f4c00abccaf8f9f0ac779ebfcb780df35c5e974b7623ff0ac0",
+      "pixels": [
+        627,
+        460
+      ],
+      "actualTileAndHaloRectXYXY": [
+        0,
+        2842,
+        627,
+        3302
+      ],
+      "sourceCanvas": "c16-extended",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W05"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Complete west 3-4 overlap has panel patch W05; lantern contour continuous."
+    },
+    {
+      "index": 27,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\repair-join-hull-pair-1-2.png",
+      "sha256": "4cff8188292a4c1fe891bf41d6293daf4d70b98ae6a3d40e56250e77ca617104",
+      "pixels": [
+        1254,
+        692
+      ],
+      "actualTileAndHaloRectXYXY": [
+        1421,
+        2842,
+        2675,
+        3534
+      ],
+      "sourceCanvas": "c16-extended",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W06"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Complete hull overlap has left/right blue-band color edges W06; wood and gold contours continuous."
+    },
+    {
+      "index": 28,
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\repair-join-water-pair-1-2.png",
+      "sha256": "ce242173215524f1712ddd9aed5b3b433af35c9ccf3af920b40e040347b3f3dd",
+      "pixels": [
+        1254,
+        230
+      ],
+      "actualTileAndHaloRectXYXY": [
+        2525,
+        1024,
+        3779,
+        1254
+      ],
+      "sourceCanvas": "c16-extended",
+      "reviewMethod": "tools.view_image(detail=original); actual visible raster reviewed at native pixel dimensions",
+      "actualVisualReview": true,
+      "resized": false,
+      "findingIds": [
+        "W07"
+      ],
+      "result": "needs-local-material-return-repair",
+      "notes": "Complete water overlap has left return color boundary W07."
+    }
+  ],
+  "diagnosticActualViews": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-review-diagnostics\\upper-timber-and-blue-floor.png",
+      "sha256": "ffd966b7297d45e7a73944d5c471e82e9ac557680913d4bc4b268b32e33d5ba4",
+      "tileRectXYXY": [
+        0,
+        1780,
+        900,
+        2570
+      ],
+      "operation": "exact original-pixel crop",
+      "pixelScale": 1,
+      "resized": false,
+      "source": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\output\\r08_c16.png",
+        "sha256": "7d821e83179cae126dd4e0f1be7f6b83f6a762bfe7b0f0caa4bfa3ec8de0bb22",
+        "pixels": [
+          4096,
+          4096
+        ],
+        "generationRecord": {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\output\\r08_c16.png.generation.json",
+          "sha256": "2092a2575e817101140712a7f068b61ed05807b090fde2b123339b506b1e35d0"
+        }
+      },
+      "actualVisualReview": true,
+      "reviewMethod": "tools.view_image(detail=original)"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-review-diagnostics\\blue-panel-patches.png",
+      "sha256": "c5fc681cb4b503d0dd5a36b296d5fd93e93832ea7ebafcbd5c6507ce8acc02ac",
+      "tileRectXYXY": [
+        300,
+        2490,
+        900,
+        2960
+      ],
+      "operation": "exact original-pixel crop",
+      "pixelScale": 1,
+      "resized": false,
+      "source": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\output\\r08_c16.png",
+        "sha256": "7d821e83179cae126dd4e0f1be7f6b83f6a762bfe7b0f0caa4bfa3ec8de0bb22",
+        "pixels": [
+          4096,
+          4096
+        ],
+        "generationRecord": {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\output\\r08_c16.png.generation.json",
+          "sha256": "2092a2575e817101140712a7f068b61ed05807b090fde2b123339b506b1e35d0"
+        }
+      },
+      "actualVisualReview": true,
+      "reviewMethod": "tools.view_image(detail=original)"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-review-diagnostics\\hull-blue-join-returns.png",
+      "sha256": "eaed0a115d966fb7aabd2d4b70830e21e69279346302ffda95a5a69fce42b97a",
+      "tileRectXYXY": [
+        1730,
+        2860,
+        2360,
+        3170
+      ],
+      "operation": "exact original-pixel crop",
+      "pixelScale": 1,
+      "resized": false,
+      "source": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\output\\r08_c16.png",
+        "sha256": "7d821e83179cae126dd4e0f1be7f6b83f6a762bfe7b0f0caa4bfa3ec8de0bb22",
+        "pixels": [
+          4096,
+          4096
+        ],
+        "generationRecord": {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\output\\r08_c16.png.generation.json",
+          "sha256": "2092a2575e817101140712a7f068b61ed05807b090fde2b123339b506b1e35d0"
+        }
+      },
+      "actualVisualReview": true,
+      "reviewMethod": "tools.view_image(detail=original)"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\qa\\west-review-diagnostics\\water-join-left-return.png",
+      "sha256": "d7bd36300c8ee008a949e99a832f7a7ea65dfdd6df8f5f86b985bc94ecba02d7",
+      "tileRectXYXY": [
+        2830,
+        930,
+        3050,
+        1370
+      ],
+      "operation": "exact original-pixel crop",
+      "pixelScale": 1,
+      "resized": false,
+      "source": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\output\\r08_c16.png",
+        "sha256": "7d821e83179cae126dd4e0f1be7f6b83f6a762bfe7b0f0caa4bfa3ec8de0bb22",
+        "pixels": [
+          4096,
+          4096
+        ],
+        "generationRecord": {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_lantern\\r08_c16\\repairs\\approved-sync\\output\\r08_c16.png.generation.json",
+          "sha256": "2092a2575e817101140712a7f068b61ed05807b090fde2b123339b506b1e35d0"
+        }
+      },
+      "actualVisualReview": true,
+      "reviewMethod": "tools.view_image(detail=original)"
+    }
+  ],
+  "recommendedNextStep": "Consolidate overlapping findings with root and finish. Preserve geometry and immutable c15; attempt scoped material color/brush transitions with the documented cumulative RGB24 constraint, then actual-view every affected return. A numeric cap is not evidence the visible issue is solved. Do not regenerate whole tiles or unreviewedly claim pass."
+}
