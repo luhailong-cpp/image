@@ -1,0 +1,1241 @@
+{
+  "createdAtUtc": "2026-10-09T02:53:24.164331+00:00",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png",
+    "sha256": "edda141f8592d43964ce3168dfbb7c7476d6fd95c4dd50416042f699ec1d95c0",
+    "pixels": [
+      4096,
+      4096
+    ]
+  },
+  "extendedContext": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\extended-context.png",
+    "sha256": "6eacb0e77979488b2bdd07e875e8fe4fc1b10983e1e18da0908a21a748eb7ba6",
+    "pixels": [
+      4326,
+      4326
+    ]
+  },
+  "baseline": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\output\\r10_c16.png",
+    "sha256": "76171e89da5aa391e359c9c6095f3a09bf46912a8f876f0f4a059d6459b608e7"
+  },
+  "colorCandidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-color-match\\candidate.png",
+    "sha256": "83bda970e93c68ad09a5eb6fe76b432b3fc343b16e0515bda0659261608ca0f4"
+  },
+  "colorManifest": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-color-match\\manifest.json",
+    "sha256": "daffc7d6a62b56d48ac9fa0cb5929252ff5625ccfe078e9584ada7c584debcb9"
+  },
+  "nativeRepair": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-bucket\\edited-native.png",
+    "sha256": "af9548515784758d7ef2a31321050a653d453c8e7678aa766df8c1c6ee8f05c5",
+    "record": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-bucket\\edited-native.png.generation.json",
+      "sha256": "893d5e2cfaa91dfbc5821acc7f864f02901c4ec52c800053ff3524faeb342256"
+    },
+    "inputRecord": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-bucket\\input.png.generation.json",
+      "sha256": "e4572ab4de6d6d09f84712226336175476f7050a07d1a9ef4aa226b424a6d780"
+    },
+    "rawSourceROIValidated": true,
+    "eligible": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-bucket\\water-only-eligibility.png",
+      "sha256": "003a8c12cb7db17604552568d87d6832872de7ee3c2798a230f9e4dbead6fc22"
+    }
+  },
+  "insertions": [
+    {
+      "id": "bucket-water",
+      "rectXYXY": [
+        500,
+        500,
+        1754,
+        1754
+      ],
+      "edgeSearchPixels": 24,
+      "alpha": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\masks\\run-e5227f23\\bucket-water-insertion-alpha.png",
+        "sha256": "14a1ce1e7ce454bab64e49ac75b0aae66b7f7cfb4b3856b0325b3fd777c07af6",
+        "pixels": [
+          1254,
+          1254
+        ]
+      },
+      "intendedRepairRectsXYXY": [
+        [
+          1020,
+          704,
+          1390,
+          1055
+        ]
+      ],
+      "changedPixels": 89412,
+      "exactOriginalAtAlphaZero": true,
+      "eligibilityMaskApplied": true,
+      "localBoundaryColorMatch": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\masks\\run-e5227f23\\bucket-water-color-137cd7e2b204.npz",
+        "sha256": "53cb8ce54c0168e7a8bebae33175dce82c227f69167a5e496f07f0f53620c6da",
+        "method": "separate-material normalized low-frequency RGB difference field within insertion boundary only",
+        "fieldFilter": "three separable 49px box passes on RGB DIFFERENCE only",
+        "maximumChannelDelta": 32,
+        "innerFadeDistancePixels": 112,
+        "distance": "Manhattan to insertion-mask zero",
+        "fade": "quadratic",
+        "artImageBlur": false,
+        "resampling": false,
+        "shapeWarp": false,
+        "changedPixels": 77453
+      }
+    }
+  ],
+  "seams": [
+    {
+      "id": "bucket-water-roi1-left",
+      "orientation": "vertical",
+      "pairOverlapRectXYXY": [
+        1020,
+        704,
+        1044,
+        1055
+      ],
+      "overlapPixels": 24,
+      "pathLength": 351,
+      "pathMin": 2,
+      "pathMax": 20,
+      "transitionWidthPixels": 2,
+      "maxActuallyMixedPixelsPerPathSample": 2,
+      "alphaDefinition": "0 at offsets <= seam-2; 64 at seam-1; 191 at seam; 255 at offsets >= seam+1",
+      "maskMeaning": "0 retains earlier input, 255 selects later input; only 64/191 are blends",
+      "maskPng": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\masks\\run-e5227f23\\bucket-water-roi1-left.png",
+        "sha256": "92907080f079cbf194ec61bffc6f5c6887d214d911bb8dabf2f9cbdd079fb74f",
+        "pixels": [
+          24,
+          351
+        ]
+      },
+      "maskNpz": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\masks\\run-e5227f23\\bucket-water-roi1-left.npz",
+        "sha256": "a793b4c5d5cf888d74f460b8a0ceabb28d96d867a9639c7328479878cfc2d3d7"
+      },
+      "inputOverlapRGBMeanAbsoluteDifference": {
+        "mean": 5.136712567268123,
+        "p50": 4.666666666666667,
+        "p95": 8.0,
+        "max": 35.333333333333336
+      },
+      "selectedPathRGBMeanAbsoluteDifference": {
+        "mean": 3.9297245963912637,
+        "p50": 4.0,
+        "p95": 5.333333333333333,
+        "max": 27.333333333333332
+      },
+      "diagnosticFlags": {
+        "overlapMeanAbove24": false,
+        "selectedPathP95Above48": false
+      },
+      "metricsAreNotVisualAcceptance": true,
+      "resampling": false,
+      "registration": false,
+      "colorCorrection": false,
+      "imageBlur": false,
+      "maskBlur": false,
+      "visualReview": "pending"
+    },
+    {
+      "id": "bucket-water-roi1-right",
+      "orientation": "vertical",
+      "pairOverlapRectXYXY": [
+        1366,
+        704,
+        1390,
+        1055
+      ],
+      "overlapPixels": 24,
+      "pathLength": 351,
+      "pathMin": 2,
+      "pathMax": 21,
+      "transitionWidthPixels": 2,
+      "maxActuallyMixedPixelsPerPathSample": 2,
+      "alphaDefinition": "0 at offsets <= seam-2; 64 at seam-1; 191 at seam; 255 at offsets >= seam+1",
+      "maskMeaning": "0 retains earlier input, 255 selects later input; only 64/191 are blends",
+      "maskPng": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\masks\\run-e5227f23\\bucket-water-roi1-right.png",
+        "sha256": "e8dfa785949d708b6af673c7417715960f30189920b7d0d9034532a62d4021b4",
+        "pixels": [
+          24,
+          351
+        ]
+      },
+      "maskNpz": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\masks\\run-e5227f23\\bucket-water-roi1-right.npz",
+        "sha256": "9f5fa35f88da2b22d7f6c0d21c6132b9a1b712d80d4705b4448d0136f920654a"
+      },
+      "inputOverlapRGBMeanAbsoluteDifference": {
+        "mean": 6.84619341563786,
+        "p50": 5.0,
+        "p95": 11.949999999999818,
+        "max": 131.33333333333334
+      },
+      "selectedPathRGBMeanAbsoluteDifference": {
+        "mean": 5.203228869895537,
+        "p50": 4.333333333333333,
+        "p95": 7.5,
+        "max": 110.66666666666667
+      },
+      "diagnosticFlags": {
+        "overlapMeanAbove24": false,
+        "selectedPathP95Above48": false
+      },
+      "metricsAreNotVisualAcceptance": true,
+      "resampling": false,
+      "registration": false,
+      "colorCorrection": false,
+      "imageBlur": false,
+      "maskBlur": false,
+      "visualReview": "pending"
+    },
+    {
+      "id": "bucket-water-roi1-top",
+      "orientation": "horizontal",
+      "pairOverlapRectXYXY": [
+        1020,
+        704,
+        1390,
+        728
+      ],
+      "overlapPixels": 24,
+      "pathLength": 370,
+      "pathMin": 2,
+      "pathMax": 20,
+      "transitionWidthPixels": 2,
+      "maxActuallyMixedPixelsPerPathSample": 2,
+      "alphaDefinition": "0 at offsets <= seam-2; 64 at seam-1; 191 at seam; 255 at offsets >= seam+1",
+      "maskMeaning": "0 retains earlier input, 255 selects later input; only 64/191 are blends",
+      "maskPng": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\masks\\run-e5227f23\\bucket-water-roi1-top.png",
+        "sha256": "82361700a03b85b39717c1c743b1d05f98fa767957cd0994491e6f121dc0b1f0",
+        "pixels": [
+          370,
+          24
+        ]
+      },
+      "maskNpz": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\masks\\run-e5227f23\\bucket-water-roi1-top.npz",
+        "sha256": "77b8a17ebee23b23d0c271c48c4c7f5b2ff2ab8258f7fa58c1c70779d0072da6"
+      },
+      "inputOverlapRGBMeanAbsoluteDifference": {
+        "mean": 6.026201201201202,
+        "p50": 4.666666666666667,
+        "p95": 9.333333333333334,
+        "max": 93.33333333333333
+      },
+      "selectedPathRGBMeanAbsoluteDifference": {
+        "mean": 3.3630630630630627,
+        "p50": 3.0,
+        "p95": 5.850000000000004,
+        "max": 11.333333333333334
+      },
+      "diagnosticFlags": {
+        "overlapMeanAbove24": false,
+        "selectedPathP95Above48": false
+      },
+      "metricsAreNotVisualAcceptance": true,
+      "resampling": false,
+      "registration": false,
+      "colorCorrection": false,
+      "imageBlur": false,
+      "maskBlur": false,
+      "visualReview": "pending"
+    },
+    {
+      "id": "bucket-water-roi1-bottom",
+      "orientation": "horizontal",
+      "pairOverlapRectXYXY": [
+        1020,
+        1031,
+        1390,
+        1055
+      ],
+      "overlapPixels": 24,
+      "pathLength": 370,
+      "pathMin": 4,
+      "pathMax": 21,
+      "transitionWidthPixels": 2,
+      "maxActuallyMixedPixelsPerPathSample": 2,
+      "alphaDefinition": "0 at offsets <= seam-2; 64 at seam-1; 191 at seam; 255 at offsets >= seam+1",
+      "maskMeaning": "0 retains earlier input, 255 selects later input; only 64/191 are blends",
+      "maskPng": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\masks\\run-e5227f23\\bucket-water-roi1-bottom.png",
+        "sha256": "d3c80b249e0aeb2a8aee7608a44d85ac67c095f5b83acd9eba0a32898d20dd20",
+        "pixels": [
+          370,
+          24
+        ]
+      },
+      "maskNpz": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\masks\\run-e5227f23\\bucket-water-roi1-bottom.npz",
+        "sha256": "1c729158522640adb06b9b1f05464cb840271e28a3743ca844b3a73d114b938c"
+      },
+      "inputOverlapRGBMeanAbsoluteDifference": {
+        "mean": 8.471996996996996,
+        "p50": 2.6666666666666665,
+        "p95": 42.333333333333336,
+        "max": 124.33333333333333
+      },
+      "selectedPathRGBMeanAbsoluteDifference": {
+        "mean": 1.600900900900901,
+        "p50": 1.3333333333333333,
+        "p95": 4.333333333333333,
+        "max": 17.0
+      },
+      "diagnosticFlags": {
+        "overlapMeanAbove24": false,
+        "selectedPathP95Above48": false
+      },
+      "metricsAreNotVisualAcceptance": true,
+      "resampling": false,
+      "registration": false,
+      "colorCorrection": false,
+      "imageBlur": false,
+      "maskBlur": false,
+      "visualReview": "pending"
+    }
+  ],
+  "bucketAlpha": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\masks\\run-e5227f23\\bucket-water-insertion-alpha.png",
+    "sha256": "14a1ce1e7ce454bab64e49ac75b0aae66b7f7cfb4b3856b0325b3fd777c07af6"
+  },
+  "finalCorrection": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\fields\\final-correction.npz",
+    "sha256": "2fc04386488262bf92499bbf728bf998748152fd1d7bec6fe31fcdf21622da3a"
+  },
+  "northCore700ExactlyPreserved": true,
+  "allHaloExactlyPreserved": true,
+  "northCorrection": false,
+  "canonicalOutputUnchanged": true,
+  "imageBlur": false,
+  "geometryWarp": false,
+  "resampling": false,
+  "qa": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\internal-vertical-x1024-full.png",
+      "sha256": "af687cd80a884fff6c88bcdea7c42c1e2edba59dcdc8e1882eff57d791cb62b1",
+      "pixels": [
+        1024,
+        1024
+      ],
+      "kind": "complete-native-seam-band",
+      "orientation": "vertical",
+      "logicalBandPixels": [
+        256,
+        4096
+      ],
+      "bandSourceRectXYXY": [
+        896,
+        0,
+        1152,
+        4096
+      ],
+      "sources": [
+        "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png"
+      ],
+      "pieces": [
+        {
+          "bandRectXYXY": [
+            0,
+            0,
+            256,
+            1024
+          ],
+          "sheetOriginXY": [
+            0,
+            0
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            0,
+            1024,
+            256,
+            2048
+          ],
+          "sheetOriginXY": [
+            256,
+            0
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            0,
+            2048,
+            256,
+            3072
+          ],
+          "sheetOriginXY": [
+            512,
+            0
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            0,
+            3072,
+            256,
+            4096
+          ],
+          "sheetOriginXY": [
+            768,
+            0
+          ]
+        }
+      ],
+      "coveredLengthPixels": 4096,
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\internal-horizontal-y1024-full.png",
+      "sha256": "2e086d9cf8bf9c339985547b67b29d302879463801de65df62d360c23f0da879",
+      "pixels": [
+        1024,
+        1024
+      ],
+      "kind": "complete-native-seam-band",
+      "orientation": "horizontal",
+      "logicalBandPixels": [
+        4096,
+        256
+      ],
+      "bandSourceRectXYXY": [
+        0,
+        896,
+        4096,
+        1152
+      ],
+      "sources": [
+        "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png"
+      ],
+      "pieces": [
+        {
+          "bandRectXYXY": [
+            0,
+            0,
+            1024,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            0
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            1024,
+            0,
+            2048,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            256
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            2048,
+            0,
+            3072,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            512
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            3072,
+            0,
+            4096,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            768
+          ]
+        }
+      ],
+      "coveredLengthPixels": 4096,
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\internal-vertical-x2048-full.png",
+      "sha256": "9ef7a28a46cd2ed659276e74c8d4d281e7aa5b537e389cd0fabc4e80449f6e79",
+      "pixels": [
+        1024,
+        1024
+      ],
+      "kind": "complete-native-seam-band",
+      "orientation": "vertical",
+      "logicalBandPixels": [
+        256,
+        4096
+      ],
+      "bandSourceRectXYXY": [
+        1920,
+        0,
+        2176,
+        4096
+      ],
+      "sources": [
+        "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png"
+      ],
+      "pieces": [
+        {
+          "bandRectXYXY": [
+            0,
+            0,
+            256,
+            1024
+          ],
+          "sheetOriginXY": [
+            0,
+            0
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            0,
+            1024,
+            256,
+            2048
+          ],
+          "sheetOriginXY": [
+            256,
+            0
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            0,
+            2048,
+            256,
+            3072
+          ],
+          "sheetOriginXY": [
+            512,
+            0
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            0,
+            3072,
+            256,
+            4096
+          ],
+          "sheetOriginXY": [
+            768,
+            0
+          ]
+        }
+      ],
+      "coveredLengthPixels": 4096,
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\internal-horizontal-y2048-full.png",
+      "sha256": "6060901ac96c9031c1895f5c46fab84b5e41e4f1fe69f52f009fb46fe7d0b1e6",
+      "pixels": [
+        1024,
+        1024
+      ],
+      "kind": "complete-native-seam-band",
+      "orientation": "horizontal",
+      "logicalBandPixels": [
+        4096,
+        256
+      ],
+      "bandSourceRectXYXY": [
+        0,
+        1920,
+        4096,
+        2176
+      ],
+      "sources": [
+        "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png"
+      ],
+      "pieces": [
+        {
+          "bandRectXYXY": [
+            0,
+            0,
+            1024,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            0
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            1024,
+            0,
+            2048,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            256
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            2048,
+            0,
+            3072,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            512
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            3072,
+            0,
+            4096,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            768
+          ]
+        }
+      ],
+      "coveredLengthPixels": 4096,
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\internal-vertical-x3072-full.png",
+      "sha256": "953e7759c2fcc4a1653b3e1113e9a4dffe81449d6b88afc98a4a69c11bdada55",
+      "pixels": [
+        1024,
+        1024
+      ],
+      "kind": "complete-native-seam-band",
+      "orientation": "vertical",
+      "logicalBandPixels": [
+        256,
+        4096
+      ],
+      "bandSourceRectXYXY": [
+        2944,
+        0,
+        3200,
+        4096
+      ],
+      "sources": [
+        "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png"
+      ],
+      "pieces": [
+        {
+          "bandRectXYXY": [
+            0,
+            0,
+            256,
+            1024
+          ],
+          "sheetOriginXY": [
+            0,
+            0
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            0,
+            1024,
+            256,
+            2048
+          ],
+          "sheetOriginXY": [
+            256,
+            0
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            0,
+            2048,
+            256,
+            3072
+          ],
+          "sheetOriginXY": [
+            512,
+            0
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            0,
+            3072,
+            256,
+            4096
+          ],
+          "sheetOriginXY": [
+            768,
+            0
+          ]
+        }
+      ],
+      "coveredLengthPixels": 4096,
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\internal-horizontal-y3072-full.png",
+      "sha256": "5d7ec02a9b51f8f556862b215195e006077e6cbdcdb3c8633cb66c96f4f77196",
+      "pixels": [
+        1024,
+        1024
+      ],
+      "kind": "complete-native-seam-band",
+      "orientation": "horizontal",
+      "logicalBandPixels": [
+        4096,
+        256
+      ],
+      "bandSourceRectXYXY": [
+        0,
+        2944,
+        4096,
+        3200
+      ],
+      "sources": [
+        "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png"
+      ],
+      "pieces": [
+        {
+          "bandRectXYXY": [
+            0,
+            0,
+            1024,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            0
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            1024,
+            0,
+            2048,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            256
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            2048,
+            0,
+            3072,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            512
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            3072,
+            0,
+            4096,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            768
+          ]
+        }
+      ],
+      "coveredLengthPixels": 4096,
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\intersection-x1024-y1024.png",
+      "sha256": "2c2e06f22516db8eae664033900931694f12e8fd283b188a69ef062f3746671b",
+      "pixels": [
+        512,
+        512
+      ],
+      "kind": "internal-four-way-intersection",
+      "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png",
+      "sourceRectXYXY": [
+        768,
+        768,
+        1280,
+        1280
+      ],
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\intersection-x2048-y1024.png",
+      "sha256": "1b32d1c469ae21d86fbe3afe0682501c0045b634234630dc55b79628d4defce8",
+      "pixels": [
+        512,
+        512
+      ],
+      "kind": "internal-four-way-intersection",
+      "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png",
+      "sourceRectXYXY": [
+        1792,
+        768,
+        2304,
+        1280
+      ],
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\intersection-x3072-y1024.png",
+      "sha256": "da51370fc466fb101bcf58ca142627ef0623cf077233571259cec937d0ebbce0",
+      "pixels": [
+        512,
+        512
+      ],
+      "kind": "internal-four-way-intersection",
+      "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png",
+      "sourceRectXYXY": [
+        2816,
+        768,
+        3328,
+        1280
+      ],
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\intersection-x1024-y2048.png",
+      "sha256": "acac02aa3085e43bfe9ab3ad072fc54a4e3e8c7c1366cba69f40994b797027bd",
+      "pixels": [
+        512,
+        512
+      ],
+      "kind": "internal-four-way-intersection",
+      "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png",
+      "sourceRectXYXY": [
+        768,
+        1792,
+        1280,
+        2304
+      ],
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\intersection-x2048-y2048.png",
+      "sha256": "33e5791e006d5c41e83e494c5bd57584016bb1c8ca2d78afef60cf97299e8bb5",
+      "pixels": [
+        512,
+        512
+      ],
+      "kind": "internal-four-way-intersection",
+      "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png",
+      "sourceRectXYXY": [
+        1792,
+        1792,
+        2304,
+        2304
+      ],
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\intersection-x3072-y2048.png",
+      "sha256": "a418eae36089aa05c86facf630ace5748ada18fb3650f5b1f0cc297a9433e050",
+      "pixels": [
+        512,
+        512
+      ],
+      "kind": "internal-four-way-intersection",
+      "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png",
+      "sourceRectXYXY": [
+        2816,
+        1792,
+        3328,
+        2304
+      ],
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\intersection-x1024-y3072.png",
+      "sha256": "8694cb48f1af47241ede8345ddcf732a08633d140a017c28156f44d71fd44854",
+      "pixels": [
+        512,
+        512
+      ],
+      "kind": "internal-four-way-intersection",
+      "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png",
+      "sourceRectXYXY": [
+        768,
+        2816,
+        1280,
+        3328
+      ],
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\intersection-x2048-y3072.png",
+      "sha256": "0d46f4be9e49827c34da67e83ff3bcb4951a7e78dddb5e4115678a4819d0c961",
+      "pixels": [
+        512,
+        512
+      ],
+      "kind": "internal-four-way-intersection",
+      "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png",
+      "sourceRectXYXY": [
+        1792,
+        2816,
+        2304,
+        3328
+      ],
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\intersection-x3072-y3072.png",
+      "sha256": "6b89998a251361cbab6ace3633b60bc53b4e7270ab510202550d178c093db8af",
+      "pixels": [
+        512,
+        512
+      ],
+      "kind": "internal-four-way-intersection",
+      "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png",
+      "sourceRectXYXY": [
+        2816,
+        2816,
+        3328,
+        3328
+      ],
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\corner-nw.png",
+      "sha256": "1ecec3c5d4711f3e1657b0a1a60955a09cfbc99e9b663aa4cabb6172ba2554b6",
+      "pixels": [
+        512,
+        512
+      ],
+      "kind": "tile-corner",
+      "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png",
+      "sourceRectXYXY": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\corner-ne.png",
+      "sha256": "5811fa5b9f0abe85d72f8a2b9ca25a31f3c361e2da2e1fd9de702716dc4f5089",
+      "pixels": [
+        512,
+        512
+      ],
+      "kind": "tile-corner",
+      "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png",
+      "sourceRectXYXY": [
+        3584,
+        0,
+        4096,
+        512
+      ],
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\corner-sw.png",
+      "sha256": "d1eccca9f89ce23750a7cd97770c904bb1c95bc975ef1007f68fe272e406afb2",
+      "pixels": [
+        512,
+        512
+      ],
+      "kind": "tile-corner",
+      "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png",
+      "sourceRectXYXY": [
+        0,
+        3584,
+        512,
+        4096
+      ],
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\corner-se.png",
+      "sha256": "870759c4ba4a66a5a34f5fb517386427d9e36cabfbdfd672c9c3adde0c7c3e62",
+      "pixels": [
+        512,
+        512
+      ],
+      "kind": "tile-corner",
+      "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\candidate.png",
+      "sourceRectXYXY": [
+        3584,
+        3584,
+        4096,
+        4096
+      ],
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\north-r09-r10-common-edge-full.png",
+      "sha256": "7d724bbd09c951c4bccdd12dd47b5d26d60cdee90049bccaa9e0a50c803c4d86",
+      "pixels": [
+        1024,
+        1024
+      ],
+      "kind": "complete-native-seam-band",
+      "orientation": "horizontal",
+      "logicalBandPixels": [
+        4096,
+        256
+      ],
+      "bandSourceRectXYXY": [
+        0,
+        -128,
+        4096,
+        128
+      ],
+      "sources": [
+        {
+          "tile": "r09_c16",
+          "rectXYXY": [
+            0,
+            3968,
+            4096,
+            4096
+          ]
+        },
+        {
+          "tile": "r10_c16",
+          "rectXYXY": [
+            0,
+            0,
+            4096,
+            128
+          ]
+        }
+      ],
+      "pieces": [
+        {
+          "bandRectXYXY": [
+            0,
+            0,
+            1024,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            0
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            1024,
+            0,
+            2048,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            256
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            2048,
+            0,
+            3072,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            512
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            3072,
+            0,
+            4096,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            768
+          ]
+        }
+      ],
+      "coveredLengthPixels": 4096,
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\north-halo-comparison-full.png",
+      "sha256": "b2ef7e0107930dd366e66a43f531d9008dd0b6135a15c5b659fff2086f34e902",
+      "pixels": [
+        1024,
+        1024
+      ],
+      "kind": "complete-native-seam-band",
+      "orientation": "horizontal",
+      "logicalBandPixels": [
+        4096,
+        256
+      ],
+      "bandSourceRectXYXY": null,
+      "sources": [
+        {
+          "tile": "r09_c16",
+          "rectXYXY": [
+            0,
+            3981,
+            4096,
+            4096
+          ],
+          "bandY": 0
+        },
+        {
+          "file": "extended-context.png",
+          "rectXYXY": [
+            115,
+            0,
+            4211,
+            115
+          ],
+          "bandY": 128
+        }
+      ],
+      "pieces": [
+        {
+          "bandRectXYXY": [
+            0,
+            0,
+            1024,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            0
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            1024,
+            0,
+            2048,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            256
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            2048,
+            0,
+            3072,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            512
+          ]
+        },
+        {
+          "bandRectXYXY": [
+            3072,
+            0,
+            4096,
+            256
+          ],
+          "sheetOriginXY": [
+            0,
+            768
+          ]
+        }
+      ],
+      "coveredLengthPixels": 4096,
+      "resized": false,
+      "pixelScale": 1,
+      "visualInspection": "pending"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\overview-preview-1024.png",
+      "sha256": "48d1f6170a2134af9eb71c584b8aa262ff459e2ce2cb4fde0f395aa89a255965",
+      "pixels": [
+        1024,
+        1024
+      ],
+      "kind": "downsampled-overview-only",
+      "scale": 0.25,
+      "notNativePixelQA": true
+    }
+  ],
+  "extraQA": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c16\\repairs\\internal-final\\qa\\bucket-native-detail.png",
+      "sha256": "9c6fe19c648512b46b58713316d167fe6e0b34abb1e0575296cba2806bead1df",
+      "pixels": [
+        1254,
+        1254
+      ]
+    }
+  ],
+  "visualReview": "pending-internal-scope-only",
+  "formalAccepted": false
+}
