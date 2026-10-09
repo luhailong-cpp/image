@@ -1,0 +1,149 @@
+{
+  "preparedAt": "2026-10-09T05:21:39.118900+00:00",
+  "source": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c11\\repairs\\p24-water-join\\water-corner-v6\\context.png",
+    "sha256": "f2eba995323c92940af350d1a836e3d5158e7484d143230c89af49e933e78cbd"
+  },
+  "sources": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c11\\repairs\\p24-water-join\\east-thin-v5\\local-tone-sigma3\\p24-proposal.png",
+      "sha256": "57e804671d842b33f5e1dc6a7749bda878fc5b9e6a01bacb3223f632aa5fd37a"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c11\\native\\p14.png",
+      "sha256": "96f4fb8808feedc00234386fb61d273436636d15ab1bb8549908ffb52634bebb"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\output\\r10_c12.png",
+      "sha256": "4dc21b33dea8fa9a35e2c5a556e8495ecc9cda3e173457fb060682dd1b4a438b"
+    }
+  ],
+  "sourceGeneration": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c11\\repairs\\p24-water-join\\east-thin-v5\\local-tone-sigma3\\p24-proposal.png.generation.json",
+    "sha256": "81d87ec4338b99e2c000a7c3ed1c6f081099ddd486d5745e6466055e79f45131"
+  },
+  "plan": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c11\\plan.json",
+    "sha256": "92fae4c8243273872574987d2e82105713d7612eb455c0a88e2117c62c10ec39"
+  },
+  "prompt": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c11\\repairs\\p24-water-join\\water-corner-v6\\repair.prompt.txt",
+    "sha256": "74122ed75de81033b21027733b451eba0253a7cb95a4c6cf959114d162529bed"
+  },
+  "references": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c11\\repairs\\p24-water-join\\water-corner-v6\\target.png",
+      "sha256": "89a5f397311fe8c36e70ae9095b1189c0a70aeacff50f080dcff0876c0f737b3",
+      "role": "native frame with deep true p14 north and actual c12 east fixed; only current-side L-gap transparent"
+    },
+    {
+      "file": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+      "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+      "role": "approved painted style"
+    }
+  ],
+  "mapping": {
+    "globalFrameXYWH": [
+      43917,
+      37261,
+      1254,
+      1254
+    ],
+    "nativeP24FrameXYWH": [
+      43917,
+      37773,
+      1254,
+      1254
+    ],
+    "nativeP24OffsetXY": [
+      0,
+      512
+    ],
+    "trueNorthOwnerBoundaryY": 627,
+    "trueNorthOverlapEndY": 742,
+    "trueEastBoundaryX": 1139,
+    "operations": [
+      {
+        "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c11\\native\\p14.png",
+        "cropLTRB": [
+          0,
+          512,
+          1254,
+          1254
+        ],
+        "pasteXY": [
+          0,
+          0
+        ]
+      },
+      {
+        "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c11\\repairs\\p24-water-join\\east-thin-v5\\local-tone-sigma3\\p24-proposal.png",
+        "cropLTRB": [
+          0,
+          230,
+          1254,
+          742
+        ],
+        "pasteXY": [
+          0,
+          742
+        ]
+      },
+      {
+        "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c12\\output\\r10_c12.png",
+        "cropLTRB": [
+          0,
+          397,
+          115,
+          1651
+        ],
+        "pasteXY": [
+          1139,
+          0
+        ]
+      }
+    ],
+    "holesLTRB": [
+      [
+        850,
+        742,
+        1139,
+        860
+      ],
+      [
+        850,
+        860,
+        1015,
+        1010
+      ]
+    ],
+    "realNorthAndEastNotMasked": true,
+    "sourceUpscaling": false
+  },
+  "submittedParameters": {
+    "model": null,
+    "quality": null,
+    "prompt": "Use case: precise-object-edit. Fill ONLY the two small connected transparent patches in Image1, in this exact1254x1254 crop. These are a small section of cobalt water and the very edge of existing dark green leaves near the right side. Preserve the entire upper742rows exactly: these are the actual finished north neighbor. Preserve the entire right115px exactly: these are the actual finished east neighbor. Continue the visible cyan ripple edges smoothly downward and sideways through the missing area, without a little triangular arrow, a flat clipped wave tip, a ruler-straight seam, blue haze, or fuzzy patch over the leaf edge. The gap should be quiet painted water whose color and wave width match the immediate surrounding real water. Continue any partially cut leaf along its existing contour, without enlarging the tree or adding leaves. Everything outside the tiny transparent area is authoritative; keep all existing water-cell shapes, foliage and rock unchanged. Image2 is approved clean rounded hand-painted game STYLE only. Do not copy UI/text. No camera or crop change, no blur/glow/noise/extra detail. Fully opaque1254x1254 output.",
+    "referenced_image_paths": [
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r10_c11\\repairs\\p24-water-join\\water-corner-v6\\target.png",
+      "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png"
+    ],
+    "transparent_background": false
+  },
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-04",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  },
+  "actualModel": null,
+  "actualQuality": null,
+  "canonicalUnchanged": true
+}
