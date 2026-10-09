@@ -1,0 +1,17 @@
+from pathlib import Path
+import sys,json
+from PIL import Image
+O=Path(__file__).resolve().parent;sys.path.insert(0,str(O));import ai_helper as h
+st=json.loads((O/'state-after-east-v1.json').read_text(encoding='utf8'));c=st['current'];im={k:Image.open(v).convert('RGB') for k,v in c.items()}
+# Assemble current north joint directly from final state.
+nj=Image.new('RGB',(4096,1254));nj.paste(im['r10_c14'].crop((0,3469,4096,4096)),(0,0));nj.paste(im['r11_c14'].crop((0,0,4096,627)),(0,627));p=O/'north-return-source.png';nj.crop((0,0,1254,1254)).save(p);h.derived(p,[Path(c['r10_c14']),Path(c['r11_c14'])],{'method':'native joint627+627 then crop first1254','noResampling':True})
+p2=O/'ne-return-source.png';j=Image.new('RGB',(1254,1254));j.paste(im['r10_c14'].crop((3000,3896,4096,4096)),(0,0));j.paste(im['r10_c15'].crop((0,3896,158,4096)),(1096,0));j.paste(im['r11_c14'].crop((3000,0,4096,1054)),(0,200));j.paste(im['r11_c15'].crop((0,0,158,1054)),(1096,200));j.save(p2);h.derived(p2,[Path(c[k]) for k in ['r10_c14','r10_c15','r11_c14','r11_c15']],{'method':'native four-tile assembly at self origin3000,-200 no resize'})
+p3=O/'rail-return-source.png';im['r11_c14'].crop((2450,2842,3704,4096)).save(p3);h.derived(p3,[Path(c['r11_c14'])],{'method':'native1254 crop','bbox':[2450,2842,3704,4096]})
+p4=O/'rail-suspect-qa.png';im['r11_c14'].crop((2960,3900,3220,4096)).save(p4);h.derived(p4,[Path(c['r11_c14'])],{'method':'native QA crop','bbox':[2960,3900,3220,4096]})
+spec=[
+('north-return',p,'Only fix the faint rectangular wave-return remnant near local x557..650,y560..790. Preserve ALL pixels left of x557 precisely. Connect the original wave contours on the left into the adjacent right sea, eliminating the tiny rectangular flat patch and short straight horizontal boundary near y627. Keep every other wave and structure unchanged.'),
+('ne-return',p2,'This target has three very small assembly-return flaws. Correct only the two existing diagonal plank gap/highlight returns near (495,200) and (485,510), and the narrow palette/contour return near (1096,757) where the shared pier edge meets the already corrected top corner. These are NOT real plank joints. Continue each existing straight plank seam, keeping its width and sharp single highlight; remove tiny steps and doubled/soft edges. The central protected rectangle x>=539 and y<757 must remain pixel-aligned and unchanged; connect TO its exact original contour endpoints from the left or below. Preserve all true timber seams, post/rope positions, camera and scale.'),
+('rail-return',p3,'Only repair the tiny artificial 2px notch in the bright outer diagonal boat rail bevel near local (648,1173), very close to the bottom. Make the same continuous straight highlighted bevel through this one small notch, preserving both contour endpoints and line thickness. All other boat rail, dark boom, ivory sail, rope, wave and timber geometry must remain unchanged. Do not add a joint at the flaw.')]
+for n,p,s in spec:h.savecall(n,'Use case: precise-object-edit. Reference1 is native1254 exact edit target. '+s+' Reference2 is the actual approved bright rounded Taoist Q-game painted style only. No text/UI, extra objects, global recolor, blur, warp or rescale. Output exactly1254x1254.',[p,h.STYLE],['native exact repair target','actual approved04guild style'])
+(O/'return-spec.json').write_text(json.dumps({'inputState':'state-after-east-v1.json','names':[v[0] for v in spec]},indent=2),encoding='utf8');print('return sources ready')
+
