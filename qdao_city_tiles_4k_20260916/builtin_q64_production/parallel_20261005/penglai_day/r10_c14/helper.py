@@ -30,7 +30,8 @@ def update(stage='native_details'):
                 n=f'p{r}{c}';f=ROOT/'native'/f'{n}.png'
                 if f.exists():im.paste(Image.open(f).convert('RGB').crop((115,115,1139,1139)),((c-1)*1024,(r-1)*1024))
                 else:d.text(((c-1)*1024+40,(r-1)*1024+40),n+' PENDING',fill=(60,60,60))
-        dest=ROOT/'current-preview.png';im.resize((1254,1254),Image.Resampling.LANCZOS).save(dest);p.derived(dest,[ROOT/'native'/f'{n}.png' for n in names],{'method':'review-only core montage downscale','containsMissingPlaceholders':len(names)<16})
+        dest=ROOT/f'current-preview-{len(names):02d}.png';im.resize((1254,1254),Image.Resampling.LANCZOS).save(dest);p.derived(dest,[ROOT/'native'/f'{n}.png' for n in names],{'method':'review-only core montage downscale','containsMissingPlaceholders':len(names)<16})
+        state=p.read(ROOT/'current-work.json');state['preview']=str(dest);p.write(ROOT/'current-work.json',state)
 def savecall(name,call):
     (ROOT/'prompts'/f'{name}.prompt.txt').write_text(call['prompt'],encoding='utf8');p.write(ROOT/'prompts'/f'{name}.call.json',call)
 def ingest(source,name,role='native_detail'):
@@ -47,7 +48,7 @@ def guides():
             n=f'p{r}{c}';box=((c-1)*1024,(r-1)*1024,(c-1)*1024+1254,(r-1)*1024+1254);fp=ROOT/'guides'/f'{n}.png';im.crop(box).save(fp);p.derived(fp,[dest],{'method':'integer geometry guide crop','boxLTRB':box,'neverFinalArt':True});index.append({'id':n,'globalCoreXYWH':[GX+(c-1)*1024,GY+(r-1)*1024,1024,1024],'file':str(fp)})
     p.write(ROOT/'guides/index.json',{'patches':index,'finalUseForbidden':True});update('guides_ready')
 def prepare(name,scene):
-    r,c=int(name[1]),int(name[2]);state=p.read(ROOT/'evidence/boundary-state.json');refs=[(ROOT/'guides'/f'{name}.png').as_posix(),STYLE];notes=[]
+    r,c=int(name[1]),int(name[2]);state=p.read(ROOT/'evidence/boundary-state.json');guide=Path(state.get('guideOverrides',{}).get(name,str(ROOT/'guides'/f'{name}.png')));refs=[guide.as_posix(),STYLE];notes=[]
     for dr,dc,direction,match in [(0,-1,'LEFT','left230px matches its right230px'),(-1,0,'UPPER','top230px matches its bottom230px'),(0,1,'RIGHT','right230px matches its left230px'),(1,0,'LOWER','bottom230px matches its top230px')]:
         nr,nc=r+dr,c+dc;f=ROOT/'native'/f'p{nr}{nc}.png'
         if 1<=nr<=4 and 1<=nc<=4 and f.exists():refs.append(f.as_posix());notes.append(f'Image{len(refs)} is completed {direction} neighbor; target {match}.')

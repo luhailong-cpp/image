@@ -1,1 +1,0 @@
-何仙姑 V12 已完成 64 张真实行走帧、8 张独立站立与透明导出，89 媒体独立验证通过。逐方向实际帧已由 owner 完成视觉审阅，等待根任务最终复核与接入；当前 qc 仍为 passed_numeric_qc_pending_visual_review，未擅自标记正式完成。重建使用 rebuild_corrected.ps1，atomic_runner.py 仅规避 Windows 预览占用，不改像素处理。

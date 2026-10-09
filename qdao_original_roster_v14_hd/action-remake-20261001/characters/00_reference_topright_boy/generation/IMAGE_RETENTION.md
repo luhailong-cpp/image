@@ -1,1 +1,0 @@
-历史生图和诊断图中未被 selected-new.json 采用的图片已清理。当前选中原生母版作为动态未验收在制参考保留；正式196帧在 frames/，当前预览在 review/animations 与 review/timing-grounding。所有旧提示词、回执、SHA、审稿、局部selection和历史脚本保留文字证据，其中旧图片路径是历史引用，不是当前导出入口。不要运行旧审稿生图脚本覆盖当前交付。清理明细见 ../review/cleanup-executed.json。
