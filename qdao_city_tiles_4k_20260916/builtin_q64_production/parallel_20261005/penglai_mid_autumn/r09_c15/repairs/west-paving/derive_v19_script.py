@@ -1,0 +1,22 @@
+from pathlib import Path
+p=Path(__file__).parent
+s=(p/'build_v18_endpoint_proposal.py').read_text()
+s=s.replace('v18','v19')
+s=s.replace("arr('root-lower-bevel-v12-target.png')","arr('upper-middle-v19-context.png')")
+s=s.replace("arr('three-endpoints-v14.png')","arr('upper-middle-v19.png')")
+s=s.replace("arr('proposed-joint-v9.png')","arr('proposed-joint-v18.png')")
+s=s.replace("(P/'proposal-v9.json')","(P/'proposal-v18.json')").replace("(P/'proposed-joint-v9.png')","(P/'proposed-joint-v18.png')")
+s=s.replace("(P/'three-endpoints-v14.png')","(P/'upper-middle-v19.png')").replace("(P/'root-lower-bevel-v12-target.png')","(P/'upper-middle-v19-context.png')")
+s=s.replace("owner=(xx>=627)&(xx<807)&(((yy>=65)&(yy<150))|((yy>=310)&(yy<490))|((yy>=790)&(yy<895)))","owner=(xx>=627)&(xx<755)&(((yy>=252)&(yy<342))|((yy>=484)&(yy<680)))")
+s=s.replace("vertical=(smooth((yy-65)/16)*smooth((150-yy)/16)+smooth((yy-310)/16)*smooth((490-yy)/16)+smooth((yy-790)/16)*smooth((895-yy)/16));weight=smooth((807-xx)/128)*vertical","vertical=smooth((yy-252)/16)*smooth((342-yy)/16)+smooth((yy-484)/16)*smooth((680-yy)/16);weight=smooth((755-xx)/96)*vertical")
+s=s.replace("[0,250,360,410,580,650,1253],[.34,.34,.40,-.50,-.50,.53,.53]","[0,432,542,592,762,832,1253],[.34,.34,.40,-.50,-.50,.53,.53]")
+s=s.replace("alpha=smooth((807-xx)/48)*vertical*owner","alpha=smooth((755-xx)/48)*vertical*owner")
+s=s.replace("destination=outarray[82:990,320:620].astype(np.float32)","destination=outarray[:1154,320:620].astype(np.float32)")
+s=s.replace("a=alpha[:908,627:927,None]","a=alpha[100:,627:927,None]")
+s=s.replace("outarray[82:990,320:620]=np.uint8(np.clip(np.rint(destination*(1-a)+matched[:908,627:927]*a),0,255))","outarray[:1154,320:620]=np.uint8(np.clip(np.rint(destination*(1-a)+matched[100:,627:927]*a),0,255))")
+s=s.replace("assert not change[:82].any() and not change[990:].any() and not change[:,:320].any() and not change[:,620:].any()","assert not change[:152].any() and not change[580:].any() and not change[:,:320].any() and not change[:,448:].any()")
+s=s.replace("'additionalCandidateBoxLTRB':[0,2842,300,3750]","'additionalCandidateBoxLTRB':[0,2912,128,3340]")
+s=s.replace("'sourceToJointXY':[-307,82]","'sourceToJointXY':[-307,-100]")
+s=s.replace("'topWasPartlyReplacedWithinAuthorizedSubset':True","'topWasPartlyReplacedWithinAuthorizedSubset':True,'v18LowerSegmentFromJointY580BitExact':True,'newSourceBoxesLTRB':[[627,252,755,342],[627,484,755,680]]")
+(p/'build_v19_proposal.py').write_text(s)
+
