@@ -1,0 +1,31 @@
+from pathlib import Path
+from datetime import datetime,timezone
+import json,hashlib
+import numpy as np
+from PIL import Image
+D=Path(__file__).parent;N=D.parent;T=N.parent;F=D/'final-v1'
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+ref=lambda p:{'file':str(p),'sha256':sha(p)}
+read=lambda p:json.loads(Path(p).read_text(encoding='utf-8-sig'))
+save=lambda p,v:Path(p).write_text(json.dumps(v,ensure_ascii=False,indent=2),encoding='utf-8')
+prep=read(D/'preparation.json');req=read(D/'request.json');J=Image.open(F/'joined.png').convert('RGB');now=datetime.now(timezone.utc).isoformat();A=read(F/'assembly.json');A.update(visualReviewPending=False,localVisualAccepted=True);save(F/'assembly.json',A)
+save(F/'visual-review.json',{'reviewedAtUtc':now,'image':ref(F/'joined.png'),'source':ref(F/'joined.png'),'nativePixelInspection':True,'inspectedImages':[ref(F/'qa'/f) for f in ('full.png','right.png','bottom.png')],'reviewMethod':'Actually viewed the full1254 square at original size, right179x1254 and bottom1254x244 crops. These cover all generated native pixels and the complete known interfaces.','localVisualAccepted':True,'fullyPaintedNativeTileReviewed':False,'openInternalFindings':[],'formalAccepted':False,'findings':['Upper gray inset and pale upright silhouettes remain consistent with canonical broad layout. Actual right endpoints take precedence.','Middle curved ivory course, lower pale slab and lower rail enter the actual right native edge continuously, without doubled contours or endpoint steps.','Bottom carved cloud relief, pale uprights and bevel highlights meet the actual southern source continuously. The known southeast corner is coherent at native scale.','No registration or color correction; missing core is exact native output, only explicit61-pixel coupled return bands blend with known native sources.'],'pendingExternalChecks':['Remaining r07_c08 unknown area','Complete east/south boundary after tile completion','North r06_c08 and west r07_c07','Whole city/runtime'],'actualModel':None,'actualQuality':None})
+save(F/'joined.png.generation.json',{'file':str(F/'joined.png'),'sha256':sha(F/'joined.png'),'operation':'Native AI output with limited exact native anchor return; no registration or upscale','derivedFrom':[dict(ref(D/'native.png'),generationRecord=str(D/'native.png.generation.json')),dict(ref(D/'context.png'),generationRecord=str(D/'context.png.generation.json'))],'assembly':ref(F/'assembly.json'),'nativeScale':1,'actualModel':None,'actualQuality':None,'formalAccepted':False})
+specs=[('new-core',[0,0,1139,1139],'r07_c08',[2957,2957,4096,4096],None),('right-return',[1139,0,1200,1139],'r07_c09',[0,2957,61,4096],prep['sources']['r07_c09']),('bottom-return',[0,1139,1139,1200],'r08_c08',[2957,0,4096,61],prep['sources']['r08_c08']),('bottom-right-return',[1139,1139,1200,1200],'r08_c09',[0,0,61,61],prep['sources']['r08_c09'])]
+latest={v['tile']:v for v in read(T/'source-checkpoint.json')['candidateSet']};patches=[]
+for name,crop,tile,dest,prior in specs:
+ p=F/(name+'.png');J.crop(crop).save(p)
+ if prior:
+  assert sha(prior['file'])==prior['sha256'];assert sha(latest[tile]['file'])==latest[tile]['sha256'];assert Image.open(prior['file']).convert('RGBA').crop(dest).tobytes()==Image.open(latest[tile]['file']).convert('RGBA').crop(dest).tobytes(),('Latest required prior ROI changed',tile,dest)
+  prior=dict(prior,tileLocalLTRB=[0,0,4096,4096],nativeScale=1)
+ patches.append({'name':name,'asset':ref(p),'cropFromJoinedLTRB':crop,'destinationTile':tile,'destinationTileLTRB':dest,'requiredPriorSource':prior,'nativeScale':1,'mustApplyTogether':True})
+ save(Path(str(p)+'.generation.json'),{'file':str(p),'sha256':sha(p),'operation':'1:1 exact crop','derivedFrom':[ref(F/'joined.png')],'cropLTRB':crop,'nativeScale':1,'newModelCalls':0,'actualModel':None,'actualQuality':None})
+m={'createdAtUtc':now,'appearance':'tianyong_festival','tile':'r07_c08','tileGlobalOrigin':req['tileGlobalOrigin'],'nativeScale':1,'windowTileLocalLTRB':req['tileLocalCropLTRB'],'windowGlobalLTRB':req['globalCropLTRB'],'joined':ref(F/'joined.png'),'visualReview':ref(F/'visual-review.json'),'assembly':ref(F/'assembly.json'),'localVisualAccepted':True,'formalAccepted':False,'patches':patches,'sourceCheckpoint':prep['sourceCheckpoint'],'lastRootRoiCheck':{'file':str(T/'source-checkpoint.json'),'sha256':sha(T/'source-checkpoint.json'),'allRequiredExternalROIsExact':True},'note':'Apply own new core and three returns together; only explicit ROIs. Never replace a current external tile with any prospective snapshot.'};save(F/'manifest.json',m)
+fragment=Image.new('RGBA',(4096,4096));fragment.paste(J.crop((0,0,1139,1139)).convert('RGBA'),(2957,2957));fragment.save(F/'r07_c08-fragment.png');coverage=int((np.array(fragment)[:,:,3]==255).sum());assert coverage==1297321
+save(F/'r07_c08-fragment.png.generation.json',{'file':str(F/'r07_c08-fragment.png'),'sha256':sha(F/'r07_c08-fragment.png'),'operation':'Exact native core placement; unknown remains transparent','derivedFrom':[ref(F/'joined.png')],'manifest':ref(F/'manifest.json'),'nativeScale':1,'actualModel':None,'actualQuality':None,'formalAccepted':False})
+pros={}
+for key,tile,name,xy,crop in [('prospectiveBottom','r08_c08','bottom-return',[2957,0],[0,1139,1139,1200]),('prospectiveRight','r07_c09','right-return',[0,2957],[1139,0,1200,1139])]:
+ p=F/('prospective-'+tile+'.png');im=Image.open(prep['sources'][tile]['file']).convert('RGBA');im.paste(J.crop(crop).convert('RGBA'),xy);im.save(p);pros[key]=dict(ref(p),tile=tile)
+ save(Path(str(p)+'.generation.json'),{'file':str(p),'sha256':sha(p),'operation':'Prospective ROI update for subsequent context only; never whole-tile root replacement','derivedFrom':[prep['sources'][tile],ref(F/(name+'.png'))],'nativeScale':1,'newModelCalls':0,'actualModel':None,'actualQuality':None,'formalAccepted':False})
+save(N/'local-source-checkpoint.json',{'createdAtUtc':now,'tile':'r07_c08','fragment':ref(F/'r07_c08-fragment.png'),'nativeScale':1,'coveragePixels':coverage,'formalAccepted':False,'rootPublished':False,'manifest':ref(F/'manifest.json'),'contextJoined':ref(F/'joined.png'),**pros,'externalReturnDependencies':[ref(F/'manifest.json')]})
+print(json.dumps({'manifest':ref(F/'manifest.json'),'fragment':ref(F/'r07_c08-fragment.png'),'coveragePixels':coverage,'rootPublished':False}))
