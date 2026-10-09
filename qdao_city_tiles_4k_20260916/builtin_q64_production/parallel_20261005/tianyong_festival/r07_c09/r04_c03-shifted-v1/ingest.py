@@ -14,6 +14,6 @@ if dest.parent!=D:
  record['prompt']=str(dest.parent/'prompt.txt')
  record['references']=[{'file':p,'sha256':sha(p)} for p in request['referenced_image_paths']]
  record['evidence']={'file':str(dest.parent/'tool-response.json')}
- record['operation']='builtin AI edit correcting erroneous lower-left inset material and removing false horizontal joint'
+ record['operation']=request.get('operation','builtin AI redraw preserving exact native context and canonical layout')
 Path(str(dest)+'.generation.json').write_text(json.dumps(record,ensure_ascii=False,indent=2),encoding='utf-8')
 print(json.dumps({'file':str(dest),'sha256':sha(dest),'pixels':sz}))

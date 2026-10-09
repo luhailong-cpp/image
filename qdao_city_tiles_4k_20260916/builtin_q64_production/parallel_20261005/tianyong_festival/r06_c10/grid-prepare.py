@@ -27,16 +27,16 @@ x=(col-1)*1024-115;y=(row-1)*1024-115;origin=[36864,20480];window=[x,y,x+1254,y+
 side=('right' if col<4 else None) if row in [4,2] else ('left' if col>1 else None)
 C=np.zeros((1254,1254,4),dtype=np.uint8);nativeinputs=[source];regions=[]
 if row==4:
- bottom=cp['coupledBottom'];assert sha(bottom['file'])==bottom['sha256'];a=np.array(Image.open(bottom['file']).convert('RGBA'));hp=B/'r07-top-native-halo.png';h=np.array(Image.open(hp).convert('RGBA'));l,r=max(x,0),min(x+1254,4096)
+ bottom=cp['coupledBottom'];assert sha(bottom['file'])==bottom['sha256'];a=np.array(Image.open(bottom['file']).convert('RGBA'));hp=Path(cp.get('bottomNativeHalo',{'file':str(B/'r07-top-native-halo.png')})['file']);h=np.array(Image.open(hp).convert('RGBA'));l,r=max(x,0),min(x+1254,4096)
  C[1024:1139,l-x:r-x]=h[:,l:r];C[1139:,l-x:r-x]=a[:115,l:r];nativeinputs += [ref(hp),bottom]
  regions += [{'contextLTRB':[l-x,1024,r-x,1139],'source':ref(hp),'sourceLTRB':[l,0,r,115],'role':'Actual native r07 external top halo, not fabricated r06 coverage'},{'contextLTRB':[l-x,1139,r-x,1254],'source':bottom,'sourceLTRB':[l,0,r,115]}]
  mapref=T/f'r07_c10/r01_c{col:02}-v1/final-v1/joined.png'
 else:
- below=sorted((B/f'r{row+1:02}_c{col:02}-v1').glob('final-*/manifest.json'),key=lambda p:p.stat().st_mtime)[-1];bm=read(below);bp=Path(bm['joined']['file']);assert sha(bp)==bm['joined']['sha256'];a=np.array(Image.open(bp).convert('RGBA'));C[1024:]=a[:230];nativeinputs.append(ref(bp));regions.append({'contextLTRB':[0,1024,1254,1254],'source':ref(bp),'sourceLTRB':[0,0,1254,230]});mapref=bp
+ below=sorted((B/f'r{row+1:02}_c{col:02}-v1').glob('final-*/manifest.json'),key=lambda p:p.stat().st_mtime)[-1];bm=read(below);bp=Path(bm['joined']['file']);assert sha(bp)==bm['joined']['sha256'];a=np.array(Image.open(bp).convert('RGBA'));ox=world[0]-bm['windowGlobalLTRB'][0];oy=world[1]+1024-bm['windowGlobalLTRB'][1];assert ox>=0 and oy>=0;C[1024:]=a[oy:oy+230,ox:ox+1254];nativeinputs.append(ref(bp));regions.append({'contextLTRB':[0,1024,1254,1254],'source':ref(bp),'sourceLTRB':[ox,oy,ox+1254,oy+230]});mapref=bp
 if side:
  sp=Path(cp['contextJoined']['file']);assert f'r{row:02}_c{col+(1 if side=="right" else -1):02}-v1' in str(sp);sa=np.array(Image.open(sp).convert('RGBA'));nativeinputs.append(ref(sp))
- if side=='right':C[:,1024:]=sa[:,:230];regions.append({'contextLTRB':[1024,0,1254,1254],'source':ref(sp),'sourceLTRB':[0,0,230,1254]})
- else:C[:,:230]=sa[:,1024:];regions.append({'contextLTRB':[0,0,230,1254],'source':ref(sp),'sourceLTRB':[1024,0,1254,1254]})
+ if side=='right':C[:,1024:]=sa[:1254,:230];regions.append({'contextLTRB':[1024,0,1254,1254],'source':ref(sp),'sourceLTRB':[0,0,230,1254]})
+ else:C[:,:230]=sa[:1254,1024:1254];regions.append({'contextLTRB':[0,0,230,1254],'source':ref(sp),'sourceLTRB':[1024,0,1254,1254]})
 l,t,r,b=max(x,0),max(y,0),min(x+1254,4096),min(y+1254,4096);piece=current[t:b,l:r];known=piece[:,:,3]==255;C[t-y:b-y,l-x:r-x][known]=piece[known]
 if row==4:
  l,r=max(x,0),min(x+1254,4096);C[1139:,l-x:r-x]=a[:115,l:r]
@@ -52,3 +52,5 @@ req={'preparedAtUtc':datetime.now(timezone.utc).isoformat(),'tile':'r06_c10','pa
 write(P/'preparation.json',{'references':[ref(z) for z in refs],'savedCheckpoint':ref(P/'source-checkpoint-input.json'),'sourceTile':{**source,'tile':'r06_c10','tileLocalLTRB':[0,0,4096,4096],'nativeScale':1},'coupledBottom':cp['coupledBottom'],'nativeInputs':nativeinputs,'master':ref(master),'nativeScale':1,'guidePixelsAllowedInFinal':False,'requiresPriorManifest':cp['manifest'],'consistencyProof':{'currentFragmentOverlayExact':True,'allContextPixelsNative':True,'unknownNeighborPixelsNotInvented':True},'knownRegions':regions})
 for name,ss,op in [('context.png',nativeinputs,'Exact native context composition, zeros where alpha0'),('layout-reference-only.png',[ref(master)],'Enlarged guide only; final pixels forbidden')]:write(P/(name+'.generation.json'),{'output':ref(P/name),'sources':ss,'operation':op,'newModelCalls':0,'actualModel':None,'actualQuality':None,'formalAccepted':False,'nativeScale':1})
 print(json.dumps({'request':ref(P/'request.json'),'missingPixels':req['missingPixels'],'world':world}))
+
+

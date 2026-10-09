@@ -1,0 +1,175 @@
+{
+  "createdAtUtc": "2026-10-09T05:18:57.178910+00:00",
+  "input": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c15\\repairs\\north-integrated-v2\\candidate.png",
+    "sha256": "56aa9499341914dbf11e50fe2d405e768c5874120ee873dc8a4763ae00db40a7"
+  },
+  "immutableNorth": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r09_c15\\output\\r09_c15.png",
+    "sha256": "33abbb4345add5b42b8020ce1c6dd4b40a44d4fdb7dd96fc3b37220006c5c6ff"
+  },
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c15\\repairs\\north-joint\\color-match\\candidate.png",
+    "sha256": "a42234bf5bd2ceaf94d060080d561140ce3cfed499b8e7026aac59d041ff7e17"
+  },
+  "extendedContext": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c15\\repairs\\north-joint\\color-match\\extended-context.png",
+    "sha256": "cc853c2df5582f792016390294207c098427cd6e3f5a1c8cadfbb452a3cfa282"
+  },
+  "field": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c15\\repairs\\north-joint\\color-match\\rgb-difference-field.npz",
+    "sha256": "5f5ebc73234b4e2ddcafbf3ae069cb9f67191a76883595d90a6a6d5cf4716e6b"
+  },
+  "changedBoundsXYXY": [
+    0,
+    0,
+    3170,
+    628
+  ],
+  "changedPixels": 1143536,
+  "maxActualRGBChange": 72,
+  "operations": [
+    {
+      "kind": "vertical tone seam x2150 correction",
+      "side": "left only",
+      "xFade": [
+        1750,
+        2149
+      ],
+      "yFade": [
+        590,
+        700
+      ],
+      "maximumChannelDelta": 24,
+      "edgeAware1dRadius": 4,
+      "fieldDiffusion": "RGB difference field smoothed along y with sigma max(1,distance_from_x2150/5), then continuous chroma sigma35 weighting"
+    },
+    {
+      "kind": "actual north boundary RGB-difference field",
+      "firstRowEvidence": "actual north last row minus candidate first row",
+      "maximumChannelDelta": 72,
+      "yFadeToZero": 520,
+      "xFade": [
+        3100,
+        3180
+      ],
+      "materialWeight": "continuous chroma similarity sigma42; no hard material mask",
+      "edgeAware1dRadius": 4,
+      "fieldDiffusion": "RGB difference and chroma-reference rows smoothed along x with sigma max(1,y/3); source art pixels not blurred"
+    }
+  ],
+  "x3180AndBeyondExact": true,
+  "y700AndBeyondExact": true,
+  "immutableNorthCurrentSha256": "33abbb4345add5b42b8020ce1c6dd4b40a44d4fdb7dd96fc3b37220006c5c6ff",
+  "geometryResampling": false,
+  "imageBlur": false,
+  "finalArtUpscaled": false,
+  "qa": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c15\\repairs\\north-joint\\color-match\\qa\\north-wide-1.png",
+      "sha256": "dc27420bbddeb5d26b21390edd44f781180af0e36968e9672cb97bf26de5fc7e",
+      "sourceRectInNorthPair": [
+        0,
+        3796,
+        1254,
+        4566
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c15\\repairs\\north-joint\\color-match\\qa\\north-wide-2.png",
+      "sha256": "2a6df4c0ad577061ff1aab9a32abc7b38f7247af3c42807478d788841de3804d",
+      "sourceRectInNorthPair": [
+        1024,
+        3796,
+        2278,
+        4566
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c15\\repairs\\north-joint\\color-match\\qa\\north-wide-3.png",
+      "sha256": "14fce2c147a3773fdf03ca3b2d09455b7a22f5f27892d76fb5a84b5ed903b65c",
+      "sourceRectInNorthPair": [
+        2048,
+        3796,
+        3302,
+        4566
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c15\\repairs\\north-joint\\color-match\\qa\\north-wide-4.png",
+      "sha256": "364d30ed3cb7fd3a29a356b55bee35849df5cf545acc48468e264d6cb0df4525",
+      "sourceRectInNorthPair": [
+        2842,
+        3796,
+        4096,
+        4566
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c15\\repairs\\north-joint\\color-match\\qa\\north-left-insertion.png",
+      "sha256": "1262339407fe01e00f8e2b2b46a384294db4246387dc16e7d8ebd3b1ac19c8ab",
+      "sourceRectXYXY": [
+        750,
+        0,
+        1110,
+        707
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c15\\repairs\\north-joint\\color-match\\qa\\north-middle-insertion.png",
+      "sha256": "c67662aa5e7717da26177b9bb8c18a71256e91fafcca248d010adc22f7ecea0a",
+      "sourceRectXYXY": [
+        1920,
+        0,
+        2250,
+        707
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c15\\repairs\\north-joint\\color-match\\qa\\north-right-insertion.png",
+      "sha256": "b7a1069fb9d620bda39dc668ca7dc74719060cbd6feb423871b3ee023ab50d22",
+      "sourceRectXYXY": [
+        3090,
+        0,
+        3430,
+        707
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c15\\repairs\\north-joint\\color-match\\qa\\north-bottom-left.png",
+      "sha256": "9fde5bc8b45e479e1ed6ad8547acfc9d9aff07bb3a2f65c0347ff6090e3d9457",
+      "sourceRectXYXY": [
+        800,
+        450,
+        2054,
+        710
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c15\\repairs\\north-joint\\color-match\\qa\\north-bottom-right.png",
+      "sha256": "16629601c57817b71087a82e915ae059c5a694938aa7ce12bb325366de4a57bc",
+      "sourceRectXYXY": [
+        2054,
+        450,
+        3308,
+        710
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\donghai_day\\r10_c15\\repairs\\north-joint\\color-match\\qa\\top-left.png",
+      "sha256": "94d393ebda1a0745589d256cab170c3d550ac8390bde985efa90f6a4a1725abd",
+      "sourceRectXYXY": [
+        0,
+        0,
+        1254,
+        700
+      ]
+    }
+  ],
+  "visualReview": "producer scoped actual-view reviewed; independent integrated review pending; right n4 geometry remains excluded",
+  "formalAccepted": false,
+  "script": {
+    "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/donghai_day/repair_r10_c15_north_color.py",
+    "sha256": "3b518f2abceef60c92aacc5cd85596ce71daca9e5516e11209c670b72b1fb566"
+  }
+}

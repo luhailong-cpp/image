@@ -36,6 +36,8 @@ for mp in chain:
  paste_world(checked(m['joined']),m['windowTileLocalLTRB'])
 paste_world(left,[-4096,0,0,4096])
 paste_world(belowleft,[-4096,4096,0,8192])
+for neighbor in cp.get('contextNeighbors',[]):
+ paste_world(checked(neighbor),neighbor['relativeTileLTRB'])
 paste_world(checked(cp['fragment']),[0,0,4096,4096])
 context.save(D/'context.png');a=np.array(context)
 master=ROOT/'tianyong_festival_hd_20260910/tianyong_city_master_6144.png'
@@ -46,7 +48,7 @@ prompt="""Use case: precise-object-edit / outpainting. Fill only transparent mis
 (D/'prompt.txt').write_text(prompt,encoding='utf-8')
 req={'preparedAtUtc':datetime.now(timezone.utc).isoformat(),'tile':'r07_c11','patch':f'r{r:02d}_c{c:02d}','row':r,'col':c,'tileGlobalOrigin':[40960,24576],'tileLocalCropLTRB':local,'globalCropLTRB':world,'configSnapshot':read(ROOT/'config/image-generation.json'),'payload':{'prompt':prompt,'referenced_image_paths':[str(p) for p in refs],'transparent_background':False},'knownPixels':int((a[:,:,3]==255).sum()),'missingPixels':int((a[:,:,3]==0).sum()),'submittedParameters':{'model':None,'quality':None,'size':None},'actualModel':None,'actualQuality':None}
 write(D/'request.json',req)
-prep={'sources':{'fragment':cp['fragment'],'left':leftref,'belowLeft':belowref},'sourceCheckpoint':ref(D/'local-source-checkpoint-input.json'),'manifestChain':chain,'references':[dict(ref(p),role=role) for p,role in zip(refs,['exact native neighbor context','canonical structure only','approved painting style only'])],'master':ref(master),'guidePixelsAllowedInFinal':False,'nativeScale':1}
+prep={'sources':{'fragment':cp['fragment'],'left':leftref,'belowLeft':belowref},'contextNeighbors':cp.get('contextNeighbors',[]),'sourceCheckpoint':ref(D/'local-source-checkpoint-input.json'),'manifestChain':chain,'references':[dict(ref(p),role=role) for p,role in zip(refs,['exact native neighbor context','canonical structure only','approved painting style only'])],'master':ref(master),'guidePixelsAllowedInFinal':False,'nativeScale':1}
 write(D/'preparation.json',prep)
 for p,sources,op,scale in [(D/'context.png',[cp['fragment'],leftref,belowref],'Exact native neighboring crop composition; no rescale',1),(D/'layout-reference-only.png',[ref(master)],'Resized geometry reference only; excluded from all final pixels',None)]:
  write(str(p)+'.generation.json',{'file':str(p),'sha256':sha(p),'derivedFrom':sources,'operation':op,'nativeScale':scale,'actualModel':None,'actualQuality':None,'newModelCalls':0})

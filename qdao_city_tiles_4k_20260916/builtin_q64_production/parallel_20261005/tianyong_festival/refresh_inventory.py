@@ -14,9 +14,11 @@ for v in cp['candidateSet']:
 rows=[]
 for r in range(1,17):
  for c in range(1,17):
-  tile=f'r{r:02}_c{c:02}';data=items.get(tile);rows.append({'tile':tile,'globalLTRB':[(c-1)*4096,(r-1)*4096,c*4096,r*4096],'status':'complete-native-candidate' if data and data['fullyPainted'] else ('partially-painted' if data else 'unpainted'),'coveredPixels':data['actualCoveredNativePixels'] if data else 0,'source':data})
-full=sum(v['fullyPainted'] for v in items.values());partial=sum(not v['fullyPainted'] for v in items.values())
+  tile=f'r{r:02}_c{c:02}';data=items.get(tile);n=data['actualCoveredNativePixels'] if data else 0;rows.append({'tile':tile,'globalLTRB':[(c-1)*4096,(r-1)*4096,c*4096,r*4096],'status':'complete-native-candidate' if n==4096*4096 else ('partially-painted' if n>0 else 'unpainted'),'coveredPixels':n,'preparedScaffoldOnly':bool(data and n==0),'source':data})
+full=sum(v['fullyPainted'] for v in items.values());partial=sum(0<v['actualCoveredNativePixels']<4096*4096 for v in items.values())
 out={'checkedAtUtc':datetime.now(timezone.utc).isoformat(),'sourceCheckpoint':{'file':str(p),'sha256':h},'cityPixels':[65536,65536],'tilePixels':[4096,4096],'grid':[16,16],'targetTileCount':256,'completeNativeCandidateCount':full,'partialNativeTileCount':partial,'fullyMissingTileCount':256-full-partial,'formalAcceptedCount':0,'wholeCityComplete':False,'clientAccepted':False,'singleCallNative4096Claimed':False,'rows':rows}
+out['zeroPaintedPreparedTileCount']=sum(row['preparedScaffoldOnly'] for row in rows)
+assert sum(row['status']=='unpainted' for row in rows)==out['fullyMissingTileCount']
 assert sha(p)==h
 dest=T/'inventory/current-candidate-inventory.json';dest.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print(json.dumps({'completeNativeCandidateCount':full,'partialNativeTileCount':partial,'fullyMissingTileCount':256-full-partial,'output':str(dest)}))
