@@ -1,0 +1,55 @@
+{
+  "startedAt": "2026-10-08T23:08:56.391961+00:00",
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-04",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
+    }
+  },
+  "prompt": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r11_c13\\night-canopy-focused.prompt.txt",
+  "promptSha256": "695f563b3a610480b94953000364bbacd3ed25b2f479defd3fe6b50e540e8bef",
+  "references": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r11_c13\\references\\canopy-focus-target.png",
+      "sha256": "906dc7e15a95e51e7f6c866459d4230c70f932c576d1032719ea9d6d6842f7b2",
+      "role": "exact focused target with actual native N640 above seam"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r11_c13\\references\\north-context-preview.png",
+      "sha256": "ad91f8dd9fe6918e546b92735fb7b1f1da2d2a1e1c66ac76146f074b9f31ac52",
+      "role": "native N context only"
+    },
+    {
+      "file": "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png",
+      "sha256": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6",
+      "role": "approved style only"
+    }
+  ],
+  "submittedParameters": {
+    "model": null,
+    "quality": null,
+    "prompt": "Use case: structural inpainting. Repair the seam at EXACTLY y320 in Image1. Image1 is the only1254-square edit target and is a focused view of one blue market canopy, timber frame and paving. Its upper320 rows from x58 rightward are actual NORTH-neighbor paint; keep those real contours/stripes in place. Below y320 the planning continuation is wrong by about40 image pixels: the pale fabric stripe jumps sideways and the canopy hem/left edge slightly shifts. Repaint ONLY the continuation below y320 so each real upper stripe edge and blue hem crosses y320 with precisely the same intersection X, width and tangent. The correct upper paint controls the continuation. Move the wrong lower fabric stripe/hem as necessary. Do not keep any horizontal shelf or fabric splice at y320. Do not move the upper native stripes to meet the wrong lower ones. This is one smooth continuous canopy fabric, not stacked roofs or two panels.\nImage2 is the completed north context for understanding only, NOT the target crop. Image3 is approved painting style only. Preserve the exact Image1 camera, field of view, square framing and all existing objects. Keep every post in its existing footprint. Maintain the blue-violet evening, clean amber wood, blue fabric and ivory stripe; no change of lighting, object count or scale. Resolve nearby wood attachments consistently. Preserve the target's lower region from y750 down, including cargo/ground, and keep its open walkway. No blur, extra post, extra strip, new roof, grout branch, lantern, text, UI, border, sky, horizon or moon. The important outcome is exact continuous geometry at y320, not merely painting over the seam with a color gradient. Return a full opaque1254x1254 image at identical crop.",
+    "referenced_image_paths": [
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r11_c13\\references\\canopy-focus-target.png",
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\penglai_mid_autumn\\r11_c13\\references\\north-context-preview.png",
+      "D:\\work\\image\\designs\\gameplay-ui\\04-guild.png"
+    ],
+    "transparent_background": false
+  },
+  "planningFrameGlobalXYWH": [
+    49037,
+    40320,
+    2508,
+    2508
+  ],
+  "productionPixels": false,
+  "nativeDetailCount": 0,
+  "allowedApplication": "Planning only. Select generated lower seam/canopy pixels into existing full structure at exact global coordinates."
+}
