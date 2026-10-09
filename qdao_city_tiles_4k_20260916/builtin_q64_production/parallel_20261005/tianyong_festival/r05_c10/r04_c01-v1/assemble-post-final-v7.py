@@ -1,0 +1,9 @@
+from pathlib import Path
+from PIL import Image
+import numpy as np,json,hashlib
+D=Path(r'D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/tianyong_festival/r05_c10/r04_c01-v1');R=D/'post-surface-repair-v1';F=D/'final-v7';F.mkdir(exist_ok=True);Q=F/'qa';Q.mkdir(exist_ok=True)
+ref=lambda p:{'file':str(p),'sha256':hashlib.sha256(Path(p).read_bytes()).hexdigest()}
+J=np.array(Image.open(D/'final-v5/joined.png').convert('RGB'));N=np.array(Image.open(R/'native.png').convert('RGB'));y,x=np.indices((1254,1254));s=lambda t:np.clip(t,0,1)**2*(3-2*np.clip(t,0,1));W=s((x-995)/20)*(1-s((x-1135)/55))*s((y-90)/45)*(1-s((y-990)/65));J[650:1904]=np.rint(J[650:1904]*(1-W[:,:,None])+N*W[:,:,None]).astype(np.uint8)
+Image.fromarray(J).save(F/'joined.png');Image.fromarray(J[:1254]).save(F/'main1254.png');Image.fromarray(np.rint(W*255).astype(np.uint8)).save(F/'post-repair-ownership.png')
+for name,box in [('main1254',[0,0,1254,1254]),('lower-native',[0,1024,1254,2278]),('middle-overlap',[0,700,1254,1500]),('right-upper',[920,0,1254,1200]),('right-lower',[900,1024,1254,2278]),('left-perimeter',[105,1139,260,2278]),('return-tail',[0,2050,1254,2278]),('post-repair-native',[990,700,1230,1770])]:Image.fromarray(J).crop(box).save(Q/(name+'.png'))
+asm=json.loads((D/'final-v5/assembly.json').read_text(encoding='utf-8'));asm.update({'output':ref(F/'joined.png'),'postRepairSource':ref(R/'native.png'),'postRepairWindowGlobalLTRB':[36749,19991,38003,21245],'postRepairPlacementXY':[0,650],'postRepairWeight':ref(F/'post-repair-ownership.png'),'postRepairReason':'Use the whole continuous native AI left bevel and highlight from top cap to lower cap, avoiding an ownership change in the middle of the railing face. Feather only in broad faces/ground. No registration or scaling.'});(F/'assembly.json').write_text(json.dumps(asm,indent=2),encoding='utf-8');print(json.dumps(ref(F/'joined.png')))

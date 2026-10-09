@@ -1,0 +1,19 @@
+from pathlib import Path
+import json,shutil,hashlib
+from PIL import Image
+D=Path(r"D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/tianyong_festival/r05_c10/r04_c02-v1");R=D/'rejected-composition-v2';R.mkdir(exist_ok=True)
+host=Path(r"C:/Users/luyua/.codex/generated_images/01a11b05-7488-7d11-bfe3-c3b64c8f7651/exec-c2fb3456-5e10-45dd-a0a3-0811c69c29b5.png");shutil.copy2(host,R/'native.png')
+ref=lambda p:{"file":str(p),"sha256":hashlib.sha256(Path(p).read_bytes()).hexdigest()}
+req=json.loads((D/'request.json').read_text(encoding='utf-8'));prep=json.loads((D/'preparation.json').read_text(encoding='utf-8'))
+(R/'request.json').write_text(json.dumps(req,ensure_ascii=False,indent=2),encoding='utf-8')
+(R/'record.json').write_text(json.dumps({"status":"rejected-never-used","reason":"Extra top-right planter transplanted from image2, shifted top/right paving row and faint dangling bottom tile line.","output":ref(R/'native.png'),"hostOutput":ref(host),"actualReturnedModel":None,"actualReturnedQuality":None,"configTarget":req['configSnapshot'],"references":prep['references']},ensure_ascii=False,indent=2),encoding='utf-8')
+sw=D/'nearby-native-paving-style-only.png';src=D.parent/'r04_c04-v1/final-v2/joined.png';Image.open(src).crop((0,160,700,860)).save(sw)
+(sw.with_suffix('.png.generation.json')).write_text(json.dumps({"output":ref(sw),"source":ref(src),"cropLTRB":[0,160,700,860],"operation":"Exact native crop for material/detail reference, not target layout","newModelCalls":0,"nativeScale":1},indent=2),encoding='utf-8')
+req['payload']['referenced_image_paths'][1]=str(sw)
+req['payload']['prompt']="""Use case: precise-object-edit / outpainting.
+Extend LAST IMAGE4 upward and to its left into the transparent missing area. The result must be opaque 1254 by1254, exactly image4's pixel coordinates, scale, camera and composition. Image4 is the sole edit target. Its visible right230 pixels and bottom230 pixels are immutable real map pixels. Preserve these precise existing boundaries, including paving horizontal lines at right y350,620,960 and bottom vertical joint around x900. Keep the lower-left leaves at the bottom. Do not shift those coordinates.
+Image1 is approved overall style. Image2 is ONLY a small cropped paving texture/material swatch, never a layout. Image3 is the authoritative same-world spatial layout for MISSING areas.
+In this crop, leftmost x0..180 has a narrow ivory wall. Around x0..400,y500..1040 is a lush rounded leafy bush; a small tan planter lies beneath it. A lower white wall end starts around y820 and continues straight into the known bottom wall. The rest of the crop is warm clean broad rectangular pale stone paving. Preserve that footprint. Absolutely no planter, pedestal, tree or other structure in the upper-right: image3 has ONLY PAVING there. Only upper-left very edge has a cropped tan garden rock/planter. No new objects anywhere else.
+Draw coherent horizontal staggered stone rows that exactly connect the known RIGHT and BOTTOM joints. Do not add any faint diagonal line, triangular fracture, short dangling grout line, crack, scratch, chipped surface, irregular polygon fragments or noisy texture. Clean broad rounded bevels, bright polished Daoist Q game painting and soft natural plant shade only where dictated by the layout. No readable text, figures, UI, watermark. No geometric warp, rotation, scaling or reframing. Match the existing native detail scale."""
+(D/'request.json').write_text(json.dumps(req,ensure_ascii=False,indent=2),encoding='utf-8');(D/'prompt.txt').write_text(req['payload']['prompt'],encoding='utf-8');prep['references']=[ref(p) for p in req['payload']['referenced_image_paths']];(D/'preparation.json').write_text(json.dumps(prep,ensure_ascii=False,indent=2),encoding='utf-8');print(json.dumps(req['payload']))
+
