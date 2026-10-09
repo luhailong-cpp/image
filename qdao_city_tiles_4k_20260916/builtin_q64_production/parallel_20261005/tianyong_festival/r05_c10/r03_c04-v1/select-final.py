@@ -1,3 +1,0 @@
-from pathlib import Path
-import json
-D=Path(__file__).parent;p=D/'request.json';r=json.loads(p.read_text());r['selectedFinalDirectory']='final-v2';p.write_text(json.dumps(r,indent=2));(D/'qa-accepted.txt').write_text('Whole native flag/pole/stone planter/rail reviewed. Initial new render omitted accepted lower canopy and was not used alone. Actual second native AI pass extended the real bottom tree crown into the missing lower-right region. Native canopy closeup, full left flag border/planter return and full bottom inspected. Whole lower leaf tips remain exact source beyond mainY1100; no ghost leaf fringe. Base and paving single contours. No unresolved local finding. FormalAccepted=false.')

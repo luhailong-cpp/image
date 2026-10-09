@@ -1,5 +1,0 @@
-from pathlib import Path
-from PIL import Image
-import numpy as np,json,hashlib
-D=Path(__file__).parent;F=D/'final-v8';P=json.loads((D/'preparation.json').read_text());I=Image.open(F/'joined.png').convert('RGB');S5=Image.open(P['sourceTile']['file']).convert('RGBA');S6=Image.open(P['coupledBottom']['file']).convert('RGBA');K=Image.new('RGBA',(1600,2278));K.paste(S5.crop((0,2957,1485,4096)),(115,0));K.paste(S6.crop((0,0,1485,1139)),(115,1139));K.paste(I,(0,0));K.crop((1120,0,1490,1400)).save(F/'qa/right-return-outer-upper.png');K.crop((1120,1100,1490,2278)).save(F/'qa/right-return-outer-lower.png')
-A=np.array(I);B=np.array(S6.convert('RGB'));assert np.array_equal(A[2184:,115:1254],B[1045:1139,:1139]);report={'rightReturnMainXEnd':1254,'bottomReturnMainYEnd':2184,'bottomRequiredPriorSource':P['coupledBottom'],'return06TileROI':[0,0,1139,1045],'tailBeyondROIExactToPrior':True,'reason':'Entire coupled red plaque, gold beads, tassel and continuous ivory railing. No cut through object; lower return ends on unchanged paved ground.'};(F/'expanded-return-proof.json').write_text(json.dumps(report,indent=2));print(report)
