@@ -1,6 +1,8 @@
-> **当前入口（2026-10-08范围变更）：仅保留原编号01/04/05/06/07五套，39/1280完整4K候选，尚缺1241，正式0、整套0/5。02小镇日景与03小镇春节已按用户要求取消，已有素材保留。** [当前汇总](builtin_q64_production/parallel_20261005/parent_audit_20261008/README.md) · [权威范围](builtin_q64_production/parallel_20261005/production-scope.json) · [五处父修补](builtin_q64_production/parallel_20261005/parent_audit_20261008/parent-repair-current-overlay-v3.json)
+> **当前入口（2026-10-09 最新覆盖）：只做主城、渔村、仙岛三张日景。春节、元宵、中秋元素自然混合穿插，不按节日分区，不再制作独立夜景或节庆套图。保留新画法与核心地标，向外扩建可走广场和道路；同图5000人分散活动仍是待验证目标。最终网格与总块数待定，正式单块仍4096×4096。** [当前制作](builtin_q64_production/parallel_20261005/README.md) · [权威范围](builtin_q64_production/parallel_20261005/production-scope.json)
 
-> 以下旧正文和七套计数仅为历史资料；与当前权威范围冲突时，以最新范围为准，不再制作或交付02/03。
+> 其他13个地图制作线程已由root停止并归档，逐个只读核查均为inactive/notLoaded、最新回合interrupted，见[停止回执](builtin_q64_production/parallel_20261005/daylight-only-20261009/stopped-threads.json)。由当前root先做一张渔村日景扩建预览。02/03小镇继续取消。
+
+> 下文及旧索引中的208／1280／1792、39／70等只作历史范围或来源统计，不是当前三图方案的进度、容量验收或客户端接入状态。
 
 > **2026-10-05 历史并行开工快照：** 用户已确认[七套主城各一个独立任务并行制作](builtin_q64_production/parallel_20261005/README.md)，全部任务已实际创建，来源交接已就绪。[当前父任务源集](builtin_q64_production/resume_single_city_20260921/completion_20261004/current-work.json)为29个4K在制坐标，正式验收0、完整城市0；新产出以各任务记录为准。继续内置生图和GPT Image 2.5目标配置，不使用付费API。下文旧批次数量与旧单城优先安排均为历史快照。
 
