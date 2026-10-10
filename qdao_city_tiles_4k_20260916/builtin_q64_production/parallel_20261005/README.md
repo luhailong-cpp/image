@@ -1,19 +1,13 @@
-# 五套主城制作
+# 三张日景地图制作
 
-用户于2026-10-08明确取消02小镇日景、03小镇春节。后续只制作与交付原编号01/04/05/06/07；[production-scope.json](production-scope.json)是当前权威范围，覆盖旧七套要求。每套256张4096×4096，整图65536×65536，继续内置生图、GPT Image2.5目标配置，不使用付费API。
+**2026-10-09最新范围：只做主城、渔村、仙岛三张日景。春节、元宵、中秋元素在同一场景中自然混合穿插，不按节日划分区域，不再制作独立夜景或节庆套图。** 02、03两套小镇继续取消。
 
-| 任务 | 内部资产ID | 交接 | 当前任务进度 |
-|---|---|---|---|
-| 01 主城节庆地图 | `tianyong_festival` | [来源](tianyong_festival/handoff.json) | [进度](tianyong_festival/progress.json) |
-| 04 渔村日景地图 | `donghai_day` | [来源](donghai_day/handoff.json) | [进度](donghai_day/progress.json) |
-| 05 渔村元宵地图 | `donghai_lantern` | [来源](donghai_lantern/handoff.json) | [进度](donghai_lantern/progress.json) |
-| 06 仙岛日景地图 | `penglai_day` | [来源](penglai_day/handoff.json) | [进度](penglai_day/progress.json) |
-| 07 仙岛中秋地图 | `penglai_mid_autumn` | [来源](penglai_mid_autumn/handoff.json) | [进度](penglai_mid_autumn/progress.json) |
+保留用户喜欢的新画法和核心地标，向外扩建多个活动广场、宽路与回环通路。目标为每张地图容纳5000人分散活动；角色实际尺度、可走面积和动线尚未完成验收。**最终网格、世界范围和总块数待定**；旧8×8／6×6共208块及更早16×16方案均不再绑定当前范围。正式单块仍4096×4096，近看物体尺度与像素密度保持。
 
-[当前39块候选汇总与预览](parent_audit_20261008/README.md) · [统一索引](parent_audit_20261008/verified-current-index.json) · [五处同坐标父修补](parent_audit_20261008/parent-repair-current-overlay-v3.json)
+[权威范围](production-scope.json) · [当前控制](daylight-only-20261009/control.json) · [停止回执](daylight-only-20261009/stopped-threads.json)
 
-**39/1280个完整4K候选，尚缺1241；正式验收0、完整城市0/5。** 本次仅按取消要求从已核验53块快照排除两套各7块，不加入未审计新图；父修补不增加坐标。
+其他13个制作线程已由root停止并归档；逐个只读核查均为inactive/notLoaded，最新回合interrupted。由当前root先制作一张节庆元素混合的渔村日景扩建预览，再进行尺度和可走空间核验。预览不计为原生4K成品，也不证明5000人容量已通过。
 
-两套取消图的全部已有图片、来源与检查记录保留，未删除素材。[历史53块索引](parent_audit_20261008/historical-seven-appearances-53-before-cancellation.json)及[旧七任务创建记录](dispatch-index.json)仅供追溯，不能恢复已取消的制作范围。[线程状态回执](town-cancellation-thread-receipt-20261008.json)由父任务记录。
+旧[39块父索引](parent_audit_20261008/verified-current-index.json)和后续70块实时快照仅为旧布局来源，不能自动算作新范围完成。旧208／1280／1792等属于历史范围。现有素材暂不删除；后续复用须核对来源、坐标和接缝，保留逐图模型与质量证据。
 
-每张新图继续记录目标配置、真实提交参数、实际披露值与来源；内置未披露的实际型号/质量保持未确认。
+客户端世界范围、网格和导航尚未迁移到当前方案。本次仅同步美术范围与停止回执，未改客户端。继续内置生图，不使用付费API；工具未披露的实际模型和质量保持未确认。
