@@ -24,3 +24,6 @@
 先解决中央四片木构的中心与四周共同连续性，再修正小鱼摊占地和石板材质，同时复核 p23/p24 插入边。新方案必须检查完整原生外接边，不能只检查修好的中央区域。新候选需要更新明确 selection、来源链和受影响 QA，通过后再按 [49 块计划](records/zone-tile-plan.json) 扩展。
 
 本批次没有可用于游戏的正式成品。当前文件保留为未完成在制与接续证据；成品通过且当前引用完整后，再按项目规则删除拒稿、原图和加工中间图，保留逐图文字记录。不得将当前候选接入正式资源索引。
+
+
+2026-10-10 resumed production update: versioned candidate r06_c12.candidate-v2.png integrates new native beam, stall and quay repairs. Root inspected all 24 seams, 9 junctions and 16 complete cores. Previous beam and stall footprint blockers are locally resolved; p43/p44 wood-versus-yellow-stone mismatch now requires northrepair44, in progress. East/south/SE native extension continues. Historical failures above describe prior candidates; none establishes current formal acceptance. Runtime/client/capacity work is outside the current request. Four tiles r03_c10,c11 and r04_c10,c11 are exclusively handed off to accelerated-jewelry-approach; owned target is45.
