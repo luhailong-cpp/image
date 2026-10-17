@@ -20,5 +20,5 @@ $filters=@(
  'MmorpgClient.Tests.EditMode.Tianyong.GuildClientTests',
  'MmorpgClient.Tests.EditMode.Tianyong.JubaozhaiModelTests'
 )
-$testFilter=if($Platform -eq 'PlayMode'){'SocialInputBlockerPlayModeTests'}else{$filters -join ';'}
+$testFilter=if($Platform -eq 'PlayMode'){'SocialInputBlockerPlayModeTests;MailInputBlockerPlayModeTests'}else{$filters -join ';'}
 & $unityPath -batchmode -projectPath 'E:\work\mmorpg-client' -runTests -testPlatform $Platform -testFilter $testFilter -testResults (Join-Path $outputRoot ($Platform.ToLowerInvariant()+'-results.xml')) -logFile (Join-Path $outputRoot ($Platform.ToLowerInvariant()+'-tests.log'))

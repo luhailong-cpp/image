@@ -12,7 +12,12 @@ function Under([string]$base,[string]$relative){
 $guards=@{}
 foreach($guard in @($manifest.guards)){
     if($null -eq $guard){continue}
-    $guards[(Under $clientRoot $guard.target)]=$guard.sha256Before
+    if($guard.target){$guards[(Under $clientRoot $guard.target)]=$guard.sha256Before}
+    elseif($guard.source){
+        $absolute=[IO.Path]::GetFullPath($guard.source)
+        if(-not $absolute.StartsWith($clientRoot+'\Assets\',[StringComparison]::OrdinalIgnoreCase)){throw 'Unexpected source guard root'}
+        $guards[$absolute]=$guard.sha256
+    }else{throw 'Source guard has no target or source'}
 }
 foreach($guard in (@($manifest.sourceChecks)+@($manifest.sources))){
     if($null -eq $guard){continue}
