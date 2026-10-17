@@ -1,4 +1,4 @@
-# 背包、任务、活动原稿还原暂存包
+# 背包、任务、活动原稿还原暂存包\n\n2026-10-17 装备验收适配已补齐，使用 [装备最小补丁](EQUIPMENT_COMPAT.md) 和 equipment-compat-install-manifest.json；该记录覆盖下文初次暂存时的装备测试待适配说明。
 
 只在本目录暂存，尚未写入客户端、启动 Unity 或运行 Unity 测试。原稿为 `../01-quests.png`、`../02-inventory.png`、`../03-activities.png`，1931×814；重启前每张一次内置清理所得唯一在制皮肤为 `assets/*-clean-skin.png`，实际返回 1932×814。逐图记录明确区分当前配置目标、未知提交/返回型号与质量、文件时间证据，未再次生图。
 

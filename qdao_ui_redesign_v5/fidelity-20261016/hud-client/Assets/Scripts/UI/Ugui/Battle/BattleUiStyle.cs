@@ -1,0 +1,155 @@
+using UnityEngine;
+
+namespace MmorpgClient.UI.Ugui.Battle
+{
+    /// <summary>
+    /// 回合战斗 UI 的视觉与节奏常量。
+    /// 色彩基调沿用 <see cref="QdaoUguiTheme"/>(棕色系 + 米黄文字),
+    /// 战斗语义色(伤害红/治疗绿等)在此集中定义,方便后续接美术时统一替换。
+    /// </summary>
+    public static class BattleUiStyle
+    {
+        private const string ArenaBackgroundResourcePath =
+            "UI/Ugui/Battle/Backgrounds/qdao_battle_arena_cloud_terrace_2560x1080_v1";
+        private static Sprite _arenaBackground;
+
+        // ── 可配的战斗配置常量(表数据接入前先用常量,见任务 open_issues) ──
+
+        /// <summary>PVE 单人匹配的 battle_config_id(对应 DungeonTable id)。</summary>
+        public const uint PveSoloBattleConfigId = 1;
+
+        /// <summary>
+        /// PVP 1v1 匹配的 battle_config_id。取 1(DungeonTable 首行),与服务端
+        /// robot 跨区冒烟 battle_smoke_cross_zone_scenario.go 的 crossZoneBattleConfigId=1
+        /// 对齐:match 队列按 (mode, battle_config_id) 分 key,客户端填 0 而 robot
+        /// 填 1 时两边永远凑不到一起。PVP 下该值不影响 CreateBattle 成败
+        /// (turn_battle_engine 查不到只回落缺省回合数),DevAutoPilot 可用 -battleConfig 覆盖。
+        /// </summary>
+        public const uint Pvp1V1BattleConfigId = 1;
+
+        /// <summary>PVE 组队匹配的 battle_config_id(对应 DungeonTable id;排几人档见 <see cref="PveTeamMaxSize"/>)。</summary>
+        public const uint PveTeamBattleConfigId = 1;
+
+        /// <summary>
+        /// PVE 人数档上限:排队面板提供 1..N 人档(1 人即时开战,其余凑满即开;每人对应一整组怪)。
+        /// 必须与服务端 match 配置 PveTeamSizeByConfigId[PveTeamBattleConfigId] 一致(本地为 5):
+        /// 选了服务端没开放的人数会被拒(kMatchModeNotOpen)。
+        /// </summary>
+        public const uint PveTeamMaxSize = 5;
+
+        /// <summary>PVP 5v5 匹配的 battle_config_id(0 = 服务器默认规则)。</summary>
+        public const uint Pvp5V5BattleConfigId = 0;
+
+        // ── 回合播放节奏 ──
+
+        /// <summary>事件流逐条播放的间隔秒数。</summary>
+        public const float EventStepSeconds = 0.55f;
+
+        /// <summary>普通飘字存活时长(秒)。</summary>
+        public const float FloatTextSeconds = 0.9f;
+
+        /// <summary>暴击飘字存活时长(秒,更大更久)。</summary>
+        public const float CritFloatTextSeconds = 1.25f;
+
+        // ── 面板底色 ──
+
+        public static readonly Color PanelBg      = WithAlpha(QdaoUguiTheme.Html("#163E34"), 0.94f);
+        public static readonly Color PanelBgLight = WithAlpha(QdaoUguiTheme.Html("#225044"), 0.96f);
+        public static readonly Color BattleBg     = WithAlpha(QdaoUguiTheme.Html("#17100A"), 0.97f);
+        public static readonly Color BattleBackdropShade = new Color(0.02f, 0.015f, 0.01f, 0.12f);
+        public static readonly Color ModalDim     = new Color(0f, 0f, 0f, 0.6f);
+
+        // ── 控件颜色 ──
+
+        public static readonly Color ButtonPlate       = QdaoRefreshArt.Jade;
+        public static readonly Color ButtonPlateAccent = QdaoUguiTheme.Html("#246E59");
+        /// <summary>
+        /// PVE 人数档的选中态底色。ButtonPlateAccent 与 ButtonPlate 都是深绿,乘上按钮贴图后几乎分不出来,
+        /// 选中态单独用偏橙的古铜色,并在文案前加「√」双重提示。
+        /// 着色是与薄荷绿按钮贴图相乘的:更亮的金色(如 #C9A15E)乘完偏黄绿,米色字压在上面对比度只有约 3.5:1;
+        /// 这个色值按贴图像素估算,米色字对比度约 4.2~7.6:1。**没有人目视确认过**,观感不对就只改这一个常量。
+        /// </summary>
+        public static readonly Color PveSizeSelectedPlate = QdaoUguiTheme.Html("#B8742E");
+        public static readonly Color ButtonText        = QdaoUguiTheme.Cream;
+
+        // ── 右侧 HUD 入口按钮(战斗 / 观战 / 角色,自上而下) ──
+        // 2560x1080 design pixels, top-left origin. All three city entries
+        // share authored jade-and-gold art, readable labels and the same spacing.
+
+        public const float HudEntryWidth  = 336f;
+        public const float HudEntryHeight = 81.6f;
+        /// <summary>右缘留 64px。</summary>
+        public const float HudEntryX      = QdaoUguiTheme.DesignWidth - HudEntryWidth - 64f; // reference HUD column
+        public const float HudEntryFirstY = 176f;
+        public const float HudEntryGap    = 22.4f;
+        public const float HudEntryFrame  = 2f;
+        public const float HudEntryFontSize = 36f;
+
+        /// <summary>Shared right-side city entry column.</summary>
+        public static float HudEntryY(int index)
+            => HudEntryFirstY + index * (HudEntryHeight + HudEntryGap);
+
+        public static readonly Color HudEntryPlate       = WithAlpha(QdaoRefreshArt.Jade, 0.95f);
+        public static readonly Color HudEntryFrameColor  = QdaoUguiTheme.Html("#C9A15E");
+        public static readonly Color HudEntryText        = QdaoUguiTheme.Cream;
+        /// <summary>"战斗"入口:SelectedRed 底板 + 同色偏亮描边。</summary>
+        public static readonly Color HudEntryAccentPlate = WithAlpha(QdaoRefreshArt.Jade, 0.98f);
+        public static readonly Color HudEntryAccentFrame = QdaoUguiTheme.Html("#E2C77B");
+
+        // ── 单位槽状态色 ──
+
+        public static readonly Color SlotIdle       = WithAlpha(QdaoUguiTheme.Html("#33261A"), 0.92f);
+        public static readonly Color SlotTargetable = WithAlpha(QdaoUguiTheme.MutedBrown, 0.95f);
+        public static readonly Color SlotSelected   = WithAlpha(QdaoUguiTheme.SelectedRed, 0.95f);
+
+        public static readonly Color HpFill = QdaoUguiTheme.Html("#3F9B4E");
+        public static readonly Color MpFill = QdaoUguiTheme.Html("#3B6FA8");
+        public static readonly Color BarBg  = new Color(0f, 0f, 0f, 0.55f);
+
+        // ── 战斗语义色(飘字/闪光) ──
+
+        public static readonly Color DamageText  = QdaoUguiTheme.Html("#FF5540"); // 伤害红
+        public static readonly Color HealText    = QdaoUguiTheme.Html("#52D96A"); // 治疗绿
+        public static readonly Color BuffAddText = QdaoUguiTheme.Html("#7FB2FF");
+        public static readonly Color BuffCutText = QdaoUguiTheme.Html("#BFBFBF");
+        public static readonly Color SkillText   = QdaoUguiTheme.Html("#E8D06B");
+        public static readonly Color WarnText    = QdaoUguiTheme.Html("#E5C557");
+        public static readonly Color SysText     = QdaoUguiTheme.Cream;
+
+        public static readonly Color DamageFlash = WithAlpha(QdaoUguiTheme.Html("#FF3B28"), 0.9f);
+        public static readonly Color HealFlash   = WithAlpha(QdaoUguiTheme.Html("#3F9B4E"), 0.9f);
+        public static readonly Color SkillFlash  = WithAlpha(QdaoUguiTheme.Html("#E5C557"), 0.9f);
+        public static readonly Color DeathFlash  = new Color(0.05f, 0.02f, 0.02f, 0.95f);
+
+        /// <summary>
+        /// The battle art is imported as a full-resolution Texture2D rather
+        /// than packed into an atlas. Create and cache one runtime Sprite so
+        /// uGUI can display every source pixel without a second asset copy.
+        /// </summary>
+        public static Sprite ResolveArenaBackground()
+        {
+            if (_arenaBackground != null) return _arenaBackground;
+
+            var texture = Resources.Load<Texture2D>(ArenaBackgroundResourcePath);
+            if (texture == null)
+            {
+                Debug.LogWarning(
+                    $"[BattleUi] Missing arena background: Resources/{ArenaBackgroundResourcePath}.png");
+                return null;
+            }
+
+            _arenaBackground = Sprite.Create(
+                texture,
+                new Rect(0f, 0f, texture.width, texture.height),
+                new Vector2(0.5f, 0.5f),
+                100f,
+                0u,
+                SpriteMeshType.FullRect);
+            _arenaBackground.name = "QdaoBattleArenaBackground";
+            return _arenaBackground;
+        }
+
+        private static Color WithAlpha(Color color, float alpha)
+            => new Color(color.r, color.g, color.b, alpha);
+    }
+}

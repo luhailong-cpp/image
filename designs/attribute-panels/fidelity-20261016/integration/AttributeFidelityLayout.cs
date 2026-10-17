@@ -38,9 +38,9 @@ namespace MmorpgClient.UI.Ugui.Attribute
             var track=row.Slider.transform.GetChild(0) as RectTransform;
             if(track!=null)Place(track,0,24,sw,20.8f);
             Place((RectTransform)row.Slider.fillRect.parent,0,24,sw,20.8f);
-            Place((RectTransform)row.Slider.handleRect.parent,26.4f,0,sw-52.8f,step);
-            row.Slider.handleRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,52.8f);
-            row.Slider.handleRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,52.8f);
+            Place((RectTransform)row.Slider.handleRect.parent,30f,0,sw-60f,step);
+            row.Slider.handleRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,60f);
+            row.Slider.handleRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,60f);
         }
         internal static void Header(RectTransform root,string title)
         {
@@ -53,5 +53,6 @@ namespace MmorpgClient.UI.Ugui.Attribute
         }
     }
 }
+
 
 
