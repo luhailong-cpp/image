@@ -39,11 +39,11 @@
   "FirstBatchHead": "a0108e328631477df3caeb0b9fb80ecad7a82799",
   "FirstBatchFileCount": 764,
   "CurrentCommitRecordedSeparately": true,
-  "LatestUploadedHead": "b1d7626a2519b025af6089cf4ed17d26c4a82e5a",
-  "LatestUploadedFileCount": 1956,
-  "LatestUploadedLogicalBytes": 444025778.0,
-  "LatestUploadedSubsetVerifiedUtc": "2026-10-17T07:13:42.9071518Z",
-  "LatestVerificationReport": "verification-batch-20261017T065945.json",
+  "LatestUploadedHead": "fbf95a6a26702274d556736d048cf9d7e5e19186",
+  "LatestUploadedFileCount": 1988,
+  "LatestUploadedLogicalBytes": 446500558.0,
+  "LatestUploadedSubsetVerifiedUtc": "2026-10-17T08:13:47.7120555Z",
+  "LatestVerificationReport": "verification-batch-20261017T080311.json",
   "LatestDelta": {
     "Path": "support/azure-repos/current-file-delta-20261017.json",
     "CopiedFiles": 68,
@@ -56,29 +56,31 @@
     "Note": "Separate delta over older incomplete Plan. Uploaded HEAD and independent download proof are recorded separately after push."
   },
   "LatestBatch": {
-    "Path": "support/azure-repos/current-batch-20261017T065945.json",
-    "PreviousBatch": "support/azure-repos/current-batch-20261017T060107.json",
-    "CopiedFiles": 63,
-    "CopiedBytes": 389855.0,
+    "Path": "support/azure-repos/current-batch-20261017T080311.json",
+    "PreviousBatch": "support/azure-repos/current-batch-20261017T065945.json",
+    "CopiedFiles": 32,
+    "CopiedBytes": 2416404.0,
     "ReviewedReports": [
-      "azure-core-review-20261017T065945.json",
-      "azure-gameplay-review-20261017T065945.json",
-      "azure-root-review-20261017T065945.json",
-      "parent-overrides-20261017T065945.json"
+      "azure-core-review-20261017T080311.json",
+      "azure-gameplay-review-20261017T080311.json",
+      "azure-input-check-20261017T080311.json",
+      "azure-root-review-20261017T080311.json"
     ],
     "HeldPaths": [
       {
         "Path": "config/ui-fidelity-progress.json",
-        "Reason": "Cross-package work remains in progress and its six-test summary predates later failing XML; retain source until coherent update"
+        "Reason": "Still explicitly lists expanded regression and several capture/visual follow-ups as running or pending. allUiComplete=false, liveServerVerified=false; six-test PlayMode summary is not a coherent update over later completed sixteen-test result. Keep Hold."
+      },
+      {
+        "Path": "tools/ui-fidelity/snapshot-installed.cjs",
+        "Reason": "New shared snapshot helper created during ongoing cross-package captures. Retain at source and defer until current output/completion and dependency scope are settled; do not execute it or chase concurrent work."
       },
       {
         "Path": "tools/ui-fidelity/UiFidelitySweep.cs",
-        "Reason": "Changed after the frozen gameplay review and before any copy. Do not chase concurrent work. Retain the previously verified Azure version; no sweep or installer is run by this migration. Dated evidence does not imply the old tool can recreate the new captures."
+        "Reason": "Shared capture helper changed shortly before this heartbeat and now contains CaptureRemaining for gameplay-final, team-invitations, and city-hud. Its exact remaining-capture.json output is absent; final-subset-captured.txt is from 07:14:08Z, before this edit, and cannot prove this latest wrapper finished. Two reads are stable but bounded evidence does not establish that concurrent production has finished; retain Hold without chasing or running the tool."
       }
     ],
-    "ResolvedPreviousHoldPaths": [
-      "docs/ui-fidelity-20261016/playmode-results.xml"
-    ],
+    "ResolvedPreviousHoldPaths": [],
     "OriginalDeferredFiles": 62,
     "SourceComplete": false,
     "FullProjectAvailable": false,

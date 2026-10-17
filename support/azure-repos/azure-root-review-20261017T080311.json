@@ -1,0 +1,59 @@
+{
+  "LatestDestinationPayload": [],
+  "OtherPcEvidenceReceived": false,
+  "FullProjectAvailable": false,
+  "SourceComplete": false,
+  "Scope": "Preserve latest completed subset evidence without promoting it to whole-project, whole-UI or live-server acceptance. Social checks cover source identity, geometry, ornament pixels and native control presence. Mail and subset capture records use offline fixtures. QA screenshots remain excluded; no source or Git writes.",
+  "Batch": "20261017T080311",
+  "Schema": "azure-bounded-root-review-v1",
+  "BaselineAzureHead": "b1d7626a2519b025af6089cf4ed17d26c4a82e5a",
+  "Validation": {
+    "PlayModeStartUtc": "2026-10-17 07:38:04Z",
+    "PlayModeFailed": "0",
+    "MigrationInstalledClient": false,
+    "PlayModeTotal": "16",
+    "PlayModeEndUtc": "2026-10-17 07:38:14Z",
+    "MigrationRanTests": false,
+    "PlayModeResult": "Passed",
+    "PreservedWarnings": "XML includes duplicate EventSystem warnings; no warning-free claim"
+  },
+  "SourceHead": "4dd7c84a6ef3b0865a69816655a608dca17a52f1",
+  "CapturedUtc": "2026-10-17T08:06:28.4264826Z",
+  "Files": [
+    {
+      "SHA256": "cb08af9fc05e7ac0b6b458dfb0829ff5e28255ac8f778476151ffe3659815435",
+      "Reason": "Dated offline capture or scoped structural evidence; no full visual, functional or live-server acceptance inferred",
+      "Decision": "Keep",
+      "Bytes": 288,
+      "Path": "designs/mail-ui-v1/fidelity-20261016/qa/native/capture.json"
+    },
+    {
+      "SHA256": "dab308ab48e88381cc716159d47049d75a3e98010c4c015f1cdf61a412830a13",
+      "Reason": "Dated offline capture or scoped structural evidence; no full visual, functional or live-server acceptance inferred",
+      "Decision": "Keep",
+      "Bytes": 9529,
+      "Path": "designs/social-ui-v1/fidelity-20261016/qa/final/fidelity-checks.json"
+    },
+    {
+      "SHA256": "5568b291a6aa1df198626afa9364677b711bbe8896d083cc880f332a66c5d413",
+      "Reason": "Dated offline capture or scoped structural evidence; no full visual, functional or live-server acceptance inferred",
+      "Decision": "Keep",
+      "Bytes": 118,
+      "Path": "docs/ui-fidelity-20261016/native/final-subset-captured.txt"
+    },
+    {
+      "SHA256": "69283cae991e169e38dbb11a57bbb096b4fd1f4ac0d0b1d5b50d589c85eabe69",
+      "Reason": "Completed 07:38 run: selected 16 PlayMode tests passed. This is dated subset evidence, not a claim of all UI/live-server acceptance or testing of later source edits. Earlier failed run remains preserved in previous migration commit/review.",
+      "Decision": "Keep",
+      "Bytes": 24130,
+      "Path": "docs/ui-fidelity-20261016/playmode-results.xml"
+    },
+    {
+      "SHA256": "11f347653cadc70238d1c31a46996b3fb3781709c466ceec33ccbd7dba48d48d",
+      "Reason": "New shared snapshot helper created during ongoing cross-package captures. Retain at source and defer until current output/completion and dependency scope are settled; do not execute it or chase concurrent work.",
+      "Decision": "Hold",
+      "Bytes": 3083,
+      "Path": "tools/ui-fidelity/snapshot-installed.cjs"
+    }
+  ]
+}

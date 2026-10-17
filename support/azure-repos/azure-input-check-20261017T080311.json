@@ -1,0 +1,77 @@
+{
+  "Schema": "azure-new-input-check-v1",
+  "Files": [
+    {
+      "TwoReadHashStable": true,
+      "Bytes": 1946,
+      "Decision": "Hold",
+      "Reason": "Still explicitly lists expanded regression and several capture/visual follow-ups as running or pending. allUiComplete=false, liveServerVerified=false; six-test PlayMode summary is not a coherent update over later completed sixteen-test result. Keep Hold.",
+      "LastWriteTimeUtc": "2026-10-17T06:01:14.2394113Z",
+      "SHA256": "dba3b8be880c43f2238ba8545eb183cc31a5605cc92a466d0307dff35ee26bc7",
+      "NewContentSincePreviousCheck": false,
+      "Path": "config/ui-fidelity-progress.json"
+    },
+    {
+      "RetainedAzureSHA256": "97fc4b42ef09ce0f5ce9ea84f220d34939fb8690ca50dd94c8e849dfc64d2727",
+      "SHA256": "8ec6f77dd7ae89fd539e40dd0136cec715ca33b4b7516942b85ab6bd2c0a8a01",
+      "NewContentSincePreviousCheck": true,
+      "Reason": "Shared capture helper changed shortly before this heartbeat and now contains CaptureRemaining for gameplay-final, team-invitations, and city-hud. Its exact remaining-capture.json output is absent; final-subset-captured.txt is from 07:14:08Z, before this edit, and cannot prove this latest wrapper finished. Two reads are stable but bounded evidence does not establish that concurrent production has finished; retain Hold without chasing or running the tool.",
+      "PreviousObservedSHA256": "4fa79ed227e1ea343fe9135efb6663933857057bd487a7befeca01690b02a96e",
+      "Path": "tools/ui-fidelity/UiFidelitySweep.cs",
+      "Bytes": 15533,
+      "TwoReadHashStable": true,
+      "Decision": "Hold",
+      "LastWriteTimeUtc": "2026-10-17T07:59:18.6790442Z"
+    }
+  ],
+  "Limitations": [
+    "Bounded location check cannot establish what exists elsewhere or on another PC.",
+    "No source files, client files, shared Git metadata, network, credentials, installers, or tests were changed or executed.",
+    "No stability claim beyond the two reads and explicitly dated evidence.",
+    "No full project or other-PC completeness is inferred."
+  ],
+  "CheckedLocal": "2026-10-17T04:04:57.7521399-04:00",
+  "OtherPc": {
+    "LocalHandoffZip": {
+      "Bytes": 1752089,
+      "Path": "E:/work/image/support/azure-migration-windows.zip",
+      "LastWriteTimeUtc": "2026-10-17T07:13:52.9827453Z"
+    },
+    "ReceivedOtherPcMaterials": false,
+    "NewDeliveryFound": false,
+    "NewCurrentPlanFound": false,
+    "Evidence": "The bounded support inventory has local migration reports and handoff ZIPs, prior GitHub support artifacts, and local NPC verification artifacts. No newly provided other-PC Plan/manifest/delivery/receipt was identified. OTHER-PC-HANDOFF.txt and azure-migration-windows.zip are locally prepared handoff artifacts. E:/work top level still contains only the previously supplied support-reply-with-full-output.txt among files.",
+    "TopLevelFile": {
+      "Bytes": 4624,
+      "Path": "E:/work/support-reply-with-full-output.txt",
+      "LastWriteTimeUtc": "2026-10-16T04:05:52.077026Z"
+    }
+  },
+  "Scope": [
+    "E:/work/image/AGENTS.md",
+    "E:/work/image/support/azure-repos/migration-status.json",
+    "E:/work top-level files",
+    "E:/work/image/support filename/size/mtime metadata",
+    "config/ui-fidelity-progress.json",
+    "tools/ui-fidelity/UiFidelitySweep.cs",
+    "Known UI fidelity text evidence and exact output paths referenced by the held sweep"
+  ],
+  "SourceGitTouched": false,
+  "RelatedEvidence": [
+    {
+      "Exists": false,
+      "Path": "docs/ui-fidelity-20261016/native/remaining-capture.json"
+    },
+    {
+      "Bytes": 118,
+      "Exists": true,
+      "Path": "docs/ui-fidelity-20261016/native/final-subset-captured.txt",
+      "LastWriteTimeUtc": "2026-10-17T07:14:08.1666467Z",
+      "Scope": "Core16, skills30, mail16, guild26; production native controls with offline fixture data."
+    }
+  ],
+  "Batch": "20261017T080311",
+  "LatestRecordedAzureHead": "b1d7626a2519b025af6089cf4ed17d26c4a82e5a",
+  "ReadOnlySourceInspection": true,
+  "NetworkUsed": false
+}

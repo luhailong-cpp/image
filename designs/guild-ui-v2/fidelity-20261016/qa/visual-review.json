@@ -1,6 +1,6 @@
 {
   "reviewedAtUtc": "2026-10-17T05:50:32.281Z",
-  "status": "reviewed-with-two-presentation-findings",
+  "status": "reviewed-findings-remediated-and-native-recaptured",
   "clientModified": false,
   "unityLaunched": false,
   "liveServerVerified": false,
@@ -218,7 +218,12 @@
         "E:/work/image/docs/ui-fidelity-20261016/native/guild/04-donate_1920x1080.png"
       ],
       "observation": "The baseline appears at the lower frame edge: approximately y1030 at2560, y910 at1920. The reconnect instruction and donation settling status are hard to read because the label crosses the gilded outline instead of an ivory text surface. This is production _status populated from client.Status, not the QA banner.",
-      "suggestedCorrection": "Reserve a visible ivory status row inside the frame; keep the full status text and existing authoritative disabled actions. Verify it does not cover content cards or footer buttons at both resolutions."
+      "suggestedCorrection": "Reserve a visible ivory status row inside the frame; keep the full status text and existing authoritative disabled actions. Verify it does not cover content cards or footer buttons at both resolutions.",
+      "resolution": {
+        "status": "visually-confirmed-resolved",
+        "report": "E:/work/image/qdao_ui_redesign_v5/fidelity-battle-20261016/qa/final-visual-review.json",
+        "finalSourceSha256": "17e6b14dd004a0d319551fe39d63233f0fc3e849c6b3c280b3ce12190c6a522b"
+      }
     },
     {
       "id": "GUILD-VIS-02",
@@ -233,7 +238,12 @@
         "E:/work/image/docs/ui-fidelity-20261016/native/guild/06-shop_1920x1080.png"
       ],
       "observation": "186,000 /460,000 uses Ink because ratio=.404<.55. The first digits sit over the deep jade progress fill and are visibly less legible than the rest. The accepted04-guild.png uses ivory text across its jade progress bar. A single ratio-based color switch cannot guarantee contrast when the text spans both fill and empty track.",
-      "suggestedCorrection": "Use a local progress-label treatment that remains readable on both regions, such as ivory text with a thin dark outline, retaining exact values and ratio."
+      "suggestedCorrection": "Use a local progress-label treatment that remains readable on both regions, such as ivory text with a thin dark outline, retaining exact values and ratio.",
+      "resolution": {
+        "status": "visually-confirmed-resolved",
+        "report": "E:/work/image/qdao_ui_redesign_v5/fidelity-battle-20261016/qa/final-visual-review.json",
+        "finalSourceSha256": "17e6b14dd004a0d319551fe39d63233f0fc3e849c6b3c280b3ce12190c6a522b"
+      }
     }
   ],
   "knownOwnedFixes": [
@@ -260,8 +270,8 @@
     "Screenshots precede the root-owned activity width fix; this review intentionally does not re-report it."
   ],
   "remediation": {
-    "status": "staged-compiled-pending-native-recapture",
-    "finalIncrementalManifest": "E:/work/image/designs/guild-ui-v2/fidelity-20261016/readability-height-patch-install-manifest.json",
+    "status": "native-recapture-visually-passed",
+    "finalIncrementalManifest": "E:/work/image/designs/guild-ui-v2/fidelity-20261016/progress-dual-text-patch-install-manifest.json",
     "fullCompile": {
       "runtimeSources": 462,
       "exitCode": 0
@@ -271,6 +281,7 @@
       "exitCode": 0
     },
     "clientModifiedByReviewer": false,
-    "unityLaunchedByReviewer": false
+    "unityLaunchedByReviewer": false,
+    "finalReviewedAtUtc": "2026-10-17T07:35:56.467Z"
   }
 }

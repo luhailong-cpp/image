@@ -1,0 +1,46 @@
+{
+  "Schema": "azure-migration-package-batch-verification-v1",
+  "Status": "UPLOADED_SUBSET_INCREMENTAL_DOWNLOAD_PASS",
+  "VerifiedUtc": "2026-10-17T08:13:47.7120555Z",
+  "Remote": "https://luyuacpp.visualstudio.com/image/_git/image",
+  "Branch": "main",
+  "Head": "fbf95a6a26702274d556736d048cf9d7e5e19186",
+  "Root": "a0108e328631477df3caeb0b9fb80ecad7a82799",
+  "CommitCount": 8,
+  "Files": 1988,
+  "LogicalBytes": 446500558.0,
+  "AllFileHashesMatch": true,
+  "LfsFsckPassed": true,
+  "SeparateCheckoutIncrementalDownload": true,
+  "SharedGitObjects": false,
+  "CustomLfsStorage": false,
+  "LfsObjectCount": 361,
+  "LfsObjectBytes": 341546570.0,
+  "DeltaSourceAndGeneratedFiles": 32,
+  "AlreadyIdenticalDependencies": 19,
+  "OriginalDeferredFiles": 62,
+  "HeldPaths": [
+    {
+      "Path": "config/ui-fidelity-progress.json",
+      "Reason": "Still explicitly lists expanded regression and several capture/visual follow-ups as running or pending. allUiComplete=false, liveServerVerified=false; six-test PlayMode summary is not a coherent update over later completed sixteen-test result. Keep Hold."
+    },
+    {
+      "Path": "tools/ui-fidelity/snapshot-installed.cjs",
+      "Reason": "New shared snapshot helper created during ongoing cross-package captures. Retain at source and defer until current output/completion and dependency scope are settled; do not execute it or chase concurrent work."
+    },
+    {
+      "Path": "tools/ui-fidelity/UiFidelitySweep.cs",
+      "Reason": "Shared capture helper changed shortly before this heartbeat and now contains CaptureRemaining for gameplay-final, team-invitations, and city-hud. Its exact remaining-capture.json output is absent; final-subset-captured.txt is from 07:14:08Z, before this edit, and cannot prove this latest wrapper finished. Two reads are stable but bounded evidence does not establish that concurrent production has finished; retain Hold without chasing or running the tool."
+    }
+  ],
+  "ResolvedPreviousHoldPaths": [],
+  "UserInstructionsAndBothDesignatedReferencesVerified": true,
+  "GeneratedCurrentCodeManifest": "ui-current-patches-20261017T080311.install-manifest.json",
+  "FullProjectAvailable": false,
+  "CompleteProject": false,
+  "OtherPcEvidenceReceived": false,
+  "OtherPcWorkReconciled": false,
+  "SourceHistoryDeleted": false,
+  "Scope": "All currently uploaded paths match frozen sizes and SHA256 in an independent checkout. New LFS objects were downloaded from Azure; old objects already existed in this checkout. This is not a fresh full-project clone, complete-source evidence, game acceptance, or a client installation.",
+  "DeltaReport": "support/azure-repos/current-batch-20261017T080311.json"
+}
