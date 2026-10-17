@@ -1,0 +1,44 @@
+{
+  "Schema": "azure-migration-package-batch-verification-v1",
+  "Status": "UPLOADED_SUBSET_INCREMENTAL_DOWNLOAD_PASS",
+  "VerifiedUtc": "2026-10-17T07:13:42.9071518Z",
+  "Remote": "https://luyuacpp.visualstudio.com/image/_git/image",
+  "Branch": "main",
+  "Head": "b1d7626a2519b025af6089cf4ed17d26c4a82e5a",
+  "Root": "a0108e328631477df3caeb0b9fb80ecad7a82799",
+  "CommitCount": 7,
+  "Files": 1956,
+  "LogicalBytes": 444025778.0,
+  "AllFileHashesMatch": true,
+  "LfsFsckPassed": true,
+  "SeparateCheckoutIncrementalDownload": true,
+  "SharedGitObjects": false,
+  "CustomLfsStorage": false,
+  "LfsObjectCount": 359,
+  "LfsObjectBytes": 339370664.0,
+  "DeltaSourceAndGeneratedFiles": 63,
+  "AlreadyIdenticalDependencies": 36,
+  "OriginalDeferredFiles": 62,
+  "HeldPaths": [
+    {
+      "Path": "config/ui-fidelity-progress.json",
+      "Reason": "Cross-package work remains in progress and its six-test summary predates later failing XML; retain source until coherent update"
+    },
+    {
+      "Path": "tools/ui-fidelity/UiFidelitySweep.cs",
+      "Reason": "Changed after the frozen gameplay review and before any copy. Do not chase concurrent work. Retain the previously verified Azure version; no sweep or installer is run by this migration. Dated evidence does not imply the old tool can recreate the new captures."
+    }
+  ],
+  "ResolvedPreviousHoldPaths": [
+    "docs/ui-fidelity-20261016/playmode-results.xml"
+  ],
+  "UserInstructionsAndBothDesignatedReferencesVerified": true,
+  "GeneratedCurrentCodeManifest": "ui-current-patches-20261017.install-manifest.json",
+  "FullProjectAvailable": false,
+  "CompleteProject": false,
+  "OtherPcEvidenceReceived": false,
+  "OtherPcWorkReconciled": false,
+  "SourceHistoryDeleted": false,
+  "Scope": "All currently uploaded paths match frozen sizes and SHA256 in an independent checkout. New LFS objects were downloaded from Azure; old objects already existed in this checkout. This is not a fresh full-project clone, complete-source evidence, game acceptance, or a client installation.",
+  "DeltaReport": "support/azure-repos/current-batch-20261017T065945.json"
+}

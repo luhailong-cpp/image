@@ -107,14 +107,14 @@ end=s.index('            _searchInput =',start)
 s=s[:start]+'''            var serverTitle = Label("ServerTitle", _serverRoot, 397,236,1040,65,"选择服务器",44,true);
 '''+s[end:]
 replacements={
-'1762f, 149f, 384f, 74f':'371f, 349f, 334f, 66f',
-'float width = auxiliary ? 152f : 320f;':'float width = auxiliary ? 160f : 334f;',
+'1762f, 149f, 384f, 74f':'368.36f, 348.94f, 337.89f, 66.34f',
+'float width = auxiliary ? 152f : 320f;':'float width = auxiliary ? 160f : 337.89f;',
 'float height = auxiliary ? 76f : 112f;':'float height = auxiliary ? 50f : 70f;',
-'float x = auxiliary ? 490f + (i - 4) * 164f : 484f;':'float x = auxiliary ? 371f + (i - 4) * 174f : 371f;',
-'float y = auxiliary ? 816f : 246f + i * 138f;':'float y = auxiliary ? 842f : 449f + i * 104.8f;',
+'float x = auxiliary ? 490f + (i - 4) * 164f : 484f;':'float x = auxiliary ? 368.36f + (i - 4) * 174f : 368.36f;',
+'float y = auxiliary ? 816f : 246f + i * 138f;':'float y = auxiliary ? 842f : new float[]{339,418,495,574}[i] * 1080f / 814f;',
 'auxiliary ? 25f : 34f':'auxiliary ? 23f : 31f',
-'float x = 830f + (i % 2) * 678f, y = 244f + (i / 2) * 159f;':'float x = 768f + (i % 2) * 716f, y = 352f + (i / 2) * 130f;',
-'x, y, 650f, 148f':'x, y, 640f, 106f',
+'float x = 830f + (i % 2) * 678f, y = 244f + (i / 2) * 159f;':'float x = (i % 2 == 0 ? 576f : 1112f) * 2560f / 1932f, y = (265f + (i / 2) * 98f) * 1080f / 814f;',
+'x, y, 650f, 148f':'x, y, (i % 2 == 0 ? 487f : 485f) * 2560f / 1932f, 80f * 1080f / 814f',
 '38f, 24f, 102f, 102f':'532f, 6f, 94f, 94f',
 '164f, 24f, 277f, 74f, "", 40f':'56f, 7f, 405f, 51f, "", 38f',
 '477f, 32f, 108f, 60f, "", 29f':'84f, 61f, 160f, 33f, "", 26f',

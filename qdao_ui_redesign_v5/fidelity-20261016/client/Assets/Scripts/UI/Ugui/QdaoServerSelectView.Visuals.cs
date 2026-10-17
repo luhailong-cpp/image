@@ -88,7 +88,7 @@ namespace MmorpgClient.UI.Ugui
         {
             var serverTitle = Label("ServerTitle", _serverRoot, 397,236,1040,65,"选择服务器",44,true);
             _searchInput = QdaoUguiFactory.CreateInputField("SearchInput", _serverRoot,
-                371f, 349f, 334f, 66f, "搜索服务器", 64, QdaoCoreFidelityArt.Load("search_normal"));
+                368.36f, 348.94f, 337.89f, 66.34f, "搜索服务器", 64, QdaoCoreFidelityArt.Load("search_normal"));
             QdaoCoreFidelityArt.Skin(_searchInput.GetComponent<Image>(), "search_normal");
             _searchInput.textComponent.fontSize = 25f;
             ((TMP_Text)_searchInput.placeholder).fontSize = 25f;
@@ -120,10 +120,10 @@ namespace MmorpgClient.UI.Ugui
             for (var i = 0; i < 6; i++)
             {
                 bool auxiliary = i >= 4;
-                float width = auxiliary ? 160f : 334f;
+                float width = auxiliary ? 160f : 337.89f;
                 float height = auxiliary ? 50f : 70f;
-                float x = auxiliary ? 371f + (i - 4) * 174f : 371f;
-                float y = auxiliary ? 842f : 449f + i * 104.8f;
+                float x = auxiliary ? 368.36f + (i - 4) * 174f : 368.36f;
+                float y = auxiliary ? 842f : new float[]{339,418,495,574}[i] * 1080f / 814f;
                 string[] labels = { "最近登录", "推荐服务器", "全部区服", "新服推荐", "流畅", "维护" };
                 _categoryButtons[i] = QdaoCoreFidelityArt.Button("CategoryArt_" + i, _serverRoot,
                     x, y, width, height, "list_row_normal", out _categoryImages[i]);
@@ -146,9 +146,9 @@ namespace MmorpgClient.UI.Ugui
             string[] emblems = { "pagoda", "pagoda", "mountain", "pagoda", "lotus", "water", "peach_spirit", "lotus" };
             for (var i = 0; i < PageSize; i++)
             {
-                float x = 768f + (i % 2) * 716f, y = 352f + (i / 2) * 130f;
+                float x = (i % 2 == 0 ? 576f : 1112f) * 2560f / 1932f, y = (265f + (i / 2) * 98f) * 1080f / 814f;
                 _serverButtons[i] = QdaoCoreFidelityArt.Button("ServerCardArt_" + i, _serverRoot,
-                    x, y, 640f, 106f, "server_card_wide_normal", out _serverCardImages[i]);
+                    x, y, (i % 2 == 0 ? 487f : 485f) * 2560f / 1932f, 80f * 1080f / 814f, "server_card_wide_normal", out _serverCardImages[i]);
                 var parent = _serverButtons[i].transform;
                 _serverBadges[i] = QdaoUguiFactory.CreateImage("ServerEmblem_" + i, parent,
                     532f, 6f, 94f, 94f, QdaoCoreFidelityArt.Load("round_badge_" + emblems[i]));

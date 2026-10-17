@@ -1,0 +1,32 @@
+{
+  "source": "E:\\work\\image\\docs\\ui-fidelity-20261016\\editmode-results.xml",
+  "source_sha256": "077ea2f181f5501e57681b27ce38e200ff8f6b942d0c7d4c8bea67de6fba723e",
+  "run_summary": {
+    "id": "2",
+    "testcasecount": "518",
+    "result": "Failed(Child)",
+    "total": "518",
+    "passed": "506",
+    "failed": "12",
+    "inconclusive": "0",
+    "skipped": "0",
+    "asserts": "0",
+    "engine-version": "3.5.0.0",
+    "clr-version": "4.0.30319.42000",
+    "start-time": "2026-10-17 04:58:32Z",
+    "end-time": "2026-10-17 04:59:31Z",
+    "duration": "59.3987489"
+  },
+  "assigned_failures": [
+    {
+      "fullname": "MmorpgClient.Tests.EditMode.Battle.EquipForgeWindowTests.WornEquipmentCanOpenWhileBagIsMissingAndRefreshAfterReadFailure",
+      "message": "System.InvalidOperationException : Sequence contains no matching element",
+      "stack": "  at System.Linq.Enumerable.Single[TSource] (System.Collections.Generic.IEnumerable`1[T] source, System.Func`2[T,TResult] predicate) [0x00070] in <f1b392d8fe224ca2b1f9fab1000b77eb>:0 \n  at MmorpgClient.Tests.EditMode.Battle.EquipForgeWindowTests.Button (System.String name) [0x0000d] in E:\\work\\mmorpg-client\\Assets\\Tests\\EditMode\\Battle\\EquipForgeWindowTests.cs:375 \n  at MmorpgClient.Tests.EditMode.Battle.EquipForgeWindowTests.WornEquipmentCanOpenWhileBagIsMissingAndRefreshAfterReadFailure () [0x000bc] in E:\\work\\mmorpg-client\\Assets\\Tests\\EditMode\\Battle\\EquipForgeWindowTests.cs:266 \n  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)\n  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <c5ae8a4eeb824526b5df2932bc2395e0>:0 "
+    },
+    {
+      "fullname": "MmorpgClient.Tests.EditMode.Battle.GameplayWindowTests.MissionStatusFiltersPreserveUnacceptedActiveAndCompletedStatesWithoutSendingActions",
+      "message": "  当前页面应有唯一按钮：进行中\n  Expected: 1\n  But was:  2\n",
+      "stack": "at MmorpgClient.Tests.EditMode.Battle.GameplayWindowTests.FindButton (System.String label) [0x0002e] in E:\\work\\mmorpg-client\\Assets\\Tests\\EditMode\\Battle\\GameplayWindowTests.cs:417\nat MmorpgClient.Tests.EditMode.Battle.GameplayWindowTests.Click (System.String label) [0x00000] in E:\\work\\mmorpg-client\\Assets\\Tests\\EditMode\\Battle\\GameplayWindowTests.cs:423\nat MmorpgClient.Tests.EditMode.Battle.GameplayWindowTests.MissionStatusFiltersPreserveUnacceptedActiveAndCompletedStatesWithoutSendingActions () [0x000be] in E:\\work\\mmorpg-client\\Assets\\Tests\\EditMode\\Battle\\GameplayWindowTests.cs:389\n"
+    }
+  ]
+}

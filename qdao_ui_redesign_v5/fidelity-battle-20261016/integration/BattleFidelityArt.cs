@@ -22,11 +22,12 @@ namespace MmorpgClient.UI.Ugui.Battle
             bool close=button.name.IndexOf("Close",StringComparison.OrdinalIgnoreCase)>=0;
             bool command=button.name.StartsWith("Cmd_",StringComparison.Ordinal);
             Skin(image,close?"close_button":command?"slider_thumb":primary?"button_primary":"button_secondary");
-            if(label!=null)
+            foreach(var text in button.GetComponentsInChildren<TMP_Text>(true))
             {
-                label.font=QdaoUguiTheme.ResolveFont();label.fontStyle=FontStyles.Normal;label.color=primary||command?QdaoRefreshArt.Ivory:Ink;
-                if(close)label.gameObject.SetActive(false);
+                text.font=QdaoUguiTheme.ResolveFont();text.fontStyle=FontStyles.Normal;text.color=primary||command?QdaoRefreshArt.Ivory:Ink;
+                if(text.name=="Detail"&&text.text.StartsWith("冷却",StringComparison.Ordinal))text.color=QdaoUguiTheme.Html("#92611D");
             }
+            if(close&&label!=null)label.gameObject.SetActive(false);
         }
         internal static void ApplyPanel(RectTransform root)
         {
@@ -55,7 +56,7 @@ namespace MmorpgClient.UI.Ugui.Battle
         internal static void ApplyParty(RectTransform root)
         {
             if(root==null)return;
-            foreach(Transform child in root)
+            foreach(UnityEngine.Transform child in root)
             {
                 Skin(child.GetComponent<Image>(),"pet_card_normal");
                 foreach(var label in child.GetComponentsInChildren<TMP_Text>(true))
@@ -69,7 +70,7 @@ namespace MmorpgClient.UI.Ugui.Battle
             foreach(var image in root.GetComponentsInChildren<Image>(true))
             {
                 if(image.name=="RoundFrame")Skin(image,"tab_horizontal");
-                if(image.name=="Gold"||image.name=="Inner")image.gameObject.SetActive(false);
+                if((image.name=="Gold"||image.name=="Inner")&&image.transform.parent?.name=="RoundFrame")image.gameObject.SetActive(false);
                 if(image.name=="RingBase")image.color=new Color(1,1,1,.35f);
             }
             foreach(var button in root.GetComponentsInChildren<Button>(true))

@@ -1,0 +1,24 @@
+PASS：18 张原生 Unity 截图，三种分辨率各六个状态。
+原生 Unity uGUI / Camera.Render / RenderTexture，未连接服务器。
+使用正式 GameplayWindow、EquipForgeUiState、PlayerFeaturesClient；回包经 protobuf 序列化再解析。
+01-ready_2560x1080.png | Ready | 
+02-gem-picker_2560x1080.png | Ready | 
+03-inlay-busy_2560x1080.png | Ready | 正在镶嵌…
+04-enhance-confirm_2560x1080.png | Ready | 
+05-materials-insufficient_2560x1080.png | Ready | 
+06-loading_2560x1080.png | Loading | 
+01-ready_1920x1080.png | Ready | 
+02-gem-picker_1920x1080.png | Ready | 
+03-inlay-busy_1920x1080.png | Ready | 正在镶嵌…
+04-enhance-confirm_1920x1080.png | Ready | 
+05-materials-insufficient_1920x1080.png | Ready | 
+06-loading_1920x1080.png | Loading | 
+01-ready_1280x720.png | Ready | 
+02-gem-picker_1280x720.png | Ready | 
+03-inlay-busy_1280x720.png | Ready | 正在镶嵌…
+04-enhance-confirm_1280x720.png | Ready | 
+05-materials-insufficient_1280x720.png | Ready | 
+06-loading_1280x720.png | Loading | 
+已核验：背包更多入口、可强化、选宝石、镶嵌在途、降级确认、材料不足置灰、缺快照同步中。
+已核验：选择宝石只发一次且 item_id/socket/config_id 正确；确认前不发强化；确认后发一次；两份回包快照更新结果。
+未核验：真实账户资产、服务端规则裁决、联机延迟、鼠标命中与实机运行。

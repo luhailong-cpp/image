@@ -1,5 +1,6 @@
 from pathlib import Path
 import json, hashlib, datetime, uuid, re
+import xml.etree.ElementTree as ET
 import numpy as np
 from PIL import Image, ImageFilter
 
@@ -42,6 +43,13 @@ findings=[
  dict(id='V09',severity='fix',page='bag/missions/activities',issue='Empty detail states retain blank action plates; activity schedule/reason text runs across unused baked reward slots.',evidence=['04-bag-empty_1920x1080.png','05-missions-empty_1920x1080.png','13-activity-participate_2560x1080.png'])]
 review=dict(schema='qdao.gameplay.visual-review.v1',reviewed_at_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),status='needs-fixes',method='Direct visual comparison of 17 existing native captures against all 3 approved PNGs; read-only client/code review.',references=[evidence(PACKAGE.parent/p) for p in ['02-inventory.png','01-quests.png','03-activities.png']],captures=[evidence(native/p) for p in seen],capture_inventory=dict(expected_pngs=26,present_pngs=len(list(native.glob('*.png'))),declared_status=(native/'capture-status.txt').read_text(),scope=(native/'fixture-scope.txt').read_text(),capture_json_present=False,existing_qa_json='qa/install-result.json is installation evidence, not capture metadata'),pass_observations=['Frame/title/ornaments preserve original native proportions in both resolutions.','1920 screenshots use a centered letterboxed frame; no non-uniform horizontal compression observed.','Empty/loading/error text is readable.','Fixture names, icons, quantities, protocol-derived missing reward items and schedules are not scored as design deviations.'],findings=findings,limits=['Screenshots are editor visual fixtures, not live game data.','Capture mtime is 2026-10-17 04:24 UTC, earlier than the equipment compatibility installation at 04:55 UTC; these images do not verify that patch.','Static captures do not establish final scroll reachability, long text exhaustiveness or pointer/keyboard interaction.','This review has no post-fix screenshots and makes no pixel-identical claim.'])
 (PACKAGE/'qa/visual-review.json').write_text(json.dumps(review,ensure_ascii=False,indent=2),encoding='utf-8')
+xml_path=PACKAGE.parents[2]/'docs/ui-fidelity-20261016/editmode-results.xml'
+test_run=ET.parse(xml_path).getroot()
+selected_failures=[]
+for case in test_run.findall('.//test-case'):
+    if case.attrib.get('result')=='Failed' and any(n in case.attrib.get('fullname','') for n in ('EquipForgeWindowTests.WornEquipmentCanOpenWhileBagIsMissingAndRefreshAfterReadFailure','GameplayWindowTests.MissionStatusFiltersPreserveUnacceptedActiveAndCompletedStatesWithoutSendingActions')):
+        selected_failures.append(dict(fullname=case.attrib['fullname'],message=case.findtext('failure/message'),stack=case.findtext('failure/stack-trace')))
+(ROOT/'unity-failure-evidence.json').write_text(json.dumps(dict(source=str(xml_path),source_sha256=sha(xml_path),run_summary=test_run.attrib,assigned_failures=selected_failures),ensure_ascii=False,indent=2),encoding='utf-8')
 
 runtime=(CLIENT/(CODE+'GameplayWindow.Fidelity.cs')).read_text(encoding='utf-8-sig')
 # Retain native paper colors when disabled, so opaque crop background cannot form a gray rectangle.
@@ -116,19 +124,31 @@ gameplay=replace(gameplay,'        private ScrollRect Scroll(string name)', ''' 
 write(TEST+'GameplayWindowTests.cs',gameplay)
 
 # Derive paper only from retained clean skins. Match the local paper gradient and retain its grain.
-# Center of each erase region is opaque; six-pixel exterior feather avoids leaving border residue.
+# Center of each erase region is opaque; four-pixel exterior feather avoids leaving border residue.
 sources={s:Image.open(PACKAGE/'assets'/f'{s}-clean-skin.png').convert('RGB') for s in ('inventory','quests','activities')}
 asset_rows=[]
 def paper_clear(image, rect, paper):
-    a=np.array(image).astype(np.float32); x0,y0,x1,y1=rect; pad=6
+    a=np.array(image).astype(np.float32); x0,y0,x1,y1=rect; pad=4
     l=max(0,x0-pad); t=max(0,y0-pad); r=min(image.width,x1+pad); b=min(image.height,y1+pad)
-    corners=[]
-    for x,y in [(l,t),(r-1,t),(l,b-1),(r-1,b-1)]:
-        patch=a[max(0,y-10):min(image.height,y+11),max(0,x-10):min(image.width,x+11)].reshape(-1,3)
-        good=patch[(patch[:,0]>205)&(patch[:,1]>190)&(patch[:,2]>160)&((patch[:,0]-patch[:,1])<35)&((patch[:,1]-patch[:,2])<45)]
-        corners.append(np.median(good if len(good)>8 else np.array(paper).reshape(-1,3),axis=0))
+    smooth=np.array(image.filter(ImageFilter.GaussianBlur(1))).astype(np.float32)
+    fallback=np.median(np.array(paper).reshape(-1,3),axis=0)
+    def paper_edge(values):
+        good=(values[:,0]>213)&(values[:,1]>200)&(values[:,2]>170)&((values[:,0]-values[:,1])<25)&((values[:,1]-values[:,2])<35)
+        positions=np.flatnonzero(good)
+        filtered=np.empty_like(values)
+        for channel in range(3):
+            filtered[:,channel]=np.interp(np.arange(len(values)),positions,values[positions,channel]) if len(positions)>2 else fallback[channel]
+        return np.array(Image.fromarray(np.clip(filtered,0,255).astype('uint8')[None,:,:]).filter(ImageFilter.GaussianBlur(8)))[0].astype(np.float32)
+    top=paper_edge(smooth[t,l:r]); bottom=paper_edge(smooth[b-1,l:r]); left=paper_edge(smooth[t:b,l]); right=paper_edge(smooth[t:b,r-1])
+    corners=[(top[0]+left[0])/2,(top[-1]+right[0])/2,(bottom[0]+left[-1])/2,(bottom[-1]+right[-1])/2]
+    for edge,start,end in [(top,corners[0],corners[1]),(bottom,corners[2],corners[3]),(left,corners[0],corners[2]),(right,corners[1],corners[3])]:
+        n=min(20,len(edge)//3); f=np.linspace(0,1,n)[:,None]
+        edge[:n]=start*(1-f)+edge[:n]*f; edge[-n:]=edge[-n:]*(1-f)+end*f
     xx=np.linspace(0,1,r-l)[None,:,None]; yy=np.linspace(0,1,b-t)[:,None,None]
-    field=(1-yy)*((1-xx)*corners[0]+xx*corners[1])+yy*((1-xx)*corners[2]+xx*corners[3])
+    bilinear=(1-yy)*((1-xx)*corners[0]+xx*corners[1])+yy*((1-xx)*corners[2]+xx*corners[3])
+    # Coons interpolation matches every exterior edge, unlike a flat tiled rectangle.
+    field=(1-yy)*top[None,:,:]+yy*bottom[None,:,:]+(1-xx)*left[:,None,:]+xx*right[:,None,:]-bilinear
+    field=np.minimum(np.maximum(field,[213,200,170]),[248,238,221])
     texture=np.array(paper).astype(np.float32)-np.array(paper.filter(ImageFilter.GaussianBlur(6))).astype(np.float32)
     texture=np.tile(texture,(int(np.ceil((b-t)/paper.height)),int(np.ceil((r-l)/paper.width)),1))[:b-t,:r-l]
     field=np.clip(field+texture*.8,0,255)
@@ -147,6 +167,7 @@ def save_asset(name,image,source,operations,rect=None):
         meta=re.sub(r'spriteID: [a-f0-9]+','spriteID: '+uuid.uuid5(uuid.NAMESPACE_DNS,'qdao-'+name).hex,meta,count=1)
         # Current global importer may have raised max size; explicit staged metadata still uses 4096.
         meta=re.sub(r'maxTextureSize: \d+','maxTextureSize: 4096',meta)
+    meta=re.sub(r'maxTextureSize: \d+','maxTextureSize: 4096',meta)
     Path(str(p)+'.meta').write_text(meta,encoding='utf-8')
     asset_rows.append(dict(path=relative,sha256=sha(p),native_size=list(image.size),source='../assets/'+source+'-clean-skin.png',source_sha256=sha(PACKAGE/'assets'/f'{source}-clean-skin.png'),source_rect=rect,operations=operations,actual_model='not applicable: deterministic derivative; see original clean-skin record',new_ai_generation=False))
 areas={
@@ -156,10 +177,16 @@ areas={
 for source,rects in areas.items():
     base=sources[source].copy(); paper=sources[source].crop((1290,100,1354,150))
     for rect in rects: base=paper_clear(base,rect,paper)
-    save_asset(source+'-frame',base,source,dict(erase_regions=rects,paper_source_rect=[1290,100,1354,150],local_paper_gradient_and_grain=True,edge_feather_outside_region=6,no_resize=True))
+    if source in ('inventory','quests'):
+        lower=758 if source=='inventory' else 754
+        base.paste(sources[source].crop((0,lower,base.width,base.height)),(0,lower))
+    allowed=np.zeros((base.height,base.width),dtype=bool)
+    for x0,y0,x1,y1 in rects: allowed[max(0,y0-4):min(base.height,y1+4),max(0,x0-4):min(base.width,x1+4)]=True
+    assert np.array_equal(np.array(base)[~allowed],np.array(sources[source])[~allowed]),source+' protected pixels changed'
+    save_asset(source+'-frame',base,source,dict(erase_regions=rects,paper_source_rect=[1290,100,1354,150],local_paper_gradient_and_grain=True,edge_feather_outside_region=4,no_resize=True))
 card=sources['activities'].crop((522,159,932,654))
-card=paper_clear(card,(25,255,386,411),sources['activities'].crop((1290,100,1354,150)))
-save_asset('activity-card',card,'activities',dict(erase_local_rect=[25,255,386,411],purpose='Remove unused reward slots and separator under actual schedule/reason text'),[522,159,932,654])
+card=paper_clear(card,(25,257,386,411),sources['activities'].crop((1290,100,1354,150)))
+save_asset('activity-card',card,'activities',dict(erase_local_rect=[25,257,386,411],purpose='Remove unused reward slots and separator under actual schedule/reason text'),[522,159,932,654])
 save_asset('bag-item-badge',sources['inventory'].crop((1423,160,1582,200)),'inventory','Native crop drawn only when an actual item is selected',[1423,160,1582,200])
 (ROOT/'asset-manifest.json').write_text(json.dumps(dict(schema='qdao.gameplay.visual-fix.derivatives.v1',assets=asset_rows),ensure_ascii=False,indent=2),encoding='utf-8')
 
@@ -190,5 +217,6 @@ for name,new in [('EquipForgeWindowTests.cs',forge),('GameplayWindowTests.cs',ga
     for token in ('_net.Calls','Respond(','FailWith(','_accepts','_claims','_missionReads'):
         if token in old: assert new.count(token)>=old.count(token),(name,token)
 result=dict(status='passed',install_files=len(install),source_guard_files=len(guard),original_test_methods_retained=True,business_callbacks_preserved=True,original_main_changed_only_search_height=True,new_images_generated=False,client_written=False,unity_started=False,post_fix_capture_pending=True)
+result.update(frame_pixels_outside_erasure_regions_exact=True,sprite_single_fullrect_uncompressed_ppu100_mipmapfalse_max4096=True,existing_sprite_meta_guids_preserved=True)
 (ROOT/'validation.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
 print(json.dumps(result))

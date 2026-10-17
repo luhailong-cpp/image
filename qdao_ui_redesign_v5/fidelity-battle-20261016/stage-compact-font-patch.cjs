@@ -1,0 +1,11 @@
+const fs=require('fs'),crypto=require('crypto');
+const root=__dirname,client='E:/work/mmorpg-client',dest='Assets/Scripts/UI/Ugui/Battle/BattleFidelityArt.cs',source=client+'/'+dest;
+const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+let code=fs.readFileSync(source,'utf8').replaceAll('\r\n','\n');
+const changes=[['label.font=label.name=="Title"?QdaoUguiTheme.ResolveFont():QdaoUguiTypography.ResolveBodyFont();','label.font=label.name.EndsWith("Title",StringComparison.Ordinal)?QdaoUguiTheme.ResolveFont():QdaoUguiTypography.ResolveBodyFont();'],['{label.font=QdaoUguiTypography.ResolveBodyFont();label.color=label.name=="Name"?Ink:Muted;}','{label.font=QdaoUguiTheme.ResolveFont();label.color=label.name=="Name"?Ink:Muted;}']];
+for(const[a,b]of changes){if(!code.includes(a))throw Error('Source drift: '+a);code=code.replace(a,b);}
+fs.mkdirSync(root+'/compact-font-patch',{recursive:true});fs.writeFileSync(root+'/compact-font-patch/BattleFidelityArt.cs',code);
+const manifest={status:'frozen-ready-for-install',checkedAtUtc:new Date().toISOString(),guards:[{source,sha256:hash(source)}],files:[{source:'compact-font-patch/BattleFidelityArt.cs',destination:dest,sha256:hash(root+'/compact-font-patch/BattleFidelityArt.cs')}],clientModified:false,unityLaunched:false,scope:'Only preserve Kai for *Title and compact party Name/Level labels. No text assertion, rectangle, font size, real data or state transaction changes.',diagnosis:{SkillTitle:{fontSize:28,rectHeight:40,notoLineHeight:40.544,kaiLineHeight:31.9375},PartyNameLevel:{fontSize:20,rectHeight:26,notoLineHeight:28.96,kaiLineHeight:22.8125},sourceMetrics:'Fonts/QdaoBody SDF.asset92.672/64; Fonts/SimKai SDF.asset102.65625/90; final renderer validation remains enabled.'}};
+fs.writeFileSync(root+'/compact-font-patch-install-manifest.json',JSON.stringify(manifest,null,2)+'\n');
+const rsp=fs.readFileSync(root+'/qa/runtime.rsp','utf8').split(/\r?\n/).filter(x=>x&&!x.startsWith('-out:')&&!/\.cs"$/.test(x));rsp.push('-nowarn:0436','-r:"'+root+'/qa/BattleFidelity.Runtime.dll"','-out:"'+root+'/qa/BattleFidelity.CompactFont.dll"','"'+root+'/compact-font-patch/BattleFidelityArt.cs"');fs.writeFileSync(root+'/qa/compact-font-only.rsp',rsp.join('\n'));
+console.log(JSON.stringify(manifest,null,2));

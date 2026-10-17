@@ -4,7 +4,7 @@
   "Remote": "https://luyuacpp.visualstudio.com/image/_git/image",
   "Visibility": "Private",
   "RemoteRefCount": 1,
-  "State": "CURRENT_PC_DELTA_VERIFIED_AWAITING_OTHER_PC_AND_REMAINING_LOCAL_PACKAGES",
+  "State": "CURRENT_PC_PACKAGES_VERIFIED_AWAITING_OTHER_PC_AND_REMAINING_LOCAL_SOURCES",
   "OldHistoryImported": false,
   "ProductionFilesUploaded": true,
   "SourceHistoryDeleted": false,
@@ -39,11 +39,11 @@
   "FirstBatchHead": "a0108e328631477df3caeb0b9fb80ecad7a82799",
   "FirstBatchFileCount": 764,
   "CurrentCommitRecordedSeparately": true,
-  "LatestUploadedHead": "727e5b42cddc67359c3531631df90589ae8fdb14",
-  "LatestUploadedFileCount": 1104,
-  "LatestUploadedLogicalBytes": 336073509.0,
-  "LatestUploadedSubsetVerifiedUtc": "2026-10-17T04:15:15.1921438Z",
-  "LatestVerificationReport": "verification-current-delta-20261017.json",
+  "LatestUploadedHead": "b1d7626a2519b025af6089cf4ed17d26c4a82e5a",
+  "LatestUploadedFileCount": 1956,
+  "LatestUploadedLogicalBytes": 444025778.0,
+  "LatestUploadedSubsetVerifiedUtc": "2026-10-17T07:13:42.9071518Z",
+  "LatestVerificationReport": "verification-batch-20261017T065945.json",
   "LatestDelta": {
     "Path": "support/azure-repos/current-file-delta-20261017.json",
     "CopiedFiles": 68,
@@ -54,5 +54,34 @@
     "SourceComplete": false,
     "FullProjectAvailable": false,
     "Note": "Separate delta over older incomplete Plan. Uploaded HEAD and independent download proof are recorded separately after push."
+  },
+  "LatestBatch": {
+    "Path": "support/azure-repos/current-batch-20261017T065945.json",
+    "PreviousBatch": "support/azure-repos/current-batch-20261017T060107.json",
+    "CopiedFiles": 63,
+    "CopiedBytes": 389855.0,
+    "ReviewedReports": [
+      "azure-core-review-20261017T065945.json",
+      "azure-gameplay-review-20261017T065945.json",
+      "azure-root-review-20261017T065945.json",
+      "parent-overrides-20261017T065945.json"
+    ],
+    "HeldPaths": [
+      {
+        "Path": "config/ui-fidelity-progress.json",
+        "Reason": "Cross-package work remains in progress and its six-test summary predates later failing XML; retain source until coherent update"
+      },
+      {
+        "Path": "tools/ui-fidelity/UiFidelitySweep.cs",
+        "Reason": "Changed after the frozen gameplay review and before any copy. Do not chase concurrent work. Retain the previously verified Azure version; no sweep or installer is run by this migration. Dated evidence does not imply the old tool can recreate the new captures."
+      }
+    ],
+    "ResolvedPreviousHoldPaths": [
+      "docs/ui-fidelity-20261016/playmode-results.xml"
+    ],
+    "OriginalDeferredFiles": 62,
+    "SourceComplete": false,
+    "FullProjectAvailable": false,
+    "Note": "This batch and all uploaded files passed independent incremental download, SHA256 and LFS fsck. Local complete-source coverage and the other PC remain pending."
   }
 }

@@ -1,0 +1,884 @@
+{
+  "Schema": "azure-bounded-current-patch-review-v1",
+  "CheckedAtUtc": "2026-10-17T07:05:49.2963696Z",
+  "BaselineAzureHead": "4092b2e730636bbfde41054d195fe10409822340",
+  "SourceRoot": "E:/work/image",
+  "SourceHead": "524ac9b18bd24e1939f43f9a9dca83768359435b",
+  "SourceComplete": false,
+  "CandidateFileCount": 55,
+  "Files": [
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-01-tests/client/Assets/Tests/PlayMode/QdaoRoleIdentityPlayModeTests.cs",
+      "Bytes": 27490,
+      "SHA256": "3417db3433c04a44a9b8cc1d2b6050481259cad03724049f4e1bc435dd6db587",
+      "Decision": "Keep",
+      "Reason": "Current code, integration source, or concise textual validation/provenance evidence.",
+      "CandidateSHA256": "3417db3433c04a44a9b8cc1d2b6050481259cad03724049f4e1bc435dd6db587",
+      "SecondSHA256": "3417db3433c04a44a9b8cc1d2b6050481259cad03724049f4e1bc435dd6db587",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-01-tests/compile-staged-tests.ps1",
+      "Bytes": 2762,
+      "SHA256": "1aa6ade5a421f28f59d9ae043d2100174f8b9a06cffad83946047944b6b06953",
+      "Decision": "Keep",
+      "Reason": "Current code, integration source, or concise textual validation/provenance evidence.",
+      "CandidateSHA256": "1aa6ade5a421f28f59d9ae043d2100174f8b9a06cffad83946047944b6b06953",
+      "SecondSHA256": "1aa6ade5a421f28f59d9ae043d2100174f8b9a06cffad83946047944b6b06953",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-01-tests/install-manifest.json",
+      "Bytes": 953,
+      "SHA256": "b7ec64bbaa3e488d7e0202528aed77fb1d33c439f6679e4b30109399f0969b66",
+      "Decision": "Keep",
+      "Reason": "Preserve exact guard/hash chain or historical install receipt; not authorization or evidence that this manifest can install over current client.",
+      "CandidateSHA256": "b7ec64bbaa3e488d7e0202528aed77fb1d33c439f6679e4b30109399f0969b66",
+      "SecondSHA256": "b7ec64bbaa3e488d7e0202528aed77fb1d33c439f6679e4b30109399f0969b66",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-01-tests/qa/install-result.json",
+      "Bytes": 532,
+      "SHA256": "118170c70da3c65e87ba3c062fd54a61461a99166646ff93d3a5d07031aaa00c",
+      "Decision": "Keep",
+      "Reason": "Preserve exact guard/hash chain or historical install receipt; not authorization or evidence that this manifest can install over current client.",
+      "CandidateSHA256": "118170c70da3c65e87ba3c062fd54a61461a99166646ff93d3a5d07031aaa00c",
+      "SecondSHA256": "118170c70da3c65e87ba3c062fd54a61461a99166646ff93d3a5d07031aaa00c",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-01-tests/qa/test-compile-result.json",
+      "Bytes": 457,
+      "SHA256": "0f729db329fafd17a6d66072702491b6a882d6be06619d715e2780888c22fcfe",
+      "Decision": "Keep",
+      "Reason": "Current code, integration source, or concise textual validation/provenance evidence.",
+      "CandidateSHA256": "0f729db329fafd17a6d66072702491b6a882d6be06619d715e2780888c22fcfe",
+      "SecondSHA256": "0f729db329fafd17a6d66072702491b6a882d6be06619d715e2780888c22fcfe",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-01-tests/qa/test-compile.log",
+      "Bytes": 324,
+      "SHA256": "dfd57044f2d994f5c11d5f4b9eb7f80c69053cddd6e81bfe5694f9089ef8dcaa",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "dfd57044f2d994f5c11d5f4b9eb7f80c69053cddd6e81bfe5694f9089ef8dcaa",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-01-tests/qa/test-compile.rsp",
+      "Bytes": 39595,
+      "SHA256": "b2ad5237aca1376fdd9835f423185afa9f1e62efefe19690e97f40175c410ea6",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "b2ad5237aca1376fdd9835f423185afa9f1e62efefe19690e97f40175c410ea6",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/client/Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "Bytes": 5936,
+      "SHA256": "4aedaa2552fc32bc6815b0d71a03f6a30596fc194182f6251643384dcd845127",
+      "Decision": "Exclude",
+      "Reason": "Intermediate patch code superseded by patch-03; textual manifests and guard/hash chain retained; source and previously uploaded files untouched.",
+      "CandidateSHA256": "4aedaa2552fc32bc6815b0d71a03f6a30596fc194182f6251643384dcd845127",
+      "SecondSHA256": "4aedaa2552fc32bc6815b0d71a03f6a30596fc194182f6251643384dcd845127",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/client/Assets/Scripts/UI/Ugui/QdaoServerSelectView.Visuals.cs",
+      "Bytes": 19939,
+      "SHA256": "4e5f600064560d0ee9bce8dfdb8f084c73d0a8b82c0108fc523f2bc56b063abf",
+      "Decision": "Exclude",
+      "Reason": "Intermediate patch code superseded by patch-03; textual manifests and guard/hash chain retained; source and previously uploaded files untouched.",
+      "CandidateSHA256": "4e5f600064560d0ee9bce8dfdb8f084c73d0a8b82c0108fc523f2bc56b063abf",
+      "SecondSHA256": "4e5f600064560d0ee9bce8dfdb8f084c73d0a8b82c0108fc523f2bc56b063abf",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/client/Assets/Scripts/UI/Ugui/Role/RoleFlowUi.cs",
+      "Bytes": 41993,
+      "SHA256": "280f1ba47f4bbdb4b00e759ad5371f8999d85c170490d5a9e7b35b988dd11e5b",
+      "Decision": "Keep",
+      "Reason": "Current code, integration source, or concise textual validation/provenance evidence.",
+      "CandidateSHA256": "280f1ba47f4bbdb4b00e759ad5371f8999d85c170490d5a9e7b35b988dd11e5b",
+      "SecondSHA256": "280f1ba47f4bbdb4b00e759ad5371f8999d85c170490d5a9e7b35b988dd11e5b",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/compile-staged.ps1",
+      "Bytes": 3174,
+      "SHA256": "a19b4525a8c367ff6340712bffcdfca2201069805ebd330aeef5847052c08723",
+      "Decision": "Keep",
+      "Reason": "Historical compile recipe retained as provenance for patch-01 RoleFlowUi and role-test compilation; superseded helper sources are omitted, so this recipe is not a complete current package.",
+      "CandidateSHA256": "a19b4525a8c367ff6340712bffcdfca2201069805ebd330aeef5847052c08723",
+      "SecondSHA256": "a19b4525a8c367ff6340712bffcdfca2201069805ebd330aeef5847052c08723",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/install-manifest.json",
+      "Bytes": 1725,
+      "SHA256": "6314811e091f91715bc7659fed3d4d0d130d8896c1e8369be55f445cafdbf6e0",
+      "Decision": "Keep",
+      "Reason": "Preserve exact guard/hash chain or historical install receipt; not authorization or evidence that this manifest can install over current client.",
+      "CandidateSHA256": "6314811e091f91715bc7659fed3d4d0d130d8896c1e8369be55f445cafdbf6e0",
+      "SecondSHA256": "6314811e091f91715bc7659fed3d4d0d130d8896c1e8369be55f445cafdbf6e0",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/qa/core-patch-01-compile-result.json",
+      "Bytes": 764,
+      "SHA256": "85fa19e1760ba6d425bddfc5e95736166a63e43fc3f9ea542e893f51c4ca02dd",
+      "Decision": "Keep",
+      "Reason": "Current code, integration source, or concise textual validation/provenance evidence.",
+      "CandidateSHA256": "85fa19e1760ba6d425bddfc5e95736166a63e43fc3f9ea542e893f51c4ca02dd",
+      "SecondSHA256": "85fa19e1760ba6d425bddfc5e95736166a63e43fc3f9ea542e893f51c4ca02dd",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/qa/core-patch-01-compile.log",
+      "Bytes": 1175,
+      "SHA256": "22d67e44ff3fa6d19f3305cde325f4c74f753cdf3ca83002a1a309c8d8ad61bd",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "22d67e44ff3fa6d19f3305cde325f4c74f753cdf3ca83002a1a309c8d8ad61bd",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/qa/core-patch-01-compile.rsp",
+      "Bytes": 76762,
+      "SHA256": "aecfe7d800141ea8e9aa648623250ce83ad925cac6dfbf23da3897938f2ac230",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "aecfe7d800141ea8e9aa648623250ce83ad925cac6dfbf23da3897938f2ac230",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/qa/install-result.json",
+      "Bytes": 1248,
+      "SHA256": "aba8ba8e9718a815389a8b8a4529e475b0fb416f7259e4ec2dbc8f574d33dfb5",
+      "Decision": "Keep",
+      "Reason": "Preserve exact guard/hash chain or historical install receipt; not authorization or evidence that this manifest can install over current client.",
+      "CandidateSHA256": "aba8ba8e9718a815389a8b8a4529e475b0fb416f7259e4ec2dbc8f574d33dfb5",
+      "SecondSHA256": "aba8ba8e9718a815389a8b8a4529e475b0fb416f7259e4ec2dbc8f574d33dfb5",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-02/client/Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "Bytes": 7984,
+      "SHA256": "e83009fed0be34741d73544e5e5612114da9e3d0408851daaeec828c5c9edaf6",
+      "Decision": "Exclude",
+      "Reason": "Intermediate patch code superseded by patch-03; textual manifests and guard/hash chain retained; source and previously uploaded files untouched.",
+      "CandidateSHA256": "e83009fed0be34741d73544e5e5612114da9e3d0408851daaeec828c5c9edaf6",
+      "SecondSHA256": "e83009fed0be34741d73544e5e5612114da9e3d0408851daaeec828c5c9edaf6",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-02/compile-staged.ps1",
+      "Bytes": 3174,
+      "SHA256": "00ed8649c23d8a33fa6c6986b93a862d9f2a4d3faa10387d3900828bf7d9346c",
+      "Decision": "Exclude",
+      "Reason": "Build helper exclusively for superseded intermediate source. Patch-02 manifest and compile/install evidence retained.",
+      "CandidateSHA256": "00ed8649c23d8a33fa6c6986b93a862d9f2a4d3faa10387d3900828bf7d9346c",
+      "SecondSHA256": "00ed8649c23d8a33fa6c6986b93a862d9f2a4d3faa10387d3900828bf7d9346c",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-02/install-manifest.json",
+      "Bytes": 1112,
+      "SHA256": "a1acd0c32f8009e9249acdd328c7c0178fdbd533188c398913a537fe7d6f3537",
+      "Decision": "Keep",
+      "Reason": "Preserve exact guard/hash chain or historical install receipt; not authorization or evidence that this manifest can install over current client.",
+      "CandidateSHA256": "a1acd0c32f8009e9249acdd328c7c0178fdbd533188c398913a537fe7d6f3537",
+      "SecondSHA256": "a1acd0c32f8009e9249acdd328c7c0178fdbd533188c398913a537fe7d6f3537",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-02/qa/core-patch-02-compile-result.json",
+      "Bytes": 484,
+      "SHA256": "3d46464064854a25e05b9155bba75bdc025c48d31fa5f883c8fbdd0a412c6fe9",
+      "Decision": "Keep",
+      "Reason": "Current code, integration source, or concise textual validation/provenance evidence.",
+      "CandidateSHA256": "3d46464064854a25e05b9155bba75bdc025c48d31fa5f883c8fbdd0a412c6fe9",
+      "SecondSHA256": "3d46464064854a25e05b9155bba75bdc025c48d31fa5f883c8fbdd0a412c6fe9",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-02/qa/core-patch-02-compile.log",
+      "Bytes": 1175,
+      "SHA256": "a88138b4b2aeffbfbc3f26fe467c52211b80e13896e5057dfe406eac29c4c433",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "a88138b4b2aeffbfbc3f26fe467c52211b80e13896e5057dfe406eac29c4c433",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-02/qa/core-patch-02-compile.rsp",
+      "Bytes": 76670,
+      "SHA256": "a0fe18555129a263e21386f2a7a7c6bb90388758605344c796c564c677855b8c",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "a0fe18555129a263e21386f2a7a7c6bb90388758605344c796c564c677855b8c",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-02/qa/install-result.json",
+      "Bytes": 510,
+      "SHA256": "0ff17192bf327f1ee83d6d42208cd558dfb151556204156e232399090dedd254",
+      "Decision": "Keep",
+      "Reason": "Preserve exact guard/hash chain or historical install receipt; not authorization or evidence that this manifest can install over current client.",
+      "CandidateSHA256": "0ff17192bf327f1ee83d6d42208cd558dfb151556204156e232399090dedd254",
+      "SecondSHA256": "0ff17192bf327f1ee83d6d42208cd558dfb151556204156e232399090dedd254",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/client/Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "Bytes": 8686,
+      "SHA256": "7d70853eda50751e077684e1c37a4c1ba6ad211af02c0cd6a2815db58af04bc0",
+      "Decision": "Keep",
+      "Reason": "Current code, integration source, or concise textual validation/provenance evidence.",
+      "CandidateSHA256": "7d70853eda50751e077684e1c37a4c1ba6ad211af02c0cd6a2815db58af04bc0",
+      "SecondSHA256": "7d70853eda50751e077684e1c37a4c1ba6ad211af02c0cd6a2815db58af04bc0",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/client/Assets/Scripts/UI/Ugui/QdaoServerSelectView.Visuals.cs",
+      "Bytes": 20321,
+      "SHA256": "53c1da6fbe8e6922ca9882b5f558559b07645684ce2aa27591a021c72101f285",
+      "Decision": "Keep",
+      "Reason": "Current code, integration source, or concise textual validation/provenance evidence.",
+      "CandidateSHA256": "53c1da6fbe8e6922ca9882b5f558559b07645684ce2aa27591a021c72101f285",
+      "SecondSHA256": "53c1da6fbe8e6922ca9882b5f558559b07645684ce2aa27591a021c72101f285",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/compile-staged-tests.ps1",
+      "Bytes": 2543,
+      "SHA256": "c3534b9dcda5fd50e7c1dcbc8e1d44b3c1c55c2b39107543574f46d47fc93670",
+      "Decision": "Keep",
+      "Reason": "Current code, integration source, or concise textual validation/provenance evidence.",
+      "CandidateSHA256": "c3534b9dcda5fd50e7c1dcbc8e1d44b3c1c55c2b39107543574f46d47fc93670",
+      "SecondSHA256": "c3534b9dcda5fd50e7c1dcbc8e1d44b3c1c55c2b39107543574f46d47fc93670",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/compile-staged.ps1",
+      "Bytes": 3174,
+      "SHA256": "020d0d6cb3781131a48376a22d359b8a7314e0686048b4d44fa6964b1ae3dc92",
+      "Decision": "Keep",
+      "Reason": "Current code, integration source, or concise textual validation/provenance evidence.",
+      "CandidateSHA256": "020d0d6cb3781131a48376a22d359b8a7314e0686048b4d44fa6964b1ae3dc92",
+      "SecondSHA256": "020d0d6cb3781131a48376a22d359b8a7314e0686048b4d44fa6964b1ae3dc92",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/install-manifest.json",
+      "Bytes": 1290,
+      "SHA256": "5b0ad6b63d88e15681f6a49e6f3ce96e11e7c6ad3aac644d114bc4e4a0453059",
+      "Decision": "Keep",
+      "Reason": "Preserve exact guard/hash chain or historical install receipt; not authorization or evidence that this manifest can install over current client.",
+      "CandidateSHA256": "5b0ad6b63d88e15681f6a49e6f3ce96e11e7c6ad3aac644d114bc4e4a0453059",
+      "SecondSHA256": "5b0ad6b63d88e15681f6a49e6f3ce96e11e7c6ad3aac644d114bc4e4a0453059",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/qa/core-patch-03-compile-result.json",
+      "Bytes": 630,
+      "SHA256": "5ad9c541950c5ba4a06948973a2a72a36d41cb7c294c8568ed1f08a77324177b",
+      "Decision": "Keep",
+      "Reason": "Current code, integration source, or concise textual validation/provenance evidence.",
+      "CandidateSHA256": "5ad9c541950c5ba4a06948973a2a72a36d41cb7c294c8568ed1f08a77324177b",
+      "SecondSHA256": "5ad9c541950c5ba4a06948973a2a72a36d41cb7c294c8568ed1f08a77324177b",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/qa/core-patch-03-compile.log",
+      "Bytes": 1175,
+      "SHA256": "22d67e44ff3fa6d19f3305cde325f4c74f753cdf3ca83002a1a309c8d8ad61bd",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "22d67e44ff3fa6d19f3305cde325f4c74f753cdf3ca83002a1a309c8d8ad61bd",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/qa/core-patch-03-compile.rsp",
+      "Bytes": 76716,
+      "SHA256": "ff09a448682f24a33d456d29ea567c4b6aa48c1d61ca6f74e00deafcdf1d935d",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "ff09a448682f24a33d456d29ea567c4b6aa48c1d61ca6f74e00deafcdf1d935d",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/qa/core-patch-03-runtime-check.dll",
+      "Bytes": 3771392,
+      "SHA256": "d460e9818b0e9a893e0045b0d50b3c2a9862715202dc0cd90b45975121a9a02c",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "d460e9818b0e9a893e0045b0d50b3c2a9862715202dc0cd90b45975121a9a02c",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/qa/core-tests-compile-result.json",
+      "Bytes": 437,
+      "SHA256": "c0dc58302cf4554cf35030500b206756bac265824e0fd50fc85a695ddfb7777d",
+      "Decision": "Keep",
+      "Reason": "Current code, integration source, or concise textual validation/provenance evidence.",
+      "CandidateSHA256": "c0dc58302cf4554cf35030500b206756bac265824e0fd50fc85a695ddfb7777d",
+      "SecondSHA256": "c0dc58302cf4554cf35030500b206756bac265824e0fd50fc85a695ddfb7777d",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/qa/core-tests-compile.rsp",
+      "Bytes": 41840,
+      "SHA256": "0c399bcd793c781ee04258fadfb16d18da2802110ecaf01f45856e4f608ecd67",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "0c399bcd793c781ee04258fadfb16d18da2802110ecaf01f45856e4f608ecd67",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/qa/MmorpgClient.Tests.EditMode.Tianyong.dll",
+      "Bytes": 20992,
+      "SHA256": "eab842e1f6d684ffc792010a6c4231eed34c0648f33505b91ab2d2ab004f8081",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "eab842e1f6d684ffc792010a6c4231eed34c0648f33505b91ab2d2ab004f8081",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/tests-client/Assets/Tests/EditMode/Tianyong/QdaoServerSelectPrefabTests.cs",
+      "Bytes": 17564,
+      "SHA256": "a667099ae07f17a890632256ecc71a4321be3a38c9e29afe09f0083ee0f3bfcd",
+      "Decision": "Keep",
+      "Reason": "Current code, integration source, or concise textual validation/provenance evidence.",
+      "CandidateSHA256": "a667099ae07f17a890632256ecc71a4321be3a38c9e29afe09f0083ee0f3bfcd",
+      "SecondSHA256": "a667099ae07f17a890632256ecc71a4321be3a38c9e29afe09f0083ee0f3bfcd",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/tests-install-manifest.json",
+      "Bytes": 746,
+      "SHA256": "aa823f141f51fd03ffd3a4a7645dc65b318b91e8efcb78cd14f975a020debd94",
+      "Decision": "Keep",
+      "Reason": "Preserve exact guard/hash chain or historical install receipt; not authorization or evidence that this manifest can install over current client.",
+      "CandidateSHA256": "aa823f141f51fd03ffd3a4a7645dc65b318b91e8efcb78cd14f975a020debd94",
+      "SecondSHA256": "aa823f141f51fd03ffd3a4a7645dc65b318b91e8efcb78cd14f975a020debd94",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/qa/core-login-server-compile.log",
+      "Bytes": 1175,
+      "SHA256": "22d67e44ff3fa6d19f3305cde325f4c74f753cdf3ca83002a1a309c8d8ad61bd",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "22d67e44ff3fa6d19f3305cde325f4c74f753cdf3ca83002a1a309c8d8ad61bd",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/qa/core-login-server-compile.rsp",
+      "Bytes": 76730,
+      "SHA256": "8e7afe7b2349e3576c017847bbab517a81b064d6a4df28b23d69150241c7fff1",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "8e7afe7b2349e3576c017847bbab517a81b064d6a4df28b23d69150241c7fff1",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/qa/core-role-compile.log",
+      "Bytes": 1175,
+      "SHA256": "a88138b4b2aeffbfbc3f26fe467c52211b80e13896e5057dfe406eac29c4c433",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "a88138b4b2aeffbfbc3f26fe467c52211b80e13896e5057dfe406eac29c4c433",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/qa/core-role-compile.rsp",
+      "Bytes": 76683,
+      "SHA256": "59a51b218dfb267f041f15307e0bdabdccd95cb6b31b2db0af23c5cb321d7154",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "59a51b218dfb267f041f15307e0bdabdccd95cb6b31b2db0af23c5cb321d7154",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/qa/core-tests-compile.rsp",
+      "Bytes": 41817,
+      "SHA256": "0d7cde6b09afec810c16d9eb3cd94cb90f3fa993d5c2ee53f46abb370a076ec8",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "0d7cde6b09afec810c16d9eb3cd94cb90f3fa993d5c2ee53f46abb370a076ec8",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/qa/native-core-review.md",
+      "Bytes": 3240,
+      "SHA256": "2660b8889c2136e40fc1dbc93be4240507a583b91641f6dafee02736ecabf742",
+      "Decision": "Keep",
+      "Reason": "Current code, integration source, or concise textual validation/provenance evidence.",
+      "CandidateSHA256": "2660b8889c2136e40fc1dbc93be4240507a583b91641f6dafee02736ecabf742",
+      "SecondSHA256": "2660b8889c2136e40fc1dbc93be4240507a583b91641f6dafee02736ecabf742",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/stage_patch_01.py",
+      "Bytes": 7181,
+      "SHA256": "2989305a5fc7cefa0c38f3efda1f25de455acff7e2f3518bc899d99b057a7716",
+      "Decision": "Keep",
+      "Reason": "Transformation/provenance script retained as text, not executed. Absolute machine paths and historical source guards must be reviewed before reuse.",
+      "CandidateSHA256": "2989305a5fc7cefa0c38f3efda1f25de455acff7e2f3518bc899d99b057a7716",
+      "SecondSHA256": "2989305a5fc7cefa0c38f3efda1f25de455acff7e2f3518bc899d99b057a7716",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/stage_patch_02.py",
+      "Bytes": 3919,
+      "SHA256": "2c4c7aa7d1675cc0cd5d2c95244caad5ab2dfddb93a7a797f762ccebdabb6c7b",
+      "Decision": "Keep",
+      "Reason": "Transformation/provenance script retained as text, not executed. Absolute machine paths and historical source guards must be reviewed before reuse.",
+      "CandidateSHA256": "2c4c7aa7d1675cc0cd5d2c95244caad5ab2dfddb93a7a797f762ccebdabb6c7b",
+      "SecondSHA256": "2c4c7aa7d1675cc0cd5d2c95244caad5ab2dfddb93a7a797f762ccebdabb6c7b",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/stage_patch_03.py",
+      "Bytes": 5870,
+      "SHA256": "af690242d8b0fb311e4a5cb40e766c36c246510397d99011022f7ab8a08627e1",
+      "Decision": "Keep",
+      "Reason": "Transformation/provenance script retained as text, not executed. Absolute machine paths and historical source guards must be reviewed before reuse.",
+      "CandidateSHA256": "af690242d8b0fb311e4a5cb40e766c36c246510397d99011022f7ab8a08627e1",
+      "SecondSHA256": "af690242d8b0fb311e4a5cb40e766c36c246510397d99011022f7ab8a08627e1",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-20261016/stage_role_tests_patch.py",
+      "Bytes": 1659,
+      "SHA256": "80c3311df1a8217578fbd822d300fbe387a931811513e736243666cf416d4dc2",
+      "Decision": "Keep",
+      "Reason": "Transformation/provenance script retained as text, not executed. Absolute machine paths and historical source guards must be reviewed before reuse.",
+      "CandidateSHA256": "80c3311df1a8217578fbd822d300fbe387a931811513e736243666cf416d4dc2",
+      "SecondSHA256": "80c3311df1a8217578fbd822d300fbe387a931811513e736243666cf416d4dc2",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-battle-20261016/compact-font-patch-install-manifest.json",
+      "Bytes": 1190,
+      "SHA256": "53184a745081df24b524d2ecc073dca135339fb556633ac4b550375a94f788a3",
+      "Decision": "Keep",
+      "Reason": "Preserve exact guard/hash chain or historical install receipt; not authorization or evidence that this manifest can install over current client.",
+      "CandidateSHA256": "53184a745081df24b524d2ecc073dca135339fb556633ac4b550375a94f788a3",
+      "SecondSHA256": "53184a745081df24b524d2ecc073dca135339fb556633ac4b550375a94f788a3",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-battle-20261016/compact-font-patch/BattleFidelityArt.cs",
+      "Bytes": 5529,
+      "SHA256": "73d0e6f44b9e71696d042421e1d4000861f2af219e0d4d21c3e6db4e0e77f15c",
+      "Decision": "Keep",
+      "Reason": "Current code, integration source, or concise textual validation/provenance evidence.",
+      "CandidateSHA256": "73d0e6f44b9e71696d042421e1d4000861f2af219e0d4d21c3e6db4e0e77f15c",
+      "SecondSHA256": "73d0e6f44b9e71696d042421e1d4000861f2af219e0d4d21c3e6db4e0e77f15c",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-battle-20261016/qa/BattleFidelity.CompactFont.dll",
+      "Bytes": 8704,
+      "SHA256": "4e715d04bc9b5152a15a81d1bd8c7d7176e81932e622aa6ae09c88683dac094b",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "4e715d04bc9b5152a15a81d1bd8c7d7176e81932e622aa6ae09c88683dac094b",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-battle-20261016/qa/BattleFidelity.Runtime.dll",
+      "Bytes": 3762688,
+      "SHA256": "1cdfe16c0c63710d0c320ad75950444d20907a05b70e69475218be9ed8accfcf",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "1cdfe16c0c63710d0c320ad75950444d20907a05b70e69475218be9ed8accfcf",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-battle-20261016/qa/compact-font-only.rsp",
+      "Bytes": 39409,
+      "SHA256": "51428882f25cdda3c13d618a3404ebf2973af98bb6137406654f65351c4fb9bc",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "51428882f25cdda3c13d618a3404ebf2973af98bb6137406654f65351c4fb9bc",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-battle-20261016/qa/runtime-compile.log",
+      "Bytes": 1178,
+      "SHA256": "ac68b0f7a79cad2d4de5c4b98383570516970f4166cc4e9ec47d1da412808823",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "ac68b0f7a79cad2d4de5c4b98383570516970f4166cc4e9ec47d1da412808823",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-battle-20261016/qa/runtime.rsp",
+      "Bytes": 77983,
+      "SHA256": "4c6ec3354bdd570d22ec724a371f5c37bd03cc206d7d766ba806bc6351a7a151",
+      "Decision": "Exclude",
+      "Reason": "Compilation output, raw log/response file or QA screenshot; source left untouched.",
+      "CandidateSHA256": null,
+      "SecondSHA256": "4c6ec3354bdd570d22ec724a371f5c37bd03cc206d7d766ba806bc6351a7a151",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "qdao_ui_redesign_v5/fidelity-battle-20261016/stage-compact-font-patch.cjs",
+      "Bytes": 2292,
+      "SHA256": "b7f19586166e82987ffad7f57cb09e8e82a270b14447a91cb93468b2a48f5fe5",
+      "Decision": "Keep",
+      "Reason": "Transformation/provenance script retained as text, not executed. Absolute machine paths and historical source guards must be reviewed before reuse.",
+      "CandidateSHA256": "b7f19586166e82987ffad7f57cb09e8e82a270b14447a91cb93468b2a48f5fe5",
+      "SecondSHA256": "b7f19586166e82987ffad7f57cb09e8e82a270b14447a91cb93468b2a48f5fe5",
+      "TwoPassStable": true
+    }
+  ],
+  "LatestDestinationPayload": [
+    {
+      "DestinationPath": "Assets/Scripts/UI/Ugui/Battle/BattleFidelityArt.cs",
+      "SourcePath": "qdao_ui_redesign_v5/fidelity-battle-20261016/compact-font-patch/BattleFidelityArt.cs",
+      "Bytes": 5529,
+      "SHA256": "73d0e6f44b9e71696d042421e1d4000861f2af219e0d4d21c3e6db4e0e77f15c",
+      "ManifestPath": "qdao_ui_redesign_v5/fidelity-battle-20261016/compact-font-patch-install-manifest.json",
+      "HistoricalGuardBeforeSHA256": "398368e42416551737b23621fd95767c641cc69c100718873cfa82dce1dd5eb6"
+    },
+    {
+      "DestinationPath": "Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "SourcePath": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/client/Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "Bytes": 8686,
+      "SHA256": "7d70853eda50751e077684e1c37a4c1ba6ad211af02c0cd6a2815db58af04bc0",
+      "ManifestPath": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/install-manifest.json",
+      "HistoricalGuardBeforeSHA256": "e83009fed0be34741d73544e5e5612114da9e3d0408851daaeec828c5c9edaf6"
+    },
+    {
+      "DestinationPath": "Assets/Scripts/UI/Ugui/QdaoServerSelectView.Visuals.cs",
+      "SourcePath": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/client/Assets/Scripts/UI/Ugui/QdaoServerSelectView.Visuals.cs",
+      "Bytes": 20321,
+      "SHA256": "53c1da6fbe8e6922ca9882b5f558559b07645684ce2aa27591a021c72101f285",
+      "ManifestPath": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/install-manifest.json",
+      "HistoricalGuardBeforeSHA256": "4e5f600064560d0ee9bce8dfdb8f084c73d0a8b82c0108fc523f2bc56b063abf"
+    },
+    {
+      "DestinationPath": "Assets/Scripts/UI/Ugui/Role/RoleFlowUi.cs",
+      "SourcePath": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/client/Assets/Scripts/UI/Ugui/Role/RoleFlowUi.cs",
+      "Bytes": 41993,
+      "SHA256": "280f1ba47f4bbdb4b00e759ad5371f8999d85c170490d5a9e7b35b988dd11e5b",
+      "ManifestPath": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/install-manifest.json",
+      "HistoricalGuardBeforeSHA256": "356da0f5e53c350bb6daed54fe9b904453414dce7a310f2bda1dbfbd6f4c72e8"
+    },
+    {
+      "DestinationPath": "Assets/Tests/EditMode/Tianyong/QdaoServerSelectPrefabTests.cs",
+      "SourcePath": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/tests-client/Assets/Tests/EditMode/Tianyong/QdaoServerSelectPrefabTests.cs",
+      "Bytes": 17564,
+      "SHA256": "a667099ae07f17a890632256ecc71a4321be3a38c9e29afe09f0083ee0f3bfcd",
+      "ManifestPath": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/tests-install-manifest.json",
+      "HistoricalGuardBeforeSHA256": "b055a710f41d1be9f3ffd424faf8b7aef190138a062d253d6657bc911a220b42"
+    },
+    {
+      "DestinationPath": "Assets/Tests/PlayMode/QdaoRoleIdentityPlayModeTests.cs",
+      "SourcePath": "qdao_ui_redesign_v5/fidelity-20261016/patch-01-tests/client/Assets/Tests/PlayMode/QdaoRoleIdentityPlayModeTests.cs",
+      "Bytes": 27490,
+      "SHA256": "3417db3433c04a44a9b8cc1d2b6050481259cad03724049f4e1bc435dd6db587",
+      "ManifestPath": "qdao_ui_redesign_v5/fidelity-20261016/patch-01-tests/install-manifest.json",
+      "HistoricalGuardBeforeSHA256": "9691031d722240b4d632e418e156aa2a5f5016e0a0fba2f723004dfcd89d9888"
+    }
+  ],
+  "ManifestChecks": [
+    {
+      "Type": "ManifestPayload",
+      "Manifest": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/install-manifest.json",
+      "SourcePath": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/client/Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "DestinationPath": "Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "ExpectedSHA256": "4aedaa2552fc32bc6815b0d71a03f6a30596fc194182f6251643384dcd845127",
+      "ActualSHA256": "4aedaa2552fc32bc6815b0d71a03f6a30596fc194182f6251643384dcd845127",
+      "Match": true
+    },
+    {
+      "Type": "GuardChain",
+      "Manifest": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/install-manifest.json",
+      "DestinationPath": "Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "ExpectedBeforeSHA256": "00303eb1ecd1cb17ee2995657e7f7f717a2d3c43bf7dafb15c194abd2724891a",
+      "PredecessorSourcePath": "qdao_ui_redesign_v5/fidelity-20261016/client/Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "PredecessorSHA256": "00303eb1ecd1cb17ee2995657e7f7f717a2d3c43bf7dafb15c194abd2724891a",
+      "Match": true,
+      "Limitation": null
+    },
+    {
+      "Type": "ManifestPayload",
+      "Manifest": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/install-manifest.json",
+      "SourcePath": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/client/Assets/Scripts/UI/Ugui/QdaoServerSelectView.Visuals.cs",
+      "DestinationPath": "Assets/Scripts/UI/Ugui/QdaoServerSelectView.Visuals.cs",
+      "ExpectedSHA256": "4e5f600064560d0ee9bce8dfdb8f084c73d0a8b82c0108fc523f2bc56b063abf",
+      "ActualSHA256": "4e5f600064560d0ee9bce8dfdb8f084c73d0a8b82c0108fc523f2bc56b063abf",
+      "Match": true
+    },
+    {
+      "Type": "GuardChain",
+      "Manifest": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/install-manifest.json",
+      "DestinationPath": "Assets/Scripts/UI/Ugui/QdaoServerSelectView.Visuals.cs",
+      "ExpectedBeforeSHA256": "3a49b1c83088d115f5285bbe86b49ba233848ae7c87200f0ec9e740b9715bafb",
+      "PredecessorSourcePath": "qdao_ui_redesign_v5/fidelity-20261016/client/Assets/Scripts/UI/Ugui/QdaoServerSelectView.Visuals.cs",
+      "PredecessorSHA256": "3a49b1c83088d115f5285bbe86b49ba233848ae7c87200f0ec9e740b9715bafb",
+      "Match": true,
+      "Limitation": null
+    },
+    {
+      "Type": "ManifestPayload",
+      "Manifest": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/install-manifest.json",
+      "SourcePath": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/client/Assets/Scripts/UI/Ugui/Role/RoleFlowUi.cs",
+      "DestinationPath": "Assets/Scripts/UI/Ugui/Role/RoleFlowUi.cs",
+      "ExpectedSHA256": "280f1ba47f4bbdb4b00e759ad5371f8999d85c170490d5a9e7b35b988dd11e5b",
+      "ActualSHA256": "280f1ba47f4bbdb4b00e759ad5371f8999d85c170490d5a9e7b35b988dd11e5b",
+      "Match": true
+    },
+    {
+      "Type": "GuardChain",
+      "Manifest": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/install-manifest.json",
+      "DestinationPath": "Assets/Scripts/UI/Ugui/Role/RoleFlowUi.cs",
+      "ExpectedBeforeSHA256": "356da0f5e53c350bb6daed54fe9b904453414dce7a310f2bda1dbfbd6f4c72e8",
+      "PredecessorSourcePath": "qdao_ui_redesign_v5/fidelity-20261016/client/Assets/Scripts/UI/Ugui/Role/RoleFlowUi.cs",
+      "PredecessorSHA256": "356da0f5e53c350bb6daed54fe9b904453414dce7a310f2bda1dbfbd6f4c72e8",
+      "Match": true,
+      "Limitation": null
+    },
+    {
+      "Type": "ManifestPayload",
+      "Manifest": "qdao_ui_redesign_v5/fidelity-20261016/patch-02/install-manifest.json",
+      "SourcePath": "qdao_ui_redesign_v5/fidelity-20261016/patch-02/client/Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "DestinationPath": "Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "ExpectedSHA256": "e83009fed0be34741d73544e5e5612114da9e3d0408851daaeec828c5c9edaf6",
+      "ActualSHA256": "e83009fed0be34741d73544e5e5612114da9e3d0408851daaeec828c5c9edaf6",
+      "Match": true
+    },
+    {
+      "Type": "GuardChain",
+      "Manifest": "qdao_ui_redesign_v5/fidelity-20261016/patch-02/install-manifest.json",
+      "DestinationPath": "Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "ExpectedBeforeSHA256": "4aedaa2552fc32bc6815b0d71a03f6a30596fc194182f6251643384dcd845127",
+      "PredecessorSourcePath": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/client/Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "PredecessorSHA256": "4aedaa2552fc32bc6815b0d71a03f6a30596fc194182f6251643384dcd845127",
+      "Match": true,
+      "Limitation": null
+    },
+    {
+      "Type": "ManifestPayload",
+      "Manifest": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/install-manifest.json",
+      "SourcePath": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/client/Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "DestinationPath": "Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "ExpectedSHA256": "7d70853eda50751e077684e1c37a4c1ba6ad211af02c0cd6a2815db58af04bc0",
+      "ActualSHA256": "7d70853eda50751e077684e1c37a4c1ba6ad211af02c0cd6a2815db58af04bc0",
+      "Match": true
+    },
+    {
+      "Type": "GuardChain",
+      "Manifest": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/install-manifest.json",
+      "DestinationPath": "Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "ExpectedBeforeSHA256": "e83009fed0be34741d73544e5e5612114da9e3d0408851daaeec828c5c9edaf6",
+      "PredecessorSourcePath": "qdao_ui_redesign_v5/fidelity-20261016/patch-02/client/Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "PredecessorSHA256": "e83009fed0be34741d73544e5e5612114da9e3d0408851daaeec828c5c9edaf6",
+      "Match": true,
+      "Limitation": null
+    },
+    {
+      "Type": "ManifestPayload",
+      "Manifest": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/install-manifest.json",
+      "SourcePath": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/client/Assets/Scripts/UI/Ugui/QdaoServerSelectView.Visuals.cs",
+      "DestinationPath": "Assets/Scripts/UI/Ugui/QdaoServerSelectView.Visuals.cs",
+      "ExpectedSHA256": "53c1da6fbe8e6922ca9882b5f558559b07645684ce2aa27591a021c72101f285",
+      "ActualSHA256": "53c1da6fbe8e6922ca9882b5f558559b07645684ce2aa27591a021c72101f285",
+      "Match": true
+    },
+    {
+      "Type": "GuardChain",
+      "Manifest": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/install-manifest.json",
+      "DestinationPath": "Assets/Scripts/UI/Ugui/QdaoServerSelectView.Visuals.cs",
+      "ExpectedBeforeSHA256": "4e5f600064560d0ee9bce8dfdb8f084c73d0a8b82c0108fc523f2bc56b063abf",
+      "PredecessorSourcePath": "qdao_ui_redesign_v5/fidelity-20261016/patch-01/client/Assets/Scripts/UI/Ugui/QdaoServerSelectView.Visuals.cs",
+      "PredecessorSHA256": "4e5f600064560d0ee9bce8dfdb8f084c73d0a8b82c0108fc523f2bc56b063abf",
+      "Match": true,
+      "Limitation": null
+    },
+    {
+      "Type": "ManifestPayload",
+      "Manifest": "qdao_ui_redesign_v5/fidelity-20261016/patch-01-tests/install-manifest.json",
+      "SourcePath": "qdao_ui_redesign_v5/fidelity-20261016/patch-01-tests/client/Assets/Tests/PlayMode/QdaoRoleIdentityPlayModeTests.cs",
+      "DestinationPath": "Assets/Tests/PlayMode/QdaoRoleIdentityPlayModeTests.cs",
+      "ExpectedSHA256": "3417db3433c04a44a9b8cc1d2b6050481259cad03724049f4e1bc435dd6db587",
+      "ActualSHA256": "3417db3433c04a44a9b8cc1d2b6050481259cad03724049f4e1bc435dd6db587",
+      "Match": true
+    },
+    {
+      "Type": "GuardChain",
+      "Manifest": "qdao_ui_redesign_v5/fidelity-20261016/patch-01-tests/install-manifest.json",
+      "DestinationPath": "Assets/Tests/PlayMode/QdaoRoleIdentityPlayModeTests.cs",
+      "ExpectedBeforeSHA256": "9691031d722240b4d632e418e156aa2a5f5016e0a0fba2f723004dfcd89d9888",
+      "PredecessorSourcePath": null,
+      "PredecessorSHA256": null,
+      "Match": null,
+      "Limitation": "Initial role test predecessor not in uploaded subset; not fetched from old history. Current source and installer receipt are independently checked."
+    },
+    {
+      "Type": "ManifestPayload",
+      "Manifest": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/tests-install-manifest.json",
+      "SourcePath": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/tests-client/Assets/Tests/EditMode/Tianyong/QdaoServerSelectPrefabTests.cs",
+      "DestinationPath": "Assets/Tests/EditMode/Tianyong/QdaoServerSelectPrefabTests.cs",
+      "ExpectedSHA256": "a667099ae07f17a890632256ecc71a4321be3a38c9e29afe09f0083ee0f3bfcd",
+      "ActualSHA256": "a667099ae07f17a890632256ecc71a4321be3a38c9e29afe09f0083ee0f3bfcd",
+      "Match": true
+    },
+    {
+      "Type": "GuardChain",
+      "Manifest": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/tests-install-manifest.json",
+      "DestinationPath": "Assets/Tests/EditMode/Tianyong/QdaoServerSelectPrefabTests.cs",
+      "ExpectedBeforeSHA256": "b055a710f41d1be9f3ffd424faf8b7aef190138a062d253d6657bc911a220b42",
+      "PredecessorSourcePath": "qdao_ui_redesign_v5/fidelity-20261016/tests-client/Assets/Tests/EditMode/Tianyong/QdaoServerSelectPrefabTests.cs",
+      "PredecessorSHA256": "b055a710f41d1be9f3ffd424faf8b7aef190138a062d253d6657bc911a220b42",
+      "Match": true,
+      "Limitation": null
+    },
+    {
+      "Type": "ManifestPayload",
+      "Manifest": "qdao_ui_redesign_v5/fidelity-battle-20261016/compact-font-patch-install-manifest.json",
+      "SourcePath": "qdao_ui_redesign_v5/fidelity-battle-20261016/compact-font-patch/BattleFidelityArt.cs",
+      "DestinationPath": "Assets/Scripts/UI/Ugui/Battle/BattleFidelityArt.cs",
+      "ExpectedSHA256": "73d0e6f44b9e71696d042421e1d4000861f2af219e0d4d21c3e6db4e0e77f15c",
+      "ActualSHA256": "73d0e6f44b9e71696d042421e1d4000861f2af219e0d4d21c3e6db4e0e77f15c",
+      "Match": true
+    },
+    {
+      "Type": "GuardChain",
+      "Manifest": "qdao_ui_redesign_v5/fidelity-battle-20261016/compact-font-patch-install-manifest.json",
+      "DestinationPath": "Assets/Scripts/UI/Ugui/Battle/BattleFidelityArt.cs",
+      "ExpectedBeforeSHA256": "398368e42416551737b23621fd95767c641cc69c100718873cfa82dce1dd5eb6",
+      "PredecessorSourcePath": "qdao_ui_redesign_v5/fidelity-battle-20261016/integration/BattleFidelityArt.cs",
+      "PredecessorSHA256": "398368e42416551737b23621fd95767c641cc69c100718873cfa82dce1dd5eb6",
+      "Match": true,
+      "Limitation": null
+    },
+    {
+      "Type": "RoleTestInverseReplacement",
+      "SourcePath": "qdao_ui_redesign_v5/fidelity-20261016/patch-01-tests/client/Assets/Tests/PlayMode/QdaoRoleIdentityPlayModeTests.cs",
+      "ExpectedBeforeSHA256": "9691031d722240b4d632e418e156aa2a5f5016e0a0fba2f723004dfcd89d9888",
+      "ReconstructedBeforeSHA256": "9691031d722240b4d632e418e156aa2a5f5016e0a0fba2f723004dfcd89d9888",
+      "Match": true,
+      "Note": "Computed only for guard provenance; no reconstructed file saved or migrated."
+    }
+  ],
+  "CurrentClientReadOnlyChecks": [
+    {
+      "Path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Battle/BattleFidelityArt.cs",
+      "DestinationPath": "Assets/Scripts/UI/Ugui/Battle/BattleFidelityArt.cs",
+      "SHA256First": "398368e42416551737b23621fd95767c641cc69c100718873cfa82dce1dd5eb6",
+      "MatchesLatestPayload": false,
+      "MatchesHistoricalGuard": true,
+      "SHA256Second": "398368e42416551737b23621fd95767c641cc69c100718873cfa82dce1dd5eb6",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "E:/work/mmorpg-client/Assets/Tests/EditMode/Tianyong/QdaoServerSelectPrefabTests.cs",
+      "DestinationPath": "Assets/Tests/EditMode/Tianyong/QdaoServerSelectPrefabTests.cs",
+      "SHA256First": "b055a710f41d1be9f3ffd424faf8b7aef190138a062d253d6657bc911a220b42",
+      "MatchesLatestPayload": false,
+      "MatchesHistoricalGuard": true,
+      "SHA256Second": "b055a710f41d1be9f3ffd424faf8b7aef190138a062d253d6657bc911a220b42",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "DestinationPath": "Assets/Scripts/UI/Ugui/QdaoCoreFidelityArt.cs",
+      "SHA256First": "e83009fed0be34741d73544e5e5612114da9e3d0408851daaeec828c5c9edaf6",
+      "MatchesLatestPayload": false,
+      "MatchesHistoricalGuard": true,
+      "SHA256Second": "e83009fed0be34741d73544e5e5612114da9e3d0408851daaeec828c5c9edaf6",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/QdaoServerSelectView.Visuals.cs",
+      "DestinationPath": "Assets/Scripts/UI/Ugui/QdaoServerSelectView.Visuals.cs",
+      "SHA256First": "4e5f600064560d0ee9bce8dfdb8f084c73d0a8b82c0108fc523f2bc56b063abf",
+      "MatchesLatestPayload": false,
+      "MatchesHistoricalGuard": true,
+      "SHA256Second": "4e5f600064560d0ee9bce8dfdb8f084c73d0a8b82c0108fc523f2bc56b063abf",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "E:/work/mmorpg-client/Assets/Tests/PlayMode/QdaoRoleIdentityPlayModeTests.cs",
+      "DestinationPath": "Assets/Tests/PlayMode/QdaoRoleIdentityPlayModeTests.cs",
+      "SHA256First": "3417db3433c04a44a9b8cc1d2b6050481259cad03724049f4e1bc435dd6db587",
+      "MatchesLatestPayload": true,
+      "MatchesHistoricalGuard": false,
+      "SHA256Second": "3417db3433c04a44a9b8cc1d2b6050481259cad03724049f4e1bc435dd6db587",
+      "TwoPassStable": true
+    },
+    {
+      "Path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Role/RoleFlowUi.cs",
+      "DestinationPath": "Assets/Scripts/UI/Ugui/Role/RoleFlowUi.cs",
+      "SHA256First": "280f1ba47f4bbdb4b00e759ad5371f8999d85c170490d5a9e7b35b988dd11e5b",
+      "MatchesLatestPayload": true,
+      "MatchesHistoricalGuard": false,
+      "SHA256Second": "280f1ba47f4bbdb4b00e759ad5371f8999d85c170490d5a9e7b35b988dd11e5b",
+      "TwoPassStable": true
+    }
+  ],
+  "CredentialScan": {
+    "FilesScanned": 30,
+    "FindingCount": 0,
+    "Findings": [],
+    "AllowedSyntheticExceptions": [
+      {
+        "Path": "qdao_ui_redesign_v5/fidelity-20261016/patch-03/tests-client/Assets/Tests/EditMode/Tianyong/QdaoServerSelectPrefabTests.cs",
+        "SHA256": "a667099ae07f17a890632256ecc71a4321be3a38c9e29afe09f0083ee0f3bfcd",
+        "Rule": 3,
+        "Count": 1,
+        "Reason": "Known synthetic SessionModel fixture in PrepareDisconnectedSession; offline host, null GameClient assertion, and preservation assertions. Exception is limited to this exact file hash and match count, not a generic password rule bypass."
+      }
+    ],
+    "AllowedSyntheticCount": 1,
+    "PatternLimitations": "Heuristic scan; no matched secret values emitted."
+  },
+  "Issues": [],
+  "KeepCount": 30,
+  "ExcludeCount": 25,
+  "HoldCount": 0,
+  "SourceMutated": false,
+  "ClientMutated": false,
+  "SharedGitMutated": false,
+  "NetworkUsed": false,
+  "InstallersExecuted": false,
+  "CompilersExecuted": false,
+  "Limitations": [
+    "This is migration integrity and source provenance review, not approval of visual parity, Unity tests or live-server behavior.",
+    "Patch-01/02 manifests and receipts preserve the ordered hash chain. Intermediate QdaoCoreFidelityArt and QdaoServerSelectView.Visuals payloads are not newly uploaded; historical manifests are therefore provenance and must not be run as complete install packages.",
+    "LatestDestinationPayload maps six current targets to surviving source files. A fresh installation must compose current payloads and validate destination guards against the actual target checkout; patch-03 guards expect intermediate hashes and cannot be applied directly over the original baseline.",
+    "The original role-test predecessor is absent from the uploaded subset. Inverse-expression hash verifies its transformation only if RoleTestInverseReplacement.Match is true; no history fetched or files restored.",
+    "CoreGoldText.mat and meta are generated on BuildAll according to retained patch-02 manifest and patch-03 source; not included in this review. This is not a standalone full-client snapshot.",
+    "Historical compile results explicitly report nativeUnityRun=false, imageParityVerified=false and testsExecuted=false. Old native-core-review predates patch-03; its findings remain evidence, not a fresh pass.",
+    "No previously uploaded file or source file is deleted. Source originals, interim patches and raw QA evidence remain on this PC.",
+    "No image generation or editing occurred; model/version/quality provenance remains unchanged."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "Schema": "azure-in-flight-review-overrides-v1",
+  "CapturedUtc": "2026-10-17T05:10:39.6021921Z",
+  "Precedence": "Hold overrides older Keep for these exact paths; other frozen source entries unchanged",
+  "Files": [
+    {
+      "Path": "designs/scene-select-ui-v1/fidelity-20261016/qa/install-result.json",
+      "Bytes": 502,
+      "SHA256": "ea23eee2c12cb522a6b69821252c354dac8d08b3cd00fb273b7ddb26e402c62e",
+      "ReviewedSHA256": "6b44a260a8988bfae546b1c919abecd03f5d5f2322c03af0a7c27835a6038eac",
+      "Decision": "Hold",
+      "Reason": "Installation receipt continued changing after package audit; defer receipt only; payload remains hash-verified and no installation is claimed by migration"
+    },
+    {
+      "Path": "tools/ui-fidelity/install-package.ps1",
+      "Bytes": 4220,
+      "SHA256": "0a2015c7e7da06505ea16106b55a5e4d586421a2f95ea9fabffb8287926ba7aa",
+      "ReviewedSHA256": "a2cd979e5b5601386a8423b72f983c76e3bc519a86fd169a0f9d007714fc19f9",
+      "Decision": "Hold",
+      "Reason": "Shared helper is still being edited; retain existing verified Azure version, preserve current source and defer new helper; no package script executed"
+    },
+    {
+      "Path": "tools/ui-fidelity/run-ui-tests.ps1",
+      "Bytes": 1573,
+      "SHA256": "294600e8e1b9400dc95b05122902411de2fa78c1d62c4755dac9a29457da85f7",
+      "ReviewedSHA256": "a77418f56e4631c310e1594a4dd0b945645f53e2c909a13dffa26266ad2ca121",
+      "Decision": "Hold",
+      "Reason": "Shared test runner continued changing after audit; defer runner without altering source or claiming test execution"
+    }
+  ]
+}
