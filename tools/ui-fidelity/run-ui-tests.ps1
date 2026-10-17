@@ -16,6 +16,7 @@ $filters=@(
  'MmorpgClient.Tests.EditMode.Battle.BattleUiLayoutTests',
  'MmorpgClient.Tests.EditMode.Battle.HudCanvasLayeringTests',
  'MmorpgClient.Tests.EditMode.Ugui.QdaoServerSelectPrefabTests',
+ 'MmorpgClient.Tests.EditMode.Ugui.QdaoLoginPresentationTests',
  'MmorpgClient.Tests.EditMode.Tianyong.TeamWindowTests',
  'MmorpgClient.Tests.EditMode.Tianyong.TeamInvitationWindowTests',
  'MmorpgClient.Tests.EditMode.Tianyong.SceneChannelWindowTests',

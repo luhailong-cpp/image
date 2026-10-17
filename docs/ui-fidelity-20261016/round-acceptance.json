@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "recordedAtUtc": "2026-10-17T08:30:43.299Z",
+  "recordType": "local-round-verification; not-user-acceptance",
+  "status": "local-verification-round-complete; login-revision-in-progress",
+  "scope": "This completed local verification round before the newly requested login revision.",
+  "roundValidationComplete": true,
+  "allUiComplete": false,
+  "loginRevisionInProgress": true,
+  "userAcceptance": {
+    "global": false,
+    "login": false,
+    "online": false
+  },
+  "evidenceMap": {
+    "path": "E:/work/image/docs/ui-fidelity-20261016/module-evidence-map.json",
+    "sha256": "87f10f3cd6d706833bcddb84de02daa7ac59e87dc4377f6bcf9ca2a6f87016ea",
+    "modules": 25
+  },
+  "originalAuditSnapshot": {
+    "path": "E:/work/image/config/ui-fidelity-targets.json",
+    "sha256": "3b33fc7b4e9b60153513eeccfae5946d1423798d5428dcb3f3166c7a2adef200",
+    "policy": "Retained unchanged as the historical audit snapshot; this round links the separate evidence map and does not rewrite completed flags."
+  },
+  "evidence": {
+    "editMode": {
+      "path": "E:/work/image/docs/ui-fidelity-20261016/editmode-results.xml",
+      "sha256": "35ec6f8512f10fa6d3b11337964bd80fefc7577f2baf81ec106a474c6c291609",
+      "status": "Passed",
+      "total": 556,
+      "passed": 556,
+      "failed": 0,
+      "startedAtUtc": "2026-10-17 08:06:03Z",
+      "completedAtUtc": "2026-10-17 08:06:52Z"
+    },
+    "playMode": {
+      "path": "E:/work/image/docs/ui-fidelity-20261016/playmode-results.xml",
+      "sha256": "69283cae991e169e38dbb11a57bbb096b4fd1f4ac0d0b1d5b50d589c85eabe69",
+      "status": "Passed",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "startedAtUtc": "2026-10-17 07:38:04Z",
+      "completedAtUtc": "2026-10-17 07:38:14Z"
+    },
+    "socialSourceArtChecks": {
+      "path": "E:/work/image/designs/social-ui-v1/fidelity-20261016/qa/final/fidelity-checks.json",
+      "sha256": "dab308ab48e88381cc716159d47049d75a3e98010c4c015f1cdf61a412830a13",
+      "status": "passed",
+      "passed": 29,
+      "scope": "Source-art identity, uniform geometry, fixed ornamental regions and native control presence. Full visual review and functional tests are separate."
+    },
+    "unchangedOriginalArtRegions": {
+      "path": "E:/work/image/docs/ui-fidelity-20261016/native-art-checks.json",
+      "sha256": "ca3e6c502b43ed9fa45f66615b5236c5dd8e326f8d5a275d533a58e1b0720d69",
+      "status": "passed",
+      "checks": 6,
+      "scope": "Only unchanged ornamental/source-art regions under uniform scaling. Does not certify dynamic text, full-screen visual fidelity, or live networking."
+    },
+    "installedSnapshot": {
+      "path": "E:/work/image/docs/ui-fidelity-20261016/installed-snapshot.json",
+      "sha256": "90d08ac57601132e8a616a6198e57f5ff948bf3401f44ec6613ce4742a391250",
+      "manifestCount": 38,
+      "fileCount": 358,
+      "missingCount": 0,
+      "snapshottedAtUtc": "2026-10-17T08:08:17.395Z",
+      "scope": "Current installed bytes from all UI fidelity delivery manifests plus generated production prefab/material. Earlier staged hashes are provenance, not assertions that obsolete staging payloads equal the final installed file."
+    },
+    "captureRemaining": {
+      "path": "E:/work/image/docs/ui-fidelity-20261016/native/remaining-capture.json",
+      "sha256": "0afd64059677410daef87766eacb92deaf67a7bf58cf5c5eafbe823a553712d0",
+      "status": "captured",
+      "completedAtUtc": "2026-10-17T08:08:53.7436249Z",
+      "modules": [
+        {
+          "module": "gameplay-final",
+          "status": "captured",
+          "directory": "E:/work/image/designs/gameplay-ui/fidelity-20261016/qa/post-final-polish",
+          "error": "",
+          "screenshots": 26
+        },
+        {
+          "module": "team-invitations",
+          "status": "captured",
+          "directory": "E:/work/image/docs/ui-fidelity-20261016/native/team-invitations",
+          "error": "",
+          "screenshots": 16
+        },
+        {
+          "module": "city-hud",
+          "status": "captured",
+          "directory": "E:/work/image/docs/ui-fidelity-20261016/native/city-hud",
+          "error": "",
+          "screenshots": 3
+        }
+      ],
+      "limitations": "City HUD is TianyongSandbox with TILES0 debug ground: four real HUD buttons geometry/skin only. No production painted-city rendering claim."
+    },
+    "gameplayFinalVisualReview": {
+      "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016/qa/final-review.json",
+      "sha256": "170388bf548e7c79541fea695e9b9332d15bc7ca4407008ce994e801476c1cb5",
+      "result": "prior_nine_observed_defects_resolved",
+      "reviewedAtUtc": "2026-10-17T08:20:03.441343+00:00",
+      "scope": [
+        "Gameplay bag, missions and activities",
+        "Equipment detail/wish, integration and forge representative captures"
+      ]
+    },
+    "obsoleteScreenshotCleanup": {
+      "path": "E:/work/image/docs/ui-fidelity-20261016/obsolete-screenshot-cleanup.json",
+      "sha256": "caf4505a357216375e9039f4b2011c58d95f140b5c6f0346e08fdd2b9441490c",
+      "status": "removed-superseded-native-screenshots",
+      "applied": true,
+      "removedCount": 99,
+      "scope": "Temporary native verification images only. Approved design art, final native evidence, production assets, source, generation records and text reports are retained."
+    },
+    "temporaryBinaryCleanup": {
+      "path": "E:/work/image/qdao_ui_redesign_v5/fidelity-battle-20261016/qa/temporary-binary-cleanup.json",
+      "sha256": "5d69b8912c7603eb32fba66c096d4c3f11a8852567f7cd9ec1e5d5fa575f1009",
+      "status": "removed-after-final-native-visual-pass",
+      "removedCount": 11,
+      "totalBytes": 22673920
+    }
+  },
+  "remainingWork": [
+    "login revision in progress: independently review and rework login homepage and account-login page as newly requested by the user.",
+    "After the login revision, rerun affected native captures/tests and review the resulting pages; this round does not pre-approve those changes."
+  ],
+  "limitations": [
+    "Local Editor-only fixtures and disconnected native controls; liveServerVerified=false and no account/network acceptance.",
+    "HUD snapshot uses TianyongSandbox/TILES0 and verifies only four real HUD button layouts/skins. It does not verify the production painted city or complete city-map visual fidelity.",
+    "Tests, static ornament checks and installed hashes do not establish complete screen-by-screen pixel identity.",
+    "Invitation/friend-request/forge/merchant workflows have no independent approved full-screen mockup; evidence map distinguishes documents and related style anchors.",
+    "User requested a new independent login homepage and account-login review/rework after this round; global and login user acceptance remain ungranted."
+  ],
+  "clientModifiedByRecorder": false,
+  "newImagesCreatedByRecorder": false
+}

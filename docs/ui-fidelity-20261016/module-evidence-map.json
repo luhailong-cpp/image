@@ -1,0 +1,2501 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-17T08:22:37.897Z",
+  "purpose": "Read-only evidence map for25 audited modules; does not update config audit, completed flags or claims of live acceptance.",
+  "sourceInventory": "E:/work/image/config/ui-fidelity-targets.json",
+  "moduleCount": 25,
+  "globalTests": {
+    "editMode": {
+      "path": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+      "sha256": "35ec6f8512f10fa6d3b11337964bd80fefc7577f2baf81ec106a474c6c291609",
+      "result": "Passed",
+      "total": 556,
+      "passed": 556,
+      "failed": 0,
+      "endedAtUtc": "2026-10-17 08:06:52Z"
+    },
+    "playMode": {
+      "path": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+      "sha256": "69283cae991e169e38dbb11a57bbb096b4fd1f4ac0d0b1d5b50d589c85eabe69",
+      "result": "Passed",
+      "total": 16,
+      "passed": 16,
+      "failed": 0,
+      "endedAtUtc": "2026-10-17 07:38:14Z"
+    }
+  },
+  "remainingCaptureReport": "E:\\work\\image\\docs\\ui-fidelity-20261016/native/remaining-capture.json",
+  "sessionLimitations": [
+    "City HUD capture uses TianyongSandbox/TILES0 debug ground; verifies4 real HUD button layouts/skins, not production painted city or whole-city visual parity.",
+    "Team invitations/friend requests/forge/merchant have workflow/integration docs or related style anchors, not independent approved full-screen effects.",
+    "Final gameplay26 post-final-polish capture has completed representative visual review; prior nine observed defects are resolved.",
+    "No new screenshots/images, no client edits, no Unity run by map author.",
+    "No completed field is assigned here.",
+    "User subsequently requested independent login homepage and account-login revision. Prior round login captures/tests are historical for that revision; no global or login user acceptance is asserted."
+  ],
+  "modules": [
+    {
+      "id": "login",
+      "name": "登录与账号",
+      "designBasis": "independent-png",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/01_login_2560x1080.png",
+          "kind": "art"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/qdao_ui_redesign_v5/fidelity-20261016/core-login-server-install-manifest.json",
+        "E:/work/image/qdao_ui_redesign_v5/fidelity-20261016/patch-03/install-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/QdaoServerSelectView.cs",
+          "sha256AtMap": "dfd540a683a9ae7588c8c5557c04aabf98b643ee387f3bd7495a0ea86d0598d6"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/QdaoServerSelectView.Visuals.cs",
+          "sha256AtMap": "53c1da6fbe8e6922ca9882b5f558559b07645684ce2aa27591a021c72101f285"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/QdaoUguiRuntime.cs",
+          "sha256AtMap": "b2c738a26d33513831d06b9ce7aad34d48656dc81a9942da425703165c36eb14"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:\\work\\image\\docs\\ui-fidelity-20261016/native/core",
+        "reportedScreenshotCount": 4,
+        "selection": "01-login_*;03-account_*",
+        "reports": [
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/final-subset-capture.log"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/fidelity-20261016/qa/final-review.json",
+          "scope": "16 core entry screenshots; excludes city-HUD production map"
+        }
+      ],
+      "visualReviewStatus": "report-exists-see-scope",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 17,
+            "passed": 17,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Ugui.QdaoServerSelectPrefabTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": " User requested a new independent review/rework after this local verification round. Existing captures are prior-round evidence, not approval of the new revision.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity.",
+      "currentRevisionStatus": "login-homepage-and-account-login-revision-in-progress",
+      "userAccepted": false
+    },
+    {
+      "id": "server-select",
+      "name": "服务器选择",
+      "designBasis": "independent-png",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/02_server_select_2560x1080.png",
+          "kind": "art"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/qdao_ui_redesign_v5/fidelity-20261016/core-login-server-install-manifest.json",
+        "E:/work/image/qdao_ui_redesign_v5/fidelity-20261016/patch-03/install-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/QdaoServerSelectView.cs",
+          "sha256AtMap": "dfd540a683a9ae7588c8c5557c04aabf98b643ee387f3bd7495a0ea86d0598d6"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/QdaoServerSelectView.Visuals.cs",
+          "sha256AtMap": "53c1da6fbe8e6922ca9882b5f558559b07645684ce2aa27591a021c72101f285"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:\\work\\image\\docs\\ui-fidelity-20261016/native/core",
+        "reportedScreenshotCount": 2,
+        "selection": "02-server_*",
+        "reports": [
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/final-subset-capture.log"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/fidelity-20261016/qa/final-review.json",
+          "scope": "16 core entry screenshots; excludes city-HUD production map"
+        }
+      ],
+      "visualReviewStatus": "report-exists-see-scope",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 17,
+            "passed": 17,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Ugui.QdaoServerSelectPrefabTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "role-flow",
+      "name": "角色选择与创建",
+      "designBasis": "independent-png-with-related-create-flow",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/03_character_select_2560x1080.png",
+          "kind": "art"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/qdao_ui_redesign_v5/fidelity-20261016/core-role-install-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Role/RoleFlowUi.cs",
+          "sha256AtMap": "280f1ba47f4bbdb4b00e759ad5371f8999d85c170490d5a9e7b35b988dd11e5b"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:\\work\\image\\docs\\ui-fidelity-20261016/native/core",
+        "reportedScreenshotCount": 4,
+        "selection": "04-character-select_*;05-character-create_*",
+        "reports": [
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/final-subset-capture.log"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/fidelity-20261016/qa/final-review.json",
+          "scope": "16 core entry screenshots; excludes city-HUD production map"
+        }
+      ],
+      "visualReviewStatus": "report-exists-see-scope",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 17,
+            "passed": 17,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Ugui.QdaoServerSelectPrefabTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "passed",
+            "total": 10,
+            "passed": 10,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.PlayMode.QdaoRoleIdentityPlayModeTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "city-hud",
+      "name": "主城HUD",
+      "designBasis": "independent-png-and-html",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/04_main_city_hud_2560x1080.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/hud/preview.html",
+          "kind": "interactive-preview"
+        },
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/hud/placement.json",
+          "kind": "layout-contract"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/qdao_ui_redesign_v5/fidelity-20261016/hud-install-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Battle/BattleUiRoot.cs",
+          "sha256AtMap": "80df58cb42a3f5c002c3d4ebc54fe34abcaf5a1893f83b42049d10d5744382b8"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayUiRoot.cs",
+          "sha256AtMap": "4fb4a4afc853f10f7357ce460c1664224b37010fea72e651b45cad03cb9c3e73"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Attribute/AttributeUiRoot.cs",
+          "sha256AtMap": "96bd7cbd47e3cee95055baf68fab4f2a7bb501e419746da591be53afd341d826"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Pet/PetUiRoot.cs",
+          "sha256AtMap": "ddadf80bff57c182c5719a71403c177803abef2c1c21e7c22fee8e431f2a4ee7"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Team/TeamUiRoot.cs",
+          "sha256AtMap": "e50861e16a440954492f4797fba1960c29a85d7a9e182d4f3c6e0bd5a6347490"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Mail/MailUiRoot.cs",
+          "sha256AtMap": "59b463db187363bd75a87499bc263c539a81a620c1c37eb03a107fc4593c3335"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Social/SocialUiRoot.cs",
+          "sha256AtMap": "8016143798335f3671dec5c66b997358d679911775744e2d293560497930d65a"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Guild/GuildUiRoot.cs",
+          "sha256AtMap": "56e60e0cc513f083870ba9c3570a77bc286a0cbefbb0f6065560aee03ef09d64"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Jubaozhai/JubaozhaiUiRoot.cs",
+          "sha256AtMap": "3f0ed42cfb5aa67d533ab513858ff3fde82db78df18a08891bd42fa4cf16542c"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:\\work\\image\\docs\\ui-fidelity-20261016/native/city-hud",
+        "reportedScreenshotCount": 1,
+        "selection": "06-main-city-native.png (directory also contains2 attribute images)",
+        "reports": [
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native/city-hud/city-render-details.txt",
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native/remaining-capture.json"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [],
+      "visualReviewStatus": "parent-reviewed-hud-controls-only; no standalone review file",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Battle.HudCanvasLayeringTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "Parent visually checked4 real HUD entry buttons, geometry and skin only. Capture uses TianyongSandbox with TILES0 geometric debug ground; it does not verify production painted city rendering or full-city visual fidelity.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "battle-ui",
+      "name": "战斗与观战界面",
+      "designBasis": "independent-scene-png-only; no separate-command-result-spectate-mockup",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/05_battle_scene_2560x1080.png",
+          "kind": "art"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/fidelity-battle-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/qdao_ui_redesign_v5/fidelity-battle-20261016/installation-manifest.json",
+        "E:/work/image/qdao_ui_redesign_v5/fidelity-battle-20261016/compact-font-patch-install-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Battle/BattleScreen.cs",
+          "sha256AtMap": "a1f7e05275850a9975ec2e3d5bd3409c4775e8680db11b5e123b6d028abc9bb9"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Battle/BattleHud.cs",
+          "sha256AtMap": "28cda71a3a228da1f804890973fc72d0ca60dd70732106775ece48a18d122bf6"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Battle/BattleCommandRing.cs",
+          "sha256AtMap": "1204b9ccc3298d51e5554377371f1a8b33ca2adb7b7c3a63d1ff25f977b967b4"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Battle/BattleResultPanel.cs",
+          "sha256AtMap": "705bc774c752b647c293f6bf084b03688efccf9ba236e8cf86629eed5927e330"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Battle/SpectatePanel.cs",
+          "sha256AtMap": "848054fa0bc7b407a30ecfa774159b91379ae9e92b86e06cebaaf2d6aff3da50"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:\\work\\image\\docs\\ui-fidelity-20261016/native/battle",
+        "reportedScreenshotCount": 4,
+        "selection": "08-battle-native.png;09-queue-native.png;10-spectate-native.png;11-result-native.png",
+        "reports": [
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native/battle/capture-status.txt",
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/final-subset-capture.log"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/fidelity-battle-20261016/qa/final-visual-review.json",
+          "scope": "10 final listed images (Guild4/Battle4/skill-selector2); not whole-module coverage"
+        }
+      ],
+      "visualReviewStatus": "report-exists-see-scope",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 19,
+            "passed": 19,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Battle.BattleHudLogicTests",
+              "MmorpgClient.Tests.EditMode.Battle.BattleUiLayoutTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "passed",
+            "total": 2,
+            "passed": 2,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.PlayMode.QdaoRoleIdentityPlayModeTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "Accepted05 is arena artwork without baked actors/HUD. Current control skins were reviewed against accepted material vocabulary, not a nonexistent complete battle UI mockup.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "battle-transition",
+      "name": "战斗入场与加载过场",
+      "designBasis": "independent-layered-png-and-composition-manifest",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/06_battle_entry_loading_2560x1080.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/06_battle_entry_clouds_fg_2560x1080.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/transition_manifest.json",
+          "kind": "asset-contract"
+        }
+      ],
+      "installedPackages": [],
+      "installedPackageUnknown": true,
+      "installManifests": [],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Battle/BattleScreenFx.cs",
+          "sha256AtMap": "fa890a2cf721dd5bfde8596503c511264a6b9382ab29eebbd7ee23200935eec5"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Battle/BattleScreen.cs",
+          "sha256AtMap": "a1f7e05275850a9975ec2e3d5bd3409c4775e8680db11b5e123b6d028abc9bb9"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "unknown",
+        "reportedScreenshotCount": "unknown",
+        "selection": "unknown",
+        "reports": [
+          "E:/work/image/qdao_ui_redesign_v5/fidelity-battle-20261016/qa/source-and-asset-audit.json"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [],
+      "visualReviewStatus": "unknown",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "Current entry illustration is byte/pixel-identical to06. Cloud alpha matches but RGB differs in the recorded asset audit. No dedicated latest native entrance/loading frame was identified; static battle captures do not prove transition visual parity.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "character-attributes",
+      "name": "人物属性与加点",
+      "designBasis": "independent-html",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/designs/attribute-panels/v10-preview/index.html",
+          "kind": "interactive-preview"
+        },
+        {
+          "path": "E:/work/image/designs/attribute-panels/v10-preview/panel.css",
+          "kind": "layout-source"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/designs/attribute-panels/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/designs/attribute-panels/fidelity-20261016/installation-manifest.json",
+        "E:/work/image/designs/attribute-panels/fidelity-20261016/slider-hit-area-patch-install-manifest.json",
+        "E:/work/image/designs/attribute-panels/fidelity-20261016/layout-selector-patch-install-manifest.json",
+        "E:/work/image/designs/attribute-panels/fidelity-20261016/label-info-patch-install-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Attribute/AttributePanel.cs",
+          "sha256AtMap": "30a4a6f6b969b3aa32178cb92fda5e463606fc3f9c03aab7c9fe3d35fa1d2a02"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Attribute/CharacterAttributeVisuals.cs",
+          "sha256AtMap": "ffbfc2c9bb728d4592f07393df70b3e16d95ce3b25dbee8deffbab3305b0a629"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Attribute/AttributeUiWidgets.cs",
+          "sha256AtMap": "c56762ce08f8ceedd4fab400efbb115618cedf245230b90279cc863477fdc2b1"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:/work/image/designs/attribute-panels/fidelity-20261016/qa/native",
+        "reportedScreenshotCount": 4,
+        "selection": "01-character-normal_*;02-character-eight-rows-bottom_*",
+        "reports": [
+          "E:/work/image/designs/attribute-panels/fidelity-20261016/qa/native/capture-status.txt",
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native/corrected-inventory.json"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/fidelity-20261016/qa/final-review.json",
+          "scope": "16 core entry screenshots; excludes city-HUD production map"
+        }
+      ],
+      "visualReviewStatus": "report-exists-see-scope",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 8,
+            "passed": 8,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Battle.AttributePanelDisplayTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "Shared core review covers attribute entry screenshots; full dedicated10-image set includes both character and pet fixtures. Capture reports are separate from a full state-by-state visual review.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "pet-attributes",
+      "name": "宝宝属性与加点",
+      "designBasis": "independent-html",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/designs/attribute-panels/v10-preview/index.html",
+          "kind": "interactive-preview"
+        },
+        {
+          "path": "E:/work/image/designs/attribute-panels/v10-preview/app.js",
+          "kind": "interaction-source"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/designs/attribute-panels/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/designs/attribute-panels/fidelity-20261016/installation-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Pet/PetPanel.cs",
+          "sha256AtMap": "e8b5dfb620d824c59efd7be4f91ef0e77f1ebf166a375acd79497d855620dc2d"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Pet/PetUiStyle.cs",
+          "sha256AtMap": "95867f0fca5fd7a42da4040fcdf49b73253cb1c489fef925175814235f5cbc59"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Pet/PetUiRoot.cs",
+          "sha256AtMap": "ddadf80bff57c182c5719a71403c177803abef2c1c21e7c22fee8e431f2a4ee7"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:/work/image/designs/attribute-panels/fidelity-20261016/qa/native",
+        "reportedScreenshotCount": 6,
+        "selection": "03-pets-normal_*;04-pets-empty_*;05-pets-ten-bottom_*",
+        "reports": [
+          "E:/work/image/designs/attribute-panels/fidelity-20261016/qa/native/capture-status.txt",
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native/corrected-inventory.json"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/fidelity-20261016/qa/final-review.json",
+          "scope": "16 core entry screenshots; excludes city-HUD production map"
+        }
+      ],
+      "visualReviewStatus": "report-exists-see-scope",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 8,
+            "passed": 8,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Battle.PetPanelInteractionTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "Shared core review covers pet entry/empty captures; dedicated pet fixture set is6 images. No claim that every pet/game state was visually reviewed.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "team",
+      "name": "队伍成员与申请",
+      "designBasis": "independent-png-and-html",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/designs/team-ui-v2/team-ui-v2.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/designs/team-ui-v2/index.html",
+          "kind": "interactive-preview"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/designs/team-ui-v2/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/designs/team-ui-v2/fidelity-20261016/installation-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Team/TeamWindow.cs",
+          "sha256AtMap": "95f0fc0f7d85f10a02b70723d31fb3ef4ffa523ef95bad1921f3f8bae26f1e4d"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Team/TeamUiArt.cs",
+          "sha256AtMap": "75879a7fc59ca90a44a30be3c94ecd854fedda945683a50ed45252708ff7039f"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Team/TeamUiRoot.cs",
+          "sha256AtMap": "e50861e16a440954492f4797fba1960c29a85d7a9e182d4f3c6e0bd5a6347490"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:/work/image/designs/team-ui-v2/fidelity-20261016/qa/native",
+        "reportedScreenshotCount": 10,
+        "selection": "all PNGs in directory",
+        "reports": [
+          "E:/work/image/designs/team-ui-v2/fidelity-20261016/qa/native/fidelity-capture.json",
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native-art-checks.json"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [],
+      "visualReviewStatus": "unknown",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 39,
+            "passed": 39,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Tianyong.TeamWindowTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "Native capture and art identity checks exist; standalone latest visual-review JSON is unknown.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "team-invitations",
+      "name": "邀友同游与组队邀请子页",
+      "designBasis": "flow-document-with-related-team-style; no independent-preview",
+      "independentPreview": false,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/designs/team-invites-20260928/README.md",
+          "kind": "interaction-spec"
+        },
+        {
+          "path": "E:/work/image/designs/team-ui-v2/team-ui-v2.png",
+          "kind": "art"
+        }
+      ],
+      "installedPackages": [],
+      "installedPackageUnknown": true,
+      "installManifests": [],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Team/TeamInvitationWindow.cs",
+          "sha256AtMap": "3ac72a60eb9f9fe7bf5c8da9ef4060b22e6d3056f5e0b2fcac51dd09fd3fd87b"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Team/TeamUiArt.cs",
+          "sha256AtMap": "75879a7fc59ca90a44a30be3c94ecd854fedda945683a50ed45252708ff7039f"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Social/SocialWindow.cs",
+          "sha256AtMap": "4b3ea50436468adfed340240e050edb1f43bd11396fb1f5474d2a62dc11bb578"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:\\work\\image\\docs\\ui-fidelity-20261016/native/team-invitations",
+        "reportedScreenshotCount": 16,
+        "selection": "invitation-*;chat-profile-invitation_*",
+        "reports": [
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native/team-invitations/capture-status.txt",
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native/remaining-capture.json"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [],
+      "visualReviewStatus": "parent-reviewed-friends-page; no standalone review file",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 12,
+            "passed": 12,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Tianyong.TeamInvitationWindowTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "Parent inspected invitation friends page and chat-profile invitation entry. Team main PNG is a related style anchor, not an independent invitation-window design. Dedicated new installed package identity is unknown; current client sources are listed.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "mail",
+      "name": "仙笺邮件",
+      "designBasis": "independent-png-and-html",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/designs/mail-ui-v1/01-mail-event.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/designs/mail-ui-v1/02-mail-system.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/designs/mail-ui-v1/index.html",
+          "kind": "interactive-preview"
+        },
+        {
+          "path": "E:/work/image/designs/mail-ui-v1/UI_SPEC.md",
+          "kind": "interaction-spec"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/designs/mail-ui-v1/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        },
+        {
+          "path": "E:\\work\\image\\docs\\ui-fidelity-20261016/mail-original-ornaments",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        },
+        {
+          "path": "E:\\work\\image\\docs\\ui-fidelity-20261016/mail-glyph-fix",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/designs/mail-ui-v1/fidelity-20261016/install-manifest.json",
+        "E:\\work\\image\\docs\\ui-fidelity-20261016/mail-original-ornaments/install-manifest.json",
+        "E:\\work\\image\\docs\\ui-fidelity-20261016/mail-glyph-fix/install-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Mail/MailWindow.cs",
+          "sha256AtMap": "28ee5ed41b6b50596ad7fea579bed7d8ce3b642f2cb80694fd37abc7f0b6f327"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Mail/MailUiArt.cs",
+          "sha256AtMap": "e5241b5a0d4dd11f97ca70c1d449e89ae34357cb5ea0fb8ee8b3744b532b6e91"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Mail/MailUiRoot.cs",
+          "sha256AtMap": "59b463db187363bd75a87499bc263c539a81a620c1c37eb03a107fc4593c3335"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:/work/image/designs/mail-ui-v1/fidelity-20261016/qa/native",
+        "reportedScreenshotCount": 16,
+        "selection": "all PNGs in directory",
+        "reports": [
+          "E:/work/image/designs/mail-ui-v1/fidelity-20261016/qa/native/capture.json",
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native-art-checks.json"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [],
+      "visualReviewStatus": "unknown",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 23,
+            "passed": 23,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Mail.MailUiStateTests",
+              "MmorpgClient.Tests.EditMode.Mail.MailWindowTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "passed",
+            "total": 2,
+            "passed": 2,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.PlayMode.MailInputBlockerPlayModeTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "Native fixed-action bounds and original ornament pixel checks are recorded; separate latest full visual-review file unknown.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "social-chat",
+      "name": "仙友会群组、世界聊天与谣言",
+      "designBasis": "independent-png-and-html",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/designs/social-ui-v1/01-groups.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/designs/social-ui-v1/02-world.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/designs/social-ui-v1/03-rumor.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/designs/social-ui-v1/index.html",
+          "kind": "interactive-preview"
+        },
+        {
+          "path": "E:/work/image/designs/social-ui-v1/UI_SPEC.md",
+          "kind": "interaction-spec"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/designs/social-ui-v1/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Social/SocialWindow.cs",
+          "sha256AtMap": "4b3ea50436468adfed340240e050edb1f43bd11396fb1f5474d2a62dc11bb578"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Social/SocialUiArt.cs",
+          "sha256AtMap": "6e792a87a2365289050a76856592b9a74ad2365c8378201c5c234ee2fb948618"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Social/SocialUiRoot.cs",
+          "sha256AtMap": "8016143798335f3671dec5c66b997358d679911775744e2d293560497930d65a"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Social/SocialComposerKeyboard.cs",
+          "sha256AtMap": "413c6003ea413048017380e05e2cc2c86d82929b6120bdc4cf0bc2b6f51a2265"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:/work/image/designs/social-ui-v1/fidelity-20261016/qa/final",
+        "reportedScreenshotCount": 8,
+        "selection": "01-preview-groups_*;02-preview-world_*;03-preview-rumor_*;04-production-world_*",
+        "reports": [
+          "E:/work/image/designs/social-ui-v1/fidelity-20261016/qa/final/fidelity-capture.json",
+          "E:/work/image/designs/social-ui-v1/fidelity-20261016/qa/final/fidelity-checks.json"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [],
+      "visualReviewStatus": "unknown",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 50,
+            "passed": 50,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Social.EquipShareTextTests",
+              "MmorpgClient.Tests.EditMode.Social.SocialClientTests",
+              "MmorpgClient.Tests.EditMode.Social.SocialStateTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "passed",
+            "total": 4,
+            "passed": 4,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.PlayMode.SocialInputBlockerPlayModeTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "Checks explicitly separate source-art identity/geometry from full visual review. Source-specific social skin bundle exists; unified install manifest unknown.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "friend-requests",
+      "name": "好友申请与添加子窗口",
+      "designBasis": "flow-document-with-related-social-style; no independent-preview",
+      "independentPreview": false,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/designs/social-ui-v1/02-world.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/designs/team-invites-20260928/README.md",
+          "kind": "interaction-spec"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:\\work\\image\\docs\\ui-fidelity-20261016/regression-patch",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:\\work\\image\\docs\\ui-fidelity-20261016/regression-patch/install-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Social/FriendRequestsWindow.cs",
+          "sha256AtMap": "346bd6f05a5a644509d60f7cff45e6e05a6379fc1a3e0c146495b97d4afa2b9e"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Social/SocialUiRoot.cs",
+          "sha256AtMap": "8016143798335f3671dec5c66b997358d679911775744e2d293560497930d65a"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "unknown",
+        "reportedScreenshotCount": "unknown",
+        "selection": "unknown",
+        "reports": [],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [],
+      "visualReviewStatus": "unknown",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 22,
+            "passed": 22,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Social.FriendClientTests",
+              "MmorpgClient.Tests.EditMode.Social.FriendRequestsWindowTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "passed",
+            "total": 4,
+            "passed": 4,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.PlayMode.SocialInputBlockerPlayModeTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "Social world PNG is a related anchor. Invitation friends/profile captures do not prove the separate pending friend-request modal was rendered. Shared social lifecycle PlayMode suite is related coverage, not a claim of dedicated request-modal screenshot parity.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "guild",
+      "name": "帮会全部页面与子窗口",
+      "designBasis": "independent-png-and-html",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/designs/gameplay-ui/04-guild.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/designs/guild-ui-v2/index.html",
+          "kind": "interactive-preview"
+        },
+        {
+          "path": "E:/work/image/designs/guild-ui-v2/ASSET_HANDOFF.md",
+          "kind": "asset-contract"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/designs/guild-ui-v2/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/designs/guild-ui-v2/fidelity-20261016/install-manifest.json",
+        "E:/work/image/designs/guild-ui-v2/fidelity-20261016/readability-height-patch-install-manifest.json",
+        "E:/work/image/designs/guild-ui-v2/fidelity-20261016/progress-dual-text-patch-install-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Guild/GuildWindow.cs",
+          "sha256AtMap": "17e6b14dd004a0d319551fe39d63233f0fc3e849c6b3c280b3ce12190c6a522b"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Guild/GuildUiArt.cs",
+          "sha256AtMap": "58e65b58a336e7e60af54fb6e9a727ac0144523c4d342d5ff4a07e2f4969ee23"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Guild/GuildUiRoot.cs",
+          "sha256AtMap": "56e60e0cc513f083870ba9c3570a77bc286a0cbefbb0f6065560aee03ef09d64"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:\\work\\image\\docs\\ui-fidelity-20261016/native/guild",
+        "reportedScreenshotCount": 26,
+        "selection": "all PNGs; final follow-up inspected overview/reconnect at2 resolutions",
+        "reports": [
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native/guild/capture.json",
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/final-subset-capture.log"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [
+        {
+          "path": "E:/work/image/designs/guild-ui-v2/fidelity-20261016/qa/visual-review.json",
+          "scope": "see report scope"
+        },
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/fidelity-battle-20261016/qa/final-visual-review.json",
+          "scope": "10 final listed images (Guild4/Battle4/skill-selector2); not whole-module coverage"
+        }
+      ],
+      "visualReviewStatus": "report-exists-see-scope",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 194,
+            "passed": 194,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Tianyong.GuildClientTests",
+              "MmorpgClient.Tests.EditMode.Tianyong.GuildWindowTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "jubaozhai",
+      "name": "聚宝斋寄售",
+      "designBasis": "independent-category-pngs",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/designs/jubaozhai-ui/01-empty.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/designs/jubaozhai-ui/02-characters.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/designs/jubaozhai-ui/03-pets.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/designs/jubaozhai-ui/04-weapons.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/designs/jubaozhai-ui/05-armor.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/designs/jubaozhai-ui/06-summoning.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/designs/jubaozhai-ui/07-sets.png",
+          "kind": "art"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/designs/jubaozhai-ui/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/designs/jubaozhai-ui/fidelity-20261016/install-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Jubaozhai/JubaozhaiWindow.cs",
+          "sha256AtMap": "e1a6903dcc41282845ccbe3643bc4cc1fb093e7e1666ea63350f2652268482a7"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Jubaozhai/JubaozhaiArt.cs",
+          "sha256AtMap": "cf6dac3709f9420204deaae4d52cd2c60589514e02a4925623ca32299be47d7e"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Jubaozhai/JubaozhaiUiRoot.cs",
+          "sha256AtMap": "3f0ed42cfb5aa67d533ab513858ff3fde82db78df18a08891bd42fa4cf16542c"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:/work/image/designs/jubaozhai-ui/fidelity-20261016/qa/native",
+        "reportedScreenshotCount": 20,
+        "selection": "all PNGs in directory",
+        "reports": [
+          "E:/work/image/designs/jubaozhai-ui/fidelity-20261016/qa/native/capture.json",
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native-art-checks.json"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [],
+      "visualReviewStatus": "unknown",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 60,
+            "passed": 60,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Jubaozhai.JubaozhaiClientTests",
+              "MmorpgClient.Tests.EditMode.Jubaozhai.JubaozhaiFidelityWindowTests",
+              "MmorpgClient.Tests.EditMode.Jubaozhai.JubaozhaiServerPagingTests",
+              "MmorpgClient.Tests.EditMode.Tianyong.JubaozhaiModelTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "bag",
+      "name": "背包与装备列表",
+      "designBasis": "independent-png",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/designs/gameplay-ui/02-inventory.png",
+          "kind": "art"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        },
+        {
+          "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016/final-polish-20261017",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/designs/gameplay-ui/fidelity-20261016/install-manifest.json",
+        "E:/work/image/designs/gameplay-ui/fidelity-20261016/visual-fixes-20261017/install-manifest.json",
+        "E:/work/image/designs/gameplay-ui/fidelity-20261016/final-polish-20261017/install-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayWindow.cs",
+          "sha256AtMap": "6b5602320ffd4fa1c110fea78d5f7d2c94609687352bb12a4665834b1965c67d"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayUiArt.cs",
+          "sha256AtMap": "e237cec151422e15e84f5483ce9d2c70bff26b2d2ea0fb6bb433501753d192a7"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayUiRoot.cs",
+          "sha256AtMap": "4fb4a4afc853f10f7357ce460c1664224b37010fea72e651b45cad03cb9c3e73"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipTooltip.cs",
+          "sha256AtMap": "573db3e272680bf4b75c8a1f28cecbf7ad8f0f2d6682fc279ac98064d9fe3670"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:/work/image/designs/gameplay-ui/fidelity-20261016/qa/post-final-polish",
+        "reportedScreenshotCount": "unknown",
+        "selection": "*bag*",
+        "reports": [
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native/remaining-capture.json"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [
+        {
+          "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016/qa/visual-review.json",
+          "scope": "Historical initial gameplay visual review; superseded findings are resolved in final-review.json."
+        },
+        {
+          "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016/qa/final-review.json",
+          "scope": "Final representative gameplay/equipment detail/wish/integration/forge captures; prior nine observed defects resolved.",
+          "result": "prior_nine_observed_defects_resolved",
+          "reviewedAtUtc": "2026-10-17T08:20:03.441343+00:00"
+        }
+      ],
+      "visualReviewStatus": "final-representative-review-passed; prior-nine-observed-defects-resolved",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 48,
+            "passed": 48,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Battle.EquipWindowTests",
+              "MmorpgClient.Tests.EditMode.Battle.GameplayWindowTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "Latest gameplay capture has26 combined images. Final V05/V07 representative follow-up completed; all nine previously observed defects resolved.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "missions",
+      "name": "任务",
+      "designBasis": "independent-png",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/designs/gameplay-ui/01-quests.png",
+          "kind": "art"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        },
+        {
+          "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016/final-polish-20261017",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/designs/gameplay-ui/fidelity-20261016/install-manifest.json",
+        "E:/work/image/designs/gameplay-ui/fidelity-20261016/final-polish-20261017/install-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayWindow.cs",
+          "sha256AtMap": "6b5602320ffd4fa1c110fea78d5f7d2c94609687352bb12a4665834b1965c67d"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayUiArt.cs",
+          "sha256AtMap": "e237cec151422e15e84f5483ce9d2c70bff26b2d2ea0fb6bb433501753d192a7"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayUiRoot.cs",
+          "sha256AtMap": "4fb4a4afc853f10f7357ce460c1664224b37010fea72e651b45cad03cb9c3e73"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:/work/image/designs/gameplay-ui/fidelity-20261016/qa/post-final-polish",
+        "reportedScreenshotCount": "unknown",
+        "selection": "*mission*",
+        "reports": [
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native/remaining-capture.json"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [
+        {
+          "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016/qa/visual-review.json",
+          "scope": "Historical initial gameplay visual review; superseded findings are resolved in final-review.json."
+        },
+        {
+          "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016/qa/final-review.json",
+          "scope": "Final representative gameplay/equipment detail/wish/integration/forge captures; prior nine observed defects resolved.",
+          "result": "prior_nine_observed_defects_resolved",
+          "reviewedAtUtc": "2026-10-17T08:20:03.441343+00:00"
+        }
+      ],
+      "visualReviewStatus": "final-representative-review-passed; prior-nine-observed-defects-resolved",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 18,
+            "passed": 18,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Battle.GameplayWindowTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "Latest gameplay26-image combined capture exists; final V05/V07 representative follow-up is complete.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "activities",
+      "name": "活动",
+      "designBasis": "independent-png",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/designs/gameplay-ui/03-activities.png",
+          "kind": "art"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        },
+        {
+          "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016/final-polish-20261017",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/designs/gameplay-ui/fidelity-20261016/install-manifest.json",
+        "E:/work/image/designs/gameplay-ui/fidelity-20261016/final-polish-20261017/install-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayWindow.cs",
+          "sha256AtMap": "6b5602320ffd4fa1c110fea78d5f7d2c94609687352bb12a4665834b1965c67d"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayUiArt.cs",
+          "sha256AtMap": "e237cec151422e15e84f5483ce9d2c70bff26b2d2ea0fb6bb433501753d192a7"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayUiRoot.cs",
+          "sha256AtMap": "4fb4a4afc853f10f7357ce460c1664224b37010fea72e651b45cad03cb9c3e73"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:/work/image/designs/gameplay-ui/fidelity-20261016/qa/post-final-polish",
+        "reportedScreenshotCount": "unknown",
+        "selection": "*activit*",
+        "reports": [
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native/remaining-capture.json"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [
+        {
+          "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016/qa/visual-review.json",
+          "scope": "Historical initial gameplay visual review; superseded findings are resolved in final-review.json."
+        },
+        {
+          "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016/qa/final-review.json",
+          "scope": "Final representative gameplay/equipment detail/wish/integration/forge captures; prior nine observed defects resolved.",
+          "result": "prior_nine_observed_defects_resolved",
+          "reviewedAtUtc": "2026-10-17T08:20:03.441343+00:00"
+        }
+      ],
+      "visualReviewStatus": "final-representative-review-passed; prior-nine-observed-defects-resolved",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 18,
+            "passed": 18,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Battle.GameplayWindowTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "Latest gameplay26-image combined capture exists; final representative-image follow-up is complete.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "skills",
+      "name": "四职业与宝宝技能簿",
+      "designBasis": "independent-html",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/designs/class-skills-20260928/index.html",
+          "kind": "interactive-preview"
+        },
+        {
+          "path": "E:/work/image/designs/class-skills-20260928/styles.css",
+          "kind": "layout-source"
+        },
+        {
+          "path": "E:/work/image/designs/class-skills-20260928/asset-manifest.json",
+          "kind": "asset-contract"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/designs/class-skills-20260928/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        },
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/fidelity-battle-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/designs/class-skills-20260928/fidelity-20261016/installation-manifest.json",
+        "E:/work/image/designs/attribute-panels/fidelity-20261016/label-info-patch-install-manifest.json",
+        "E:/work/image/qdao_ui_redesign_v5/fidelity-battle-20261016/compact-font-patch-install-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Skills/SkillPanel.cs",
+          "sha256AtMap": "17b4334674dc9c90a1b91d8e1f1491dd9d06bbcadc38ca9ebb931b73b121312c"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Skills/SkillUiRoot.cs",
+          "sha256AtMap": "0aa5f4868d8584b1f1bea7d52aa12c0affd3d371716b643e53c1b0293b4b9f7a"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Skills/SkillCatalog.cs",
+          "sha256AtMap": "742265e1db226c493ec8009ea05d46477de3f4df5f47bc88e46c89fe22d73353"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:/work/mmorpg-client/Docs/VerificationEvidence/skills-ui-20261009",
+        "reportedScreenshotCount": 30,
+        "selection": "4 classes, pet, states, battle selector/scroll at2 resolutions",
+        "reports": [
+          "E:/work/mmorpg-client/Docs/VerificationEvidence/skills-ui-20261009/native-capture.json",
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/final-subset-capture.log"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/fidelity-battle-20261016/qa/final-visual-review.json",
+          "scope": "10 final listed images (Guild4/Battle4/skill-selector2); not whole-module coverage"
+        }
+      ],
+      "visualReviewStatus": "report-exists-see-scope",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 15,
+            "passed": 15,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Battle.SkillPanelPresentationTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "Native latest report passed30 images/122 checks. Final shared review inspected battle selector title and scrolled state; it does not claim direct visual review of all30 latest images.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "equipment-details",
+      "name": "装备完整详情",
+      "designBasis": "independent-html-with-runtime-skin",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/designs/equipment-ui-20261009/preview.html",
+          "kind": "interactive-preview"
+        },
+        {
+          "path": "E:/work/image/designs/equipment-ui-20261009/sprites/tooltip_panel.png",
+          "kind": "runtime-skin"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/designs/equipment-ui-20261009",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        },
+        {
+          "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/designs/gameplay-ui/fidelity-20261016/equipment-compat-install-manifest.json",
+        "E:/work/image/designs/gameplay-ui/fidelity-20261016/equipment-capture-fix-20261017/install-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipDetailCard.cs",
+          "sha256AtMap": "ba3ace23a8fa6d981b9761cd85ca15b219456e665b392be1f540939b4fd73088"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipUiSkin.cs",
+          "sha256AtMap": "147f6f0de5425eec0cdd5a728b9a03ba740bcbc3ac241671fb44166dc753617d"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipUiStyle.cs",
+          "sha256AtMap": "c52b3fbbc656cf8ba95a38997652e1dc5bed8f5c7a0272f6e98b28ace8eee92a"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipTooltip.cs",
+          "sha256AtMap": "573db3e272680bf4b75c8a1f28cecbf7ad8f0f2d6682fc279ac98064d9fe3670"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:\\work\\image\\docs\\ui-fidelity-20261016/native/equipment",
+        "reportedScreenshotCount": 18,
+        "selection": "03-weapon-detail_*;04-boots-detail_*;06-long-attributes_* (shared18-image directory)",
+        "reports": [
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native/corrected-inventory.json"
+        ],
+        "relatedDirectories": [
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native/equipment-integration"
+        ],
+        "liveServerVerified": false
+      },
+      "visualReviews": [
+        {
+          "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016/qa/final-review.json",
+          "scope": "Final representative gameplay/equipment detail/wish/integration/forge captures; prior nine observed defects resolved.",
+          "result": "prior_nine_observed_defects_resolved",
+          "reviewedAtUtc": "2026-10-17T08:20:03.441343+00:00"
+        }
+      ],
+      "visualReviewStatus": "final-representative-review-passed; prior-nine-observed-defects-resolved",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 30,
+            "passed": 30,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Battle.EquipWindowTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "Main equipment directory18 images includes both details/wish; integration directory has18 additional images. Final representative equipment review is available.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "equipment-wish",
+      "name": "装备期望属性",
+      "designBasis": "independent-html",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/designs/equipment-ui-20261009/preview.html",
+          "kind": "interactive-preview"
+        },
+        {
+          "path": "E:/work/image/designs/equipment-ui-20261008/sprite-manifest.json",
+          "kind": "asset-contract"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/designs/equipment-ui-20261009",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        },
+        {
+          "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/designs/gameplay-ui/fidelity-20261016/equipment-compat-install-manifest.json",
+        "E:/work/image/designs/gameplay-ui/fidelity-20261016/equipment-capture-fix-20261017/install-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipWishDialog.cs",
+          "sha256AtMap": "0fc4cf922f7587c540a31308c143b2596874c58dd9add3bdfe3ea257f24096ae"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipWishDialogInput.cs",
+          "sha256AtMap": "6ba73c597d99867a10d0383f1918a200c1b8a50e7cf66244d6041caac9c4fa44"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipWishSelection.cs",
+          "sha256AtMap": "3282532438e22074fe17e10b7a11dedb3841b81e921f2422f75dea1d4f372fcf"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:\\work\\image\\docs\\ui-fidelity-20261016/native/equipment",
+        "reportedScreenshotCount": 18,
+        "selection": "01-wish-weapon_*;02-wish-armour_*;05-pool-unavailable_* (shared18-image directory)",
+        "reports": [
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native/corrected-inventory.json"
+        ],
+        "relatedDirectories": [
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native/equipment-integration"
+        ],
+        "liveServerVerified": false
+      },
+      "visualReviews": [
+        {
+          "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016/qa/final-review.json",
+          "scope": "Final representative gameplay/equipment detail/wish/integration/forge captures; prior nine observed defects resolved.",
+          "result": "prior_nine_observed_defects_resolved",
+          "reviewedAtUtc": "2026-10-17T08:20:03.441343+00:00"
+        }
+      ],
+      "visualReviewStatus": "final-representative-review-passed; prior-nine-observed-defects-resolved",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 30,
+            "passed": 30,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Battle.EquipWindowTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "Shared18-image directory count is not18 wish-only images; final representative equipment review is available.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "equipment-forge",
+      "name": "装备强化与镶嵌",
+      "designBasis": "integration-document-only; no independent-preview",
+      "independentPreview": false,
+      "referencePaths": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/EquipmentForgeUI-handoff-20261015.md",
+          "kind": "integration-spec"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/designs/gameplay-ui/fidelity-20261016/equipment-compat-install-manifest.json",
+        "E:/work/image/designs/gameplay-ui/fidelity-20261016/equipment-capture-fix-20261017/install-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipForgeDialog.cs",
+          "sha256AtMap": "b8ee5b61c4518a6d0243975fcfc406e418d8432189217e4e99cf7d184ad10e9e"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipForgeSocketFocus.cs",
+          "sha256AtMap": "2ecacc162685e067e347bc7fb2ba345ae1004c474009c4e400ff298252fdf497"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipForgeUiState.cs",
+          "sha256AtMap": "09fdc866943f4d072d010bbab038330ca67c7fcdeb851cf3b7dc6f8427c0ad33"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipActionsDialog.cs",
+          "sha256AtMap": "2de181e55052a02da01a391fd0f2a0462b0b033a31544ad051cb81ff6dbe629b"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayWindow.cs",
+          "sha256AtMap": "6b5602320ffd4fa1c110fea78d5f7d2c94609687352bb12a4665834b1965c67d"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:\\work\\image\\docs\\ui-fidelity-20261016/native/equipment-forge/screenshots",
+        "reportedScreenshotCount": 18,
+        "selection": "six forge states across3 resolutions",
+        "reports": [
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native/corrected-inventory.json"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [
+        {
+          "path": "E:/work/image/designs/gameplay-ui/fidelity-20261016/qa/final-review.json",
+          "scope": "Final representative gameplay/equipment detail/wish/integration/forge captures; prior nine observed defects resolved.",
+          "result": "prior_nine_observed_defects_resolved",
+          "reviewedAtUtc": "2026-10-17T08:20:03.441343+00:00"
+        }
+      ],
+      "visualReviewStatus": "final-representative-review-passed; prior-nine-observed-defects-resolved",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 12,
+            "passed": 12,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Battle.EquipForgeWindowTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "Preserves latest native forge layout and handoff business contract; no separate approved full-screen PNG/HTML design was identified.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "scene-channels",
+      "name": "线路选择",
+      "designBasis": "independent-png",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/designs/scene-select-ui-v1/scene-select.png",
+          "kind": "art"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/designs/scene-select-ui-v1/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/designs/scene-select-ui-v1/fidelity-20261016/installation-manifest.json",
+        "E:/work/image/designs/scene-select-ui-v1/fidelity-20261016/pagination-patch-install-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/SceneChannelWindow.cs",
+          "sha256AtMap": "c85baf6ea18dd2d2905a193f4a34376c00d54f903390a443626183d299a26315"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/SceneChannelUiRoot.cs",
+          "sha256AtMap": "b287baf5e6740c77e183f82f13b80ecbe891146a363e872511ed7cc36b9228b8"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:/work/image/designs/scene-select-ui-v1/fidelity-20261016/qa/native",
+        "reportedScreenshotCount": "unknown",
+        "selection": "all PNGs including paging/current/full/pending/member limits",
+        "reports": [
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/skills-channels-capture.log",
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native-art-checks.json"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [],
+      "visualReviewStatus": "unknown",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 25,
+            "passed": 25,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Tianyong.SceneChannelWindowTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "Original failed captures are superseded by later successful capture log and current source art checks; standalone latest visual-review JSON unknown.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "world-travel",
+      "name": "山海舆图与场景传送",
+      "designBasis": "independent-png-and-name-contract",
+      "independentPreview": true,
+      "referencePaths": [
+        {
+          "path": "E:/work/image/designs/world-map-original-20260925/world-map-original.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/designs/world-map-original-20260925/world-map-original_2560x1080.png",
+          "kind": "art"
+        },
+        {
+          "path": "E:/work/image/designs/world-map-original-20260925/map-names.json",
+          "kind": "copy-source"
+        }
+      ],
+      "installedPackages": [
+        {
+          "path": "E:/work/image/designs/world-map-original-20260925/fidelity-20261016",
+          "status": "installed-or-current-source-package-per-session; manifest and current files listed separately"
+        }
+      ],
+      "installedPackageUnknown": false,
+      "installManifests": [
+        "E:/work/image/designs/world-map-original-20260925/fidelity-20261016/installation-manifest.json"
+      ],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/CityTravelWindow.cs",
+          "sha256AtMap": "2742ef18387b08f80247c04e2e0c02d5c6c3a103bcf4acd28b7562329a5773ab"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/CityTravelUiRoot.cs",
+          "sha256AtMap": "16901431c37b1de82cda97af16567b20d5800eb6a909564175aaf6d02c028efa"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:/work/image/designs/world-map-original-20260925/fidelity-20261016/qa/native",
+        "reportedScreenshotCount": 18,
+        "selection": "scene/day/night/current/pending/permission fixtures",
+        "reports": [
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/outstanding-capture.log",
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native-art-checks.json"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [],
+      "visualReviewStatus": "unknown",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "passed",
+            "total": 3,
+            "passed": 3,
+            "failed": 0,
+            "classes": [
+              "MmorpgClient.Tests.EditMode.Tianyong.CityTravelWindowTests"
+            ]
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    },
+    {
+      "id": "mystery-merchant",
+      "name": "神秘商人关联UI",
+      "designBasis": "interaction-document-only; no independent-preview",
+      "independentPreview": false,
+      "referencePaths": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/mystery-merchant-ui.md",
+          "kind": "interaction-spec"
+        }
+      ],
+      "installedPackages": [],
+      "installedPackageUnknown": true,
+      "installManifests": [],
+      "currentClientSources": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/MysteryMerchantWindow.cs",
+          "sha256AtMap": "cd3ac5634a69356327da1b2823c85fe51b7b07043eecfd172a1e4aad85607fdd"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/MysteryMerchantUiRoot.cs",
+          "sha256AtMap": "9184238f1f0df93c095b729c49575088006597b38bd91b92414ba1fb8b623a34"
+        }
+      ],
+      "latestNativeCapture": {
+        "directory": "E:\\work\\image\\docs\\ui-fidelity-20261016/native/merchant",
+        "reportedScreenshotCount": 24,
+        "selection": "shelf, armed, pending, success, too-far and other real UI states",
+        "reports": [
+          "E:\\work\\image\\docs\\ui-fidelity-20261016/native-sweep.log"
+        ],
+        "relatedDirectories": [],
+        "liveServerVerified": false
+      },
+      "visualReviews": [],
+      "visualReviewStatus": "unknown",
+      "tests": {
+        "editMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/editmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 08:06:52Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching test case in executed XML."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 556,
+            "passed": 556,
+            "failed": 0
+          }
+        },
+        "playMode": {
+          "report": "E:\\work\\image\\docs\\ui-fidelity-20261016/playmode-results.xml",
+          "runEndedAtUtc": "2026-10-17 07:38:14Z",
+          "coverage": {
+            "status": "unknown",
+            "reason": "No matching executed test class was mapped for this module."
+          },
+          "fullRun": {
+            "result": "Passed",
+            "total": 16,
+            "passed": 16,
+            "failed": 0
+          }
+        },
+        "parentTestsPending": "Final EditMode556/556 and PlayMode16/16 complete for this round. Rerun affected checks after login revision; no online acceptance."
+      },
+      "notes": "No independent PNG/HTML mockup or dedicated new installed fidelity bundle identified. Current source and24 native captures exist. No claim of original-art pixel parity.",
+      "unknownPolicy": "Unknown package/review/capture stays unknown; existing files or passing tests do not imply complete visual parity."
+    }
+  ],
+  "originalConfigUnmodifiedByMapper": true,
+  "updatedAtUtc": "2026-10-17T08:30:43.299Z",
+  "roundVerificationStatus": "local-fixture-round-complete; login-revision-in-progress",
+  "globalUserAcceptance": "not granted; new login homepage/account-login revision requested"
+}
