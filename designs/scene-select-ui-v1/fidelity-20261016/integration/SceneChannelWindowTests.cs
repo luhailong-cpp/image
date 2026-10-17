@@ -47,7 +47,7 @@ namespace MmorpgClient.Tests.EditMode.Tianyong
         // ── 行 ──────────────────────────────────────────────────────────────
 
         [Test]
-        public void Show_BuildsOneNamedRowPerLine_LeftThenRightThenNextRow()
+        public void Show_BuildsOneNamedRowPerLine_ThreeColumnsThenNextRow()
         {
             _window.SetView(View(SevenLines()));
             _window.Show();
@@ -60,13 +60,18 @@ namespace MmorpgClient.Tests.EditMode.Tianyong
             Assert.That(Texts(FindButton(LineName(5))), Is.EqualTo(new[] { "5线", "暂不可用" }));
             Assert.That(Texts(FindButton(LineName(6))), Is.EqualTo(new[] { "6线", "未知" }));
 
-            // 两列:1线 左上,2线 在它右边同一行,3线 回到左边下一行。
+            // 三列:1/2/3线从左向右,4线回到左边下一行。
             Vector2 first = Position(LineName(1)), second = Position(LineName(2)), third = Position(LineName(3));
             Assert.That(first, Is.EqualTo(Vector2.zero));
             Assert.That(second.x, Is.GreaterThan(first.x));
             Assert.That(second.y, Is.EqualTo(first.y));
-            Assert.That(third.x, Is.EqualTo(first.x));
-            Assert.That(third.y, Is.LessThan(first.y), "界面坐标 y 向下为负");
+            Assert.That(third.x, Is.GreaterThan(second.x));
+            Assert.That(third.y, Is.EqualTo(first.y));
+            Vector2 fourth=Position(LineName(4));
+            Assert.That(fourth.x, Is.EqualTo(first.x));
+            Assert.That(fourth.y, Is.LessThan(first.y), "界面坐标 y 向下为负");
+            Assert.That(SceneChannelWindow.Columns, Is.EqualTo(3));
+            Assert.That(SceneChannelWindow.LinesPerPage, Is.EqualTo(24));
         }
 
         [Test]
@@ -78,12 +83,12 @@ namespace MmorpgClient.Tests.EditMode.Tianyong
             var current = FindButton(LineName(1));
             Assert.That(current.interactable, Is.False);
             Assert.That(Texts(current), Is.EqualTo(new[] { "1线", SceneChannelWindow.CurrentTagText, "流畅" }));
-            Assert.That(((Image)current.targetGraphic).sprite, Is.SameAs(GameplayUiArt.Load("tab_selected")));
+            Assert.That(((Image)current.targetGraphic).sprite, Is.SameAs(QdaoUguiTheme.RequireSprite("UI/Ugui/SceneSelectV1/Fidelity20261016/row_selected")));
             Assert.That(current.colors.disabledColor, Is.EqualTo(Color.white), "所在线不可点但不置灰");
 
             var other = FindButton(LineName(7));
             Assert.That(Texts(other), Is.EqualTo(new[] { "7线", "流畅" }), "同样流畅、但不是所在线:没有标记");
-            Assert.That(((Image)other.targetGraphic).sprite, Is.SameAs(GameplayUiArt.Load("tab_normal")));
+            Assert.That(((Image)other.targetGraphic).sprite, Is.SameAs(QdaoUguiTheme.RequireSprite("UI/Ugui/SceneSelectV1/Fidelity20261016/row_normal")));
 
             Assert.That(Label("SceneChannelCurrent").text, Is.EqualTo("当前：1线"));
             Assert.That(CountLabels(SceneChannelWindow.CurrentTagName), Is.EqualTo(1));

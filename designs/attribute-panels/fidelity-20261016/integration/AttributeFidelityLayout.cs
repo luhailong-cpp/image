@@ -13,7 +13,13 @@ namespace MmorpgClient.UI.Ugui.Attribute
         internal static void Place(RectTransform rect,float x,float y,float w,float h)
         { if(rect==null)return;rect.anchoredPosition=new Vector2(x,-y);rect.sizeDelta=new Vector2(w,h); }
         internal static RectTransform Find(UnityEngine.Transform root,string name)
-        { foreach(var rect in root.GetComponentsInChildren<RectTransform>(true))if(rect.name==name)return rect;return null; }
+        {
+            var rects=root.GetComponentsInChildren<RectTransform>(true);
+            foreach(var rect in rects)if(rect.name==name)return rect;
+            // BattleUiWidgets.CreateTextButton uses the plate itself as the root rect.
+            foreach(var rect in rects)if(rect.name==name+"Plate")return rect;
+            return null;
+        }
         internal static void Place(UnityEngine.Transform root,string name,float x,float y,float w,float h)=>Place(Find(root,name),x,y,w,h);
         internal static void Font(TMP_Text text,float size,Color? color=null,bool body=false)
         {
