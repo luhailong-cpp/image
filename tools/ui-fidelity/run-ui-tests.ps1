@@ -26,4 +26,10 @@ $filters=@(
  'MmorpgClient.Tests.EditMode.Tianyong.JubaozhaiModelTests'
 )
 $testFilter=if($Platform -eq 'PlayMode'){'SocialInputBlockerPlayModeTests;MailInputBlockerPlayModeTests;QdaoRoleIdentityPlayModeTests'}else{$filters -join ';'}
-& $unityPath -batchmode -projectPath 'E:\work\mmorpg-client' -runTests -testPlatform $Platform -testFilter $testFilter -testResults (Join-Path $outputRoot ($Platform.ToLowerInvariant()+'-results.xml')) -logFile (Join-Path $outputRoot ($Platform.ToLowerInvariant()+'-tests.log'))
+$unityArguments=@('-batchmode','-projectPath','E:\work\mmorpg-client','-runTests',
+ '-testPlatform',$Platform,'-testFilter',$testFilter,
+ '-testResults',(Join-Path $outputRoot ($Platform.ToLowerInvariant()+'-results.xml')),
+ '-logFile',(Join-Path $outputRoot ($Platform.ToLowerInvariant()+'-tests.log')))
+$taskProcess=Start-Process -FilePath $unityPath -ArgumentList $unityArguments -WindowStyle Hidden -PassThru -Wait
+Write-Output "UNITY_UI_TEST_EXIT=$($taskProcess.ExitCode) PLATFORM=$Platform"
+exit $taskProcess.ExitCode
