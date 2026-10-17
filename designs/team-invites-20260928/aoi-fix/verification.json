@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-01",
+  "source": "cpp/libs/services/scene/spatial/system/aoi.cpp",
+  "originalSha256": "fc147ff827c7d2bb236788b92b5b0c672dea83493bab8c5405eea8a5a065b172",
+  "fixedSha256": "e9c098013c8746d856706f428dfca3572de49953efb928db4436dfa9fb1bdb41",
+  "red": {
+    "failed": 2,
+    "log": "test-red.log",
+    "passed": 3
+  },
+  "green": {
+    "failed": 0,
+    "log": "test-green.log",
+    "passed": 5
+  },
+  "repositoryRegression": {
+    "failed": 0,
+    "log": "repository-regression.log",
+    "exitCode": 0,
+    "command": "pwsh tools/scripts/run_cpp_tests.ps1 -Build -Filter aoi_delivery_test",
+    "passed": 5
+  },
+  "sceneBuild": {
+    "buildTargets": [
+      "cpp\\libs\\services\\gate",
+      "cpp\\libs\\services\\battle",
+      "cpp\\nodes\\scene"
+    ],
+    "pdbSourceChecksumMatchCount": 993,
+    "verifiedLocalLibraryCount": 16,
+    "log": "E:\\work\\image\\designs\\team-invites-20260928\\aoi-fix\\baseline-build-20261001-112054.log",
+    "exe": "E:\\work\\image\\designs\\team-invites-20260928\\aoi-fix\\baseline-source\\build\\cpp\\nodes\\scene.exe",
+    "pdbSourceChecksumMismatchCount": 0,
+    "deployedBinaryUnchanged": true,
+    "exitCode": 0,
+    "originalDeployedSha256": "f39344f361dd975497aa0340d1c6e6dcf78204b293a950fe54e61092046073f1",
+    "sourceDifference": "仅加入当前任务 AOI 双向通知修复，自有库使用同一提交构建，禁 PostBuildEvent",
+    "linkedInputEvidence": "baseline-linked-inputs.json",
+    "revision": "1ad634443d4d5028075d6b7e839b434018bfb0e8",
+    "sha256": "33d1d0b19aa03da9d926b9918eef9704c7f9742e9f32f97eb6f81a1e42c0c473"
+  },
+  "generatedDependency": {
+    "files": [
+      "guild_internal.pb.cc",
+      "guild_internal.pb.h",
+      "guild_internal.grpc.pb.cc",
+      "guild_internal.grpc.pb.h"
+    ],
+    "compiler": "libprotoc 35.1",
+    "source": "proto/guild/guild_internal.proto",
+    "command": "protoc --proto_path=E:/work/xuanming-server-mmo --cpp_out=E:/work/xuanming-server-mmo/cpp/generated --grpc_out=E:/work/xuanming-server-mmo/cpp/generated --plugin=protoc-gen-grpc=E:/work/xuanming-server-mmo/third_party/grpc/install_vs2026/bin/grpc_cpp_plugin.exe E:/work/xuanming-server-mmo/proto/guild/guild_internal.proto"
+  },
+  "sceneBuildHead": {
+    "reason": "已登记的 GuildInternal 和 GuildActivity 生成输出缺失",
+    "log": "scene-build-20261001-094040.log",
+    "deployedBinaryUnchanged": true,
+    "exitCode": 1
+  }
+}

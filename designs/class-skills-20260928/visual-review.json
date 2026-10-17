@@ -1,0 +1,23 @@
+{
+  "reviewedAt": "2026-09-28T15:10:00Z",
+  "scope": "本地 HTML 技能修习与图鉴预览；不代表在线客户端或服务器验收",
+  "status": "passed",
+  "automatedReport": "preview-validation.json",
+  "reviewedScreenshots": [
+    "qa/overview-desktop.png",
+    "qa/skills-class-1.png",
+    "qa/skills-class-2.png",
+    "qa/skills-class-3.png",
+    "qa/skills-class-4.png",
+    "qa/skills-mobile.png"
+  ],
+  "findings": [
+    "32项图鉴按职业排列，全部名称、类型与解锁等级可读，图标与目录ID对应。",
+    "四职业各8行技能在桌面全页截图中完整显示，名称未截断；列表缩略图形态可辨。",
+    "破军赤金、玄霄蓝紫、丹心青金、逐风青蓝分组一致；全部使用同类暖金方形边框。",
+    "详情图、条件、金币与修习按钮可读，无文字覆盖；390px移动版无横向溢出。",
+    "图鉴曾受HTML固定高度影响裁切成竖卡，已改为等比完整方图，并在验收脚本中增加方形比例检查。"
+  ],
+  "functionalChecks": "学习、连续修习、金币扣减、满级、等级不足、金币不足、纯辅助成长、职业筛选、32项详情跳转、刷新保留状态均已通过。",
+  "pendingOutsideScope": "Unity原生界面截图与服务端运行验证由集成代理执行。"
+}

@@ -1,0 +1,101 @@
+{
+  "verifiedAtUtc": "2026-10-09T16:12:56.334876Z",
+  "project": "E:/work/mmorpg-client",
+  "compilation": {
+    "exitCode": 0,
+    "sourcesStable": true,
+    "assemblies": [
+      {
+        "name": "MmorpgClient",
+        "files": 395,
+        "exitCode": 0,
+        "errors": 0,
+        "warnings": 4,
+        "dll": "E:\\work\\tmp\\equipment-ui-connected-20261009\\MmorpgClient.dll"
+      },
+      {
+        "name": "MmorpgClient.Tests.EditMode.Battle",
+        "files": 29,
+        "exitCode": 0,
+        "errors": 0,
+        "warnings": 0,
+        "dll": "E:\\work\\tmp\\equipment-ui-connected-20261009\\MmorpgClient.Tests.EditMode.Battle.dll"
+      },
+      {
+        "name": "MmorpgClient.Tests.EditMode.Social",
+        "files": 2,
+        "exitCode": 0,
+        "errors": 0,
+        "warnings": 0,
+        "dll": "E:\\work\\tmp\\equipment-ui-connected-20261009\\MmorpgClient.Tests.EditMode.Social.dll"
+      },
+      {
+        "name": "EquipmentUiVerification.Editor",
+        "files": 4,
+        "exitCode": 0,
+        "errors": 0,
+        "warnings": 0,
+        "dll": "E:\\work\\tmp\\equipment-ui-connected-20261009\\EquipmentUiVerification.Editor.dll"
+      }
+    ],
+    "hashEvidence": "main-integration-compile-status.json",
+    "limitedRecheck": "battle-recheck-status.json"
+  },
+  "pureLogicTests": {
+    "exitCode": 0,
+    "runtime": ".NET 10 with real production runtime DLL, protobuf and NUnit assemblies",
+    "passed": 153,
+    "failed": 0,
+    "fixtures": [
+      {
+        "fixture": "AttributeClientTests",
+        "passed": 24,
+        "failed": 0
+      },
+      {
+        "fixture": "EquipBagModelTests",
+        "passed": 13,
+        "failed": 0
+      },
+      {
+        "fixture": "EquipClientTests",
+        "passed": 70,
+        "failed": 0
+      },
+      {
+        "fixture": "EquipShareTextTests",
+        "passed": 10,
+        "failed": 0
+      },
+      {
+        "fixture": "EquipWishSelectionTests",
+        "passed": 5,
+        "failed": 0
+      },
+      {
+        "fixture": "PlayerFeaturesClientTests",
+        "passed": 31,
+        "failed": 0
+      }
+    ],
+    "evidence": "pure-logic-tests.json"
+  },
+  "nativeUnity": {
+    "exitCode": 198,
+    "status": "blocked_by_unity_entitlement",
+    "uiTestsExecuted": false,
+    "screenshotsCaptured": 0,
+    "mainProjectOpened": false,
+    "log": "unity-license-probe.log",
+    "captureFixture": "Assets/Editor/EquipmentIntegrationVerification.cs",
+    "plannedCaptureCount": 18
+  },
+  "limits": [
+    "Unity EditMode UI tests and screenshot verification could not execute because the installed Editor entitlement is invalid.",
+    "No live account, game session, server inventory mutation or real battle was executed."
+  ],
+  "sourceChanges": [
+    "Assets/Editor/EquipmentIntegrationVerification.cs",
+    "Assets/Editor/EquipmentIntegrationVerification.cs.meta"
+  ]
+}

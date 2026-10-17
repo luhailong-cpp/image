@@ -1,0 +1,44 @@
+{
+  "schema": "qdao.image-generation-record.v1",
+  "asset": "assets\\inventory-clean-skin.png",
+  "operation": "one built-in image edit reported successful by previous agent before reboot",
+  "configuration_target": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-10",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+      "quality": "https://developers.openai.com/api/reference/resources/images/methods/generate"
+    }
+  },
+  "submitted_model": null,
+  "submitted_quality": null,
+  "actual_model": "unconfirmed: tool response not retained before reboot",
+  "actual_quality": "unconfirmed: tool response not retained before reboot",
+  "time_evidence": {
+    "file_mtime_utc": "2026-10-16T09:00:53.585818+00:00",
+    "precision": "filesystem evidence only, not exact generation time"
+  },
+  "source": {
+    "path": "../02-inventory.png",
+    "sha256": "024cc044281592de9e0c4681e272a926ac150318c05ee27f9f166210795ad9fb",
+    "native_size": [
+      1931,
+      814
+    ]
+  },
+  "output": {
+    "native_size": [
+      1932,
+      814
+    ],
+    "sha256": "c079f82f0787e5caca714c6faa0e17ff7b15965ca14cff0b2a9a7540dae471b5"
+  },
+  "prompt": "inventory-clean-skin.prompt.txt",
+  "evidence_limitations": "Parent agent reports exactly one successful built-in cleaning edit per image. Tool returned model/quality/response and precise submission time were not persisted before reboot. Current config is target only, never evidence of actual parameters. No repeat generation performed in resume."
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="五行奇谈四职业技能：破军、玄霄、丹心、逐风。原创技能图标、技能说明与本地修习演示。">
+  <title>四脉真诀 · 五行奇谈</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Confirmed jade/ivory art direction; existing project raster skins, new original icons; all labels remain native text. This standalone preview does not connect to game servers. -->
+  <main class="page" data-screen-label="四脉真诀技能面板">
+    <header class="page-header">
+      <div class="brand">五行奇谈<span>四门传承 · 各有所长</span></div>
+      <nav class="page-nav" aria-label="预览视图"><button class="nav-link selected" id="show-skills" aria-pressed="true">技能修习</button><button class="nav-link" id="show-overview" aria-pressed="false">图鉴总览</button></nav>
+    </header>
+    <section class="skill-window" id="skills-screen">
+      <div class="title-plaque"><h1>四脉真诀</h1></div>
+      <img class="lantern" src="assets/lantern.png" alt="" aria-hidden="true">
+      <div class="window-topline"><span>人物技能</span><span class="local-badge">本地演示</span></div>
+      <div class="layout">
+        <aside class="class-sidebar"><h2>四门传承</h2><div id="class-list" class="class-list" role="group" aria-label="选择职业"></div><div class="school-poem" id="school-poem"></div><p class="sidebar-note">每门五式术法<br>三卷心法</p></aside>
+        <section class="skill-content" aria-label="技能列表">
+          <div class="content-heading"><div><h2 id="class-title">破军</h2><p id="class-subtitle">近战物攻</p></div><div class="rank-summary"><strong id="learned-count">2</strong><span>/ 8 已修习</span></div></div>
+          <div class="category-tabs" role="group" aria-label="技能分类"><button class="category selected" data-category="all" aria-pressed="true">全部</button><button class="category" data-category="active" aria-pressed="false">主动术法</button><button class="category" data-category="passive" aria-pressed="false">被动心法</button></div>
+          <div class="list-labels" aria-hidden="true"><span>技能名称</span><span>等级</span><span>消耗 / 目标</span></div>
+          <div class="skill-list" id="skill-list" role="group" aria-label="技能"></div>
+        </section>
+        <aside class="detail" id="skill-detail" aria-label="技能详情"></aside>
+      </div>
+      <footer class="window-footer"><p id="status-message" role="status" aria-live="polite">选一式术法，细读其中真意。</p><button class="button secondary" id="reset-demo">重置演示</button></footer>
+    </section>
+    <section class="overview" id="overview-screen" hidden data-screen-label="四职业32技能图鉴"><header class="overview-header"><div><p>五行奇谈 · 原创技能图鉴</p><h1>四脉同源，各成真诀</h1></div><span>四门派 · 三十二式</span></header><div id="overview-grid"></div></section>
+    <details class="demo-settings"><summary>演示设置</summary><div><label>角色等级 <input id="role-level" type="number" min="1" max="85" value="68"></label><label>可用金币 <input id="role-gold" type="number" min="0" max="99999999" value="120000"></label><p>演示数据只保存在当前浏览器。正式客户端以服务器回复为准。</p></div></details>
+  </main>
+  <script src="app.js" defer></script>
+</body>
+</html>

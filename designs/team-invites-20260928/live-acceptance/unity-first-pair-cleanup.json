@@ -1,0 +1,24 @@
+{
+  "run": "a07a9cf9d38949ef",
+  "result": "passed",
+  "exit_code": 0,
+  "log": "cleanup-20260929-064828.log",
+  "accounts": [
+    {
+      "player_id": "2213",
+      "account": "robot_tui_a07a9cf9d38949ef_leader"
+    },
+    {
+      "player_id": "2212",
+      "account": "robot_tui_a07a9cf9d38949ef_member"
+    }
+  ],
+  "checks": [
+    "Exact allowlisted account identity matched expected player ID",
+    "Both accounts had no team",
+    "Production RemoveFriend called for the single test pair",
+    "Both production GetFriendList responses no longer contained peer",
+    "Both sessions exited"
+  ],
+  "writes": "Only production RemoveFriend on authorized pair and login/logout; no SQL/Redis writes, no character creation/deletion, no service changes"
+}

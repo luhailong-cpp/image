@@ -1,0 +1,19 @@
+Hi Eden,
+
+Following up on ticket 4853343 for https://github.com/luhailong-cpp/image.
+
+A further push to main from my current Windows PC on October 15 was rejected with:
+"Repository is above its size quota. Contact GitHub Support for further assistance."
+
+I have attached diagnostics from this PC. These are not the complete post-rewrite git-sizer report you requested: the rewritten repository is on another Windows PC. This clone is a partial clone, and the pinned local revision d50392eb75d3bfed1a4aec1a925d8f8919973ec7 has 91,323 missing objects among 244,472 enumerated objects. The official git-sizer 1.5.0 attempt failed with git-rev-list exit status 128. The attachment includes the command, error and local storage counters; I do not want to present incomplete statistics as a successful report.
+
+As reported earlier, the other PC's rewritten HEAD is 083896b017503d69148557a3a8cece7ee17443e3, the attempted push pack was about 412 MB, and approximately 100 GB of images were migrated to LFS (46,658 objects uploaded). Its .git directory is roughly 200 GB on disk, but that is only a rough estimate and may include LFS objects and caches; it should not be treated as the regular Git repository size.
+
+Could you confirm the repository's current server-side Git size, the active size limit and whether the earlier garbage collection completed? While I arrange the complete report from the other PC, could you grant the largest practical temporary increase your policy permits? Ideally, I would like at least 100 GiB of additional headroom above current server-side usage for 14 days, or another allowance you consider sufficient to accept the rewritten history and pending work before cleanup. This requested headroom is not a measured minimum.
+
+Once the corrected main history is accepted, I will let you know so that you can run garbage collection again. I would like to preserve the existing repository and its settings.
+
+If you need the complete post-rewrite report before any temporary increase is possible, please let me know. I will supply it from the migration PC.
+
+Thank you for your help,
+luhailong-cpp

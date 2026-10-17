@@ -1,0 +1,55 @@
+{
+  "CapturedUtc": "2026-10-16T07:10:35.2808649Z",
+  "CompletedUtc": "2026-10-16T07:10:40.2610087Z",
+  "HeadStart": "31354361bca7a41ad08d31358532b1db15a462a7",
+  "HeadEnd": "31354361bca7a41ad08d31358532b1db15a462a7",
+  "ConcurrentHeadChange": false,
+  "Categories": [
+    {
+      "Category": "AuditOnly",
+      "Count": 4,
+      "Bytes": 3923832
+    },
+    {
+      "Category": "BlockedSensitiveContent",
+      "Count": 1,
+      "Bytes": 483
+    },
+    {
+      "Category": "DeferredReview",
+      "Count": 133,
+      "Bytes": 139644621
+    },
+    {
+      "Category": "DeletionReview",
+      "Count": 9,
+      "Bytes": 0
+    },
+    {
+      "Category": "Exclude",
+      "Count": 2467,
+      "Bytes": 643952458
+    },
+    {
+      "Category": "KeepCandidate",
+      "Count": 769,
+      "Bytes": 267627988
+    }
+  ],
+  "CredentialFindings": [
+    {
+      "Path": "designs/team-invites-20260928/live-acceptance/robot.yaml",
+      "Field": "password",
+      "Finding": "Nonempty credential field",
+      "ValuePrinted": false
+    }
+  ],
+  "ScanScope": "Candidate text files no larger than 16MiB: credential-like quoted literals and common token/private-key signatures. Values are never printed or serialized. This is a targeted scan, not a guarantee against all possible secrets.",
+  "FinalKeepRequirements": [
+    "Use only KeepCandidate files matching their recorded SHA256 and byte count.",
+    "No Git history, old .git directory, missing sparse paths, excluded/deferred/blocked files, or screenshot binaries are to be copied.",
+    "Preserve deferred/blocked records locally and compare them explicitly later.",
+    "NPC and other concurrent task output may change; recheck hashes and update the manifest when needed.",
+    "The new Azure main would be an incomplete migration starting point, not a complete project checkout."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-10-01T13:51:06.4675759Z",
+  "regression": "BackgroundRefreshCooldownDisablesInvitationUntilTheClientCanSend",
+  "reproduction": "Production TeamClient receives a background GetMyTeam reply; Busy is false after 0.1s but its existing 400ms send interval rejects Invite. The production TeamUiRoot originally left the invitation button enabled.",
+  "red": {
+    "path": "qa/cooldown-red-20261001.xml",
+    "total": 1,
+    "passed": 0,
+    "failed": 1,
+    "message": "The UI must reflect the real send cooldown after Busy clears. Expected False, But was True."
+  },
+  "green": {
+    "path": "qa/cooldown-green-20261001.xml",
+    "total": 159,
+    "passed": 159,
+    "failed": 0
+  },
+  "preservedLimits": {
+    "minimumSendIntervalSeconds": 0.4,
+    "perMessageWindowSeconds": 2.5,
+    "writeQuota": 3,
+    "serverInviteMaxRequests": 3,
+    "serverInviteTimeWindowSeconds": 1
+  },
+  "changes": [
+    "Read-only InvitationCoolingDown uses the existing send predicate.",
+    "TeamUiRoot mirrors cooldown changes; invite actions disable until the same predicate clears.",
+    "Driver joins the member to the leader line and checks both real AOI views.",
+    "Offscreen capture draws the world then overlay UI and restores temporary rendering state in finally."
+  ],
+  "remaining": "Root agent performs new actual Windows player build and live two-client four-source acceptance.",
+  "driverSha256": "CAE89035D18D17C42A440D2E1DD7FE0A2DC72F91D1132B5B7254B43A2F4F7286"
+}

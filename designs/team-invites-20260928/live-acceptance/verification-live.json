@@ -1,0 +1,31 @@
+{
+  "verified_at": "2026-09-29T10:17:35.3671308Z",
+  "result": "passed",
+  "exit_code": 0,
+  "log": "result-20260929-061513.log",
+  "account_prefix": "robot_tinv_752e2e684f726c61",
+  "player_ids": [
+    "2210",
+    "2211"
+  ],
+  "team_id": "74004670217781248",
+  "friend_exe_sha256": "FE9AF4EA309AB4D78DD28ABC4C5B28A3AB8161908247FB7CB35A09836AFFA9E0",
+  "robot_exe_sha256": "DB115A0C32AA94B39F9AE6C45CD8F8F4D9D0D3E08306338D548D1373D4A7A097",
+  "checks": [
+    "Real gateway/gate login and scene entry",
+    "RPC167 authoritative level 1 for both newly created players",
+    "RPC12 reciprocal online friendship with real profile metadata",
+    "RPC119 online_directory capability, real online friend included, same zone and self excluded",
+    "RPC119 numeric-ID and name queries succeeded after 6 pages each",
+    "Unknown cached level 0 is preserved, positive level checked against runtime panel",
+    "Team invite push and incoming invite list delivered",
+    "Accept succeeded: both views contain both unique player IDs online in zone 1",
+    "Disband succeeded, B logout produces RPC12 offline status",
+    "Complete RPC119 traversal after logout excludes B",
+    "Only this test friendship removed, both sessions disconnected"
+  ],
+  "environment_note": "Existing Match executable predates optional TeamMemberView.Name change 3c7fb8f2e; empty team-member display names recorded without claiming validation of that unrelated deployment. Candidate names from RPC12/119 were required and passed.",
+  "persistent_test_data": "Only new random robot_tinv_ accounts/characters were created. No SQL/Redis mutation scripts, no historical users touched, no account/character deletion.",
+  "code_fix": "OnlineDirectory no longer excludes valid online players solely because pre-first-save snapshot level is unknown (0). Identity/name/class/session/home-zone validation remains.",
+  "regression": "level-regression-red.log -> level-fix-test-green.log; full Friend test/vet/build passed"
+}

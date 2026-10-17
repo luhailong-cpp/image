@@ -1,0 +1,19 @@
+另一台 Windows 电脑采集步骤
+
+1. 将 windows-git-sizer-collector.zip 复制到迁移仓库所在电脑并完整解压。
+2. 双击 Run-Report.cmd。
+3. 输入那台电脑上重写后的仓库目录（例如 D:\work\image）。不知道目录时直接回车，程序会限深查找。
+4. 采集器会核对提交 083896b017503d69148557a3a8cece7ee17443e3，检查对象完整性，再生成完整 git-sizer 文本及 JSON。
+5. 完成结果在桌面 GitHub-4853343-reports 目录下按时间保存。把成功目录里的 git-sizer-revision.txt、git-sizer-all-refs.txt 和 metadata.json 与本机诊断包一同发给客服。
+
+报告范围：
+- revision：邮件中 083896b... 及其可达历史。
+- all-refs：该仓库所有引用可达的历史，可能包含旧备份引用。
+- metadata.json 标记成功才代表采集完成。FAILED.json 是失败诊断，不能称为完整报告。
+- 两份报告以及两台电脑的大小不能直接相加，可能包含重复对象；.git 磁盘大小也可能含 LFS 缓存。
+
+如果迁移后又有新提交，且想统计新版本，可在 PowerShell 中执行：
+.\Collect-GitSizer.ps1 -Repository 'D:\实际仓库路径' -Revision '完整40位提交号' -IncludeJson
+
+此采集包不联网下载、不上传、不修改仓库、不删除历史、不更改执行策略。
+工具为 GitHub 官方 git-sizer release 1.5.0，来源和 SHA256 见 tools-provenance.json。

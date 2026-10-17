@@ -1,0 +1,1654 @@
+{
+  "schemaVersion": 1,
+  "projectRoot": "E:/work/image",
+  "clientRoot": "E:/work/mmorpg-client",
+  "auditDate": "2026-10-16",
+  "auditMethod": "读取当前磁盘文件、设计来源清单与客户端文字证据；本清单编写任务没有运行Unity、没有新生图、没有修改客户端。",
+  "userRequirement": {
+    "date": "2026-10-16",
+    "scope": "all-existing-designed-ui",
+    "statement": "用户2026-10-16要求所有既有UI按design还原；游戏中的布局、画法、材质、边框和装饰以现存最终design预览为准。",
+    "newArtDirection": false,
+    "regenerateExistingApprovedDesigns": false
+  },
+  "sharedAcceptance": {
+    "sourceArtGeometry": "source art geometry required：以对应最终设计的窗框、标题、列宽、行高、头像/图标比例、气泡、按钮、留白和装饰位置为几何基准，不能只匹配配色。",
+    "sourceArtMaterial": "source art material required：使用对应原稿的手绘材质和边饰；现有通用皮肤无法还原时拆对应原稿专属切片，不能以通用控件复用视为已还原。",
+    "nativeDynamicData": "native dynamic data required：文字、姓名、数值、状态、列表、输入和按钮仍由原生控件绑定真实数据；动态数据与数量不同不构成替换美术的理由，也不能烘焙示例内容进生产背景。",
+    "sameResolutionScreenshotCompare": "same resolution screenshot compare required：原生实际窗口与设计基准在相同画布尺寸并排/叠加核对；1931/1932×814原稿只按同一比例归一化比较，不冒称新原生像素。至少覆盖2560×1080、1920×1080及长内容/空态/禁用/弹窗。",
+    "runtimeArtifact": "验证生产入口和用户实际运行的构建，确认已批准资源、预制体、代码、导入边距与包内版本一致。",
+    "completionRule": "completed只有当前模块同尺寸原生画面对照、实际交互和当前引用完整通过后才能为true；编译、资源存在、逻辑测试和旧版本截图不能单独标记视觉还原完成。",
+    "retention": "只保留正式游戏资源、当前配套设计和接入/来源文字记录；临时截图在验收并记录结论后按AGENTS.md清理，不另存图片备份。",
+    "doNotRegress": "保留当前已实现的服务端权威数据、请求代次、焦点/输入隔离和最新装备/强化/镶嵌功能；视觉还原只修呈现。"
+  },
+  "requiredReferenceChecks": [
+    {
+      "path": "E:/work/image/qdao_ui_redesign_v5/UI_SPEC.md",
+      "note": "当前磁盘实际缺失；没有冒称已读。对应mail/social UI_SPEC和v10 README可读，读取具体原稿后再实施。",
+      "exists": false
+    }
+  ],
+  "evidencePolicy": "evidence.date取文件明确记录的实际轮次日期，不使用文件mtime推定完成；historical证据只说明当时通过。source/client exists在本次写入前逐路径核验，不能用旧文档断言当前缺失。differenceEvidence含直接差异或未验收限制的精确行号；unknown不推断缺陷。当前主任务正在继续修改聊天，清单是审计时点，不会把在制未验收结果标成完成。",
+  "modules": [
+    {
+      "id": "login",
+      "name": "登录与账号",
+      "priority": 2,
+      "previewSources": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/01_login_2560x1080.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "b080e2d8ec0bdf773570098baa92fc74ff1d4a510ce877631a6e31a287414b1c"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/QdaoServerSelectView.cs",
+          "exists": true,
+          "sha256AtAudit": "d6b42e465d3522f8f8957f968fbe5543cf201f47b26d86a41447ca00dd98b13d"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/QdaoServerSelectView.Visuals.cs",
+          "exists": true,
+          "sha256AtAudit": "b0f0773d34eeaa0a4fada14c9d54801391063097addbeef8f30e5317467194a8"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/QdaoUguiRuntime.cs",
+          "exists": true,
+          "sha256AtAudit": "b2c738a26d33513831d06b9ce7aad34d48656dc81a9942da425703165c36eb14"
+        }
+      ],
+      "fidelityStatus": "needs-native-validation",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/UIRefresh-20260909.md",
+          "date": "2026-09-10",
+          "summary": "最新本文件说明v10全库拼合/接入尚待验证；9月10日v8截图与构建属于旧版，不能证明今天的design还原。",
+          "scope": "historical-native-check-and-later-limit",
+          "line": 151,
+          "exists": true,
+          "sha256AtAudit": "447a4c92d58d66204243330c39acac64259e29df1344c64dbcd82ff940ed8b52"
+        }
+      ],
+      "notes": [
+        "当前原生入口使用烘焙的QdaoServerSelect预制体；修改源代码后还须重建该预制体并核对正式包，不能只验证离线重建窗口。"
+      ],
+      "differenceEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/UIRefresh-20260909.md",
+          "summary": "旧v8运行画面未达已批准风格，当前v10完整原生视觉需重新验证。",
+          "line": 149,
+          "exists": true,
+          "sha256AtAudit": "447a4c92d58d66204243330c39acac64259e29df1344c64dbcd82ff940ed8b52"
+        }
+      ]
+    },
+    {
+      "id": "server-select",
+      "name": "服务器选择",
+      "priority": 2,
+      "previewSources": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/02_server_select_2560x1080.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "938bdd7ff2cd2ca71ffe395b031f48e97f251709c51e7922faae6d9cccaefdd8"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/QdaoServerSelectView.cs",
+          "exists": true,
+          "sha256AtAudit": "d6b42e465d3522f8f8957f968fbe5543cf201f47b26d86a41447ca00dd98b13d"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/QdaoServerSelectView.Visuals.cs",
+          "exists": true,
+          "sha256AtAudit": "b0f0773d34eeaa0a4fada14c9d54801391063097addbeef8f30e5317467194a8"
+        }
+      ],
+      "fidelityStatus": "needs-native-validation",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/UIRefresh-20260909.md",
+          "date": "2026-09-10",
+          "summary": "最新本文件说明v10全库拼合/接入尚待验证；9月10日v8截图与构建属于旧版，不能证明今天的design还原。",
+          "scope": "historical-native-check-and-later-limit",
+          "line": 151,
+          "exists": true,
+          "sha256AtAudit": "447a4c92d58d66204243330c39acac64259e29df1344c64dbcd82ff940ed8b52"
+        }
+      ],
+      "notes": [],
+      "differenceEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/UIRefresh-20260909.md",
+          "summary": "旧v8粗金云角、亮绿板等与参考有差距；当前不能沿用其完成结论。",
+          "line": 149,
+          "exists": true,
+          "sha256AtAudit": "447a4c92d58d66204243330c39acac64259e29df1344c64dbcd82ff940ed8b52"
+        }
+      ]
+    },
+    {
+      "id": "role-flow",
+      "name": "角色选择与创建",
+      "priority": 2,
+      "previewSources": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/03_character_select_2560x1080.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "fbf84240571735b25a55eec73a291a1719249a81c97d2417c9ac95538a4849db"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Role/RoleFlowUi.cs",
+          "exists": true,
+          "sha256AtAudit": "66c5f225c82ca5b0b3aeec93facf4246fe1487ddba322adc8f7547a0c6b007b3"
+        }
+      ],
+      "fidelityStatus": "needs-native-validation",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/UIRefresh-20260909.md",
+          "date": "2026-09-10",
+          "summary": "最新本文件说明v10全库拼合/接入尚待验证；9月10日v8截图与构建属于旧版，不能证明今天的design还原。",
+          "scope": "historical-native-check-and-later-limit",
+          "line": 151,
+          "exists": true,
+          "sha256AtAudit": "447a4c92d58d66204243330c39acac64259e29df1344c64dbcd82ff940ed8b52"
+        }
+      ],
+      "notes": [
+        "角色创建是同一流程的关联页，已有角色选择稿为视觉锚点；真实账号槽位、职业与角色数据优先于原稿示例。"
+      ],
+      "differenceEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/UIRefresh-20260909.md",
+          "summary": "旧轮人物比例和狐尾位置未达参考；当前design对照仍需验证。",
+          "line": 149,
+          "exists": true,
+          "sha256AtAudit": "447a4c92d58d66204243330c39acac64259e29df1344c64dbcd82ff940ed8b52"
+        }
+      ]
+    },
+    {
+      "id": "city-hud",
+      "name": "主城HUD",
+      "priority": 2,
+      "previewSources": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/04_main_city_hud_2560x1080.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "7c6ea8715bc02693a9c279ec73c9ee66a8612e0c87727efbec56ccb22721fe63"
+        },
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/hud/preview.html",
+          "kind": "interactive-preview",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "d86eaf94db0f32ba478d46993246b7bcf4a48ae0cba60441e393679b397b4cbb"
+        },
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/hud/placement.json",
+          "kind": "layout-contract",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "f872bf0b1d9fc2051fe8d308a7c2b2fa596ea4a3ed7ddba51ab811190cb88b60"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Battle/BattleUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "80df58cb42a3f5c002c3d4ebc54fe34abcaf5a1893f83b42049d10d5744382b8"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "ea0f43e7363b1a3aa40b43219f2eff11aaa0237607ef96faa8602d961e556cef"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Attribute/AttributeUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "96bd7cbd47e3cee95055baf68fab4f2a7bb501e419746da591be53afd341d826"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Pet/PetUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "ddadf80bff57c182c5719a71403c177803abef2c1c21e7c22fee8e431f2a4ee7"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Team/TeamUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "287bded3ba067f2465c7cb0160a9736bd4f223e6e0b9fc35b8a3038361911edf"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Mail/MailUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "edc5f228e2e1759477af079054bbefea8b98fca2d757b6e50a4ed8e9ac2b7145"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Social/SocialUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "63add08ecc3f48a992f71af6cca7441b0a31f7de9f4e1e56d74f94771d4d611a"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Guild/GuildUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "b70ed057c451ab5da628546a9bf8d204936e0b4a9684e093102865a6b2c76e2e"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Jubaozhai/JubaozhaiUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "05a256f571be283009f5c260ce3bb4eeb2bb372e67a17faeccdff3e86afde7d6"
+        }
+      ],
+      "fidelityStatus": "needs-native-validation",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/UIRefresh-20260909.md",
+          "date": "2026-09-10",
+          "summary": "最新本文件说明v10全库拼合/接入尚待验证；9月10日v8截图与构建属于旧版，不能证明今天的design还原。",
+          "scope": "historical-native-check-and-later-limit",
+          "line": 151,
+          "exists": true,
+          "sha256AtAudit": "447a4c92d58d66204243330c39acac64259e29df1344c64dbcd82ff940ed8b52"
+        }
+      ],
+      "notes": [
+        "已有HUD稿只覆盖历史入口；新增业务入口应保留并按同一材质与层级排布，不能删功能以凑旧示意图。"
+      ],
+      "differenceEvidence": []
+    },
+    {
+      "id": "battle-ui",
+      "name": "战斗与观战界面",
+      "priority": 2,
+      "previewSources": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/05_battle_scene_2560x1080.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "560e1bc6326d68a1a9e3af817ed964bcdd413d95953b2b504e103d65c4cfab05"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Battle/BattleScreen.cs",
+          "exists": true,
+          "sha256AtAudit": "b2e262081dd82ba6c169b48cc6251d312f417f8db1e13d62fd51b21b59b3727e"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Battle/BattleHud.cs",
+          "exists": true,
+          "sha256AtAudit": "bf658c3862deea2f2594382c1c9672882b019b69939b2ed719871894b85498a8"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Battle/BattleCommandRing.cs",
+          "exists": true,
+          "sha256AtAudit": "1204b9ccc3298d51e5554377371f1a8b33ca2adb7b7c3a63d1ff25f977b967b4"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Battle/BattleResultPanel.cs",
+          "exists": true,
+          "sha256AtAudit": "4f32d0263231f82274f209c8fdfd01dc8a9ed8a1f64d2c978f2b68bff9635176"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Battle/SpectatePanel.cs",
+          "exists": true,
+          "sha256AtAudit": "c54aa57eff711e9f516a56767a9c7c8cfa5c01a60d56213637e2bc2edd7b756e"
+        }
+      ],
+      "fidelityStatus": "unknown",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/README.md",
+          "date": "2026-09-06",
+          "summary": "现存稿为战斗静态场景参考；不能把场景稿冒称完整战斗命令、结算与观战UI已验收。",
+          "scope": "art-scope-only",
+          "line": 40,
+          "exists": true,
+          "sha256AtAudit": "619134c307d2fb2c413c10ab24fb687608f98628cef3279eab5f78d0b8b517a6"
+        }
+      ],
+      "notes": [
+        "原图中的地图不强制替换当前批准战斗背景；UI几何和控件需以现存对应稿/分层为准，缺少独立页面稿的子页只登记，不能凭空宣称一致。"
+      ],
+      "differenceEvidence": []
+    },
+    {
+      "id": "battle-transition",
+      "name": "战斗入场与加载过场",
+      "priority": 2,
+      "previewSources": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/06_battle_entry_loading_2560x1080.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "4b89454df0e5beb1942d88a8e864a4a0101d77bfc93a50eeb6f2654cf8f20b59"
+        },
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/06_battle_entry_clouds_fg_2560x1080.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "9b446c077f321d95f8dd762976563e0ad9a03567e3ae43cc66f4f85a40dcfa67"
+        },
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/transition_manifest.json",
+          "kind": "asset-contract",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "9a3f7da9190795500a889871dac78b03e0797200be12714b904fd649729a09ec"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Battle/BattleScreenFx.cs",
+          "exists": true,
+          "sha256AtAudit": "fa890a2cf721dd5bfde8596503c511264a6b9382ab29eebbd7ee23200935eec5"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Battle/BattleScreen.cs",
+          "exists": true,
+          "sha256AtAudit": "b2e262081dd82ba6c169b48cc6251d312f417f8db1e13d62fd51b21b59b3727e"
+        }
+      ],
+      "fidelityStatus": "unknown",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/image/qdao_ui_redesign_v5/README.md",
+          "date": "2026-09-06",
+          "summary": "已交付无字入场图与真透明云层，加载进度由客户端动态显示；没有当前同分辨率原生画面对照证据。",
+          "scope": "art-scope-only",
+          "line": 64,
+          "exists": true,
+          "sha256AtAudit": "619134c307d2fb2c413c10ab24fb687608f98628cef3279eab5f78d0b8b517a6"
+        }
+      ],
+      "notes": [],
+      "differenceEvidence": []
+    },
+    {
+      "id": "character-attributes",
+      "name": "人物属性与加点",
+      "priority": 2,
+      "previewSources": [
+        {
+          "path": "E:/work/image/designs/attribute-panels/v10-preview/index.html",
+          "kind": "interactive-preview",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "e8502f3585be9c1f087356aae3d463d8d5f057a5259976e85e4bb7d70e15f8f3"
+        },
+        {
+          "path": "E:/work/image/designs/attribute-panels/v10-preview/panel.css",
+          "kind": "layout-source",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "3e71e1185d2347baf497749f76cbff859a02a5d509eab288ea0510519f07c602"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Attribute/AttributePanel.cs",
+          "exists": true,
+          "sha256AtAudit": "6eb04fffb430a1379515ee85d1253061ef51fed4e322dcc0469bb2a13af4bee1"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Attribute/CharacterAttributeVisuals.cs",
+          "exists": true,
+          "sha256AtAudit": "ffbfc2c9bb728d4592f07393df70b3e16d95ce3b25dbee8deffbab3305b0a629"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Attribute/AttributeUiWidgets.cs",
+          "exists": true,
+          "sha256AtAudit": "c56762ce08f8ceedd4fab400efbb115618cedf245230b90279cc863477fdc2b1"
+        }
+      ],
+      "fidelityStatus": "needs-native-validation",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/GameplayUI-20260910.md",
+          "date": "2026-10-09",
+          "summary": "后续装备和战斗属性接线的原生窗口与18张集成截图未完成；153纯逻辑通过不能替代画面验收。",
+          "scope": "documented-verification",
+          "line": 16,
+          "exists": true,
+          "sha256AtAudit": "9f4cb5a89ca963e4cf1d129938232713f2c1f8ec72198397167a36a02b4aea05"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Docs/ATTRIBUTE_UI_V10_INTEGRATION.md",
+          "date": "2026-09-11",
+          "summary": "正式31切片及属性/宝宝面板两分辨率10截图、26测试通过；只属于该v10轮次离线验证，尚无今天同design逐项比对。",
+          "scope": "documented-verification",
+          "line": 9,
+          "exists": true,
+          "sha256AtAudit": "92fea7a8f6a2a82f97d77dc78fbc0b94b658dbd07dd27b3f6172c9047720cb54"
+        }
+      ],
+      "notes": [],
+      "differenceEvidence": []
+    },
+    {
+      "id": "pet-attributes",
+      "name": "宝宝属性与加点",
+      "priority": 2,
+      "previewSources": [
+        {
+          "path": "E:/work/image/designs/attribute-panels/v10-preview/index.html",
+          "kind": "interactive-preview",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "e8502f3585be9c1f087356aae3d463d8d5f057a5259976e85e4bb7d70e15f8f3"
+        },
+        {
+          "path": "E:/work/image/designs/attribute-panels/v10-preview/app.js",
+          "kind": "interaction-source",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "dc2019181a5dacc31861fc1ba4f9685569e2bb2d463ce9b78c24acfb638588be"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Pet/PetPanel.cs",
+          "exists": true,
+          "sha256AtAudit": "2ad2791113d177094ae7c6ebdd2bee5bfa67a3c904d4439071b4a9ff579d0053"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Pet/PetUiStyle.cs",
+          "exists": true,
+          "sha256AtAudit": "95867f0fca5fd7a42da4040fcdf49b73253cb1c489fef925175814235f5cbc59"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Pet/PetUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "ddadf80bff57c182c5719a71403c177803abef2c1c21e7c22fee8e431f2a4ee7"
+        }
+      ],
+      "fidelityStatus": "needs-native-validation",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/ATTRIBUTE_UI_V10_INTEGRATION.md",
+          "date": "2026-09-11",
+          "summary": "该轮真实AttributePanel/PetPanel两分辨率10张截图、26项通过；后续名册/宝宝变化须另核对，不沿用旧截图作当前像素完成证据。",
+          "scope": "documented-verification",
+          "line": 9,
+          "exists": true,
+          "sha256AtAudit": "92fea7a8f6a2a82f97d77dc78fbc0b94b658dbd07dd27b3f6172c9047720cb54"
+        }
+      ],
+      "notes": [],
+      "differenceEvidence": []
+    },
+    {
+      "id": "team",
+      "name": "队伍成员与申请",
+      "priority": 1,
+      "previewSources": [
+        {
+          "path": "E:/work/image/designs/team-ui-v2/team-ui-v2.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "5fab5229de7030ac48172cfa39bb45f612a545cee0dba6303ae6f2dcfdf38750"
+        },
+        {
+          "path": "E:/work/image/designs/team-ui-v2/index.html",
+          "kind": "interactive-preview",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "f59213ba01bc0b34524495aac3f3d045ccd065b2882d032388c025dfbf92d6e5"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Team/TeamWindow.cs",
+          "exists": true,
+          "sha256AtAudit": "77701c85f64cde37701ab68938a09e98459ec49b44d8b8ec2412a54c8a7e1e4b"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Team/TeamUiArt.cs",
+          "exists": true,
+          "sha256AtAudit": "b1f43e54f507db7b3fc0407c26db68353e0a293fafdb8a9dd7719832bf9dba8d"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Team/TeamUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "287bded3ba067f2465c7cb0160a9736bd4f223e6e0b9fc35b8a3038361911edf"
+        }
+      ],
+      "fidelityStatus": "known-divergent",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/image/designs/team-ui-v2/unity-slices/qa/validation.json",
+          "date": "2026-09-14",
+          "summary": "专属原稿14切片；27 EditMode与6 PlayMode、20原生截图通过。此报告不证明后续当前客户端与design完全一致。",
+          "scope": "documented-verification",
+          "line": 2,
+          "exists": true,
+          "sha256AtAudit": "d42a4b72feb2551f64c86f57225753add591a46a4c992bcf43f6299051f0376d"
+        }
+      ],
+      "notes": [],
+      "differenceEvidence": [
+        {
+          "path": "E:/work/image/designs/team-ui-v2/README.md",
+          "summary": "先前验收明确允许头像和细节偏离原稿。",
+          "line": 18,
+          "exists": true,
+          "sha256AtAudit": "63aa3bfee9808a1382cb1d1031ba9056ad750ee98ccf66721fafb722a05cd0df"
+        }
+      ]
+    },
+    {
+      "id": "team-invitations",
+      "name": "邀友同游与组队邀请子页",
+      "priority": 2,
+      "previewSources": [
+        {
+          "path": "E:/work/image/designs/team-invites-20260928/README.md",
+          "kind": "interaction-spec",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "d897014ddf7e1dfca13335500db98478f787d0b79c9694befbbb322f0535d253"
+        },
+        {
+          "path": "E:/work/image/designs/team-ui-v2/team-ui-v2.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "5fab5229de7030ac48172cfa39bb45f612a545cee0dba6303ae6f2dcfdf38750"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Team/TeamInvitationWindow.cs",
+          "exists": true,
+          "sha256AtAudit": "3ac72a60eb9f9fe7bf5c8da9ef4060b22e6d3056f5e0b2fcac51dd09fd3fd87b"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Team/TeamUiArt.cs",
+          "exists": true,
+          "sha256AtAudit": "b1f43e54f507db7b3fc0407c26db68353e0a293fafdb8a9dd7719832bf9dba8d"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Social/SocialWindow.cs",
+          "exists": true,
+          "sha256AtAudit": "e90a93e045daac4ece71d27947be2d52fcba2ff3764f5b11a975337f26d6856d"
+        }
+      ],
+      "fidelityStatus": "unknown",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/image/designs/team-invites-20260928/README.md",
+          "date": "2026-10-15",
+          "summary": "原生16张邀请样例与11张联机截图已清理，文字证据保留；9月29日真实协议验收成功但没有今天的视觉对照。",
+          "scope": "documented-verification",
+          "line": 18,
+          "exists": true,
+          "sha256AtAudit": "d897014ddf7e1dfca13335500db98478f787d0b79c9694befbbb322f0535d253"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Docs/SocialUI.md",
+          "date": "2026-10-15",
+          "summary": "最新社交与旧组队好友目录回归89项通过，包括好友入口；属于可控传输验证，不证明视觉一致。",
+          "scope": "documented-verification",
+          "line": 59,
+          "exists": true,
+          "sha256AtAudit": "3189ab5b88a25b656fe6991489719749e2318baa51f9af30753e5af05c3f38f1"
+        }
+      ],
+      "notes": [
+        "没有独立新增整屏邀请原画，以现有TeamV2稿与既有邀请布局合同还原；不重做已实现的好友/周围/在线/最近聊天目录。"
+      ],
+      "differenceEvidence": []
+    },
+    {
+      "id": "mail",
+      "name": "仙笺邮件",
+      "priority": 1,
+      "previewSources": [
+        {
+          "path": "E:/work/image/designs/mail-ui-v1/01-mail-event.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "3cf0b7d7b3bae337d51e947719588419a01ae21bdce9bccedd6258ce1feef0a2"
+        },
+        {
+          "path": "E:/work/image/designs/mail-ui-v1/02-mail-system.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "c034c61d06479c51c73c71c2920d6e00d4a67ec3bd129052eb609907cd9f757a"
+        },
+        {
+          "path": "E:/work/image/designs/mail-ui-v1/index.html",
+          "kind": "interactive-preview",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "c3da28f65a88eabf2c3248f350449e07f4e1de204d1f75c667da2e15be2a5290"
+        },
+        {
+          "path": "E:/work/image/designs/mail-ui-v1/UI_SPEC.md",
+          "kind": "interaction-spec",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "bbba45135d844c86efd4407781125a8078a3585d904bb68444c131dede28b079"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Mail/MailWindow.cs",
+          "exists": true,
+          "sha256AtAudit": "5cb5aba5e5fd47a43bf529e7b6b837c868766bc6a388d60e1c3ebe3d91c97c73"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Mail/MailUiArt.cs",
+          "exists": true,
+          "sha256AtAudit": "e5241b5a0d4dd11f97ca70c1d449e89ae34357cb5ea0fb8ee8b3744b532b6e91"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Mail/MailUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "edc5f228e2e1759477af079054bbefea8b98fca2d757b6e50a4ed8e9ac2b7145"
+        }
+      ],
+      "fidelityStatus": "known-divergent",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/image/designs/mail-ui-v1/README.md",
+          "date": "2026-09-29",
+          "summary": "最新40节庆横幅与网页美术交付不代表新增节日已导入Unity。",
+          "scope": "documented-verification",
+          "line": 67,
+          "exists": true,
+          "sha256AtAudit": "fd448bc8aa93b4b32e5948beaf4aaf76b0898c08d881cbb252962238d560b6ca"
+        },
+        {
+          "path": "E:/work/image/designs/mail-ui-v1/unity-slices/qa/capture.json",
+          "date": "2026-09-17",
+          "summary": "既有MailWindow离线16张两分辨率截图和固定按钮边界通过；没有设计图同尺寸差异验收。",
+          "scope": "documented-verification",
+          "line": 3,
+          "exists": true,
+          "sha256AtAudit": "256f86aeaa3beb2cf09b9af09c5678a2fadb4795c6233c7eeabbdb4a5b1410ec"
+        }
+      ],
+      "notes": [],
+      "differenceEvidence": [
+        {
+          "path": "E:/work/image/designs/mail-ui-v1/UI_SPEC.md",
+          "summary": "旧合同允许复用控件，与用户最新要求不同。",
+          "line": 39,
+          "exists": true,
+          "sha256AtAudit": "bbba45135d844c86efd4407781125a8078a3585d904bb68444c131dede28b079"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Mail/MailWindow.cs",
+          "summary": "现行窗框2250×930及分类/正文/奖励/按钮位置为通用重组，须按原稿重新核对。",
+          "line": 44,
+          "exists": true,
+          "sha256AtAudit": "5cb5aba5e5fd47a43bf529e7b6b837c868766bc6a388d60e1c3ebe3d91c97c73"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Mail/MailWindow.cs",
+          "summary": "邮件行复用stat_field，缺专属信封/选中金边箭头皮肤。",
+          "line": 147,
+          "exists": true,
+          "sha256AtAudit": "5cb5aba5e5fd47a43bf529e7b6b837c868766bc6a388d60e1c3ebe3d91c97c73"
+        }
+      ]
+    },
+    {
+      "id": "social-chat",
+      "name": "仙友会群组、世界聊天与谣言",
+      "priority": 0,
+      "previewSources": [
+        {
+          "path": "E:/work/image/designs/social-ui-v1/01-groups.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "6af434083218d5e50437b5803fadac4d09f0ece677a9c7c5247d958a7333d51f"
+        },
+        {
+          "path": "E:/work/image/designs/social-ui-v1/02-world.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "bf9db79437736b7d7e75a203a31c2053bb3930d8032848ac9492829339a209fd"
+        },
+        {
+          "path": "E:/work/image/designs/social-ui-v1/03-rumor.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "9fa6038af02985bab7dd909d472c17a9491308451544a05f64010d86f2c3e952"
+        },
+        {
+          "path": "E:/work/image/designs/social-ui-v1/index.html",
+          "kind": "interactive-preview",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "9d01a1f16b2cdbb49e54f7449014d7cc209ba0c90063f877ff3ada6b8d857bf5"
+        },
+        {
+          "path": "E:/work/image/designs/social-ui-v1/UI_SPEC.md",
+          "kind": "interaction-spec",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "b76b8d00e7bf874f1d0c9a2f2774434c77d5155e14e8f77807ff958b43202824"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Social/SocialWindow.cs",
+          "exists": true,
+          "sha256AtAudit": "e90a93e045daac4ece71d27947be2d52fcba2ff3764f5b11a975337f26d6856d"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Social/SocialUiArt.cs",
+          "exists": true,
+          "sha256AtAudit": "6e792a87a2365289050a76856592b9a74ad2365c8378201c5c234ee2fb948618"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Social/SocialUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "63add08ecc3f48a992f71af6cca7441b0a31f7de9f4e1e56d74f94771d4d611a"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Social/SocialComposerKeyboard.cs",
+          "exists": true,
+          "sha256AtAudit": "413c6003ea413048017380e05e2cc2c86d82929b6120bdc4cf0bc2b6f51a2265"
+        }
+      ],
+      "fidelityStatus": "known-divergent",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/SocialUI.md",
+          "date": "2026-10-15",
+          "summary": "最新Unity社交与好友目录89项通过；测试使用可控传输，不含design几何/材质同尺寸截图还原验收。",
+          "scope": "documented-verification",
+          "line": 59,
+          "exists": true,
+          "sha256AtAudit": "3189ab5b88a25b656fe6991489719749e2318baa51f9af30753e5af05c3f38f1"
+        }
+      ],
+      "notes": [
+        "Root负责正式世界RPC；缺乏结构化等级、肖像、道具/坐标数据时按真实数据呈现，不能用预览样例填充生产会话。"
+      ],
+      "differenceEvidence": [
+        {
+          "path": "E:/work/image/designs/social-ui-v1/README.md",
+          "summary": "旧合同允许独立皮肤重组，尚无原稿还原承诺。",
+          "line": 35,
+          "exists": true,
+          "sha256AtAudit": "451b1b333d551b3441d4e1f6cad0a538ae9cb813d094f76b96292079ae844813"
+        },
+        {
+          "path": "E:/work/image/designs/social-ui-v1/asset-manifest.json",
+          "summary": "窗框复用邮件原件，不是聊天原稿提取。",
+          "line": 176,
+          "exists": true,
+          "sha256AtAudit": "e0bd32c9f7dcf7c4453fa79b2a830ddd7a92214398b6dc1451292dbc79d55ba4"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Social/SocialUiArt.cs",
+          "summary": "输入框采用纯色边与纸面，须对照专属输入皮肤。",
+          "line": 42,
+          "exists": true,
+          "sha256AtAudit": "6e792a87a2365289050a76856592b9a74ad2365c8378201c5c234ee2fb948618"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Social/SocialWindow.cs",
+          "summary": "聊天气泡复用邮件字段底板。",
+          "line": 145,
+          "exists": true,
+          "sha256AtAudit": "e90a93e045daac4ece71d27947be2d52fcba2ff3764f5b11a975337f26d6856d"
+        }
+      ]
+    },
+    {
+      "id": "friend-requests",
+      "name": "好友申请与添加子窗口",
+      "priority": 2,
+      "previewSources": [
+        {
+          "path": "E:/work/image/designs/social-ui-v1/02-world.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "bf9db79437736b7d7e75a203a31c2053bb3930d8032848ac9492829339a209fd"
+        },
+        {
+          "path": "E:/work/image/designs/team-invites-20260928/README.md",
+          "kind": "interaction-spec",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "d897014ddf7e1dfca13335500db98478f787d0b79c9694befbbb322f0535d253"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Social/FriendRequestsWindow.cs",
+          "exists": true,
+          "sha256AtAudit": "346bd6f05a5a644509d60f7cff45e6e05a6379fc1a3e0c146495b97d4afa2b9e"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Social/SocialUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "63add08ecc3f48a992f71af6cca7441b0a31f7de9f4e1e56d74f94771d4d611a"
+        }
+      ],
+      "fidelityStatus": "unknown",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/SocialUI.md",
+          "date": "2026-10-15",
+          "summary": "新增好友22项和其他社交/目录回归共89项通过；没有独立好友申请整屏design原画和当前截图对照。",
+          "scope": "documented-verification",
+          "line": 59,
+          "exists": true,
+          "sha256AtAudit": "3189ab5b88a25b656fe6991489719749e2318baa51f9af30753e5af05c3f38f1"
+        }
+      ],
+      "notes": [
+        "现有功能已实现，应保留真实请求代次与操作边界；按仙友会原稿材质/控件还原关联子窗口，不臆造独立已批准稿。"
+      ],
+      "differenceEvidence": []
+    },
+    {
+      "id": "guild",
+      "name": "帮会全部页面与子窗口",
+      "priority": 2,
+      "previewSources": [
+        {
+          "path": "E:/work/image/designs/gameplay-ui/04-guild.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "85d0c8260237fb6381d6c54005d5f2ac9f4b065a16d318e3e12e6498312a40a6"
+        },
+        {
+          "path": "E:/work/image/designs/guild-ui-v2/index.html",
+          "kind": "interactive-preview",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "6d396fc314ba68ccabf45982fde98aa02475763271270bcd22823fc7270fde04"
+        },
+        {
+          "path": "E:/work/image/designs/guild-ui-v2/ASSET_HANDOFF.md",
+          "kind": "asset-contract",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "c6fc173a72dbee9df23ff86029cbe8e4933c8de0a00db6fe0a2cfc2ca8bfeeb9"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Guild/GuildWindow.cs",
+          "exists": true,
+          "sha256AtAudit": "c413080cb3fb3f8e93263df98b6432a713f8ef82d84a4c1d65071d53a1913260"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Guild/GuildUiArt.cs",
+          "exists": true,
+          "sha256AtAudit": "34179f7e25229ae9094d156cd5a5375d00d22696ce99f8f059396dd9789b6ff9"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Guild/GuildUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "b70ed057c451ab5da628546a9bf8d204936e0b4a9684e093102865a6b2c76e2e"
+        }
+      ],
+      "fidelityStatus": "known-divergent",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/GuildUI.md",
+          "date": "2026-10-08",
+          "summary": "最新活动/历练落码记录明确未编译未测试；旧2026-09-14 28测试/20截图不能覆盖新增申请、成员操作和活动历练布局。",
+          "scope": "latest-implementation-and-unverified-native-state",
+          "line": 137,
+          "exists": true,
+          "sha256AtAudit": "f78ece26491071950c46dd1698317cecf7b4ebaafb7a4b71153ea52e586068b4"
+        }
+      ],
+      "notes": [],
+      "differenceEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/GuildUI.md",
+          "summary": "文件直接记录设计24–27号字和客户端最少30号字造成格子/行高/排版偏差。",
+          "line": 127,
+          "exists": true,
+          "sha256AtAudit": "f78ece26491071950c46dd1698317cecf7b4ebaafb7a4b71153ea52e586068b4"
+        }
+      ]
+    },
+    {
+      "id": "jubaozhai",
+      "name": "聚宝斋寄售",
+      "priority": 2,
+      "previewSources": [
+        {
+          "path": "E:/work/image/designs/jubaozhai-ui/01-empty.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "7177c3b6913f853cf31bc8e98b41954c10da5a6bf5faa752b1e37db02e96df32"
+        },
+        {
+          "path": "E:/work/image/designs/jubaozhai-ui/02-characters.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "7a95140fc3c7a0ae6562ec6dff51d5296edd15116375152a8b22502c7107e879"
+        },
+        {
+          "path": "E:/work/image/designs/jubaozhai-ui/03-pets.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "5b84d1141efdfb41b9176f2e13ce709e8cb548d51577d3b4d3e22d17b64e0b9a"
+        },
+        {
+          "path": "E:/work/image/designs/jubaozhai-ui/04-weapons.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "1b15a1e5318e91418afa1497de182772cf7ca2b20808a87ead8546885770faca"
+        },
+        {
+          "path": "E:/work/image/designs/jubaozhai-ui/05-armor.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "f69970ff431504ab8784cd45e72c1165e4d4d1466d294e5852cb23f28eb95968"
+        },
+        {
+          "path": "E:/work/image/designs/jubaozhai-ui/06-summoning.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "771976125b53dc3cd63b84844fdeeb5a1b07894c7638fdd28ca154c89c7a6600"
+        },
+        {
+          "path": "E:/work/image/designs/jubaozhai-ui/07-sets.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "0f487c36ab05452f53713eefe1ae14384e3644e6415d55c4a7d5e5eea3cf96b4"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Jubaozhai/JubaozhaiWindow.cs",
+          "exists": true,
+          "sha256AtAudit": "c145881c3ff2e3d035641c53cd819eb04a7b6b701042bb126d1f42966b91903d"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Jubaozhai/JubaozhaiArt.cs",
+          "exists": true,
+          "sha256AtAudit": "cf6dac3709f9420204deaae4d52cd2c60589514e02a4925623ca32299be47d7e"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Jubaozhai/JubaozhaiUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "05a256f571be283009f5c260ce3bb4eeb2bb372e67a17faeccdff3e86afde7d6"
+        }
+      ],
+      "fidelityStatus": "known-divergent",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/JUBAOZHAI_UI.md",
+          "date": "2026-09-17",
+          "summary": "36切片及20原生截图已有验收，9月17日真实联网通过；该快照未同步当时主工程字体样式，明确不宣称主Unity逐像素同版。",
+          "scope": "documented-verification",
+          "line": 37,
+          "exists": true,
+          "sha256AtAudit": "5057957d72232da92be3759e0f34fd294890653f346b9440ad7ac0f44117af9d"
+        }
+      ],
+      "notes": [],
+      "differenceEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/JUBAOZHAI_UI.md",
+          "summary": "联网快照未同步共享字体样式，不能作为当前视觉一致性结论。",
+          "line": 42,
+          "exists": true,
+          "sha256AtAudit": "5057957d72232da92be3759e0f34fd294890653f346b9440ad7ac0f44117af9d"
+        }
+      ]
+    },
+    {
+      "id": "bag",
+      "name": "背包与装备列表",
+      "priority": 1,
+      "previewSources": [
+        {
+          "path": "E:/work/image/designs/gameplay-ui/02-inventory.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "024cc044281592de9e0c4681e272a926ac150318c05ee27f9f166210795ad9fb"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayWindow.cs",
+          "exists": true,
+          "sha256AtAudit": "d43bf707ab77a75f44116e9b618fb8f565584880b3e552232f6bb974201fdaaa"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayUiArt.cs",
+          "exists": true,
+          "sha256AtAudit": "e237cec151422e15e84f5483ce9d2c70bff26b2d2ea0fb6bb433501753d192a7"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "ea0f43e7363b1a3aa40b43219f2eff11aaa0237607ef96faa8602d961e556cef"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipTooltip.cs",
+          "exists": true,
+          "sha256AtAudit": "573db3e272680bf4b75c8a1f28cecbf7ad8f0f2d6682fc279ac98064d9fe3670"
+        }
+      ],
+      "fidelityStatus": "needs-native-validation",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/EquipmentForgeUI-handoff-20261015.md",
+          "date": "2026-10-16",
+          "summary": "背包相关EquipWindowTests29、GameplayWindowTests16随强化整组365 Unity测试通过；此为最新窗口交互证据，尚无背包原稿视觉一致性结论。",
+          "scope": "documented-verification",
+          "line": 5,
+          "exists": true,
+          "sha256AtAudit": "4b53f6cd85bd3b2a70f029162dc27f064b63e2f017838e32f3b82eaa35c95820"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Docs/GameplayUI-20260910.md",
+          "date": "2026-10-09",
+          "summary": "最新装备接入轮次153纯逻辑通过、四阶段编译通过；18张集成原生截图/窗口测试未完成。",
+          "scope": "documented-verification",
+          "line": 16,
+          "exists": true,
+          "sha256AtAudit": "9f4cb5a89ca963e4cf1d129938232713f2c1f8ec72198397167a36a02b4aea05"
+        }
+      ],
+      "notes": [],
+      "differenceEvidence": []
+    },
+    {
+      "id": "missions",
+      "name": "任务",
+      "priority": 1,
+      "previewSources": [
+        {
+          "path": "E:/work/image/designs/gameplay-ui/01-quests.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "bf9f7eca7c9ef7f6e877e1f82eccee86f44fcd6d6a436d1ef2780d5d959b875e"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayWindow.cs",
+          "exists": true,
+          "sha256AtAudit": "d43bf707ab77a75f44116e9b618fb8f565584880b3e552232f6bb974201fdaaa"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayUiArt.cs",
+          "exists": true,
+          "sha256AtAudit": "e237cec151422e15e84f5483ce9d2c70bff26b2d2ea0fb6bb433501753d192a7"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "ea0f43e7363b1a3aa40b43219f2eff11aaa0237607ef96faa8602d961e556cef"
+        }
+      ],
+      "fidelityStatus": "needs-native-validation",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/GameplayUI-20260910.md",
+          "date": "2026-09-11",
+          "summary": "任务写操作续作96项Unity回归、26张原生控件截图完成；没有今天以任务design整图为准的同尺寸视觉验收。",
+          "scope": "documented-verification",
+          "line": 80,
+          "exists": true,
+          "sha256AtAudit": "9f4cb5a89ca963e4cf1d129938232713f2c1f8ec72198397167a36a02b4aea05"
+        }
+      ],
+      "notes": [],
+      "differenceEvidence": []
+    },
+    {
+      "id": "activities",
+      "name": "活动",
+      "priority": 1,
+      "previewSources": [
+        {
+          "path": "E:/work/image/designs/gameplay-ui/03-activities.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "2094a42f4900d238a58a15bd1b91f9e658a0cf841d410ab27f28e139001be0b7"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayWindow.cs",
+          "exists": true,
+          "sha256AtAudit": "d43bf707ab77a75f44116e9b618fb8f565584880b3e552232f6bb974201fdaaa"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayUiArt.cs",
+          "exists": true,
+          "sha256AtAudit": "e237cec151422e15e84f5483ce9d2c70bff26b2d2ea0fb6bb433501753d192a7"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "ea0f43e7363b1a3aa40b43219f2eff11aaa0237607ef96faa8602d961e556cef"
+        }
+      ],
+      "fidelityStatus": "needs-native-validation",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/GameplayUI-20260910.md",
+          "date": "2026-09-11",
+          "summary": "历史96项Unity回归、26张三页截图通过；活动目录与排期来自服务端，静态稿不能决定真实时间。",
+          "scope": "documented-verification",
+          "line": 80,
+          "exists": true,
+          "sha256AtAudit": "9f4cb5a89ca963e4cf1d129938232713f2c1f8ec72198397167a36a02b4aea05"
+        }
+      ],
+      "notes": [],
+      "differenceEvidence": []
+    },
+    {
+      "id": "skills",
+      "name": "四职业与宝宝技能簿",
+      "priority": 2,
+      "previewSources": [
+        {
+          "path": "E:/work/image/designs/class-skills-20260928/index.html",
+          "kind": "interactive-preview",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "5c36704b9fab95df8867bd7948594e32d58c7e1b2dad15d654671f317e50b753"
+        },
+        {
+          "path": "E:/work/image/designs/class-skills-20260928/styles.css",
+          "kind": "layout-source",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "dace561aca9f443842b37881edaf2b0948802735b57117e3f36bc2b0e6c27a48"
+        },
+        {
+          "path": "E:/work/image/designs/class-skills-20260928/asset-manifest.json",
+          "kind": "asset-contract",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "2005708fb74c87d603a17a531a30fed3ce3d67b0ca2bd5e69f06d2cb3d99b3a5"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Skills/SkillPanel.cs",
+          "exists": true,
+          "sha256AtAudit": "6c79443acb1bac2663bcd446d90036bde3c2f0eaa74dd5766634916fc984e7b9"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Skills/SkillUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "850d75ecff653cd270b43fb28a5d63c6a91ef1ef2bdb76dad06d89abfad1e5cd"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Skills/SkillCatalog.cs",
+          "exists": true,
+          "sha256AtAudit": "742265e1db226c493ec8009ea05d46477de3f4df5f47bc88e46c89fe22d73353"
+        }
+      ],
+      "fidelityStatus": "needs-native-validation",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/SKILL_UI_TESTING.md",
+          "date": "2026-10-09",
+          "summary": "UnityCaptureAll前许可证检查退出198；原生截图与EditMode未运行。25项独立.NET状态测试不能替代原生视觉验收。",
+          "scope": "documented-verification",
+          "line": 7,
+          "exists": true,
+          "sha256AtAudit": "d38818b88a18f9396b9528afaae80852f62cd7ae9c7a7bde38a0a24d25e3f889"
+        }
+      ],
+      "notes": [
+        "角色32图标和网页已存在；宝宝技能共用窗口不增加未经批准的技能原画。"
+      ],
+      "differenceEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/SKILL_UI_TESTING.md",
+          "summary": "原生截图与EditMode未完成。",
+          "line": 7,
+          "exists": true,
+          "sha256AtAudit": "d38818b88a18f9396b9528afaae80852f62cd7ae9c7a7bde38a0a24d25e3f889"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Skills/SkillPanel.cs",
+          "summary": "原生技能面板复用属性皮肤，须和技能网页逐项核对，复用本身不证明一致。",
+          "line": 61,
+          "exists": true,
+          "sha256AtAudit": "6c79443acb1bac2663bcd446d90036bde3c2f0eaa74dd5766634916fc984e7b9"
+        }
+      ]
+    },
+    {
+      "id": "equipment-details",
+      "name": "装备完整详情",
+      "priority": 2,
+      "previewSources": [
+        {
+          "path": "E:/work/image/designs/equipment-ui-20261009/preview.html",
+          "kind": "interactive-preview",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "27c91781abc49f412e0d1c6fcc4dfc5f8339c13a840573295d4e139640c35bb6"
+        },
+        {
+          "path": "E:/work/image/designs/equipment-ui-20261009/sprites/tooltip_panel.png",
+          "kind": "runtime-skin",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "2318ef2fbc029a38d062660923c98631cd7a4965116e94e97c8a72d63784f7cd"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipDetailCard.cs",
+          "exists": true,
+          "sha256AtAudit": "ba3ace23a8fa6d981b9761cd85ca15b219456e665b392be1f540939b4fd73088"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipUiSkin.cs",
+          "exists": true,
+          "sha256AtAudit": "147f6f0de5425eec0cdd5a728b9a03ba740bcbc3ac241671fb44166dc753617d"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipUiStyle.cs",
+          "exists": true,
+          "sha256AtAudit": "c52b3fbbc656cf8ba95a38997652e1dc5bed8f5c7a0272f6e98b28ace8eee92a"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipTooltip.cs",
+          "exists": true,
+          "sha256AtAudit": "573db3e272680bf4b75c8a1f28cecbf7ad8f0f2d6682fc279ac98064d9fe3670"
+        }
+      ],
+      "fidelityStatus": "needs-native-validation",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/EquipmentForgeUI-handoff-20261015.md",
+          "date": "2026-10-16",
+          "summary": "最新Unity365测试包含EquipWindow29与GameplayWindow16；强化原生截图不等同于这张详情稿的全字段视觉验收。",
+          "scope": "documented-verification",
+          "line": 5,
+          "exists": true,
+          "sha256AtAudit": "4b53f6cd85bd3b2a70f029162dc27f064b63e2f017838e32f3b82eaa35c95820"
+        },
+        {
+          "path": "E:/work/image/designs/equipment-ui-20261009/README.md",
+          "date": "2026-10-15",
+          "summary": "最新纸面详情预览与完整字段浏览器验收记录保留，截图按10月15要求清理；不退回旧深绿卡。",
+          "scope": "documented-verification",
+          "line": 46,
+          "exists": true,
+          "sha256AtAudit": "57c202e6a67f438aa38065e01e78c0cb4d224e6d6d7e30c34ce3d5caf51e62f6"
+        }
+      ],
+      "notes": [
+        "必须保留武器10行、靴子14行及重复条目、条件、强化/宝石/交易信息；不把最新服务接线或文字内容丢回旧版。",
+        "完整字段浏览器实际检查日期为2026-10-09；2026-10-15是截图清理日期，不能写成重新运行浏览器验收。"
+      ],
+      "differenceEvidence": [
+        {
+          "path": "E:/work/image/designs/equipment-ui-20261009/README.md",
+          "summary": "10月9原生全字段截图未完成；后续强化截图不能代替详情原稿视觉比对。",
+          "line": 48,
+          "exists": true,
+          "sha256AtAudit": "57c202e6a67f438aa38065e01e78c0cb4d224e6d6d7e30c34ce3d5caf51e62f6"
+        }
+      ]
+    },
+    {
+      "id": "equipment-wish",
+      "name": "装备期望属性",
+      "priority": 2,
+      "previewSources": [
+        {
+          "path": "E:/work/image/designs/equipment-ui-20261009/preview.html",
+          "kind": "interactive-preview",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "27c91781abc49f412e0d1c6fcc4dfc5f8339c13a840573295d4e139640c35bb6"
+        },
+        {
+          "path": "E:/work/image/designs/equipment-ui-20261008/sprite-manifest.json",
+          "kind": "asset-contract",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "3b900390c58efcc2fb4505805b05ed4f44a4769ac8d6923a0861cf1fb11356ab"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipWishDialog.cs",
+          "exists": true,
+          "sha256AtAudit": "0fc4cf922f7587c540a31308c143b2596874c58dd9add3bdfe3ea257f24096ae"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipWishDialogInput.cs",
+          "exists": true,
+          "sha256AtAudit": "6ba73c597d99867a10d0383f1918a200c1b8a50e7cf66244d6041caac9c4fa44"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipWishSelection.cs",
+          "exists": true,
+          "sha256AtAudit": "3282532438e22074fe17e10b7a11dedb3841b81e921f2422f75dea1d4f372fcf"
+        }
+      ],
+      "fidelityStatus": "needs-native-validation",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/image/designs/equipment-ui-20261009/README.md",
+          "date": "2026-10-09",
+          "summary": "2026-10-09浏览器验证保留武器18项/防具21项、末项勾选和草稿；验证日期由validation/browser-status.json明确记录。截图在2026-10-15清理，尚无design同尺寸原生截图验收。",
+          "scope": "documented-verification",
+          "line": 45,
+          "exists": true,
+          "sha256AtAudit": "57c202e6a67f438aa38065e01e78c0cb4d224e6d6d7e30c34ce3d5caf51e62f6"
+        }
+      ],
+      "notes": [
+        "真实属性池及炼化保存接口按调用方提供；保留现有三列/分页/键盘和回调，禁止以样例属性池冒充线上。"
+      ],
+      "differenceEvidence": [
+        {
+          "path": "E:/work/image/designs/equipment-ui-20261009/README.md",
+          "summary": "最新原稿18/21项选择池仍需原生同尺寸截图。",
+          "line": 48,
+          "exists": true,
+          "sha256AtAudit": "57c202e6a67f438aa38065e01e78c0cb4d224e6d6d7e30c34ce3d5caf51e62f6"
+        }
+      ]
+    },
+    {
+      "id": "equipment-forge",
+      "name": "装备强化与镶嵌",
+      "priority": 2,
+      "previewSources": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/EquipmentForgeUI-handoff-20261015.md",
+          "kind": "integration-spec",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "4b53f6cd85bd3b2a70f029162dc27f064b63e2f017838e32f3b82eaa35c95820"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipForgeDialog.cs",
+          "exists": true,
+          "sha256AtAudit": "b8ee5b61c4518a6d0243975fcfc406e418d8432189217e4e99cf7d184ad10e9e"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipForgeSocketFocus.cs",
+          "exists": true,
+          "sha256AtAudit": "2ecacc162685e067e347bc7fb2ba345ae1004c474009c4e400ff298252fdf497"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipForgeUiState.cs",
+          "exists": true,
+          "sha256AtAudit": "09fdc866943f4d072d010bbab038330ca67c7fcdeb851cf3b7dc6f8427c0ad33"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/EquipActionsDialog.cs",
+          "exists": true,
+          "sha256AtAudit": "2de181e55052a02da01a391fd0f2a0462b0b033a31544ad051cb81ff6dbe629b"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/GameplayWindow.cs",
+          "exists": true,
+          "sha256AtAudit": "d43bf707ab77a75f44116e9b618fb8f565584880b3e552232f6bb974201fdaaa"
+        }
+      ],
+      "fidelityStatus": "unknown",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/EquipmentForgeUI-handoff-20261015.md",
+          "date": "2026-10-16",
+          "summary": "当前最终排版版本365/365 Unity EditMode通过；三分辨率六状态共18张原生截图脚本断言并目视通过。真实联机操作尚未验收。",
+          "scope": "documented-verification",
+          "line": 198,
+          "exists": true,
+          "sha256AtAudit": "4b53f6cd85bd3b2a70f029162dc27f064b63e2f017838e32f3b82eaa35c95820"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Docs/EquipmentForgeUI-handoff-20261015.md",
+          "date": "2026-10-16",
+          "line": 201,
+          "exists": true,
+          "scope": "documented-native-capture",
+          "summary": "三分辨率六状态共18张正式窗口截图，脚本断言与目视检查通过；证据在E:/work/forge-ui-qa-20261016/verification.txt，仍没有独立design图的逐处还原比较结论。",
+          "sha256AtAudit": "4b53f6cd85bd3b2a70f029162dc27f064b63e2f017838e32f3b82eaa35c95820"
+        }
+      ],
+      "notes": [
+        "本模块没有发现独立design整屏原画；保留2026-10-16已完成的1480×900玉纸布局及真实状态接线，不以10月9旧许可证记录覆盖最新结果。视觉一致性completed仍为false。"
+      ],
+      "differenceEvidence": []
+    },
+    {
+      "id": "scene-channels",
+      "name": "线路选择",
+      "priority": 2,
+      "previewSources": [
+        {
+          "path": "E:/work/image/designs/scene-select-ui-v1/scene-select.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "d43748b7902fb82e9ef6e0aecc047441bc2bedcabf3d0208cce600566b6da7b0"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/SceneChannelWindow.cs",
+          "exists": true,
+          "sha256AtAudit": "12a7cfd9ece1698cff9382c771d1dee7eab482d04c281bc870673cd3983815d4"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/SceneChannelUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "3f962915e90ba93e8b53ca1383e218f8db9aa3a21c7aa23ec5cf4d6802799151"
+        }
+      ],
+      "fidelityStatus": "needs-native-validation",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/image/designs/scene-select-ui-v1/README.md",
+          "date": "2026-09-24",
+          "summary": "已有24线路三列八行整屏原稿；当时交付为静态图，当前原生代码存在不等于按原稿验收。",
+          "scope": "art-scope-and-current-source-only",
+          "line": 16,
+          "exists": true,
+          "sha256AtAudit": "97f3f920e08981616bf34b0f3d1b43fd3bdfbe3e744fa865e593237cac0c66d0"
+        }
+      ],
+      "notes": [],
+      "differenceEvidence": [
+        {
+          "path": "E:/work/image/designs/scene-select-ui-v1/README.md",
+          "summary": "有design整屏，但该交付本身没有原生UI还原验收。",
+          "line": 16,
+          "exists": true,
+          "sha256AtAudit": "97f3f920e08981616bf34b0f3d1b43fd3bdfbe3e744fa865e593237cac0c66d0"
+        }
+      ]
+    },
+    {
+      "id": "world-travel",
+      "name": "山海舆图与场景传送",
+      "priority": 2,
+      "previewSources": [
+        {
+          "path": "E:/work/image/designs/world-map-original-20260925/world-map-original.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "a00aa2e313334026974133a47f12b37922f35a564791898fdc30940f47ebc199"
+        },
+        {
+          "path": "E:/work/image/designs/world-map-original-20260925/world-map-original_2560x1080.png",
+          "kind": "art",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "2c34c9310f801244485c2b8cdfa05c1a300b6fa7022ef8b700fa5a802089299d"
+        },
+        {
+          "path": "E:/work/image/designs/world-map-original-20260925/map-names.json",
+          "kind": "copy-source",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "846d830ce99e8c3f5fb72c4e2692f0315209def0b91fdeaff9c31ce4153c618e"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/CityTravelWindow.cs",
+          "exists": true,
+          "sha256AtAudit": "4365153d53ecb2c7175bca93db7d79e9ef1f05956565aaef67e3e369dfc2bf32"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/CityTravelUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "fc6dda019ab7c9acf55743d6368750c0d72cd407e16ac7eaa81edb61a2dc552e"
+        }
+      ],
+      "fidelityStatus": "needs-native-validation",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/image/designs/world-map-original-20260925/README.md",
+          "date": "2026-09-25",
+          "summary": "最新原创地图明确取代9月24旧地图；现存稿当时未接入交互，当前代码和真实地图命名需对照，不能恢复旧参考游戏命名。",
+          "scope": "art-scope-and-current-source-only",
+          "line": 28,
+          "exists": true,
+          "sha256AtAudit": "9901f0019c89666480543802c61617c666813fdf72a84c2f99cf9505038c4678"
+        }
+      ],
+      "notes": [],
+      "differenceEvidence": [
+        {
+          "path": "E:/work/image/designs/world-map-original-20260925/README.md",
+          "summary": "原创舆图尚无design到当前客户端的视觉/命名接入证明。",
+          "line": 28,
+          "exists": true,
+          "sha256AtAudit": "9901f0019c89666480543802c61617c666813fdf72a84c2f99cf9505038c4678"
+        }
+      ]
+    },
+    {
+      "id": "mystery-merchant",
+      "name": "神秘商人关联UI",
+      "priority": 3,
+      "previewSources": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/mystery-merchant-ui.md",
+          "kind": "interaction-spec",
+          "exists": true,
+          "checkedOn": "2026-10-16",
+          "sha256AtAudit": "c310a2c3125ed50496c6da5569386cb9903062706053ad4c2191c65e0ef36ae7"
+        }
+      ],
+      "clientFiles": [
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/MysteryMerchantWindow.cs",
+          "exists": true,
+          "sha256AtAudit": "cd3ac5634a69356327da1b2823c85fe51b7b07043eecfd172a1e4aad85607fdd"
+        },
+        {
+          "path": "E:/work/mmorpg-client/Assets/Scripts/UI/Ugui/Gameplay/MysteryMerchantUiRoot.cs",
+          "exists": true,
+          "sha256AtAudit": "3cf1c2fdc2a7d5fbc1e6e105f89e7a38ee2a10b87747146c1d7a6afa586206a2"
+        }
+      ],
+      "fidelityStatus": "needs-native-validation",
+      "completed": false,
+      "latestEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/mystery-merchant-ui.md",
+          "date": "2026-10-09",
+          "summary": "最新文档为70项离线规则/数据测试通过，原生窗口23项、截图、联机购买未运行；未发现独立design美术稿。",
+          "scope": "documented-verification",
+          "line": 3,
+          "exists": true,
+          "sha256AtAudit": "c310a2c3125ed50496c6da5569386cb9903062706053ad4c2191c65e0ef36ae7"
+        }
+      ],
+      "notes": [
+        "没有独立已批准整屏design图；登记关联窗口并保留现有业务，按既有控件体系验收，不能宣称它已有原稿还原目标。"
+      ],
+      "differenceEvidence": [
+        {
+          "path": "E:/work/mmorpg-client/Docs/mystery-merchant-ui.md",
+          "summary": "原生窗口与截图尚未实际验证。",
+          "line": 3,
+          "exists": true,
+          "sha256AtAudit": "c310a2c3125ed50496c6da5569386cb9903062706053ad4c2191c65e0ef36ae7"
+        }
+      ]
+    }
+  ],
+  "moduleCount": 25
+}
+

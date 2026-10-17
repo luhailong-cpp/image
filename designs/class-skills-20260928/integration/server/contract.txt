@@ -1,0 +1,7 @@
+协议定稿：PlayerSkillComp.rank = 3 (uint32，0=未学，旧技能缺省按1，职业新技能必须显式rank)。
+ListSkillsResponse 增加 catalog=3 repeated SkillCatalogEntry，player_level=4 uint32，class_id=5 uint32，currency_balance=6 uint64。
+SkillCatalogEntry 字段：skill_table_id=1 uint32，name=2 string，description=3 string，icon_key=4 string，class_id=5 uint32，category=6 string，passive=7 bool，target_team=8 uint32(1敌/2友/3自身)，max_targets=9 uint32，unlock_level=10 uint32，max_rank=11 uint32，rank=12 uint32，rank_limit=13 uint32，mana_percent=14 double，cooldown_rounds=15 uint32，next_rank_cost=16 uint64，upgrade_block_reason=17 string。
+UpgradeSkillRequest: skill_table_id=1 uint32，expected_rank=2 uint32，count=3 uint32(只收1或10)。
+UpgradeSkillResponse: error_message=1 TipInfoMessage，state=2 ListSkillsResponse，upgraded_count=3 uint32，stop_reason=4 string。
+rpc UpgradeSkill (UpgradeSkillRequest) returns (UpgradeSkillResponse)，附加在SceneSkillClientPlayer末尾。
+BattlePlayerSnapshot.skill_ranks、BattleActorState.skill_ranks 为 map<uint32,uint32>，只存显式已学技能，服务端校验职业/等级。

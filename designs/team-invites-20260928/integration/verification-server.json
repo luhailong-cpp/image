@@ -1,0 +1,36 @@
+{
+  "verifiedAt": "2026-09-29T10:02:10.5783109Z",
+  "goVersion": "go1.26.5 windows/amd64",
+  "mode": "Only two changed files in level-fix-manifest.json; all other files from current backend source.",
+  "test": {
+    "command": "go test -mod=readonly -overlay=live-acceptance/level-fix-overlay.json ./... -count=1",
+    "exitCode": 0,
+    "packages": [
+      "friend",
+      "friend/internal/config",
+      "friend/internal/constants",
+      "friend/internal/data",
+      "friend/internal/lifecycle",
+      "friend/internal/logic",
+      "friend/internal/server",
+      "friend/internal/session"
+    ]
+  },
+  "vet": {
+    "command": "go vet -mod=readonly -overlay=live-acceptance/level-fix-overlay.json ./...",
+    "exitCode": 0
+  },
+  "build": {
+    "command": "go build -buildvcs=false -mod=readonly -overlay=live-acceptance/level-fix-overlay.json -o live-acceptance/friend-level-fix.exe .",
+    "exitCode": 0,
+    "sha256": "FE9AF4EA309AB4D78DD28ABC4C5B28A3AB8161908247FB7CB35A09836AFFA9E0"
+  },
+  "notVerified": [
+    "real Redis pagination under concurrent player churn"
+  ],
+  "firstFailure": "追加空页测试最初依赖miniredis遵守COUNT而失败；已在公开RESP接缝模拟真实合法分页后全测通过。",
+  "presenceRegression": "GetFriendList 在Redis错误、坏会话、缺读取器三种场景先红后绿；完整go test与go vet通过。普通推荐保留原降级。",
+  "buildStamping": "一次overlay构建取原仓VCS状态失败exit128；为防误盖旧提交号，显式-buildvcs=false后编译exit0。",
+  "liveEvidence": "../live-acceptance/verification-live.json",
+  "newPlayerRegression": "../live-acceptance/first-save-level-diagnosis.md"
+}

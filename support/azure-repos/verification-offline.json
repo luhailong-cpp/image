@@ -1,0 +1,106 @@
+{
+  "Status": "OFFLINE_GUARDS_PASS",
+  "CapturedUtc": "2026-10-16T04:59:03.1984054Z",
+  "ScriptSha256": "6C3D0500543DAB81271A06EC2B3624D4FC7952EEE68834219968508D62883900",
+  "ParserErrors": 0,
+  "Cases": [
+    {
+      "Name": "Clone 参数检查不创建目录",
+      "Passed": true,
+      "Observed": ""
+    },
+    {
+      "Name": "空测试目标参数可通过",
+      "Passed": true,
+      "Observed": ""
+    },
+    {
+      "Name": "干净独立仓可检查 Pull",
+      "Passed": true,
+      "Observed": ""
+    },
+    {
+      "Name": "干净独立仓可检查 Push",
+      "Passed": true,
+      "Observed": ""
+    },
+    {
+      "Name": "拒绝含凭据 URL",
+      "Passed": true,
+      "Observed": "只接受不含用户名、密码、查询参数的 HTTPS Azure Repos URL。"
+    },
+    {
+      "Name": "拒绝非 HTTPS",
+      "Passed": true,
+      "Observed": "只接受不含用户名、密码、查询参数的 HTTPS Azure Repos URL。"
+    },
+    {
+      "Name": "拒绝其他托管域",
+      "Passed": true,
+      "Observed": "URL 必须指向 Azure Repos 的具体 Git 仓库，不能填组织或项目首页。"
+    },
+    {
+      "Name": "拒绝组织首页 URL",
+      "Passed": true,
+      "Observed": "URL 必须指向 Azure Repos 的具体 Git 仓库，不能填组织或项目首页。"
+    },
+    {
+      "Name": "拒绝相对路径",
+      "Passed": true,
+      "Observed": "目标路径必须是本机磁盘的绝对路径。"
+    },
+    {
+      "Name": "拒绝磁盘根目录",
+      "Passed": true,
+      "Observed": "不能将磁盘根目录或用户主目录作为仓库。"
+    },
+    {
+      "Name": "拒绝 Clone 覆盖已有目录",
+      "Passed": true,
+      "Observed": "Probe/Clone 需要尚不存在的新目录；不会覆盖、删除或复用已有目录。"
+    },
+    {
+      "Name": "拒绝分支不一致",
+      "Passed": true,
+      "Observed": "当前分支与 -Branch 不一致，脚本不会自动切换分支。"
+    },
+    {
+      "Name": "拒绝 origin 不一致",
+      "Passed": true,
+      "Observed": "origin 与传入的 RemoteUrl 不一致；不会改写现有远端。"
+    },
+    {
+      "Name": "拒绝未跟踪文件",
+      "Passed": true,
+      "Observed": "目标仓有未提交或未跟踪文件。请先自行提交或处理，脚本不会自动 add/commit/stash。"
+    },
+    {
+      "Name": "拒绝已跟踪脏文件",
+      "Passed": true,
+      "Observed": "目标仓有未提交或未跟踪文件。请先自行提交或处理，脚本不会自动 add/commit/stash。"
+    },
+    {
+      "Name": "拒绝其他 LFS 地址",
+      "Passed": true,
+      "Observed": "目标仓继承了自定义 LFS 地址/存储、URL 重写或 hooks 路径；请先核对，脚本不覆盖这些配置。"
+    },
+    {
+      "Name": "拒绝未完成合并",
+      "Passed": true,
+      "Observed": "目标仓存在未完成的合并、变基或拣选，请先处理。"
+    },
+    {
+      "Name": "真实子进程不含空值 Git trace 环境变量",
+      "Passed": true,
+      "Observed": "CHILD_TRACE_VARIABLES_ABSENT"
+    },
+    {
+      "Name": "core.autocrlf=true 检出仍保持 Probe 文本 LF 和相同 SHA256",
+      "Passed": true,
+      "Observed": "README.txt/.gitattributes SHA256 相同；无属性对照为 CRLF；*.bin 仍使用 LFS"
+    }
+  ],
+  "FixtureRoot": "C:\\Users\\luyua\\AppData\\Local\\Temp\\azure-repos-guards-03f40a5ad0cd47b1beea627cb8fdab7e",
+  "RemoteNetworkUsed": false,
+  "RemoteUploadDownloadVerified": false
+}

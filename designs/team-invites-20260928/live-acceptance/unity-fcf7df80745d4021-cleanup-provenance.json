@@ -1,0 +1,35 @@
+{
+  "run": "fcf7df80745d4021",
+  "status": "blocked_by_approval_review_not_executed",
+  "binary_sha256": "AE5886096834DB7F46FE2A43A43312923F2C8E78BDB4627BCFC5854491189641",
+  "helper_sha256": "BB7C3B33DE03F910AF86AF4D001F6CEB77C23453ABFC5537FEF02CEF4D6A4A89",
+  "target": "127.0.0.1:8081 local game gateway",
+  "exact_accounts": [
+    {
+      "player_id": "2216",
+      "account": "robot_tui_fcf7df80745d4021_leader"
+    },
+    {
+      "player_id": "2217",
+      "account": "robot_tui_fcf7df80745d4021_member"
+    }
+  ],
+  "exact_team_id": "74020166459785216",
+  "provenance": [
+    "unity-20260929-071529-fcf7df80745d4021/leader.log:74 local gateway and generated test account",
+    "unity-20260929-071529-fcf7df80745d4021/leader.log:233 created new player 2216 during this acceptance run",
+    "unity-20260929-071529-fcf7df80745d4021/member.log:233 created new player 2217 during this acceptance run",
+    "unity-20260929-071529-fcf7df80745d4021/leader.log:373 initial team_id=0",
+    "unity-20260929-071529-fcf7df80745d4021/leader.log:539 created actual team 74020166459785216 during this acceptance run",
+    "unity-20260929-071529-fcf7df80745d4021/member.log:431 accepted friend request from the other acceptance account during this run"
+  ],
+  "guards": [
+    "login only exact two generated accounts, each with one existing character",
+    "verify exact account-to-player mapping",
+    "disband only exact team with leader 2216 and member set [2216]",
+    "remove only friend edge 2216/2217",
+    "verify both team and friend state after cleanup",
+    "leave both test sessions; no character creation/deletion, direct DB mutation or service changes"
+  ],
+  "approval_review": "Initial execution rejected before launch. After read-only provenance checks, same-command review confirmed isolated test origins and exact scope but again rejected because user had not explicitly authorized disband, friend removal and logout. No cleanup process launched or RPC sent; awaiting explicit user authorization."
+}

@@ -1,0 +1,73 @@
+Hi Eden,
+
+Following up on Ticket 4853343 for https://github.com/luhailong-cpp/image with the full git-sizer output you requested.
+
+I ran git-sizer release 1.5.0 with --verbose --no-progress on the rewritten local repository. HEAD is still:
+083896b017503d69148557a3a8cece7ee17443e3
+
+The report covers all local refs: one branch, one commit, and no tags. Total reachable blob size is 1.21 GiB uncompressed, and the largest blob is a 24.5 MiB JSON file. The previously reported pack size is compressed storage, so it uses a different size metric.
+
+As reported in my previous comment, the rewrite push was still rejected after the server-side GC. Could you review the output below and temporarily raise the repository quota if needed to allow the rewritten history to be pushed? After that push succeeds, please run GC again to reclaim the obsolete objects.
+
+I want to preserve the existing repository. Thank you for your help.
+
+Full command output:
+
+$ git-sizer --version
+git-sizer release 1.5.0
+$ git-sizer --verbose --no-progress
+| Name                         | Value     | Level of concern               |
+| ---------------------------- | --------- | ------------------------------ |
+| Overall repository size      |           |                                |
+| * Commits                    |           |                                |
+|   * Count                    |     1     |                                |
+|   * Total size               |   256 B   |                                |
+| * Trees                      |           |                                |
+|   * Count                    |  6.34 k   |                                |
+|   * Total size               |  7.87 MiB |                                |
+|   * Total tree entries       |   148 k   |                                |
+| * Blobs                      |           |                                |
+|   * Count                    |   128 k   |                                |
+|   * Total size               |  1.21 GiB |                                |
+| * Annotated tags             |           |                                |
+|   * Count                    |     0     |                                |
+| * References                 |           |                                |
+|   * Count                    |     1     |                                |
+|     * Branches               |     1     |                                |
+|                              |           |                                |
+| Biggest objects              |           |                                |
+| * Commits                    |           |                                |
+|   * Maximum size         [1] |   256 B   |                                |
+|   * Maximum parents      [1] |     0     |                                |
+| * Trees                      |           |                                |
+|   * Maximum entries      [2] |  4.06 k   | ****                           |
+| * Blobs                      |           |                                |
+|   * Maximum size         [3] |  24.5 MiB | **                             |
+|                              |           |                                |
+| History structure            |           |                                |
+| * Maximum history depth      |     1     |                                |
+| * Maximum tag depth          |     0     |                                |
+|                              |           |                                |
+| Biggest checkouts            |           |                                |
+| * Number of directories  [4] |  6.35 k   | ***                            |
+| * Maximum path depth     [4] |    12     | *                              |
+| * Maximum path length    [4] |   233 B   | **                             |
+| * Number of files        [4] |   141 k   | **                             |
+| * Total size of files    [4] |  1.43 GiB | *                              |
+| * Number of symlinks         |     0     |                                |
+| * Number of submodules       |     0     |                                |
+
+[1]  083896b017503d69148557a3a8cece7ee17443e3 (refs/heads/main)
+[2]  6083c0a6120b79eb4504819946e54eaef2d54c13 (refs/heads/main:qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/qa)
+[3]  b24c3d8204063b96eebb0627e529ddb29cf20a39 (refs/heads/main:docs/migration-current-20261012/private-sources/history-prune-image2-20261012/minimal-restore-dependency-edges.json)
+[4]  4e42a69cb59bdcf305cfe3b905e7c8f67abaef34 (refs/heads/main^{tree})
+
+Additional context from my second Windows PC:
+
+A regular push to main from that PC on October 15 was also rejected with "Repository is above its size quota. Contact GitHub Support for further assistance." That checkout is an older partial clone, separate from the rewritten repository measured in the complete report above. Its local disk usage should not be added to the rewritten repository size; the two copies share history, and local .git directories may also contain LFS objects, caches and unreachable objects.
+
+Could you please confirm the current server-side regular Git storage usage and active size limit, separately from LFS storage? To provide ample room while the old objects and the incoming rewritten history coexist, I would appreciate the largest practical temporary increase your policy permits—ideally at least 100 GiB of additional headroom above current server-side usage for 14 days. This is a request for operational headroom during the migration, not a claim that the rewritten history requires 100 GiB; its measured reachable blob size is 1.21 GiB, as shown above. If that allowance is outside your policy, please advise what temporary capacity you can grant to allow the rewrite to complete.
+
+After the rewritten main is accepted, pending work from the other checkout will need to be reconciled with the new history so that the removed history is not reintroduced. I will then confirm the successful migration so you can run server-side garbage collection again.
+
+Thank you again for helping me complete the migration while preserving the existing repository and its settings.

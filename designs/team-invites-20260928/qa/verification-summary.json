@@ -1,0 +1,61 @@
+{
+  "sourceFilesVerified": 34,
+  "clientRuntimeCompile": "passed",
+  "unityEditMode": {
+    "evidence": "qa/create-cooldown-green-20261001.xml",
+    "passed": 162,
+    "failed": 0,
+    "verifiedAt": "2026-10-01"
+  },
+  "unityPlayMode": {
+    "failed": 0,
+    "passed": 8
+  },
+  "directoryNUnit": {
+    "failed": 0,
+    "passed": 17
+  },
+  "screenshots": 16,
+  "clientBuild": {
+    "executable": "E:/work/tmp/wuxing-team-invites-player-20260929/mmorpg.exe",
+    "result": "Succeeded",
+    "totalBytes": 4121629477,
+    "errors": 0,
+    "evidence": "qa/build-20261001-r2.log",
+    "warnings": 500
+  },
+  "server": {
+    "vet": "passed",
+    "build": "passed",
+    "tests": "passed",
+    "sha256": "FE9AF4EA309AB4D78DD28ABC4C5B28A3AB8161908247FB7CB35A09836AFFA9E0",
+    "installedExecutable": "E:/work/xuanming-server-mmo/bin/go_services/friend.exe"
+  },
+  "liveVerification": {
+    "dualClientInvitationTest": {
+      "friends": "passed on 2026-09-29",
+      "chat": "awaiting final live run",
+      "online": "cooldown defect fixed; awaiting final live run",
+      "nearby": "passed on 2026-09-29, reverse AOI fix awaiting deployment"
+    },
+    "environment": "Docker, databases and all local zone 1 services restored on 2026-10-01",
+    "status": "in_progress",
+    "testDataCleanup": {
+      "evidence": "live-acceptance/cleanup-authorized-20261001.json",
+      "result": "passed"
+    },
+    "protocol": {
+      "evidence": "live-acceptance/verification-live.json",
+      "result": "passed"
+    }
+  },
+  "updatedAt": "2026-10-01T15:26:23.5415999Z",
+  "aoiRegression": {
+    "sourceBaseline": "1ad634443d4d5028075d6b7e839b434018bfb0e8",
+    "failed": 0,
+    "passed": 5,
+    "evidence": "aoi-fix/repository-regression.log",
+    "runtimeDeployment": "pending isolated build",
+    "matchedDeployedSourceChecksums": 993
+  }
+}

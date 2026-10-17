@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-10-01T14:16:47.1062486Z",
+  "regression": "BackgroundRefreshCooldownDisablesBothCreationEntries",
+  "red": {
+    "path": "qa/create-cooldown-red-20261001.xml",
+    "total": 2,
+    "passed": 0,
+    "failed": 2,
+    "message": "Both create entries must reflect the real send cooldown after Busy clears. Expected False, But was True."
+  },
+  "green": {
+    "path": "qa/create-cooldown-green-20261001.xml",
+    "total": 162,
+    "passed": 162,
+    "failed": 0
+  },
+  "sourceVerification": "qa/create-cooldown-source-verification-20261001.json",
+  "changes": [
+    "CreationCoolingDown uses CreateTeam message ID and the existing WriteQuota/MessageWindow/MinSendInterval rules.",
+    "InvitationCoolingDown and CreationCoolingDown share a read-only helper but maintain separate per-message quota.",
+    "Both main TeamWindow CreateTeam and invitation window CreateTeamForInvitation mirror the same creation cooldown.",
+    "Root refreshes the controls on each cooldown state transition."
+  ],
+  "preservedLimits": {
+    "minimumSendIntervalSeconds": 0.4,
+    "perMessageWindowSeconds": 2.5,
+    "localWriteQuota": 3,
+    "serverConfigModified": false
+  },
+  "creationQuotaIndependence": "CreationCooldownTracksItsOwnQuotaAndDoesNotBlockInvitationQuota, plus reciprocal assertion in InvitationCooldownTracksTheExistingPerMessageQuota: both PASS.",
+  "stage": {
+    "verifiedFiles": 24,
+    "result": "PASS"
+  },
+  "remaining": "Actual Windows player rebuild and live two-client acceptance are owned by root."
+}

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<testsuite name="Class skill tests (standalone core)" tests="24" failures="0">
+  <testcase name="SkillClientTests.ServerSnapshotDefinesOwnershipAndRank" />
+  <testcase name="SkillClientTests.UpgradeSendsExpectedRankAndDoesNotOptimisticallySpend" />
+  <testcase name="SkillClientTests.DuplicateClickAndRefreshCannotOvertakePendingWrite" />
+  <testcase name="SkillClientTests.PartialBatchAppliesExactReturnedRankAndBalance" />
+  <testcase name="SkillClientTests.ServerRejectionStillRefreshesAuthoritativeState" />
+  <testcase name="SkillClientTests.DisconnectedReadCannotRestoreOldRoleState" />
+  <testcase name="SkillClientTests.DisconnectedWriteCannotOverwriteNewSession" />
+  <testcase name="SkillClientTests.LearningUsesRankZeroAndOneStep" />
+  <testcase name="SkillClientTests.InsufficientFundsOrInvalidCountDoesNotSend" />
+  <testcase name="SkillClientTests.NetworkFailureClearsBusyWithoutGrantingRank" />
+  <testcase name="SkillClientTests.TargetsRespectTeams(enemy,2,False)" />
+  <testcase name="SkillClientTests.TargetsRespectTeams(enemy,1,True)" />
+  <testcase name="SkillClientTests.TargetsRespectTeams(ally,2,True)" />
+  <testcase name="SkillClientTests.TargetsRespectTeams(ally,1,False)" />
+  <testcase name="SkillClientTests.SelfTargetRejectsOtherAlliesAndDeadTargets" />
+  <testcase name="SkillClientTests.ManaRoundsUpAndFreeSkillRemainsFree" />
+  <testcase name="SkillClientTests.PassiveCannotBeSubmittedAsTargetedSkill" />
+  <testcase name="SkillClientTests.FledAllyCannotBeHealed" />
+  <testcase name="SkillManaReplayTests.TaixuChengxinSelfRestoreHasPositiveDeltaAndServerManaAfter" />
+  <testcase name="SkillManaReplayTests.CostAndRestoreWithinSameActionAccumulateNetChange" />
+  <testcase name="SkillManaReplayTests.ExplicitTargetDrainKeepsNegativeSign" />
+  <testcase name="SkillManaReplayTests.ExplicitZeroDoesNotFallBackToUnsignedValue" />
+  <testcase name="SkillManaReplayTests.RepeatedTargetManaChangesAccumulateAndKeepLatestServerValue" />
+  <testcase name="SkillManaReplayTests.OlderCasterCostWithoutSignedFieldRemainsCompatible" />
+</testsuite>

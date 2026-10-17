@@ -1,0 +1,59 @@
+Mono path[0] = 'E:/work/image/support/npc-client-20261016/player/NpcArtShowroom_Data/Managed'
+Mono config path = 'E:/work/image/support/npc-client-20261016/player/MonoBleedingEdge/etc'
+CodeReloadManager initialized
+Found 3 interfaces on host : 0) 192.168.1.2 1) 192.168.112.1 2) 198.0.2.1
+Player connection [57536]  Target information:
+
+Player connection [57536]  * "[IP] 192.168.1.2 [Port] 55000 [Flags] 2 [Guid] 3998278751 [EditorId] 2340290267 [Version] 1048832 [Id] WindowsPlayer(2,luyuan) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] preview-project" 
+
+Player connection [57536]  * "[IP] 192.168.112.1 [Port] 55000 [Flags] 2 [Guid] 3998278751 [EditorId] 2340290267 [Version] 1048832 [Id] WindowsPlayer(2,luyuan) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] preview-project" 
+
+Player connection [57536]  * "[IP] 198.0.2.1 [Port] 55000 [Flags] 2 [Guid] 3998278751 [EditorId] 2340290267 [Version] 1048832 [Id] WindowsPlayer(2,luyuan) [Debug] 0 [PackageName] WindowsPlayer [ProjectName] preview-project" 
+
+Player connection [57536] Started UDP target info broadcast (1) on [225.0.0.222:54997].
+
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Initialize engine version: 6000.6.0f1 (f7f8ed4d1e24)
+[EntityIdStore] init: VM path (explicit commit), pageSize=4096, blockCount=1048576, entitiesPerBlock=256, slots reserved=4294967296 bytes
+[Subsystems] Discovering subsystems at path E:/work/image/support/npc-client-20261016/player/NpcArtShowroom_Data/UnitySubsystems
+Forcing GfxDevice: Direct3D 11
+GfxDevice: creating device client; kGfxThreadingModeClientWorkerJobs
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5070 Ti Laptop GPU (ID=0x2f18)
+    Vendor:   NVIDIA
+    VRAM:     11944 MB
+    Driver:   32.0.15.9186
+Begin MonoManager ReloadAssembly
+- Finished resetting the current domain, in  0.025 seconds
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+<RI> Initializing input.
+<RI> Input initialized.
+UnloadTime: 6.936600 ms
+[NpcShowroom] Verification FAIL: 2/3; runtime errors=0; independent static showroom, not main-city gameplay or input-click automation.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at C:/build/output/unity/unity/Runtime/Export/Scripting/StackTrace.cs:23)
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[]) (at C:/build/output/unity/unity/Runtime/Export/Logging/DebugLogHandler.cs:9)
+UnityEngine.Logger:Log (UnityEngine.LogType,object) (at C:/build/output/unity/unity/Runtime/Export/Logging/Logger.cs:60)
+UnityEngine.Debug:Log (object) (at C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs:130)
+MmorpgClient.World.Tianyong.NpcArtShowroom:FinishVerification () (at E:/work/image/support/npc-client-20261016/preview-project/Assets/Runtime/NpcArtShowroom.cs:402)
+MmorpgClient.World.Tianyong.NpcArtShowroom/<Verify>d__52:MoveNext () (at E:/work/image/support/npc-client-20261016/preview-project/Assets/Runtime/NpcArtShowroom.cs:314)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr) (at C:/build/output/unity/unity/Runtime/Export/Scripting/Coroutines.cs:17)
+
+(Filename: C:/build/output/unity/unity/Runtime/Export/Debug/Debug.bindings.cs Line: 130)
+
+[Physics::Module] Cleanup current backend.
+[Physics::Module] Id: 0xf2b8ea05
+Input System module state changed to: ShutdownInProgress.
+Input Polling Thread exited.
+Input System module state changed to: Shutdown.
+CodeReloadManager destroyed
+PlayerConnection::Cleanup##utp:{"type":"MemoryLeaks","version":2,"phase":"Immediate","time":1792135088310,"processId":32756,"allocatedMemory":29758,"memoryLabels":[{"Default":3832},{"NewDelete":104},{"Manager":15892},{"GfxDevice":72},{"Audio":752},{"Serialization":408},{"String":402},{"PoolAlloc":96},{"ScriptManager":5688},{"CodeReload":440},{"CloudService":144},{"VR":1928},{"Video":144},{"Subsystems":96},{"CoreBusinessMetrics":128}]}

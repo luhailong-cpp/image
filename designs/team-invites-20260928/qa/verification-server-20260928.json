@@ -1,0 +1,36 @@
+{
+  "verifiedAt": "2026-09-28T10:43:44.1590801-04:00",
+  "goVersion": "go1.26.5 windows/amd64",
+  "mode": "Go overlay; source repository read only",
+  "test": {
+    "command": "go test -mod=readonly -overlay=server/overlay.json ./... -count=1",
+    "exitCode": 0,
+    "packages": [
+      "friend",
+      "friend/internal/config",
+      "friend/internal/constants",
+      "friend/internal/data",
+      "friend/internal/lifecycle",
+      "friend/internal/logic",
+      "friend/internal/server",
+      "friend/internal/session"
+    ]
+  },
+  "vet": {
+    "command": "go vet -mod=readonly -overlay=server/overlay.json ./...",
+    "exitCode": 0
+  },
+  "build": {
+    "command": "go build -buildvcs=false -mod=readonly -overlay=server/overlay.json -o integration/friend-invites.exe .",
+    "exitCode": 0,
+    "sha256": "a07d59f6798306b22fe91f4bfcff9d5a91c502738b25f15966f3ed9e064bed1e"
+  },
+  "notVerified": [
+    "live service startup",
+    "cross-client invitations",
+    "real Redis pagination under concurrent player churn"
+  ],
+  "firstFailure": "追加空页测试最初依赖miniredis遵守COUNT而失败；已在公开RESP接缝模拟真实合法分页后全测通过。",
+  "presenceRegression": "GetFriendList 在Redis错误、坏会话、缺读取器三种场景先红后绿；完整go test与go vet通过。普通推荐保留原降级。",
+  "buildStamping": "一次overlay构建取原仓VCS状态失败exit128；为防误盖旧提交号，显式-buildvcs=false后编译exit0。"
+}

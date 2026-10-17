@@ -1,0 +1,77 @@
+{
+  "status": "passed",
+  "updatedAtUtc": "2026-10-01T14:05:57.0178830Z",
+  "userAuthorization": "允许清理本轮测试数据",
+  "authorizedScope": "只解散本轮自动创建的测试队伍、解除本轮测试账号之间的好友关系并退出；保留账号和角色，不影响原有数据。",
+  "priorRejection": "2026-09-29 自动审批以缺少用户明确授权拒绝执行；本次在用户随后明确授权后准备执行。",
+  "endpoint": "http://127.0.0.1:8081",
+  "zone": 1,
+  "runs": [
+    {
+      "run": "fcf7df80745d4021",
+      "leader": "robot_tui_fcf7df80745d4021_leader",
+      "leaderId": "2216",
+      "member": "robot_tui_fcf7df80745d4021_member",
+      "memberId": "2217",
+      "teamId": "74020166459785216"
+    },
+    {
+      "run": "d342a978cc8f456b",
+      "leader": "robot_tui_d342a978cc8f456b_leader",
+      "leaderId": "2218",
+      "member": "robot_tui_d342a978cc8f456b_member",
+      "memberId": "2219",
+      "teamId": "74022777799901184"
+    }
+  ],
+  "guards": [
+    "固定两个 run 白名单",
+    "进场前验证每个账号只有一个既有角色及精确角色ID，禁止建角",
+    "仅本地Gateway和Gate",
+    "仅精确队号、精确队长及只有该队长的单人队可解散，已经无队视为完成",
+    "仅这对测试角色的好友边可删除",
+    "双方通过正式RPC验证无队和互非好友，然后退出"
+  ],
+  "binarySha256": "DCB556F5D6E98071C3C9243CA97EF0BE36C4D9B6F6D6F0CDF163433EFC8E8D08",
+  "helperSha256": "49F02BD39ABF70A4F0F8840EEAC516E65A899D15BB448C7610C2CE7863281CF1",
+  "results": [
+    {
+      "run": "fcf7df80745d4021",
+      "log": "cleanup-fcf7df80745d4021-20261001-100424.log",
+      "exitCode": 0,
+      "identitiesVerified": [
+        "2216",
+        "2217"
+      ],
+      "initialTeamIds": [
+        "0",
+        "0"
+      ],
+      "disbandSent": false,
+      "finalTeams": "双方正式队伍接口确认无队",
+      "finalFriends": "双方正式好友列表确认互非好友",
+      "sessions": "双方正式退出且连接关闭",
+      "marker": "TEAM_INVITES_UNITY_CLEANUP_OK",
+      "logSha256": "53DA42A8396A14B61DB82C763A58EF92B43C686F18FE3A3EC31EDDA5275407F0"
+    },
+    {
+      "run": "d342a978cc8f456b",
+      "log": "cleanup-d342a978cc8f456b-20261001-100457.log",
+      "exitCode": 0,
+      "identitiesVerified": [
+        "2218",
+        "2219"
+      ],
+      "initialTeamIds": [
+        "0",
+        "0"
+      ],
+      "disbandSent": false,
+      "finalTeams": "双方正式队伍接口确认无队",
+      "finalFriends": "双方正式好友列表确认互非好友",
+      "sessions": "双方正式退出且连接关闭",
+      "marker": "TEAM_INVITES_UNITY_CLEANUP_OK",
+      "logSha256": "51372EE28EC98F9EE246B48DB5A9FEEE6528950FC1A406C9E9E767B577374BCB"
+    }
+  ]
+}

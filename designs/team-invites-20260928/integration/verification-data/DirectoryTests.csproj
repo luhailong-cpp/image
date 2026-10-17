@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
+    <ClientRoot Condition="'$(ClientRoot)' == ''">E:/work/mmorpg-client</ClientRoot>
+    <NUnitPath Condition="'$(NUnitPath)' == ''">$(ClientRoot)/Library/PackageCache/com.unity.ext.nunit@0198eae3b53e/net472/unity-custom/nunit.framework.dll</NUnitPath>
+    <RestoreIgnoreFailedSources>true</RestoreIgnoreFailedSources>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Google.Protobuf"><HintPath>$(ClientRoot)/Assets/Plugins/Google.Protobuf.dll</HintPath></Reference>
+    <Reference Include="nunit.framework"><HintPath>$(NUnitPath)</HintPath></Reference>
+    <Compile Include="Program.cs" />
+    <Compile Include="UnitySeams.cs" />
+    <Compile Include="../client/Assets/Scripts/Game/Team/TeamInvitationDirectory.cs" />
+    <Compile Include="../client/Assets/Tests/EditMode/Tianyong/TeamInvitationDirectoryTests.cs" />
+    <Compile Include="../client/Assets/Scripts/Proto/Generated/Friend.cs" />
+    <Compile Include="../client/Assets/Scripts/Game/Team/TeamModels.cs" />
+    <Compile Include="$(ClientRoot)/Assets/Scripts/Game/Battle/IBattleTransport.cs" />
+    <Compile Include="$(ClientRoot)/Assets/Scripts/Proto/Generated/*.cs" Exclude="$(ClientRoot)/Assets/Scripts/Proto/Generated/Friend.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,99 @@
+syntax = "proto3";
+option go_package = "scene";
+
+import "proto/db/proto_option.proto";
+import "proto/common/base/tip.proto";
+import "proto/common/component/base_comp.proto";
+import "proto/common/base/empty.proto";
+import "proto/common/component/player_skill_comp.proto";
+import "proto/common/component/actor_comp.proto";
+
+option cc_generic_services = true;
+option (OptionFileDefaultNode) = NODE_SCENE;
+
+message ReleaseSkillRequest {
+  uint32 skill_table_id = 1;
+  uint64 target_id = 2;
+  Vector3 position = 3;  
+  Rotation rotation = 4;
+}
+
+message ReleaseSkillResponse {
+  TipInfoMessage error_message = 1;  
+}
+
+message SkillInterruptedS2C
+{
+  uint64 entity = 1;
+  uint64 target_entity = 2;
+  uint32 skill_table_id = 3;
+  uint32 reason_code = 4;
+  uint64 skill_id = 5;
+}
+
+message SkillUsedS2C
+{
+  uint64 entity = 1;
+  repeated uint64 target_entity = 2;
+  uint32 skill_table_id = 3;
+  Vector3 position = 4;
+  uint64 time_stamp = 5;
+}
+
+// List skills request
+message ListSkillsRequest {
+}
+
+// List skills response
+message ListSkillsResponse {
+  TipInfoMessage error_message = 1;  
+  PlayerSkillListComp skill_list = 2;
+  repeated SkillCatalogEntry catalog = 3;
+  uint32 player_level = 4;
+  uint32 class_id = 5;
+  uint64 currency_balance = 6; // 金币，沿用 CurrencySystem 的 0 号币种。
+}
+
+
+// 面板投影；技能数值真源仍是 Skill 配置表，客户端不得回传这些派生值。
+message SkillCatalogEntry {
+  uint32 skill_table_id = 1;
+  string name = 2;
+  string description = 3;
+  string icon_key = 4;
+  uint32 class_id = 5;
+  string category = 6;
+  bool passive = 7;
+  uint32 target_team = 8; // 1敌方、2友方、3自己
+  uint32 max_targets = 9;
+  uint32 unlock_level = 10;
+  uint32 max_rank = 11;
+  uint32 rank = 12;
+  uint32 rank_limit = 13;
+  double mana_percent = 14;
+  uint32 cooldown_rounds = 15;
+  uint64 next_rank_cost = 16;
+  string upgrade_block_reason = 17;
+}
+message UpgradeSkillRequest {
+  uint32 skill_table_id = 1;
+  uint32 expected_rank = 2; // 乐观比较：重放旧请求不重复扣款。
+  uint32 count = 3; // 仅1或10；批量在等级、上限、余额处停止。
+}
+message UpgradeSkillResponse {
+  TipInfoMessage error_message = 1;
+  ListSkillsResponse state = 2;
+  uint32 upgraded_count = 3;
+  string stop_reason = 4; // 部分成功也返回明确停止原因。
+}
+
+service SceneSkillClientPlayer { 
+  option (OptionIsPlayerService) = true;
+  option (OptionIsClientProtocolService) = true;
+  
+  rpc ReleaseSkill (ReleaseSkillRequest) returns (ReleaseSkillResponse);
+  rpc NotifySkillUsed (SkillUsedS2C) returns (Empty);
+  rpc NotifySkillInterrupted (SkillInterruptedS2C) returns (Empty);
+  rpc ListSkills (ListSkillsRequest) returns (ListSkillsResponse);
+  rpc UpgradeSkill (UpgradeSkillRequest) returns (UpgradeSkillResponse);
+}
