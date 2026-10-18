@@ -1,0 +1,13 @@
+import os
+os.environ['ISLAND_PROGRESS_FILE']='progress-wall-oct16.json'
+from workflow import *
+pid='r10_c10_p11';v='v02';src=ROOT/'native'/f'{pid}_v01.png';north=ROOT/'native'/'r09_c10_p41_v01.png'
+im=Image.open(src).convert('RGB');im.paste(Image.open(north).convert('RGB').crop((115,1024,1139,1139)),(115,0))
+guide=ROOT/'guides'/f'{pid}.upper-continuity-wall16-v02.png';assert not guide.exists();im.save(guide)
+write(Path(str(guide)+'.generation.json'),{'file':str(guide),'sha256':sha(guide),'usableAsFinalArt':False,'operation':'unaltered integer native context crop/paste, guide only','sources':[{'file':str(src),'sha256':sha(src)},{'file':str(north),'sha256':sha(north),'crop':[115,1024,1139,1139],'destination':[115,0]}]})
+prompt='''Use case: precise-object-edit. Output exactly one opaque 1254 x 1254 CLOSE-UP crop, identical framing and scale to image 1. Repair ONLY the upper stone-post continuity. Image 1 has an exact 115-pixel high top-center anchor strip: this is the LOWER part of the already existing post in image 2. Preserve that strip. Continue its vertical corner at x~830 and its already-open inset carved frame outlines downward smoothly. There must be ONE uninterrupted tall post body. Remove the unwanted second cap, horizontal diagonal shelf and repeated shoulder/arch that currently appear below the top strip across approximately y115-350. There is NO ball, no top-facing cap surface and no new panel-top arch inside this crop. The actual ball and cap are entirely ABOVE this crop, in image 2. Reconnect the broken carved lines beneath the strip into the existing long side inset frames. Reconnect left wall cap diagonally from the top strip, matching the same outline; do not add a step. Preserve all lower post plinth, plants and paving below y450. Image 2 is north neighbor context only: never fit its ball or full post into this output. No camera change, new object, zoom-out, blur, text or UI. Match the same bright Q Daoist hand-painted stone material.'''
+refs=[{'file':str(guide),'sha256':sha(guide),'role':'exact edit target with correct north 115px anchor, not final source'},{'file':str(north),'sha256':sha(north),'role':'north neighbor outside crop; continuity explanation only'}]
+pf=ROOT/'prompts'/f'{pid}_{v}.prompt.txt';pf.write_text(prompt,encoding='utf-8')
+write(ROOT/'prompts'/f'{pid}_{v}.request.json',{'promptPath':str(pf),'references':refs,'transparent_background':False,'submittedParameters':{'model':None,'quality':None}})
+write(ROOT/'prompts'/f'{pid}_{v}.args.json',{'prompt':prompt,'referenced_image_paths':[r['file'] for r in refs],'transparent_background':False})
+print(guide)

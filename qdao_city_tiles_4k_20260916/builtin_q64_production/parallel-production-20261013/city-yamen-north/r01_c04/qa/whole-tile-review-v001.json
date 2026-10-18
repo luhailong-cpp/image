@@ -1,0 +1,133 @@
+{
+  "createdAtUTC": "2026-10-16T07:42:10.696656+00:00",
+  "tile": "r01_c04",
+  "formalAccepted": false,
+  "wholeTilePassed": false,
+  "draftFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\qa\\draft-native4096-v001\\r01_c04-draft-native4096.png",
+  "draftSHA256": "1d675bd67ea0441ff17bf2a50d2dd3790ecd398cde73feee99547bdb91493ecc",
+  "draftManifest": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\qa\\draft-native4096-v001\\draft-manifest.json",
+  "draftManifestSHA256": "4ef832325e5844752e327a035758a60d17051b103ae39c7da59c37b2f9a34065",
+  "nativeCoordinatesPresent": 16,
+  "nativeVersionCount": 21,
+  "receiptCount": 21,
+  "historicalQuickSelectedAtDraft": 14,
+  "currentQuickSelected": 5,
+  "selectionAfterWholeReview": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\selection\\selection-v015.json",
+  "withdrawnAfterWholeReview": [
+    "s02_01",
+    "s02_02",
+    "s02_03",
+    "s02_04",
+    "s03_01",
+    "s03_02",
+    "s03_03",
+    "s03_04",
+    "s04_01"
+  ],
+  "layoutContext": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\qa\\draft-native4096-v001\\approved-layout-enlarged-context.png",
+  "layoutContextIsEnlargedOnly": true,
+  "layoutSourceSHA256": "47485b823db7dbe4e63883f9ae6d759f3f2fbb5897c72f16fa64e921bde6ccd7",
+  "sourceHashVerification": "All16 draft source hashes and4096 draft verified unchanged. No missed imagegen return; s04_01-v001 had been registered and locally reviewed before interruption.",
+  "method": "Exact1254 native core [115,115,1139,1139] assembled at1024 grid. No resize, smoothing or blend.4096 display inspected for composition only;24 seam crops and9 junctions are native1:1.",
+  "internalSeams": {
+    "total": 24,
+    "unchangedPriorNative100EvidenceReused": 20,
+    "newNative100Viewed": 4,
+    "locallyContinuous": 22,
+    "failed": 2,
+    "failures": [
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\qa\\draft-native4096-v001\\vertical-r4-c1.png",
+        "pair": [
+          "s04_01",
+          "s04_02"
+        ],
+        "issue": "Thick raised gold plaque border abruptly becomes thin painted gold line; adjacent wall courses terminate at seam."
+      },
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\qa\\draft-native4096-v001\\vertical-r4-c2.png",
+        "pair": [
+          "s04_02",
+          "s04_03"
+        ],
+        "issue": "Plaque lower diagonal edge has a large position/thickness jump, thin gold line versus raised rim; wall texture also changes."
+      }
+    ],
+    "notEquivalentToLayoutAcceptance": true
+  },
+  "junctions": {
+    "count": 9,
+    "nativePixelScale": 1,
+    "actualViewedAtlas": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\qa\\draft-native4096-v001\\junctions-native100-atlas.png",
+    "localJunctionCentersContinuous": 9,
+    "note": "These384x384 local intersection checks do not cover the lower plaque-edge mismatches farther from intersections."
+  },
+  "blockingIssues": [
+    {
+      "id": "wall-top-geometry",
+      "affectedPatches": [
+        "s02_01",
+        "s02_02",
+        "s02_03",
+        "s02_04",
+        "s03_01",
+        "s03_02",
+        "s03_03",
+        "s03_04"
+      ],
+      "approxTileBox": [
+        0,
+        1250,
+        4096,
+        2450
+      ],
+      "approxWorldBox": [
+        12288,
+        1250,
+        16384,
+        2450
+      ],
+      "issue": "Approved layout contains broad light stone wall-top walkway, front coping band and short upright posts plus cast shadow. Draft substitutes continuous brick courses. Enlarged local blur was previously misidentified as plain masonry.",
+      "action": "Do not use affected sources as geometry reference; prepare explicit correct native-scale geometry target before concentrated repair."
+    },
+    {
+      "id": "fu-plaque-geometry-and-frame",
+      "affectedPatches": [
+        "s03_01",
+        "s03_02",
+        "s03_03",
+        "s04_01",
+        "s04_02",
+        "s04_03"
+      ],
+      "approxTileBox": [
+        600,
+        2300,
+        2800,
+        4096
+      ],
+      "issue": "Whole plaque appears about20 percent wider than layout context and heavy raised ornate gold frame is inconsistent with south-neighbor thin gold line. Approximate scale inference from low-resolution layout, not a pixel-exact original contour.",
+      "action": "Unselected affected sources; align all plaque edges consistently in concentrated repair."
+    },
+    {
+      "id": "s04_02-south-tip",
+      "affectedPatches": [
+        "s04_02"
+      ],
+      "bestPreserved": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\native\\s04_02-v001.png",
+      "issue": "Native south splice to r02c04/s01_02 shows15-30px tip displacement and horizontal cut after2 repairs.",
+      "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\qa\\s04_02-v001-south-tip-native100-v001.png"
+    },
+    {
+      "id": "s04_03-surface",
+      "affectedPatches": [
+        "s04_03"
+      ],
+      "bestPreserved": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\native\\s04_03-v003.png",
+      "issue": "Narrow sliver removed, but regular honeycomb-like stone texture and material transition remain after2 repairs.",
+      "note": "Similar increasingly regular stone texture is visible in neighboring lower/right wall sources; whole-tile material polish still required, local seam continuity is not formal acceptance."
+    }
+  ],
+  "safeNextProduction": "r01_c05 first row only, using selected r01_c04 first-row tree/parapet edge. No failed second/third-row reference.",
+  "formalTilesDelivered": 0
+}

@@ -1,0 +1,32 @@
+{
+  "worker": "/root/sea_finish_1016",
+  "status": "native_pair_repair_inflight",
+  "observedAtUtc": "2026-10-16T04:54:48.304Z",
+  "completed": {
+    "tile": "r14_c06",
+    "nativeCoreCount": 16,
+    "candidate": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/qa/full-tile-r14_c06-candidate-4096.png",
+    "audit": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/qa/r14_c06-internal-visual-audit-v1.json",
+    "internalQA": "39 native crops viewed passed"
+  },
+  "pair": {
+    "trace": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/qa/pair-r14c06-r14c07-v1-trace.json",
+    "status": "repair_required",
+    "issue": "Water ripple size and tone shift creates a wavy vertical seam; all 5 shared native crops viewed."
+  },
+  "inflight": {
+    "stem": "r14_c06_c07_join_water1_repair_v1",
+    "tool": "image_gen__imagegen",
+    "cellId": "23",
+    "outputSaved": false,
+    "rule": "Do not resubmit while current request remains running."
+  },
+  "preparedOnly": [
+    "r14_c06_c07_join_water2_repair_v1",
+    "r14_c06_c07_join_water3_repair_v1",
+    "r14_c06_c07_join_water4_repair_v1"
+  ],
+  "jobs": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/qa/r14c06-c07-water-repair-jobs-v1.json",
+  "next": "Save returned water1 immediately, then complete remaining native repairs and use sea-compose-water-repairs-20261016.py. Inspect all repair after-crops and 5 shared QA. Do not mark passed until verified.",
+  "sharedIndexWritten": false
+}

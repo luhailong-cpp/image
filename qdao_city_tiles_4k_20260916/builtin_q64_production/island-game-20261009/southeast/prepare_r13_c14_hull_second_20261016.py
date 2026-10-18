@@ -1,0 +1,7 @@
+from workflow import *
+from PIL import Image
+pid='r13_c14_repair_hull';v='v02';src=ROOT/'tiles/r13_c14.candidate-right-full-20261016-v02.png';g=ROOT/'guides'/f'{pid}_{v}.candidate-only.png';assert not g.exists();Image.open(src).convert('RGB').crop((0,2445,1254,3699)).save(g)
+co=read(ROOT/'prompts/r13_c14_repair_hull_v01.registered.json');co.update(derivedFromCandidate=str(src),candidateSha256=sha(src));write(ROOT/'prompts'/f'{pid}_{v}.registered.json',co)
+prompt='Edit this exact native 1254-square image. Repair ONLY the remaining artificial straight color step on the bottom TWO wooden hull planks: near x610, y640..740, dark red on its left and orange on its right. This is NOT a plank joint and NOT a real shadow edge. Replace the last straight step with continuous natural painted grain and a gradual warm-wood lighting transition along each curved plank. Also continue the small hull/water contour cleanly at the horizontal join y627 on the far right without the visible notch; do not move its overall outline. Preserve all true black curved horizontal plank seams and true left vertical plank joint. Keep wave positions, foam, hull shape, image scale and crop fixed. Keep the outer100pixel frame exactly. Do not create new objects, straight patch borders, blurring or a different scene. One opaque 1254 x 1254 image.'
+write(ROOT/'prompts'/f'{pid}_{v}.material.args.json',{'prompt':prompt,'referenced_image_paths':[str(g)],'transparent_background':False});print(g)
+

@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 4,
+  "createdAtUTC": "2026-10-16T19:48:54.517658+00:00",
+  "tile": "r02_c04",
+  "patch": "s01_04",
+  "coordinates": {
+    "order": 28,
+    "phase": "r02_south_to_north",
+    "frontierOrder": 4,
+    "tile": "r02_c04",
+    "tileRow": 2,
+    "tileColumn": 4,
+    "patch": "s01_04",
+    "subrow": 1,
+    "subcolumn": 4,
+    "globalCoreRowOneBased": 5,
+    "globalCoreColumnOneBased": 16,
+    "tileWorldBox": [
+      12288,
+      4096,
+      16384,
+      8192
+    ],
+    "coreWorldBox": [
+      15360,
+      4096,
+      16384,
+      5120
+    ],
+    "worldBoxWithHalo": [
+      15245,
+      3981,
+      16499,
+      5235
+    ],
+    "expectedNativePixels": [
+      1254,
+      1254
+    ],
+    "nativeCoreCropLTRB": [
+      115,
+      115,
+      1139,
+      1139
+    ],
+    "corePasteXYInTile": [
+      3072,
+      0
+    ],
+    "nativePasteOriginXYInTile": [
+      2957,
+      -115
+    ],
+    "corePasteXYInBatch": [
+      3072,
+      4096
+    ],
+    "nativePasteOriginXYInBatch": [
+      2957,
+      3981
+    ],
+    "worldBoxWithHaloClippedToArtCanvas": [
+      15245,
+      3981,
+      16499,
+      5235
+    ],
+    "validCanvasCropLTRBWithinNative": [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "haloOutsideArtCanvas": false,
+    "southContinuationDependency": {
+      "tile": "r02_c04",
+      "patch": "s02_04",
+      "role": "previously prepared/generated southern frontier in this four-tile batch",
+      "withinBatch": true
+    },
+    "westContinuationDependency": {
+      "tile": "r02_c04",
+      "patch": "s01_03",
+      "withinBatch": true,
+      "role": "previous step western patch"
+    },
+    "referenceStatus": "logical dependency coordinates only; actual source files not inspected or copied in this preparation",
+    "proposedFutureNativeFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r02_c04\\native\\s01_04.png",
+    "futureFileExistsAtPreparation": false,
+    "generationSubmitted": false
+  },
+  "prompt": "Fill only the tiny magenta patch near the bottom-left of image1 with continuous gray stone, preserving every other pixel. Keep exactly1254x1254. The magenta patch is within x115..299,y1098..1138. It corrects a stone mortar line that was15pixels too high: extend the existing large gray stone face down through the whole magenta gap, with NO horizontal joint inside that gap. The true lower mortar joint is already visible in the fixed bottom strip at abouty1140. Join directly to the actual stone edge on the left atx115 and to the existing stone below aty1139. Match gray shadow and soft painted stone texture; no new border or line atx115 ory1139. Preserve all yellow ginkgo leaves, branches, upper wall and right side exactly. Do not change the image outside the tiny magenta gap. Return only the corrected1254 square, with zero magenta remaining.",
+  "referenced_image_paths": [
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\requests\\r02_c04\\s01_04-east-worker-lower-stone-gap-guide-only-v001.png"
+  ],
+  "transparent_background": false,
+  "actualModel": null,
+  "requestedModelPreference": "free/included2.5 preferred;builtin2.0 allowed;no paid API",
+  "generationSubmitted": false,
+  "temporaryCoordinateAssignment": "Root specifically authorized this small repair; do not select. Root holds s01_03 and s01_04 during repair.",
+  "guide": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\requests\\r02_c04\\s01_04-east-worker-lower-stone-gap-guide-only-v001.png",
+    "sha256": "4acf026b0f7f04f9b2536f09caf9438078536631914b80f477e86fb2c59f4072",
+    "productionNativeSource": false,
+    "baseNative": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r02_c04\\native\\s01_04-v003.png",
+    "baseSHA256": "1e95a0979a4fbebc0ec6a67e7424c2fc62c05df6091240bc8cbcfadff415dd93",
+    "fixedWest": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r02_c04\\native\\s01_03-v008.png",
+    "westSHA256": "a32d59e6f0587e9df50a7a424743a85256207c9eb3d9e3aa8fdffa1db0d58d1f",
+    "fixedSouth": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r02_c04\\native\\s02_04-v003.png",
+    "southSHA256": "d43d0aa121a9eeff1a12bfae7f0408fad3d524b582ecf7ce4914a4726a90f4b8",
+    "westPaste": {
+      "sourceCropLTRB": [
+        1024,
+        900,
+        1139,
+        1139
+      ],
+      "pasteXY": [
+        0,
+        900
+      ]
+    },
+    "southPaste": {
+      "sourceCropLTRB": [
+        0,
+        115,
+        300,
+        230
+      ],
+      "pasteXY": [
+        0,
+        1139
+      ]
+    },
+    "maskBox": [
+      115,
+      1098,
+      300,
+      1139
+    ],
+    "yellowGinkgoPixelsExcluded": true,
+    "resampled": false
+  },
+  "rootRuleSHA256": "57f1ad4f81fdb2256b843923d862308be228130917b99cfced375db256aff01a",
+  "manifestSHA256": "929a52abdb55e6022f83abbe9b48718182bc33fc8a0bc2d50a14f6232dd4e850"
+}

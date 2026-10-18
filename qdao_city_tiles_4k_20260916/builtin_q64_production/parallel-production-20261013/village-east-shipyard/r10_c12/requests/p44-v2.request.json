@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 1,
+  "submittedAtUtc": "2026-10-16T07:55:57.270870+00:00",
+  "key": "r10_c12_p44",
+  "version": 2,
+  "tool": "image_gen__imagegen",
+  "generationMode": "builtin",
+  "prompt": "Use case: precise-object-edit / native game-map continuation.\nAsset: one opaque 1254x1254 native map patch, r10_c12/p44; 1024x1024 final core at [115,115,1139,1139].\nImage1 is the edit target: left 230 pixels and top 230 pixels contain existing native art. The blurry remainder is ONLY the approved layout guide, never final pixels. Preserve the finished native strips and reconstruct the remainder as sharp original detail. Continue every plank, rope, contour, shadow and waterline seamlessly across the strip boundaries without a pasted band, duplicate object or change of scale. At a top/left overlap corner, the top native strip was pasted last.\nImage2 is a NARROW unscaled native overlap from the immediate adjacent anchor, controlling exact continuation. It is a cropped edge, never a complete new object. Image3 is the NARROW unscaled TOP native overlap. Image4 is the authoritative whole-village layout only. Image5 is the primary approved rounded Q Daoist hand-painted style; do not copy its UI, night, people or text.\nTarget native world box: [48013, 39821, 49267, 41075]; final core world box: [48128, 39936, 49152, 40960]. Keep the tight cropped view and the approved object's exact footprint, perspective and placement. No zoom-out, rotation or reframing.\nScene: Last lower-right crop: original broad wooden deck, original front edge slopes DOWN-RIGHT near lower edge, sea remains outside. Preserve only original next front pillar cap or body fragment exactly where present in guide, not a complete additional column. Native top includes base of existing rear post; do not duplicate it. Deck planks down-right at same scale. No new post, ship, net, furniture, rope or island. Exact guide geometry and all native edges.\nStyle: refined high-definition rounded Daoist Q hand-painted game environment. Warm natural wooden deck and ropes, blue-green sea, restrained clean grain and net weave, soft daytime shading, crisp coherent contours. Natural pale grey/blue-grey stone only where already present. Existing Spring Festival architecture and occasional Lantern/Mid-Autumn details only, no added decorations in open routes.\nConstraints: preserve approved shipyard/deck/coast/boat geometry; no new or moved building, whole ship, lighthouse, pole, furniture, tree island, planter, people, NPC, animal, text, UI, icon, watermark or frame. Keep roads, deck paths and exits open. Replace the blurry guide with new sharp native detail; do not merely sharpen or enlarge its pixels. Exactly one 1254-square opaque patch.\nCRITICAL: original next foreground cap is at x150..650,y880..1130, with a pale wooden top and blue/teal collar, brown body going OUT OF BOTTOM FRAME. Render exactly this partial original cap footprint; it is explicitly permitted original geometry. West native is fixed through x115 below y800, beyond x115 the original guide cap controls new core. Preserve all other top and left native deck. No complete new post or extra cap anywhere else.",
+  "referenced_image_paths": [
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r10_c12\\layout-only\\p44-v2-conditioned-original-cap-restored.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r10_c12\\layout-only\\p44-v1-left-native-overlap.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r10_c12\\layout-only\\p44-v1-top-native-overlap.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\daylight-only-20261009\\donghai-natural-stone-clear-routes-v10.png",
+    "D:\\work\\image\\designs\\mail-ui-v1\\01-mail-event.png"
+  ],
+  "referenceRolesAndHashes": [
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r10_c12\\layout-only\\p44-v2-conditioned-original-cap-restored.png",
+      "sha256": "4e0628767de9be01f8d07074420ffa9ce1a898f2c4ac84e62e9ff81885693b7f",
+      "bytes": 1361725,
+      "sampledAtUtc": "2026-10-16T07:55:57.474003+00:00",
+      "role": "edit target with original next cap restored inside new core",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r10_c12\\layout-only\\p44-v1-left-native-overlap.png",
+      "sha256": "42e04f2326c027762a7e9cfbc613cc62334fca952f5875c829fb0d5fdfa66aa6",
+      "bytes": 591763,
+      "sampledAtUtc": "2026-10-16T07:45:47.222794+00:00",
+      "role": "left native overlap only; unscaled reference crop",
+      "dimensions": [
+        230,
+        1254
+      ],
+      "mode": "RGB",
+      "originalNativeSource": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r10_c12\\native\\p43-v1.png",
+        "sha256": "ec2c35a50a6cc6c482226f81d89827301eb702bee5e4d991f2c6f0b25bd232d9",
+        "bytes": 2865021,
+        "sampledAtUtc": "2026-10-16T07:45:46.672031+00:00",
+        "role": "current selected r10_c12_p43",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGB",
+        "continuationAllowed": {
+          "east": true,
+          "south": true
+        },
+        "reviewStatus": "usable_for_continuation_pending_full_QA"
+      },
+      "sourceCrop": [
+        1024,
+        0,
+        1254,
+        1254
+      ],
+      "classification": "reference conditioning only; not a new model output"
+    },
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r10_c12\\layout-only\\p44-v1-top-native-overlap.png",
+      "sha256": "43538c0dcf7ad8de0e48403513113bddc680506de85782b4a6cf49132a5d911f",
+      "bytes": 570391,
+      "sampledAtUtc": "2026-10-16T07:45:47.283499+00:00",
+      "role": "top native overlap only; unscaled reference crop",
+      "dimensions": [
+        1254,
+        230
+      ],
+      "mode": "RGB",
+      "originalNativeSource": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r10_c12\\native\\p34-v1.png",
+        "sha256": "7211c69d62334884b33f2f1606ede863fcfc9119d8d7207cc3abe8669c90e3bc",
+        "bytes": 2439077,
+        "sampledAtUtc": "2026-10-16T07:45:46.697697+00:00",
+        "role": "current selected r10_c12_p34",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGB",
+        "continuationAllowed": {
+          "east": true,
+          "south": true
+        },
+        "reviewStatus": "usable_for_continuation_pending_full_QA"
+      },
+      "sourceCrop": [
+        0,
+        1024,
+        1254,
+        1254
+      ],
+      "classification": "reference conditioning only; not a new model output"
+    },
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\daylight-only-20261009\\donghai-natural-stone-clear-routes-v10.png",
+      "sha256": "cf450f0afe784b4700f2dfc19b3af35867765403e8f1d81741e78b3116583d42",
+      "bytes": 3373466,
+      "sampledAtUtc": "2026-10-16T07:45:47.291964+00:00",
+      "role": "authoritative full-map layout only",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "D:\\work\\image\\designs\\mail-ui-v1\\01-mail-event.png",
+      "sha256": "3cf0b7d7b3bae337d51e947719588419a01ae21bdce9bccedd6258ce1feef0a2",
+      "bytes": 2576312,
+      "sampledAtUtc": "2026-10-16T07:45:47.303131+00:00",
+      "role": "primary approved Q Daoist hand-painted style; never copy UI, people or night",
+      "dimensions": [
+        1931,
+        814
+      ],
+      "mode": "RGB"
+    }
+  ],
+  "transparent_background": false,
+  "geometry": {
+    "tile": "r10_c12",
+    "patch": "p44",
+    "coreGlobalBox": [
+      48128,
+      39936,
+      49152,
+      40960
+    ],
+    "nativeGlobalBox": [
+      48013,
+      39821,
+      49267,
+      41075
+    ],
+    "coreCrop": [
+      115,
+      115,
+      1139,
+      1139
+    ],
+    "tilePasteAt": [
+      3072,
+      3072
+    ],
+    "expectedNativeDimensions": [
+      1254,
+      1254
+    ]
+  },
+  "conditionedGuide": {
+    "file": {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r10_c12\\layout-only\\p44-v2-conditioned-original-cap-restored.png",
+      "sha256": "4e0628767de9be01f8d07074420ffa9ce1a898f2c4ac84e62e9ff81885693b7f",
+      "bytes": 1361725,
+      "sampledAtUtc": "2026-10-16T07:55:57.478307+00:00",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    "layoutOnlySource": {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\daylight-only-20261009\\donghai-natural-stone-clear-routes-v10.png",
+      "sha256": "cf450f0afe784b4700f2dfc19b3af35867765403e8f1d81741e78b3116583d42",
+      "bytes": 3373466,
+      "sampledAtUtc": "2026-10-16T07:45:47.310395+00:00",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    "overviewExtent": [
+      1049.949462890625,
+      870.8066057477679,
+      1077.3719656808034,
+      898.2291085379464
+    ],
+    "pastedNativeReferences": [
+      {
+        "direction": "left",
+        "source": {
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r10_c12\\native\\p43-v1.png",
+          "sha256": "ec2c35a50a6cc6c482226f81d89827301eb702bee5e4d991f2c6f0b25bd232d9",
+          "bytes": 2865021,
+          "sampledAtUtc": "2026-10-16T07:45:46.672031+00:00",
+          "role": "current selected r10_c12_p43",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "mode": "RGB",
+          "continuationAllowed": {
+            "east": true,
+            "south": true
+          },
+          "reviewStatus": "usable_for_continuation_pending_full_QA"
+        },
+        "sourceCrop": [
+          1024,
+          0,
+          1254,
+          1254
+        ],
+        "pasteAt": [
+          0,
+          0
+        ],
+        "operation": "unscaled adjacent native overlap pasted onto layout-only guide"
+      },
+      {
+        "direction": "top",
+        "source": {
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r10_c12\\native\\p34-v1.png",
+          "sha256": "7211c69d62334884b33f2f1606ede863fcfc9119d8d7207cc3abe8669c90e3bc",
+          "bytes": 2439077,
+          "sampledAtUtc": "2026-10-16T07:45:46.697697+00:00",
+          "role": "current selected r10_c12_p34",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "mode": "RGB",
+          "continuationAllowed": {
+            "east": true,
+            "south": true
+          },
+          "reviewStatus": "usable_for_continuation_pending_full_QA"
+        },
+        "sourceCrop": [
+          0,
+          1024,
+          1254,
+          1254
+        ],
+        "pasteAt": [
+          0,
+          0
+        ],
+        "operation": "unscaled adjacent native overlap pasted onto layout-only guide"
+      }
+    ],
+    "classification": "Reference/edit input only, never final or accepted artwork",
+    "layoutRestore": {
+      "box": [
+        115,
+        800,
+        230,
+        1254
+      ],
+      "reason": "original cap omitted only in western outer halo; west final core unchanged"
+    }
+  },
+  "ownerGate": {
+    "readyToGenerate": true,
+    "authorizationMode": "allocated_root_reserved",
+    "rootInstructions": {
+      "path": "D:\\work\\image\\AGENTS.md",
+      "sha256": "57f1ad4f81fdb2256b843923d862308be228130917b99cfced375db256aff01a",
+      "bytes": 8210,
+      "sampledAtUtc": "2026-10-16T07:45:46.657672+00:00"
+    },
+    "splitContract": {
+      "path": "D:\\work\\image\\docs\\MAP_PARALLEL_SPLIT_20261013.json",
+      "sha256": "929a52abdb55e6022f83abbe9b48718182bc33fc8a0bc2d50a14f6232dd4e850",
+      "bytes": 10340,
+      "sampledAtUtc": "2026-10-16T07:45:46.658198+00:00"
+    },
+    "allocation": {
+      "key": "village-east-shipyard",
+      "map": "fishing-village-game-20261009",
+      "owner": "01a1216d-4a55-7063-ba13-5ddf6d9106f7",
+      "worker": "01a1338b-a299-7163-93e7-055f91a79dde",
+      "tiles": [
+        "r10_c11",
+        "r10_c12",
+        "r11_c11",
+        "r11_c12"
+      ],
+      "status": "allocated_root_reserved",
+      "outputDirectory": "qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-east-shipyard",
+      "ownerAckFile": "qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/coordination/village-east-shipyard.owner-ack.json",
+      "ownerAcknowledged": false
+    },
+    "ownerAcknowledged": false,
+    "ownerAckExists": true,
+    "actualCoordinateConflicts": [],
+    "ownerProgressSnapshot": {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\progress.json",
+      "sha256": "f269ccc661f864c1c7b8370298829b3c69a27833b54862f74896596993371dde",
+      "bytes": 13969,
+      "sampledAtUtc": "2026-10-16T07:45:46.659246+00:00"
+    },
+    "meaning": "Formal root coordinate allocation supersedes old pending-ack gate; no owner acknowledgement is claimed."
+  },
+  "rootInstructionsReadBeforeCall": {
+    "path": "D:\\work\\image\\AGENTS.md",
+    "sha256": "57f1ad4f81fdb2256b843923d862308be228130917b99cfced375db256aff01a",
+    "bytes": 8210,
+    "sampledAtUtc": "2026-10-16T07:45:47.310899+00:00"
+  },
+  "requestedModelPreference": "Free/existing 2.5 preferred; built-in 2.0 permitted",
+  "submittedModelSelector": null,
+  "submittedQualitySelector": null,
+  "actualModel": null,
+  "actualQuality": null,
+  "paidApiUsed": false,
+  "status": "prepared_not_yet_submitted"
+}

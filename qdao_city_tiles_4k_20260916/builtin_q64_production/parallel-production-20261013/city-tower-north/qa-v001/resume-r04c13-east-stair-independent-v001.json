@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-17T03:53:35.019600+00:00",
+  "reviewer": "tower_qa_resume",
+  "tile": "r04_c13",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-east-stair-native-v001\\r04_c13-candidate.png",
+    "sha256": "e1ec3038adfd05f77af6c7efe6c62543bacfaf65eb6f43cc7fa88f4681e88885",
+    "sha256Verified": true
+  },
+  "baseline": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-rear-column-roi-native-v001\\r04_c13-candidate.png",
+    "sha256": "218eaf55264e8d3ce22ae5e199842111c29d9a4873bf3e2d31a15c8c9faf21d7",
+    "sha256Verified": true
+  },
+  "integration": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-east-stair-native-v001\\integration.json",
+    "sha256": "3b0c4b4a91d08152c941bde628afeb8236b123e0780a9b4e97778fa1158db966"
+  },
+  "nativeRepair": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-east-stair-native-v001\\native-repair.png",
+    "sha256": "9097b438c704562b68e3c87d4b1512816d37e71cc9a80d4b95d6f1adc7cbfc4e",
+    "sha256Verified": true
+  },
+  "actualModel": null,
+  "actualModelEvidence": "not returned",
+  "newImagesGenerated": 0,
+  "sourceImagesOrSelectionsChanged": false,
+  "bboxConvention": "Half-open integer tile pixels [x0,y0,x1,y1].",
+  "editTileXYXY": [
+    2560,
+    3142,
+    3584,
+    4096
+  ],
+  "contextEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-east-stair-native-v001\\repaired-context-100pct.png",
+    "sha256": "09ec02775bf1f8ddeaac25e61a4377deab952e2c0d0a0916df59677286733622",
+    "sha256Verified": true
+  },
+  "beforeContextEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-east-stair-prepare-v001\\repair-input.png",
+    "sha256": "b86991a4cc78418a54a29fd3ed2b2ad49aeda0806a549c6f43abf6aaaa7045bc",
+    "sha256Verified": true
+  },
+  "mechanicalChecks": {
+    "candidate4096RGB": true,
+    "native1254Pixels": true,
+    "contextAndPerimeterCropsMatchCandidate": true,
+    "beforeContextMatchesBaseline": true,
+    "outsideRoiPixelIdentity": true
+  },
+  "repairStatus": "needs-repair",
+  "workingAssessment": "improved-working-unpassed",
+  "observedImprovement": "Original x3072 vertical seam had about 38 pixels of paving-grout height difference and roughly 20-35 pixels of stair contour offsets. Current trial connects those through the central edit; it is a useful improvement over the baseline.",
+  "perimeters": [
+    {
+      "side": "north",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-east-stair-native-v001\\north-perimeter-100pct.png",
+        "sha256": "e58e05772b1d517c8b64e8d0ab8dcf7475143774d3b98d76c0e84555d4b9a524",
+        "crop": [
+          2445,
+          3027,
+          3699,
+          3257
+        ],
+        "sha256Verified": true
+      },
+      "observation": "Paving texture transition and grout connection show no new abrupt cut at edit y3142."
+    },
+    {
+      "side": "south",
+      "status": "physical-edge-not-cross-tile-accepted",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-east-stair-native-v001\\south-perimeter-100pct.png",
+        "sha256": "805e80e7a778ab2cac6ab29884c9eb019c192cdc9d3a5243d9902ada0f55f3b1",
+        "crop": [
+          2445,
+          3981,
+          3699,
+          4096
+        ],
+        "sha256Verified": true
+      },
+      "observation": "Inside-tile lower stair surface is readable; this crop has no south neighbor and cannot certify an external join."
+    },
+    {
+      "side": "west",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-east-stair-native-v001\\west-perimeter-100pct.png",
+        "sha256": "4b08f751cacda23668c36d750ceab46e076bcb1e3f2cdcb87f9bdacbccda835a",
+        "crop": [
+          2445,
+          3027,
+          2675,
+          4096
+        ],
+        "sha256Verified": true
+      },
+      "observation": "Paving and stair edges connect across x2560 without a comparable geometric jump."
+    },
+    {
+      "side": "east",
+      "status": "needs-repair",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-east-stair-native-v001\\east-perimeter-100pct.png",
+        "sha256": "7118389097d07e41893b139cfdf5ffcd36350748196987f02c3d9176fab73ae6",
+        "crop": [
+          3469,
+          3027,
+          3699,
+          4096
+        ],
+        "sha256Verified": true
+      },
+      "observation": "At x3584 the upper tread underside and riser bottom step by about 8 and 6 pixels; lower tread shows a smaller roughly 4-pixel offset."
+    }
+  ],
+  "remainingDefects": [
+    {
+      "id": "east-roi-upper-stair-underside-step",
+      "bboxTilePixelsApprox": [
+        3555,
+        3575,
+        3610,
+        3610
+      ],
+      "newlyIntroducedAtEditEdge": true,
+      "estimatedDisplacementPixels": 8
+    },
+    {
+      "id": "east-roi-upper-riser-bottom-step",
+      "bboxTilePixelsApprox": [
+        3555,
+        3690,
+        3610,
+        3720
+      ],
+      "newlyIntroducedAtEditEdge": true,
+      "estimatedDisplacementPixels": 6
+    },
+    {
+      "id": "east-roi-lower-stair-underside-step",
+      "bboxTilePixelsApprox": [
+        3555,
+        3875,
+        3610,
+        3910
+      ],
+      "newlyIntroducedAtEditEdge": true,
+      "estimatedDisplacementPixels": 4
+    }
+  ],
+  "diagnosticContourMeasurements": [
+    {
+      "leftX": 3565,
+      "rightX": 3600,
+      "searchY": [
+        3550,
+        3620
+      ],
+      "strongestHorizontalContrastY": [
+        3595,
+        3587
+      ],
+      "absoluteYDifference": 8,
+      "method": "Diagnostic strongest mean RGB row contrast in 7-pixel columns, no source modification. Corroborates visual review; not a general geometry metric."
+    },
+    {
+      "leftX": 3565,
+      "rightX": 3600,
+      "searchY": [
+        3660,
+        3750
+      ],
+      "strongestHorizontalContrastY": [
+        3709,
+        3703
+      ],
+      "absoluteYDifference": 6,
+      "method": "Diagnostic strongest mean RGB row contrast in 7-pixel columns, no source modification. Corroborates visual review; not a general geometry metric."
+    },
+    {
+      "leftX": 3565,
+      "rightX": 3600,
+      "searchY": [
+        3860,
+        3920
+      ],
+      "strongestHorizontalContrastY": [
+        3890,
+        3886
+      ],
+      "absoluteYDifference": 4,
+      "method": "Diagnostic strongest mean RGB row contrast in 7-pixel columns, no source modification. Corroborates visual review; not a general geometry metric."
+    }
+  ],
+  "externalSouthStatus": "not reviewed; cross-tile acceptance remains pending",
+  "formalAcceptedCount": 0,
+  "fullTileAccepted": false,
+  "recommendation": "Use this improved but unpassed trial as the basis for a focused east-edge correction. Anchor stair endpoints on both sides of x3584, then inspect all new ROI transitions. Do not label the current repair local-pass."
+}

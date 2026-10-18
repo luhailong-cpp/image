@@ -1,0 +1,101 @@
+{
+  "createdAtUtc": "2026-10-16T06:31:55.343Z",
+  "userRequestedMoreWindows": true,
+  "status": "formally_reserved_and_production_dispatched",
+  "existingReservationCount": 34,
+  "threads": [
+    {
+      "key": "city_more_20261016",
+      "map": "main-city-game-20261009",
+      "threadId": "01a14368-65c7-7691-bdea-f18c23911119",
+      "hostId": "local",
+      "title": "主城出图｜新增独立补片批次",
+      "outputDirectory": "qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261016/city_more_20261016"
+    },
+    {
+      "key": "village_more_20261016",
+      "map": "fishing-village-game-20261009",
+      "threadId": "01a14368-70c0-7961-9e15-b74635759bff",
+      "hostId": "local",
+      "title": "渔村出图｜新增独立补片批次",
+      "outputDirectory": "qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261016/village_more_20261016"
+    },
+    {
+      "key": "island_more_20261016",
+      "map": "island-game-20261009",
+      "threadId": "01a14368-8778-7cc3-94dc-e9829ea9337c",
+      "hostId": "local",
+      "title": "八仙岛出图｜新增独立补片批次",
+      "outputDirectory": "qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261016/island_more_20261016"
+    }
+  ],
+  "updatedAtUtc": "2026-10-16T06:37:35.596Z",
+  "reservationCount": 40,
+  "batches": [
+    {
+      "key": "city_more_20261016",
+      "map": "main-city-game-20261009",
+      "owner": "01a12076-19f9-7f00-8135-01e1b5fb7007",
+      "worker": "01a14368-65c7-7691-bdea-f18c23911119",
+      "workerType": "production_chat",
+      "parentThreadId": "01a1343e-280a-7aa0-90f1-57865af53706",
+      "tiles": [
+        "r12_c15",
+        "r12_c16"
+      ],
+      "status": "allocated_root_reserved",
+      "outputDirectory": "qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261016/city_more_20261016",
+      "ownerAcknowledged": false,
+      "allocatedAtUtc": "2026-10-16T06:34:31.619Z",
+      "allocationBasis": "New worker audited latest owner and three internal queues; zero source/selected/inflight target; stable southern native boundary, current parallel and accelerator coordinates excluded."
+    },
+    {
+      "key": "village_more_20261016",
+      "map": "fishing-village-game-20261009",
+      "owner": "01a1216d-3f65-7331-939e-0ea73b19f3bf",
+      "worker": "01a14368-70c0-7961-9e15-b74635759bff",
+      "workerType": "production_chat",
+      "parentThreadId": "01a1343e-280a-7aa0-90f1-57865af53706",
+      "tiles": [
+        "r09_c02",
+        "r10_c02"
+      ],
+      "status": "allocated_root_reserved",
+      "outputDirectory": "qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261016/village_more_20261016",
+      "ownerAcknowledged": false,
+      "allocatedAtUtc": "2026-10-16T06:36:38.150Z",
+      "allocationBasis": "Worker audit found zero native/selected/request/receipt/current target in-flight; east-side native contexts exist with matching hashes and accepted QA; parallel and accelerated exclusions checked."
+    },
+    {
+      "key": "island_more_20261016",
+      "map": "island-game-20261009",
+      "owner": "01a1216d-5a60-7332-b4ee-8acad0d64dba",
+      "worker": "01a14368-8778-7cc3-94dc-e9829ea9337c",
+      "workerType": "production_chat",
+      "parentThreadId": "01a1343e-280a-7aa0-90f1-57865af53706",
+      "tiles": [
+        "r04_c01",
+        "r05_c01"
+      ],
+      "status": "allocated_root_reserved",
+      "outputDirectory": "qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261016/island_more_20261016",
+      "ownerAcknowledged": false,
+      "allocatedAtUtc": "2026-10-16T06:37:17.878Z",
+      "allocationBasis": "Worker audited all current native/selected/prompts/receipts/guides/tiles target entries and owner/subworker queues; none in target. Stable accepted east neighbours hash-bound; QA subgrid filename false matches excluded; current reservations and accelerators excluded."
+    }
+  ],
+  "auditReceipts": [
+    {
+      "threadId": "01a14368-65c7-7691-bdea-f18c23911119",
+      "text": "审计完成，建议预留主城东南区相邻两块： 坐标 正式像素范围 [x0,y0,x1,y1] 南邻原生锚点 r12_c15 [57344,45056,61440,49152] r13_c15 r12_c16 [61440,45056,65536,49152] r13_c16 原 owner：01a12076-19f9-7f00-8135-01e1b5fb7007，聊天“主城游戏图｜东南民宅客栈区”。 占用核验：两块均无制作目录、无实际图片、无已选源；缺片记录均列出全部16核心。未落入34块预留或加速区。原 owner 和三个子工最新任务均在右下现有图块返修，未发现目标坐标在途。 南邻各有16张原生源，北排8张源图均实际存在并已核对哈希。r13_c15 内部接缝已通过返修检查，r13_c16 内部美术与接缝通过；外接缝仍待验收。 建议从底排向北续画，优先使用已修订的上下文作南侧锚点： r13_c15 当前上下文 r13_c16 当前上下文 批准布局、材质参考 建议新输出目录：qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261016/city_more_20261016。 本轮只读审计，未生成、未改分工或 Git，等待本聊天正式预留与开工指令。"
+    },
+    {
+      "threadId": "01a14368-70c0-7961-9e15-b74635759bff",
+      "text": "候选已确认：r09_c02、r10_c02，上下相邻。 原 owner：01a1216d-3f65-7331-939e-0ea73b19f3bf。 两块均无已选源、实际 native、request/receipt 或当前在途记录；不占用既有预留。 东侧现存原生锚点：southwest/tiles/r09_c03_v2.png、southwest/tiles/r10_c03_v2.png；对应原生上下文存在，哈希一致，已有 QA 通过。 新目录：qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261016/village_more_20261016。 可立即正式预留；本窗口尚未生图。"
+    },
+    {
+      "threadId": "01a14368-8778-7cc3-94dc-e9829ea9337c",
+      "text": "审计完成（2026-10-16 06:36 UTC），建议正式预留： 坐标 已稳定东邻 r04_c01 r04_c02 v9 r05_c01 r05_c02 v5 原 owner：01a1216d-5a60-7332-b4ee-8acad0d64dba。 两块上下相邻；最新 36 块预留及加速分工均无冲突。 当前选源无目标坐标；四个原区实际 native 均为 0；西北目标 prompts／receipts／guides／tiles 均为 0。 owner 当前推进 r03_c01；内部子工处理 r06_c02、r07_c04，未发现目标在途。QA 文件中的同名子格已排除。 两个东邻内部检查已通过，外接验收仍待新块完成后检查；当前文件哈希与选源记录一致。 已查看批准布局和两个东邻；合同细节参考、邮件及组队主参考均实际存在。 建议新目录：D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261016/island_more_20261016。 本轮仅只读审计，未生图、未写文件、未改 Git／分工。等待正式预留与开工指令。"
+    }
+  ]
+}

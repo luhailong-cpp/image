@@ -1,0 +1,53 @@
+{
+  "tileId": "r04_c09",
+  "cores": [
+    [
+      null,
+      null,
+      "r04_c09_p01_03",
+      "r04_c09_p01_04_v3"
+    ],
+    [
+      null,
+      null,
+      "r04_c09_p02_03_v2",
+      "r04_c09_p02_04"
+    ],
+    [
+      null,
+      "r04_c09_p03_02_v2",
+      "r04_c09_p03_03",
+      "r04_c09_p03_04"
+    ],
+    [
+      null,
+      null,
+      "r04_c09_p04_03_v2",
+      "r04_c09_p04_04"
+    ]
+  ],
+  "overlays": [],
+  "formalAccepted": false,
+  "updatedAtUtc": "2026-10-16T13:24:46.264159+00:00",
+  "selectionIsPartialCandidate": true,
+  "pendingIssues": [
+    {
+      "source": "r04_c09_p01_04_v3",
+      "sha256": "acce00e9c1ccc42243a7f4b9d459c1be438d54bdebbc49a35b13f2df44416f41",
+      "issue": "v3 best of existing v1-v3: grout geometry continues across upper and right native joins, but residual straight material transition across upper-left at native y230 remains. Two repair attempts used; retain pending material repair without claiming pass.",
+      "status": "pending_not_passed"
+    },
+    {
+      "source": "r04_c09_p04_04",
+      "sha256": "5932de700c88ab0d88d160259ee9700bd997b6f2636e0bd0273ed6efa6adac55",
+      "issue": "Upper and right joins continuous, but lantern body left boundary at native x900 versus layout guide about x330 is too narrow. Local lantern silhouette requires review/repair. Do not claim layout pass; neighboring left patches are pure paving and independent.",
+      "status": "pending_not_passed"
+    },
+    {
+      "source": "r04_c09_p04_03_v2",
+      "sha256": "5a5f06eacc148127b2aecb368bb579f7677b82cf862a7b26e5a4d7ee5e7dd5f4",
+      "issue": "Large slab geometry and green verge restored; upper/right grout continuous. Native face texture is more mineral-mottled than neighboring diamond-speckle surfaces and leaves a visible texture transition; retain pending surface blending repair, not full pass.",
+      "status": "pending_not_passed"
+    }
+  ]
+}

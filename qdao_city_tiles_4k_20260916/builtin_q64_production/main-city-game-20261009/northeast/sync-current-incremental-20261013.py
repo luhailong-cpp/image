@@ -27,8 +27,7 @@ for T in sorted(Z.iterdir()):
         new.append(by[key])
     if not (T/'tile-progress.json').exists():continue
     p=read(T/'tile-progress.json');s=read(T/'selected-native.json') if (T/'selected-native.json').exists() else {}
-    cores=[k for k,v in s.items() if str((T/'native'/v).resolve()) in by]
-    if not s:cores=[f'p{r}{c}' for r in range(1,5) for c in range(1,5) if str((T/'native'/f'p{r}{c}.png').resolve()) in by]
+    cores=[f'p{r}{c}' for r in range(1,5) for c in range(1,5) if str((T/'native'/s.get(f'p{r}{c}',f'p{r}{c}.png')).resolve()) in by]
     candidate=Path(p['candidate']) if p.get('candidate') else T/'candidates'/f'{T.name}.candidate.png'
     full=bool(len(cores)==16 and candidate.is_file());h=None
     if full:

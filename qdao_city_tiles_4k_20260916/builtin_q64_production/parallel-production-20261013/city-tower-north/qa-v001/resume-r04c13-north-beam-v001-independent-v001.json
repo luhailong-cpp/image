@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-17T04:34:18.720614+00:00",
+  "reviewer": "tower_qa_resume",
+  "tile": "r04_c13",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-north-native-v001\\r04_c13-candidate.png",
+    "sha256": "451a4332fc2cf37de22bc4a9fdb4295d61f3d331b9492e25e006530c16b04d7b",
+    "sha256Verified": true
+  },
+  "baseline": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-east-stair-native-v001\\r04_c13-candidate.png",
+    "sha256": "e1ec3038adfd05f77af6c7efe6c62543bacfaf65eb6f43cc7fa88f4681e88885",
+    "sha256Verified": true
+  },
+  "fixedNorthNeighbor": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u07-integrated-v001\\r03_c13-candidate.png",
+    "sha256": "7d8df70a34f342687dd9c4a7fdfb2346c73c9a5fdf4b11bf507581c3e19ca133",
+    "sha256Verified": true
+  },
+  "integration": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-north-native-v001\\integration.json",
+    "sha256": "2c440b95c4d306831dee4507e792b4beb551fd345b9d1f06ced7cd75ad982f66"
+  },
+  "nativeRepair": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-north-native-v001\\native-repair.png",
+    "sha256": "1a0dfd7d26207a10bbe69a5514a645dccf4c9527d612cd597ea6d1bac2dbe41c",
+    "sha256Verified": true
+  },
+  "receipt": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-north-native-v001\\receipt.json",
+    "sha256": "31738acb6ffbfafae49d23d7a8453cee15b0b3623952dd77336623525b4e62a8",
+    "sha256Verified": true
+  },
+  "actualModel": null,
+  "actualModelEvidence": "not returned",
+  "scope": "Targeted north red-beam repair, four local ROI boundaries and the exact fixed-neighbor joint only.",
+  "editTileXYXY": [
+    2815,
+    0,
+    3235,
+    158
+  ],
+  "targetStatus": "local-pass",
+  "finding": "The former red-beam lower-edge and thickness jump near x3072 is replaced by a connected horizontal beam. Column top, wooden wall and gold plaque stay coherent. The repair has not moved the jump to its southern insertion edge.",
+  "perimeterReview": [
+    {
+      "side": "north",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-north-native-v001\\north-perimeter-100pct.png",
+        "sha256": "e9b6b9d10cb3f39743b9fa1c0c6e01ad9c5e40d2a81695e4306a0b00c9f83ecf",
+        "cropAcrossTileXYXY": [
+          2700,
+          -160,
+          3350,
+          160
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Actual fixed north roof/eave interface connects to the repaired beam."
+    },
+    {
+      "side": "south",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-north-native-v001\\south-perimeter-100pct.png",
+        "sha256": "3ed2177b58ea605457baef8003e5c7a2026aa3f47be034a431360d1f3e06aa70",
+        "cropAcrossTileXYXY": [
+          2700,
+          43,
+          3350,
+          273
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Red column, timber and underside connect at y158."
+    },
+    {
+      "side": "west",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-north-native-v001\\west-perimeter-100pct.png",
+        "sha256": "187d803bb11d1b4d1ed99cb60b34adb0300a3f603620ef12a60d1fd1db4a484d",
+        "cropAcrossTileXYXY": [
+          2700,
+          -115,
+          2930,
+          273
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Left beam end joins its support without a new vertical cutoff."
+    },
+    {
+      "side": "east",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-north-native-v001\\east-perimeter-100pct.png",
+        "sha256": "5e11ec5265bd26ed24f8ecff143110bf50d95b1f23452c5a000feb27dfd0cd64",
+        "cropAcrossTileXYXY": [
+          3120,
+          -115,
+          3350,
+          273
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Right beam edge and gold plaque support join."
+    }
+  ],
+  "contextEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-north-native-v001\\repaired-context-100pct.png",
+    "sha256": "8fdfa465c578ee7ce903a9881627841b2ad54f6180f07c250e017186099af8bb",
+    "sha256Verified": true
+  },
+  "northJointEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-north-native-v001\\north-joint-100pct.png",
+    "sha256": "e9783912cb4f69fbd5e374aab043d5a14c675c282701df4777a0d76774295e6e",
+    "sha256Verified": true
+  },
+  "jointLocalStatus": "local-pass-for-shown-segment-and-fixed-neighbor-only",
+  "mechanicalChecks": {
+    "candidateHashVerified": true,
+    "fixedNeighborHashVerified": true,
+    "allCrossTileEvidencePixelIdentity": true,
+    "outsideRoiPixelIdentity": true
+  },
+  "excludedScope": "Other parts of the full north boundary and other r04_c13 internal/external defects are not accepted by this local check.",
+  "formalAcceptedCount": 0,
+  "fullTileAccepted": false,
+  "newImagesGenerated": 0,
+  "selectionOrSourceImagesChanged": false
+}

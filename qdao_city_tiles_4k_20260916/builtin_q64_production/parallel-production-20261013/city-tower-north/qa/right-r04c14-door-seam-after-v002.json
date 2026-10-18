@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "tile": "r04_c14",
+  "issue": "p22/p32 column/wood/gold-panel horizontal step",
+  "baseline": "versions/right-r04c14-assembly-v005/r04_c14/assembly/r04_c14-candidate.png",
+  "baselineSha256": "eb93030ef0c7cfedb1e1e716bf1d01849b555c65d0ace23d88da280be74c01a3",
+  "status": "two_native_repair_attempts_saved_not_adopted",
+  "formalAcceptedCount": 0,
+  "attempts": [
+    {
+      "version": "right-r04c14-door-seam-native-v001",
+      "nativeSha256": "2b16a4b0ef8446b62ad6d8c6350ebdda9d1cb87e5daf9e86388387c7756e405b",
+      "candidateSha256": "d607d99d85f092857aad8041f965b9a2f8376b83ccc164001eb4c40258076e66",
+      "sourceROI": [
+        115,
+        450,
+        1139,
+        850
+      ],
+      "nativeFinding": "Original y623 horizontal structural step removed in generated source.",
+      "integratedFinding": "SouthROI boundary crosses shifted gold ring/frame and wood uprights, producing new local steps/ghosting. North edge broadlystable; east original notch outsideROI remains; west old texture edge remains.",
+      "adopted": false
+    },
+    {
+      "version": "right-r04c14-door-seam-native-v002",
+      "nativeSha256": "690bdc4042fdd3db81f140c77a3e32a9ef99b6341f96a7332f8a698c20c84ad9",
+      "candidateSha256": "3cfb3030c6bc3274d3ea196ac5a09280aaa407fdab41d44e4109eebe47bb226b",
+      "sourceROI": [
+        115,
+        300,
+        1139,
+        700
+      ],
+      "nativeFinding": "Original y623 discontinuity removed but whole lower vertical borders still shift despite lock prompt.",
+      "integratedFinding": "New southROI edge at nativey700 has wood/gold silhouette steps and16pxdouble-edge. No net acceptable improvement. North boundary small texture; east unchanged original notch.",
+      "adopted": false
+    }
+  ],
+  "reviewEvidence": "For each attempt repaired-context-100pct.png plus all four *-perimeter-100pct.png actually viewed.",
+  "actualModel": null,
+  "alphaPerimeterPixels": 16,
+  "unchangedOutsideEditVerified": true,
+  "realCompletedEventValidated": true,
+  "reasonRetainBaseline": "Repair moves the mismatch to the ROI perimeter; cannot mark geometry repaired.",
+  "next": "Leave this issue specifically pending after2 attempts, move to independent grout problem."
+}

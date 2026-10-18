@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 2,
+  "recordedAt": "2026-10-16T19:12:42.456041+00:00",
+  "tile": "r05_c08",
+  "id": "s04_02_fix01",
+  "logicalPatch": "s04_02",
+  "parameters": {
+    "prompt": "Use case: stylized-concept. Produce one native 1254 x 1254 opaque square game-map patch for a seamless Chinese Taoist chibi hand-painted daytime city. Image 1 is the exact coordinate/layout guide for this patch r05_c08/s04_02_fix01; Only this exact guide is provided; its field of view is fixed. Fill precisely image 1's field of view at exactly 1254 x 1254. World box [29581, 19341, 30835, 20595], center core crop [115,115,1139,1139]. Sharp existing native CORE anchor bands at image-1 pixel boxes [[0, 0, 115, 115], [115, 0, 1139, 115], [0, 115, 115, 1139], [0, 1139, 115, 1254], [115, 1139, 1139, 1254]] are authoritative neighboring artwork; preserve their line positions, color, stone/wood scale and continuation. The blurry remainder supplies geometry only: render fresh crisp native details throughout that area. Continue all crossing edges smoothly with unchanged scale and camera, without rectangular borders or shifted intersections. LOCAL REPAIR of this already-rendered image: preserve all architecture and all pixels above y760, preserve west x0 to160. Repair ONLY lower blue tile courses at x160 to1254,y760 to1139 so they connect continuously to the authoritative southern band y1139 to1254. Southern column gaps are at about x150,315,485,655,825,1000,1170; carry each gap upward naturally behind the wooden bracket. Current four oversized upper tiles misalign with the six narrower southern columns; redraw lower roof with correct native column spacing. Preserve lower border band exactly. No straight horizontal patch cut at y1139, no duplicated tile lips, no mismatched scallops. Warm hand-painted natural pale gray/blue-gray ground, jade/teal architectural accents where shown, restrained warm gold, subtle soft natural daytime shading matching anchors. Preserve the approved layout and existing objects only. No added people, writing, UI, new decorative items, trees, lamps or buildings. No lettering, crop marks, watermarks, fake detail from enlargement, blur, haze or dense noise. Output only the finished full square patch, no collage or comparison.",
+    "referenced_image_paths": [
+      "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r05_c08\\layout-only\\s04_02_fix01.actual-core-guide.png"
+    ],
+    "transparent_background": false
+  },
+  "references": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r05_c08\\layout-only\\s04_02_fix01.actual-core-guide.png",
+      "sha256": "c29ea2162366039776b979ae22c2d46f404c5d8470e68d0a2576bdf7a7bce3d3",
+      "role": "submitted image reference"
+    }
+  ],
+  "configurationSnapshot": {
+    "available": false,
+    "path": "D:\\work\\image\\config\\image-generation.json",
+    "note": "Shared configuration absent at request time; exact builtin tool arguments remain recorded. No backend model or quality inferred."
+  },
+  "worldBoxWithHalo": [
+    29581,
+    19341,
+    30835,
+    20595
+  ],
+  "coreWorldBox": [
+    29696,
+    19456,
+    30720,
+    20480
+  ],
+  "promptSha256": "ee906fd5f7ce02494322c07798aae6b2bf4c6480ff413b82d0053041ec3558bb",
+  "actualModel": null,
+  "actualQuality": null,
+  "evidenceMeaning": "Exact planned submission; this is not proof of tool completion"
+}

@@ -1,0 +1,67 @@
+{
+  "tile": "r13_c11",
+  "patches": {
+    "p41": "native/p41-v1.png",
+    "p31": "native/p31-v1.png",
+    "p42": "native/p42-v1.png",
+    "p43": "native/p43-v1.png",
+    "p32": "native/p32-v1.png",
+    "p21": "native/p21-v1.png",
+    "p44": "native/p44-v1.png",
+    "p33": "native/p33-v1.png",
+    "p11": "native/p11-v1.png",
+    "p22": "native/p22-v2.png",
+    "p34": "native/p34-v1.png",
+    "p23": "native/p23-v1.png",
+    "p24": "native/p24-v1.png",
+    "p12": "native/p12-v1.png",
+    "p13": "native/p13-v1.png",
+    "p14": "native/p14-v1.png"
+  },
+  "status": "complete_native_candidate_internal_geometry_material_pending",
+  "internalReady": false,
+  "formalAccepted": false,
+  "materialPending": true,
+  "candidate": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r13_c11\\qa\\complete-20261016-v1\\candidate-4096.png",
+  "candidateSha256": "5280be5fc185faf230524a2fde4208310b57f12c769a11a759add36537b0b0dc",
+  "nativeCoreCount": 16,
+  "internalReview": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r13_c11\\qa\\complete-20261016-v1\\visual-review.json",
+  "pendingIssues": [
+    {
+      "id": "rockfoot-flat-cut",
+      "location": "p22 south left section, global y51200 x41984..42300",
+      "status": "pending",
+      "detail": "Canonical rock toe is clipped flat. Joint-v1 corrects geometry and foam but its replacement perimeter material is not yet accepted; joint-v2 perimeter cleanup did not improve."
+    },
+    {
+      "id": "foam-cut-p32-west",
+      "location": "p31/p32 seam x41984, upper third y51200..51700",
+      "status": "pending",
+      "detail": "Two foam trails end at vertical core seam. Same best joint-v1 reconnects them, pending local perimeter polish."
+    },
+    {
+      "id": "internal-water-material",
+      "location": "p13/p14, p23/p33, p31/p41, p32/p33, p32/p42, p42/p43; related water crossings",
+      "status": "pending",
+      "detail": "Native water caustic density/loop scale/luminance differs across some core edges."
+    },
+    {
+      "id": "external-west-rock-water",
+      "location": "x40960 y49152..51200, west segments 1-2 and y50176 cross",
+      "status": "pending",
+      "detail": "Submerged stone shapes and highlights truncate or change abruptly across tile boundary."
+    },
+    {
+      "id": "external-west-south-material",
+      "location": "other west/south available native segments and 6 crosses",
+      "status": "pending",
+      "detail": "Water material scale and tone remain uneven; south segment4 stone/foam structure continuous but material not universally accepted."
+    },
+    {
+      "id": "external-north-east",
+      "status": "pending_missing_sources",
+      "detail": "Zone-local source reader has no complete neighboring core sets at north/east."
+    }
+  ],
+  "updatedAt": "2026-10-16T11:27:27.359744+00:00"
+}

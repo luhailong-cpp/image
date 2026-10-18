@@ -1,0 +1,38 @@
+{
+  "tile": "r09_c02",
+  "reviewScale": "1:1",
+  "internalTileSeamsPassed": false,
+  "externalTileSeamsPassed": false,
+  "formalAccepted": false,
+  "candidateSha256": "83571b0b9ca0e6def8fd2e88c7d6b930e34a104f444f06a922089037013e59f5",
+  "reviewed": [
+    "upper joint native1254 target and both v01/v02 AI returns",
+    "all four v02 ROI perimeter comparison views"
+  ],
+  "result": "upper bamboo node split improved in v02; candidate remains needs_local_repairs",
+  "issues": [
+    {
+      "id": "west-r09c02-v1-line-upper-bottom",
+      "description": "Both bamboo nodes are continuous after v02. Bottom ROI transition still reveals a short polygon texture boundary around global x 5005,y34840..34880; full long lower seam and stone sphere untouched."
+    },
+    {
+      "id": "west-r09c02-h2-patches",
+      "status": "unchanged pending; outside selected repair"
+    },
+    {
+      "id": "west-r09c02-h3-patches",
+      "status": "unchanged pending; outside selected repair"
+    }
+  ],
+  "attempts": [
+    {
+      "stem": "r09_c02_bamboo_upper_joint_v01",
+      "status": "not_selected_no_sufficient_geometry_improvement"
+    },
+    {
+      "stem": "r09_c02_bamboo_upper_joint_v02",
+      "status": "locally_improved_pending_further_boundary_repair"
+    }
+  ],
+  "next": "Preserve improved full candidate as pending, continue independent missing r09c01 cores."
+}

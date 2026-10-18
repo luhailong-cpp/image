@@ -1,0 +1,5 @@
+from native_work import *
+p=ZONE/'selection-r03_c09.json';s=read(p);s['cores'][0][1]='r03_c09_p01_02_v3';s['pendingIssues']=[x for x in s.get('pendingIssues',[]) if not x.startswith('p01_02_v2')];s['pendingIssues']+=['p01_02_v3 corrects lantern identity but right internal grout join remains offset near central slab; same original two unsuccessful continuity repairs remain deferred.'];s['updatedAtUtc']=now();write(p,s)
+p=ZONE/'native/r03_c09_p01_02_v3.png.generation.json';d=read(p);d.update(status='selected_layout_corrected_pending_right_join',layoutReview='Round red lantern and hanging tassel retained at original crop; false timber column and roof removed',internalSeams='right grout contour discontinuity remains; not passed');write(p,d)
+p=ZONE/'qa/r03_c09_p01_02_v3__r03_c09_p01_03.json';d=read(p);d.update(status='failed_geometry_continuity',reviewer='root',reviewedAtUtc=now(),finding='Lantern layout corrected but mid-height grout offset remains near join y550. Retain pending issue, not passed.');write(p,d)
+

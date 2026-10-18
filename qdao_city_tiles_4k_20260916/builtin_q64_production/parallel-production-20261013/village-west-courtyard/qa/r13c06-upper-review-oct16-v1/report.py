@@ -1,0 +1,18 @@
+from pathlib import Path
+from PIL import Image
+import hashlib,json,datetime,numpy as np
+R=Path(__file__).resolve().parent
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+i=json.loads((R/'inputs-v1.json').read_text());source=Path(i['source']);assert sha(source)==i['sha256'];im=Image.open(source);j=json.loads(Path(i['assembly']).read_text());sid=Path(i['assembly']).parent/j['sourceIdMap']['path'];assert sha(sid)==j['sourceIdMap']['sha256'];checked=[]
+for c in i['crops']:
+    p=Path(c['path']);assert sha(p)==c['sha256'];assert np.array_equal(np.asarray(Image.open(p)),np.asarray(im.crop(c['contextBox'])));checked.append({**c,'viewed':True,'viewDetail':'original','visualStatus':'passed-reviewed-core-scope','note':'No conspicuous geometry truncation, zigzag color step or cut white ripple found in core portion of this reviewed crop.'})
+diagnostic=json.loads((R/'boundary-diagnostics-v2.json').read_text())
+for c in diagnostic['regions']:
+    p=R/c['path'];assert sha(p)==c['sha256'];assert np.array_equal(np.asarray(Image.open(p)),np.asarray(im.crop(c['box'])));c.update(viewed=True,viewDetail='original',visualStatus='passed-local-boundary-inspection',note='Selected by numerical boundary score, then visually inspected. Wave forms remain coherent; numerical jump is not itself a visual failure.')
+p=R/'north-halo-detail.png';box=[1010,0,1180,150]
+with p.open('xb') as f:im.crop(box).save(f,format='PNG')
+origin=i['globalContextBox'][:2]
+issue={'id':'UH01','status':'pending-external','contextBox':[1045,0,1135,105],'globalBox':[origin[0]+1045,origin[1],origin[0]+1135,origin[1]+105],'evidence':{'path':str(p),'sha256':sha(p),'contextBox':box},'description':'Visible small angular cyan/pale-aqua cut at top of first vertical seam, confined to y<115 north halo; not counted as a tile-core internal failure. Must be checked with selected r12_c06 neighbor at final external review.'}
+rec={'schemaVersion':1,'createdAtUtc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'reviewer':'/root/resume_r12c06_oct16','tile':'r13_c06','status':'passed-specified-upper-internal-scope','formalAccepted':False,'source':{'path':str(source),'sha256':sha(source),'dimensions':list(im.size)},'assembly':{'path':i['assembly'],'sha256':sha(Path(i['assembly']))},'sourceIdMap':{'path':str(sid),'sha256':sha(sid)},'reviewedContextCoreScope':[115,115,4211,1766],'stableNoConcurrentRepairScope':[115,115,4211,1536],'snapshotOnlyOverlapScope':[115,1536,4211,1766],'scopeNote':'Read-only review against W08 hash. Parent subsequent repairs at y>=1536 require checking their changed pixels/boundaries; this result does not transfer to changed inputs. No full-tile acceptance is inferred.','originalVerticalSeams':{'x':[1139,2163,3187],'yRange':[115,1766],'status':'passed-reviewed-scope'},'originalFirstHorizontalSeam':{'y':1139,'xRange':[115,4211],'segments':4,'status':'passed-reviewed-scope'},'nativeCropsActuallyViewed':23,'crops':checked,'actualSelectionBoundaryChecks':diagnostic['regions'],'findings':[issue],'pending':['North external join with selected r12_c06','West/east external joins','All lower areas y>=1766','Any subsequently changed overlap y1536..1766','Whole-tile formal acceptance'],'artworkMutated':False,'aiGenerationUsed':False,'gitOperations':False,'proof':{'sourceHashUnchanged':True,'cropHashMismatches':0,'cropPixelIdentityMismatches':0,'sourceIdHashMatchesAssembly':True}}
+with (R/'review-v1.json').open('x',encoding='utf-8') as f:json.dump(rec,f,ensure_ascii=False,indent=2)
+print(json.dumps({'report':str(R/'review-v1.json'),'sha256':sha(R/'review-v1.json'),'status':rec['status'],'sourceSha256':sha(source)},ensure_ascii=False))

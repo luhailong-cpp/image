@@ -1,0 +1,50 @@
+{
+  "tile": "r07_c12",
+  "reviewedAt": "2026-10-17T03:56:43.439356+00:00",
+  "route": "builtin",
+  "actualModel": null,
+  "selectedCoreCount": 9,
+  "nativeVersionCount": 11,
+  "inflightGeneration": null,
+  "reviewMethod": "actual native-sized integer core join crops; prior unchanged reviews reused",
+  "sources": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northeast\\r07_c12\\native\\p21-v20261016.png",
+      "sha256": "06eda554dec44b91a0fdc2a43fa9c7d1598a1d7de68a367669ae941a4011244a"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northeast\\r07_c12\\native\\p33-fix1-v20261016.png",
+      "sha256": "a1bda25f02ce903ac3bdcaee4b23be260a03c670635ffc6c1c9724790fd80560"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northeast\\r07_c12\\native\\p33-fix2-v20261016.png",
+      "sha256": "0547d5b76aa4836fc7a6595810e6da15549886fdfe6b461e8612384090b27419"
+    }
+  ],
+  "findings": [
+    {
+      "patch": "p21",
+      "status": "quick_geometry_pass",
+      "note": "South diagonal slab joints continuous; mineral grain density remains for full-tile review."
+    },
+    {
+      "patch": "p33",
+      "status": "pending_P2_after_two_repairs",
+      "selected": "p33-fix2-v20261016.png",
+      "repairAttempts": 2,
+      "note": "Horizontal leaf clipping improved; east foliage continuous. South cream curb / blue paving shifts at join. Retain fix2 as working source, unpassed; no third repair in this pass."
+    },
+    {
+      "patch": "p34",
+      "status": "pending_P2",
+      "note": "Prior east lower pale/dark wall rectangular transition retained."
+    },
+    {
+      "patch": "p42",
+      "status": "held_geometry_conflict",
+      "note": "South neighbor blue band and east neighbor blue band disagree; no generation requested. See first-three-review-v20261016.json."
+    }
+  ],
+  "internalPassed4kCount": 0,
+  "formalAcceptedCount": 0
+}

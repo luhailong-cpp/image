@@ -1,0 +1,47 @@
+{
+  "tile": "r04_c14",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-cap-native-v002\\r04_c14-candidate.png",
+    "sha256": "02c0b5d70d9fe9fd714ce3dee577274ff7f6074cc9f2023f9ef6fcd2d27a8bc1"
+  },
+  "integrations": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-junction-native-v001\\integration.json",
+      "sha256": "8b7db559c5cfe2df79ad0128e5de8cb3fe205e9086ef3c28dacad99751cdf71b"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-cap-native-v002\\integration.json",
+      "sha256": "bbf6baff1e044e3173c93a6bc700c1a4093c502a133ce42b56088518075586ed"
+    }
+  ],
+  "issue": "p21/p22 approx100px roof/eave phase jump",
+  "status": "production_local_pass_independent_review_pending",
+  "formalAcceptedCount": 0,
+  "fullVisualAcceptance": false,
+  "actualNativeCallCount": 2,
+  "finding": "First whole-junctionnative source connects existing front eave to round corner at fixed end heights; goldcurl/doors/column stay positioned. N/S/E perimeter pass. W disk originally split atworldx400; second native150x165ROI fixes that single flowerdisk and its rim, all4smallROIperimeters pass.",
+  "nativeROIs": [
+    [
+      0,
+      115,
+      1139,
+      1139
+    ],
+    [
+      325,
+      520,
+      475,
+      685
+    ]
+  ],
+  "allPerimetersActuallyViewedAt100pct": true,
+  "unresolved": [
+    "Old horizontal teal-rooftexture joinworldy1024, x0..400 remains outside repaired geometry",
+    "Frontpost northkink4..6px retained",
+    "Other previous internal and external failures remain"
+  ],
+  "nativeEventBytesMatch": true,
+  "outsideROIUnchanged": true,
+  "noResizeWarpBlur": true,
+  "actualModel": null
+}

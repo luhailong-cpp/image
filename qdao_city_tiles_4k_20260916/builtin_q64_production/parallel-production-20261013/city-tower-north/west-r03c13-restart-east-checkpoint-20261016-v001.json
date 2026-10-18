@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-17T03:57:32.935748+00:00",
+  "tile": "r03_c13",
+  "selectedCandidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u07-integrated-v001\\r03_c13-candidate.png",
+    "sha256": "7d8df70a34f342687dd9c4a7fdfb2346c73c9a5fdf4b11bf507581c3e19ca133"
+  },
+  "fixedEastNeighbor": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r03c14-roof-corner-native-v001\\r03_c14-candidate.png",
+    "sha256": "300990362442f765b4c9e2682fa4484e0476e2d0e6733ebf356e0a7f88594aba"
+  },
+  "eastBoundaryStatus": "not-passed",
+  "checks": [
+    {
+      "segment": 1,
+      "localStatus": "local-pass-excluding-declared-defect",
+      "observation": "Upper beam and turquoise roof row continue. Defective eave begins near bottom and is tracked jointly with segment2.",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-east-boundary-prepare-v001\\east-segment-1-100pct.png",
+        "sha256": "db420690b6dbdbb7d539d256696ecd1e4b05b04ba52443de498f7a30590461d4"
+      }
+    },
+    {
+      "segment": 2,
+      "localStatus": "not-passed",
+      "observation": "FAIL near y1024-1165: separate red beam cross-sections and unmatched internal ledge. Lantern, wall and lower beam outside defective band are continuous.",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-east-boundary-prepare-v001\\east-segment-2-100pct.png",
+        "sha256": "edaa2f3f1970523c2793553a6a56123af0c359ee96bab71f54e7d0fa0b443a71"
+      }
+    },
+    {
+      "segment": 3,
+      "localStatus": "local-pass",
+      "observation": "Roof rows, next red beam and wood facade continue across boundary at 1:1. No new whole-object jump observed.",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-east-boundary-prepare-v001\\east-segment-3-100pct.png",
+        "sha256": "30752cef6c463ae753074d2a2f06770f495b5b786fed909e5e36f0b8f0baeacf"
+      }
+    },
+    {
+      "segment": 4,
+      "localStatus": "local-pass",
+      "observation": "Lower facade, beam and broad roof continue across boundary; southern endpoint still requires own north-south neighbor test.",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-east-boundary-prepare-v001\\east-segment-4-100pct.png",
+        "sha256": "99d36c630cba082326ca7b7ddb8f004ba42aa1e23caf1e998bd5a25df6812642"
+      }
+    }
+  ],
+  "issueGlobalTileXYXY": [
+    2997,
+    997,
+    4096,
+    1177
+  ],
+  "attempts": [
+    {
+      "integration": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-east-boundary-native-v001\\integration.json",
+      "qa": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-east-boundary-native-v001\\production-qa.json"
+    },
+    {
+      "integration": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-east-boundary-native-v002\\integration.json",
+      "qa": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-east-boundary-native-v002\\production-qa.json"
+    }
+  ],
+  "internal24QaReused": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-internal24-final-qa-v002\\summary.json",
+  "internal24InputSha256Unchanged": true,
+  "nativeCoreCount": 16,
+  "additionalCoreCount": 0,
+  "sourceCallCountThisResume": 2,
+  "formalAcceptedCount": 0,
+  "inflight": null,
+  "nextAction": "Other independent boundary work; revisit east beam after a new strategy or coordinated boundary decision. Do not run a third immediate same-point attempt.",
+  "restartAudit": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-east-boundary-prepare-v001\\restart-audit.json"
+}

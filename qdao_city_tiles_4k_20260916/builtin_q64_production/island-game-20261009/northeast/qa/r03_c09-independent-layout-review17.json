@@ -1,0 +1,167 @@
+{
+  "tileId": "r03_c09",
+  "reviewer": "/root/layout_review17",
+  "reviewedAt": "2026-10-17T05:49:11.790099+00:00",
+  "scope": "Independent whole-tile layout direction review only; no 49-seam scan; no generation, selection, derivation or Git mutation.",
+  "status": "layout_revision_required",
+  "formalAccepted": false,
+  "finalArt": false,
+  "working": {
+    "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northeast/tiles/r03_c09-native-v2-layout-working-20261017.png",
+    "sha256": "c2f97af46a17ff52f8dae1271d599ceeb69ba343ff8ac0e77910a82869d6274e",
+    "size": [
+      4096,
+      4096
+    ],
+    "derivation": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northeast/tiles/r03_c09-native-v2-layout-working-20261017.png.derivation.json",
+    "derivationSha256": "4598d2d9d454a5c92d2c48df0ccd165f27ba7c903e82134ffe5d4f86c5c8931a",
+    "overlayCount": 6
+  },
+  "authority": {
+    "fullMapPath": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/daylight-only-20261009/penglai/penglai-natural-stone-wall-trees-v6.png",
+    "fullMapSha256": "e7a06f547274a29a01cc4e20223637e99c0fab534d4982361e824147c800b34f",
+    "exactCropPath": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northeast/qa/r03_c09-native-v1-20261016-layout-authority-only.png",
+    "exactCropSha256": "83ab8ec3e055fc77bfcb4238576725476f2ea564736fc72f2de64c24c3f4db5f",
+    "sourceBox": [
+      716.5714285714286,
+      179.14285714285714,
+      806.1428571428571,
+      268.7142857142857
+    ],
+    "worldBox": [
+      32768,
+      8192,
+      36864,
+      12288
+    ],
+    "priority": "sole layout authority; old native anchors are not layout authority"
+  },
+  "coordinateCaution": "All measurements below are approximate tile-local 4096 coordinates. Original tile contains only about 90 source pixels per side (one source pixel ~45.7 tile pixels). Bounds locate composition changes, not a pixel-exact edit or source-detail claim.",
+  "pillarCount": {
+    "originalVisibleIndependentBoundaryPosts": 3,
+    "workingVisibleIndependentBoundaryPosts": 2,
+    "missing": "left-front post is already being repaired by west_restart; no duplicate repair requested"
+  },
+  "findings": [
+    {
+      "id": "rear_post_width_and_position",
+      "priority": "layout_blocking",
+      "approximateTileLocalBox": [
+        1150,
+        950,
+        1900,
+        2350
+      ],
+      "original": {
+        "capApproxBox": [
+          1280,
+          1000,
+          1850,
+          1450
+        ],
+        "shaftApproxBox": [
+          1260,
+          1420,
+          1800,
+          2290
+        ],
+        "description": "broad tall rear boundary post behind the tree, distinct from the left-front and right posts"
+      },
+      "working": {
+        "capApproxBox": [
+          1180,
+          1070,
+          1530,
+          1400
+        ],
+        "shaftApproxBox": [
+          1200,
+          1400,
+          1510,
+          2150
+        ],
+        "description": "post reads roughly two-thirds of original width and displaced about 150-200 pixels left; visible shaft ends somewhat higher"
+      },
+      "direction": "Restore width and rightward position using original exact-coordinate crop; do not lock current boundary-v1 narrow post as an anchor. Wider right side will also naturally reduce excess upper-left canopy footprint.",
+      "evidence": "r03_c09-independent-layout-review17-backpost.png"
+    },
+    {
+      "id": "left_front_post",
+      "priority": "already_in_progress",
+      "approximateTileLocalBox": [
+        500,
+        1950,
+        1150,
+        4096
+      ],
+      "description": "Original has the third tall post, with cap approximately (800,2200). Working snapshot still substitutes a broad wall there. west_restart owns the active correction; not a new request."
+    },
+    {
+      "id": "right_post",
+      "priority": "direction_confirmed_not_final_pass",
+      "approximateTileLocalBox": [
+        2750,
+        2050,
+        3400,
+        3850
+      ],
+      "description": "Tall right post, cap and foot are in the correct original neighborhood; longitudinal proportion is broadly restored. Working cap/shaft appears modestly narrower than the coarse original silhouette, much less severe than rear-post mismatch. No separate repair recommended solely from this coarse comparison.",
+      "evidence": "r03_c09-independent-layout-review17-rightpost.png"
+    },
+    {
+      "id": "tree_identity_and_occupancy",
+      "priority": "direction_confirmed_not_final_pass",
+      "approximateTileLocalBox": [
+        1500,
+        1500,
+        3150,
+        3900
+      ],
+      "description": "Visible woody stems and layered crowns have replaced the old flowering-ground-shrub reading. Main lower trunk/root near (2100,3750) and upper stem around (2000,2200) broadly match original occupancy. Original low-resolution crown cannot establish a precise species. Current upper-left foliage begins too far left/up in the neighborhood of the narrow rear post; solve rear-post geometry before inventing any additional tree or shrub.",
+      "notEvaluated": "Tree patch joins and changing crown continuity are reserved for later seam QA."
+    },
+    {
+      "id": "flowerbed_outer_contour",
+      "priority": "direction_confirmed_not_final_pass",
+      "approximateTileLocalBox": [
+        2200,
+        3400,
+        3450,
+        4096
+      ],
+      "description": "Right outer planted edge and lower diagonal curb continue in the original direction into the bottom boundary; no new detached planter or extra free-standing pillar is supported by the authority. Retain this perimeter direction while restoring rear/left-front post geometry. This does not approve local patch edges."
+    }
+  ],
+  "knownExcludedIssues": [
+    "A-B upper green triangle and horizontal join",
+    "B left-side cutout",
+    "all current tree patch perimeter joins",
+    "49 internal/external seam checks"
+  ],
+  "staticInspectionArtifacts": [
+    {
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northeast/qa/r03_c09-independent-layout-review17-comparison.png",
+      "sha256": "2ac2ae2727282f9a07a179c78e30c1713e933157febedf08289c594fb8d7d206",
+      "finalArt": false,
+      "purpose": "static layout inspection only; original enlarged or working reduced, not native production art"
+    },
+    {
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northeast/qa/r03_c09-independent-layout-review17-context.png",
+      "sha256": "d3ac9183d6431369afc6b6e4e4e809dbb2748668e92ac7bc67994c5a36564289",
+      "finalArt": false,
+      "purpose": "static layout inspection only; original enlarged or working reduced, not native production art"
+    },
+    {
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northeast/qa/r03_c09-independent-layout-review17-backpost.png",
+      "sha256": "ed7d8a1d1800b8f5f255b99ebd28a0dcee0b23995fab55191176df3d59fc1da4",
+      "finalArt": false,
+      "purpose": "static layout inspection only; original enlarged or working reduced, not native production art"
+    },
+    {
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northeast/qa/r03_c09-independent-layout-review17-rightpost.png",
+      "sha256": "e26070916aa27e4345b46ab192141ab84382b1a7837214ef36a4ff11b2d7a58b",
+      "finalArt": false,
+      "purpose": "static layout inspection only; original enlarged or working reduced, not native production art"
+    }
+  ]
+}

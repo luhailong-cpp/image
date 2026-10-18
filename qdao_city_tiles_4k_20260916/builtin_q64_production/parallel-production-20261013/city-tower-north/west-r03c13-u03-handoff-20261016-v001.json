@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "tile": "r03_c13",
+  "repairId": "U03-p43-p44",
+  "sourceCallCount": 1,
+  "additionalCoreCount": 0,
+  "formalAcceptedCount": 0,
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u03-integrated-v002\\r03_c13-candidate.png",
+    "sha256": "a1f25bde4f3a13c19299fa8208397290b878f77f90b942e05ad938b422d64a03"
+  },
+  "integration": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u03-integrated-v002\\integration.json",
+  "baseline": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u02-integrated-v001\\r03_c13-candidate.png",
+    "sha256": "b7d9d3e5a91117dd5d7b1d5773a0ff842fe3fe276ee30b64d43b9739407d38ac"
+  },
+  "editTileXYXY": [
+    2905,
+    3432,
+    3355,
+    3981
+  ],
+  "alphaPerimeterPixels": 16,
+  "nativeEventBytesMatch": true,
+  "actualModel": null,
+  "entryPoint": "builtin image_gen.imagegen",
+  "noResize": true,
+  "noWarp": true,
+  "noImageBlur": true,
+  "unchangedOutsideEditVerified": true,
+  "status": "interior-roof-improved-bottom-edge-not-integrated-pending",
+  "visualObservation": "The original straight roof-tile phase jump at tile x3072 is repaired through tile y3981. Red beam joint retained. Native repair also solves the lowest roof row, but native_seam_v003 source rect limitation currently excludes final 115px; original bottom discontinuity remains and is NOT accepted. v001 narrow ROI superseded by v002 wider roof ROI. Same single native event used for both.",
+  "evidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u03-integrated-v002\\repaired-context-100pct.png",
+    "sha256": "76613a9346f7b95a4b03945715fc44f695733a1170b64e96f497f673e18c58f4"
+  },
+  "priorChain": [
+    "west-r03c13-u01-integrated-v001",
+    "west-r03c13-u01-integrated-v003",
+    "west-r03c13-u02-integrated-v001"
+  ],
+  "prompt": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\prompts\\west-r03c13-u03-repair1.txt",
+  "pending": {
+    "bottomTileXYXY": [
+      2905,
+      3981,
+      3355,
+      4096
+    ],
+    "issue": "Native roof source already continues to tile edge but integration helper permits only 115..1139 source coordinates. Proposed edge-specific helper for same actual native source; coordinator notified."
+  }
+}

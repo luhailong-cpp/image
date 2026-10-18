@@ -1,0 +1,72 @@
+{
+  "name": "N03",
+  "createdAtUtc": "2026-10-16T19:43:07.924472+00:00",
+  "base": {
+    "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r12c07-resume2-north-ai-v1/N04-v1/context-native.png",
+    "sha256": "2b50f1bcf97ea408cc9b5bceccd8793b1b4b6181c666d31e416957fddc52872b"
+  },
+  "northAnchor": {
+    "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/qa/block2x2-r10r11c06c07-v3-r11_c07-context-native.png",
+    "sha256": "2145b89fd06d761e00b6e3cdc0ded93caa18f917f81801b47cc72f7a3322cc5a"
+  },
+  "input": {
+    "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/repairs/r12c07-resume2-north-ai-v1/N03.input-native.png",
+    "sha256": "740dd5605e86a1bf4fee0cae80525678ef9c662b5ee6d44248bfd849c7bebc8d"
+  },
+  "size": [
+    1254,
+    1254
+  ],
+  "patchContextBox": [
+    2048,
+    -256,
+    3302,
+    998
+  ],
+  "globalBox": [
+    26509,
+    44685,
+    27763,
+    45939
+  ],
+  "actualCoreJoinLocalY": 371,
+  "northInputPart": {
+    "source": {
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/qa/block2x2-r10r11c06c07-v3-r11_c07-context-native.png",
+      "sha256": "2145b89fd06d761e00b6e3cdc0ded93caa18f917f81801b47cc72f7a3322cc5a"
+    },
+    "crop": [
+      2048,
+      3840,
+      3302,
+      4211
+    ],
+    "destination": [
+      0,
+      0,
+      1254,
+      371
+    ]
+  },
+  "southInputPart": {
+    "source": {
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r12c07-resume2-north-ai-v1/N04-v1/context-native.png",
+      "sha256": "2b50f1bcf97ea408cc9b5bceccd8793b1b4b6181c666d31e416957fddc52872b"
+    },
+    "crop": [
+      2048,
+      115,
+      3302,
+      998
+    ],
+    "destination": [
+      0,
+      371,
+      1254,
+      1254
+    ]
+  },
+  "route": "built-in image_gen",
+  "actualModel": "not returned",
+  "prompt": "Use case: precise-object-edit. Edit the attached actual 1254x1254 native top-down hand-painted Chinese fantasy fishing-village sand ground. Return exactly 1254x1254 with unchanged camera and framing.\nRepair only the narrow mismatched sand texture transition below image y371, chiefly x115..1240, y371..760. The fine small hand-painted ochre sand dabs above suddenly become conspicuously larger repetitive V-shaped marks below. Make this a natural, detailed continuous sand texture transition across the join: retain the shape and position of every broad light and dark sand patch, keep warm colors consistent, and gently vary the size and spacing of crisp individual dabs rather than creating a horizontal threshold. Retain the existing texture below y850 so it meets the unedited ground. No blurry smoothing, no flat airbrush strip, no stretching, no new pebbles or objects.\nEverything above y371 is the locked upstream tile and must remain unchanged. Keep the small pale pebble near x160,y420 and all other pebbles exactly in position and shape. Preserve outer borders, all land geometry, daylight direction and broad shaded sand shapes. Do not draw lines, masks, words, grid, icons or watermarks. Opaque RGB native image.\n"
+}

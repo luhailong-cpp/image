@@ -1,0 +1,39 @@
+{
+  "source": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c08\\native\\s03_01_native01.png",
+    "sha256": "fd3be6c113f72cea0211ab2ade437be22d44bd7cb86decb43088351fbdef7707",
+    "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c08\\native\\s03_01_native01.png.generation.json",
+    "prompt": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c08\\prompts\\s03_01_native01.txt",
+    "request": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c08\\receipts\\s03_01_native01.request.json",
+    "receipt": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c08\\receipts\\s03_01_native01.result.json"
+  },
+  "reviewer": "/root/independent_qa_20261016",
+  "actuallyViewed": true,
+  "status": "selected_with_local_issue",
+  "cropReviews": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c08\\qa\\source-review\\s03_01_native01\\north-seam.png",
+      "sha256": "8159a0c4ce4203afd3cb16fd54b17b7e86b224f392b47b3d813d9262d6a8c4c0",
+      "actuallyViewed": true,
+      "status": "passed",
+      "finding": "North tile geometry/material continuous in displayed strip; west corner handled separately."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c08\\qa\\source-review\\s03_01_native01\\west-seam.png",
+      "sha256": "5a1a0b557f54471434a9eb71a6915fc57263e94cc6cba568b457e4c9cdf22afa",
+      "actuallyViewed": true,
+      "status": "needs_repair",
+      "finding": "Small cyan rectangular tone step at west/NW roof corner, tile local x0,y2048..2120; layout and eave geometry coherent, east/south healthy. Keep needs_repair, do not claim full pass."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c08\\qa\\source-review\\s03_01_native01\\northwest-junction.png",
+      "sha256": "c2a0514c27c6bb1851d1cacd44a02d3f522531a3a5790187934408c7d05bdd98",
+      "actuallyViewed": true,
+      "status": "needs_repair",
+      "finding": "Small cyan rectangular tone step at west/NW roof corner, tile local x0,y2048..2120; layout and eave geometry coherent, east/south healthy. Keep needs_repair, do not claim full pass."
+    }
+  ],
+  "finding": "Small cyan rectangular tone step at west/NW roof corner, tile local x0,y2048..2120; layout and eave geometry coherent, east/south healthy. Keep needs_repair, do not claim full pass.",
+  "formalAccepted": false,
+  "fullTileInternalQAPassed": false
+}

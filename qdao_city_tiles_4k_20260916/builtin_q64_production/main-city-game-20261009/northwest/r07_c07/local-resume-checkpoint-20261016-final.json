@@ -1,0 +1,158 @@
+{
+  "tile": "r07_c07",
+  "recordedAt": "2026-10-16",
+  "status": "native_complete_internal_passed_north_external_repairs_deferred",
+  "bestCandidate": {
+    "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/main-city-game-20261009/northwest/r07_c07/candidate/native19-local-repairs-20261016-v1/candidate.png",
+    "sha256": "5a88af76e33ad9aa23f1f49b27b1e08b4537bfb24cdbf15a02d8bb29cc688080",
+    "provenance": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/main-city-game-20261009/northwest/r07_c07/candidate/native19-local-repairs-20261016-v1/provenance.json",
+    "sourceIndex": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/main-city-game-20261009/northwest/r07_c07/candidate/native19-local-repairs-20261016-v1/source-index.png"
+  },
+  "coverage": {
+    "selectedBaseCores": 16,
+    "activeNativeSources": 19,
+    "size": [
+      4096,
+      4096
+    ],
+    "byteExactSourcePixels": 16777216,
+    "allPixelsVerified": true,
+    "sourceResampled": false,
+    "sourceUpscaled": false,
+    "roiPixels": 281965
+  },
+  "qa": {
+    "manifest": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/main-city-game-20261009/northwest/r07_c07/qa/native19-local-repairs-20261016-v1/manifest.json",
+    "independentReview": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/main-city-game-20261009/northwest/r07_c07/independent-reviews/20261016/native19-local-review.json",
+    "independentReviewSha256": "ccbeda395f92ad0cd25639eca2b74c8ca94ef0d5461d6af423ea0f8c41c98a86",
+    "internal": {
+      "passed": 33,
+      "needsRepair": 0,
+      "total": 33
+    },
+    "northWestExternal": {
+      "passed": 11,
+      "needsRepair": 3,
+      "total": 14
+    },
+    "roiBoundaryCrops": {
+      "passed": 3,
+      "total": 3
+    },
+    "total": {
+      "passed": 44,
+      "needsRepair": 3,
+      "total": 47
+    },
+    "pending": [
+      "north_seg3",
+      "north_seg4",
+      "north_joint3072"
+    ],
+    "eastSouthExternal": "not reviewed against final adjacent candidates"
+  },
+  "formalAccepted": false,
+  "fullTileAllBoundaryAccepted": false,
+  "successfulRepairs": [
+    {
+      "id": "jamb3072_fix01",
+      "sha256": "3718082e03be75af8bc2d134ba5ec69796e01001c216807fcc3292bf3eb8f94f",
+      "sourceBox": [
+        115,
+        480,
+        360,
+        740
+      ],
+      "tileBox": [
+        0,
+        2925,
+        245,
+        3185
+      ],
+      "pixels": 63700,
+      "review": "passed"
+    },
+    {
+      "id": "jamb2048_fix01",
+      "sha256": "cb4fdcf27b5724c1cca0c58f2d438a6b64ad87ae18d0ddb37660921c3a1448d9",
+      "sourceBox": [
+        330,
+        535,
+        495,
+        720
+      ],
+      "tileBox": [
+        215,
+        1956,
+        380,
+        2141
+      ],
+      "pixels": 30525,
+      "review": "passed"
+    },
+    {
+      "id": "stone1024_fix01",
+      "sha256": "2cace91466c6721d498ab7175b21e22e137ac815edf688bf7acb1e37cc979f9f",
+      "sourceBox": [
+        245,
+        520,
+        1139,
+        730
+      ],
+      "tileBox": [
+        130,
+        917,
+        1024,
+        1127
+      ],
+      "pixels": 187740,
+      "review": "passed"
+    }
+  ],
+  "deferredRepairs": [
+    {
+      "point": "north column/paving/stone transition",
+      "baseSource": "s01_03_native01",
+      "attempts": [
+        "s01_03_fix01",
+        "s01_03_fix02"
+      ],
+      "finding": "Red column transition and paving-to-stone coping improved, but new coping thickness mismatches fixed western core and northeast wood-to-stone discontinuity remains; no full-source replacement selected.",
+      "reference": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/main-city-game-20261009/northwest/r07_c07/independent-reviews/20261016/s01_03_fix02-review.json"
+    },
+    {
+      "point": "new coping western joint",
+      "attempts": [
+        "s01_03_fix03",
+        "s01_03_fix04"
+      ],
+      "finding": "Two focused repairs failed to connect right coping underside near y220 to fixed left underside near y240. fix04 adds a notch at a different x. Best fix03 preserved for future review, neither adopted.",
+      "status": "deferred_after_two_no_improvement"
+    },
+    {
+      "point": "north door threshold crossing x3072",
+      "attempts": [
+        "north-right_fix01",
+        "north-right_fix02"
+      ],
+      "finding": "First altered fixed northern context; second renders the door base below the boundary but its ROI introduces hard cutoffs in right threshold and lower lion outline. Both retained but not adopted into best candidate.",
+      "status": "deferred_after_two_attempts_without_acceptable_boundary_result",
+      "rejectedTestCandidate": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/main-city-game-20261009/northwest/r07_c07/candidate/native20-local-repairs-20261016-v1/candidate.png",
+      "rejectedTestSha256": "9ca6c25e11f454214aaf19c47756babae780b179a4ee2f61ff384bf28e4abcfe"
+    }
+  ],
+  "route": {
+    "tool": "image_gen.imagegen",
+    "entry": "existing built-in",
+    "actualModel": null,
+    "actualQuality": null,
+    "paidAPIUsed": false
+  },
+  "constraints": {
+    "onlyThisTileWritten": true,
+    "neighborCandidatesReadOnly": true,
+    "gitMutated": false,
+    "priorImagesPreserved": true
+  },
+  "nextAction": "Preserve the approved internal19-source candidate. Revisit the north transition as a coordinated architectural joint after deferred repair review; do not propagate the failing north boundary or claim formal acceptance."
+}

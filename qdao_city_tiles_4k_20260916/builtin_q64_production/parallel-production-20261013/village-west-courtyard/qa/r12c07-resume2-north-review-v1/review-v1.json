@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-16T19:16:12.055988+00:00",
+  "scope": "r12_c07 R18 north external actual-core join independent read-only QA",
+  "status": "north_external_pending_four_visible_segments",
+  "formalAccepted": false,
+  "sourceMutation": false,
+  "internalQARechecked": false,
+  "sources": {
+    "north": {
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/qa/block2x2-r10r11c06c07-v3-r11_c07-context-native.png",
+      "sha256": "2145b89fd06d761e00b6e3cdc0ded93caa18f917f81801b47cc72f7a3322cc5a",
+      "globalContextBox": [
+        24461,
+        40845,
+        28787,
+        45171
+      ]
+    },
+    "south": {
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r12c07-resume2-r18-v1/context-native.png",
+      "sha256": "4c4d33c25c3ee74b693ac567a85c5d5dfd49ed33c5b883c7650a97fb63c9e236",
+      "globalContextBox": [
+        24461,
+        44941,
+        28787,
+        49267
+      ]
+    }
+  },
+  "qaInputRecord": {
+    "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r12c07-resume2-north-review-v1/qa-inputs-v1.json",
+    "sha256": "eefb157020ed50bd9a8cbe754f1639af241d0b1cc4e5465d0d3d03d359829b3c"
+  },
+  "nativeStripCount": 4,
+  "donorNativeStripCount": 4,
+  "stripConstruction": "north context rows3866..4211 and south context rows115..460; core columns115..4211 split into four 1024px segments; integer crop and vertical concatenation only",
+  "cropIdentityDifferentPixels": 0,
+  "checks": [
+    {
+      "id": "N01",
+      "status": "pending_not_passed",
+      "severity": "minor_visible",
+      "observation": "中央较深沙纹在核心界线处出现水平截断，纹理尺度轻微跳变。",
+      "sourceView": {
+        "id": "N01",
+        "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r12c07-resume2-north-review-v1/N01-actual-core-join-native.png",
+        "sha256": "8386981b43516e061275333cab07c2cb5a8e19463d4528615e5b117a683a7646",
+        "size": [
+          1024,
+          690
+        ],
+        "northContextBox": [
+          115,
+          3866,
+          1139,
+          4211
+        ],
+        "southContextBox": [
+          115,
+          115,
+          1139,
+          460
+        ],
+        "globalBox": [
+          24576,
+          44711,
+          25600,
+          45401
+        ],
+        "joinYInStrip": 345,
+        "northCropIdentityDifferentPixels": 0,
+        "southCropIdentityDifferentPixels": 0
+      },
+      "issueNorthContextBand": [
+        115,
+        4181,
+        1139,
+        4211
+      ],
+      "issueSouthContextBand": [
+        115,
+        115,
+        1139,
+        160
+      ],
+      "issueGlobalBand": [
+        24576,
+        45026,
+        25600,
+        45101
+      ],
+      "actualCoreBoundaryGlobalY": 45056,
+      "visuallyViewedNativeScale": true
+    },
+    {
+      "id": "N02",
+      "status": "pending_not_passed",
+      "severity": "moderate_visible",
+      "observation": "界线两侧沙地纹理尺度不一致，右端浅色带与深色沙纹呈直线截断。",
+      "sourceView": {
+        "id": "N02",
+        "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r12c07-resume2-north-review-v1/N02-actual-core-join-native.png",
+        "sha256": "40c3473e24983014a0cf5a894ef20d62330b42cee873faee93dc43d285b2229a",
+        "size": [
+          1024,
+          690
+        ],
+        "northContextBox": [
+          1139,
+          3866,
+          2163,
+          4211
+        ],
+        "southContextBox": [
+          1139,
+          115,
+          2163,
+          460
+        ],
+        "globalBox": [
+          25600,
+          44711,
+          26624,
+          45401
+        ],
+        "joinYInStrip": 345,
+        "northCropIdentityDifferentPixels": 0,
+        "southCropIdentityDifferentPixels": 0
+      },
+      "issueNorthContextBand": [
+        1139,
+        4181,
+        2163,
+        4211
+      ],
+      "issueSouthContextBand": [
+        1139,
+        115,
+        2163,
+        160
+      ],
+      "issueGlobalBand": [
+        25600,
+        45026,
+        26624,
+        45101
+      ],
+      "actualCoreBoundaryGlobalY": 45056,
+      "visuallyViewedNativeScale": true
+    },
+    {
+      "id": "N03",
+      "status": "pending_not_passed",
+      "severity": "major_visible",
+      "observation": "贯穿本段的水平色阶与沙纹尺度跳变；右端深色沙纹被明显截断。",
+      "sourceView": {
+        "id": "N03",
+        "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r12c07-resume2-north-review-v1/N03-actual-core-join-native.png",
+        "sha256": "c86e184ca8508f73a3e447df66ebd212157d8119599a1cec6eda6ca7a662dfd6",
+        "size": [
+          1024,
+          690
+        ],
+        "northContextBox": [
+          2163,
+          3866,
+          3187,
+          4211
+        ],
+        "southContextBox": [
+          2163,
+          115,
+          3187,
+          460
+        ],
+        "globalBox": [
+          26624,
+          44711,
+          27648,
+          45401
+        ],
+        "joinYInStrip": 345,
+        "northCropIdentityDifferentPixels": 0,
+        "southCropIdentityDifferentPixels": 0
+      },
+      "issueNorthContextBand": [
+        2163,
+        4181,
+        3187,
+        4211
+      ],
+      "issueSouthContextBand": [
+        2163,
+        115,
+        3187,
+        160
+      ],
+      "issueGlobalBand": [
+        26624,
+        45026,
+        27648,
+        45101
+      ],
+      "actualCoreBoundaryGlobalY": 45056,
+      "visuallyViewedNativeScale": true
+    },
+    {
+      "id": "N04",
+      "status": "pending_not_passed",
+      "severity": "major_visible",
+      "observation": "整段明显水平硬切，北侧细小沙纹、岸边草石到南侧更粗且更深沙纹骤变。",
+      "sourceView": {
+        "id": "N04",
+        "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r12c07-resume2-north-review-v1/N04-actual-core-join-native.png",
+        "sha256": "d5236334c10f33698e2b7ad31077bcdcaf65c988c22e7187aed56cd24da4d5c0",
+        "size": [
+          1024,
+          690
+        ],
+        "northContextBox": [
+          3187,
+          3866,
+          4211,
+          4211
+        ],
+        "southContextBox": [
+          3187,
+          115,
+          4211,
+          460
+        ],
+        "globalBox": [
+          27648,
+          44711,
+          28672,
+          45401
+        ],
+        "joinYInStrip": 345,
+        "northCropIdentityDifferentPixels": 0,
+        "southCropIdentityDifferentPixels": 0
+      },
+      "issueNorthContextBand": [
+        3187,
+        4181,
+        4211,
+        4211
+      ],
+      "issueSouthContextBand": [
+        3187,
+        115,
+        4211,
+        160
+      ],
+      "issueGlobalBand": [
+        27648,
+        45026,
+        28672,
+        45101
+      ],
+      "actualCoreBoundaryGlobalY": 45056,
+      "visuallyViewedNativeScale": true
+    }
+  ],
+  "donorResearch": {
+    "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r12c07-resume2-north-review-v1/source-research-v2.json",
+    "sha256": "a8ce72d25153ddd985a5076f310aa211a909de7f31c332e8943c5bb565bcff17",
+    "sameGlobalNorthToSouthMapping": "north y4096..4326 -> south y0..230; same x",
+    "southCoreAvailableBox": [
+      115,
+      115,
+      4211,
+      230
+    ],
+    "sameGlobalNativeCoverageUncoveredPixels": 0,
+    "sameGlobalNativeReplayDifferentPixels": 0,
+    "visualStatus": "continuous donor source; downstream join not assembled or accepted"
+  },
+  "recommendation": "Same-global native hard source selection is eligible only inside south-context y0..230, with 115px of actual south core. Keep the north anchor read-only. Use a recorded binary source mask and inspect the new donor-to-south lower boundary. Native provenance and identity do not establish visual acceptance; the narrow overlap may move the visible seam to y230 instead of resolving it. If the mismatch cannot be hidden by an unblended hard path within this band, a native AI repair crossing the true core join is needed. Do not extrapolate or stretch beyond global y45171.",
+  "northAnchorHashAfterReadOnlyReview": "2145b89fd06d761e00b6e3cdc0ded93caa18f917f81801b47cc72f7a3322cc5a",
+  "southBaselineHashAfterReadOnlyReview": "4c4d33c25c3ee74b693ac567a85c5d5dfd49ed33c5b883c7650a97fb63c9e236"
+}

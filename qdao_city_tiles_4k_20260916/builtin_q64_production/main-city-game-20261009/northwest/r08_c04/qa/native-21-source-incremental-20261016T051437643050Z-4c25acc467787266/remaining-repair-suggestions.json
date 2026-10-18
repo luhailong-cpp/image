@@ -1,0 +1,81 @@
+{
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r08_c04\\candidate\\native-21-source-incremental-20261016T051437643050Z-4c25acc467787266\\candidate.png",
+    "sha256": "36f4b8391d331c8d8f2025e11db6937187317085afe9372c027c9686b60b77cb"
+  },
+  "newIndependentProblemsNotLocallyAttemptedInCurrentRepairBatchDirectories": [
+    {
+      "priority": 1,
+      "problem": "Row3/4 paving grout dead end at x1024 near y3090; separate from adopted row4 y3447-3692 repair.",
+      "affectedCrops": [
+        "internal-x1024-segment04",
+        "internal-junction-x1024-y3072"
+      ],
+      "approxProblemCandidateLTRB": [
+        989,
+        3047,
+        1094,
+        3137
+      ],
+      "approxProblemWorldLTRB": [
+        13277,
+        31719,
+        13382,
+        31809
+      ],
+      "suggestedNativeFrameOriginInTile": [
+        397,
+        2445
+      ],
+      "suggestedNativeWorldBox": [
+        12685,
+        31117,
+        13939,
+        32371
+      ],
+      "attemptEvidence": "Current repair folders contain row3 joint mask ending y3004 and row4 mask y3447-3692; neither covers this y3090 junction.",
+      "instruction": "Read current 21-source candidate for edit target; previous row3 repair exists within the context. Do not reuse earlier pre-repair frame. Only adopt a verified same-world ROI."
+    },
+    {
+      "priority": 2,
+      "problem": "Blue-gray curb lower edge step at x1024 near y990. Newly reopened native-crop evidence.",
+      "affectedCrops": [
+        "internal-x1024-segment01",
+        "internal-junction-x1024-y1024"
+      ],
+      "approxProblemCandidateLTRB": [
+        989,
+        959,
+        1069,
+        1029
+      ],
+      "approxProblemWorldLTRB": [
+        13277,
+        29631,
+        13357,
+        29701
+      ],
+      "suggestedNativeFrameOriginInTile": [
+        397,
+        397
+      ],
+      "suggestedNativeWorldBox": [
+        12685,
+        29069,
+        13939,
+        30323
+      ],
+      "attemptEvidence": "No local repair-batch folder targets this curb point; historical passed source evidence is superseded by visible step.",
+      "instruction": "Preserve curb position and paving depth; repair the local lower edge only, keeping both endpoints and stone grain."
+    }
+  ],
+  "deferredDoNotRepeatNow": [
+    "row2 x1024 two joint repairs already failed twice",
+    "row4 x3072 coping geometry and coarse material had two targeted attempts"
+  ],
+  "separateNorthCornerStillUnpassed": [
+    "internal-x3072-segment01",
+    "north-junction3072"
+  ],
+  "formalAccepted": false
+}

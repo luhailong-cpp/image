@@ -1,0 +1,90 @@
+{
+  "reviewedAtUtc": "2026-10-16T10:46:54.801289+00:00",
+  "reviewer": "root",
+  "core": {
+    "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\candidate\\r16_c16-4k-reviewed-local-repairs-20261016.png",
+    "sha256": "e7c4c2ec482ce257b7bf029b89f2b91567882dac02381bd8a6efcddfff69f261"
+  },
+  "sourceQA": [
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\review\\independent-20261016\\visual-qa.json",
+      "sha256": "d77fc1fcc218188e5566fafac4db4f3fa3478ba566f943633be0f75f2f4c91b1"
+    },
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\repairs\\north-corner-20261016\\trial-v1\\root-independent-qa-20261016.json",
+      "sha256": "9e0cb38f90406ff6024a436288f496c75418d5171394cbb37d5e1acf3a02beb3"
+    },
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\repairs\\west-joints-20261016\\batch-visual-qa-root-reviewed.json",
+      "sha256": "792f1bd779ccba9a1b65bf49016076a97edbf484aca48fb333d342ab55aef665"
+    },
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\repairs\\right-courses-20261016\\trial-mask-v3\\refined-v1\\visual-qa.json",
+      "sha256": "3f79748c5e10caadcd5ca09f430180e3c952c556ec5b1b3f9f07346ee5dc9687"
+    }
+  ],
+  "rootActuallyViewed": {
+    "N02": 6,
+    "W01_compact": 4,
+    "I01_upper": 10
+  },
+  "rootLocalFindings": {
+    "N02": "passed_real_north_registration_and_boundaries",
+    "W01": "accepted_local_best_closed_end_no_new_boundary_break_watch_retained",
+    "I01-upper": "passed_upper_wrap_and_mask_boundaries_no_orphan_grout"
+  },
+  "baseInternalEvidenceReuse": "42 native evidence crops reviewed by independent worker; areas outside selected masks remain byte-identical, adopted local repairs independently viewed by root. Lower-course and remaining finish defects are not passed.",
+  "internalArtQA": "pending_lower_right_course_and_lighting_finish",
+  "externalNeighborSeamQA": {
+    "north": "local_pass_after_N02",
+    "west": "failed_W02_plus_W03_W04_pending",
+    "east": "map_border",
+    "south": "map_border"
+  },
+  "pending": [
+    {
+      "id": "W02",
+      "status": "failed_deferred_after_two_native_attempts",
+      "box": [
+        0,
+        2380,
+        650,
+        3110
+      ],
+      "description": "Original lower west coping height mismatch retained; both native repairs failed geometry/boundary QA."
+    },
+    {
+      "id": "I01-lower",
+      "status": "failed_deferred_after_two_native_attempts",
+      "box": [
+        3150,
+        2710,
+        3470,
+        3190
+      ],
+      "description": "Original lower right wrap retained. Second correction still50px disconnected; not selected."
+    },
+    {
+      "id": "W03_W04",
+      "status": "pending_material_and_wall_grid",
+      "description": "West gold-to-stone transition and middle slab grid/material still unpassed."
+    },
+    {
+      "id": "M01",
+      "status": "pending_nonblocking_lighting_finish",
+      "box": [
+        1975,
+        1050,
+        3160,
+        1160
+      ],
+      "description": "Front wall horizontal shadow band."
+    },
+    {
+      "id": "W01-watch",
+      "status": "improved_local_best_with_closure_and_material_watch",
+      "description": "Closed short coping end adopted after root native-scale check; entire west edge remains failed."
+    }
+  ],
+  "formalAccepted": false
+}

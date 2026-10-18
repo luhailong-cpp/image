@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 4,
+  "createdAtUTC": "2026-10-16T11:16:49.248008+00:00",
+  "tile": "r01_c05",
+  "patch": "s01_03",
+  "coordinates": {
+    "order": 63,
+    "phase": "r01_south_to_north",
+    "frontierOrder": 8,
+    "tile": "r01_c05",
+    "tileRow": 1,
+    "tileColumn": 5,
+    "patch": "s01_03",
+    "subrow": 1,
+    "subcolumn": 3,
+    "globalCoreRowOneBased": 1,
+    "globalCoreColumnOneBased": 19,
+    "tileWorldBox": [
+      16384,
+      0,
+      20480,
+      4096
+    ],
+    "coreWorldBox": [
+      18432,
+      0,
+      19456,
+      1024
+    ],
+    "worldBoxWithHalo": [
+      18317,
+      -115,
+      19571,
+      1139
+    ],
+    "expectedNativePixels": [
+      1254,
+      1254
+    ],
+    "nativeCoreCropLTRB": [
+      115,
+      115,
+      1139,
+      1139
+    ],
+    "corePasteXYInTile": [
+      2048,
+      0
+    ],
+    "nativePasteOriginXYInTile": [
+      1933,
+      -115
+    ],
+    "corePasteXYInBatch": [
+      6144,
+      0
+    ],
+    "nativePasteOriginXYInBatch": [
+      6029,
+      -115
+    ],
+    "worldBoxWithHaloClippedToArtCanvas": [
+      18317,
+      0,
+      19571,
+      1139
+    ],
+    "validCanvasCropLTRBWithinNative": [
+      0,
+      115,
+      1254,
+      1254
+    ],
+    "haloOutsideArtCanvas": true,
+    "southContinuationDependency": {
+      "tile": "r01_c05",
+      "patch": "s02_03",
+      "role": "previously prepared/generated southern frontier in this four-tile batch",
+      "withinBatch": true
+    },
+    "westContinuationDependency": {
+      "tile": "r01_c05",
+      "patch": "s01_02",
+      "withinBatch": true,
+      "role": "previous step western patch"
+    },
+    "referenceStatus": "logical dependency coordinates only; actual source files not inspected or copied in this preparation",
+    "proposedFutureNativeFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s01_03.png",
+    "futureFileExistsAtPreparation": false,
+    "generationSubmitted": false
+  },
+  "prompt": "Use case: precise-object-edit. Edit image1 at exactly1254x1254. Repair the accidental vertical pasted-strip seam at x230: smoothly CONTINUE the existing rock planes and crevice contours from the left into x230..500, and match the pale stone rail surface/lighting across this line at bottom. Repaint only the narrow transition region x180..500 where needed; do not blur it or conceal it with foliage. Preserve pixels x0..180 for the real neighboring map overlap, and preserve the composition, scale, stone merlon and green shrubs in the remaining picture. Do not create new objects or change camera/crop. The top115rows are discarded off-canvas padding; no need to reproduce the stripes there. Images2-3 are hand-painted Daoist chibi material style only; no UI or text. Natural painted details, no vertical cut, no blur, no grid. Output native1254x1254 image only.",
+  "referenced_image_paths": [
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s01_03-v001.png",
+    "D:\\work\\image\\designs\\mail-ui-v1\\01-mail-event.png",
+    "D:\\work\\image\\designs\\team-ui-v2\\team-ui-v2.png"
+  ],
+  "transparent_background": false,
+  "guide": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\requests\\r01_c05\\s01_03-v001.layout-and-native-reference.png",
+    "sha256": "772a8bc38d0da82e4bbd2a3552eb4bd275c3e0b434559db4a9fbf275c3c97b69",
+    "isEnlargedLayoutGuideOnly": true,
+    "productionNativeSource": false,
+    "layout": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\daylight-only-20261009\\tianyong\\tianyong-spring-natural-stone-v9.png",
+    "layoutSHA256": "47485b823db7dbe4e63883f9ae6d759f3f2fbb5897c72f16fa64e921bde6ccd7",
+    "nativeContextPastes": [
+      {
+        "source": {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s01_02-v001.png",
+          "sha256": "2adbc7b93a42cd1e6663efbd23d9a061a0cc7d89839d3c2fd913060a1817fc10",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "worldBox": [
+            17293,
+            -115,
+            18547,
+            1139
+          ],
+          "role": "selected_generated_batch_neighbor"
+        },
+        "sourceCropLTRB": [
+          1024,
+          0,
+          1254,
+          1254
+        ],
+        "guidePasteXY": [
+          0,
+          0
+        ],
+        "resampled": false
+      }
+    ],
+    "discardedHaloPadding": {
+      "applied": true,
+      "discardedHalo": [
+        [
+          0,
+          0,
+          1254,
+          115
+        ]
+      ],
+      "validCanvasCropLTRBWithinNative": [
+        0,
+        115,
+        1254,
+        1254
+      ],
+      "guideOnly": true,
+      "method": "Nearest valid edge row/column copies only in off-canvas guide pixels",
+      "validPixelsUnchanged": true,
+      "dimensionsAndWorldMappingUnchanged": true,
+      "productionNativeSource": false,
+      "notNativeGeneratedDetail": true
+    }
+  },
+  "ownerGateAtPreparation": {
+    "file": "D:\\work\\image\\docs\\MAP_PARALLEL_SPLIT_20261013.json",
+    "sha256": "929a52abdb55e6022f83abbe9b48718182bc33fc8a0bc2d50a14f6232dd4e850",
+    "checkedAtUTC": "2026-10-16T11:16:49.253306+00:00",
+    "allocationValid": true,
+    "allocationStatus": "allocated_root_reserved",
+    "worker": "01a1338b-73d0-75c1-aa57-8059e93e85a1",
+    "ownerAcknowledged": false,
+    "ownerAcknowledgementRequiredAsGate": false,
+    "allocationDoesNotProveOwnerAcknowledgement": true,
+    "requestedTile": null,
+    "ready": true,
+    "perTile": {
+      "r01_c04": {
+        "actualConflict": false,
+        "ready": true,
+        "originalOwnerNativeFiles": [],
+        "effectiveSelectedSources": [],
+        "currentProgressSourceFiles": [],
+        "activityHits": [],
+        "selectionFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r01_c04\\selection.json",
+        "selectionSHA256": null
+      },
+      "r01_c05": {
+        "actualConflict": false,
+        "ready": true,
+        "originalOwnerNativeFiles": [],
+        "effectiveSelectedSources": [],
+        "currentProgressSourceFiles": [],
+        "activityHits": [],
+        "selectionFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r01_c05\\selection.json",
+        "selectionSHA256": null
+      },
+      "r02_c04": {
+        "actualConflict": false,
+        "ready": true,
+        "originalOwnerNativeFiles": [],
+        "effectiveSelectedSources": [],
+        "currentProgressSourceFiles": [],
+        "activityHits": [],
+        "selectionFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r02_c04\\selection.json",
+        "selectionSHA256": null
+      },
+      "r02_c05": {
+        "actualConflict": false,
+        "ready": true,
+        "originalOwnerNativeFiles": [],
+        "effectiveSelectedSources": [],
+        "currentProgressSourceFiles": [],
+        "activityHits": [],
+        "selectionFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r02_c05\\selection.json",
+        "selectionSHA256": null
+      }
+    },
+    "progressFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\progress.json",
+    "progressSHA256": "dc2f13fc64e14b78a74047a87707289434510bcb72b31e7496869a4e19d45af8",
+    "activityMarkers": [],
+    "scope": "Current published owner records and target files only; no unpublished in-flight inference"
+  },
+  "generationSubmitted": false,
+  "requestedModelPreference": "free/included2.5 preferred; existing builtin2.0 allowed; no paid API",
+  "actualModel": null,
+  "limitedWorkingReferenceCount": 0,
+  "limitedWorkingReferencesDoNotConferAcceptance": true,
+  "preparationRequest": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\requests\\r01_c05\\s01_03-v001.json",
+  "preAIInstructionReads": [
+    {
+      "file": "D:\\work\\image\\AGENTS.md",
+      "sha256": "57f1ad4f81fdb2256b843923d862308be228130917b99cfced375db256aff01a",
+      "chars": 3229
+    },
+    {
+      "file": "D:\\work\\image\\docs\\MAP_PARALLEL_SPLIT_20261013.json",
+      "sha256": "929a52abdb55e6022f83abbe9b48718182bc33fc8a0bc2d50a14f6232dd4e850",
+      "chars": 10122
+    }
+  ],
+  "repairOf": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s01_03-v001.png",
+  "repairNumber": 1
+}

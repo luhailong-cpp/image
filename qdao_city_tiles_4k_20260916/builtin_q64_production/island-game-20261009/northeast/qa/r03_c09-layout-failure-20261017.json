@@ -1,0 +1,20 @@
+{
+  "tileId": "r03_c09",
+  "candidateSha256": "69a5ce63ac62f03290cbc51ad4ff3dd21195fba4bf9091d96ac63d4dde5b9f2c",
+  "authority": "r03_c09-native-v1-20261016-layout-authority-only.png.derivation.json",
+  "reviewer": "root independent whole-tile comparison after local_seams16 finding",
+  "status": "failed_layout_authority",
+  "formalAccepted": false,
+  "issues": [
+    {"approximateTileLocalBox": [520,0,1560,1000], "issue": "Extra small ball posts and wall pieces around lantern/tassel garden; original wall/terrace edge should remain simpler."},
+    {"approximateTileLocalBox": [800,1000,2350,2320], "issue": "Added ornamental small pillar and extra low wall segments within garden; original tall sparse boundary posts and larger vegetation silhouette differ."},
+    {"approximateTileLocalBox": [1100,1500,3250,3900], "issue": "Original upright tree/visible trunk and layered foliage read as uniformly dense flowering ground shrubs. Plant mass and identity require restoration from exact coordinate original context."}
+  ],
+  "repairConstraints": [
+    "Do not automatically lock the incorrect native small post/wall/tree topology as an anchor.",
+    "Preserve valid paving edges at right and existing building column identity; exact source hashes and unchanged seam passes may be reused.",
+    "Keep current source and candidate versions; any repair uses new native1254 sources and new4096 exact-crop candidate.",
+    "Boxes locate review areas approximately; derive precise edit windows from native pixels before generation.",
+    "Current 49-check mechanical reconstruction is valid but visual QA is incomplete. No overall pass is implied."
+  ]
+}

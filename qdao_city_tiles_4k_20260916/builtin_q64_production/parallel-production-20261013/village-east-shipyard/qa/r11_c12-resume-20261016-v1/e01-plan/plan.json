@@ -1,0 +1,654 @@
+{
+  "createdAtUtc": "2026-10-17T04:50:29.045327+00:00",
+  "scope": "Read-only E01 planning. QA directory only; no native source, selected state, generation, Git, or original-owner ledger change.",
+  "coordinateConvention": "0-based XYXY half-open; all mappings integer unscaled",
+  "sourceLayout": {
+    "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\daylight-only-20261009\\donghai-natural-stone-clear-routes-v10.png",
+    "sha256": "cf450f0afe784b4700f2dfc19b3af35867765403e8f1d81741e78b3116583d42",
+    "dimensions": [
+      1254,
+      1254
+    ]
+  },
+  "reviewedSources": [
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p11-v1.png",
+      "sha256": "92c4282aba5e8605c597bc7572ce2f6434f0fee1a2b6179b5cbba59fda92cd8e",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p12-v3.png",
+      "sha256": "262d25d354347279025f477440ee7c47203826d96559b7fcbe435e0637f1dc2f",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p21-v1.png",
+      "sha256": "1c8d8b934d87d6308d4701b00c37b1992c1bbc9d0be08b42af5bb1f8a639ea8f",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p22-v2.png",
+      "sha256": "0bf1519f5a9fd1279761f023a359d6fa16ddd3893e4bd149127cf28953c86dc3",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p31-v1.png",
+      "sha256": "7d2058cdf013fc0bf70cfc89fbea1a62c724c540f514a858874980f3cd0f4b21",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    }
+  ],
+  "one1254WindowSufficient": false,
+  "originalObjectInterpretation": {
+    "foregroundNetColumns": 2,
+    "leftColumn": "Original taller left net support continues from above tile through p11 and p21. Gold-light base collar approx tile y1150..1400; cylindrical lower base ends near y2048 with small residual edge in p31. Current p21 foot around y1470 is premature. Do not make a new mooring pile or container.",
+    "rightColumn": "Existing right net-support has gold-light cap approx tile [1080,450,1380,700], long vertical shaft crossing p12/p22, base ring approx y1450..1600 and foot approx y1850..1980. Current p12 short rope post is wrong. Keep original connecting diagonal brace, no new pillar.",
+    "precision": "Object extents are approximate interpretations of low-resolution approved overview. Exact integer repair-window coordinates and crop mappings are deterministic. Do not claim overview has native detail.",
+    "backgroundSupports": "Upper-channel background dock piles remain separate original objects, not part of the two net-column count; preserve existing footprints."
+  },
+  "whyOneWindowFails": "Right cap-to-foot extent about 1500px exceeds 1254. A window centered on [1024,1024] can repair a joint but cannot contain both cap and foot without reframing, compression, or leaving an old wrong segment. Left foot also reaches p31 beyond the four-core set.",
+  "recommendedStrategy": "Two vertically overlapping 1254-native windows, upper then lower, with integer split at tile y1240. Do not resize. Generate/edit each at original coordinates. Write new derived native versions recording raw tool source and pixel mappings only after QA; keep old selections until parent decides.",
+  "windows": [
+    {
+      "id": "upper",
+      "tileBox": [
+        256,
+        256,
+        1510,
+        1510
+      ],
+      "globalBox": [
+        45312,
+        41216,
+        46566,
+        42470
+      ],
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "layoutOnlyGuide": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\qa\\r11_c12-resume-20261016-v1\\e01-plan\\upper-1254-layout-only.png",
+        "sha256": "c501307a0ae53aae07a12766f6cae89aa251d9cdb397658706d796305f67b950",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "unscaledCurrentNativeTarget": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\qa\\r11_c12-resume-20261016-v1\\e01-plan\\upper-1254-current-native-target.png",
+        "sha256": "8bc123365d3ae6174ab6e27a5b1f5838af886a6209293f337f81d8770bcb7e75",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "targetConstructionSources": [
+        {
+          "key": "r11_c12_p11",
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p11-v1.png",
+          "sha256": "92c4282aba5e8605c597bc7572ce2f6434f0fee1a2b6179b5cbba59fda92cd8e",
+          "sourceCrop": [
+            371,
+            371,
+            1139,
+            1139
+          ],
+          "pasteAt": [
+            0,
+            0,
+            768,
+            768
+          ]
+        },
+        {
+          "key": "r11_c12_p12",
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p12-v3.png",
+          "sha256": "262d25d354347279025f477440ee7c47203826d96559b7fcbe435e0637f1dc2f",
+          "sourceCrop": [
+            115,
+            371,
+            601,
+            1139
+          ],
+          "pasteAt": [
+            768,
+            0,
+            1254,
+            768
+          ]
+        },
+        {
+          "key": "r11_c12_p21",
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p21-v1.png",
+          "sha256": "1c8d8b934d87d6308d4701b00c37b1992c1bbc9d0be08b42af5bb1f8a639ea8f",
+          "sourceCrop": [
+            371,
+            115,
+            1139,
+            601
+          ],
+          "pasteAt": [
+            0,
+            768,
+            768,
+            1254
+          ]
+        },
+        {
+          "key": "r11_c12_p22",
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p22-v2.png",
+          "sha256": "0bf1519f5a9fd1279761f023a359d6fa16ddd3893e4bd149127cf28953c86dc3",
+          "sourceCrop": [
+            115,
+            115,
+            601,
+            601
+          ],
+          "pasteAt": [
+            768,
+            768,
+            1254,
+            1254
+          ]
+        }
+      ],
+      "activeContributionTileBox": [
+        256,
+        256,
+        1510,
+        1240
+      ],
+      "activeContributionGlobalBox": [
+        45312,
+        41216,
+        46566,
+        42200
+      ],
+      "distributionMappings": [
+        {
+          "key": "r11_c12_p11",
+          "oldSource": {
+            "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p11-v1.png",
+            "sha256": "92c4282aba5e8605c597bc7572ce2f6434f0fee1a2b6179b5cbba59fda92cd8e",
+            "dimensions": [
+              1254,
+              1254
+            ]
+          },
+          "globalContributionBox": [
+            45312,
+            41216,
+            46195,
+            42099
+          ],
+          "repairOutputCrop": [
+            0,
+            0,
+            883,
+            883
+          ],
+          "destinationNativeBox": [
+            371,
+            371,
+            1254,
+            1254
+          ],
+          "destinationPasteAt": [
+            371,
+            371
+          ],
+          "touchesFinalCore": true
+        },
+        {
+          "key": "r11_c12_p12",
+          "oldSource": {
+            "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p12-v3.png",
+            "sha256": "262d25d354347279025f477440ee7c47203826d96559b7fcbe435e0637f1dc2f",
+            "dimensions": [
+              1254,
+              1254
+            ]
+          },
+          "globalContributionBox": [
+            45965,
+            41216,
+            46566,
+            42099
+          ],
+          "repairOutputCrop": [
+            653,
+            0,
+            1254,
+            883
+          ],
+          "destinationNativeBox": [
+            0,
+            371,
+            601,
+            1254
+          ],
+          "destinationPasteAt": [
+            0,
+            371
+          ],
+          "touchesFinalCore": true
+        },
+        {
+          "key": "r11_c12_p21",
+          "oldSource": {
+            "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p21-v1.png",
+            "sha256": "1c8d8b934d87d6308d4701b00c37b1992c1bbc9d0be08b42af5bb1f8a639ea8f",
+            "dimensions": [
+              1254,
+              1254
+            ]
+          },
+          "globalContributionBox": [
+            45312,
+            41869,
+            46195,
+            42200
+          ],
+          "repairOutputCrop": [
+            0,
+            653,
+            883,
+            984
+          ],
+          "destinationNativeBox": [
+            371,
+            0,
+            1254,
+            331
+          ],
+          "destinationPasteAt": [
+            371,
+            0
+          ],
+          "touchesFinalCore": true
+        },
+        {
+          "key": "r11_c12_p22",
+          "oldSource": {
+            "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p22-v2.png",
+            "sha256": "0bf1519f5a9fd1279761f023a359d6fa16ddd3893e4bd149127cf28953c86dc3",
+            "dimensions": [
+              1254,
+              1254
+            ]
+          },
+          "globalContributionBox": [
+            45965,
+            41869,
+            46566,
+            42200
+          ],
+          "repairOutputCrop": [
+            653,
+            653,
+            1254,
+            984
+          ],
+          "destinationNativeBox": [
+            0,
+            0,
+            601,
+            331
+          ],
+          "destinationPasteAt": [
+            0,
+            0
+          ],
+          "touchesFinalCore": true
+        }
+      ],
+      "suggestedFixedEdges": {
+        "topPixels": 64,
+        "leftPixels": 32,
+        "rightPixels": 32,
+        "note": "Preserve exact existing outer contour wherever verified; fixed-edge suggestions are generation conditioning, actual byte identities must be checked."
+      }
+    },
+    {
+      "id": "lower",
+      "tileBox": [
+        256,
+        1010,
+        1510,
+        2264
+      ],
+      "globalBox": [
+        45312,
+        41970,
+        46566,
+        43224
+      ],
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "layoutOnlyGuide": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\qa\\r11_c12-resume-20261016-v1\\e01-plan\\lower-1254-layout-only.png",
+        "sha256": "5a7cf95df27dbf366edf55f3740426756161d0f722277e5a47f8b8c6e57842a2",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "unscaledCurrentNativeTarget": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\qa\\r11_c12-resume-20261016-v1\\e01-plan\\lower-1254-current-native-target.png",
+        "sha256": "4c7b8014fe6c7a978ff968c49f07b01d6c7e9d6bed147ef709b1b9b2b3a83bb5",
+        "dimensions": [
+          1254,
+          1254
+        ]
+      },
+      "targetConstructionSources": [
+        {
+          "key": "r11_c12_p11",
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p11-v1.png",
+          "sha256": "92c4282aba5e8605c597bc7572ce2f6434f0fee1a2b6179b5cbba59fda92cd8e",
+          "sourceCrop": [
+            371,
+            1125,
+            1139,
+            1139
+          ],
+          "pasteAt": [
+            0,
+            0,
+            768,
+            14
+          ]
+        },
+        {
+          "key": "r11_c12_p12",
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p12-v3.png",
+          "sha256": "262d25d354347279025f477440ee7c47203826d96559b7fcbe435e0637f1dc2f",
+          "sourceCrop": [
+            115,
+            1125,
+            601,
+            1139
+          ],
+          "pasteAt": [
+            768,
+            0,
+            1254,
+            14
+          ]
+        },
+        {
+          "key": "r11_c12_p21",
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p21-v1.png",
+          "sha256": "1c8d8b934d87d6308d4701b00c37b1992c1bbc9d0be08b42af5bb1f8a639ea8f",
+          "sourceCrop": [
+            371,
+            115,
+            1139,
+            1139
+          ],
+          "pasteAt": [
+            0,
+            14,
+            768,
+            1038
+          ]
+        },
+        {
+          "key": "r11_c12_p22",
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p22-v2.png",
+          "sha256": "0bf1519f5a9fd1279761f023a359d6fa16ddd3893e4bd149127cf28953c86dc3",
+          "sourceCrop": [
+            115,
+            115,
+            601,
+            1139
+          ],
+          "pasteAt": [
+            768,
+            14,
+            1254,
+            1038
+          ]
+        },
+        {
+          "key": "r11_c12_p31",
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p31-v1.png",
+          "sha256": "7d2058cdf013fc0bf70cfc89fbea1a62c724c540f514a858874980f3cd0f4b21",
+          "sourceCrop": [
+            371,
+            115,
+            1139,
+            331
+          ],
+          "pasteAt": [
+            0,
+            1038,
+            768,
+            1254
+          ]
+        },
+        {
+          "key": "r11_c12_p32",
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p32-v1.png",
+          "sha256": "8e7e1aaffcaabfad5591b4d22f546022d654352de4cb3b0cde7a840a53b1616e",
+          "sourceCrop": [
+            115,
+            115,
+            601,
+            331
+          ],
+          "pasteAt": [
+            768,
+            1038,
+            1254,
+            1254
+          ]
+        }
+      ],
+      "activeContributionTileBox": [
+        256,
+        1240,
+        1510,
+        2264
+      ],
+      "activeContributionGlobalBox": [
+        45312,
+        42200,
+        46566,
+        43224
+      ],
+      "distributionMappings": [
+        {
+          "key": "r11_c12_p21",
+          "oldSource": {
+            "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p21-v1.png",
+            "sha256": "1c8d8b934d87d6308d4701b00c37b1992c1bbc9d0be08b42af5bb1f8a639ea8f",
+            "dimensions": [
+              1254,
+              1254
+            ]
+          },
+          "globalContributionBox": [
+            45312,
+            42200,
+            46195,
+            43123
+          ],
+          "repairOutputCrop": [
+            0,
+            230,
+            883,
+            1153
+          ],
+          "destinationNativeBox": [
+            371,
+            331,
+            1254,
+            1254
+          ],
+          "destinationPasteAt": [
+            371,
+            331
+          ],
+          "touchesFinalCore": true
+        },
+        {
+          "key": "r11_c12_p22",
+          "oldSource": {
+            "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p22-v2.png",
+            "sha256": "0bf1519f5a9fd1279761f023a359d6fa16ddd3893e4bd149127cf28953c86dc3",
+            "dimensions": [
+              1254,
+              1254
+            ]
+          },
+          "globalContributionBox": [
+            45965,
+            42200,
+            46566,
+            43123
+          ],
+          "repairOutputCrop": [
+            653,
+            230,
+            1254,
+            1153
+          ],
+          "destinationNativeBox": [
+            0,
+            331,
+            601,
+            1254
+          ],
+          "destinationPasteAt": [
+            0,
+            331
+          ],
+          "touchesFinalCore": true
+        },
+        {
+          "key": "r11_c12_p31",
+          "oldSource": {
+            "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p31-v1.png",
+            "sha256": "7d2058cdf013fc0bf70cfc89fbea1a62c724c540f514a858874980f3cd0f4b21",
+            "dimensions": [
+              1254,
+              1254
+            ]
+          },
+          "globalContributionBox": [
+            45312,
+            42893,
+            46195,
+            43224
+          ],
+          "repairOutputCrop": [
+            0,
+            923,
+            883,
+            1254
+          ],
+          "destinationNativeBox": [
+            371,
+            0,
+            1254,
+            331
+          ],
+          "destinationPasteAt": [
+            371,
+            0
+          ],
+          "touchesFinalCore": true
+        },
+        {
+          "key": "r11_c12_p32",
+          "oldSource": {
+            "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p32-v1.png",
+            "sha256": "8e7e1aaffcaabfad5591b4d22f546022d654352de4cb3b0cde7a840a53b1616e",
+            "dimensions": [
+              1254,
+              1254
+            ]
+          },
+          "globalContributionBox": [
+            45965,
+            42893,
+            46566,
+            43224
+          ],
+          "repairOutputCrop": [
+            653,
+            923,
+            1254,
+            1254
+          ],
+          "destinationNativeBox": [
+            0,
+            0,
+            601,
+            331
+          ],
+          "destinationPasteAt": [
+            0,
+            0
+          ],
+          "touchesFinalCore": true
+        }
+      ],
+      "suggestedFixedEdges": {
+        "topPixels": 230,
+        "topFromUpperOutputCrop": [
+          0,
+          754,
+          1254,
+          984
+        ],
+        "topPasteAt": [
+          0,
+          0
+        ],
+        "leftPixels": 32,
+        "rightPixels": 32,
+        "bottomPixels": 64,
+        "note": "Condition lower top 230 with upper native output exactly, then final cut at tile y1240. Bottom lies below both approved base footprints, verify plain deck before locking."
+      }
+    }
+  ],
+  "upperLowerFullOverlapTileBox": [
+    256,
+    1010,
+    1510,
+    1510
+  ],
+  "finalSplitTileY": 1240,
+  "extraSourcesRequiredForCompleteGeometry": [
+    "r11_c12_p31",
+    "r11_c12_p32"
+  ],
+  "fourSourceOnlyLimit": "If authorized implementation remains limited to p11/p12/p21/p22, do not distribute lower output to p31/p32, but explicitly leave E01 pending because left foot residual and p21/p31 seam must then be repaired. p31/p32 are same assigned tile, not another worker zone.",
+  "qaRequired": [
+    "Return must measure exactly1254x1254; no native resize.",
+    "Check new head shape, two-column count, both shaft axes and both base feet against plain guide.",
+    "Check joint p11/p12/p21/p22 at native resolution, and lower p21/p31 and p22/p32 if changed.",
+    "Check all retained outside-window pixels exact equality and derived per-native source hashes.",
+    "Check window outside edges x256/x1510, topy256, cuty1240 and bottomy2264 at100percent; no moved seam or duplicate post.",
+    "Keep unmodified-source QA; only invalidate changed patches/edge checks."
+  ]
+}

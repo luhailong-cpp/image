@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-16T18:24:49.491Z",
+  "tile": "r14_c06",
+  "worker": "root",
+  "candidateSha256": "fa56718ebff90cb7d264904df5de997aee8135bfbb1f5bbb85a54f3f7ec965b9",
+  "contextSha256": "ceb0d8031af3fc1bdeeb532bc9f4e468e43de69d85a1f7c183d8b9a6daf743e7",
+  "assembly": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/main-city-game-20261009/southwest/r14_c06/pipeline/output/92e8567c003e9d80/assembly.json",
+  "qaConstructionManifest": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southwest\\r14_c06\\pipeline\\output\\92e8567c003e9d80\\root-full-native-qa-20261016-v01/manifest.json",
+  "visualInspectionComplete": true,
+  "actualNativeRegionsViewed": 41,
+  "internalNativeRegionsViewed": 33,
+  "externalNativeRegionsViewed": 8,
+  "overviewViewed": true,
+  "internalPassed": false,
+  "externalPassed": false,
+  "formalAccepted": false,
+  "acceptanceState": "full16 native candidate, failed/open visual QA",
+  "issues": [
+    {
+      "id": "floating-paired-L-ground-joins",
+      "severity": "blocking-internal-layout",
+      "patches": [
+        "p02_02",
+        "p02_03",
+        "p03_03"
+      ],
+      "evidence": [
+        "V-row2/V2",
+        "H2-col3",
+        "overview"
+      ],
+      "finding": "Three upper L ground joins start unsupported in open ground across V2 row2; the native source lower frame conflicts with the quiet left neighbor. Must connect only to approved original geometry or remove unsupported branches as a consolidated edit."
+    },
+    {
+      "id": "middle-horizontal-ground-stub",
+      "severity": "blocking-internal-layout",
+      "patches": [
+        "p03_03",
+        "p03_04"
+      ],
+      "evidence": [
+        "V-row3/V3",
+        "overview"
+      ],
+      "finding": "Middle horizontal join in p0304 begins in open ground rather than continuing from actual p0303 native; top paired and lower joins continue."
+    },
+    {
+      "id": "corner-H1V3-diagonal-stump",
+      "severity": "blocking-internal-layout",
+      "patches": [
+        "p01_03",
+        "p01_04",
+        "p02_03",
+        "p02_04"
+      ],
+      "evidence": [
+        "V-row2/V3",
+        "nine-corners/H1V3",
+        "H1-col4"
+      ],
+      "finding": "Diagonal joint beneath small red scrap terminates near native corner instead of continuing; top and left source corner contours disagree."
+    },
+    {
+      "id": "H2-cold-warm-quilt-front",
+      "severity": "blocking-internal-material",
+      "patches": [
+        "p02_03",
+        "p02_04",
+        "p03_03",
+        "p03_04"
+      ],
+      "evidence": [
+        "H2-col3",
+        "H2-col4",
+        "nine-corners/H2V2",
+        "nine-corners/H2V3"
+      ],
+      "finding": "Broad warm-gray to cool-gray serrated front follows horizontal quilt path. H3/V joins have smaller tone and grain fronts, requiring affected-region native polish."
+    },
+    {
+      "id": "external-left-source-join-and-tone",
+      "severity": "blocking-external",
+      "evidence": [
+        "left-native-boundary-row2",
+        "left-native-boundary-row3"
+      ],
+      "finding": "Left source has abrupt texture/tone difference at row2; row3 includes an unmatched rising diagonal join at straight tile boundary. Other major descending lines broadly continue, not full pass evidence."
+    },
+    {
+      "id": "external-top-material-and-leaf-phase",
+      "severity": "blocking-external",
+      "evidence": [
+        "top-native-boundary-col1",
+        "top-native-boundary-col2",
+        "top-native-boundary-col3"
+      ],
+      "finding": "Wall, post/stone and foliage texture/tone changes along top boundary; major architectural contours mostly continue but source phase differs."
+    },
+    {
+      "id": "source-layout-and-finish-review",
+      "severity": "open-layout-and-finish",
+      "evidence": [
+        "overview",
+        "H1",
+        "V-row1"
+      ],
+      "finding": "Red prop tier/pedestal identity and approximate red paper/slab phase differ from coarse approved source; precise macro layout still requires review. Early stone/red surfaces retain dense cellular/crosshatch finish while later ground is quieter."
+    },
+    {
+      "id": "missing-right-bottom-native-neighbors",
+      "severity": "external-incomplete",
+      "finding": "Right r14c07 and bottom r15c06 have no current full candidate, so complete external seam acceptance is unavailable."
+    }
+  ],
+  "nextProduction": "Preserve failed/open state. Consolidated repairs queued; no repeated unchanged full QA. Check actual bottom/left native geometry before independent r15c06 missing core production.",
+  "sourceResampling": false,
+  "sourceImagesModifiedByReview": false,
+  "gitMutated": false
+}

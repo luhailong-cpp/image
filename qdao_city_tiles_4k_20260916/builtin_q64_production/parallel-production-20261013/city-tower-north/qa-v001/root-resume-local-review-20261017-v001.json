@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-17T05:02:11.973161+00:00",
+  "reviewer": "root",
+  "rebootBuiltinStatus": "successful new returned images; permission error did not recur",
+  "formalAcceptedCount": 0,
+  "originalNativeCoreCount": 64,
+  "additionalCoreCount": 0,
+  "reviews": [
+    {
+      "target": "r03c14 lantern material",
+      "candidate": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\qa-resume\\right-lantern-material-native-v001\\r03_c14-candidate.png",
+        "sha256": "a050bd28e6b66731616e825d11bee3401881ad04da69302d5c59650074caa9b4",
+        "pixels": [
+          4096,
+          4096
+        ],
+        "mode": "RGB"
+      },
+      "status": "local-pass-independent",
+      "observations": "Context and N/S/W/E perimeter viewed. Horizontal body material stripe removed; central gold rib continues naturally to original lower cap. Existing paving material splice outside ROI remains pending.",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\qa-v001\\resume-right-lantern-material-v001\\qa.json",
+        "sha256": "41dbaf107eb298145de2397e2aca240e45b52382cacd65edcebfa6efdb0c6f3e"
+      },
+      "currentWorking": true
+    },
+    {
+      "target": "r04c13 east stair second narrow correction",
+      "candidate": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-east-stair-edge-native-v002\\r04_c13-candidate.png",
+        "sha256": "f0758db0f1627b5275e149df7aee3baf502747bda63b8a7292d255682ff2a158",
+        "pixels": [
+          4096,
+          4096
+        ],
+        "mode": "RGB"
+      },
+      "status": "rejected-not-selected",
+      "observations": "Original center step fixed but second repair moves ~6px riser offset to new east ROI boundary. Keep first improved-working candidate e1ec; no immediate third attempt.",
+      "attemptCount": 2,
+      "integration": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-east-stair-edge-native-v002\\integration.json",
+        "sha256": "ad1e79f08e22e5ac55afb77582bbc1eada17ced5e1eaca49a416c03626fbd835"
+      }
+    },
+    {
+      "target": "r04c13 middle floor first attempt",
+      "candidate": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-mid-floor-native-v001\\r04_c13-candidate.png",
+        "sha256": "4332a1d975bf0c0b2b312b8c2ba51c1dbaf0eddb8609f3b92214315576dac79c",
+        "pixels": [
+          4096,
+          4096
+        ],
+        "mode": "RGB"
+      },
+      "status": "rejected-not-selected",
+      "observations": "Native source redraws floor well but shifts wall toe. Rectangular extraction makes two wall notches plus S/E grout discontinuities. Handed second attempt to west agent on later north-beam baseline.",
+      "integration": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-mid-floor-native-v001\\integration.json",
+        "sha256": "9cacf6d6895df10d4c2ad8d37d680c8ecf3fb448f5c1e9adc45cf4ecd276add8"
+      }
+    },
+    {
+      "target": "r03c14 east paving material first attempt",
+      "candidate": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-east-paving-native-v001\\r03_c14-candidate.png",
+        "sha256": "1523cab4c532b564d077edee34a121b3dad2dcd9b18ac13312ecf7b45fdf697e",
+        "pixels": [
+          4096,
+          4096
+        ],
+        "mode": "RGB"
+      },
+      "status": "rejected-not-selected",
+      "observations": "Material stripe improved, but new grout offsets approximately4-6px at sourcex180/x430 and lower perimeter. Preserve a050 lantern candidate. N/S/W/E and context viewed.",
+      "integration": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-east-paving-native-v001\\integration.json",
+        "sha256": "c8052f6b214a252aa70aa05ca1984baf4beefb8b2fd5ace9623d0a3cf87f2fff"
+      }
+    }
+  ],
+  "modelEvidence": "existing built-in image_gen; actual model not returned",
+  "actualModel": null,
+  "gitMutations": false,
+  "newVersionOnly": true
+}

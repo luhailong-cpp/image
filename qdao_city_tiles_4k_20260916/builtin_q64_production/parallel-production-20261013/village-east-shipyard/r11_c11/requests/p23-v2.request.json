@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "submittedAtUtc": "2026-10-16T13:25:48.631762+00:00",
+  "key": "r11_c11_p23",
+  "version": 2,
+  "tool": "image_gen__imagegen",
+  "generationMode": "builtin",
+  "prompt": "Use case: precise-object-edit. Edit Image1, an opaque 1254x1254 native hand-painted game map patch. Correct the oversized round tub to the EXACT object footprint in Image2 (same-coordinate approved layout). Image3 is wider layout ONLY for understanding objects; render ONLY its small magenta-box region, never the full scene. Image4 is the 1254x230 already-finished top overlap: retain the identical framing/size of that strip at y0..230. Image5 supplies the rounded Daoist Q painting style only, no UI/people/night/text.\nThe ONE wooden barrel is too large and too far right in Image1. Remove that giant tub and reconstruct the original SMALLER upright wooden barrel: outer oval rim approximately bounding box [350,400,950,850], center [650,625], dark inner mouth [440,470,850,650], pale-gold sunlit rim, brown vertical body roughly x350..950 continuing through the bottom of the image. Its bottom/foot is OFFSCREEN; do not fit the complete barrel. The barrel is lower-middle, not across the entire right side. No blue open water in its mouth: the guide has a dark interior and pale straw/white material inside the rim. To its RIGHT, restore the original flat rectangular pale blue fish/display tray surface occupying upper-right x780..1254,y150..650 and its warm wooden rim rising diagonally from approximately [980,720] to [1254,570]; that separate tray extends out of the right frame and its dark underframe/leg cuts into the lower right. To its upper LEFT continue the existing rectangular ice fish tray/frame seen in Image4; do not move its corners. Remaining lower-left is open warm wooden deck.\nImage2 contours and Image3 object relationships govern if coordinates are approximate. Keep the cropped camera exactly. Refine native sharp contours, soft daylight and clear fine wood grain. Original four-display-table group only; one existing barrel only. No new poles, tables, nets, boats, people, UI, text or borders. 1254x1254 opaque output.",
+  "referenced_image_paths": [
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c11\\native\\p23-v1.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c11\\layout-only\\p23-v2-layout-only.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c11\\layout-only\\p23-v2-layout-context-target-box.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c11\\layout-only\\p23-v2-top-native-overlap.png",
+    "D:\\work\\image\\designs\\mail-ui-v1\\01-mail-event.png"
+  ],
+  "referenceRolesAndHashes": [
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c11\\native\\p23-v1.png",
+      "sha256": "bbd508c115e9c3d73cae4c5557fb4f4db9565549d940113a6c8514894966b1b9",
+      "bytes": 2253479,
+      "sampledAtUtc": "2026-10-16T13:26:25.368769+00:00",
+      "role": "edit target; oversized barrel to correct",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c11\\layout-only\\p23-v2-layout-only.png",
+      "sha256": "cda8da6f6999aaaacc2b8fb7b2504e27618e449de10a9c633104e235aa8fb0e0",
+      "bytes": 678243,
+      "sampledAtUtc": "2026-10-16T13:26:25.382953+00:00",
+      "role": "exact layout footprint",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c11\\layout-only\\p23-v2-layout-context-target-box.png",
+      "sha256": "5ea4e70fbed4ea96e3c69da9928a2bd7a892917abfe2bee1b1c1d34998db9951",
+      "bytes": 576492,
+      "sampledAtUtc": "2026-10-16T13:25:48.352708+00:00",
+      "role": "approved wider layout context; magenta rectangle is ONLY the target native extent",
+      "dimensions": [
+        768,
+        768
+      ],
+      "mode": "RGB",
+      "originalLayoutSource": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\daylight-only-20261009\\donghai-natural-stone-clear-routes-v10.png",
+        "sha256": "cf450f0afe784b4700f2dfc19b3af35867765403e8f1d81741e78b3116583d42",
+        "bytes": 3373466,
+        "sampledAtUtc": "2026-10-16T13:25:48.357415+00:00",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGB"
+      },
+      "worldContextBox": [
+        40845,
+        39821,
+        46195,
+        45171
+      ],
+      "targetNativeBoxInContext": [
+        294,
+        294,
+        474,
+        474
+      ],
+      "classification": "layout reference only; mechanically enlarged pixels and guide box never enter final art"
+    },
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c11\\layout-only\\p23-v2-top-native-overlap.png",
+      "sha256": "f831cb21b04f0046d714b090345d942b11c88916dcaf70ad4a71297dc08b831b",
+      "bytes": 444403,
+      "sampledAtUtc": "2026-10-16T13:26:25.385534+00:00",
+      "role": "preserve native top overlap",
+      "dimensions": [
+        1254,
+        230
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "D:\\work\\image\\designs\\mail-ui-v1\\01-mail-event.png",
+      "sha256": "3cf0b7d7b3bae337d51e947719588419a01ae21bdce9bccedd6258ce1feef0a2",
+      "bytes": 2576312,
+      "sampledAtUtc": "2026-10-16T13:26:25.397542+00:00",
+      "role": "primary style only",
+      "dimensions": [
+        1931,
+        814
+      ],
+      "mode": "RGB"
+    }
+  ],
+  "transparent_background": false,
+  "geometry": {
+    "tile": "r11_c11",
+    "patch": "p23",
+    "coreGlobalBox": [
+      43008,
+      41984,
+      44032,
+      43008
+    ],
+    "nativeGlobalBox": [
+      42893,
+      41869,
+      44147,
+      43123
+    ],
+    "coreCrop": [
+      115,
+      115,
+      1139,
+      1139
+    ],
+    "tilePasteAt": [
+      2048,
+      1024
+    ],
+    "expectedNativeDimensions": [
+      1254,
+      1254
+    ]
+  },
+  "conditionedGuide": {
+    "file": {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c11\\layout-only\\p23-v2-conditioned-target.png",
+      "sha256": "50563d445ca45aaf7e4ea4bdfdec4090deab7a5b436de94549d215a64764c500",
+      "bytes": 986741,
+      "sampledAtUtc": "2026-10-16T13:25:48.633432+00:00",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    "layoutOnlySource": {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\daylight-only-20261009\\donghai-natural-stone-clear-routes-v10.png",
+      "sha256": "cf450f0afe784b4700f2dfc19b3af35867765403e8f1d81741e78b3116583d42",
+      "bytes": 3373466,
+      "sampledAtUtc": "2026-10-16T13:25:48.637593+00:00",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    "overviewExtent": [
+      937.9851771763392,
+      915.5923200334821,
+      965.4076799665179,
+      943.0148228236607
+    ],
+    "pastedNativeReferences": [
+      {
+        "direction": "top",
+        "source": {
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c11\\native\\p13-v2.png",
+          "sha256": "fa35dce86907a06afa4d6a85a0b596d13b02f248d6c78ea6866b7494f476f2dd",
+          "bytes": 2588750,
+          "sampledAtUtc": "2026-10-16T13:25:47.756754+00:00",
+          "role": "current selected r11_c11_p13",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "mode": "RGB",
+          "continuationAllowed": {
+            "east": true,
+            "south": true
+          },
+          "reviewStatus": "quick_geometry_continuable_pending_whole_tile_QA"
+        },
+        "sourceCrop": [
+          0,
+          1024,
+          1254,
+          1254
+        ],
+        "pasteAt": [
+          0,
+          0
+        ],
+        "operation": "unscaled adjacent native overlap pasted onto layout-only guide"
+      }
+    ],
+    "classification": "Reference/edit input only, never final or accepted artwork"
+  },
+  "ownerGate": {
+    "readyToGenerate": true,
+    "authorizationMode": "allocated_root_reserved",
+    "rootInstructions": {
+      "path": "D:\\work\\image\\AGENTS.md",
+      "sha256": "57f1ad4f81fdb2256b843923d862308be228130917b99cfced375db256aff01a",
+      "bytes": 8210,
+      "sampledAtUtc": "2026-10-16T13:25:47.743501+00:00"
+    },
+    "splitContract": {
+      "path": "D:\\work\\image\\docs\\MAP_PARALLEL_SPLIT_20261013.json",
+      "sha256": "929a52abdb55e6022f83abbe9b48718182bc33fc8a0bc2d50a14f6232dd4e850",
+      "bytes": 10340,
+      "sampledAtUtc": "2026-10-16T13:25:47.744026+00:00"
+    },
+    "allocation": {
+      "key": "village-east-shipyard",
+      "map": "fishing-village-game-20261009",
+      "owner": "01a1216d-4a55-7063-ba13-5ddf6d9106f7",
+      "worker": "01a1338b-a299-7163-93e7-055f91a79dde",
+      "tiles": [
+        "r10_c11",
+        "r10_c12",
+        "r11_c11",
+        "r11_c12"
+      ],
+      "status": "allocated_root_reserved",
+      "outputDirectory": "qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-east-shipyard",
+      "ownerAckFile": "qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/coordination/village-east-shipyard.owner-ack.json",
+      "ownerAcknowledged": false
+    },
+    "ownerAcknowledged": false,
+    "ownerAckExists": true,
+    "actualCoordinateConflicts": [],
+    "ownerProgressSnapshot": {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\progress.json",
+      "sha256": "f269ccc661f864c1c7b8370298829b3c69a27833b54862f74896596993371dde",
+      "bytes": 13969,
+      "sampledAtUtc": "2026-10-16T13:25:47.745598+00:00"
+    },
+    "meaning": "Formal root coordinate allocation supersedes old pending-ack gate; no owner acknowledgement is claimed."
+  },
+  "rootInstructionsReadBeforeCall": {
+    "path": "D:\\work\\image\\AGENTS.md",
+    "sha256": "57f1ad4f81fdb2256b843923d862308be228130917b99cfced375db256aff01a",
+    "bytes": 8210,
+    "sampledAtUtc": "2026-10-16T13:26:25.399787+00:00"
+  },
+  "requestedModelPreference": "Free/existing 2.5 preferred; built-in 2.0 permitted",
+  "submittedModelSelector": null,
+  "submittedQualitySelector": null,
+  "actualModel": null,
+  "actualQuality": null,
+  "paidApiUsed": false,
+  "widerContextForHumanReviewOnly": {
+    "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c11\\layout-only\\p23-v2-layout-context-target-box.png",
+    "sha256": "5ea4e70fbed4ea96e3c69da9928a2bd7a892917abfe2bee1b1c1d34998db9951",
+    "bytes": 576492,
+    "sampledAtUtc": "2026-10-16T13:25:48.352708+00:00",
+    "role": "approved wider layout context; magenta rectangle is ONLY the target native extent",
+    "dimensions": [
+      768,
+      768
+    ],
+    "mode": "RGB",
+    "originalLayoutSource": {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\daylight-only-20261009\\donghai-natural-stone-clear-routes-v10.png",
+      "sha256": "cf450f0afe784b4700f2dfc19b3af35867765403e8f1d81741e78b3116583d42",
+      "bytes": 3373466,
+      "sampledAtUtc": "2026-10-16T13:25:48.357415+00:00",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB"
+    },
+    "worldContextBox": [
+      40845,
+      39821,
+      46195,
+      45171
+    ],
+    "targetNativeBoxInContext": [
+      294,
+      294,
+      474,
+      474
+    ],
+    "classification": "layout reference only; mechanically enlarged pixels and guide box never enter final art"
+  },
+  "status": "prepared_not_yet_submitted"
+}

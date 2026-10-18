@@ -1,0 +1,7 @@
+from workflow import *
+from PIL import Image
+pid='r13_c14_repair_waterline';v='v01';x,y=512,2445;src=ROOT/'tiles/r13_c14.candidate-right-full-20261016-v03.png';g=ROOT/'guides'/f'{pid}_{v}.candidate-only.png';assert not g.exists();Image.open(src).convert('RGB').crop((x,y,x+1254,y+1254)).save(g)
+write(ROOT/'prompts'/f'{pid}_{v}.registered.json',{'id':pid,'tile':'r13_c14','tileRelativeOrigin':[x,y],'nativeGlobalBox':[53248+x,49152+y,53248+x+1254,49152+y+1254],'sourceCore':[115,115,1139,1139],'destinationCore':[x+115,y+115,x+1139,y+1139],'derivedFromCandidate':str(src),'candidateSha256':sha(src),'operation':'exact native crop no resize; guide only'})
+prompt='Edit this exact 1254-square native crop. Make one tiny repair: near x627,y627 the curved wooden hull waterline has an accidental little square notch where image patches meet. Continue that hull silhouette and adjacent white foam smoothly through the join, removing the tiny square bite, vertical step and short horizontal cut. The real hull edge must remain one naturally smooth curve. Preserve the overall curve position, every plank seam, the wood grain and lighting, and surrounding water caustics. Change only the small region around this defect; preserve the outer150pixel frame and all distant areas exactly. No rescale, no shifts, no blur, no new objects, no comparison, border or text. Output the same opaque 1254 x 1254 square.'
+write(ROOT/'prompts'/f'{pid}_{v}.material.args.json',{'prompt':prompt,'referenced_image_paths':[str(g)],'transparent_background':False});print(g)
+

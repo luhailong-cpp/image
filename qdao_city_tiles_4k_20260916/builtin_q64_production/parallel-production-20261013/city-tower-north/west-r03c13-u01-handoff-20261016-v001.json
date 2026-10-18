@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "tile": "r03_c13",
+  "repairId": "U01-p33-p43",
+  "date": "2026-10-16",
+  "sourceCallCount": 2,
+  "additionalCoreCount": 0,
+  "formalAcceptedCount": 0,
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u01-integrated-v003\\r03_c13-candidate.png",
+    "sha256": "54685fa1301349fbf07e0e603d9536fce059749ad7d1dc3d6c1c16c1af311224"
+  },
+  "status": "structure-improved-best-working-candidate-pending-independent-QA",
+  "integrationChain": [
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u01-integrated-v001\\integration.json",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u01-integrated-v003\\integration.json"
+  ],
+  "editRegionsTileXYXY": [
+    [
+      2048,
+      2825,
+      3072,
+      3600
+    ],
+    [
+      2935,
+      3235,
+      3225,
+      3520
+    ]
+  ],
+  "alphaPerimeterPixels": 16,
+  "outsideEachEditVerified": true,
+  "noResize": true,
+  "noWarp": true,
+  "noImageBlur": true,
+  "entryPoint": "builtin image_gen.imagegen",
+  "actualModel": null,
+  "nativeEventBytesMatch": true,
+  "reviewedImprovements": [
+    "Horizontal y3072 jump in diagonal red beam and timber panel wall removed across edited region.",
+    "Red corner pillar is continuous across original horizontal seam.",
+    "Second source patches the new east-side red sill return so it meets the column; minimized ROI avoids new upper-frame perimeter drift."
+  ],
+  "remaining": [
+    "Existing lower roof tile-row phase discontinuity along x3072/U03 below repair rectangle remains; distinct old issue not repaired in this two-call U01 pass.",
+    "Some fine timber grain and tile shading transitions need independent QA; formal acceptance withheld."
+  ],
+  "supersededIntegration": "west-r03c13-u01-integrated-v002 uses same second native source but wider ROI; prefer v003 limited ROI.",
+  "qaEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u01-qa-v001\\u01-after-100pct-QA-only.png",
+    "cropTileXYXY": [
+      1933,
+      2800,
+      3187,
+      3620
+    ],
+    "resized": false
+  }
+}

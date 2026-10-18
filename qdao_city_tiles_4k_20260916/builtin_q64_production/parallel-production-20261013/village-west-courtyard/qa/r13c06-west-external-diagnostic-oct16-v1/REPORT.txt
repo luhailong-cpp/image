@@ -1,0 +1,34 @@
+r13_c05 → r13_c06 西外接原像素诊断
+结论：未通过（4/4段可见硬接）；仅候选快照诊断，不是正式验收，不得作为稳定生成锚。
+快照UTC：2026-10-16T20:09:01.273137+00:00 至 2026-10-16T20:09:04.174203+00:00
+全局接缝：x=20480；y=[49152,53248)。接触图范围x=[20250,20710)，中央x=230。
+裁取：r13_c05真实4096 core右侧230列 + r13_c06 context中真实4096 core左侧230列；四张460×1024；纯整数裁切/并排。
+机械核实：指定三个哈希吻合；两侧candidate均4096×4096，context均4326×4326；candidate等于context[115:4211,115:4211]；西邻16源实际哈希全匹配。
+上述机械核实不等于视觉通过。已实际使用view_image(detail=original)查看四段及南端460×384细节。
+
+第1段 y=[49152, 50176]：未通过。整段中央边界显著。西侧水体更深蓝，细密而锐的白色焦散纹；东侧更浅青，块面更大，白线更宽且更软。水纹轮廓与亮线在x20480直接截断，色阶也呈竖直跳变。
+第2段 y=[50176, 51200]：未通过。西侧细线水纹与东侧宽线大块水纹持续不匹配；亮线相位未跨界延续。中央竖线仍清楚，部分水色较接近不能消除纹理尺度与相位断裂。
+第3段 y=[51200, 52224]：未通过。西侧较亮且有密集交叉焦散线，东侧较平整的大水纹块和宽白线。多条波纹在边界被垂直裁断，整段仍可辨硬接缝。
+第4段 y=[52224, 53248]：未通过。上部仍是同样的水纹尺度和亮线相位跳变。下部泡沫与石岸处，右侧宽白泡沫接到左侧较细的白线/水面；最下方岩石面明暗和棱线在中央呈硬切。
+南端具体包围范围（半开整数坐标，人工保守圈定，并非逐像素分割）：
+泡沫：[20448,52928,20540,53120)；礁石面：[20448,53072,20512,53248)。
+
+输入哈希：
+west_assembly: D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/qa/full-tile-r13_c05-assembly.json
+SHA256 e691874f7e44b2466f0455b40719ea7c598e2fee6552286ace23fa3e05b6e73f
+west_candidate: D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/qa/full-tile-r13_c05-candidate-4096.png
+SHA256 2afcd0758dee49ae02041523b624b73d94f5c17d0450ebada0ebff3ca72853cb
+west_context: D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/qa/full-tile-r13_c05-context-native.png
+SHA256 bc44ce84ba5c4daac55559f8fa7b9f613af9fc89552dd24f52e65a360d60c22b
+east_assembly: D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/repairs/r13c06-north-external-oct16-v1/final-candidate-v2/assembly.json
+SHA256 e59b9f1e5f59d4e00d374a627bcdcb62a234f0a5120171073759b8daca7a38a2
+east_candidate: D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/repairs/r13c06-north-external-oct16-v1/final-candidate-v2/r13_c06.candidate-native-4096.png
+SHA256 04f14ea1e24d5ed30fcf5da84f45342074d31726d64249a375670077fbf88179
+east_context: D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/repairs/r13c06-north-external-oct16-v1/final-candidate-v2/context-native.png
+SHA256 7ba8f8f494a8243dc5b1bdffaadf806cb714be67ca688b052703756a72627283
+
+r13_c05 assembly快照状态：4096_candidate_pending_visual_and_external_joins
+r13_c06 assembly快照状态：pending-final-native-visual-QA
+root正在修订r13_c06最南部。此报告只绑定快照和输入哈希；未来变动区域须重新检查，不自动复用本诊断。
+没有生图/AI修图，没有改动原owner目录，没有操作共享Git。
+全部精确裁取框、输出哈希、16源核实记录见snapshot-manifest.json；结构化视觉结论见visual-diagnostic.json。

@@ -1,0 +1,1746 @@
+{
+  "schemaVersion": 1,
+  "automationId": "20",
+  "scheduledAtUtc": "2026-10-16T11:04:22.797Z",
+  "reportedAtUtc": "2026-10-16T11:07:40.000Z",
+  "reportedAtNewYork": "2026-10-16 07:07:40 EDT",
+  "timezone": "America/New_York",
+  "previousReport": "docs/MAP_PERIODIC_REPORT_20261016_064614.json",
+  "baselineStatistics": "docs/MAP_REMAINING_20261016_064856Z.json",
+  "maps": [
+    {
+      "map": "主城",
+      "target": 256,
+      "internalPassed": 32,
+      "remainingToInternalPass": 224,
+      "completeSelectedCandidates": 74,
+      "pendingCompleteCandidates": 42
+    },
+    {
+      "map": "渔村",
+      "target": 196,
+      "internalPassed": 58,
+      "remainingToInternalPass": 138,
+      "completeSelectedCandidates": 78,
+      "pendingCompleteCandidates": 20
+    },
+    {
+      "map": "八仙岛",
+      "target": 196,
+      "internalPassed": 53,
+      "remainingToInternalPass": 143,
+      "completeSelectedCandidates": 75,
+      "pendingCompleteCandidates": 22
+    }
+  ],
+  "total": {
+    "target": 648,
+    "internalPassed": 143,
+    "remainingToInternalPass": 505,
+    "completeSelectedCandidates": 227,
+    "completeSelectedPendingRepairOrReview": 84,
+    "missingCompleteSelectedCandidate": 421
+  },
+  "delta": {
+    "previousInternalPassed": 142,
+    "previousRemaining": 506,
+    "newlyConfirmedInternalPasses": 1,
+    "newlyCountedCompleteSelectedCandidates": 0,
+    "pendingCompleteCandidateChange": -1,
+    "newlyConfirmedTiles": [
+      {
+        "map": "主城",
+        "tile": "r07_c07",
+        "reason": "Newly corroborated existing full internal QA; not a newly generated formal tile this interval.",
+        "qaWrittenAtUtc": "2026-10-16T10:05:07.4050421Z",
+        "internalChecksPassed": 33,
+        "internalChecksTotal": 33,
+        "externalChecksNeedsRepair": 3,
+        "formalAccepted": false,
+        "candidate": {
+          "width": 4096,
+          "expected": "5a88af76e33ad9aa23f1f49b27b1e08b4537bfb24cdbf15a02d8bb29cc688080",
+          "actual": "5a88af76e33ad9aa23f1f49b27b1e08b4537bfb24cdbf15a02d8bb29cc688080",
+          "height": 4096,
+          "matches": true,
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\candidate\\native19-local-repairs-20261016-v1\\candidate.png"
+        }
+      }
+    ]
+  },
+  "changedMetadataReview": {
+    "sourceFilesCompared": 92,
+    "changedSourceFiles": 2,
+    "cityNorthwest": {
+      "scopeCountsInternallyPassed": 11,
+      "previousVerifiedInternalPassCount": 10,
+      "newlyConfirmedTile": "r07_c07",
+      "reopenedTileStillExcluded": "r05_c03",
+      "evidence": {
+        "checkpoint": {
+          "fullTileAllBoundaryAccepted": false,
+          "recordedAt": "2026-10-16",
+          "tile": "r07_c07",
+          "bestCandidate": {
+            "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/main-city-game-20261009/northwest/r07_c07/candidate/native19-local-repairs-20261016-v1/candidate.png",
+            "sha256": "5a88af76e33ad9aa23f1f49b27b1e08b4537bfb24cdbf15a02d8bb29cc688080",
+            "provenance": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/main-city-game-20261009/northwest/r07_c07/candidate/native19-local-repairs-20261016-v1/provenance.json",
+            "sourceIndex": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/main-city-game-20261009/northwest/r07_c07/candidate/native19-local-repairs-20261016-v1/source-index.png"
+          },
+          "coverageKeys": [
+            "selectedBaseCores",
+            "activeNativeSources",
+            "size",
+            "byteExactSourcePixels",
+            "allPixelsVerified",
+            "sourceResampled",
+            "sourceUpscaled",
+            "roiPixels"
+          ],
+          "status": "native_complete_internal_passed_north_external_repairs_deferred",
+          "qa": {
+            "manifest": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/main-city-game-20261009/northwest/r07_c07/qa/native19-local-repairs-20261016-v1/manifest.json",
+            "independentReview": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/main-city-game-20261009/northwest/r07_c07/independent-reviews/20261016/native19-local-review.json",
+            "independentReviewSha256": "ccbeda395f92ad0cd25639eca2b74c8ca94ef0d5461d6af423ea0f8c41c98a86",
+            "internal": {
+              "passed": 33,
+              "needsRepair": 0,
+              "total": 33
+            },
+            "northWestExternal": {
+              "passed": 11,
+              "needsRepair": 3,
+              "total": 14
+            },
+            "roiBoundaryCrops": {
+              "passed": 3,
+              "total": 3
+            },
+            "total": {
+              "passed": 44,
+              "needsRepair": 3,
+              "total": 47
+            },
+            "pending": [
+              "north_seg3",
+              "north_seg4",
+              "north_joint3072"
+            ],
+            "eastSouthExternal": "not reviewed against final adjacent candidates"
+          },
+          "formalAccepted": false
+        },
+        "review": {
+          "changedViewedCount": 12,
+          "manifest": {
+            "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\qa\\native19-local-repairs-20261016-v1\\manifest.json",
+            "sha256": "a01339963313188533d58effae1371efbb77ef578755e3eec7f1a401ad1c3a05"
+          },
+          "unchangedReusedCount": 35,
+          "formalAccepted": false,
+          "externalQAPassed": false,
+          "groupCounts": {
+            "internal": {
+              "passed": 33
+            },
+            "external": {
+              "passed": 11,
+              "needs_repair": 3
+            }
+          },
+          "candidate": {
+            "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\candidate\\native19-local-repairs-20261016-v1\\candidate.png",
+            "sha256": "5a88af76e33ad9aa23f1f49b27b1e08b4537bfb24cdbf15a02d8bb29cc688080"
+          },
+          "reviewer": "/root/independent_qa_20261016",
+          "fullTileInternalQAPassed": true,
+          "totalQA": 47,
+          "candidateHashVerified": true,
+          "counts": {
+            "passed": 44,
+            "needs_repair": 3
+          },
+          "roiBoundaryPassedCount": 3,
+          "roiBoundaryViewedCount": 3,
+          "createdAtUtc": "2026-10-16T06:05:07.401978-04:00",
+          "note": "Northern trial sources are not adopted. Remaining three failed north crops are inherited from the original selected source, including north_seg4 reopening."
+        },
+        "externalDeferred": {
+          "status": "deferred_local_north_transition",
+          "scope": "Targeted visual review of full native images and specific coping junction; not an 8-neighbor pass.",
+          "formalAccepted": false
+        }
+      }
+    },
+    "islandNortheast": {
+      "tile": "r06_c12",
+      "selectedCores": 15,
+      "missingCore": "p04_04",
+      "selectionIsPartialCandidate": true,
+      "formalAccepted": false,
+      "internalPassNewlyCounted": false
+    },
+    "note": "r08_c04 owner reports 38/40 checks; still pending and not added."
+  },
+  "newPassVerification": {
+    "candidate": {
+      "width": 4096,
+      "expected": "5a88af76e33ad9aa23f1f49b27b1e08b4537bfb24cdbf15a02d8bb29cc688080",
+      "actual": "5a88af76e33ad9aa23f1f49b27b1e08b4537bfb24cdbf15a02d8bb29cc688080",
+      "height": 4096,
+      "matches": true,
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\candidate\\native19-local-repairs-20261016-v1\\candidate.png"
+    },
+    "sourceHashes": [
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\native\\s01_01_native03.png",
+        "expected": "5c1a7508c83c1f32af4587c624fdb61d01cbd4df0afcf38057b8cba6041cc0ba",
+        "actual": "5c1a7508c83c1f32af4587c624fdb61d01cbd4df0afcf38057b8cba6041cc0ba",
+        "matches": true
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\native\\s01_02_native01.png",
+        "expected": "90be7815ea19b429439825ab8052f93ff0f6402434b728f92c99ba87bbf82be4",
+        "actual": "90be7815ea19b429439825ab8052f93ff0f6402434b728f92c99ba87bbf82be4",
+        "matches": true
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\native\\s01_03_native01.png",
+        "expected": "0447a8ff0e78b01544fe125686e0e0999318ebc5830555a164feecf9a06e2644",
+        "actual": "0447a8ff0e78b01544fe125686e0e0999318ebc5830555a164feecf9a06e2644",
+        "matches": true
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\native\\s01_04_native01.png",
+        "expected": "94414e2f2764ec6bd1e2dc680e6f3f99fe5ee42b87f4775025e50fdbcd31ff9a",
+        "actual": "94414e2f2764ec6bd1e2dc680e6f3f99fe5ee42b87f4775025e50fdbcd31ff9a",
+        "matches": true
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\native\\s02_01_native01.png",
+        "expected": "85d25eda825c65687bf33f52601270a4e01a571b7d6f75ddda1982ae84579246",
+        "actual": "85d25eda825c65687bf33f52601270a4e01a571b7d6f75ddda1982ae84579246",
+        "matches": true
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\native\\s02_02_native01.png",
+        "expected": "defc08c370469136c60cd9126aec27e6f80a12ee1492c8aaa78c0ecb207d53f0",
+        "actual": "defc08c370469136c60cd9126aec27e6f80a12ee1492c8aaa78c0ecb207d53f0",
+        "matches": true
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\native\\s02_03_native02.png",
+        "expected": "e9ab00ba79249a8c52b68cfe84c6474ca7430800d693552027318f79fa9a189c",
+        "actual": "e9ab00ba79249a8c52b68cfe84c6474ca7430800d693552027318f79fa9a189c",
+        "matches": true
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\native\\s02_04_native01.png",
+        "expected": "8f35e6f6564bc41dd38a3043c6a9e878ce995b53d1d098cdd76d9477b6ee9e23",
+        "actual": "8f35e6f6564bc41dd38a3043c6a9e878ce995b53d1d098cdd76d9477b6ee9e23",
+        "matches": true
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\native\\s03_01_native01.png",
+        "expected": "a124cfdf61fae8d8c433475d548c39f680f786aef08cf71f2b69a045b5aaa51f",
+        "actual": "a124cfdf61fae8d8c433475d548c39f680f786aef08cf71f2b69a045b5aaa51f",
+        "matches": true
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\native\\s03_02_fix01.png",
+        "expected": "593ede8f9e9f5c517abeab71c937cc831f32e977d593a5b3985a57e1818aeb80",
+        "actual": "593ede8f9e9f5c517abeab71c937cc831f32e977d593a5b3985a57e1818aeb80",
+        "matches": true
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\native\\s03_03_native02.png",
+        "expected": "d78b05f71c7969c152918507834f87cbbaa2ae62cf8af01b1e3b67e25917457a",
+        "actual": "d78b05f71c7969c152918507834f87cbbaa2ae62cf8af01b1e3b67e25917457a",
+        "matches": true
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\native\\s03_04_native01.png",
+        "expected": "163bcf8dd6f0d46f84c3d1c711db4f0c615121c80a7f742ce395d7db919cedf3",
+        "actual": "163bcf8dd6f0d46f84c3d1c711db4f0c615121c80a7f742ce395d7db919cedf3",
+        "matches": true
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\native\\s04_01_native01.png",
+        "expected": "f606e0284091833ae932ef20696dbb0cd82b46dd33eb868ef71b2bddfca8af0a",
+        "actual": "f606e0284091833ae932ef20696dbb0cd82b46dd33eb868ef71b2bddfca8af0a",
+        "matches": true
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\native\\s04_02_fix01.png",
+        "expected": "70195bfb7161c754bc032c92d4d7f02a1427082f02773184c1f3a86c8432071c",
+        "actual": "70195bfb7161c754bc032c92d4d7f02a1427082f02773184c1f3a86c8432071c",
+        "matches": true
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\native\\s04_03_native01.png",
+        "expected": "c0b5dffaceeddd35a3ae6d168209895f1ffab8332b938473c1fa53e0d52c7c97",
+        "actual": "c0b5dffaceeddd35a3ae6d168209895f1ffab8332b938473c1fa53e0d52c7c97",
+        "matches": true
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\native\\s04_04_native01.png",
+        "expected": "59571ec1074847581b09e35e5cd0a529357cf7895ccfae6ee501c8a6bc8ddceb",
+        "actual": "59571ec1074847581b09e35e5cd0a529357cf7895ccfae6ee501c8a6bc8ddceb",
+        "matches": true
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\repairs\\jamb3072_fix01\\native.png",
+        "expected": "3718082e03be75af8bc2d134ba5ec69796e01001c216807fcc3292bf3eb8f94f",
+        "actual": "3718082e03be75af8bc2d134ba5ec69796e01001c216807fcc3292bf3eb8f94f",
+        "matches": true
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\repairs\\jamb2048_fix01\\native.png",
+        "expected": "cb4fdcf27b5724c1cca0c58f2d438a6b64ad87ae18d0ddb37660921c3a1448d9",
+        "actual": "cb4fdcf27b5724c1cca0c58f2d438a6b64ad87ae18d0ddb37660921c3a1448d9",
+        "matches": true
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\repairs\\stone1024_fix01\\native.png",
+        "expected": "2cace91466c6721d498ab7175b21e22e137ac815edf688bf7acb1e37cc979f9f",
+        "actual": "2cace91466c6721d498ab7175b21e22e137ac815edf688bf7acb1e37cc979f9f",
+        "matches": true
+      }
+    ],
+    "sourceHashCount": 19,
+    "sourceMismatchCount": 0,
+    "evidenceMetadata": [
+      {
+        "map": "city",
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\local-resume-checkpoint-20261016-final.json",
+        "sha256": "10f00485583727932fb242693bfb931d2628a1099432fd69554d2f226df64fed",
+        "updatedAtUtc": "2026-10-16T10:21:28.0062964Z",
+        "newlyRegistered": true,
+        "changed": false
+      },
+      {
+        "map": "city",
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\independent-reviews\\20261016\\native19-local-review.json",
+        "sha256": "ccbeda395f92ad0cd25639eca2b74c8ca94ef0d5461d6af423ea0f8c41c98a86",
+        "updatedAtUtc": "2026-10-16T10:05:07.4050421Z",
+        "newlyRegistered": true,
+        "changed": false
+      },
+      {
+        "map": "city",
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\candidate\\native19-local-repairs-20261016-v1\\provenance.json",
+        "sha256": "04e2fbb6b526232826da82016b02a11f946188186b011edb7691705d97cb3b12",
+        "updatedAtUtc": "2026-10-16T06:26:27.0894250Z",
+        "newlyRegistered": true,
+        "changed": false
+      },
+      {
+        "map": "city",
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\qa\\native19-local-repairs-20261016-v1\\manifest.json",
+        "sha256": "a01339963313188533d58effae1371efbb77ef578755e3eec7f1a401ad1c3a05",
+        "updatedAtUtc": "2026-10-16T06:26:35.2500371Z",
+        "newlyRegistered": true,
+        "changed": false
+      }
+    ],
+    "recentNativeFiles": [
+      {
+        "worker": "city_more_20261016",
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261016\\city_more_20261016\\r12_c16\\native\\p03_01-v20261016T102456408245Z.png",
+        "savedAtUtc": "2026-10-16T11:00:19.7313792Z"
+      },
+      {
+        "worker": "village_more_20261016",
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261016\\village_more_20261016\\r09_c02\\native\\p13-v1.png",
+        "savedAtUtc": "2026-10-16T10:04:43.2075596Z"
+      },
+      {
+        "worker": "island_more_20261016",
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261016\\island_more_20261016\\native\\r05_c01_s01_03_a01.png",
+        "savedAtUtc": "2026-10-16T10:13:36.0368376Z"
+      }
+    ]
+  },
+  "workerStatesBeforeRecovery": [
+    {
+      "id": "01a1216d-3f65-7331-939e-0ea73b19f3bf",
+      "status": "inProgress",
+      "error": null,
+      "message": "岸线图块已完成 7/16，海岸弧线已延伸到第二排。接下来补齐这一排，再推进下半部海水和礁石。",
+      "tool": {
+        "id": "exec-a303168e-6b9a-4d1f-aec6-b50010546709",
+        "turnId": "01a142e1-82e9-7ab2-ad14-81c5fca63194",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "6f6b21e6-976c-4e46-9e1b-767c4487b71d:15",
+      "turnId": "01a142e1-82e9-7ab2-ad14-81c5fca63194"
+    },
+    {
+      "id": "01a12075-f5cf-7c30-9edc-ceb79ed8cfbd",
+      "status": "inProgress",
+      "error": null,
+      "message": "r07_c07 的 4096 成图已保存，内部 33 项接缝全部通过；与北邻拼接仍有 3 项待修。r08_c04 已到 38/40 通过，接下来集中处理最后两处。",
+      "tool": {
+        "id": "exec-cc78f55c-ce3f-4cef-94e4-fe264787002c",
+        "turnId": "01a142e1-5a4f-7210-9d8b-e70b32e3e4df",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "8edd2914-68e6-46a5-8c9d-350740626ffe:10",
+      "turnId": "01a142e1-5a4f-7210-9d8b-e70b32e3e4df"
+    },
+    {
+      "id": "01a1338b-be72-7411-ab4e-834155818bfb",
+      "status": "inProgress",
+      "error": null,
+      "message": "上部金檐两次返修仍未消除错位，我已保留最佳原图和问题位置，不把它标为通过。屋瓦色带已修好，石材笔触正在处理；之后我会接手上方尚缺的图块，让并行制作继续推进。",
+      "tool": {
+        "id": "exec-75e4dca5-733a-4052-8bca-8dc3d9fb1e53",
+        "turnId": "01a142e1-3666-7281-bdfc-855584c7b556",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "e41183b4-5177-437c-96fc-3dda22b67628:13",
+      "turnId": "01a142e1-3666-7281-bdfc-855584c7b556"
+    },
+    {
+      "id": "01a1338b-b20b-7ad2-861f-3b771a61e085",
+      "status": "inProgress",
+      "error": null,
+      "message": "我先核对这几天已落盘的结果，优先收尾接近完成的整块和少量接缝问题。每块保存为独立 4096 图后就提供路径，已通过的原生片继续复用。",
+      "tool": {
+        "id": "exec-66e6647b-3ef9-4352-b995-cc91a6caef06",
+        "turnId": "01a142e1-1ecd-7862-af38-f5992fbb4bd9",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "d90922d9-8be4-48b8-b7ab-4b7be6b149c4:4",
+      "turnId": "01a142e1-1ecd-7862-af38-f5992fbb4bd9"
+    },
+    {
+      "id": "01a1338b-a299-7163-93e7-055f91a79dde",
+      "status": "inProgress",
+      "error": null,
+      "message": "第二张也已拼齐 16/16，正在做整块接缝检查。 我把左下一处椭圆盖片误判成了水桶，已拦下该版本，正在改回原布局；这版还不会用于相邻片。",
+      "tool": {
+        "id": "exec-b61421e5-7b52-4c30-b2c1-fafbdae3a4e4",
+        "turnId": "01a142e0-feaa-77b0-9606-6afc5b297c4e",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "8dc81fe6-cc80-4d87-9600-4b7ae3b631e0:9",
+      "turnId": "01a142e0-feaa-77b0-9606-6afc5b297c4e"
+    },
+    {
+      "id": "01a1338b-8e38-7080-b600-1e3781939ec2",
+      "status": "inProgress",
+      "error": null,
+      "message": "r13_c06 上半部的独立复查已完成：核心区域未发现明确残留断纹，顶部留边有一处小切线待外邻检查。现在继续核查中部，同时完成下排右侧修补。",
+      "tool": {
+        "id": "exec-d7f162a8-c288-40fb-b66f-638f635bff1f",
+        "turnId": "01a142e0-e5a3-7c50-861f-01f511f8520d",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "28206eb3-752c-49a9-be78-a630e59f73f0:15",
+      "turnId": "01a142e0-e5a3-7c50-861f-01f511f8520d"
+    },
+    {
+      "id": "01a1338b-807e-7e72-9d6d-adc2ca02b507",
+      "status": "inProgress",
+      "error": null,
+      "message": "中间金色柱脚的横向断口已在新试稿中接顺，正在核对合成边界。右侧栏杆两次返修把南边错位从约 60 像素减到约 30 像素，仍未通过；该路会保留较好版本，继续修未处理的屋瓦接缝。",
+      "tool": {
+        "id": "exec-35d8458e-e7b4-4638-9c27-3f4042e9d177",
+        "turnId": "01a142e0-c93d-7a90-8278-6ebf549280ff",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "e3778eea-0a4c-42f2-8577-ac8a672e1a1f:13",
+      "turnId": "01a142e0-c93d-7a90-8278-6ebf549280ff"
+    },
+    {
+      "id": "01a1338b-73d0-75c1-aa57-8059e93e85a1",
+      "status": "inProgress",
+      "error": null,
+      "message": "整块对照确认，墙面的问题涉及结构：原布局中的墙基和屋顶后方地面被画成了连续砖墙。我已把这些区域转入结构返修，先恢复层次，再修小接缝；所有旧原图和检查记录继续保留。",
+      "tool": {
+        "id": "exec-2da39171-4a83-4acc-9f14-63c79f1a5ac5",
+        "turnId": "01a142e0-a96e-72b2-bd97-2f0e95baf61b",
+        "type": "imageGeneration",
+        "name": "imageGeneration",
+        "status": "completed"
+      },
+      "cursor": "4e8450d5-354a-48c2-9840-e9c4cfda6f39:14",
+      "turnId": "01a142e0-a96e-72b2-bd97-2f0e95baf61b"
+    },
+    {
+      "id": "01a13388-5194-7671-a0cf-00bfb9015b85",
+      "status": "inProgress",
+      "error": null,
+      "message": null,
+      "tool": null,
+      "cursor": "3d6068c0-13a5-4735-941c-81dd8ad9caee:4",
+      "turnId": "01a1441a-e4d8-7742-a5c0-62d01a268b3b"
+    },
+    {
+      "id": "01a1216d-8b5f-7823-bf97-16e5128906cc",
+      "status": "inProgress",
+      "error": null,
+      "message": "又补齐了一张实际 4096×4096 图：r14_c13 海面块。16 张原生核心已齐，检查发现三处局部水纹接续问题，正在修补，暂未计为通过。 花园块 r08_c13 也已补到 12/16，继续收尾中间四片。",
+      "tool": {
+        "id": "exec-dec25ae4-0a44-479b-8855-3b8f38cd8f7b",
+        "turnId": "01a142e0-8a19-76c0-9647-6d1e8e0125de",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "2a39fa83-394b-4c7e-b6a3-81fcfa7f528e:11",
+      "turnId": "01a142e0-8a19-76c0-9647-6d1e8e0125de"
+    },
+    {
+      "id": "01a1216d-7a71-7041-94fe-b1b1e755e36d",
+      "status": "failed",
+      "error": {
+        "message": "unexpected status 408 Request Timeout: {\"detail\":\"Request body read timed out\"}, url: https://chatgpt.com/backend-api/codex/responses, cf-ray: a4b674069f2b8ccc-EWR, request id: 346d4105-e079-410d-9e2f-f641bcab9626"
+      },
+      "message": null,
+      "tool": null,
+      "cursor": "8e5c92e1-dae0-40ee-abfc-bea2976ad346:6",
+      "turnId": "01a14408-7d75-7f90-8ac9-c547cfb316dd"
+    },
+    {
+      "id": "01a1216d-6907-7641-b5b1-a9c29f365c4c",
+      "status": "inProgress",
+      "error": null,
+      "message": "灯笼和流苏的身份已修正，正在同步修正旁边受影响的石台和立柱关系。原先的石板接缝问题仍单独保留为待修，不会因为布局修正就标为通过。",
+      "tool": {
+        "id": "exec-e9519c84-bc5b-4baa-a0b8-8ca9ffd1ae22",
+        "turnId": "01a142e0-6312-7ee2-848e-f52133c5f340",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "566d2022-6649-4ae2-9dc3-b92ab40aa8a3:7",
+      "turnId": "01a142e0-6312-7ee2-848e-f52133c5f340"
+    },
+    {
+      "id": "01a12075-ff24-76d0-ac68-97861111ddb0",
+      "status": "inProgress",
+      "error": null,
+      "message": "两张新片的垛口已修正，南边接缝也已核对。当前这块已选用 4/16 原生核心，我继续补城墙部分。",
+      "tool": {
+        "id": "exec-c1abdf1f-aad6-40d7-821d-75ab8a46550c",
+        "turnId": "01a142e0-3f98-79b1-a782-30d86b4d9da5",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "5f6a9951-111d-45a3-8589-537a4a5141be:10",
+      "turnId": "01a142e0-3f98-79b1-a782-30d86b4d9da5"
+    },
+    {
+      "id": "01a12076-0b9d-76b2-949d-c4cf520a83be",
+      "status": "inProgress",
+      "error": null,
+      "message": "源片已补回上方嵌线，但第一次修补的斜线角度还有偏差，正在做一次局部校正。下方蓝灰带和金色建筑构件都保留原位。",
+      "tool": {
+        "id": "exec-9d3240c9-d713-4608-9166-a9a283b35e33",
+        "turnId": "01a142e0-1fd1-75b3-8f54-d8e6aa11ffc8",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "a7c15084-42ae-45e8-82f5-cacb0f765b0c:12",
+      "turnId": "01a142e0-1fd1-75b3-8f54-d8e6aa11ffc8"
+    },
+    {
+      "id": "01a1216d-5a60-7332-b4ee-8acad0d64dba",
+      "status": "inProgress",
+      "error": null,
+      "message": "海岸图块的 16 张原生片已补齐，开始合成 4096 成图并检查接缝。西侧道路图块也已补齐，只剩一处灌木截口在修；另一组石板中发现的三处断缝仍标为待修，没有算作通过。",
+      "tool": {
+        "id": "exec-a7ea7504-50cb-4edc-85b8-adb82079f0cc",
+        "turnId": "01a142df-0386-7ee3-8e48-c95962a15412",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "3cbfca4c-f6e8-4be9-bb6c-4d6a37e8fb0e:9",
+      "turnId": "01a142df-0386-7ee3-8e48-c95962a15412"
+    },
+    {
+      "id": "01a1216d-4a55-7063-ba13-5ddf6d9106f7",
+      "status": "inProgress",
+      "error": null,
+      "message": null,
+      "tool": {
+        "id": "exec-78722472-ff3c-4db9-b9bb-f5dd17e349e8",
+        "turnId": "01a1443e-8db2-76f2-9de9-92892fbc10fc",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "7662d37f-fa2d-472d-897f-a8a8e83583a0:5",
+      "turnId": "01a1443e-8db2-76f2-9de9-92892fbc10fc"
+    },
+    {
+      "id": "01a1216d-31f1-7d92-879a-4d63c0e554c3",
+      "status": "inProgress",
+      "error": null,
+      "message": "两个并行图块分别推进到 14/16 和 12/16，正在优先补齐。最后一片屋脊已使用四侧现有原图作为约束提交，返回后立即检查并组装候选。",
+      "tool": {
+        "id": "exec-08348b3b-7bd0-4ce5-bce3-53607586ca6a",
+        "turnId": "01a142df-b296-7812-9b75-241b96728493",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "ab0e1118-db54-4ba6-b99d-5e26bc669711:6",
+      "turnId": "01a142df-b296-7812-9b75-241b96728493"
+    },
+    {
+      "id": "01a1216d-24cd-7b61-8274-37c62f38654e",
+      "status": "inProgress",
+      "error": null,
+      "message": "正在处理上方屋脊的局部连接，保持两侧原有位置，避免再把错位推到右边界。子工恢复请求返回了 408 超时；本窗口生图仍正常，制作继续。",
+      "tool": {
+        "id": "exec-9c556a75-0f87-45d0-86eb-14e5ad31af77",
+        "turnId": "01a142df-6773-74d3-adfb-8afe3261a9a6",
+        "type": "imageGeneration",
+        "name": "imageGeneration",
+        "status": "completed"
+      },
+      "cursor": "ee40fd0b-c9f5-4d38-9053-5ada18059bc1:12",
+      "turnId": "01a142df-6773-74d3-adfb-8afe3261a9a6"
+    },
+    {
+      "id": "01a12076-19f9-7f00-8135-01e1b5fb7007",
+      "status": "inProgress",
+      "error": null,
+      "message": "本批 4 块现在都有实际的 4096 文件。最后在合并已通过的修补并核对文件哈希；右下角仍有两处石沿未修到通过，我会在交付清单中明确标注，不把它们算作验收完成。",
+      "tool": {
+        "id": "exec-aadf3bcf-a0a1-4bb8-a761-b4e4bfbba63e",
+        "turnId": "01a142df-8f32-7010-85f4-d30dec9790b6",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "e15a1ff7-1e17-49a2-aeef-57750e3a3398:13",
+      "turnId": "01a142df-8f32-7010-85f4-d30dec9790b6"
+    },
+    {
+      "id": "01a14368-65c7-7691-bdea-f18c23911119",
+      "status": "inProgress",
+      "error": null,
+      "message": "左块已保存 11/16，当前在补上层圆灯笼；右块底排 4/4 已齐，开始向上续画。返回图均已核对为 1254×1254，未做缩放。",
+      "tool": {
+        "id": "exec-42d6b5f2-c36d-4bf1-8ee3-46f414974b68",
+        "turnId": "01a1436b-5fa8-7a41-ad1e-f736d0424e9d",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "ffe857d9-e6db-4a7c-81f7-93fa30a57229:26",
+      "turnId": "01a1436b-5fa8-7a41-ad1e-f736d0424e9d"
+    },
+    {
+      "id": "01a14368-70c0-7961-9e15-b74635759bff",
+      "status": "inProgress",
+      "error": null,
+      "message": "两块的东侧一列均已补齐，共选用 8/32 个原生位置。新片中发现花圃侧板多出一根近邻立柱，正在局部去除；同时推进不受它影响的房屋窗墙片。",
+      "tool": {
+        "id": "exec-545adc06-a113-4e09-aeb9-d0c6f0b28136",
+        "turnId": "01a1436d-582a-7ac0-a620-19f454598b17",
+        "type": "imageGeneration",
+        "name": "imageGeneration",
+        "status": "completed"
+      },
+      "cursor": "8ca9966e-9bf1-492a-a74f-825a9b81b2dc:24",
+      "turnId": "01a1436d-582a-7ac0-a620-19f454598b17"
+    },
+    {
+      "id": "01a14368-8778-7cc3-94dc-e9829ea9337c",
+      "status": "inProgress",
+      "error": null,
+      "message": "这批四张已提交。第一块两处缺片继续沿海岸与花丛补齐，第二块开始接原有院墙转角；墙高、压顶角度和石路方向都以实际邻边为准。",
+      "tool": {
+        "id": "exec-4c2e02e0-4dd7-4a35-ad86-a29026b65c33",
+        "turnId": "01a1436d-e998-7461-85e2-4a051c6787cd",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "ebceed21-a387-493f-8ef5-4d863c25c8f4:25",
+      "turnId": "01a1436d-e998-7461-85e2-4a051c6787cd"
+    }
+  ],
+  "workerStates": [
+    {
+      "id": "01a1216d-3f65-7331-939e-0ea73b19f3bf",
+      "status": "inProgress",
+      "error": null,
+      "message": "岸线图块已完成 7/16，海岸弧线已延伸到第二排。接下来补齐这一排，再推进下半部海水和礁石。",
+      "tool": {
+        "id": "exec-a303168e-6b9a-4d1f-aec6-b50010546709",
+        "turnId": "01a142e1-82e9-7ab2-ad14-81c5fca63194",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "6f6b21e6-976c-4e46-9e1b-767c4487b71d:15",
+      "turnId": "01a142e1-82e9-7ab2-ad14-81c5fca63194"
+    },
+    {
+      "id": "01a12075-f5cf-7c30-9edc-ceb79ed8cfbd",
+      "status": "inProgress",
+      "error": null,
+      "message": "r07_c07 的 4096 成图已保存，内部 33 项接缝全部通过；与北邻拼接仍有 3 项待修。r08_c04 已到 38/40 通过，接下来集中处理最后两处。",
+      "tool": {
+        "id": "exec-cc78f55c-ce3f-4cef-94e4-fe264787002c",
+        "turnId": "01a142e1-5a4f-7210-9d8b-e70b32e3e4df",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "8edd2914-68e6-46a5-8c9d-350740626ffe:10",
+      "turnId": "01a142e1-5a4f-7210-9d8b-e70b32e3e4df"
+    },
+    {
+      "id": "01a1338b-be72-7411-ab4e-834155818bfb",
+      "status": "inProgress",
+      "error": null,
+      "message": "上部金檐两次返修仍未消除错位，我已保留最佳原图和问题位置，不把它标为通过。屋瓦色带已修好，石材笔触正在处理；之后我会接手上方尚缺的图块，让并行制作继续推进。",
+      "tool": {
+        "id": "exec-75e4dca5-733a-4052-8bca-8dc3d9fb1e53",
+        "turnId": "01a142e1-3666-7281-bdfc-855584c7b556",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "e41183b4-5177-437c-96fc-3dda22b67628:13",
+      "turnId": "01a142e1-3666-7281-bdfc-855584c7b556"
+    },
+    {
+      "id": "01a1338b-b20b-7ad2-861f-3b771a61e085",
+      "status": "inProgress",
+      "error": null,
+      "message": "我先核对这几天已落盘的结果，优先收尾接近完成的整块和少量接缝问题。每块保存为独立 4096 图后就提供路径，已通过的原生片继续复用。",
+      "tool": {
+        "id": "exec-66e6647b-3ef9-4352-b995-cc91a6caef06",
+        "turnId": "01a142e1-1ecd-7862-af38-f5992fbb4bd9",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "d90922d9-8be4-48b8-b7ab-4b7be6b149c4:4",
+      "turnId": "01a142e1-1ecd-7862-af38-f5992fbb4bd9"
+    },
+    {
+      "id": "01a1338b-a299-7163-93e7-055f91a79dde",
+      "status": "inProgress",
+      "error": null,
+      "message": "第二张也已拼齐 16/16，正在做整块接缝检查。 我把左下一处椭圆盖片误判成了水桶，已拦下该版本，正在改回原布局；这版还不会用于相邻片。",
+      "tool": {
+        "id": "exec-b61421e5-7b52-4c30-b2c1-fafbdae3a4e4",
+        "turnId": "01a142e0-feaa-77b0-9606-6afc5b297c4e",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "8dc81fe6-cc80-4d87-9600-4b7ae3b631e0:9",
+      "turnId": "01a142e0-feaa-77b0-9606-6afc5b297c4e"
+    },
+    {
+      "id": "01a1338b-8e38-7080-b600-1e3781939ec2",
+      "status": "inProgress",
+      "error": null,
+      "message": "r13_c06 上半部的独立复查已完成：核心区域未发现明确残留断纹，顶部留边有一处小切线待外邻检查。现在继续核查中部，同时完成下排右侧修补。",
+      "tool": {
+        "id": "exec-d7f162a8-c288-40fb-b66f-638f635bff1f",
+        "turnId": "01a142e0-e5a3-7c50-861f-01f511f8520d",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "28206eb3-752c-49a9-be78-a630e59f73f0:15",
+      "turnId": "01a142e0-e5a3-7c50-861f-01f511f8520d"
+    },
+    {
+      "id": "01a1338b-807e-7e72-9d6d-adc2ca02b507",
+      "status": "inProgress",
+      "error": null,
+      "message": "中间金色柱脚的横向断口已在新试稿中接顺，正在核对合成边界。右侧栏杆两次返修把南边错位从约 60 像素减到约 30 像素，仍未通过；该路会保留较好版本，继续修未处理的屋瓦接缝。",
+      "tool": {
+        "id": "exec-35d8458e-e7b4-4638-9c27-3f4042e9d177",
+        "turnId": "01a142e0-c93d-7a90-8278-6ebf549280ff",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "e3778eea-0a4c-42f2-8577-ac8a672e1a1f:13",
+      "turnId": "01a142e0-c93d-7a90-8278-6ebf549280ff"
+    },
+    {
+      "id": "01a1338b-73d0-75c1-aa57-8059e93e85a1",
+      "status": "inProgress",
+      "error": null,
+      "message": "整块对照确认，墙面的问题涉及结构：原布局中的墙基和屋顶后方地面被画成了连续砖墙。我已把这些区域转入结构返修，先恢复层次，再修小接缝；所有旧原图和检查记录继续保留。",
+      "tool": {
+        "id": "exec-2da39171-4a83-4acc-9f14-63c79f1a5ac5",
+        "turnId": "01a142e0-a96e-72b2-bd97-2f0e95baf61b",
+        "type": "imageGeneration",
+        "name": "imageGeneration",
+        "status": "completed"
+      },
+      "cursor": "4e8450d5-354a-48c2-9840-e9c4cfda6f39:14",
+      "turnId": "01a142e0-a96e-72b2-bd97-2f0e95baf61b"
+    },
+    {
+      "id": "01a13388-5194-7671-a0cf-00bfb9015b85",
+      "status": "inProgress",
+      "error": null,
+      "message": null,
+      "tool": null,
+      "cursor": "3d6068c0-13a5-4735-941c-81dd8ad9caee:4",
+      "turnId": "01a1441a-e4d8-7742-a5c0-62d01a268b3b"
+    },
+    {
+      "id": "01a1216d-8b5f-7823-bf97-16e5128906cc",
+      "status": "inProgress",
+      "error": null,
+      "message": "又补齐了一张实际 4096×4096 图：r14_c13 海面块。16 张原生核心已齐，检查发现三处局部水纹接续问题，正在修补，暂未计为通过。 花园块 r08_c13 也已补到 12/16，继续收尾中间四片。",
+      "tool": {
+        "id": "exec-dec25ae4-0a44-479b-8855-3b8f38cd8f7b",
+        "turnId": "01a142e0-8a19-76c0-9647-6d1e8e0125de",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "2a39fa83-394b-4c7e-b6a3-81fcfa7f528e:11",
+      "turnId": "01a142e0-8a19-76c0-9647-6d1e8e0125de"
+    },
+    {
+      "id": "01a1216d-7a71-7041-94fe-b1b1e755e36d",
+      "status": "inProgress",
+      "error": null,
+      "cursor": "8e5c92e1-dae0-40ee-abfc-bea2976ad346:7",
+      "turnId": "01a14463-340a-7472-9b8d-8dd632778dd2",
+      "message": null,
+      "tool": null,
+      "recoveredThisRun": true
+    },
+    {
+      "id": "01a1216d-6907-7641-b5b1-a9c29f365c4c",
+      "status": "inProgress",
+      "error": null,
+      "message": "灯笼和流苏的身份已修正，正在同步修正旁边受影响的石台和立柱关系。原先的石板接缝问题仍单独保留为待修，不会因为布局修正就标为通过。",
+      "tool": {
+        "id": "exec-e9519c84-bc5b-4baa-a0b8-8ca9ffd1ae22",
+        "turnId": "01a142e0-6312-7ee2-848e-f52133c5f340",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "566d2022-6649-4ae2-9dc3-b92ab40aa8a3:7",
+      "turnId": "01a142e0-6312-7ee2-848e-f52133c5f340"
+    },
+    {
+      "id": "01a12075-ff24-76d0-ac68-97861111ddb0",
+      "status": "inProgress",
+      "error": null,
+      "message": "两张新片的垛口已修正，南边接缝也已核对。当前这块已选用 4/16 原生核心，我继续补城墙部分。",
+      "tool": {
+        "id": "exec-c1abdf1f-aad6-40d7-821d-75ab8a46550c",
+        "turnId": "01a142e0-3f98-79b1-a782-30d86b4d9da5",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "5f6a9951-111d-45a3-8589-537a4a5141be:10",
+      "turnId": "01a142e0-3f98-79b1-a782-30d86b4d9da5"
+    },
+    {
+      "id": "01a12076-0b9d-76b2-949d-c4cf520a83be",
+      "status": "inProgress",
+      "error": null,
+      "message": "源片已补回上方嵌线，但第一次修补的斜线角度还有偏差，正在做一次局部校正。下方蓝灰带和金色建筑构件都保留原位。",
+      "tool": {
+        "id": "exec-9d3240c9-d713-4608-9166-a9a283b35e33",
+        "turnId": "01a142e0-1fd1-75b3-8f54-d8e6aa11ffc8",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "a7c15084-42ae-45e8-82f5-cacb0f765b0c:12",
+      "turnId": "01a142e0-1fd1-75b3-8f54-d8e6aa11ffc8"
+    },
+    {
+      "id": "01a1216d-5a60-7332-b4ee-8acad0d64dba",
+      "status": "inProgress",
+      "error": null,
+      "message": "海岸图块的 16 张原生片已补齐，开始合成 4096 成图并检查接缝。西侧道路图块也已补齐，只剩一处灌木截口在修；另一组石板中发现的三处断缝仍标为待修，没有算作通过。",
+      "tool": {
+        "id": "exec-a7ea7504-50cb-4edc-85b8-adb82079f0cc",
+        "turnId": "01a142df-0386-7ee3-8e48-c95962a15412",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "3cbfca4c-f6e8-4be9-bb6c-4d6a37e8fb0e:9",
+      "turnId": "01a142df-0386-7ee3-8e48-c95962a15412"
+    },
+    {
+      "id": "01a1216d-4a55-7063-ba13-5ddf6d9106f7",
+      "status": "inProgress",
+      "error": null,
+      "message": null,
+      "tool": {
+        "id": "exec-78722472-ff3c-4db9-b9bb-f5dd17e349e8",
+        "turnId": "01a1443e-8db2-76f2-9de9-92892fbc10fc",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "7662d37f-fa2d-472d-897f-a8a8e83583a0:5",
+      "turnId": "01a1443e-8db2-76f2-9de9-92892fbc10fc"
+    },
+    {
+      "id": "01a1216d-31f1-7d92-879a-4d63c0e554c3",
+      "status": "inProgress",
+      "error": null,
+      "message": "两个并行图块分别推进到 14/16 和 12/16，正在优先补齐。最后一片屋脊已使用四侧现有原图作为约束提交，返回后立即检查并组装候选。",
+      "tool": {
+        "id": "exec-08348b3b-7bd0-4ce5-bce3-53607586ca6a",
+        "turnId": "01a142df-b296-7812-9b75-241b96728493",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "ab0e1118-db54-4ba6-b99d-5e26bc669711:6",
+      "turnId": "01a142df-b296-7812-9b75-241b96728493"
+    },
+    {
+      "id": "01a1216d-24cd-7b61-8274-37c62f38654e",
+      "status": "inProgress",
+      "error": null,
+      "message": "正在处理上方屋脊的局部连接，保持两侧原有位置，避免再把错位推到右边界。子工恢复请求返回了 408 超时；本窗口生图仍正常，制作继续。",
+      "tool": {
+        "id": "exec-9c556a75-0f87-45d0-86eb-14e5ad31af77",
+        "turnId": "01a142df-6773-74d3-adfb-8afe3261a9a6",
+        "type": "imageGeneration",
+        "name": "imageGeneration",
+        "status": "completed"
+      },
+      "cursor": "ee40fd0b-c9f5-4d38-9053-5ada18059bc1:12",
+      "turnId": "01a142df-6773-74d3-adfb-8afe3261a9a6"
+    },
+    {
+      "id": "01a12076-19f9-7f00-8135-01e1b5fb7007",
+      "status": "inProgress",
+      "error": null,
+      "message": "本批 4 块现在都有实际的 4096 文件。最后在合并已通过的修补并核对文件哈希；右下角仍有两处石沿未修到通过，我会在交付清单中明确标注，不把它们算作验收完成。",
+      "tool": {
+        "id": "exec-aadf3bcf-a0a1-4bb8-a761-b4e4bfbba63e",
+        "turnId": "01a142df-8f32-7010-85f4-d30dec9790b6",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "e15a1ff7-1e17-49a2-aeef-57750e3a3398:13",
+      "turnId": "01a142df-8f32-7010-85f4-d30dec9790b6"
+    },
+    {
+      "id": "01a14368-65c7-7691-bdea-f18c23911119",
+      "status": "inProgress",
+      "error": null,
+      "message": "左块已保存 11/16，当前在补上层圆灯笼；右块底排 4/4 已齐，开始向上续画。返回图均已核对为 1254×1254，未做缩放。",
+      "tool": {
+        "id": "exec-42d6b5f2-c36d-4bf1-8ee3-46f414974b68",
+        "turnId": "01a1436b-5fa8-7a41-ad1e-f736d0424e9d",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "ffe857d9-e6db-4a7c-81f7-93fa30a57229:26",
+      "turnId": "01a1436b-5fa8-7a41-ad1e-f736d0424e9d"
+    },
+    {
+      "id": "01a14368-70c0-7961-9e15-b74635759bff",
+      "status": "inProgress",
+      "error": null,
+      "message": "两块的东侧一列均已补齐，共选用 8/32 个原生位置。新片中发现花圃侧板多出一根近邻立柱，正在局部去除；同时推进不受它影响的房屋窗墙片。",
+      "tool": {
+        "id": "exec-545adc06-a113-4e09-aeb9-d0c6f0b28136",
+        "turnId": "01a1436d-582a-7ac0-a620-19f454598b17",
+        "type": "imageGeneration",
+        "name": "imageGeneration",
+        "status": "completed"
+      },
+      "cursor": "8ca9966e-9bf1-492a-a74f-825a9b81b2dc:24",
+      "turnId": "01a1436d-582a-7ac0-a620-19f454598b17"
+    },
+    {
+      "id": "01a14368-8778-7cc3-94dc-e9829ea9337c",
+      "status": "inProgress",
+      "error": null,
+      "message": "这批四张已提交。第一块两处缺片继续沿海岸与花丛补齐，第二块开始接原有院墙转角；墙高、压顶角度和石路方向都以实际邻边为准。",
+      "tool": {
+        "id": "exec-4c2e02e0-4dd7-4a35-ad86-a29026b65c33",
+        "turnId": "01a1436d-e998-7461-85e2-4a051c6787cd",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      },
+      "cursor": "ebceed21-a387-493f-8ef5-4d863c25c8f4:25",
+      "turnId": "01a1436d-e998-7461-85e2-4a051c6787cd"
+    }
+  ],
+  "internalAgents": [
+    {
+      "name": "/root/city_extra",
+      "status": "running"
+    },
+    {
+      "name": "/root/village_extra",
+      "status": "running"
+    },
+    {
+      "name": "/root/island_extra",
+      "status": "running"
+    }
+  ],
+  "sourceMetadata": [
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\progress.json",
+      "sha256": "dc2f13fc64e14b78a74047a87707289434510bcb72b31e7496869a4e19d45af8",
+      "updatedAtUtc": "2026-10-16T10:59:58.6524994Z",
+      "changed": true
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c03\\current-fullqa-checkpoint-20261013.json",
+      "sha256": "4d3e62a62c588d309e9bf459ccf3584158b9c2931166cccc2e3d7c637ca4a01d",
+      "updatedAtUtc": "2026-10-14T03:33:50.1805451Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\local-resume-checkpoint-20261016-native16.json",
+      "sha256": "a96426d92153f41b690d191c2c050307d737db51c09cb68908a00ff191a44fd6",
+      "updatedAtUtc": "2026-10-16T04:43:28.8834776Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r08_c04\\candidate\\native-21-source-incremental-20261016T051437643050Z-4c25acc467787266\\assembly.json",
+      "sha256": "219de8408ca919817fadafd82460dda94347a1b9ccc93e623513e3473fe265de",
+      "updatedAtUtc": "2026-10-16T05:14:41.5338700Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northeast\\current-adopted-index-20261012.json",
+      "sha256": "811e45d119f84cc65f1f5e9688411bca8d5ba0050a099c855b027efc69f09b76",
+      "updatedAtUtc": "2026-10-16T05:42:51.3155519Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southwest\\current-candidates.json",
+      "sha256": "a55dd63651b686dcd2cc76c3882abce3b227248aa0f54293ba23a001bc093479",
+      "updatedAtUtc": "2026-10-16T09:32:00.1224393Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\production-resume-20261012.json",
+      "sha256": "a28607a09270004e6d99802b344537a110b420ad220df44d51c48c648c185244",
+      "updatedAtUtc": "2026-10-16T04:27:57.5166248Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r13_c14\\progress.json",
+      "sha256": "c54aa0676cf97ec3e726e0213e7173c5fb234bb525ad95514912f9f415ba9c1c",
+      "updatedAtUtc": "2026-10-11T10:31:36.5787072Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r13_c15\\progress.json",
+      "sha256": "c632033d47239ddf46bf559641a413b1153e4357d65b875a721e7361b77b1b19",
+      "updatedAtUtc": "2026-10-12T12:42:56.4961578Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r13_c16\\progress.json",
+      "sha256": "4f3ffe4e73eda926dc8439801978881f3f03166db7e17216c03addac71b0c280",
+      "updatedAtUtc": "2026-10-13T04:18:37.0037903Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r14_c13\\progress.json",
+      "sha256": "cbc4f47a6e5ad614566ef32d114a59b3d1844c7560eaed64696c91cb26d7041d",
+      "updatedAtUtc": "2026-10-11T08:06:15.9214732Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r14_c14\\progress.json",
+      "sha256": "61b89dc49db74c373c626bb91c2384efbba261d5385e94be8340203afa787b4b",
+      "updatedAtUtc": "2026-10-13T04:18:32.6171427Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r14_c15\\progress.json",
+      "sha256": "b778642d592418a27da627d1c299c8f8b4ec34a652674fd7434ff9b6dd980eda",
+      "updatedAtUtc": "2026-10-14T00:07:34.8490649Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c13\\progress.json",
+      "sha256": "091f990fed3cac61c664e8cf18d73c584353f3e38a510e2b64af985d71b80869",
+      "updatedAtUtc": "2026-10-12T20:19:18.0191513Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c14\\progress.json",
+      "sha256": "4a57a4b5a667f6e8fc86cae7d3130cf8791dccc8081d4c3cde98e8e479401241",
+      "updatedAtUtc": "2026-10-13T10:10:15.7519274Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c13\\progress.json",
+      "sha256": "c592d4e2749c56ada92b3634cff4e0d02567c862043ba95a77f5f6b4e149c585",
+      "updatedAtUtc": "2026-10-13T05:44:48.7986338Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\accelerated-yamen-north\\progress.json",
+      "sha256": "2b57837a9615c7c93cd127f43d1869b98773001f2d6aedb3278ad3b6081886ce",
+      "updatedAtUtc": "2026-10-13T05:16:16.0679455Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r02_c05\\candidate\\r02_c05-native-cores-v001.assembly.json",
+      "sha256": "0f84ae137f9a91a9feba67c8ade5ae4fe78a43edbb6caeda89782e405b653848",
+      "updatedAtUtc": "2026-10-16T05:33:19.8075746Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c13-full-assembly-v001\\r03_c13\\assembly\\assembly.json",
+      "sha256": "20d75d8a1ce0e436deb3704c814b0d3004244fea3fb5fc7a2870497a5fbb6789",
+      "updatedAtUtc": "2026-10-14T00:53:56.0066176Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v001\\r03_c14\\assembly\\assembly.json",
+      "sha256": "41dec89bf551ab28d9f8a0406ee03983936a94b6aeed0042ae18b75fc50ee8d9",
+      "updatedAtUtc": "2026-10-16T04:42:39.1339750Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-full-assembly-v001\\r04_c13\\assembly\\assembly.json",
+      "sha256": "9eb822d043ca6b201dfd0454833505992bd2a26c890c795c0bb2f5bf34c05694",
+      "updatedAtUtc": "2026-10-13T18:28:26.8329484Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-assembly-v001\\r04_c14\\assembly\\assembly.json",
+      "sha256": "126e17507b85d247685a84cd63190a32b2badcab5b5b90350c2e762499ea2a4f",
+      "updatedAtUtc": "2026-10-14T03:25:28.0382958Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-southeast-north-extension\\r12_c13\\qa\\repair-candidate-v03.json",
+      "sha256": "2de7e23364a2108d3ba83e81f77a65d3e1d49ff762710e38a7bc51a1c4287788",
+      "updatedAtUtc": "2026-10-14T02:59:56.9469634Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-southeast-north-extension\\r12_c14\\qa\\repair-candidate-v03.json",
+      "sha256": "e9abf3ed592e33ed52f2e708df112555c11837dbe986138a08262aa444137aa1",
+      "updatedAtUtc": "2026-10-14T03:47:17.4809647Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/northwest/progress.json",
+      "sha256": "0fa714d1d777f4046c625f70ab5d2e33d56237297ba55ad8619e5715f55d4de7",
+      "updatedAtUtc": "2026-10-14T00:55:46.4813939Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/northwest/coordinate-inventory-current.json",
+      "sha256": "2cd858795df0e0d0885d8ad0f7982897c1d2c01935ccd046a0cdc1cf8bda5e87",
+      "updatedAtUtc": "2026-10-13T03:09:16.6881220Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/northeast/progress.json",
+      "sha256": "ac0bec83d2098234829846a836675865655a1e1430667d9348ff139b9d34df04",
+      "updatedAtUtc": "2026-10-13T21:18:42.3819483Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/northeast/records/active-candidates.json",
+      "sha256": "39a95f7cfd2be1d472815fb7207eb4b4d5b81f64a5dcc82505911e920f83fc9d",
+      "updatedAtUtc": "2026-10-13T21:18:42.3777935Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/northeast/qa/r07_c14/east-sol-independent-review-20261013.json",
+      "sha256": "b607a942be704b5216302383a685264ca9fc9881169251fc98e2dc891f35ba4d",
+      "updatedAtUtc": "2026-10-13T09:01:49.7523247Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/northeast/qa/r05_c14-v4/central-resume-independent-review-20261013.json",
+      "sha256": "9df57eee19f4622bc17ceb90fbd227d70423fffd62d3931c286b0c957b3996b3",
+      "updatedAtUtc": "2026-10-13T10:06:25.5965497Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/current-tile-ledger.json",
+      "sha256": "8b11b2d3f4ed3fc35e70ceb45aee9e551b41706bd3da04e1e124293218a339a5",
+      "updatedAtUtc": "2026-10-16T07:42:21.7789784Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/qa/r14_c07-internal-visual-audit-v2.json",
+      "sha256": "ca8c49dd5a536191d2b44f498244ade33f0e08c5502854c632b54e36ae6c17a3",
+      "updatedAtUtc": "2026-10-13T23:18:50.2959565Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/delivery-index-20261013-v2.json",
+      "sha256": "3c99c3c8fbb2d5587ccc40173aeabec268117adee4282fc302e61521360d2cb2",
+      "updatedAtUtc": "2026-10-13T18:37:16.9769815Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r08_c08/selected-patches.json",
+      "sha256": "73717218f2f25be913bcf5dc5fe32f9ed2bbe0f2c792c54f08b5d9cd254a4bb4",
+      "updatedAtUtc": "2026-10-16T04:44:21.8110035Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r08_c09/selected-patches.json",
+      "sha256": "00af79e40f179dac274f7923bee0bd441a0ea409a57befaac08139596f44c170",
+      "updatedAtUtc": "2026-10-13T16:59:52.7219452Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r09_c08/selected-patches.json",
+      "sha256": "9c10d1dd646f683306e538f93993ccfe9b96ab1352d37a1dd09d46f418f41d78",
+      "updatedAtUtc": "2026-10-14T02:04:49.7347894Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r09_c09/selected-patches.json",
+      "sha256": "eb843fa4804dd228837bb157d9677b04ca7ec649e99f3a080068962748982ff4",
+      "updatedAtUtc": "2026-10-12T23:48:20.9689460Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r09_c10/selected-patches.json",
+      "sha256": "0407e450d6e05cc21fd81faa21719586e14be5b694090565e1152ac57ae82cb8",
+      "updatedAtUtc": "2026-10-16T04:47:23.1847138Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r10_c08/selected-patches.json",
+      "sha256": "53f242f7b5d43ba0aae2eb1855a70d3adfee77dd0c1869b60aadea9eee525acf",
+      "updatedAtUtc": "2026-10-11T13:39:23.5903120Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r10_c09/selected-patches.json",
+      "sha256": "140ab8112f22ec38e8d8510e152ca9597ca25bd1062009a9557bed69e1dae4c0",
+      "updatedAtUtc": "2026-10-09T21:41:01.8472288Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r10_c10/selected-patches.json",
+      "sha256": "9ea1b3692d172495decd3d00ab980114835e76f639c92a92574179fa5a696af7",
+      "updatedAtUtc": "2026-10-10T06:37:48.3909626Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r11_c08/selected-patches.json",
+      "sha256": "49368821c0ff44734c2f6d4e9663bae7fb975b88f20d2fbacd54977a1fdf0729",
+      "updatedAtUtc": "2026-10-11T03:43:51.3635627Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r11_c09/selected-patches.json",
+      "sha256": "fd0e1554f4e66b337eac4fa3d7c73b4cfa2105b4abc73e5c2bb34bdcaa17ffdf",
+      "updatedAtUtc": "2026-10-10T00:21:06.4020979Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r11_c10/selected-patches.json",
+      "sha256": "c1e79764e1403122c26135485a61e7b08603047634c25de878b8ffac8a2d2828",
+      "updatedAtUtc": "2026-10-10T17:25:49.1909811Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r12_c08/selected-patches.json",
+      "sha256": "bde23b7588f7d516996cfba95613137b36d28ab5a2ffef26a4b349f161272468",
+      "updatedAtUtc": "2026-10-12T17:07:15.1771459Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r12_c09/selected-patches.json",
+      "sha256": "458c50e254dd863ca5d0bf47daa1f8e246484f01e50ed3d73e6cfa7eaeeac2f1",
+      "updatedAtUtc": "2026-10-13T00:20:23.0580611Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r12_c10/selected-patches.json",
+      "sha256": "6a8db9ebd94554b785c2bbf6f5b79e6974128b2c845a8d421f8048a6de4ef587",
+      "updatedAtUtc": "2026-10-13T00:28:00.5686078Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r13_c08/selected-patches.json",
+      "sha256": "0633093d6f97e4e3b6a0125a7f6ea6d823f5a052833e44af7d943fd873f3139e",
+      "updatedAtUtc": "2026-10-13T00:20:23.0554487Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r13_c09/selected-patches.json",
+      "sha256": "e98be70d21f928ca5500930e298f2eb1c872af4b57d92e59522d1514c67ad764",
+      "updatedAtUtc": "2026-10-10T23:29:21.5455918Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r13_c10/selected-patches.json",
+      "sha256": "dc494c11e06fbeb7fd049aab4a095660b96968478f4f8c5f3f4f8048f1cb9a70",
+      "updatedAtUtc": "2026-10-13T08:55:13.9197029Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r13_c11/selected-patches.json",
+      "sha256": "e9c620b243919899a138494f5fb399352951e1b6c04c0ec3ac77b44b0ee2c9a2",
+      "updatedAtUtc": "2026-10-16T08:04:45.5437131Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r14_c08/selected-patches.json",
+      "sha256": "1788b6d68bfc613b7c8f96fd8586c0ced4bc446166f9e861a230d1baafcbba22",
+      "updatedAtUtc": "2026-10-13T10:06:23.3861989Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r14_c09/selected-patches.json",
+      "sha256": "9b8ccd814cc86da694cd5166ed64c939e1c9c02b8efcfb7bec208e2a594558f7",
+      "updatedAtUtc": "2026-10-11T07:22:48.7760666Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r14_c10/selected-patches.json",
+      "sha256": "535a80d4728075cfe30d960616342ecdffa0ce32b211ce178bcd66c37ce440b0",
+      "updatedAtUtc": "2026-10-13T17:01:35.7326224Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southeast/r14_c11/selected-patches.json",
+      "sha256": "f2c167463bab057745be0cc774d13a69bde4f8b36f0fd55d51e417a2674daa9c",
+      "updatedAtUtc": "2026-10-13T23:36:34.1236905Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/accelerated-jewelry-approach/progress.json",
+      "sha256": "d75f04bd949c874bac19ea715bcf3d3e0bce5cd1601b4d0271f5694375022c48",
+      "updatedAtUtc": "2026-10-13T04:42:40.0953204Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/repairs/r12c06-resume-20261016-v1/delivery-manifest-v1.json",
+      "sha256": "ac4533db64594633742cf873a6e7be0ef658f61465a65f74030b604d426cb1fc",
+      "updatedAtUtc": "2026-10-16T05:59:33.5903286Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r12c07-repair-r11-v1/assembly.json",
+      "sha256": "158d0747b318c55198a79a70ac92ea299c5e01438fbfffbf7131cac25fbe8025",
+      "updatedAtUtc": "2026-10-16T05:56:16.2539522Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r13-c06-water-repair-W12-v1/assembly.json",
+      "sha256": "bff0c7f8b0d066a56eec32a27dc9e1e1f709a1cc073886013634df3646fc10dc",
+      "updatedAtUtc": "2026-10-16T06:29:54.5404371Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r13-c07-repair-water-j03c01-oct16-v1/assembly.json",
+      "sha256": "605c72d4b3088e5c06c9c497a27a5f663b0bb4b82119b72f10a1bac8f4fb5a45",
+      "updatedAtUtc": "2026-10-16T06:30:00.7943050Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-east-shipyard/current-state.json",
+      "sha256": "70390e7436b6cd25d888b1e7f28f28562f4e2d7d4a4ea1ada86de52bb8cc0c06",
+      "updatedAtUtc": "2026-10-16T10:41:51.0911378Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-southwest-lower-bank/candidates/r12_c03-4096-v2.manifest.json",
+      "sha256": "237c5020e003656db9a97aed342a87757a5fb1f1a02d43be9e730d62bfd68a01",
+      "updatedAtUtc": "2026-10-16T05:41:46.1339553Z",
+      "changed": false
+    },
+    {
+      "map": "village",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-southwest-lower-bank/candidates/r12_c04-4096-v1.manifest.json",
+      "sha256": "694a71af3d724019870b4c31a9a450045fbee93bfb6afc1d81f16372adf2418f",
+      "updatedAtUtc": "2026-10-16T04:39:21.6575590Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northwest/current-adopted-20261012.json",
+      "sha256": "8ffaffd9f4072f9165d33966327e93983346e930ca3839dba7b7343dc13bd1f8",
+      "updatedAtUtc": "2026-10-16T04:41:09.0577849Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northwest/root-current-selection-20261012.json",
+      "sha256": "8238c366c20f48b7fd5aabb754c9b78cebac0d20bf47ac1b49aa127ebc1a4add",
+      "updatedAtUtc": "2026-10-16T09:06:13.6075427Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northwest/right-current-selection-20261012.json",
+      "sha256": "a9c31504c1ae8411b3927f9333d8a2a3ae96c96b1ae62f8ca18dc4761033ddaf",
+      "updatedAtUtc": "2026-10-16T07:48:30.2916622Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northwest/west-current-selection-20261012.json",
+      "sha256": "65e273aab76d5a7e740a3611d643d57417a7ccd2062d7d9011cb78f3217669c6",
+      "updatedAtUtc": "2026-10-16T09:53:13.3399456Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northeast/production-resume-20261012.json",
+      "sha256": "04ee6b5345ed9a573e900eeed909e7e11ae0012f72137a265dd8c5f1746fcf8f",
+      "updatedAtUtc": "2026-10-14T02:16:13.9296579Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northeast/qa/production-inventory-20261012.json",
+      "sha256": "b00affdf5408eb711206483ca4b084e9ef23f3e5654bf06853babde30a3d75c4",
+      "updatedAtUtc": "2026-10-14T02:16:13.9021016Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northeast/selection-r03_c09.json",
+      "sha256": "7f1ceea390b5d27d5307f954db8ea154293ad154e4cecbc3af957313bb0c6de2",
+      "updatedAtUtc": "2026-10-16T08:55:27.5803418Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northeast/selection-r04_c09.json",
+      "sha256": "c6680dbc2aacba1d221baa89e2bdca2a43e4011917e1ce6d4ebb7c7dc3e01563",
+      "updatedAtUtc": "2026-10-16T10:03:06.7342979Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northeast/selection-r06_c12.json",
+      "sha256": "1693a1f82207f89d34f54689eca111cc5ccb2c6d662e85c2fcaf61bc61711ccc",
+      "updatedAtUtc": "2026-10-16T10:46:34.7002703Z",
+      "changed": true
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/southwest/production-resume-20261012.json",
+      "sha256": "120274f6425205b4d73884998eeab94fc61be7ffa48d509f898a9a56466d73c9",
+      "updatedAtUtc": "2026-10-14T00:19:51.4959626Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/southeast/progress.json",
+      "sha256": "2899dd9aa07c53751aed6842b1ac4bc82c32821619b5da981ad2f2b597b46124",
+      "updatedAtUtc": "2026-10-16T09:04:03.9722198Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/southeast/production-resume-wall-20261013.json",
+      "sha256": "a8a2f8c6a9f40f359149bda0dec5b7c061441ec2e469e1cd8a37601d201ed3e2",
+      "updatedAtUtc": "2026-10-16T06:00:32.6082617Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/southeast/progress-r13_c13.json",
+      "sha256": "456993fecdac27a351d91df9c523de9962966449fceab2bea79a5e48a15854ca",
+      "updatedAtUtc": "2026-10-13T23:50:21.6479583Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/southeast/progress-r14_c11.json",
+      "sha256": "8161ce3f29598e4b7a8cb5c62cd496d041fba52439010f58b13cc01660b5cb45",
+      "updatedAtUtc": "2026-10-14T01:28:38.0824453Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/accelerated-northeast-coast/current-selection-20261012.json",
+      "sha256": "0efaa7ba8e6c2787872452fbacd2bca144fd7282f72024aa56e382078baf20f4",
+      "updatedAtUtc": "2026-10-13T04:58:27.0409199Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/island-west-residences/tiles/r02_c03_candidate-v1_4096.assembly.json",
+      "sha256": "6aec2487a21f5c562d29aa15f2980127fefb6c2cf65d34d9f9934044d016f495",
+      "updatedAtUtc": "2026-10-16T04:37:05.6989618Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/island-west-residences/tiles/r01_c04_candidate-v1_4096.assembly.json",
+      "sha256": "cd536b525475923b70f647ff6e257ac1fdc72178c92077f8a4e0d5943c8a199d",
+      "updatedAtUtc": "2026-10-16T05:44:31.8764290Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/island-west-residences/tiles/r02_c04_candidate-v1_4096.assembly.json",
+      "sha256": "e1a49807eb0f60afa82fee0d73b1da838e67ce2b62a27848a5c806664387bd1a",
+      "updatedAtUtc": "2026-10-14T03:38:04.6814973Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/island-east-residences/candidates/r02_c12-provisional-v001.png.derivation.json",
+      "sha256": "be3cc035376f6e5c931bbe045b57de98ed5db2c2df02a49f09c56a309d288a2f",
+      "updatedAtUtc": "2026-10-14T03:56:12.5906999Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/island-east-residences/selections/r01_c12/selection-v005.json",
+      "sha256": "2ae9ef8c94b5cf31ea52209bb55e77b9c7079293667dcc2cfd8568d68f968b91",
+      "updatedAtUtc": "2026-10-16T04:55:31.6366234Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/island-east-residences/selections/r02_c10/selection-v009.json",
+      "sha256": "48301fe98380c3a501fd2f266663872b59a94c3d047de5cbe2e3c6df65b316fb",
+      "updatedAtUtc": "2026-10-16T06:15:03.5168858Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/island-east-residences/selections/r02_c11/selection-v015.json",
+      "sha256": "d824a6a65c414b4fb507a1286187971dc71e7bad9ab7f7ad859c351f4f985eaf",
+      "updatedAtUtc": "2026-10-16T05:34:57.0169582Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/island-east-residences/selections/r02_c12/selection-v016.json",
+      "sha256": "a08e3fed2fd740dd5cbfb79a3380d73698bab8f6013d35e0839e9bae0bc0e344",
+      "updatedAtUtc": "2026-10-16T06:30:22.5601766Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/island-northwest-east-extension/tiles/r03_c05_candidate-v1_4096.json",
+      "sha256": "efb04da778a05b348d8b1145b5ac334bcf547322eed5e8b084e71ad7003fe381",
+      "updatedAtUtc": "2026-10-13T16:08:36.2498618Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/island-northwest-east-extension/qa/r03_c05/internal-review-complete-v1.json",
+      "sha256": "83a451b38406269d14ba217a0a5ba0664483d98cc7b397995eb4c1afe95a679c",
+      "updatedAtUtc": "2026-10-14T03:16:31.6566401Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/island-northwest-east-extension/tiles/r04_c05_candidate-v1_4096.json",
+      "sha256": "ce7e2c54b98ad7f8573867082eb4f727f73dfd004805c4f41d867b492ab9ee19",
+      "updatedAtUtc": "2026-10-14T01:32:41.4339221Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/island-northwest-east-extension/qa/r04_c05/internal-review-complete-v1.json",
+      "sha256": "738bd89416314a07fb4ef92897dcc74296bd6d820c3fada2733928dcf1c69efc",
+      "updatedAtUtc": "2026-10-14T03:16:31.8081259Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northwest/qa/r06_c03_v7_internal_closure_20261012/closure.json",
+      "sha256": "6c8fbb0538d1ed3dfbfb0af8a4a860b20e9e1212181dc40b2f9e18c12498965c",
+      "updatedAtUtc": "2026-10-13T00:14:52.5470960Z",
+      "changed": false
+    },
+    {
+      "map": "island",
+      "path": "D:/work/image/docs/MAP_PARALLEL_SPLIT_20261013.json",
+      "sha256": "929a52abdb55e6022f83abbe9b48718182bc33fc8a0bc2d50a14f6232dd4e850",
+      "updatedAtUtc": "2026-10-16T06:37:18.5783590Z",
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\local-resume-checkpoint-20261016-final.json",
+      "sha256": "10f00485583727932fb242693bfb931d2628a1099432fd69554d2f226df64fed",
+      "updatedAtUtc": "2026-10-16T10:21:28.0062964Z",
+      "newlyRegistered": true,
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\independent-reviews\\20261016\\native19-local-review.json",
+      "sha256": "ccbeda395f92ad0cd25639eca2b74c8ca94ef0d5461d6af423ea0f8c41c98a86",
+      "updatedAtUtc": "2026-10-16T10:05:07.4050421Z",
+      "newlyRegistered": true,
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\candidate\\native19-local-repairs-20261016-v1\\provenance.json",
+      "sha256": "04e2fbb6b526232826da82016b02a11f946188186b011edb7691705d97cb3b12",
+      "updatedAtUtc": "2026-10-16T06:26:27.0894250Z",
+      "newlyRegistered": true,
+      "changed": false
+    },
+    {
+      "map": "city",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r07_c07\\qa\\native19-local-repairs-20261016-v1\\manifest.json",
+      "sha256": "a01339963313188533d58effae1371efbb77ef578755e3eec7f1a401ad1c3a05",
+      "updatedAtUtc": "2026-10-16T06:26:35.2500371Z",
+      "newlyRegistered": true,
+      "changed": false
+    }
+  ],
+  "observedNativeFiles": [
+    {
+      "worker": "city_more_20261016",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261016\\city_more_20261016\\r12_c16\\native\\p03_01-v20261016T102456408245Z.png",
+      "savedAtUtc": "2026-10-16T11:00:19.7313792Z"
+    },
+    {
+      "worker": "village_more_20261016",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261016\\village_more_20261016\\r09_c02\\native\\p13-v1.png",
+      "savedAtUtc": "2026-10-16T10:04:43.2075596Z"
+    },
+    {
+      "worker": "island_more_20261016",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261016\\island_more_20261016\\native\\r05_c01_s01_03_a01.png",
+      "savedAtUtc": "2026-10-16T10:13:36.0368376Z"
+    }
+  ],
+  "blockers": {
+    "observed408FailuresThisRun": 1,
+    "recovered": [
+      {
+        "threadId": "01a1216d-7a71-7041-94fe-b1b1e755e36d",
+        "status": "inProgress",
+        "error": null,
+        "newOutputAfterRecoveryVerified": false,
+        "note": "Island southwest again ended with Request body read timed out. Resumed only the failed chat; new inProgress turn is not proof of production."
+      }
+    ],
+    "currentFailedChatCount": 0,
+    "fullMapAcceptancePending": true
+  },
+  "reservedCoordinates": 40,
+  "wholeMapsRemaining": 3,
+  "fullMapAccepted": false,
+  "method": "Reuse hash-bound passed QA; compare previous report source-metadata hashes and review only changed owner selection/status evidence. No historical image rescans.",
+  "limitations": [
+    "Current totals use older coordinator snapshot plus individually verified periodic deltas; no newer whole-count coordinator snapshot found.",
+    "One added pass is a reporting reconciliation of QA saved at 10:05Z, corroborated after the owner's 10:59Z count update. It is not claimed as newly generated this interval.",
+    "Formal r07_c07 coordinate counted once despite 19 native inputs: 16 base cores and 3 local repair inputs. 4096 PNG header, candidate SHA256, 19 source SHA256 and QA manifest/review hashes verified; valid visual QA reused.",
+    "r07_c07 has three unresolved north external joins and unreviewed final east/south neighbors; neither full perimeter nor map acceptance is claimed.",
+    "Sampled new city production has actual native write at 11:00:19Z. Running chat state alone does not establish image output in every chat.",
+    "No historical image pixel scans, full-package rebuild, selection-ledger edits, shared Git changes or new coordinate allocations."
+  ],
+  "productionOrGitChanged": false,
+  "coordinationActions": [
+    "Targeted resume of verified failed island southwest chat under standing user authorization; other in-flight requests left running."
+  ]
+}

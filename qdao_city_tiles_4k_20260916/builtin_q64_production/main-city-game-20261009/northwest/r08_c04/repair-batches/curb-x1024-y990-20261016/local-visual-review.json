@@ -1,0 +1,55 @@
+{
+  "reviewer": "/root/resume_r08_audit_20261016",
+  "role": "producer_local_qa",
+  "actuallyViewed": true,
+  "status": "passed_local_geometry_and_perimeter_pending_root_independent_review",
+  "proposal": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r08_c04\\repair-batches\\curb-x1024-y990-20261016\\adoption-proposal-v2.json",
+    "sha256": "803c8de89033ea012ef1c0dd38a97b0f0e6ca7f8b6411620a7d8b5f765240c0b"
+  },
+  "sourceSha256": "442bd004e01a8b588e512b4e766b984e7b4e2520341774e19bbb8d26bdd39e5b",
+  "maskSha256": "c028172d8fd8cb4016d1abbb4681bc257550157e2634436c0055c2ba8356255e",
+  "pixelCount": 204423,
+  "crops": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r08_c04\\repair-batches\\curb-x1024-y990-20261016\\v2-left-exterior.png",
+      "sha256": "3b407152059b44639d767939d4b3a3af56d59e62596f4275ef5bb59a4731c488",
+      "actuallyViewed": true,
+      "status": "passed_local_geometry_and_perimeter"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r08_c04\\repair-batches\\curb-x1024-y990-20261016\\v2-right-exterior.png",
+      "sha256": "1aff4c970114b9b09e18d966b3df90dfb72b31712a7df907b90c8106f62ddab6",
+      "actuallyViewed": true,
+      "status": "passed_local_geometry_and_perimeter"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r08_c04\\repair-batches\\curb-x1024-y990-20261016\\v2-mid-upper.png",
+      "sha256": "52318adb6e08654f8a8693c59d0ec3c6ce7c1acc6e6e329e46d6d4c611a70443",
+      "actuallyViewed": true,
+      "status": "passed_local_geometry_and_perimeter"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r08_c04\\repair-batches\\curb-x1024-y990-20261016\\v2-mid-lower.png",
+      "sha256": "358e1e4c5c35ca40f6d89dbbea9ccfb1dcf8fed0d2586fd5da047b81b45a2510",
+      "actuallyViewed": true,
+      "status": "passed_local_geometry_and_perimeter"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r08_c04\\repair-batches\\curb-x1024-y990-20261016\\v2-mid-context.png",
+      "sha256": "31755f25f54dd2096fd8a059ddcd42ccc4426ce1d9808b4a6b79130b00c7e96c",
+      "actuallyViewed": true,
+      "status": "passed_local_geometry_and_perimeter"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r08_c04\\repair-batches\\curb-x1024-y990-20261016\\v2-full-context.png",
+      "sha256": "911f0060610af154259ddeee5abc705565f74c17eafa9f48fe81783ec752db57",
+      "actuallyViewed": true,
+      "status": "passed_local_geometry_and_perimeter"
+    }
+  ],
+  "finding": "Curb lower edge and thin bevel now continue along one diagonal without the former central vertical step. Extended native corridor connects to original fixed endpoint geometry; both exterior frame boundaries were rendered with actual 21-source candidate context and inspected. Upper/lower corridor transitions and full native context retain continuous material with no new clipped outline. Only binary-mask pixels are proposed; unrelated old paving mismatch outside mask remains.",
+  "rejectedMask": "selection-mask-v1.png: narrow rectangle creates a new left-edge step; never adopt v1.",
+  "fullTileInternalQAPassed": false,
+  "formalAccepted": false
+}

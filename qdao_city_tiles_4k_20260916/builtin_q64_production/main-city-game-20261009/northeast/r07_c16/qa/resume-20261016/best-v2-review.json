@@ -1,0 +1,75 @@
+{
+  "tile": "r07_c16",
+  "createdAt": "2026-10-16T06:48:49.503987+00:00",
+  "candidate": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northeast\\r07_c16\\candidates\\r07_c16.local-repairs-best-v2-20261016.png",
+  "candidateSha256": "38b5644adc02926673d0344bb44fd8238b71587870f69a8d899069823684cb79",
+  "composition": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northeast\\r07_c16\\qa\\resume-20261016\\composition-best-v2.json",
+  "selectedNativeCount": 16,
+  "nativeRepairCount": 6,
+  "internalPairsCovered": 24,
+  "intersectionsCovered": 9,
+  "reuse": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northeast\\r07_c16\\qa\\resume-20261016\\baseline-review-v1.json",
+    "sha256": "fd9add0dc0b77ea9d6fa60b8b6a3d7929a499f78b969242fb6e36887d059a347",
+    "outsideRepairRectsIdentical": true
+  },
+  "localFindings": [
+    {
+      "id": "floor-join",
+      "viewed": "floor-join-best-v2.png",
+      "status": "geometric-disconnection-fixed; P2-boundary-pending"
+    },
+    {
+      "id": "leaf-notch",
+      "viewed": "leaf-notch-composed-v1.png",
+      "status": "leaf-silhouette-fixed; unchanged in best-v2"
+    },
+    {
+      "id": "window-strip",
+      "viewed": "window-strip-composed-v1.png",
+      "status": "local-pass-no-P2; unchanged in best-v2"
+    },
+    {
+      "id": "wall-joints",
+      "viewed": [
+        "wall-joints-north-boundary-v1.png",
+        "wall-joints-south-boundary-v1.png",
+        "wall-joints-west-boundary-v1.png"
+      ],
+      "status": "rejected-both-attempts; baseline-retained"
+    }
+  ],
+  "pendingIssues": [
+    {
+      "id": "floor-boundary",
+      "priority": "P2",
+      "attempts": 2,
+      "finding": "The original x1024 disconnected grout and orphan lines are fixed; a rectangular stone texture/tone boundary remains at repair left/top edges (tile x632, y3022). Slabs include an awkward bent joint; retain best and defer this point."
+    },
+    {
+      "id": "wall-joints",
+      "priority": "P2",
+      "attempts": 2,
+      "finding": "Both AI repairs moved lower masonry joints and introduced new phase breaks at their boundary. Rejected both; original y2048 wall joint offsets remain. Continue other independent missing cores."
+    },
+    {
+      "id": "wall-material",
+      "priority": "P2",
+      "attempts": 0,
+      "finding": "Original straight stone-wall tone steps at y1024 and y3072 remain."
+    },
+    {
+      "id": "cream-material",
+      "priority": "P2",
+      "attempts": 0,
+      "finding": "Cream wall quadrant texture/tone changes remain; leaf repair retains a subtle rectangular wall-tone edge. No structural foliage notch remains."
+    }
+  ],
+  "pendingP1Count": 0,
+  "pendingP2Count": 4,
+  "internalPassed": false,
+  "formalAcceptedCount": 0,
+  "actualModel": null,
+  "route": "builtin",
+  "externalSeams": "Not formally accepted; floor repair touches south edge and future south neighbor must consume selected candidate."
+}

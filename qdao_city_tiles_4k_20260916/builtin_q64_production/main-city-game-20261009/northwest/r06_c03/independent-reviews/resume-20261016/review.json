@@ -1,0 +1,184 @@
+{
+  "reviewer": "/root/independent_qa_20261016",
+  "createdAtUtc": "2026-10-16T04:24:52.627480+00:00",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c03\\candidate\\native-repairs-20261013-v05\\candidate.png",
+    "sha256": "43bf64fcee7b857cf43065f5873c87888ab86d2adb98ee3d40154102ed094027",
+    "pixels": [
+      4096,
+      4096
+    ]
+  },
+  "candidateHashVerified": true,
+  "scope": "Independent visual review of only two previously pending repair sources and affected final QA crops",
+  "localSources": [
+    {
+      "name": "internal-glaze-west-01",
+      "status": "pass_local_repair",
+      "nativeSource": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c03\\repair-batches\\internal-glaze-west-01\\native.png",
+      "nativeSha256": "dd89ab1c8246bc2976c1717838e6335455cc8855d9d6b86f8e96cd10acd8d30a",
+      "sourceHashVerified": true,
+      "maskSha256": "0247380b745bfef0aeb3b29381f3279b0e6e05ff7d81510389974d28ec1c56c6",
+      "selectedPixelCount": 53465,
+      "actuallyViewed": true,
+      "viewDetail": "original",
+      "perimeters": [
+        {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c03\\repair-batches\\internal-glaze-west-01\\trials\\v01-binary-seam\\perimeter.png",
+          "tileCropLTRB": [
+            520,
+            787,
+            1150,
+            1267
+          ],
+          "sha256": "6837134bb70ed37d572f26d3fbf7d730226aab93ee315196d0ce363a6f4486fc"
+        }
+      ],
+      "finding": "Native west glaze ROI and its full perimeter retain tile curvature, highlight continuity and dark grout geometry; no new cut edge or horizontal material band seen."
+    },
+    {
+      "name": "internal-wall-strip-02",
+      "status": "pass_local_repair",
+      "nativeSource": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c03\\repair-batches\\internal-wall-strip-02\\native.png",
+      "nativeSha256": "7310eea521f012c41ce6cb9a6f8a01b457dec50431a684b1b34e72b3f4ef9896",
+      "sourceHashVerified": true,
+      "maskSha256": "059943b27918b4f8647684c3700954ab8a2ce49dbfd0e781def3867c98783ef0",
+      "selectedPixelCount": 111505,
+      "actuallyViewed": true,
+      "viewDetail": "original",
+      "perimeters": [
+        {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c03\\repair-batches\\internal-wall-strip-02\\trials\\v01-binary-seam\\beam1-perimeter.png",
+          "frameCropLTRB": [
+            420,
+            200,
+            860,
+            510
+          ],
+          "sha256": "84e3bf67f4effdaac1c7047b8ccd3b7a1340a6d908fc1ad54f932deb5fcba04f"
+        },
+        {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c03\\repair-batches\\internal-wall-strip-02\\trials\\v01-binary-seam\\beam2-perimeter.png",
+          "frameCropLTRB": [
+            410,
+            410,
+            840,
+            790
+          ],
+          "sha256": "289aee5291b708cfd60f426736deb8f08b61eb4cc9165fb03a23166277c4a5c7"
+        },
+        {
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c03\\repair-batches\\internal-wall-strip-02\\trials\\v01-binary-seam\\beam3-perimeter.png",
+          "frameCropLTRB": [
+            420,
+            660,
+            850,
+            1050
+          ],
+          "sha256": "7efa7d79d3de8ad1c5b15c17dcfecdc0253457c47ed558c3100214187b50f243"
+        }
+      ],
+      "finding": "All three native beam-face ROI perimeters retain continuous wood grain, beam contours and adjoining plaster/roof pixels. No new rectangular patch boundary seen. Existing blue/gold splice is outside local repair scope."
+    }
+  ],
+  "affectedFinalQA": [
+    {
+      "name": "internal-x1024-segment01",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c03\\qa\\native-repairs-20261013-v04\\internal-x1024-segment01.png",
+      "sha256": "ab9c3470767eeec607eec5a80baa6513e2401f2497ae751667275eeec377f69b",
+      "hashVerified": true,
+      "status": "pass",
+      "actuallyViewed": true,
+      "viewDetail": "original",
+      "nativePixelScale": 1,
+      "finding": "Repaired material remains continuous; no new contour or ROI perimeter defect visible."
+    },
+    {
+      "name": "internal-x1024-segment02",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c03\\qa\\native-repairs-20261013-v04\\internal-x1024-segment02.png",
+      "sha256": "c5d7fa30e930f4030cb18fb18e9a74d04968d9b12750b1582ddc678545bfb81b",
+      "hashVerified": true,
+      "status": "needs_repair",
+      "actuallyViewed": true,
+      "viewDetail": "original",
+      "nativePixelScale": 1,
+      "finding": "Local repair passes, but existing geometry defect remains. No upgrade of full crop: roof termination/adjacent timber join in lower part of the x1024 interval."
+    },
+    {
+      "name": "internal-y1024-segment01",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c03\\qa\\native-repairs-20261013-v04\\internal-y1024-segment01.png",
+      "sha256": "70c75ec30003c287416c758fba1366c55c0a1c32cf589c78b226f465b665bd35",
+      "hashVerified": true,
+      "status": "pass",
+      "actuallyViewed": true,
+      "viewDetail": "original",
+      "nativePixelScale": 1,
+      "finding": "Repaired material remains continuous; no new contour or ROI perimeter defect visible."
+    },
+    {
+      "name": "internal-y1024-segment02",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c03\\qa\\native-repairs-20261013-v05\\internal-y1024-segment02.png",
+      "sha256": "4c24edeac1bdfea0892ae9a22a19ad731bcb9351939d0170be5a9b6ac575e19c",
+      "hashVerified": true,
+      "status": "pass",
+      "actuallyViewed": true,
+      "viewDetail": "original",
+      "nativePixelScale": 1,
+      "finding": "Repaired material remains continuous; no new contour or ROI perimeter defect visible."
+    },
+    {
+      "name": "junction-x1024-y1024",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c03\\qa\\native-repairs-20261013-v04\\junction-x1024-y1024.png",
+      "sha256": "112322ba3ac8cc2ec31cc61a506d821e8b29c0023cdab717097e3416e7ab653b",
+      "hashVerified": true,
+      "status": "pass",
+      "actuallyViewed": true,
+      "viewDetail": "original",
+      "nativePixelScale": 1,
+      "finding": "Repaired material remains continuous; no new contour or ROI perimeter defect visible."
+    },
+    {
+      "name": "internal-x2048-segment02",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c03\\qa\\native-repairs-20261013-v05\\internal-x2048-segment02.png",
+      "sha256": "a5572fd0e46d683fb36c1373908de7c62ec025d9f9c16263b3e54a1bef59aeb1",
+      "hashVerified": true,
+      "status": "needs_repair",
+      "actuallyViewed": true,
+      "viewDetail": "original",
+      "nativePixelScale": 1,
+      "finding": "Local repair passes, but existing geometry defect remains. No upgrade of full crop: blue roof/gold ornament splice around x2048, near the upper tile junction."
+    },
+    {
+      "name": "junction-x2048-y1024",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c03\\qa\\native-repairs-20261013-v05\\junction-x2048-y1024.png",
+      "sha256": "4ad688ab58a51a059e630982be867432b05de5aab315f4e09af4178260b8d2b2",
+      "hashVerified": true,
+      "status": "needs_repair",
+      "actuallyViewed": true,
+      "viewDetail": "original",
+      "nativePixelScale": 1,
+      "finding": "Local repair passes, but existing geometry defect remains. No upgrade of full crop: blue roof/gold ornament splice around x2048, near the upper tile junction."
+    },
+    {
+      "name": "internal-y1024-segment03",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r06_c03\\qa\\native-repairs-20261013-v05\\internal-y1024-segment03.png",
+      "sha256": "c0e0cdcb5f0137c043769349596fcb77286e7166bbb6dfb50cb230c5e7d6d7fc",
+      "hashVerified": true,
+      "status": "pass",
+      "actuallyViewed": true,
+      "viewDetail": "original",
+      "nativePixelScale": 1,
+      "finding": "Repaired material remains continuous; no new contour or ROI perimeter defect visible."
+    }
+  ],
+  "formalAccepted": false,
+  "fullTileStatus": "needs_repair",
+  "wholeTileCountsUnchanged": {
+    "passed": 35,
+    "needsRepair": 12,
+    "total": 47
+  },
+  "otherSixSources": "Reuse previous independent reviews; not rescanned",
+  "artOrSelectionModified": false,
+  "gitTouched": false
+}

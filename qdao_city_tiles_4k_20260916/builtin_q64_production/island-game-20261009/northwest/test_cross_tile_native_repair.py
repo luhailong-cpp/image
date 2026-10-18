@@ -116,6 +116,27 @@ for name,box in [("vertical",[3500,1000,4754,2254]),("horizontal",[1000,3500,225
     for output in two["outputs"]:
         r.validate_base(Path(output["image"]["path"]),Path(output["projectionRecordPath"]))
     checks[name+"_two_way_projection"]={"pass":True}
+for name,ids,box in [('pair_lr',[0,1],[3500,1000,4754,2254]),('pair_tb',[0,2],[1000,3500,2254,4754])]:
+    pair_mp=ROOT/(name+'.manifest.json')
+    pair={'schemaVersion':1,'topology':'adjacent-pair-v1','tiles':[manifest['tiles'][i] for i in ids]}
+    dump(pair_mp,pair)
+    item=c.prepare(pair_mp,box,name,refs,'SYNTHETIC QA')
+    input_path=Path(item['input']['path']); raw_path,gen_path,_=raw_fixture(name,input_path)
+    two=c.apply(pair_mp,input_path,raw_path,gen_path,mask_path,ROOT/'out',name)
+    assert len(two['outputs'])==2
+    for output in two['outputs']:
+        _,proof=r.validate_base(Path(output['image']['path']),Path(output['projectionRecordPath']))
+        assert proof['fullNativeCoverage'] and proof['verifiedPixelCount']==4096**2
+    checks[name+'_exact_native_projection']={'pass':True}
+    with restore(pair_mp):
+        bad=deepcopy(pair);bad.pop('topology');dump(pair_mp,bad)
+        reject(name+'_requires_explicit_topology',lambda:c.load_manifest(pair_mp))
+    with restore(pair_mp):
+        bad=deepcopy(pair);bad['tiles'][1]['tileId']='r04_c04';dump(pair_mp,bad)
+        reject(name+'_diagonal_rejected',lambda:c.load_manifest(pair_mp))
+    with restore(pair_mp):
+        bad=deepcopy(pair);bad['tiles'][1]['tileId']='r03_c03';dump(pair_mp,bad)
+        reject(name+'_duplicate_rejected',lambda:c.load_manifest(pair_mp))
 one_mask=np.zeros((1254,1254),np.uint8); one_mask[20:40,20:40]=255
 one_mask_path=ROOT/"one_mask.png"; png(one_mask_path,one_mask)
 one=c.apply(mp,ip,source,gp,one_mask_path,ROOT/"out","one")

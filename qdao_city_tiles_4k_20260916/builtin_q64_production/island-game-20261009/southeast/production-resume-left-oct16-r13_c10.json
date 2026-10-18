@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "agent": "left_oct16",
+  "tile": "r13_c10",
+  "resumedAt": "2026-10-14T00:52:21.406146+00:00",
+  "authority": "D:\\work\\image\\docs\\MAP_PRODUCTION_RESUME_20261012.json",
+  "authoritySha256": "6b169e04fd4228ac9482819f4e23a224c36f24d6161c2c159c50ac7ed9035203",
+  "route": "builtin",
+  "paidApiAllowed": false,
+  "selectedVersions": {
+    "14": "v01",
+    "34": "v01",
+    "11": "v02",
+    "41": "v02",
+    "24": "v01",
+    "44": "v01",
+    "31": "v01",
+    "12": "v02",
+    "23": "v02",
+    "21": "v01",
+    "42": "v01",
+    "32": "v01",
+    "33": "v01",
+    "13": "v01",
+    "22": "v01",
+    "43": "v01"
+  },
+  "nativeInventory": [],
+  "actualNativeCount": 18,
+  "newGenerationAttempted": true,
+  "inFlightRequests": [],
+  "formalAcceptedCount": 0,
+  "fullyCovered4kCount": 1,
+  "internalPassed4kCount": 0,
+  "externalPassed4kCount": 0,
+  "status": "request_prepared",
+  "northAnchorTile": "r12_c10",
+  "northAnchorCandidate": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\island-game-20261009\\southeast\\tiles\\r12_c10.candidate-sol-20261012-v01.png",
+  "nextStep": "View24actual seams9junctions and available external sides; independent root review then continue next row.",
+  "updatedAt": "2026-10-17T00:13:50.238718+00:00",
+  "nextRequest": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\island-game-20261009\\southeast\\prompts\\r13_c10_p44_v03.request.json",
+  "nextPreparedPatch": "r13_c10_p44",
+  "nextPreparedVersion": "v03",
+  "currentPatch": "r13_c10_p44",
+  "currentVersion": "v03",
+  "inFlight": false,
+  "activeImageGenCalls": 0,
+  "inFlightRequestCount": 3,
+  "generatedNativeCount": 18,
+  "lastNative": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\island-game-20261009\\southeast\\native\\r13_c10_p23_v02.png",
+  "lastNativeSha256": "4e98ef2e66027aaf964f0f9a8cc506bff2a0843438caecb92f773f0010f57198",
+  "lastReceipt": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\island-game-20261009\\southeast\\receipts\\r13_c10_p23_v02.json",
+  "selectedCoordinateCount": 16,
+  "missingPatches": [],
+  "candidate": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\island-game-20261009\\southeast\\tiles\\r13_c10.candidate-left-oct16-v01.png",
+  "candidateSha256": "d9c177480bd55ba7f0da5d9d17802b971844e55bdca5b1de2e5ccca229505873",
+  "sourcePixelProof": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\island-game-20261009\\southeast\\qa\\r13_c10-left-oct16-v01\\source-pixel-proof.json",
+  "usedSourceCount": 16,
+  "visualReview": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\island-game-20261009\\southeast\\qa\\r13_c10-left-oct16-v01\\left-visual-review.json",
+  "pendingFindings": [
+    {
+      "id": "p22-south-independent",
+      "entries": [
+        "v22",
+        "j22"
+      ],
+      "sources": [
+        "22v01",
+        "32v01"
+      ],
+      "issue": "Foliage and small rock texture interrupt at horizontal y2048, particularly central stone behind foliage; south-neighbor core was unavailable when p22 guide was prepared.",
+      "repair": "22v02",
+      "status": "not_passed"
+    },
+    {
+      "id": "p33-west-south-independent",
+      "entries": [
+        "h32",
+        "v33",
+        "j22",
+        "j32",
+        "j33"
+      ],
+      "sources": [
+        "32v01",
+        "33v01",
+        "43v01"
+      ],
+      "issue": "Rock facets and foliage show coordinate-aligned breaks at x2048 over row3 and y3072 over column3; now-selected neighbors can guide the native edit.",
+      "repair": "33v02",
+      "status": "not_passed"
+    },
+    {
+      "id": "right-water-guide-material",
+      "entries": [
+        "east3",
+        "east4",
+        "v24"
+      ],
+      "sources": [
+        "34v01",
+        "44v01"
+      ],
+      "issue": "Visible vertical material strip at native x1024 (tile x3981) inside old selected water cores. Actual eastern joins connect, but straight guide material boundary remains.",
+      "repair": "34v02 and44v02",
+      "status": "not_passed"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 2,
+  "tile": "r03_c13",
+  "repairId": "U03-p43-p44",
+  "sourceCallCount": 1,
+  "additionalCoreCount": 0,
+  "originalCoreCount": 16,
+  "formalAcceptedCount": 0,
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u03-integrated-v003\\r03_c13-candidate.png",
+    "sha256": "431ea4b193032a56afa47ccfb30f36feaab72e17f9678548777cdb878c450501"
+  },
+  "integration": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u03-integrated-v003\\integration.json",
+  "baseline": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u02-integrated-v001\\r03_c13-candidate.png",
+    "sha256": "b7d9d3e5a91117dd5d7b1d5773a0ff842fe3fe276ee30b64d43b9739407d38ac"
+  },
+  "sourceNativeROIXYXY": [
+    350,
+    590,
+    850,
+    1254
+  ],
+  "sourceROIIncludesHalo": true,
+  "editTileXYXY": [
+    2855,
+    3432,
+    3355,
+    4096
+  ],
+  "nativeOutputPixels": [
+    1254,
+    1254
+  ],
+  "outputPixels": [
+    4096,
+    4096
+  ],
+  "alphaPerimeterPixels": 16,
+  "unfeatheredPhysicalEdges": [
+    "south"
+  ],
+  "nativeEventBytesMatch": true,
+  "actualModel": null,
+  "entryPoint": "builtin image_gen.imagegen",
+  "noResize": true,
+  "noWarp": true,
+  "noImageBlur": true,
+  "unchangedOutsideEditVerified": true,
+  "status": "working-candidate-U03-internal-roof-repaired-south-cross-tile-not-passed",
+  "visualObservation": "Original x3072 straight turquoise roof phase break is removed through the final row. Upper repaired red beam joint retained outside edit. North/west/east perimeter and south cross-tile strip inspected at native pixels. External south joint still has red beam thickness/trim discontinuity near x3072 and gold/red geometry discrepancy at the left of inspected strip. Those belong to cross-tile QA and are not marked passed.",
+  "evidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u03-integrated-v003\\repaired-context-100pct.png",
+    "sha256": "6e19ac60ac6118306733e397861db814ce6e110642341d3b04e4abe6afdc053c"
+  },
+  "southNeighbor": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-west-column-roi-native-v002\\r04_c13-candidate.png",
+    "sha256": "4152a3016b91c3bc9cefc8909ed1172a6037a9c2be632646c417a25f4ea62e3a"
+  },
+  "southEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u03-integrated-v003\\south-cross-tile-joint-100pct-QA-only.png",
+    "sha256": "20d203fa7430c08fa26f0e7aaf8574234dcdec4695c43491ede958bf4fb14baf"
+  },
+  "southQaStatus": "not-passed; requires coordinated external-seam repair; neighbor read-only",
+  "priorChain": [
+    "west-r03c13-u01-integrated-v001",
+    "west-r03c13-u01-integrated-v003",
+    "west-r03c13-u02-integrated-v001"
+  ],
+  "supersedes": [
+    "west-r03c13-u03-integrated-v001",
+    "west-r03c13-u03-integrated-v002"
+  ],
+  "prompt": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\prompts\\west-r03c13-u03-repair1.txt",
+  "tool": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\tools\\west-native-seam-edge-v001.py",
+    "sha256": "a894f53f3c5edf06a777715614bb8cffef9a3f91143748dbe1c3a87db3fae184"
+  },
+  "note": "Same actual native event as previous U03 partial integrations. No additional generation. Old tools and source images untouched."
+}

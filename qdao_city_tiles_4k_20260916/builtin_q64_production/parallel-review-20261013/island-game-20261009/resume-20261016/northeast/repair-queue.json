@@ -1,0 +1,148 @@
+{
+  "updatedAtUtc": "2026-10-16T15:01:16.057694+00:00",
+  "repairs": [
+    {
+      "id": "NE-r05c11-p14-focus-boundaries",
+      "tiles": [
+        "r05_c11"
+      ],
+      "status": "requires_native_material_repair",
+      "priority": "repair_before_internal_acceptance",
+      "candidateSha256": "63184c2550d2ac6ef0abf359446f73dd391c4e71ae4cb0ba83102dd9b88398c4",
+      "tileLocalAffectedBox": [
+        3072,
+        0,
+        4096,
+        1024
+      ],
+      "worldAffectedBox": [
+        44032,
+        16384,
+        45056,
+        17408
+      ],
+      "boundaryCoordinates": {
+        "leftWorldX": 44032,
+        "bottomWorldY": 17408
+      },
+      "finding": "灯笼下的地砖虚化与左邻清晰石纹在 x=3072 形成明显直边；下侧 y=1024 同时存在清晰度跃变。左下十字表明虚化范围沿 p01_04 核心矩形边界终止。",
+      "evidence": [
+        "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-review-20261013/island-game-20261009/resume-v03/northeast-full/r05_c11-internal/lantern-core-100pct.png",
+        "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-review-20261013/island-game-20261009/resume-v03/northeast-full/r05_c11-internal/lantern-left-boundary-100pct.png",
+        "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-review-20261013/island-game-20261009/resume-v03/northeast-full/r05_c11-internal/lantern-bottom-boundary-100pct.png",
+        "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-review-20261013/island-game-20261009/resume-v03/northeast-full/r05_c11-internal/lantern-lower-left-cross-100pct.png"
+      ],
+      "alreadyKnownLeftBoundary": true,
+      "newlyConfirmedBottomBoundary": true
+    },
+    {
+      "id": "NE-r04c11-r05c11-north-lantern-ribs",
+      "tiles": [
+        "r04_c11",
+        "r05_c11"
+      ],
+      "status": "requires_local_geometry_review",
+      "priority": "repair_before_shared_edge_acceptance",
+      "worldAffectedBox": [
+        44352,
+        16352,
+        44608,
+        16416
+      ],
+      "finding": "第 4 段灯笼靠左和中央金色细棱在北邻边附近有轻微接线折点；不把原 pending 改为通过。",
+      "evidence": [
+        "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-review-20261013/island-game-20261009/resume-v03/northeast-full/r04_c11__r05_c11/segment-4-100pct.png"
+      ]
+    },
+    {
+      "id": "coast-r02c13-r02c14-material-band",
+      "tiles": [
+        "r02_c13",
+        "r02_c14"
+      ],
+      "status": "requires_native_material_repair_hash_unchanged",
+      "worldAffectedBox": [
+        52992,
+        7900,
+        53504,
+        8050
+      ],
+      "finding": "海岸共享竖边的蓝色矩形材质带仍按原独立检查开放；本批候选hash未变，不升级为通过。",
+      "evidence": [
+        "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-review-20261013/island-game-20261009/root-audit-v01/g02-cross-zone-r02-r03-c13-c14/v-1-segment-4-100pct.png"
+      ]
+    },
+    {
+      "id": "r03c09-p12v3-p13-grout-offset",
+      "tiles": [
+        "r03_c09"
+      ],
+      "status": "requires_geometry_repair",
+      "worldAffectedBox": [
+        34560,
+        8192,
+        35072,
+        9216
+      ],
+      "finding": "p01_02_v3 灯笼身份已更正，右接 p01_03 中部灰缝仍错位。",
+      "evidence": [
+        "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-review-20261013/island-game-20261009/resume-20261016/northeast/edge-8-33-v.png"
+      ]
+    },
+    {
+      "id": "r04c09-p14v3-material-transition",
+      "tiles": [
+        "r04_c09"
+      ],
+      "status": "requires_material_repair",
+      "worldAffectedBox": [
+        35840,
+        12288,
+        36864,
+        13312
+      ],
+      "finding": "p01_04_v3 最佳保留源几何可接，但左侧、上侧原生边附近有矿物斑驳和细密石纹的切换；两次失败返修不算通过。",
+      "evidence": [
+        "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-review-20261013/island-game-20261009/resume-20261016/northeast/edge-12-34-v.png",
+        "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-review-20261013/island-game-20261009/resume-20261016/northeast/edge-11-35-h.png"
+      ]
+    },
+    {
+      "id": "r04c09-p43v2-material-transition",
+      "tiles": [
+        "r04_c09"
+      ],
+      "status": "requires_material_repair",
+      "worldAffectedBox": [
+        34816,
+        15360,
+        35840,
+        16384
+      ],
+      "finding": "p04_03_v2 石板轮廓与绿沿可续接，但矿物斑驳表面在上／右边与菱格纹理形成过渡。",
+      "evidence": [
+        "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-review-20261013/island-game-20261009/resume-20261016/northeast/edge-15-34-v.png",
+        "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-review-20261013/island-game-20261009/resume-20261016/northeast/edge-14-34-h.png"
+      ]
+    },
+    {
+      "id": "r04c09-p44-lantern-width",
+      "tiles": [
+        "r04_c09"
+      ],
+      "status": "production_reported_layout_review_pending",
+      "worldAffectedBox": [
+        35840,
+        15360,
+        36864,
+        16384
+      ],
+      "finding": "生产当前选源记录仍报告灯笼左轮廓比原布局窄；本批仅核对接边，不把轮廓连续当作灯笼整体布局已通过。",
+      "evidence": [
+        "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-review-20261013/island-game-20261009/resume-20261016/northeast/snapshots/selection-r04_c09.json",
+        "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-review-20261013/island-game-20261009/resume-20261016/northeast/edge-15-35-v.png"
+      ]
+    }
+  ],
+  "allIssuesRemainNotPassed": true
+}

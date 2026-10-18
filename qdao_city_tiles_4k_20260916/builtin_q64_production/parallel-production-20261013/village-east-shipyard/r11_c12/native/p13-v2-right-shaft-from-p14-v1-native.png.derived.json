@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "classification": "native_neighbor_corrected_foot_window",
+  "derived": {
+    "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p13-v2-right-shaft-from-p14-v1-native.png",
+    "sha256": "42d445826c3e6bd5e876ddb2d9f76dbffbfafb85b26504e3e918692e1f78d11a",
+    "bytes": 2145524,
+    "sampledAtUtc": "2026-10-16T21:00:17.695292+00:00",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "mode": "RGB"
+  },
+  "sources": [
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p13-v2-local-native.png",
+      "sha256": "6912743262560ea4ec9b8e2348042126b4dc6d1fcf7a9d4d5edd9699dfff57b7",
+      "bytes": 2134272,
+      "sampledAtUtc": "2026-10-16T21:00:17.697962+00:00",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "role": "prior native body retained outside correction"
+    },
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p14-v1.png",
+      "sha256": "e1cfa929014a2a5c64405e6858c74af07c4a85def6a9302232fd336e57b83440",
+      "bytes": 2456999,
+      "sampledAtUtc": "2026-10-16T21:00:17.701649+00:00",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "role": "same original support shaft correctly continued below frame"
+    }
+  ],
+  "contribution": {
+    "sourceCrop": [
+      0,
+      850,
+      230,
+      1254
+    ],
+    "targetPaste": [
+      1024,
+      850
+    ],
+    "targetBox": [
+      1024,
+      850,
+      1254,
+      1254
+    ]
+  },
+  "reason": "Wider human layout shows original foot outside target; prior source falsely ended y1000. Bad source foot excluded before p14 generation.",
+  "operation": "same-world unscaled integer native crop/paste only",
+  "formalAccepted": false
+}

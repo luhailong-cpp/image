@@ -1,0 +1,90 @@
+{
+  "tile": "r11_c07",
+  "assembly": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/main-city-game-20261009/southwest/r11_c07/pipeline/output/35940cab23574db0/assembly.json",
+  "coreSha256": "b4122594782b8145c8923565663cdae253f296f7426365c7d3ab4134b0420510",
+  "contextSha256": "8a74d5f84147a75f5b40485e5523f4023862b420bbe5fb9db22dd8e98a1069a3",
+  "viewedActualNativeCrops": 24,
+  "viewedPanels": [
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southwest\\r11_c07\\pipeline\\qa\\full16-internal-20261016-v01\\V-row1.panel.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southwest\\r11_c07\\pipeline\\qa\\full16-internal-20261016-v01\\V-row2.panel.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southwest\\r11_c07\\pipeline\\qa\\full16-internal-20261016-v01\\V-row3.panel.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southwest\\r11_c07\\pipeline\\qa\\full16-internal-20261016-v01\\V-row4.panel.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southwest\\r11_c07\\pipeline\\qa\\full16-internal-20261016-v01\\H-boundary1.panel.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southwest\\r11_c07\\pipeline\\qa\\full16-internal-20261016-v01\\H-boundary2.panel.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southwest\\r11_c07\\pipeline\\qa\\full16-internal-20261016-v01\\H-boundary3.panel.png"
+  ],
+  "overviewActuallyViewed": true,
+  "overviewWasToolResized": true,
+  "sourceResampling": false,
+  "internalAccepted": false,
+  "externalAccepted": false,
+  "formalAccepted": false,
+  "findings": [
+    {
+      "id": "right-frame-elbow",
+      "severity": "mandatory",
+      "evidence": [
+        "H2-col4",
+        "overview"
+      ],
+      "problem": "Third upper grey band ends at right edge as a hairline; lower vertical grey band begins below it, disconnected. The approved rectangular frame is not closed continuously.",
+      "action": "Restore p02_04 right band x1000..1057 below y840 and confirm join with p03_04."
+    },
+    {
+      "id": "artificial-y230",
+      "severity": "mandatory",
+      "evidence": [
+        "V3-row3",
+        "overview"
+      ],
+      "problem": "p03_04 introduces a false horizontal divider at its native y230 and changes paving grid density. Existing road surface must remain continuous.",
+      "action": "Remove divider and maintain approved sparse paving geometry."
+    },
+    {
+      "id": "V1-row4-phase",
+      "severity": "mandatory",
+      "evidence": [
+        "V1-row4",
+        "H3-col1"
+      ],
+      "problem": "Strong diagonal appears as parallel displaced dangling segments near join, visible tonal phase front."
+    },
+    {
+      "id": "V2-row4-double-cross",
+      "severity": "mandatory",
+      "evidence": [
+        "V2-row4",
+        "H3-col2"
+      ],
+      "problem": "Two offset crossing nodes and dark seam branches near row4 join; blue-grey material patch has visible boundary."
+    },
+    {
+      "id": "V3-row3-row4-grid",
+      "severity": "mandatory",
+      "evidence": [
+        "V3-row3",
+        "V3-row4",
+        "H3-col4"
+      ],
+      "problem": "Right column has small repeated tile grid, left column broad sparse flagstones. Dead-end line fragments and scale transition across join."
+    },
+    {
+      "id": "earlier-upper-endpoints",
+      "severity": "mandatory",
+      "evidence": [
+        "V1-row1",
+        "V2-row1",
+        "H2-col3"
+      ],
+      "problem": "Existing upper paving lines contain dangling endpoints/phase changes and visible patch fronts. Do not reuse these as passed checks."
+    },
+    {
+      "id": "stone-material",
+      "severity": "mandatory",
+      "evidence": [
+        "all24"
+      ],
+      "problem": "Dense cellular/diamond microtexture repeated through many surfaces; fails approved quiet stone requirement."
+    }
+  ]
+}

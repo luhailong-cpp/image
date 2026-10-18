@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-17T04:45:20.693491+00:00",
+  "reviewer": "tower_qa_resume",
+  "tile": "r04_c13",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-midfloor-native-v002\\r04_c13-candidate.png",
+    "sha256": "b6795ee0877f45df60b354e7e578489135e77ab12482dd9fa55d879ebf866404",
+    "sha256Verified": true
+  },
+  "baseline": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-north-native-v001\\r04_c13-candidate.png",
+    "sha256": "451a4332fc2cf37de22bc4a9fdb4295d61f3d331b9492e25e006530c16b04d7b",
+    "sha256Verified": true
+  },
+  "integration": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-midfloor-native-v002\\integration.json",
+    "sha256": "9e6972f1d59ef795a03632e6eafa23acf7073606069fbe611dff5850aeb8e394"
+  },
+  "nativeRepair": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-midfloor-native-v002\\native-repair.png",
+    "sha256": "9124561291deb7d76b36f0b94e4a5e9863258e5dc1a0b6f4dc12e796d64087ce",
+    "sha256Verified": true
+  },
+  "receipt": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-midfloor-native-v002\\receipt.json",
+    "sha256": "2712e58a4af839180924dbf4691b52549a661baa17e170912e72ceed74bb1e36",
+    "sha256Verified": true
+  },
+  "actualModel": null,
+  "actualModelEvidence": "not returned",
+  "editTileXYXY": [
+    1821,
+    2745,
+    2421,
+    3265
+  ],
+  "contextEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-midfloor-native-v002\\repaired-context-100pct.png",
+    "sha256": "06542d47a0a4a4bb205e1f6c4dd78eef2d1ffb7e575beb67459144079eb2e15f",
+    "sha256Verified": true
+  },
+  "beforeContextEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-midfloor-prepare-v002\\repair-input.png",
+    "sha256": "ddb05de77eb87236d8bfbf3aedd552cde53c5835683a8b27f32479ec5ff13cf3",
+    "sha256Verified": true
+  },
+  "mechanicalChecks": {
+    "candidate4096RGB": true,
+    "native1254Pixels": true,
+    "contextPerimeterAndBeforeCropIdentity": true,
+    "outsideRoiPixelIdentity": true
+  },
+  "scope": "Focused independent visual QA only; no whole-seam/tile acceptance unless explicitly named.",
+  "formalAcceptedCount": 0,
+  "fullTileAccepted": false,
+  "newImagesGenerated": 0,
+  "selectionOrSourceMutation": false,
+  "status": "improved-working-unpassed",
+  "adoptOrRejectRecommendation": "adopt-as-partial-working-candidate",
+  "roiTransitionStatus": "local-pass",
+  "finding": "Compared with the fixed north-beam baseline, several disconnected central paving joints now connect into coherent polygonal slabs through x2048. The inserted area is substantially improved; no newly introduced large geometric step is visible at its four transitions.",
+  "perimeterReview": [
+    {
+      "side": "north",
+      "newDefectStatus": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-midfloor-native-v002\\north-perimeter-100pct.png",
+        "sha256": "6b736fa8f99791a30eea6131c138a2f01d1da6159e372e3694a2f427712bad17",
+        "crop": [
+          1706,
+          2630,
+          2536,
+          2860
+        ],
+        "sha256Verified": true
+      },
+      "finding": "New diagonal joint and surface transition meet. The older vertical cut at x2048 lies above the ROI and is still visible."
+    },
+    {
+      "side": "south",
+      "newDefectStatus": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-midfloor-native-v002\\south-perimeter-100pct.png",
+        "sha256": "9a2ce15e6a1d8eba5172fcb263cec08f9fc58c4b9a5d42325a1729a835da698d",
+        "crop": [
+          1706,
+          3150,
+          2536,
+          3380
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Lower slab lines and nearby stair-head cap remain connected."
+    },
+    {
+      "side": "west",
+      "newDefectStatus": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-midfloor-native-v002\\west-perimeter-100pct.png",
+        "sha256": "353447885fd48f4435a841733f3c4004a3e8da3a0579835886b1d5741b826714",
+        "crop": [
+          1706,
+          2630,
+          1936,
+          3380
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Inserted paving lines meet at x1821; the older incomplete joint/texture transition farther west is not cleared."
+    },
+    {
+      "side": "east",
+      "newDefectStatus": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r04c13-midfloor-native-v002\\east-perimeter-100pct.png",
+        "sha256": "2f30be3eba26cf202e3b4799c4e734eeecb2f1ecd5550f0b41836e36887911ed",
+        "crop": [
+          2306,
+          2630,
+          2536,
+          3380
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Three paving edges connect across x2421 without a new comparable step."
+    }
+  ],
+  "remainingUnpassed": [
+    {
+      "id": "midfloor-old-north-vertical-cut",
+      "bboxTilePixelsApprox": [
+        2025,
+        2445,
+        2075,
+        2745
+      ],
+      "status": "needs-repair",
+      "introducedByCurrentRepair": false
+    },
+    {
+      "id": "midfloor-old-west-row-transition",
+      "bboxTilePixelsApprox": [
+        1706,
+        3055,
+        1821,
+        3130
+      ],
+      "status": "needs-repair",
+      "introducedByCurrentRepair": false
+    }
+  ],
+  "externalEdgesStatus": "unchanged; not assessed",
+  "recommendation": "Keep b6795ee... as the better working state while retaining all remaining failures. This is not a full internal-seam pass."
+}

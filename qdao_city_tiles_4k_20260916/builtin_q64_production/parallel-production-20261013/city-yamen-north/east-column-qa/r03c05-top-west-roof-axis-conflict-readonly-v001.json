@@ -1,0 +1,151 @@
+{
+  "createdAtUTC": "2026-10-17T02:41:38.602043+00:00",
+  "reviewer": "east_column_native",
+  "scope": "Read-only approved layout versus canonical r03_c05 true top edge, west half main roof only.",
+  "conclusion": "CROSS_BOUNDARY_AXIS_CONSTRAINT_CONFLICT",
+  "approvedLayout": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\daylight-only-20261009\\tianyong\\tianyong-spring-natural-stone-v9.png",
+    "sha256": "47485b823db7dbe4e63883f9ae6d759f3f2fbb5897c72f16fa64e921bde6ccd7",
+    "finding": "Same main left roof plane has nearly vertical top-to-bottom blue ribs. Low resolution limits precise collar placement but dominant axis is clear."
+  },
+  "canonical": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\accelerated-yamen-north\\delivery-20261012-v1\\r03_c05.png",
+    "sha256": "9e876e7effe2e12e7f716cd5480a617a84656f46e9896a6b35cadfb99b4cc438",
+    "pixels": [
+      4096,
+      4096
+    ],
+    "worldBox": [
+      16384,
+      8192,
+      20480,
+      12288
+    ],
+    "actualInspectedNativeBoxes": [
+      [
+        0,
+        0,
+        1024,
+        400
+      ],
+      [
+        1024,
+        0,
+        2048,
+        400
+      ]
+    ],
+    "top115ActuallyIncluded": true,
+    "finding": "Actual canonical first115 rows already show the same strong down-right diagonal tile axes as current r02_c05, roughly30-35degrees from vertical. Deviation is not solely introduced in this parallel batch.",
+    "matchesEarlierRequestCanonicalSHA": true
+  },
+  "directlyProvenMinimumSources": {
+    "currentBatch": [
+      {
+        "patch": "s03_01",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r02_c05\\native\\s03_01-v006.png",
+        "sha256": "4b12900ffc1d86300da7877dd52097fa10111cb1a9a523b2aaedfbce31e1825c",
+        "area": "lower roof portion only",
+        "fileSHA256Verified": true
+      },
+      {
+        "patch": "s03_02",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r02_c05\\native\\s03_02-v003.png",
+        "sha256": "4afe1847fceea6013a2087c7285a44a4d3dc771f85c091e0873371ab62db4c7b",
+        "area": "lower roof portion only",
+        "fileSHA256Verified": true
+      },
+      {
+        "patch": "s04_01",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r02_c05\\native\\s04_01-v001.png",
+        "sha256": "39c5eb97a39af69e9d3afa0d48f581af40467f9cd0f7b1002ec74ff8d0b74ceb",
+        "area": "western main roof core",
+        "fileSHA256Verified": true
+      },
+      {
+        "patch": "s04_02",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r02_c05\\native\\s04_02-v003.png",
+        "sha256": "41fa74d0005d9ff95fc2062d173add7c0e53f25f1c32c94f97bc67966aa8282a",
+        "area": "western main roof core",
+        "fileSHA256Verified": true
+      }
+    ],
+    "canonicalTopCoreProvenance": [
+      {
+        "patch": "s01_01",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\accelerated-yamen-north\\r03_c05\\finish-20261012-integrated\\s01_01-derived.png",
+        "sha256": "280f75e650736f5ceaf9676c1dad06322cb3251de5dfe38a3b04a5ae72bc4014",
+        "receiptSHA256Matches": true,
+        "coreFirst115ExactlyMatchesCanonical": false,
+        "legacyHaloUsedAsConstraint": false
+      },
+      {
+        "patch": "s01_02",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\accelerated-yamen-north\\r03_c05\\finish-20261012-integrated\\s01_02-derived.png",
+        "sha256": "59e54e3d0b36228671ab60f3e448179972e2ff92afbd3ade20fedbd38c475050",
+        "receiptSHA256Matches": true,
+        "coreFirst115ExactlyMatchesCanonical": false,
+        "legacyHaloUsedAsConstraint": false
+      }
+    ],
+    "canonicalAssemblyManifest": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\accelerated-yamen-north\\r03_c05\\candidate\\r03_c05-pipeline-fixed-native-contexts-9e876e7effe2.assembly.json",
+    "canonicalAssemblyManifestSHA256": "864e8dad9f0dc4c91abbeebfd367cd0457f9aab43ef274d2f16c47104ab15b4f",
+    "note": "Six core sources plus delivered canonical raster are minimum directly demonstrated conflict chain. This narrow review does not assert changing these alone would correct the entire connected roof; lower canonical rows were not audited for edit extent."
+  },
+  "fixedEdgesForContinuation": {
+    "authoritativeExistingArtSouthBoundary": {
+      "worldBoundaryY": 8192,
+      "worldStrip": [
+        16384,
+        8192,
+        18432,
+        8307
+      ],
+      "canonicalCropForS04_01": [
+        0,
+        0,
+        1024,
+        115
+      ],
+      "canonicalCropForS04_02": [
+        1024,
+        0,
+        2048,
+        115
+      ],
+      "allowedUse": "Exact unscaled existing-art seam anchor for continuing the current diagonal roof scheme, not proof of approved-layout orientation.",
+      "forbiddenUse": "Do not use old derived halo outside delivered core; only actual canonical first115rows are authoritative."
+    },
+    "ifCorrectingToApprovedVerticalAxis": "A diagonal ceramic seam on inspected south edge cannot be locked while claiming full near-vertical correction. A coordinated roof geometry decision across ownership boundary is needed first. No unilateral neighbor edit is authorized. Gold ridge/eave/divider position can remain a structural anchor, not tile-phase anchor.",
+    "otherBoundaryCaution": "Current west blue-roof connection into c04 remains pending; this review does not promote it to accepted fixed ceramic constraint."
+  },
+  "newPendingIssue": "Near-vertical approved main-plane direction conflicts with already adopted diagonal south neighbor; keep layout pending alongside seam issues.",
+  "evidence": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\east-column-qa\\r03c05-west-half-top-context-segment1-native100-v001.png",
+      "sha256": "d3a70ac206d40f56c5ac56b3cf01a7860c205e87e06bee9b3417fb91e3645b9e",
+      "actualViewed": true,
+      "qaOnly": true,
+      "nativePixelScale": 1
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\east-column-qa\\r03c05-west-half-top-context-segment2-native100-v001.png",
+      "sha256": "79e56821ea7a17a648910737de27291bf5f359e97ee14c6d334bd35f3f40bcc9",
+      "actualViewed": true,
+      "qaOnly": true,
+      "nativePixelScale": 1
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\east-column-qa\\r03c05-top-west-axis-vs-approved-qa-only-v001.png",
+      "sha256": "40b2064fee78d4ec3fa2e541bccc90f6a9e49a4a00525ce0c9206b9a892f6e49",
+      "actualViewed": true,
+      "qaOnly": true,
+      "nativePixelScale": null
+    }
+  ],
+  "newImageGenerationCalls": 0,
+  "selectionModified": false,
+  "canonicalModified": false,
+  "formalAccepted": false,
+  "previousPendingStatusesModified": false
+}

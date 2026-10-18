@@ -1,0 +1,41 @@
+{
+  "checkedAtUtc": "2026-10-16T06:17:34Z",
+  "scope": "Targeted live production check; not whole-map acceptance",
+  "findings": [
+    {
+      "worker": "island-east-residences",
+      "native": "r02_c10_p01_02_v02.png",
+      "savedAtUtc": "2026-10-16T06:08:26.043192Z",
+      "status": "new native saved; same-coordinate historical connection failure was followed by successful retry; current in-flight status not verified"
+    },
+    {
+      "worker": "island-west-residences",
+      "native": "r01_c03_s03_01_a01.png",
+      "savedAtUtc": "2026-10-16T06:11:43.529510Z",
+      "status": "new native saved"
+    },
+    {
+      "worker": "village-east-shipyard",
+      "native": "r10_c11/native/p31-v3.png",
+      "savedAtUtc": "2026-10-16T06:11:55Z",
+      "status": "raw original saved; receipt and local derived file saved at06:17:32Z; derivative is not a second generation or passed tile"
+    },
+    {
+      "worker": "city-yamen-north",
+      "native": "C:/Users/luyua/.codex/generated_images/01a1338b-73d0-75c1-aa57-8059e93e85a1/exec-31431479-21f0-4324-b34c-6df333c59512.png",
+      "savedAtUtc": "2026-10-16T06:09:47.6742314Z",
+      "status": "successful host output exists; owner notified to ingest before another request"
+    }
+  ],
+  "limitations": [
+    "active/inProgress does not prove a generation is in flight",
+    "request JSON without live call or receipt does not prove a request is in flight",
+    "no new full-tile internal acceptance established by this check"
+  ],
+  "actions": [
+    "No blanket restart",
+    "Notified city owner about returned host output",
+    "Shared targeted evidence with coordinator managing the three internal workers"
+  ],
+  "gitMutation": false
+}

@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-16T15:45:07.252111+00:00",
+  "reviewer": "tower_qa",
+  "scope": "single orb/post repair and four perimeters only",
+  "repairVersion": "root-r04c13-orb-post-roi-native-v001",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-orb-post-roi-native-v001\\r04_c13-candidate.png",
+    "sha256": "a0c4c32a58d8fa3b92532cbe7d3eb531d765e161e9156f3b998eec93ff41233e"
+  },
+  "nativeRepair": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-orb-post-roi-native-v001\\native-repair.png",
+    "sha256": "86de37e1341b5c718b81403db4fec2b106d2497ca5c229f704169223700eb4e0"
+  },
+  "editTileXYXY": [
+    1916,
+    3252,
+    2211,
+    3902
+  ],
+  "sourceCoreXYXY": [
+    495,
+    410,
+    790,
+    1060
+  ],
+  "alphaPerimeterPixels": 16,
+  "evidence": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-orb-post-roi-native-v001\\repaired-context-100pct.png",
+      "sha256": "466fd31842abe921736ff0aaf2472f967dc059177a04e5f012fc6b571efa4e9e",
+      "reviewedAtNativeScale": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-orb-post-roi-native-v001\\north-perimeter-100pct.png",
+      "sha256": "bc0377db6d3556cf4ff9c61ea2902069ca9e1c1fa8ce80450bc67a662a0faf98",
+      "reviewedAtNativeScale": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-orb-post-roi-native-v001\\east-perimeter-100pct.png",
+      "sha256": "1c7d4c9cada05f6bf5a57d67c39b99f29f66e0d5c55013c3bf0c1f824e116daf",
+      "reviewedAtNativeScale": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-orb-post-roi-native-v001\\south-perimeter-100pct.png",
+      "sha256": "cabd6ee7bb32a914488dc3930d06b008a6b45ad08bc5c7cb4f8d86c558e23419",
+      "reviewedAtNativeScale": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-orb-post-roi-native-v001\\west-perimeter-100pct.png",
+      "sha256": "ccf059937f54847b2d97da703750c6a1a67203edb68c7b2b6f7249dc814043ba",
+      "reviewedAtNativeScale": true
+    }
+  ],
+  "result": "major_improvement_working_base_only_south_edge_pending",
+  "postCap": "Conflicting half sphere and square cap are resolved into one coherent stepped square cap. Wall coping, column and sloping stair rail now meet plausibly.",
+  "perimeters": {
+    "north": "Old tile x2048 paving direction/grout discontinuity remains above the repair; independent existing pending issue. No new large cap contour break.",
+    "west": "Wall courses and coping connect into the column without a new major jump.",
+    "east": "Square-cap tiers and stair-rail surface continue without a major new break.",
+    "south": "At edit bottom y3902 the narrow dark left side-edge of the column ends abruptly, with a small lateral change around 10-15 px. Most evident near tile x1970-1980 in the south evidence. This remaining edge/shadow defect prevents a clean local pass."
+  },
+  "residualIssues": [
+    {
+      "priority": "medium",
+      "locationApproxTileXY": [
+        1975,
+        3902
+      ],
+      "issue": "Narrow vertical side shadow/edge terminates at south ROI boundary; mild lateral contour/plane discontinuity.",
+      "status": "pending",
+      "suggestion": "If a suitable source exists, adopt only the small side-shadow junction needed to connect its upper and lower endpoints; avoid changing the repaired cap or wall courses."
+    },
+    {
+      "priority": "high",
+      "location": "tile x2048 above the cap",
+      "issue": "Existing paving geometry seam remains outside this repair.",
+      "status": "pending_separate_repair"
+    }
+  ],
+  "localGeometryPass": false,
+  "majorConflictResolved": true,
+  "workingBaseAcceptable": true,
+  "fullTileAccepted": false,
+  "formalAcceptedCount": 0,
+  "integrationEvidenceOnly": {
+    "unchangedOutsideEditVerified": true,
+    "note": "Reused manifest assertion; independent review covers the five visual images only."
+  }
+}

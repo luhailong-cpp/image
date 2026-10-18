@@ -1,0 +1,507 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-16T12:05:39.278336+00:00",
+  "scope": "Only r15_c15, r15_c16, r16_c15, r16_c16 in this batch.",
+  "status": "four_native_4096_candidates_verified_with_explicit_unpassed_QA",
+  "tileCount": 4,
+  "activeBaseNativeCoreCount": 64,
+  "missingNativeCoreCount": 0,
+  "deliveryVerification": {
+    "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\batch-checkpoints\\four-tile-final-20261016T120406Z\\four-tile-delivery.json",
+    "sha256": "d84b7e6ef824b4468ec2d698d8e828da6458ff9b0c12fcfb046b93d349d5a53d"
+  },
+  "metadataSyncVerification": {
+    "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\batch-checkpoints\\four-tile-final-20261016T120406Z\\metadata-sync-verification.json",
+    "sha256": "98d395e75f88289cd8f48927dd0d521463dd3422c660d26b042b1cf069f4d807"
+  },
+  "metadataBeforeSnapshot": {
+    "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\batch-checkpoints\\four-tile-final-20261016T120406Z\\metadata-before-snapshot.json",
+    "sha256": "c5eef787f84995fc592b85509ecb3821e12ebf61ec893727d043c22fe85f284d"
+  },
+  "tiles": [
+    {
+      "tile": "r15_c15",
+      "image": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c15\\candidate\\r15_c15-4k-south-v2-west-v1-20261016.png",
+        "sha256": "647150e78b003c02760adf02fbbe8bd6509c07b6d4b7335e67a326ca44890214",
+        "recordedSha256": "647150e78b003c02760adf02fbbe8bd6509c07b6d4b7335e67a326ca44890214",
+        "size": [
+          4096,
+          4096
+        ],
+        "format": "PNG",
+        "opaque": true
+      },
+      "status": "internal_pass_east_pair_failed_north_west_finish_pending",
+      "rootQA": {
+        "rootLocalQA": {
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c15\\review\\resumed-local-repairs-20261016\\root-local-qa-20261016.json",
+          "sha256": "f0a4fa4da36f7eba4f5d56ce0a07d009a3b8f6fdad44b94e0e12506dc986a441"
+        }
+      },
+      "internalArtQA": "passed_after_local_native_repair",
+      "internalRasterSeamQA": "passed",
+      "externalNeighborSeamQA": {
+        "north": "structure_pass_finish_pending",
+        "west": "structure_pass_finish_pending",
+        "east": "failed_W01_deferred_after_two_native_attempts",
+        "south": "local_pass_after_synchronized_post_removal"
+      },
+      "pairedEdgesQA": {
+        "east": {
+          "selfCandidateSha256": "647150e78b003c02760adf02fbbe8bd6509c07b6d4b7335e67a326ca44890214",
+          "neighborTile": "r15_c16",
+          "neighborCandidate": {
+            "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c16\\candidate\\r15_c16-4k-I01-grout-repaired-20261016-root-reviewed.png",
+            "sha256": "410a4d21041e155101848ed62738e47aa2130bced98c2269cad9e8605046a73a",
+            "size": [
+              4096,
+              4096
+            ]
+          },
+          "pairedEdge": "west",
+          "status": "failed_W01_deferred_after_two_native_attempts",
+          "description": "r15_c16 west W01 remains unpassed at core [0,3515,140,3705]; both attempts rejected and original edge retained.",
+          "evidence": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c16\\repairs\\independent-seam-fixes-20261013-v1\\I01-only-reviewed-20261016\\root-independent-qa-20261016.json",
+              "sha256": "02916c320a1fd71a0e627b348853bbad72992f9f698fbe4ffa2ac94f19915960"
+            },
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c16\\repairs\\independent-seam-fixes-20261013-v1\\repair-review-20261016.json",
+              "sha256": "f13dac1a7884c1a8c406cd3fd2eeb4f7f5a0d4f871599b224ac77d66b723a595"
+            }
+          ],
+          "formalAccepted": false
+        },
+        "south": {
+          "selfCandidateSha256": "647150e78b003c02760adf02fbbe8bd6509c07b6d4b7335e67a326ca44890214",
+          "neighborTile": "r16_c15",
+          "neighborCandidate": {
+            "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\candidate\\r16_c15-4k-local-seams-20261016-v2.png",
+            "sha256": "91120a198c6d8d64bb3fd00ef8fbc1265a0ff2f613908b1b2d36cef0f51f8cc3",
+            "size": [
+              4096,
+              4096
+            ]
+          },
+          "pairedEdge": "north",
+          "status": "local_pass_after_synchronized_post_removal",
+          "description": "Actual current north/south pair locally passed after both halves of the redundant small post were removed; unchanged quadrant evidence reused.",
+          "evidence": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\review\\resume-20261016\\root-local-qa-20261016.json",
+              "sha256": "dc487720dad73c6d1eb27036c6762b3ecb52bdc8429b233fc89592b0a5605520"
+            }
+          ],
+          "formalAccepted": false
+        }
+      },
+      "pendingOwnIssues": [
+        {
+          "id": "N02",
+          "status": "pending_not_passed",
+          "severity": "nonblocking_finish",
+          "box": [
+            950,
+            0,
+            2300,
+            150
+          ],
+          "description": "North red/gold cylinder and pavement retain brightness and fine texture transition. Base child top200 and current north neighbor bottom200 exactly equal old QA inputs; carry forward previous finding."
+        },
+        {
+          "id": "N03",
+          "status": "pending_not_passed",
+          "severity": "nonblocking_finish",
+          "box": [
+            3450,
+            0,
+            3910,
+            120
+          ],
+          "description": "North lotus petals retain shading transition across core cut; silhouette continuous. Unchanged QA evidence reused."
+        },
+        {
+          "id": "W02",
+          "status": "pending_not_passed",
+          "severity": "nonblocking_finish",
+          "box": [
+            0,
+            1500,
+            170,
+            2750
+          ],
+          "description": "Fine blue-grey stone grain/value still changes on vertical core boundary, visible in new west real-join crop. W01 structural repair does not clear this finish finding."
+        }
+      ],
+      "nextStep": "Keep east r15_c16 W01 failed after two native attempts and north N02/N03 plus west W02 finish pending. South current pair locally passed; retain the selected image and unchanged internal QA.",
+      "formalAccepted": false
+    },
+    {
+      "tile": "r15_c16",
+      "image": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c16\\candidate\\r15_c16-4k-I01-grout-repaired-20261016-root-reviewed.png",
+        "sha256": "410a4d21041e155101848ed62738e47aa2130bced98c2269cad9e8605046a73a",
+        "recordedSha256": "410a4d21041e155101848ed62738e47aa2130bced98c2269cad9e8605046a73a",
+        "size": [
+          4096,
+          4096
+        ],
+        "format": "PNG",
+        "opaque": true
+      },
+      "status": "internal_pass_west_pair_failed_north_south_local_pass",
+      "rootQA": {
+        "rootIndependentQARef": {
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c16\\repairs\\independent-seam-fixes-20261013-v1\\I01-only-reviewed-20261016\\root-independent-qa-20261016.json",
+          "sha256": "02916c320a1fd71a0e627b348853bbad72992f9f698fbe4ffa2ac94f19915960"
+        }
+      },
+      "internalArtQA": "passed",
+      "internalRasterSeamQA": null,
+      "externalNeighborSeamQA": {
+        "north": "passed_previous_QA",
+        "west": "failed_W01_deferred_after_two_native_attempts",
+        "south": "local_pass_after_N02_final_core_pair_review"
+      },
+      "pairedEdgesQA": {
+        "west": {
+          "selfCandidateSha256": "410a4d21041e155101848ed62738e47aa2130bced98c2269cad9e8605046a73a",
+          "neighborTile": "r15_c15",
+          "neighborCandidate": {
+            "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c15\\candidate\\r15_c15-4k-south-v2-west-v1-20261016.png",
+            "sha256": "647150e78b003c02760adf02fbbe8bd6509c07b6d4b7335e67a326ca44890214",
+            "size": [
+              4096,
+              4096
+            ]
+          },
+          "pairedEdge": "east",
+          "status": "failed_W01_deferred_after_two_native_attempts",
+          "description": "r15_c16 west W01 remains unpassed at core [0,3515,140,3705]; both attempts rejected and original edge retained.",
+          "evidence": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c16\\repairs\\independent-seam-fixes-20261013-v1\\I01-only-reviewed-20261016\\root-independent-qa-20261016.json",
+              "sha256": "02916c320a1fd71a0e627b348853bbad72992f9f698fbe4ffa2ac94f19915960"
+            },
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c16\\repairs\\independent-seam-fixes-20261013-v1\\repair-review-20261016.json",
+              "sha256": "f13dac1a7884c1a8c406cd3fd2eeb4f7f5a0d4f871599b224ac77d66b723a595"
+            }
+          ],
+          "formalAccepted": false
+        },
+        "south": {
+          "selfCandidateSha256": "410a4d21041e155101848ed62738e47aa2130bced98c2269cad9e8605046a73a",
+          "neighborTile": "r16_c16",
+          "neighborCandidate": {
+            "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\candidate\\r16_c16-4k-reviewed-local-repairs-20261016.png",
+            "sha256": "e7c4c2ec482ce257b7bf029b89f2b91567882dac02381bd8a6efcddfff69f261",
+            "size": [
+              4096,
+              4096
+            ]
+          },
+          "pairedEdge": "north",
+          "status": "local_pass_after_N02_final_core_pair_review",
+          "description": "Actual current north/south pair locally passed; changed final evidence and exact unchanged evidence accounted for in root final QA.",
+          "evidence": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\review\\root-final-batch-20261016\\root-final-evidence-qa-20261016.json",
+              "sha256": "6bd0c64f2cbb7fc434ea87d9eb9ac04c49b0bbd2464a21bc97aedab8cdda1ca6"
+            }
+          ],
+          "formalAccepted": false
+        }
+      },
+      "pendingOwnIssues": [
+        {
+          "id": "W01",
+          "status": "failed_pending_retained_original_after_two_native_attempts",
+          "coreBox": [
+            0,
+            3515,
+            140,
+            3705
+          ],
+          "description": "Trial1 removes original upper capstone shoulder but leaves a small lower bevel notch near child x20..60,y3670..3711 and the west material transition is still apparent. Trial2 raw native is straighter but protected y3712+ composite retains a short lower edge step; not accepted. Keep original west capstone, do not represent either trial as passed.",
+          "evidence": {
+            "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c16\\repairs\\independent-seam-fixes-20261013-v1\\repair-review-20261016.json",
+            "sha256": "f13dac1a7884c1a8c406cd3fd2eeb4f7f5a0d4f871599b224ac77d66b723a595"
+          }
+        }
+      ],
+      "nextStep": "Keep west W01 failed and deferred after two native attempts. Future repair must preserve the immutable south384 anchor or coordinate a downstream revision. Current south pair locally passed; no further retry in this batch.",
+      "formalAccepted": false
+    },
+    {
+      "tile": "r16_c15",
+      "image": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\candidate\\r16_c15-4k-local-seams-20261016-v2.png",
+        "sha256": "91120a198c6d8d64bb3fd00ef8fbc1265a0ff2f613908b1b2d36cef0f51f8cc3",
+        "recordedSha256": "91120a198c6d8d64bb3fd00ef8fbc1265a0ff2f613908b1b2d36cef0f51f8cc3",
+        "size": [
+          4096,
+          4096
+        ],
+        "format": "PNG",
+        "opaque": true
+      },
+      "status": "root_local_repairs_pass_east_pair_failed_material_watch",
+      "rootQA": {
+        "rootLocalQA": {
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\review\\resume-20261016\\root-local-qa-20261016.json",
+          "sha256": "dc487720dad73c6d1eb27036c6762b3ecb52bdc8429b233fc89592b0a5605520"
+        }
+      },
+      "internalArtQA": "pass_with_material_texture_watch",
+      "internalRasterSeamQA": null,
+      "externalNeighborSeamQA": {
+        "north": "local_pass_after_synchronized_post_removal",
+        "west": "local_pass_against_962ce4_after_W01_W02_native_repairs",
+        "east": "failed_W02_with_W03_W04_pending_and_W01_watch",
+        "south": "canvas_outer_boundary_painted_edge_checked"
+      },
+      "pairedEdgesQA": {
+        "north": {
+          "selfCandidateSha256": "91120a198c6d8d64bb3fd00ef8fbc1265a0ff2f613908b1b2d36cef0f51f8cc3",
+          "neighborTile": "r15_c15",
+          "neighborCandidate": {
+            "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c15\\candidate\\r15_c15-4k-south-v2-west-v1-20261016.png",
+            "sha256": "647150e78b003c02760adf02fbbe8bd6509c07b6d4b7335e67a326ca44890214",
+            "size": [
+              4096,
+              4096
+            ]
+          },
+          "pairedEdge": "south",
+          "status": "local_pass_after_synchronized_post_removal",
+          "description": "Actual current north/south pair locally passed after both halves of the redundant small post were removed; unchanged quadrant evidence reused.",
+          "evidence": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\review\\resume-20261016\\root-local-qa-20261016.json",
+              "sha256": "dc487720dad73c6d1eb27036c6762b3ecb52bdc8429b233fc89592b0a5605520"
+            }
+          ],
+          "formalAccepted": false
+        },
+        "east": {
+          "selfCandidateSha256": "91120a198c6d8d64bb3fd00ef8fbc1265a0ff2f613908b1b2d36cef0f51f8cc3",
+          "neighborTile": "r16_c16",
+          "neighborCandidate": {
+            "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\candidate\\r16_c16-4k-reviewed-local-repairs-20261016.png",
+            "sha256": "e7c4c2ec482ce257b7bf029b89f2b91567882dac02381bd8a6efcddfff69f261",
+            "size": [
+              4096,
+              4096
+            ]
+          },
+          "pairedEdge": "west",
+          "status": "failed_W02_with_W03_W04_pending_and_W01_watch",
+          "description": "r16_c16 W02 lower coping mismatch remains failed after two native attempts; W03 gold/stone transition and W04 wall grid/material remain pending; W01 short closure is the accepted local best with shape/material watch.",
+          "evidence": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\review\\root-final-batch-20261016\\root-final-evidence-qa-20261016.json",
+              "sha256": "6bd0c64f2cbb7fc434ea87d9eb9ac04c49b0bbd2464a21bc97aedab8cdda1ca6"
+            },
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\review\\resume-20261016\\root-local-qa-20261016.json",
+              "sha256": "dc487720dad73c6d1eb27036c6762b3ecb52bdc8429b233fc89592b0a5605520"
+            }
+          ],
+          "formalAccepted": false
+        }
+      },
+      "pendingOwnIssues": [
+        {
+          "id": "M01",
+          "status": "material_watch_not_formal_approval",
+          "finding": "Existing repeated fine diamond/grid surface motif remains in inherited limestone and dark base; overall material acceptance remains a separate review."
+        }
+      ],
+      "nextStep": "Keep east pair failed for r16_c16 W02 and pending for W03/W04, with W01 closure/material watch. Local I01/N01/W01/W02 repairs and current north pair passed root review; inherited fine-grid material watch remains.",
+      "formalAccepted": false
+    },
+    {
+      "tile": "r16_c16",
+      "image": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\candidate\\r16_c16-4k-reviewed-local-repairs-20261016.png",
+        "sha256": "e7c4c2ec482ce257b7bf029b89f2b91567882dac02381bd8a6efcddfff69f261",
+        "recordedSha256": "e7c4c2ec482ce257b7bf029b89f2b91567882dac02381bd8a6efcddfff69f261",
+        "size": [
+          4096,
+          4096
+        ],
+        "format": "PNG",
+        "opaque": true
+      },
+      "status": "complete_native_candidate_with_explicit_pending_repairs",
+      "rootQA": {
+        "rootFinalQA": {
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\review\\root-final-batch-20261016\\root-final-evidence-qa-20261016.json",
+          "sha256": "6bd0c64f2cbb7fc434ea87d9eb9ac04c49b0bbd2464a21bc97aedab8cdda1ca6"
+        },
+        "finalEvidenceReuseQA": {
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\review\\root-final-batch-20261016\\final-evidence-reuse.json",
+          "sha256": "f0bf8bcbd3597e12e7acafd7fdd19742f04fcd81c2d19cd117e8167deb116aca"
+        }
+      },
+      "internalArtQA": "pending_lower_right_course_and_lighting_finish",
+      "internalRasterSeamQA": "continuous_on_reviewed_final_segments",
+      "externalNeighborSeamQA": {
+        "north": "local_pass_after_N02_final_core_pair_review",
+        "west": "failed_W02_with_W03_W04_pending_and_W01_watch",
+        "east": "map_border",
+        "south": "map_border"
+      },
+      "pairedEdgesQA": {
+        "north": {
+          "selfCandidateSha256": "e7c4c2ec482ce257b7bf029b89f2b91567882dac02381bd8a6efcddfff69f261",
+          "neighborTile": "r15_c16",
+          "neighborCandidate": {
+            "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c16\\candidate\\r15_c16-4k-I01-grout-repaired-20261016-root-reviewed.png",
+            "sha256": "410a4d21041e155101848ed62738e47aa2130bced98c2269cad9e8605046a73a",
+            "size": [
+              4096,
+              4096
+            ]
+          },
+          "pairedEdge": "south",
+          "status": "local_pass_after_N02_final_core_pair_review",
+          "description": "Actual current north/south pair locally passed; changed final evidence and exact unchanged evidence accounted for in root final QA.",
+          "evidence": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\review\\root-final-batch-20261016\\root-final-evidence-qa-20261016.json",
+              "sha256": "6bd0c64f2cbb7fc434ea87d9eb9ac04c49b0bbd2464a21bc97aedab8cdda1ca6"
+            }
+          ],
+          "formalAccepted": false
+        },
+        "west": {
+          "selfCandidateSha256": "e7c4c2ec482ce257b7bf029b89f2b91567882dac02381bd8a6efcddfff69f261",
+          "neighborTile": "r16_c15",
+          "neighborCandidate": {
+            "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\candidate\\r16_c15-4k-local-seams-20261016-v2.png",
+            "sha256": "91120a198c6d8d64bb3fd00ef8fbc1265a0ff2f613908b1b2d36cef0f51f8cc3",
+            "size": [
+              4096,
+              4096
+            ]
+          },
+          "pairedEdge": "east",
+          "status": "failed_W02_with_W03_W04_pending_and_W01_watch",
+          "description": "r16_c16 W02 lower coping mismatch remains failed after two native attempts; W03 gold/stone transition and W04 wall grid/material remain pending; W01 short closure is the accepted local best with shape/material watch.",
+          "evidence": [
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\review\\root-final-batch-20261016\\root-final-evidence-qa-20261016.json",
+              "sha256": "6bd0c64f2cbb7fc434ea87d9eb9ac04c49b0bbd2464a21bc97aedab8cdda1ca6"
+            },
+            {
+              "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\review\\resume-20261016\\root-local-qa-20261016.json",
+              "sha256": "dc487720dad73c6d1eb27036c6762b3ecb52bdc8429b233fc89592b0a5605520"
+            }
+          ],
+          "formalAccepted": false
+        }
+      },
+      "pendingOwnIssues": [
+        {
+          "id": "W02",
+          "status": "failed_deferred_after_two_native_attempts",
+          "box": [
+            0,
+            2380,
+            650,
+            3110
+          ],
+          "description": "Original lower west coping height mismatch retained; both native repairs failed geometry/boundary QA."
+        },
+        {
+          "id": "I01-lower",
+          "status": "failed_deferred_after_two_native_attempts",
+          "box": [
+            3150,
+            2710,
+            3470,
+            3190
+          ],
+          "description": "Original lower right wrap retained. Second correction still50px disconnected; not selected."
+        },
+        {
+          "id": "W03_W04",
+          "status": "pending_material_and_wall_grid",
+          "description": "West gold-to-stone transition and middle slab grid/material still unpassed."
+        },
+        {
+          "id": "M01",
+          "status": "pending_nonblocking_lighting_finish",
+          "box": [
+            1975,
+            1050,
+            3160,
+            1160
+          ],
+          "description": "Front wall horizontal shadow band."
+        },
+        {
+          "id": "W01-watch",
+          "status": "improved_local_best_with_closure_and_material_watch",
+          "description": "Closed short coping end adopted after root native-scale check; entire west edge remains failed."
+        }
+      ],
+      "nextStep": "Keep W02 and I01-lower failed and deferred after two native attempts. W03/W04 material, M01 lighting and W01 closure/material watch remain unpassed. Final north pair and upper I01 passed local review; retain all original outputs and selected images.",
+      "formalAccepted": false
+    }
+  ],
+  "sharedPairSummary": [
+    {
+      "pair": [
+        "r15_c15 east",
+        "r15_c16 west"
+      ],
+      "status": "failed_W01_deferred_after_two_native_attempts"
+    },
+    {
+      "pair": [
+        "r15_c15 south",
+        "r16_c15 north"
+      ],
+      "status": "local_pass_after_synchronized_post_removal"
+    },
+    {
+      "pair": [
+        "r15_c16 south",
+        "r16_c16 north"
+      ],
+      "status": "local_pass_after_N02_final_core_pair_review"
+    },
+    {
+      "pair": [
+        "r16_c15 east",
+        "r16_c16 west"
+      ],
+      "status": "failed_W02_with_W03_W04_pending_and_W01_watch"
+    }
+  ],
+  "reservedExcluded": [
+    "r12_c13",
+    "r12_c14",
+    "r12_c15",
+    "r12_c16"
+  ],
+  "nextSteps": [
+    "Keep the selected images and all historical originals/trials. Do not reinterpret deferred repairs as passed.",
+    "Defer r15_c16 W01, r16_c16 W02 and I01-lower after two failed native attempts; any later repair must respect the recorded protected anchors and coordinate dependent edges.",
+    "Remaining independent finish work: r15_c15 N02/N03 north material and W02 west material; r16_c16 W03 gold/stone transition, W04 wall grid/material, M01 lighting. Retain r16_c15 inherited-grid and r16_c16 W01 closure/material watch.",
+    "Do not modify reserved r12_c13/r12_c14/r12_c15/r12_c16 or update the obsolete six-tile checkpoint from this four-tile handoff."
+  ],
+  "formalAccepted": false,
+  "globalMapAccepted": false,
+  "errors": [],
+  "notes": [
+    "本批只同步八份当前元数据并生成新交付记录；四张成图、选源 manifest、旧 QA 和旧 checkpoint 未改写。",
+    "本批所有图片均来自现有内置入口，实际型号未返回，未使用付费 API，不将未知型号标为 2.5。",
+    "本批制作及收尾未操作共享 Git 的 HEAD、index 或 refs，未声称提交或推送。"
+  ]
+}

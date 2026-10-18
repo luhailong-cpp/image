@@ -1,0 +1,10 @@
+from pathlib import Path
+import json,hashlib
+from datetime import datetime,timezone
+Z=Path(__file__).resolve().parent
+rows=[["r07_c02_s01_01_a01","Pink flowering branches and background foliage match the guide; partial boundary QA remains."],["r07_c02_s01_02_a02","Invented ball post and balustrade removed; original pale-gray foreground statue curves and cherry branches retained. Safe for neighboring continuation."],["r07_c02_s01_04_a01","Temple blue roof, red/gold eave and side plaster align to guide and east native anchor in quick inspection."],["r07_c02_s02_01_a01","Left foliage/cherry trunk and partial statue edge retain guide positions; no unexpected complete figure."],["r07_c02_s02_04_a01","Existing side window, red structural timber and lantern continue from upper patch."],["r07_c02_s03_01_a01","Gray statue volume at right, green planting at left, brown root below, paving entering bottom-left; top continuity plausible."],["r07_c02_s03_04_a01","Existing red post and lantern tassel continue down into plaster/stone plinth; right boundary geometry plausible."]]
+def info(p):return {'path':p.as_posix(),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+out=[]
+for stem,note in rows:
+ p=Z/'native'/(stem+'.png');r=p.with_suffix('.png.generation.json');d=json.loads(r.read_text(encoding='utf-8-sig'));assert info(p)['sha256']==d['sha256'];out.append({'stem':stem,'image':info(p),'generationRecord':info(r),'quickLayout':'PASS_FOR_CONTINUATION_ONLY','observation':note,'internalSeams':'PENDING','formalAccepted':False})
+p=Z/'qa/r07_c02_quick_first7_20261016.json';assert not p.exists();p.write_text(json.dumps({'createdAtUtc':datetime.now(timezone.utc).isoformat(),'scope':'Actual native images visually inspected at original 1254; quick layout/edge assessment only; no internal or external final closure implied.','rows':out,'rejectedPreviousAttempt':{'stem':'r07_c02_s01_02_a01','reason':'Invented stone ball post and balustrade, replaced by a02; original preserved.'}},indent=2)+'\n',encoding='utf8');print(json.dumps(info(p)))

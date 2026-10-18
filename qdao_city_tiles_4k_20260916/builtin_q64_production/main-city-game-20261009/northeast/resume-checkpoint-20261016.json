@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-16",
+  "status": "production_resumed",
+  "rootTile": "r01_c13",
+  "rootSelected": [
+    "p14",
+    "p24",
+    "p34",
+    "p44"
+  ],
+  "rootNativeAwaitingRepair": [],
+  "rootInflight": [
+    "r01_c13/p23-v20261016",
+    "r01_c13/p33-v20261016"
+  ],
+  "rootRepairReason": "M02 two attempts deferred unpassed; baseline retained. Native output route recovered after reboot.",
+  "rootDeferredCoordinate": null,
+  "lastKnownCounts": {
+    "selectedCores": 292,
+    "complete4kCandidates": 17,
+    "internalPassed": 9,
+    "formalAccepted": 0
+  },
+  "agents": [
+    {
+      "owner": "left_resume_20261016",
+      "rows": [
+        1,
+        8
+      ],
+      "columns": [
+        9,
+        10
+      ],
+      "initialCompleteTile": "r08_c09"
+    },
+    {
+      "owner": "middle_resume_20261016",
+      "rows": [
+        1,
+        8
+      ],
+      "columns": [
+        11,
+        12
+      ],
+      "initialCompleteTile": "r08_c11"
+    },
+    {
+      "owner": "east_resume_20261016",
+      "rows": [
+        1,
+        8
+      ],
+      "columns": [
+        15,
+        16
+      ],
+      "excludedRootTile": "r07_c15",
+      "initialCompleteTile": "r07_c16"
+    }
+  ],
+  "exclusions": [
+    "r03_c13",
+    "r03_c14",
+    "r04_c13",
+    "r04_c14"
+  ],
+  "rootDeferredCandidate": {
+    "tile": "r02_c14",
+    "candidate": "r02_c14/candidates/r02_c14.banner-boundary-v8-20261016.png",
+    "sha256": "b16a6282dbb2635ff78e15b0313a345b5830a9696a22da1d666238ea4d42031d",
+    "internalPassed": 0,
+    "qa": "r02_c14/qa/banner-boundary-20261016/internal-review-v8.json"
+  },
+  "rules": "AGENTS unchanged. Split now40 reserved elsewhere; northeast exclusions remain original4. No paid API/shared Git. Reuse hash-bound QA. Preserve original assets and new version paths.",
+  "syncScript": "sync-current-incremental-20261013.py",
+  "continueUntil": "assigned batch complete or genuine blocker",
+  "actualModel": null,
+  "previousRootTile": {
+    "tile": "r01_c14",
+    "selectedCoreCount": 16,
+    "candidate": "r01_c14/qa/core-baseline/3072ac5a7f7ddbf7faeb/r01_c14-core-baseline.candidate.png",
+    "sha256": "90ef0da79e8ae0f74bfcdbe06a6cab394e982e2fc39ff1e32a01db2dbbd43b8b",
+    "review": "r01_c14/qa/internal-review-after-M02-v20261016.json",
+    "internalPassed": 0
+  },
+  "updatedAtUtc": "2026-10-17T04:01:02.011735+00:00",
+  "networkPermissionStatus": "builtin native generation succeeded after reboot"
+}

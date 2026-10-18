@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-16T23:24:39.376316+00:00",
+  "reviewer": "tower_right",
+  "tile": "r03_c14",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\r03_c14-candidate.png",
+    "sha256": "82ce5772b6d0650e55200d6f0129526329b757f5ceb9575748e6ffe952f8e918",
+    "kind": "complete-4096-candidate-unreviewed",
+    "pixels": [
+      4096,
+      4096
+    ],
+    "pixelSha256": "ef9ec8be396e2ce01a6300f4a7569f3a8e45d822142c01d540d3943ed9d6a2f1",
+    "resized": false,
+    "cropped": true,
+    "worldBox": [
+      53248,
+      8192,
+      57344,
+      12288
+    ]
+  },
+  "selection": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\selections\\root-r03c14-candidate-sixteen-v002.json",
+    "sha256": "31c5e1bd34320cd3205f2debc2d4d6238a86281dee9fc730b5bb00ec805145bc"
+  },
+  "scope": "12 vertical internal seams only; each actual 384x1024 crop viewed at original pixels.",
+  "groupReports": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\qa\\right-r03c14-vertical-group1-v001.json",
+      "sha256": "b06c54d2ddd4f14a584ce9ae49c48295ef53c889a9195aee509438ec70fb0b25"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\qa\\right-r03c14-vertical-group2-v001.json",
+      "sha256": "b3f30cb21b9bc96447bb3f6b5b65f75a46ef2c463afdbfe0e90226d34e6b0a04"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\qa\\right-r03c14-vertical-group3-v001.json",
+      "sha256": "fffe126900354d5311b6f33a16db7053758089502377e73551e72715ae51b8d4"
+    }
+  ],
+  "reviewedVerticalCount": 12,
+  "localPassCount": 11,
+  "needsRepairCount": 1,
+  "needsRepair": [
+    "vertical-p32-p33"
+  ],
+  "defects": [
+    {
+      "id": "r03c14-v-p32-p33-top-roof-cut",
+      "kind": "structural-material-boundary-discontinuity",
+      "bboxSeamPixels": [
+        180,
+        0,
+        240,
+        64
+      ],
+      "description": "左侧蓝瓦端头在拼缝处被竖直截断，右侧同一高度已经是红色檐梁；估计约 50px 轮廓相位差。",
+      "contextEvidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\qa\\right-r03c14-p32-p33-top-context-100pct-v001.png",
+        "sha256": "8f193d9e55d5ac9d3feb1e565ff02df5f82bbd189790782dd672e1f901aeed36",
+        "cropTilePixels": [
+          1664,
+          1792,
+          2432,
+          2304
+        ],
+        "resized": false
+      },
+      "adjacentCorner": [
+        "p22",
+        "p23",
+        "p32",
+        "p33"
+      ],
+      "action": "Reported to root for conflict/previous-attempt check before any generation. p23 already has two repairs; no blind retry.",
+      "generationStarted": false,
+      "bboxTilePixels": [
+        2036,
+        2048,
+        2096,
+        2112
+      ]
+    }
+  ],
+  "horizontalSeams": "Not reviewed by this agent; delegated to tower_qa.",
+  "externalSeams": "Not in this review scope.",
+  "formalAcceptedCount": 0,
+  "formalStatus": "Candidate remains unaccepted; local seam passes are not full tile approval.",
+  "newImagesGenerated": 0,
+  "sourceImagesModified": false,
+  "existingTwoRepairPoints": [
+    "p23",
+    "p43"
+  ],
+  "nextAction": "Root to cross-check p32-p33 roof-cut with adjacent p23 repair history before any new native AI repair."
+}

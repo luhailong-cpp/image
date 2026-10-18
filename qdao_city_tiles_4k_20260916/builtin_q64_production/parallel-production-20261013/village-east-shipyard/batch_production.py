@@ -12,7 +12,7 @@ from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageDraw
 
 OUT = Path(__file__).resolve().parent
 BASE = OUT.parent.parent
@@ -283,6 +283,29 @@ def prepare(tile, patch, description, retry=False):
     guide_path = folder / f'layout-only/{patch}-v{version}-layout-only.png'
     guide_path.parent.mkdir(parents=True, exist_ok=True)
     guide.save(guide_path)
+    # Wider approved geometry makes it clear when a post/table continues outside the patch.
+    context_margin, context_size = 2048, 768
+    context_world = [geom['nativeGlobalBox'][0] - context_margin,
+                     geom['nativeGlobalBox'][1] - context_margin,
+                     geom['nativeGlobalBox'][2] + context_margin,
+                     geom['nativeGlobalBox'][3] + context_margin]
+    with Image.open(layout) as im:
+        context = im.convert('RGB').transform((context_size, context_size), Image.Transform.EXTENT,
+            tuple(a * scale for a in context_world), resample=Image.Resampling.BICUBIC)
+    context_scale = context_size / (NATIVE + context_margin * 2)
+    context_target_box = [round(context_margin * context_scale), round(context_margin * context_scale),
+                          round((context_margin + NATIVE) * context_scale),
+                          round((context_margin + NATIVE) * context_scale)]
+    ImageDraw.Draw(context).rectangle(context_target_box, outline=(255, 0, 180), width=3)
+    context_path = folder / f'layout-only/{patch}-v{version}-layout-context-target-box.png'
+    context.save(context_path)
+    context_ref = info(context_path, 'approved wider layout context; magenta rectangle is ONLY the target native extent')
+    context_ref.update(originalLayoutSource=info(layout), worldContextBox=context_world,
+                       targetNativeBoxInContext=context_target_box,
+                       classification='layout reference only; mechanically enlarged pixels and guide box never enter final art')
+    target_layout_ref = info(guide_path, 'exact same-coordinate layout crop only; never final pixels')
+    target_layout_ref['originalLayoutSource'] = info(layout)
+    target_layout_ref['nativeWorldBox'] = geom['nativeGlobalBox']
     conditioned = guide.copy()
     pasted = []
     for direction, item, crop, dest in [
@@ -297,12 +320,27 @@ def prepare(tile, patch, description, retry=False):
                        'operation': 'unscaled adjacent native overlap pasted onto layout-only guide'})
     conditioned_path = folder / f'layout-only/{patch}-v{version}-conditioned-target.png'
     conditioned.save(conditioned_path)
+    # Narrow unscaled overlaps avoid copying a whole neighbor's object into the new core.
+    # Full neighbor provenance remains in pastedNativeReferences above.
+    adjacent_refs = {}
+    for direction, item, crop in [
+            ('left', left, [1024, 0, 1254, 1254]),
+            ('top', top, [0, 1024, 1254, 1254])]:
+        if item:
+            overlap_path = folder / f'layout-only/{patch}-v{version}-{direction}-native-overlap.png'
+            with Image.open(item['path']) as im:
+                im.crop(tuple(crop)).save(overlap_path)
+            overlap_ref = info(overlap_path, f'{direction} native overlap only; unscaled reference crop')
+            overlap_ref['originalNativeSource'] = item
+            overlap_ref['sourceCrop'] = crop
+            overlap_ref['classification'] = 'reference conditioning only; not a new model output'
+            adjacent_refs[direction] = overlap_ref
     refs = [info(conditioned_path, 'edit target; blurry region is layout guidance only')]
-    refs += [left] if left else [top]
+    refs += [adjacent_refs['left']] if left else [adjacent_refs['top']]
     if left and top:
-        refs += [top, info(layout, 'authoritative full-map layout only')]
+        refs += [adjacent_refs['top'], target_layout_ref]
     else:
-        refs += [info(layout, 'authoritative full-map layout only'), info(detail, 'independent daylight material/style, not coordinate crop')]
+        refs += [target_layout_ref, info(detail, 'independent daylight material/style, not coordinate crop')]
     refs += [info(style, 'primary approved Q Daoist hand-painted style; never copy UI, people or night')]
     assert len(refs) == 5
     anchors = 'left 230 pixels' if left else ''
@@ -311,8 +349,9 @@ def prepare(tile, patch, description, retry=False):
     prompt = f'''Use case: precise-object-edit / native game-map continuation.
 Asset: one opaque 1254x1254 native map patch, {tile}/{patch}; 1024x1024 final core at [115,115,1139,1139].
 Image1 is the edit target: {anchors} contain existing native art. The blurry remainder is ONLY the approved layout guide, never final pixels. Preserve the finished native strips and reconstruct the remainder as sharp original detail. Continue every plank, rope, contour, shadow and waterline seamlessly across the strip boundaries without a pasted band, duplicate object or change of scale. At a top/left overlap corner, the top native strip was pasted last.
-Image2 is the immediate adjacent native anchor controlling actual scale, painterly material and exact continuation. '''
-    prompt += ('Image3 is the immediate TOP native anchor. Image4 is the authoritative whole-village layout only. ' if left and top else 'Image3 is the authoritative whole-village layout only. Image4 is independent daytime material/detail style, NOT a coordinate crop. ')
+Image2 is a NARROW unscaled native overlap from the immediate adjacent anchor, controlling exact continuation. It is a cropped edge, never a complete new object. '''
+    prompt += ('Image3 is the NARROW unscaled TOP native overlap. Image4 is the EXACT SAME-COORDINATE layout-only crop, same framing as Image1. ' if left and top else 'Image3 is the EXACT SAME-COORDINATE layout-only crop, same framing as Image1. Image4 is independent daytime material/detail style, NOT a coordinate crop. ')
+    prompt += 'Only this tight coordinate crop is rendered. Cropped objects continue outside the frame: do not fit their full shape or feet into this patch. '
     prompt += f'''Image5 is the primary approved rounded Q Daoist hand-painted style; do not copy its UI, night, people or text.
 Target native world box: {geom['nativeGlobalBox']}; final core world box: {geom['coreGlobalBox']}. Keep the tight cropped view and the approved object's exact footprint, perspective and placement. No zoom-out, rotation or reframing.
 Scene: {description}
@@ -329,6 +368,7 @@ Constraints: preserve approved shipyard/deck/coast/boat geometry; no new or move
                'requestedModelPreference': 'Free/existing 2.5 preferred; built-in 2.0 permitted',
                'submittedModelSelector': None, 'submittedQualitySelector': None,
                'actualModel': None, 'actualQuality': None, 'paidApiUsed': False,
+               'widerContextForHumanReviewOnly': context_ref,
                'status': 'prepared_not_yet_submitted'}
     p = folder / f'requests/{patch}-v{version}.request.json'
     save(p, request)

@@ -1,0 +1,41 @@
+{
+  "createdAtUtc": "2026-10-16T20:27:23.919218+00:00",
+  "tile": "r13_c06",
+  "formalAccepted": false,
+  "reviewMethod": "Actual original-pixel contact/top/left/right image views; source replay is not visual acceptance",
+  "S01": {
+    "attempts": 2,
+    "selected": false,
+    "status": "pending-after-two-AI-attempts",
+    "candidateAssemblies": [
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-west-courtyard\\repairs\\r13c06-south-external-oct16-v1\\S01-assembly-v1\\assembly.json",
+        "sha256": "3c87ba4e088ce0599d8cb1c990e435d966614b34b4c2b769060d0144ae41058c"
+      },
+      {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-west-courtyard\\repairs\\r13c06-south-external-oct16-v1\\S01-v2-assembly-v1\\assembly.json",
+        "sha256": "251f855b88a1e3551d1e15b0359bc76fae6e54ec5f2f1dc8ae207a15a6a17962"
+      }
+    ],
+    "reason": "v1 retains actual core seam; v2 shifts broad horizontal texture/rock/water discontinuity to input row512 (context4096). Preserve prior northern final as best for segment1; no third generation now."
+  },
+  "S02": {
+    "attempts": 1,
+    "selectedAssembly": {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-west-courtyard\\repairs\\r13c06-south-external-oct16-v1\\S02-assembly-v2\\assembly.json",
+      "sha256": "de2ce420b8113263f77fd2cff1f8b03015f4f2e3db5cc65c6f7a997f093b35fe"
+    },
+    "status": "central-contact-improved-side-transitions-pending",
+    "rejectedSelection": {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-west-courtyard\\repairs\\r13c06-south-external-oct16-v1\\S02-assembly-v1\\assembly.json",
+      "sha256": "b81901da9a2c5675f7f4f88657941275b225601a547e6663b096894f1bf8ea5d"
+    },
+    "checks": {
+      "top": "pass-local",
+      "centralRockTransition": "pass-local after native lower-halo DP selection",
+      "actualCore": "exact-neighbour-source-continuity",
+      "leftRightEnds": "pending-adjacent-segments"
+    },
+    "scope": "Do not call entire segment or tile passed until adjacent selection transitions are inspected."
+  }
+}

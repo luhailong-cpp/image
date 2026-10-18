@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-17T04:03:01.574863+00:00",
+  "tile": "r03_c13",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u07-integrated-v001\\r03_c13-candidate.png",
+    "sha256": "7d8df70a34f342687dd9c4a7fdfb2346c73c9a5fdf4b11bf507581c3e19ca133"
+  },
+  "fixedSouthNeighbor": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-east-stair-native-v001\\r04_c13-candidate.png",
+    "sha256": "e1ec3038adfd05f77af6c7efe6c62543bacfaf65eb6f43cc7fa88f4681e88885"
+  },
+  "checks": [
+    {
+      "segment": 1,
+      "status": "local-pass",
+      "observation": "Gray stone grout and red post continue across the actual horizontal boundary; no displaced whole object.",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-south-boundary-qa-v001\\south-segment-1-100pct.png",
+        "sha256": "ceb7084277ff8360d92d0effbcd3a8280904ff51a102d3c217c1302cd4defc27"
+      }
+    },
+    {
+      "segment": 2,
+      "status": "local-pass",
+      "observation": "Curved roof, red side post and brown wall continue. Observed material transition is not a whole-object shift.",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-south-boundary-qa-v001\\south-segment-2-100pct.png",
+        "sha256": "05fda9a9ffc8a7d209df96f3a5ed3301869a9e3c29ed495dc914404b788d9fed"
+      }
+    },
+    {
+      "segment": 3,
+      "status": "pending-context-review",
+      "observation": "Gold plate begins below the red support at the interface near x2670..2820. Gold detail crop retained for independent review; no edit made without a definite structural defect.",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-south-boundary-qa-v001\\south-segment-3-100pct.png",
+        "sha256": "fb555ec5f8d0d0c4fd7243b4adce8215f98c5fcbe71944c4fe84a856daa06bb9"
+      }
+    },
+    {
+      "segment": 4,
+      "status": "interface-local-pass-neighbor-internal-fail",
+      "observation": "Interface upper cap and roof rows continue, but adjoining r04_c13 has a vertical beam-profile jump at its x3072, y0..105. This cannot be repaired by modifying r03_c13 only.",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-south-boundary-qa-v001\\south-segment-4-100pct.png",
+        "sha256": "de1d1f6acb9dc537679b9c2643f482b44bb736ab66c6e8f0a3667bcc5c81568e"
+      }
+    }
+  ],
+  "goldDetail": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-south-boundary-qa-v001\\gold-contact-detail-100pct.png",
+    "sha256": "b2a25eaf16fa471b3df61cc97295fccca5608fee1e7ef3c3c6014665d2a3b3a8"
+  },
+  "wideContext": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-south-boundary-prepare-v001\\repair-input.png",
+    "sha256": "5fd49adbecca3344833c916274d50f7d40aa716dc930217c58372b066f938d06"
+  },
+  "neighborOwnedIssue": {
+    "tile": "r04_c13",
+    "areaXYXY": [
+      3045,
+      0,
+      3100,
+      110
+    ],
+    "issue": "Vertical step in red beam thickness and lower edge at x3072; both sides lie in fixed south neighbor.",
+    "requiresNeighborOwner": true
+  },
+  "sourceCallCount": 0,
+  "nativeCoreCount": 16,
+  "additionalCoreCount": 0,
+  "formalAcceptedCount": 0,
+  "southStatus": "not-passed-pending-context-and-neighbor-repair",
+  "selectedCandidateUnchanged": true
+}

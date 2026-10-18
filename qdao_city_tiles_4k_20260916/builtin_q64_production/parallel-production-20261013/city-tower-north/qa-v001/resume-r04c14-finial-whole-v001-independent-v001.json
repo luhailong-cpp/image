@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-17T05:45:02.785608+00:00",
+  "reviewer": "independent /root/tower_qa_resume",
+  "tile": "r04_c14",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-finial-whole-native-v001\\r04_c14-candidate.png",
+    "sha256": "4678f946e42caa5b9a81d909309728f66f7bcfcdca56f1aa79efd60f21c6f339"
+  },
+  "baseline": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-left-paper-edge-native-v002\\r04_c14-candidate.png",
+    "sha256": "f56cabb63676972929843c8de1144897700cfac0a75037adf404ece0db61c6fa"
+  },
+  "integration": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-finial-whole-native-v001\\integration.json",
+    "sha256": "73b1b2afcfe3698796e4defd33be98380aab0e7abff73752bd9cd11ff72a506f"
+  },
+  "editTileXYXY": [
+    3092,
+    785,
+    3852,
+    1395
+  ],
+  "contextEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-finial-whole-native-v001\\repaired-context-100pct.png",
+    "sha256": "00fd74a45ee5dfefc627efab3ff97d1988c023491c20306d6fc21c0794d3d885"
+  },
+  "perimeterEvidence": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-finial-whole-native-v001\\north-perimeter-100pct.png",
+      "sha256": "fdc1044406e205d0d50fda1db05a7b3fd8e6eff2873c609ce1bd616628312ac6",
+      "crop": [
+        2977,
+        670,
+        3967,
+        900
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-finial-whole-native-v001\\south-perimeter-100pct.png",
+      "sha256": "c6a1a91bfb0f0a423d512065fff58678f68cccf5f33d2ec711dfee095c19aeae",
+      "crop": [
+        2977,
+        1280,
+        3967,
+        1510
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-finial-whole-native-v001\\west-perimeter-100pct.png",
+      "sha256": "095a328cc40bc4307e87a38d084b3a6db9a9b78677377d0d21af36312ab842df",
+      "crop": [
+        2977,
+        670,
+        3207,
+        1510
+      ]
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-finial-whole-native-v001\\east-perimeter-100pct.png",
+      "sha256": "abd2997d1cffa4192a0953291bb7912d2bac4de7775f4295eaa61850362ccb41",
+      "crop": [
+        3737,
+        670,
+        3967,
+        1510
+      ]
+    }
+  ],
+  "mechanicalChecks": {
+    "candidateBaselineInputNativeReceiptHashesVerified": true,
+    "contextAndPerimeterPixelIdentityVerified": true,
+    "candidateRGB4096": true,
+    "native1254": true,
+    "outsideROIIdenticalToBaseline": true
+  },
+  "actualModel": null,
+  "formalAcceptedCount": 0,
+  "fullTileAcceptance": false,
+  "selectionMutated": false,
+  "status": "local-target-and-four-insertion-perimeters-pass",
+  "observations": [
+    "Cuboid front ridge and both silhouettes now continue across y1024 without the former 15-20 px offset.",
+    "Cap apex, cap lip, cuboid, collar and upper shaft remain distinct coherent tiers; surrounding foliage no longer has the old horizontal cut inside the ROI.",
+    "N/S/E/W insertion sides inspected at 100%; no new local cut found."
+  ],
+  "remaining": [
+    {
+      "box": [
+        2842,
+        1005,
+        3092,
+        1045
+      ],
+      "finding": "Preexisting wood/stone upper-boundary jump around x3072/y1024 remains outside this ROI; unpassed."
+    }
+  ],
+  "scope": "Finial and foliage ROI only. External edges and other material joins not accepted.",
+  "centerEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\qa\\right-r04c14-finial-whole-center-v001.png",
+    "sha256": "e92800d4e2f8aa01e8a62cf42f09da98597ae7c89397b931b2dc17a08aa0cd7e"
+  }
+}

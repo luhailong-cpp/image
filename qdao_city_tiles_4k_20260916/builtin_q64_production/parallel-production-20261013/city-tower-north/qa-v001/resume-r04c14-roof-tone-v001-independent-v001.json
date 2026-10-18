@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-17T04:45:22.301997+00:00",
+  "reviewer": "tower_qa_resume",
+  "tile": "r04_c14",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-tone-native-v001\\r04_c14-candidate.png",
+    "sha256": "83ae5a5ad42b0634445d88fb9586241f976c50b78a6e8a6ff7f2d69aa061a4ca",
+    "sha256Verified": true
+  },
+  "baseline": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-cap-native-v002\\r04_c14-candidate.png",
+    "sha256": "02c0b5d70d9fe9fd714ce3dee577274ff7f6074cc9f2023f9ef6fcd2d27a8bc1",
+    "sha256Verified": true
+  },
+  "integration": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-tone-native-v001\\integration.json",
+    "sha256": "0f1b7929cdc1272f7f49be6e437b39ac80dded092f1a66372501901bb1ffd7b4"
+  },
+  "nativeRepair": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-tone-native-v001\\native-repair.png",
+    "sha256": "a55aef88622b8f98d448e607ce6257e387c825813167977691d3fe80b7416ab7",
+    "sha256Verified": true
+  },
+  "receipt": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-tone-native-v001\\receipt.json",
+    "sha256": "7d68f7a566a26b7840634f98a7baec397be6930d0449135914c9cb846e8cfd2d",
+    "sha256Verified": true
+  },
+  "actualModel": null,
+  "actualModelEvidence": "not returned",
+  "editTileXYXY": [
+    0,
+    682,
+    620,
+    1337
+  ],
+  "contextEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-tone-native-v001\\repaired-context-100pct.png",
+    "sha256": "fb565bbf7e3c4c7f2a3c2afd662b6ec3e7300e53b50066093ee045ba797e4357",
+    "sha256Verified": true
+  },
+  "beforeContextEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-tone-prepare-v001\\repair-input.png",
+    "sha256": "163c53232a86fa86717dbadfea0585a3c362fde3d5d56a9f602c161107f512ca",
+    "sha256Verified": true
+  },
+  "mechanicalChecks": {
+    "candidate4096RGB": true,
+    "native1254Pixels": true,
+    "contextPerimeterAndBeforeCropIdentity": true,
+    "outsideRoiPixelIdentity": true
+  },
+  "scope": "Focused independent visual QA only; no whole-seam/tile acceptance unless explicitly named.",
+  "formalAcceptedCount": 0,
+  "fullTileAccepted": false,
+  "newImagesGenerated": 0,
+  "selectionOrSourceMutation": false,
+  "status": "local-pass-internal-roof-material-repair",
+  "finding": "The old horizontal teal roof material split near y1024 at x0..400 is removed. Tile-cylinder curves, seams and flower disks remain continuous; no new horizontal band appears at the upper or lower insertion edge.",
+  "perimeterReview": [
+    {
+      "side": "north",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-tone-native-v001\\north-perimeter-100pct.png",
+        "sha256": "b37b4efd682a787f19cd3fa91ced4287c22035f13a1768a78bf6eca5eaea0439",
+        "crop": [
+          0,
+          567,
+          735,
+          797
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Red beam underside and top tiles join without a new band."
+    },
+    {
+      "side": "south",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-tone-native-v001\\south-perimeter-100pct.png",
+        "sha256": "ce3637c6d223c112d7d26b4411c667e1d2c8c0fcc10864ba3a339b8f09223bb1",
+        "crop": [
+          0,
+          1222,
+          735,
+          1452
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Flower disks and red eave join without a shifted contour."
+    },
+    {
+      "side": "west",
+      "status": "physical-edge-unverified",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-tone-native-v001\\west-perimeter-100pct.png",
+        "sha256": "88e9ac1de56f552326a84f75506512fdd44c9659a14a3b340971aa3b7a3f07b5",
+        "crop": [
+          0,
+          567,
+          115,
+          1452
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Own tile edge is coherent; no r04_c13 neighbor was compared here."
+    },
+    {
+      "side": "east",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-tone-native-v001\\east-perimeter-100pct.png",
+        "sha256": "5d9350a771437205222854b79785ee767ef985888facfe9c4d44222017b10f04",
+        "crop": [
+          505,
+          567,
+          735,
+          1452
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Blue tile highlights, grooves and cap rims meet across x620."
+    }
+  ],
+  "clearedSpecificPriorResidual": {
+    "id": "old-left-roof-horizontal-material-join",
+    "sourceQa": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\qa-v001\\resume-r04c14-roof-chain-v001\\independent-qa.json",
+      "sha256": "08d82026d89fd35410fd825a9c4173461720dfdb78f22aebcb1010d68bae1f96"
+    }
+  },
+  "unchangedRoundedCornerGeometryEvidence": {
+    "tileBox": [
+      900,
+      765,
+      1539,
+      1789
+    ],
+    "pixelIdentityWithRoofCapBaseline": true
+  },
+  "externalWStatus": "changed physical edge; not verified against neighbor",
+  "otherKnownDefects": "Front-post kink and all unrelated previous failures remain pending."
+}

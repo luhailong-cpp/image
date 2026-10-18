@@ -1,0 +1,24 @@
+{
+  "recordedAtUtc": "2026-10-16T11:29:29.999Z",
+  "actualNativeViews": [
+    "integrated-target",
+    "left-interface",
+    "top-interface",
+    "bottom-interface",
+    "right-native-anchor"
+  ],
+  "targetGrayBandRestored": true,
+  "lowerBlueBandPreserved": true,
+  "integratedCandidateSelected": false,
+  "catalogChanged": false,
+  "internalPassed": false,
+  "externalPassed": false,
+  "formalAccepted": false,
+  "blockingIssues": [
+    "Left interface exposes old adjacent patch missing same original upper gray band; a new band dead-end and old thin-line dead-end are visible",
+    "Top interface keeps old 115px context halo; old down-right diagonal and new up-right diagonal end at crop boundary",
+    "Right anchor new diagonal ends at context y115, so it cannot be propagated as a validated continuation",
+    "Subtle material front at lower mask boundary"
+  ],
+  "decision": "Preserve both original current candidate and failed experimental integration; no adoption. Consolidated repair must cover original full1254 patch including top halo, plus adjacent upper inlay at left; defer repeated same-point edit and advance independent missing r14 patch."
+}

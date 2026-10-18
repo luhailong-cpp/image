@@ -1,0 +1,14 @@
+import json,hashlib
+from pathlib import Path
+B=Path(__file__).resolve().parent.parent
+def read(p):return json.loads(p.read_text(encoding='utf-8-sig'))
+def art(p):return {'file':str(p),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+def save(p,d):
+ with p.open('x',encoding='utf-8') as f:json.dump(d,f,ensure_ascii=False,indent=2)
+v1=B/'versions/right-r04c14-left-paper-native-v001';v2=B/'versions/right-r04c14-left-paper-edge-native-v002';r=read(v2/'integration.json')
+qa={'tile':'r04_c14','candidate':r['candidate'],'integrations':[art(v1/'integration.json'),art(v2/'integration.json')],'issue':'left wood door across y2048: clipped red diamond doubletip and duplicate middle gold scrolls','status':'production_local_pass_externalWest_pending','formalAcceptedCount':0,'fullVisualAcceptance':False,'actualNativeCallCount':2,'sourceROIs':[[0,270,915,1225],[0,580,250,950]],'editTileXYXY':[[0,1691,915,2646],[0,2001,250,2371]],'finding':'Full left plate restored to four corner flourishes plus existing ring, woodstiles continuous, clipped paper has one apex. First return raised lower left endpoint~45px; second actual native repair restored near original y895 and kept oneapex. All ROI perimeters inspected; no localcut observed. ExternalW needs neighborcomparison.','allFourPerimetersViewedAt100pct':True,'firstPerimeters':'N/S/E clean; W ownedge clean but lowerpaper endpoint incorrect, corrected in secondintegration','secondPerimeters':'N goldprint and redborder continuous; S/E wood continuous; W ownedge clean, externalunverified','nativeEventBytesMatch':True,'outsideROIUnchanged':True,'noResizeWarpBlur':True,'actualModel':None,'externalWestChangedWorldY':[1691,2646],'externalWestAccepted':False,'rationale':'New wholeleftdoor context after independent roof/shaft/jade work; not repeating old p21core paper strategy.'}
+q=B/'qa/right-r04c14-left-paper-after-v002.json';save(q,qa)
+prev=B/'selections/right-r04c14-candidate-overlay-v016.json';sel=read(prev);sel.update(selectionVersion='right-r04c14-candidate-overlay-v017',candidate=r['candidate'],visualQa=art(q),status='leftdoor_localpass_externalWest_pending',previousOverlaySelection=art(prev));sel['repairIntegrations'] += [art(v1/'integration.json'),art(v2/'integration.json')]
+sp=B/'selections/right-r04c14-candidate-overlay-v017.json';save(sp,sel)
+c=read(B/'qa/right-r04c14-resume-checkpoint-v016.json');c.update(currentSelection=art(sp),currentCandidate=r['candidate'],noInFlightImageCall=True);c['subsequentLocalQa'].append(str(q));c['currentWorkingSourceChain'] += ['leftdoor915x955nativeROI','paperloweredge250x370nativeROI'];save(B/'qa/right-r04c14-resume-checkpoint-v017.json',c)
+print(json.dumps({'selection':art(sp),'candidate':r['candidate'],'qa':str(q),'coreCount':16,'formal':0}))

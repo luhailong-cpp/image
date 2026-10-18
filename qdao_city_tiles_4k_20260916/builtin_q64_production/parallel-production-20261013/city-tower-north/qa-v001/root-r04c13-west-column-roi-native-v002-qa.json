@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-16T15:08:59.318317+00:00",
+  "reviewer": "tower_qa",
+  "scope": "one front west-column repair plus four composition perimeters; no history or full-tile scan",
+  "repairVersion": "root-r04c13-west-column-roi-native-v002",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-west-column-roi-native-v002\\r04_c13-candidate.png",
+    "sha256": "4152a3016b91c3bc9cefc8909ed1172a6037a9c2be632646c417a25f4ea62e3a"
+  },
+  "nativeRepair": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-west-column-roi-native-v002\\native-repair.png",
+    "sha256": "982bfd385de44af053cdf03e640b349061b6851c3c9ce8382605b298d6b4e7c3"
+  },
+  "editTileXYXY": [
+    1001,
+    640,
+    1361,
+    1139
+  ],
+  "sourceCoreXYXY": [
+    220,
+    640,
+    580,
+    1139
+  ],
+  "alphaPerimeterPixels": 16,
+  "evidence": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-west-column-roi-native-v002\\repaired-context-100pct.png",
+      "sha256": "0a7ae081f94938b5e16ae22ef26d83039dce290549a8c6fd0f8e84ac9b9ae804",
+      "reviewedAtNativeScale": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-west-column-roi-native-v002\\north-perimeter-100pct.png",
+      "sha256": "580eb1689062824c3245bfc9c54a45fa38ef822f50fc2afc525a9be73320165c",
+      "reviewedAtNativeScale": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-west-column-roi-native-v002\\east-perimeter-100pct.png",
+      "sha256": "bf8e72b0edac905db7bdeab2372baa1012a24e2a97437baad5b177faa398ad55",
+      "reviewedAtNativeScale": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-west-column-roi-native-v002\\south-perimeter-100pct.png",
+      "sha256": "82dde31b69d4c560224764bb910f10115edf022947fe6af753a84164130cffe2",
+      "reviewedAtNativeScale": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r04c13-west-column-roi-native-v002\\west-perimeter-100pct.png",
+      "sha256": "7ee34d2b0fb62d6f2dd3d7f8add1ee4e768a2c37006883f5346e42728556c223",
+      "reviewedAtNativeScale": true
+    }
+  ],
+  "result": "local_structural_improvement_acceptable_as_working_base",
+  "frontColumn": "The foreground large red column reads as a straight, continuous shaft. The former abrupt width step is not visible in the repaired region; no obvious outward bow remains.",
+  "perimeters": {
+    "north": "Lantern, red wood and column material continue without a new major contour break at y=640.",
+    "south": "Front-column outline and vertical highlight continue at y=1139; no new width step visible.",
+    "west": "Front-column left edge remains straight; gold ornament and adjoining pavement show no new structural break at x=1001.",
+    "east": "No new major contour break visible at the ROI edge x=1361. The rear smaller column retains its separate old horizontal mismatch near tile y=1024; it is outside this local acceptance."
+  },
+  "residualIssues": [
+    {
+      "location": "rear smaller red column, near tile y=1024, east of the foreground shaft",
+      "issue": "Old horizontal material/width mismatch remains visible; independent pending repair.",
+      "status": "pending_separate_repair"
+    }
+  ],
+  "localGeometryPass": true,
+  "fullTileAccepted": false,
+  "formalAcceptedCount": 0,
+  "integrationEvidenceOnly": {
+    "unchangedOutsideEditVerified": true,
+    "noResize": true,
+    "noWarp": true,
+    "noImageBlur": true,
+    "note": "Manifest assertions reused; independent inspection covers the five visual evidence images only."
+  },
+  "nextAction": "Retain this foreground-column correction as a working baseline; do not clear the rear-column issue or full tile."
+}

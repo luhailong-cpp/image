@@ -1,0 +1,131 @@
+{
+  "tile": "r09_c06",
+  "reviewedAtUtc": "2026-10-16T12:10:42.740541+00:00",
+  "status": "complete 4K native candidate; two west grout defects fixed; one east paving junction pending",
+  "stablePrefix": "east-r09c06-westgrout-v02-r09_c06",
+  "reviewedNativeStrips": 24,
+  "reviewedNativeJunctions": 9,
+  "reviewScale": "all 24 strip views and 9 junction views inspected at 1:1, 1254 preview only for layout",
+  "rawReviewManifest": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\island-game-20261009\\southwest\\qa\\c04-hardseam-east-r09c06-v01-native-QA-manifest.json",
+  "remainingInternalIssues": [
+    {
+      "tileLocalBox": [
+        3120,
+        1140,
+        3260,
+        1270
+      ],
+      "issue": "original east diagonal grout dead-end still present; first AI repair did not fix, second repair changes full slab boundary and introduces another seam at selected left/bottom perimeter; preserve best west-fixed candidate and move to independent missing cores.",
+      "kind": "geometry",
+      "aiRepairAttempts": 2,
+      "deferredPerAgentsRule": true
+    }
+  ],
+  "materialNotes": [
+    "Native stone brush mark density becomes finer and golden grout stronger toward eastern paving. No interpolation or color blending used; material consistency remains pending.",
+    "Garden edge, existing tree trunk/canopy and lantern silhouette remain connected in reviewed views."
+  ],
+  "remainingBoundaryIssues": [
+    "North/east/south neighboring tiles not yet complete; full outer acceptance pending."
+  ],
+  "allInternalSeamsPassed": false,
+  "allOuterTileEdgesPassed": false,
+  "formalAccepted": false,
+  "validation": {
+    "pixelCount": 16777216,
+    "mismatchedPixels": 0,
+    "sameGlobalCoordinateExact": true,
+    "sourceIdPixelCounts": {
+      "1": 765431,
+      "2": 633512,
+      "3": 1121681,
+      "4": 962936,
+      "5": 934162,
+      "6": 907523,
+      "7": 1127040,
+      "8": 1013077,
+      "9": 1101956,
+      "10": 1128860,
+      "11": 1138954,
+      "12": 1009331,
+      "13": 1072489,
+      "14": 1080707,
+      "15": 929823,
+      "16": 1116676,
+      "17": 733058
+    },
+    "sourceInputsAndRecordsUnchanged": true,
+    "interpolation": false,
+    "feathering": false,
+    "colorAdjustment": false,
+    "displacement": false,
+    "unchangedOutsideRepairSelection": true,
+    "mandatoryCoreUsesRepairOnly": true,
+    "mandatoryTargetsUseRepairOnly": true,
+    "repairPixelCount": 733058,
+    "diskRoundtripExact": true,
+    "mandatoryCorePatchBoxes": [
+      [
+        220,
+        240,
+        1060,
+        990
+      ]
+    ],
+    "mandatoryTargetPatchBoxes": [
+      [
+        490,
+        340,
+        600,
+        440
+      ],
+      [
+        465,
+        750,
+        590,
+        860
+      ]
+    ]
+  },
+  "baseReview": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\island-game-20261009\\southwest\\qa\\east-r09c06-native-review-v01.json",
+  "changedRegionReview": "Both corrected west targets and all four wide-selection perimeters viewed at 1:1. Unchanged native strips/junctions reused with stable input SHA.",
+  "changes": [
+    {
+      "repair": "r09_c06_westgrout_v01",
+      "selection": "east-r09c06-westgrout-v02",
+      "nativeRoi": [
+        160,
+        180,
+        1120,
+        1050
+      ],
+      "band": 60,
+      "result": "Both target lines continuous; all four native selection perimeters visually passed."
+    }
+  ],
+  "rejectedTrials": [
+    {
+      "prefix": "east-r09c06-westgrout-reselect-v01",
+      "reason": "Existing source selection only relocates west dead ends; not adopted."
+    },
+    {
+      "prefix": "east-r09c06-westgrout-v01",
+      "reason": "Narrow ROI shifts west dead ends to selection perimeter; use wider v02 of same native source."
+    },
+    {
+      "source": "r09_c06_eastgrout_v01",
+      "reason": "Still has original east dead-end after AI edit; saved unselected."
+    },
+    {
+      "prefix": "east-r09c06-eastgrout-v02",
+      "source": "r09_c06_eastgrout_v02",
+      "reason": "Central dead-end replaced by connected boundary, but moved corners introduce new small perimeter notch; unselected trial preserved."
+    }
+  ],
+  "westPairedNeighborReview": {
+    "neighbor": "r09_c05",
+    "status": "geometry visually continuous through four 1:1 paired strips; slight brush-size change in upper paving retained for material review",
+    "manifest": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\island-game-20261009\\southwest\\qa\\east-r09c06-westgrout-v02-r09_c06-supplement-manifest.json",
+    "allGeometricSegmentsPassed": true
+  }
+}

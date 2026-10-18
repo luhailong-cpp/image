@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-17T04:45:23.969703+00:00",
+  "reviewer": "tower_qa_resume",
+  "tile": "r04_c14",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-jade-joint-native-v001\\r04_c14-candidate.png",
+    "sha256": "dc7ff9eeb93c6959bc99412b5c21bc9d248c7401abce0861ffaeeb0d71ed8723",
+    "sha256Verified": true
+  },
+  "baseline": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-tone-native-v001\\r04_c14-candidate.png",
+    "sha256": "83ae5a5ad42b0634445d88fb9586241f976c50b78a6e8a6ff7f2d69aa061a4ca",
+    "sha256Verified": true
+  },
+  "integration": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-jade-joint-native-v001\\integration.json",
+    "sha256": "705723807c1af740c34a2ce0f23c10e555d421398f7db0af95419764f968f53b"
+  },
+  "nativeRepair": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-jade-joint-native-v001\\native-repair.png",
+    "sha256": "9e48e206b151d1e7799059c983d31be183b51c9ab9bd4330dcafbd215c9549df",
+    "sha256Verified": true
+  },
+  "receipt": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-jade-joint-native-v001\\receipt.json",
+    "sha256": "ff456c109e9042e0bf9c78c4889860e82d6213dcd9f13a6a80261fed601305a8",
+    "sha256Verified": true
+  },
+  "actualModel": null,
+  "actualModelEvidence": "not returned",
+  "editTileXYXY": [
+    1671,
+    3102,
+    2356,
+    4096
+  ],
+  "contextEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-jade-joint-native-v001\\repaired-context-100pct.png",
+    "sha256": "634422aa5d28726c36907f4f02cee41605f8e5e340c7fab3d24bc09d3a470fa5",
+    "sha256Verified": true
+  },
+  "beforeContextEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-jade-joint-prepare-v001\\repair-input.png",
+    "sha256": "5eb1249e5167e57fbb504969d5b8dfe6d424f7ddb27e95ad2f2c93ed8f5cae01",
+    "sha256Verified": true
+  },
+  "mechanicalChecks": {
+    "candidate4096RGB": true,
+    "native1254Pixels": true,
+    "contextPerimeterAndBeforeCropIdentity": true,
+    "outsideRoiPixelIdentity": true
+  },
+  "scope": "Focused independent visual QA only; no whole-seam/tile acceptance unless explicitly named.",
+  "formalAcceptedCount": 0,
+  "fullTileAccepted": false,
+  "newImagesGenerated": 0,
+  "selectionOrSourceMutation": false,
+  "status": "improved-working-unpassed",
+  "targetObjectStatus": "jade-and-paper-local-pass",
+  "finding": "The jade top rim/crossbar and torn red paper now join coherently across x2048, replacing the former object offsets. Paving grout still has a roughly 16-pixel height difference beneath the paper, so the complete seam remains unpassed.",
+  "perimeterReview": [
+    {
+      "side": "north",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-jade-joint-native-v001\\north-perimeter-100pct.png",
+        "sha256": "3f1e6e8bc439b30dde470403b6aa7e4508463d3f180f167495b1b20076588eb7",
+        "crop": [
+          1556,
+          2987,
+          2471,
+          3217
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Local floor material transition is continuous; original y3072 seam above the edit is outside this repair."
+    },
+    {
+      "side": "south",
+      "status": "physical-edge-unverified",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-jade-joint-native-v001\\south-perimeter-100pct.png",
+        "sha256": "35f43af69f96aa3affe213e7695881cb886435fbfddf5de1cd917ddf11d326c8",
+        "crop": [
+          1556,
+          3981,
+          2471,
+          4096
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Own jade/white-stone edge is clean; external south neighbor not compared."
+    },
+    {
+      "side": "west",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-jade-joint-native-v001\\west-perimeter-100pct.png",
+        "sha256": "bd6bf0a6667564d15eefa2ed9008d85858c07665e22ff1f5ed7d2f2456ca51f8",
+        "crop": [
+          1556,
+          2987,
+          1786,
+          4096
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Stone post, jade side and top connection are continuous."
+    },
+    {
+      "side": "east",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-jade-joint-native-v001\\east-perimeter-100pct.png",
+        "sha256": "c1de3dde4c33f6a0d316efb119665e9da80e7a809945f76c93487dba062e3112",
+        "crop": [
+          2241,
+          2987,
+          2471,
+          4096
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Stone coping and masonry contour meet without a new insertion jump."
+    }
+  ],
+  "remainingUnpassed": [
+    {
+      "id": "jade-upper-floor-grout-phase",
+      "bboxTilePixelsApprox": [
+        1950,
+        3220,
+        2140,
+        3270
+      ],
+      "estimatedDisplacementPixels": 16,
+      "status": "needs-repair",
+      "introducedByCurrentRepair": false
+    },
+    {
+      "id": "jade-near-coping-orphan-grout-end",
+      "bboxTilePixelsApprox": [
+        2020,
+        3430,
+        2180,
+        3465
+      ],
+      "status": "needs-repair",
+      "introducedByCurrentRepair": false,
+      "finding": "A lower grout line still ends in the floor near the original x2048 join rather than connecting to the left course; visible before and after."
+    }
+  ],
+  "adoptOrRejectRecommendation": "retain-partial-object-improvement-unpassed",
+  "externalSStatus": "changed physical edge; not verified against neighbor",
+  "sourceProductionQa": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\qa\\right-r04c14-jade-joint-after-v001.json",
+    "sha256": "953c91cf8a8ff046aeedc6611973786cd66cf20657c589d4b4b8c30e37b26504"
+  }
+}

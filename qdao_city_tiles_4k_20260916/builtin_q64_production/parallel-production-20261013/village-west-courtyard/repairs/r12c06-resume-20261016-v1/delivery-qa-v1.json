@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-16T05:59:33.516787+00:00",
+  "tile": "r12_c06",
+  "status": "best-native-candidate-with-specific-open-seams",
+  "formalAccepted": false,
+  "internalQa": "failed-I10-I13-minor-value-edges",
+  "externalQa": {
+    "north": "local-four-segment-visual-pass against verified upstream source",
+    "west": "pending",
+    "east": "pending",
+    "south": "pending"
+  },
+  "passedLocalIssues": [
+    "I01",
+    "I02",
+    "I03",
+    "I04",
+    "I05",
+    "I06",
+    "I07",
+    "I08",
+    "I09",
+    "I09b",
+    "I11",
+    "I12",
+    "I14"
+  ],
+  "reusedChecks": {
+    "I01-I03": "top-seams-v1/repair-visual-qa-v1.json; baseline hash unchanged and no later repair intersects original issues",
+    "unaffectedHistoricalChecks": "reused; no complete historical rescan"
+  },
+  "actualVisualChecks": {
+    "rockPhase": "five v2 native1254 composites and20 native border crops",
+    "waterFirstPhase": "five native1254 composites,20 v2 native border crops",
+    "waterSecondPhase": "three full native repaired-region crops including their four edges; rejected due new stronger value edges",
+    "north": "four1254x345 native strips; upstream halo115 pixels unchanged; no clipped pebble or fixed horizontal cut visible"
+  },
+  "pendingIssues": [
+    {
+      "id": "I10-remnant-left",
+      "contextBox": [
+        2715,
+        2490,
+        2765,
+        3250
+      ],
+      "status": "failed",
+      "description": "Main long seam repaired; first generated source still leaves a faint cyan value step along its left selected border. Second AI attempt produced more prominent borders and was rejected.",
+      "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-west-courtyard\\repairs\\r12c06-resume-20261016-v1\\assembly-v2\\w09-I10.left.png"
+    },
+    {
+      "id": "I10-remnant-right",
+      "contextBox": [
+        3680,
+        2770,
+        3740,
+        3050
+      ],
+      "status": "failed",
+      "description": "Faint cyan value step along right selected border; retain first generation best candidate pending grouped repair.",
+      "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-west-courtyard\\repairs\\r12c06-resume-20261016-v1\\assembly-v2\\w09-I10.right.png"
+    },
+    {
+      "id": "I13-remnant-right",
+      "contextBox": [
+        1630,
+        3620,
+        1690,
+        4112
+      ],
+      "status": "failed",
+      "description": "Original central seam repaired but faint new value edge persists near right selection border. Second AI repair also failed its reinserted border.",
+      "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-west-courtyard\\repairs\\r12c06-resume-20261016-v1\\assembly-v2\\w10-I13.right.png"
+    }
+  ],
+  "otherPending": [
+    "Original subtle horizontal-r02-c01 transition remains not fully independently cleared",
+    "Full independent internal re-review",
+    "west/east/south external seam acceptance",
+    "navigation/collision/world mapping"
+  ],
+  "rejectedButPreserved": [
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-west-courtyard\\repairs\\r12c06-resume-20261016-v1\\assembly-v1",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-west-courtyard\\repairs\\r12c06-resume-20261016-v1\\assembly-v3"
+  ],
+  "preferredCandidate": {
+    "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-west-courtyard\\repairs\\r12c06-resume-20261016-v1\\r12_c06.best-native-4096-v1.png",
+    "sha256": "d4af9f23cbccb770b51d7b9c33f4f6d1ae7b505c2e358b0002b98e0233938380",
+    "size": [
+      4096,
+      4096
+    ]
+  },
+  "nativeGenerationsThisResume": 7,
+  "actualModel": "not returned",
+  "route": "builtin-image_gen",
+  "sourceImagesPreserved": true,
+  "gitOperations": false
+}

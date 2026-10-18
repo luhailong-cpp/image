@@ -1,0 +1,78 @@
+{
+  "tile": "r16_c16",
+  "recordedAt": "2026-10-16T08:02:08.292363+00:00",
+  "status": "root_reviewed_local_best_operation_only",
+  "sourceComposition": {
+    "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\repairs\\west-joints-20261016\\W01-v1\\compact-mask-v2\\composition.json",
+    "sha256": "3f22a0558aa481f9da11d6f7e2f680473bfec76006c54e779fc3b79ae342498e"
+  },
+  "sourceReplay": {
+    "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\repairs\\west-joints-20261016\\W01-v1\\compact-mask-v2\\replay-verification.json",
+    "sha256": "f87d6625d6f13c1d4e54ec89575e4c233273071af0aee4ca50bb9d98bec66dc8"
+  },
+  "originalBase": {
+    "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\candidate\\r16_c16-4k-candidate-101a9801efaf54800416.png",
+    "sha256": "fa9ff5a51638c2664c2ffe690d93fd7fc5ca8bfc911867cdb532c13069f7fc5e",
+    "size": [
+      4096,
+      4096
+    ]
+  },
+  "operations": [
+    {
+      "native": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\repairs\\west-joints-20261016\\W01-v1\\native.png",
+        "sha256": "4b3f912168b452cc8b375f401fc105f7405e8fe322819ec2d9fe8e8ee08ae439"
+      },
+      "receipt": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\repairs\\west-joints-20261016\\W01-v1\\receipt.json",
+        "sha256": "955eb500d78661b77611364029a9ce6ac9c6f357bb6bcbfb3979f46071c56dfa"
+      },
+      "preparation": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\repairs\\west-joints-20261016\\W01-v1\\preparation.json",
+        "sha256": "ed5aae74134d91d3168941f9b2cfc9c55c9ba12e5aede3477f89880f0768e879"
+      },
+      "nativeCrop": [
+        400,
+        200,
+        740,
+        480
+      ],
+      "tilePlacement": [
+        0,
+        0,
+        340,
+        280
+      ],
+      "alpha": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c16\\repairs\\west-joints-20261016\\W01-v1\\compact-mask-v2\\alpha.png",
+        "sha256": "4541407c989cfe55f77c940737610ac9b342d2c80090f08f4b0cd68a0ed34c54"
+      },
+      "formula": "uint8((new_uint32*alpha_uint32 + old_uint32*(255-alpha_uint32)+127)//255)"
+    }
+  ],
+  "integrationGuard": {
+    "verifyCurrentRegionRGBSha256BeforeApplying": "d721f40f3daa2978b71baa71b59897682bb429ab0f74f7ce0dc19cb1c2d8188d",
+    "region": [
+      0,
+      0,
+      340,
+      280
+    ],
+    "pixelMode": "RGB",
+    "pixelOrder": "Pillow crop(...).tobytes() row-major",
+    "allowedDifferencesElsewhere": "Other workers may have edited disjoint north/right zones; never use whole trial PNG to replace those."
+  },
+  "rootReview": {
+    "reportedBy": "/root",
+    "result": "local_best_approved_with_closure_shape_and_material_watch",
+    "evidence": "Root reports independent view of compact-mask-v2 four native-sized crops: closed coping improves missing connection; no new north orphan or mask-cut line. Entire west remains not passed."
+  },
+  "remainingWest": [
+    "W02_failed_deferred_after_two_attempts",
+    "W03_gold_stone_material_pending",
+    "W04_middle_grid_material_pending"
+  ],
+  "formalAccepted": false,
+  "noSelectionChanged": true
+}

@@ -1,0 +1,34 @@
+{
+  "tile": "r08_c09",
+  "candidate": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/main-city-game-20261009/northeast/r08_c09/qa/core-baseline/1368c15ca794536c2a6b/r08_c09-core-baseline.candidate.png",
+  "candidateSha256": "324baeafd67a263dbf93889a725a5567e3f2ffbdf8b5fd2ec204b3df61c3b1a9",
+  "completeCandidateCount": 1,
+  "internalPassed4kCount": 0,
+  "formalAcceptedCount": 0,
+  "reviewedInternalPairs": 24,
+  "reviewedIntersections": 9,
+  "nativeRepairCount": 4,
+  "actualModel": null,
+  "status": "bounded_repair_cycle_complete_unpassed",
+  "repairs": [
+    {
+      "id": "upper-right-paving",
+      "attempts": 2,
+      "result": "Both repair outputs remove y627 gap but shift the lower-half diagonal grid; v2 also leaves x230 cutoff. Outer source endpoints not preserved; new source cannot be pasted without new grout discontinuities. All outputs preserved; baseline retained.",
+      "adopted": false
+    },
+    {
+      "id": "blue-band-step",
+      "attempts": 2,
+      "result": "v1 levels border to wrong left elevation, shifting authoritative right strip; v2 leaves original step unchanged. Both kept as unselected outputs; baseline retained.",
+      "adopted": false
+    }
+  ],
+  "otherPending": [
+    "p32 context boundary",
+    "p33/p34 internal material/crop boundaries",
+    "p14/p24 external east slab endpoints",
+    "p42/E phase mismatch deferred after previous two attempts"
+  ],
+  "next": "Continue r07_c10 from stable r08_c10 north context; no third retry at these points."
+}

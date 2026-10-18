@@ -1,4 +1,4 @@
-"""Prepare/project ONE native1254 repair across an explicit 2x2 cluster.
+"""Prepare/project ONE native1254 repair across an explicit 2x2 cluster or adjacent pair.
 
 Manifest schemaVersion1 tiles: [{tileId,image:{path,sha256},record:{path,sha256}}].
 cropBox uses cluster-local8192 coordinates. No full8192 pixel array, resampling,
@@ -18,6 +18,7 @@ import apply_native_tile_repair as r
 SIZE, TILE, CLUSTER = r.SIZE, r.TILE, 2*r.TILE
 PREPARE_OPERATION = "exact native-coordinate crop across verified tile cluster"
 DERIVATION_OPERATION = "native-coordinate crop across verified 2x2 tiles"
+PAIR_DERIVATION_OPERATION = "native-coordinate crop across verified adjacent pair"
 OPERATION = "one native repair projected across verified tile cluster"
 PROJECTION_OPERATION = "same-coordinate projection of one cross-tile native repair"
 FALSE_FLAGS = ("registration","resizing","feathering","colorCorrection","pixelSynthesis")
@@ -45,7 +46,9 @@ def zone_path(path,role):
 def load_manifest(path):
     path=zone_path(path,"Cluster manifest")
     data=r.read_json(path); tiles=data.get("tiles")
-    r.require(data.get("schemaVersion")==1 and isinstance(tiles,list) and len(tiles)==4, "Explicit manifest must contain exactly four current tiles.")
+    pair=data.get("topology")=="adjacent-pair-v1"
+    count=2 if pair else 4
+    r.require(data.get("schemaVersion")==1 and isinstance(tiles,list) and len(tiles)==count, "Manifest requires four current tiles, or two with explicit adjacent-pair-v1 topology.")
     result=[]
     for item in tiles:
         tile_id=item.get("tileId"); origin=r.tile_origin(tile_id)
@@ -54,9 +57,15 @@ def load_manifest(path):
         zone_path(image["path"],"Base image"); zone_path(record["path"],"Base provenance")
         result.append({"tileId":tile_id,"tileOrigin":origin,"image":image,"record":record})
     origin=[min(t["tileOrigin"][axis] for t in result) for axis in (0,1)]
-    expected={(origin[0]+x*TILE,origin[1]+y*TILE) for y in (0,1) for x in (0,1)}
-    r.require({tuple(t["tileOrigin"]) for t in result}==expected and len({t["tileId"] for t in result})==4, "Manifest tiles must form one unique contiguous2x2 neighborhood.")
-    r.require(len({t["image"]["path"] for t in result})==len({t["record"]["path"] for t in result})==4, "Each tile requires a distinct image and provenance record.")
+    actual={tuple(t["tileOrigin"]) for t in result}
+    if pair:
+        horizontal={(origin[0],origin[1]),(origin[0]+TILE,origin[1])}
+        vertical={(origin[0],origin[1]),(origin[0],origin[1]+TILE)}
+        r.require(actual in (horizontal,vertical) and len({t["tileId"] for t in result})==2, "Pair manifest must name two distinct edge-adjacent tiles.")
+    else:
+        expected={(origin[0]+x*TILE,origin[1]+y*TILE) for y in (0,1) for x in (0,1)}
+        r.require(actual==expected and len({t["tileId"] for t in result})==4, "Manifest tiles must form one unique contiguous2x2 neighborhood.")
+    r.require(len({t["image"]["path"] for t in result})==len({t["record"]["path"] for t in result})==count, "Each tile requires a distinct image and provenance record.")
     result.sort(key=lambda t:(t["tileOrigin"][1],t["tileOrigin"][0]))
     for tile in result:
         tile["clusterOffset"]=[tile["tileOrigin"][i]-origin[i] for i in (0,1)]
@@ -118,7 +127,7 @@ def prepare(manifest_path,box,stem,references_path,role):
     input_path=guide_dir/f"{stem}.input.json"; refs_path=guide_dir/f"{stem}.references.json"
     r.require(all(not p.exists() for p in (target,derivation_path,input_path,refs_path)), "Prepared version already exists; never overwrite.")
     with target.open("xb") as handle: Image.fromarray(crop).save(handle,format="PNG")
-    derivation={"schemaVersion":1,"operation":DERIVATION_OPERATION,"isAiGeneration":False,
+    derivation={"schemaVersion":1,"operation":PAIR_DERIVATION_OPERATION if len(context['tiles'])==2 else DERIVATION_OPERATION,"isAiGeneration":False,
                 "method":{flag:False for flag in FALSE_FLAGS},**context,
                 "output":{**r.file_info(target),"dimensions":[SIZE,SIZE]}}
     write_json(derivation_path,derivation)
@@ -144,7 +153,8 @@ def validate_input(manifest_path,input_path,seen=None):
     derivation_path=Path(derivation_info["path"])
     zone_path(target["path"],"Crop target"); zone_path(derivation_path,"Crop derivation")
     derivation=r.read_json(derivation_path); validate_method(derivation)
-    r.require(derivation.get("operation")==DERIVATION_OPERATION, "Unsupported cross-tile crop derivation.")
+    expected_derivation=PAIR_DERIVATION_OPERATION if len(context['tiles'])==2 else DERIVATION_OPERATION
+    r.require(derivation.get("operation")==expected_derivation, "Unsupported cross-tile crop derivation.")
     for key,value in context.items():
         r.require(derivation.get(key)==value, f"Crop derivation {key} differs from verified current bases.")
     r.require(r.pinned(derivation.get("output"),derivation_path.parent,"derived crop output")==target and derivation["output"].get("dimensions")==[SIZE,SIZE], "Derivation identifies a different crop.")

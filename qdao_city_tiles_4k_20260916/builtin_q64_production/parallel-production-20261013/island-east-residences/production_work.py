@@ -312,7 +312,9 @@ def command_prepare(args):
     mask = Image.new('1', guide.size)
     # Native halo context is useful but not independently selected artwork. Record
     # conflicting halo pixels, then adopt disjoint selected core pixels as authority.
-    for role in ('native_overlap_context', 'selected_neighbor_core'):
+    core_anchors_only = bool(getattr(args, 'core_anchors_only', False))
+    anchor_roles = ('selected_neighbor_core',) if core_anchors_only else ('native_overlap_context', 'selected_neighbor_core')
+    for role in anchor_roles:
         for n in neighbors:
             world = intersection(g['nativeWorldBox'], n['nativeWorldBox'] if role == 'native_overlap_context' else n['coreWorldBox'])
             if not world:
@@ -368,6 +370,8 @@ Only recorded neighbor CORE pixels outside the central square are fixed: left x<
 Match the attached mail and team images' fine Daoist Q hand-painted style: rounded forms, jade/teal accents, warm ivory, restrained fine gold, soft modeled shading. Use natural pale grey/blue-grey stone. Daylight, Spring Festival details on existing architecture, sparse lantern/Mid-Autumn accents; trees near existing buildings/walls. No UI, text, NPCs, grids, watermarks or night scene.
 The central [115,115,1139,1139] crop is the new 1024 core. Output exactly 1254 square if supported; never upscale an overview or call it finished art. References in attached order: {', '.join(r['role'] for r in attached)}.
 '''
+    if core_anchors_only:
+        prompt += '\nGUIDE ANCHOR MODE: only exact selected neighbor CORE pixels outside [115,115,1139,1139] were pasted. No unselected neighbor halo was pasted inside the central core. Every pixel inside that central square is editable; create one continuous native painting matching the outer core strips.\n'
     focus = getattr(args, 'focus', None)
     focus_record = None
     if focus:
@@ -383,12 +387,14 @@ The central [115,115,1139,1139] crop is the new 1024 core. Output exactly 1254 s
              'guide': path_text(guide_path), 'guideSha256': sha(guide_path),
              'guideIsFinalArt': False, 'actualModel': None, 'actualQuality': None,
              'submittedModel': None, 'submittedQuality': None, 'modelMetadataStatus': '未返回',
-             'focusSpecification': focus_record, 'repairBase': base_record}
+             'focusSpecification': focus_record, 'repairBase': base_record,
+             'coreAnchorsOnly': core_anchors_only}
     write_json(folder / 'guide.derivation.json', {'geometry': g, 'layoutReference': refs[0],
                 'layoutOperation': 'previous native candidate copied unscaled before neighbor anchoring' if base_record else 'overview crop enlarged for layout only; replicated guide-only outer halo',
                 'repairBase': base_record,
                 'layers': layers, 'contextConflicts': conflicts,
-                'overlapResolution': 'context in recorded order; disjoint selected-neighbor core rectangles pasted last, exact unscaled; no feathering',
+                'coreAnchorsOnly': core_anchors_only,
+                'overlapResolution': 'selected-neighbor core rectangles only, exact unscaled; no interior halo or feathering' if core_anchors_only else 'context in recorded order; disjoint selected-neighbor core rectangles pasted last, exact unscaled; no feathering',
                 'finalArtUpscaled': False, 'guideIsFinalArt': False, 'guideSha256': sha(guide_path)})
     p = write_json(folder / 'inputs.json', value)
     return {'inputs': path_text(p), 'guide': path_text(guide_path), 'prompt': path_text(prompt_path),
@@ -574,6 +580,7 @@ def main():
             p.add_argument('--preflight', action='store_true', help='Mechanical preparation only; does not authorize an image call')
             p.add_argument('--focus', help='Local text file with exact cropped subject constraints')
             p.add_argument('--base-native', help='Existing same-coordinate native candidate for localized repair guide')
+            p.add_argument('--core-anchors-only', action='store_true', help='Paste selected neighbor cores only; omit unselected native halo pixels inside the target core')
     p = sub.add_parser('ingest'); p.add_argument('core_version'); p.add_argument('source'); p.add_argument('--receipt')
     p = sub.add_parser('select'); p.add_argument('core_version'); p.add_argument('review_json')
     p = sub.add_parser('assemble'); p.add_argument('tile')

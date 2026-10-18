@@ -1,0 +1,42 @@
+{
+  "status": "passed_tool_preparation_validation_only",
+  "helper": {
+    "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r13_c12\\native_correction_workflow_20261016_v1.py",
+    "sha256": "ced8ecb4eb0c4be932ebbf3dcd81748dae349d1505e50c8f26403eebd7a77ac3"
+  },
+  "frozenWestHelperSha256": "bd2fec860c321993a8fff79305b15a43fe510c1d0bc06d376068ef7c1fe96a6b",
+  "nativeCorrectionVersion": "p01_04_v20261016T155304_nativefix_50db3192",
+  "parentSha256": "899ca8d3ddf02cf085ed4967a577b39c903835811a209592506c4524259b349d",
+  "targetSha256": "3f2773a8bb2e5d37b9e1518d5a774e0d5e5061da19810fb452e8923497234f5f",
+  "independentIntegerPixelReplayExact": true,
+  "outsideAnchorsEqualsActualNative": true,
+  "plainWestPreparationValidated": "p02_04_v20261016T133928_b0df564e",
+  "newPreparationAcceptedByFrozenWestValidator": true,
+  "negativeCases": [
+    {
+      "case": "native_target_cannot_be_plain_layout",
+      "rejected": true,
+      "reason": "[Errno 2] No such file or directory: 'D:\\\\work\\\\image\\\\qdao_city_tiles_4k_20260916\\\\builtin_q64_production\\\\main-city-game-20261009\\\\southeast\\\\r13_c12\\\\native-edit-preparation\\\\p01_04_v20261016T155304_nativefix_50db3192\\\\native-plus-original-anchors-target.png.derived.json'"
+    },
+    {
+      "case": "changed_anchor_order_rejected",
+      "rejected": true,
+      "reason": "Native correction changed inherited coordinate/reference/anchor authority"
+    },
+    {
+      "case": "changed_parent_sha_rejected",
+      "rejected": true,
+      "reason": "Correction parent lineage differs"
+    },
+    {
+      "case": "lost_original_four_refs_rejected",
+      "rejected": true,
+      "reason": "Correction parent lineage differs"
+    }
+  ],
+  "modelCalls": 0,
+  "selectionChangedByHelper": false,
+  "progressWrittenByPrepare": false,
+  "formalAccepted": false,
+  "assemblyLimitation": "Full16-source assembly has not been run; extension preserves frozen numerical algorithm and replaces only target validation with explicit plain/native branches."
+}

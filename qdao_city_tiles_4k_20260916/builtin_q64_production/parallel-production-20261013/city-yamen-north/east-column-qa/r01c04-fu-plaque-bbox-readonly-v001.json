@@ -1,0 +1,199 @@
+{
+  "createdAtUTC": "2026-10-16T17:41:49.873176+00:00",
+  "reviewer": "east_column_native",
+  "scope": "Read-only r01_c04 plaque geometry audit. No image, selection, or other-worker record modified.",
+  "approvedOverview": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\daylight-only-20261009\\tianyong\\tianyong-spring-natural-stone-v9.png",
+    "sha256": "47485b823db7dbe4e63883f9ae6d759f3f2fbb5897c72f16fa64e921bde6ccd7",
+    "pixels": [
+      1254,
+      1254
+    ],
+    "worldCanvas": [
+      65536,
+      65536
+    ],
+    "worldPixelsPerOverviewPixel": 52.261562998405104
+  },
+  "measurementMethod": "Actually viewed original overview and nearest-neighbor diagnostic crop. Coordinates estimated from visible outer plaque edges; raster antialias/shadow makes about one overview pixel uncertainty. Native draft and unscaled excerpts inspected separately. Diagnostic enlargement is NOT native artwork.",
+  "approvedPlaqueTarget": {
+    "approxOverviewLTRB": [
+      249,
+      48,
+      281,
+      79
+    ],
+    "approxWorldLTRB": [
+      13013,
+      2509,
+      14686,
+      4129
+    ],
+    "approxTileLocalLTRB": [
+      725,
+      2509,
+      2398,
+      4129
+    ],
+    "approxWorldVertices": {
+      "top": [
+        13849,
+        2509
+      ],
+      "left": [
+        13013,
+        3292
+      ],
+      "right": [
+        14686,
+        3345
+      ],
+      "bottom": [
+        13902,
+        4129
+      ]
+    },
+    "worldUncertaintyPerEdge": 52,
+    "approxWidth": 1673,
+    "approxHeight": 1620,
+    "criticalSouthTip": "Bottom world y approximately 4129 +/-52. Existing south source reported y4132 is consistent with approved layout height. Do not erase tip or force whole plaque above y4096. About33-36px of point can extend into r02_c04/s01_02."
+  },
+  "currentDraft": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\qa\\draft-native4096-v001\\r01_c04-draft-native4096.png",
+    "sha256": "1d675bd67ea0441ff17bf2a50d2dd3790ecd398cde73feee99547bdb91493ecc",
+    "historicalDraftNotCurrentAcceptance": true,
+    "actualViewed": true,
+    "approxWorldLTRB": [
+      12885,
+      2338,
+      14949,
+      4113
+    ],
+    "approxWidth": 2064,
+    "widthRatioToLayout": 1.234,
+    "approxTopTooHigh": 171,
+    "nativeBottomTipEstimate": {
+      "source": "s04_02-v001.png",
+      "worldXY": [
+        13928,
+        4113
+      ],
+      "uncertainty": 6,
+      "note": "Northern source tip itself is about16px above reference estimate and roughly19px above reported southern tip. Retain pending seam status."
+    },
+    "geometryFinding": "Plaque is approximately23 percent too wide; top is about170px too high. Side vertices should move inward about128px left and263px right, with small center uncertainty. Main issue is scale/shape, not overall lowering/raising.",
+    "frameFinding": "Raised broad gold frame on upper/side patches abruptly becomes thin painted gold line in lower central s04_02. At x13312 and x14336 lower diagonal edges show large discontinuity; draft even replaces part of thick frame with wall. One continuous edge treatment must be fixed as a whole.",
+    "frameWidthObservation": "Upper/side raised bands roughly35-55 native pixels normal to edge; lower central painted line roughly10-15. Approved low-resolution overview supports a simple consistent border, but does not justify a precise new gold-band pixel width."
+  },
+  "minimalRepair": {
+    "tightUnionApproxWorldLTRB": [
+      12885,
+      2338,
+      14949,
+      4181
+    ],
+    "recommendedWorkingWorldLTRB": [
+      12830,
+      2290,
+      15010,
+      4211
+    ],
+    "maskRule": "Mask only plaque old/new silhouette union, immediate border/shadow, and narrow adjacent stone fill. Preserve unrelated wall, banner at east, blossom southwest, and canopy. Working bbox is not blanket repaint permission.",
+    "affectedR01C04Patches": [
+      "s03_01",
+      "s03_02",
+      "s03_03",
+      "s04_01",
+      "s04_02",
+      "s04_03"
+    ],
+    "smallSouthDependency": {
+      "tile": "r02_c04",
+      "patch": "s01_02",
+      "worldBoxForCoordination": [
+        13785,
+        3981,
+        14020,
+        4211
+      ],
+      "note": "Core target tip only y4096..about4132; use115px overlap context. Confirm exact lower tip x/y with same agreed diamond geometry before repairing either side."
+    },
+    "suggestedSequence": "Use one world-coordinate diamond definition across all six affected cores; establish slim consistent frame and coherent Fu character before freezing neighbors. Coordinate south-tip fragment with root. Do not independently regenerate the entire plaque inside each1254 patch.",
+    "noGenerationPerformed": true
+  },
+  "sourceEvidence": [
+    {
+      "patch": "s03_01",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\native\\s03_01-v001.png",
+      "sha256": "5e7bb0235f6b44637b973c498ddfc951d04821bf9ecb08939d4b1049d9b7000f",
+      "hashVerified": true
+    },
+    {
+      "patch": "s03_02",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\native\\s03_02-v001.png",
+      "sha256": "78c1c2183d437be173b3b8ed07124f841e2a5731deaa80891ee3f1cd44ebfe75",
+      "hashVerified": true
+    },
+    {
+      "patch": "s03_03",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\native\\s03_03-v001.png",
+      "sha256": "6b8874eba52f39e94d56281ff85dfa8814ba5555798d8bacb974b90131929e50",
+      "hashVerified": true
+    },
+    {
+      "patch": "s04_01",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\native\\s04_01-v001.png",
+      "sha256": "0eef1d69793cb1008a41c77a6861c8c50615f2953a14e729c5696b2266242933",
+      "hashVerified": true
+    },
+    {
+      "patch": "s04_02",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\native\\s04_02-v001.png",
+      "sha256": "8adf485535e318c2be5ebf2b19c2cd66219e9f877d5bcc7b12585be86cf47a72",
+      "hashVerified": true
+    },
+    {
+      "patch": "s04_03",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\native\\s04_03-v003.png",
+      "sha256": "e996bbb699bd9202f6821334693446acc998d757bd1c098961d3f65c7a2ac98f",
+      "hashVerified": true
+    }
+  ],
+  "latestSelectionAtAudit": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\selection\\selection-v017.json",
+    "sha256": "aab1fb4f887cde7cc281645f29ee1898e9a576d0ce15914ea67b1a9ce9489bfa",
+    "selectedCoreCount": 7,
+    "plaquePatchesSelected": false
+  },
+  "diagnostics": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\east-column-qa\\r01c04-approved-plaque-pixel-inspection-v001.png",
+      "sha256": "9095ea8aa6138ee7e6de6ba41c79d0a7b44d713d192bcfef9cc92c8cc924bea9"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\east-column-qa\\r01c04-current-v001-bottom-tip-native100-v001.png",
+      "sha256": "6b8851272fb374bff07e314d6e7840114e939a52921284d37c48427f2f4c1c25"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\east-column-qa\\r01c04-draft-plaque-left-native100-v001.png",
+      "sha256": "509775cac947c81a2d7072fa0d027a34e0028bbf9b26a779bd3362de2c838e29"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\east-column-qa\\r01c04-draft-plaque-lower-left-native100-v001.png",
+      "sha256": "bb1765c72dfc24661b3b9cdaa937cc096cc7dcaa6342bf8ef139c50b3afc8e56"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\east-column-qa\\r01c04-draft-plaque-review-halfscale-v001.png",
+      "sha256": "a532feb7be97537f7a50e4cdd043bcc0270b7f0934b9fdfd269b37689fe99579"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\east-column-qa\\r01c04-draft-plaque-right-native100-v001.png",
+      "sha256": "c93917afb685c44b75278e3d051b006e6a2409eb63011530be53c6620cec3ff9"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\east-column-qa\\r01c04-draft-plaque-top-native100-v001.png",
+      "sha256": "4a9fabba40eba9d39a913f394d5bda0b9ed48cc04af7dfecf0625cbdd035afa4"
+    }
+  ],
+  "formalAccepted": false
+}

@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 4,
+  "createdAtUTC": "2026-10-16T18:11:42.630807+00:00",
+  "tile": "r02_c05",
+  "patch": "s03_01",
+  "coordinates": {
+    "order": 13,
+    "phase": "r02_south_to_north",
+    "frontierOrder": 2,
+    "tile": "r02_c05",
+    "tileRow": 2,
+    "tileColumn": 5,
+    "patch": "s03_01",
+    "subrow": 3,
+    "subcolumn": 1,
+    "globalCoreRowOneBased": 7,
+    "globalCoreColumnOneBased": 17,
+    "tileWorldBox": [
+      16384,
+      4096,
+      20480,
+      8192
+    ],
+    "coreWorldBox": [
+      16384,
+      6144,
+      17408,
+      7168
+    ],
+    "worldBoxWithHalo": [
+      16269,
+      6029,
+      17523,
+      7283
+    ],
+    "expectedNativePixels": [
+      1254,
+      1254
+    ],
+    "nativeCoreCropLTRB": [
+      115,
+      115,
+      1139,
+      1139
+    ],
+    "corePasteXYInTile": [
+      0,
+      2048
+    ],
+    "nativePasteOriginXYInTile": [
+      -115,
+      1933
+    ],
+    "corePasteXYInBatch": [
+      4096,
+      6144
+    ],
+    "nativePasteOriginXYInBatch": [
+      3981,
+      6029
+    ],
+    "worldBoxWithHaloClippedToArtCanvas": [
+      16269,
+      6029,
+      17523,
+      7283
+    ],
+    "validCanvasCropLTRBWithinNative": [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "haloOutsideArtCanvas": false,
+    "southContinuationDependency": {
+      "tile": "r02_c05",
+      "patch": "s04_01",
+      "role": "previously prepared/generated southern frontier in this four-tile batch",
+      "withinBatch": true
+    },
+    "westContinuationDependency": {
+      "tile": "r02_c04",
+      "patch": "s03_04",
+      "withinBatch": true,
+      "role": "same frontier western tile last patch"
+    },
+    "referenceStatus": "logical dependency coordinates only; actual source files not inspected or copied in this preparation",
+    "proposedFutureNativeFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r02_c05\\native\\s03_01.png",
+    "futureFileExistsAtPreparation": false,
+    "generationSubmitted": false
+  },
+  "prompt": "Use case: precise-object-edit. Edit image 1 at exactly 1254 x 1254 with unchanged crop and scale. It is a close crop of an illustrated Chinese game-map roof, with gold ridge, cyan diagonal tiles, and autumn leaves. The left strip x0..114, y115..1138 is the fixed adjacent roof: preserve those exact pixels. Repair only the left join: continue the plain hand-painted gold trim and its lower edge seamlessly from that left strip into x115..550, removing the vertical height step and dense engraved micro-pattern near this join. Continue the cyan tile axes across x115 without a kink. Gold should have broad smooth painted light and shadow, matching the left strip; transition gently to the existing right portion. Keep the rail straight, no added curl or ornament. Preserve all foliage, all pixels right of x600, and the roof below y950 exactly as image1. Preserve the bottom115 pixels y1139..1253 exactly. Output only the corrected1254 square. Images2and3 provide only the established soft hand-painted finish, no UI or additional decoration.",
+  "referenced_image_paths": [
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\requests\\r02_c05\\s03_01-west-fixed-c04-v008-edit-guide-only-v001.png",
+    "D:/work/image/designs/mail-ui-v1/01-mail-event.png",
+    "D:/work/image/designs/team-ui-v2/team-ui-v2.png"
+  ],
+  "transparent_background": false,
+  "actualModel": null,
+  "requestedModelPreference": "free/included2.5 preferred; builtin2.0 allowed; no paid API",
+  "generationSubmitted": false,
+  "guide": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\requests\\r02_c05\\s03_01-west-fixed-c04-v008-edit-guide-only-v001.png",
+    "sha256": "088bd073a0651fe3e7671e995752250b3a1cb7da8b1e5d9e82fe200e30fb64d9",
+    "productionNativeSource": false,
+    "role": "exact native edit target composite; no resampling",
+    "baseNative": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r02_c05\\native\\s03_01-v007.png",
+    "baseSHA256": "cdd1ba69060255d30e9fa3a9e8007103b94603dab3d559ab0d36306bf0082873",
+    "nativeContextPastes": [
+      {
+        "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r02_c04\\native\\s03_04-v008.png",
+        "sha256": "f15412cae193f945cd3ad542a67ac73931d3aa612bf2cb278d304d8d88c41386",
+        "sourceCropLTRB": [
+          1024,
+          115,
+          1139,
+          1139
+        ],
+        "guidePasteXY": [
+          0,
+          115
+        ],
+        "authority": "parent fixed east core115px only; not whole-tile acceptance"
+      },
+      {
+        "source": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r02_c05\\native\\s04_01-v001.png",
+        "sha256": "39c5eb97a39af69e9d3afa0d48f581af40467f9cd0f7b1002ec74ff8d0b74ceb",
+        "sourceCropLTRB": [
+          0,
+          115,
+          1254,
+          230
+        ],
+        "guidePasteXY": [
+          0,
+          1139
+        ]
+      }
+    ]
+  },
+  "rootRuleSHA256": "57f1ad4f81fdb2256b843923d862308be228130917b99cfced375db256aff01a",
+  "manifestSHA256": "929a52abdb55e6022f83abbe9b48718182bc33fc8a0bc2d50a14f6232dd4e850"
+}

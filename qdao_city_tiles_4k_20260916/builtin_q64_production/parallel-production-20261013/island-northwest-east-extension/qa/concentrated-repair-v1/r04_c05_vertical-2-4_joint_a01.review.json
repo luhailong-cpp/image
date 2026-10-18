@@ -1,0 +1,33 @@
+{
+  "reviewedAtUtc": "2026-10-17T04:23:23.753901+00:00",
+  "status": "rejected_rectangle_boundary_incompatibility",
+  "nativeSha256": "0e0cfd35494d1c4b7ea6d95d8885ecd07a5e8ae0fc1c2cfd4126589678d69688",
+  "inputSha256": "971b1ef24e77c1a3fd978e2312b0f792a916d3a5b57d0c26ada04545e58cdff2",
+  "repairBox": [
+    636,
+    470,
+    747,
+    1254
+  ],
+  "operationEvaluated": "Exact unscaled integer AI crop/paste into native reference; no blur, feather, color transform or procedural drawing. Trial only, not selected.",
+  "interior": "Golden paper illumination is less glaring; improvement exists inside the proposed rectangle.",
+  "edges": {
+    "top": "At y470, generated golden panel creates a visible horizontal tonal edge against retained paper.",
+    "left": "Narrow bright strip beside retained red rib persists; pigment/brightness transition remains visible.",
+    "right": "Changed panel terminates with a narrow brightness transition next to retained curved red rib; not seamless.",
+    "bottom": "Trial reaches tile south edge at y4096. New changed paper boundary has no validated adjoining external source; remains unaccepted."
+  },
+  "geometry": "Main red ribs held outside rectangle by retaining base pixels. This does not prove material boundary compatibility.",
+  "visualInputs": [
+    "lantern-a01-top-before-trial.png",
+    "lantern-a01-left-before-trial.png",
+    "lantern-a01-right-before-trial.png",
+    "lantern-a01-bottom-before-trial.png"
+  ],
+  "adopted": false,
+  "internalPass": false,
+  "knownPendingPoints": 9,
+  "newUniqueCores": 0,
+  "new4096Candidates": 0,
+  "technicalBlocker": "Model changes paper lighting over a broader area than an axis-aligned extraction can join without a new tonal seam. Restricting crop preserves geometry but does not make four material boundaries compatible; cannot hide the defect with blur or feather."
+}

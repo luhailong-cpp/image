@@ -1,0 +1,82 @@
+{
+  "tile": "r06_c15",
+  "createdAt": "2026-10-16T11:21:18.276593+00:00",
+  "candidate": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northeast\\r06_c15\\candidates\\r06_c15.local-repairs-best-v2-20261016.png",
+  "candidateSha256": "f492c8d62578856abca390c0544edf8b0a8b4248d9e78c567ad98cc0824a43ee",
+  "composition": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northeast\\r06_c15\\qa\\resume-20261016\\composition-best-v2.json",
+  "baseReview": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northeast\\r06_c15\\qa\\local-repair-resume3-20261013\\visual-review-resume3-v1.json",
+    "sha256": "97405faa47a2e418a20bc681b896b39dbc00aaf8d9d44f79fab3497ddafa93d2",
+    "reuse": "24 seam and9 intersection coverage plus 7 native repair reviews remain valid outside two new rectangles"
+  },
+  "localWindowsViewed": [
+    {
+      "id": "panel",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northeast\\r06_c15\\qa\\resume-20261016\\panel-composed-v2.png",
+      "sha256": "40bb0be5a306c4e0bc7d77ec297022b493503e5b0cdaa0d4dc31a525b33467d2",
+      "nativeSize": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "id": "roof",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northeast\\r06_c15\\qa\\resume-20261016\\roof-composed-v2.png",
+      "sha256": "6ff4ce1e25e4df112ebb98b5a93455741f843b44cf40c3adc32f8b4c70eb1e8e",
+      "nativeSize": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "id": "wallrail",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northeast\\r06_c15\\qa\\resume-20261016\\wallrail-composed-v2.png",
+      "sha256": "89c9e499db6c57656254c26f46836d4d940a6cfcb7ca72b02febe0736784fbca",
+      "nativeSize": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "id": "upperroof",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northeast\\r06_c15\\qa\\resume-20261016\\upperroof-composed-v2.png",
+      "sha256": "861b38006904d7b7f79661e1de4f6b633db922fd9ca5d056611878dd8113a147",
+      "nativeSize": [
+        1254,
+        1254
+      ]
+    }
+  ],
+  "passedLocal": [
+    "panel joint: no rail/stone interruption; minor material tint only"
+  ],
+  "pendingIssues": [
+    {
+      "id": "roof",
+      "priority": "P2",
+      "attempts": 2,
+      "finding": "Original lower repair boundary at y3240 remains; second AI created stronger right-edge roof phase breaks and was rejected."
+    },
+    {
+      "id": "wallrail",
+      "priority": "P2",
+      "attempts": 2,
+      "finding": "Original post notch and cream-wall tone boundary at y2200 remain; second AI simply moved notch to its lower boundary and was rejected."
+    },
+    {
+      "id": "upperroof",
+      "priority": "P2",
+      "attempts": 2,
+      "finding": "Broken round eave terminals are restored, but left/top repair boundaries still have shifted tile highlight/material continuity (tile x810, y950)."
+    }
+  ],
+  "pendingP2Count": 3,
+  "historicalAndCurrentRepairCount": 11,
+  "selectedCoreCount": 16,
+  "internalPassed": false,
+  "formalAcceptedCount": 0,
+  "outsideRepairRectsIdentical": true,
+  "actualModel": null,
+  "route": "builtin",
+  "nextStep": "Two attempts per remaining point exhausted; preserve best unpassed candidate and continue independent r08_c15 missing cores."
+}

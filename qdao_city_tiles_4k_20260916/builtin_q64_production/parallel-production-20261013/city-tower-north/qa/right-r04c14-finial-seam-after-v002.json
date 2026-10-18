@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "tile": "r04_c14",
+  "issue": "p14/p24 upperstonefinial horizontal width/center step",
+  "attempts": [
+    {
+      "version": "right-r04c14-finial-seam-native-v001",
+      "nativeSha256": "3325694212b85696f79e768fe7161f01f086161687c317e76d08fa2a88d9b4d8",
+      "candidateSha256": "63b44363ebc1d7fdc5049481da7fdee01f047f2574df0e8ddc3fd5ae0dc977aa",
+      "finding": "Original upper cuboid cut removed in source, but lower collar moved; at ROI south a new approx15px ledge/alpha ghost appears. Not selected."
+    },
+    {
+      "version": "right-r04c14-finial-seam-native-v002",
+      "nativeSha256": "a58ca92d4fc6a4dd0bfd10623a61a204b71b23ba643952a8c765e3dd2f1ac4c0",
+      "candidateSha256": "8f6d5f0450015c1c40363969c039077380925ed6847e0b17e94015c4601dba55",
+      "finding": "Upper cap narrowed, reducing original right-edge step roughly40..45px to about20px. Front corner still misaligned about15..20px. Lower collar/shaft preserved by narrowROI. Best partial improvement, NOT passed."
+    }
+  ],
+  "bestPartial": "right-r04c14-finial-seam-native-v002",
+  "status": "partial_improvement_after_two_attempts_geometry_still_failed",
+  "formalAcceptedCount": 0,
+  "fullVisualAcceptance": false,
+  "fourPerimetersActuallyViewed": true,
+  "north": "Foliage/topcap perimeter no major new rectangle boundary",
+  "south": "Original midcuboid step remains about20px; this is the unresolved blocker, not passed",
+  "west": "Upper silhouette narrowed but midjoin still not exact; background geometry stable",
+  "east": "Leaf background hard horizontal old joint remains; caprightedge residual20px",
+  "sourceROI": [
+    270,
+    230,
+    525,
+    465
+  ],
+  "editTileXYXY": [
+    3112,
+    815,
+    3367,
+    1050
+  ],
+  "alphaPerimeterPixels": 16,
+  "outsideROIPixelsUnchanged": true,
+  "realCompletedEventBytesMatch": true,
+  "actualModel": null,
+  "next": "Do not retry this same point immediately; retain exact unresolved geometry and bestpartial candidate."
+}

@@ -37,5 +37,7 @@ cmd=sys.argv[1]
 if cmd=='prepare':prepare(*sys.argv[2:])
 elif cmd=='qa':qa(sys.argv[2])
 elif cmd=='request':print(p.record_request(TILE,sys.argv[2],T/'planned'/(sys.argv[2]+'.parameters.json')))
+elif cmd=='select-issue':
+ identifier,note=sys.argv[2:4];D=T/'qa/source-review'/identifier;m=p.read(D/'manifest.json');p.write_json(D/'review.json',{'source':m['source'],'reviewer':'/root','actuallyViewed':True,'viewedCrops':[dict(file=c['file'],sha256=c['sha256']) for c in m['crops']],'status':'selected_with_local_issue','finding':note,'fullTileInternalQAPassed':False,'formalAccepted':False},replace=False);print(p.record_selection(TILE,identifier[:6],identifier,note,str(D/'review.json')))
 elif cmd=='select':
  identifier,note=sys.argv[2:4];D=T/'qa/source-review'/identifier;m=p.read(D/'manifest.json');p.write_json(D/'review.json',{'source':m['source'],'reviewer':'/root','actuallyViewed':True,'cropReviews':[dict(file=c['file'],sha256=c['sha256'],status='passed') for c in m['crops']],'status':'passed_available_local_neighbors','finding':note,'fullTileInternalQAPassed':False,'formalAccepted':False},replace=False);print(p.record_selection(TILE,identifier[:6],identifier,note,str(D/'review.json')))

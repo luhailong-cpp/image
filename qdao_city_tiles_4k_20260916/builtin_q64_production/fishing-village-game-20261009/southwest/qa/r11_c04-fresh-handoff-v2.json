@@ -1,0 +1,71 @@
+{
+  "createdAtUtc": "2026-10-16T20:06:43.929268+00:00",
+  "tile": "r11_c04",
+  "status": "repair_required",
+  "audit": {
+    "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/qa/r11_c04-fresh-native-art-audit-v2.json",
+    "sha256": "c8be98477802146ccdddafa630fe8a2ed4b85afc6096aac6495ac9834ec05faa"
+  },
+  "candidate": {
+    "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/qa/full-tile-r11_c04-candidate-4096.png",
+    "sha256": "9ecea0f8138ca6dc4832a5c5d7fbc06772a02252c33e9e71332c2e61aac1cab4"
+  },
+  "context": {
+    "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/qa/full-tile-r11_c04-context-native.png",
+    "sha256": "4c47bbf7290bdcc12273adf1036c6fe389c27c5d76d7951a722f30820af81501"
+  },
+  "trace": {
+    "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/qa/full-tile-r11_c04-assembly.json",
+    "sha256": "f77617096162f30f0260fde8793b593baee83dc6593c7a94a9b7d1a6a728c309"
+  },
+  "internalPassWindowsReused": 36,
+  "externalNewPassWindows": 12,
+  "nativeRepairCandidatesRetained": [
+    {
+      "version": 1,
+      "image": {
+        "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/native/r11_c04_riser_base_repair_v1.png",
+        "sha256": "53a7ff4f78d1488a7b1a38f669d212deb5054bf69f33109795d791201492b4f7"
+      },
+      "generation": {
+        "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/native/r11_c04_riser_base_repair_v1.generation.json",
+        "sha256": "10e9b81228795d4cb7d3526d1bb6f175707d6c202d01640ee6c9267f9746ac1a"
+      },
+      "status": "not_selected",
+      "reason": "Both native edits remove central notch by raising lower-left base about60px, despite v2 explicitly requiring left-side preservation. A narrow local composite would transfer the geometric offset to its left boundary."
+    },
+    {
+      "version": 2,
+      "image": {
+        "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/native/r11_c04_riser_base_repair_v2.png",
+        "sha256": "3b72a26f69659bbc229e63e6bc619af70e04bc676aa84327756eca5abbcb31cc"
+      },
+      "generation": {
+        "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/native/r11_c04_riser_base_repair_v2.generation.json",
+        "sha256": "ec2c60cf6920809d3be3be8bf5db03348c7c99c87633d7c216813557b39b3b12"
+      },
+      "status": "not_selected",
+      "reason": "Both native edits remove central notch by raising lower-left base about60px, despite v2 explicitly requiring left-side preservation. A narrow local composite would transfer the geometric offset to its left boundary."
+    }
+  ],
+  "remainingIssues": [
+    {
+      "id": "first-riser-base-notch",
+      "status": "repair_required_deferred_after_two_unsuitable_edits"
+    },
+    {
+      "id": "west-upper-lip-kink",
+      "status": "repair_required"
+    },
+    {
+      "id": "northeast-pavement-tone-cut",
+      "status": "repair_required"
+    },
+    {
+      "id": "south-neighbor-reserved",
+      "status": "not_checked"
+    }
+  ],
+  "exportAllowed": false,
+  "nextStep": "Root can continue independent missing tiles while these localized geometry/corner repairs remain in the repair queue. Do not count r11_c04 art accepted."
+}

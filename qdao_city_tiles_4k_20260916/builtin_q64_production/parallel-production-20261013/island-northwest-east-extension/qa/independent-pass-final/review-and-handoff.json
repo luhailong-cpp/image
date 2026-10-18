@@ -1,0 +1,22 @@
+{
+ "status":"pending_concentrated_material_repair",
+ "formalAccepted":false,
+ "uniqueCores":32,
+ "nativeVersions":52,
+ "currentInflight":null,
+ "latestCandidates":{"r03_c05":"tiles/r03_c05_candidate-v5_4096.png","r04_c05":"tiles/r04_c05_candidate-v4_4096.png"},
+ "currentQaBindings":["qa/r03_c05_s04_01_a02/inputs.json","qa/r03_c05_s04_03_a03/inputs.json","qa/r04_c05_s04_02_a04/inputs.json","qa/r04_c05_s04_04_a02/inputs.json","qa/independent-pass-final/inputs.json"],
+ "externalReview":"Viewed latest r03-west-4 and r03-r04 segments1/3. Joint paths remain connected; local surface transitions remain. Other unchanged external input pairs reuse previous review; unknown north/east/south context remains unaccepted.",
+ "previousFiveDeferredPoints":"qa/deferred-material-repairs-20261016.json",
+ "additionalDeferredPoints":[
+  {"tile":"r03_c05","edge":"vertical-1-4","rangeInTile":[896,3072,1152,4096],"nativeRegion":"s04_01 x950..1254","best":"r03_c05_s04_01_a02","attempts":["a02 seam-diagnostic clarity match; slight change","a03 neighbor full-source texture match; increased pattern step, rejected"],"remaining":"Pigment scale/sharpness transition at x1024; geometry retained"},
+  {"tile":"r03_c05","edge":"vertical-2-4","rangeInTile":[1920,3072,2176,4096],"nativeRegion":"s04_03 x0..240 y350..1254","best":"r03_c05_s04_03_a03","attempts":["a04 broaden pigment; rejected larger diamond shapes","a05 neighbor-source spacing/tonal match; no material improvement, rejected"],"remaining":"Texture scale transition at x2048; geometry retained"},
+  {"tile":"r04_c05","edge":"vertical-3-4","rangeInTile":[2944,3072,3200,4096],"nativeRegion":"s04_04 x0..260 y250..800","best":"r04_c05_s04_04_a02","attempts":["a02 finer cloudy pigment with diagnostic; slightly reduced step","a03 narrowed density adjustment; flattened surface without resolving step, rejected"],"remaining":"Paving texture change above diagonal flowerbed curb"},
+  {"tile":"r04_c05","edge":"horizontal-3-2","rangeInTile":[1024,2944,2048,3200],"nativeRegion":"s04_02 x0..900 y0..270","best":"r04_c05_s04_02_a04","attempts":["a04 top-seam reference matching; small improvement","a05 narrower y80..190 correction; no further improvement, rejected"],"remaining":"Paving pigment boundary; red lantern geometry stable"}
+ ],
+ "remainingIndependentNativeMissingCores":0,
+ "unattemptedKnownInternalMaterialPoints":0,
+ "nextAction":"All nine known material points now have two localized attempts without convergence. Preserve best selected sources and candidates for a later coordinated material repair. Do not label pending as passed or repeat the same local methods indefinitely.",
+ "route":"built-in image_gen",
+ "actualModel":"not_returned"
+}

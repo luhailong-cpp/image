@@ -1,0 +1,154 @@
+{
+  "createdAtUTC": "2026-10-17T00:33:24.008230+00:00",
+  "reviewer": "east_column_native",
+  "purpose": "Independent read-only whole-tile semantic/layout comparison to approved overview; no new art, no selection or prior QA changes.",
+  "tile": "r02_c05",
+  "worldBox": [
+    16384,
+    4096,
+    20480,
+    8192
+  ],
+  "assembly": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r02_c05\\candidate\\r02_c05-native-cores-v001.png",
+    "sha256": "8f2dfec98bd89c06b0f4c8120ba99beed4c014e3544f80367d993849c1990ef7",
+    "nativePixels": [
+      4096,
+      4096
+    ],
+    "reusedUnchanged": true,
+    "rebuilt": false,
+    "assemblyManifest": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r02_c05\\candidate\\r02_c05-native-cores-v001.assembly.json",
+    "assemblyManifestSHA256": "0f84ae137f9a91a9feba67c8ade5ae4fe78a43edbb6caeda89782e405b653848",
+    "all16SourcesStillMatchCurrentSelectionAndFileSHA": true
+  },
+  "selection": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r02_c05\\selection\\selection-v018.json",
+    "sha256": "1486857ea0174ed66b073c5c93a48e7d646f527f80e42bd8d1e1475c018da098",
+    "selectedCoreCount": 16,
+    "modified": false
+  },
+  "approvedOverview": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\daylight-only-20261009\\tianyong\\tianyong-spring-natural-stone-v9.png",
+    "sha256": "47485b823db7dbe4e63883f9ae6d759f3f2fbb5897c72f16fa64e921bde6ccd7",
+    "pixels": [
+      1254,
+      1254
+    ],
+    "tileSourceBoxInOverview": [
+      313.5,
+      78.375,
+      391.875,
+      156.75
+    ],
+    "sourcePixelsPerTile": 78.375,
+    "worldPixelsPerOverviewPixel": 52.261562998405104
+  },
+  "inspection": {
+    "actualViewed": [
+      "Full approved overview in this task chain",
+      "Same-world entire-tile side-by-side preview",
+      "Same-world left roof plane orientation close crop"
+    ],
+    "method": "Approved low-resolution crop enlarged only for layout QA; existing4096 assembly reduced only for layout QA. No claims that diagnostic enlargements are native art. Prior passed internal seam checks were not repeated.",
+    "scopeLimit": "Only whole-tile semantics, feature placement, orientation and relative scale; tiny reference raster cannot resolve exact individual leaves or every tile collar."
+  },
+  "findings": [
+    {
+      "id": "roof-tile-axis-deviation",
+      "status": "NEW_LAYOUT_PENDING",
+      "confidence": "high for dominant visible axis",
+      "observation": "The approved main left roof plane shows nearly vertical top-to-bottom blue rib/tile axes; current selected artwork shows a strong down-right diagonal tile grid, visually roughly30-35degrees from vertical. This is a pattern orientation deviation within an otherwise similarly placed roof silhouette.",
+      "evidenceWorldBox": [
+        16500,
+        7000,
+        18000,
+        8000
+      ],
+      "broaderApproxAffectedWorldBox": [
+        16384,
+        6800,
+        18530,
+        8192
+      ],
+      "affectedPatches": [
+        "s03_01 lower roof",
+        "s03_02 lower roof",
+        "s04_01",
+        "s04_02",
+        "s03_03/s04_03 narrow area left of vertical gold divider"
+      ],
+      "evidenceFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\east-column-qa\\r02c05-roof-axis-comparison-qa-only-v001.png",
+      "note": "Do not infer this is fixed by prior local seam checks. Existing canonical neighboring roof may share diagonal pattern; this review does not authorize altering any neighbor."
+    },
+    {
+      "id": "canopy-mass-density-and-scale",
+      "status": "NEW_LAYOUT_STYLE_PENDING",
+      "confidence": "medium-high for mass density, limited for literal leaf scale",
+      "observation": "Approved tree has conspicuous large star-shaped golden foliage masses and visible branching/dark gaps. Current native fills most of those spaces with much denser small orange/yellow maple leaves; one very large star leaf next to the right eave remains conspicuous, increasing the size contrast. Overall crown location and golden autumn identity remain recognizable, but canopy shape hierarchy is less open.",
+      "approxWorldBox": [
+        16384,
+        4096,
+        20480,
+        7040
+      ],
+      "affectedPatches": [
+        "s01_01",
+        "s01_02",
+        "s01_03",
+        "s01_04",
+        "s02_01",
+        "s02_02",
+        "s02_03",
+        "s02_04",
+        "s03 foliage portions"
+      ],
+      "uncertainty": "At78px tile resolution the original star forms may represent leaf clusters rather than individual leaves. Do not treat a precise leaf count/size target as established."
+    },
+    {
+      "id": "roof-color-material-emphasis",
+      "status": "OBSERVATION_PENDING_COORDINATOR",
+      "confidence": "high appearance comparison, art direction decision reserved",
+      "observation": "Current roof is brighter cyan with strong white specular streaks and separated rounded collars; approved roof reads quieter/darker teal. This increases visual texture and shine. This observation does not establish a numeric color target."
+    }
+  ],
+  "noNewSemanticDisplacementFound": [
+    "No extra building, roadway, character, UI text or game panel introduced in the inspected tile.",
+    "The approved tile is dominated by tree canopy and roof. Small gray masonry exposure at the northwest is wall/background; no traversable ground patch is expected here, and no new ground-routing conflict was found.",
+    "Straight horizontal gold roof ridge, its hanging clamp, the upward curl to the right, and the vertical gold divider are in broadly corresponding positions and retain their orientation.",
+    "The curved gold eave still falls down and right along the canopy. Its overall silhouette and building scale are recognizable; this read-only low-resolution check does not certify exact pixel contours.",
+    "No separate extra roof finial or extra eave branch was identified in this selected4096 assembly compared with the approved crop."
+  ],
+  "priorPendingPreserved": {
+    "internalQAFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r02_c05\\reviews\\internal-qa-native100-v001.json",
+    "sha256": "ec4d19d7b99f4dcae288c224ea910a3945cc26e25f99372a945407ac85319140",
+    "modified": false,
+    "notes": "Left two columns at tiley3072 remain pending. External western gold/tile join remains pending. New observations add no passed status."
+  },
+  "previews": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\east-column-qa\\r02c05-approved-vs-native-layout-qa-only-v001.png",
+      "sha256": "fb493faaddd3ee2f5029d5ee8bae958b43553e88b2564cdbe37bdbd08ed4412f",
+      "qaOnly": true,
+      "notNativeProductionArt": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\east-column-qa\\r02c05-approved-vs-native-grid-qa-only-v001.png",
+      "sha256": "2037b2bd2cec7d8fcfb3560486d3d85317dddd087953fd0682c2595100a9d981",
+      "qaOnly": true,
+      "notNativeProductionArt": true
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\east-column-qa\\r02c05-roof-axis-comparison-qa-only-v001.png",
+      "sha256": "92cc9c536bb685a004db124990d9a335ef3bdc2edcbf2ffd4145b1d06fbeefc9",
+      "qaOnly": true,
+      "notNativeProductionArt": true
+    }
+  ],
+  "newImageGenerationCalls": 0,
+  "nativeImagesModified": false,
+  "selectionModified": false,
+  "formalAccepted": false,
+  "wholeLayoutAccepted": false,
+  "recommendation": "Coordinator should review roof-axis and foliage-mass deviations as whole-layout issues before final acceptance; do not chase them with uncoordinated local seam-only edits."
+}

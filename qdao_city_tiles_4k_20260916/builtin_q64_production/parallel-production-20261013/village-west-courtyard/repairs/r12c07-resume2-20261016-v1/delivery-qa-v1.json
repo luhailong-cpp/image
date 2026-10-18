@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "tile": "r12_c07",
+  "createdAtUtc": "2026-10-16T21:44:48.178706+00:00",
+  "status": "best-native-candidate-with-open-external-findings",
+  "formalAccepted": false,
+  "currentAssembly": {
+    "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r12c07-resume2-r19-v1/assembly.json",
+    "sha256": "049f631164ac3b70e31e42f5f30f89afb580419f72362fd2d32b1342c0197c31"
+  },
+  "currentContext": {
+    "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r12c07-resume2-r19-v1/context-native.png",
+    "sha256": "99f50735f137c049b46ad315c5ea11873f9a30f25014561dcee25aaaec3e6f72"
+  },
+  "internalNewRepairQA": [
+    {
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r12c07-resume2-r17-v1/visual-qa-v1.json",
+      "sha256": "bbc5170013e25f7aa7197d1accae390a51c86fbdeb15fde74763f7c5574453a1"
+    },
+    {
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r12c07-resume2-r18-v1/visual-qa-v1.json",
+      "sha256": "90f42ef60b22dd7b7d623b962f6ccc6927101ec8eb8739ab5a3391187134079b"
+    },
+    {
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r12c07-resume2-r19-v1/visual-qa-v1.json",
+      "sha256": "ca54187659c7e3e74456959210db9a699c58067dc3f1cb23aa36b82b4154fb43"
+    }
+  ],
+  "internalOpenJunctionReview": {
+    "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r12c07-resume2-open-junction-review-v1/independent-review-v1.json",
+    "sha256": "67660bbcca3c283fcfe0643674ffc92a4b3eed480bc39f8abe676f2b85e9f8c5"
+  },
+  "northQA": {
+    "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/qa/r12c07-resume2-north-ai-v1/review-v1.json",
+    "sha256": "209612152311e514eb178b63f7618a30f7a9043bace2b9ca0d492fa5c70c298f"
+  },
+  "reuseRules": [
+    "R19 does not alter top570; all northern actual-core join and local checks remain pixel-identical in their changed area.",
+    "Rows1766 onward equal R18 exactly; lower internal review is reusable. J2-right upper overlap changed by R19 and is covered by its bottom/left local QA.",
+    "The prior full tile is not automatically passed by a source replay proof."
+  ],
+  "pending": [
+    {
+      "id": "north-N04-far-east-texture-transition",
+      "contextBox": [
+        3900,
+        115,
+        4211,
+        275
+      ],
+      "globalBox": [
+        28361,
+        45056,
+        28672,
+        45216
+      ],
+      "description": "Fine/coarse sand texture shift adjoining preserved eastern vegetation shadow; improved but not passed."
+    },
+    {
+      "id": "west-R05",
+      "status": "deferred-after-two-unsuccessful-attempts",
+      "description": "Actual western core joins remain pending; R05 v1/v2 not selected. r12c06 frozen best remains read-only anchor."
+    },
+    {
+      "id": "south-external",
+      "status": "pending-neighbour-production",
+      "description": "r13c07 currently being repaired by another worker; no acceptance claimed."
+    },
+    {
+      "id": "east-external",
+      "status": "pending-not-checked",
+      "description": "No stable eastern-neighbour actual core join checked in this continuation."
+    }
+  ],
+  "sourceProof": {
+    "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-production-20261013/village-west-courtyard/repairs/r12c07-resume2-20261016-v1/final-replay-proof-v1.json",
+    "sha256": "996ec25ef468576bb170d0c5ef0c958510ff91ba305be09c26adb93aa661c103"
+  }
+}

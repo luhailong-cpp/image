@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-17T04:34:18.720614+00:00",
+  "reviewer": "tower_qa_resume",
+  "tile": "r04_c14",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-front-post-native-v001\\r04_c14-candidate.png",
+    "sha256": "e2dfcf0c3376dbec182bcb4f139a0e4a2cecfe6168ef17cabd6202f6d7368693",
+    "sha256Verified": true
+  },
+  "baseline": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-gold-door-native-v002\\r04_c14-candidate.png",
+    "sha256": "c32dfe505b424b3d8f570176bdb740fff62302351b0be79970e6de77ef4a3bf7",
+    "sha256Verified": true
+  },
+  "integration": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-front-post-native-v001\\integration.json",
+    "sha256": "972b6ac7d4ee19e8868021a1fbe95dbd84824054fe2f469441b553ab30b8e4fc"
+  },
+  "nativeRepair": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-front-post-native-v001\\native-repair.png",
+    "sha256": "67fdb10364d8577fab78dad415f21a9f38540c0871783de066e2a29b3ea0ff4d",
+    "sha256Verified": true
+  },
+  "receipt": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-front-post-native-v001\\receipt.json",
+    "sha256": "284e61b36bf574230ca2b2c2102a5ee641b714bc614743ec251823a0d3e92152",
+    "sha256Verified": true
+  },
+  "actualModel": null,
+  "actualModelEvidence": "not returned",
+  "editTileXYXY": [
+    821,
+    1980,
+    1261,
+    3125
+  ],
+  "contextEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-front-post-native-v001\\repaired-context-100pct.png",
+    "sha256": "c510d789e0998efbe3b3de7bf206b0e32b3178352f0b380f610f5298180aabd9",
+    "sha256Verified": true
+  },
+  "scope": "Focused incremental independent native-scale QA; no whole-tile claim.",
+  "mechanicalChecks": {
+    "candidate4096RGB": true,
+    "native1254": true,
+    "hashesAndCropsVerified": true,
+    "outsideEditPixelIdentity": true
+  },
+  "formalAcceptedCount": 0,
+  "fullTileAccepted": false,
+  "newImagesGenerated": 0,
+  "selectionOrSourceImagesChanged": false,
+  "targetStatus": "needs-repair",
+  "workingAssessment": "improved-working-unpassed",
+  "finding": "Post and its lower gold/stone base are substantially continuous, but the right silhouette kinks inward at the upper ROI transition near y1980 by roughly 4-6 pixels.",
+  "defects": [
+    {
+      "id": "front-post-north-right-silhouette-kink",
+      "bboxTilePixelsApprox": [
+        1155,
+        1965,
+        1180,
+        2010
+      ],
+      "estimatedDisplacementPixels": [
+        4,
+        6
+      ],
+      "status": "needs-repair"
+    }
+  ],
+  "perimeterReview": [
+    {
+      "side": "north",
+      "status": "needs-repair",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-front-post-native-v001\\north-perimeter-100pct.png",
+        "sha256": "a5f7aa87973b00df49ccc0bb1cdb821d878964d55ab7ffed35b516d9d8aa3ca8",
+        "crop": [
+          706,
+          1865,
+          1376,
+          2095
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Right red silhouette shows the retained 4-6px kink at the upper ROI edge."
+    },
+    {
+      "side": "south",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-front-post-native-v001\\south-perimeter-100pct.png",
+        "sha256": "70a99852996a62c86f994cfe653569d7e1b303bcf5ff881c586f7dc355f6a1a0",
+        "crop": [
+          706,
+          3010,
+          1376,
+          3240
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Gold base, white stone plinth and paving connect at the lower ROI."
+    },
+    {
+      "side": "west",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-front-post-native-v001\\west-perimeter-100pct.png",
+        "sha256": "7ee6e7973c340dfd624c285e4a02a143c059d3bfa7ad00a3bfc7593fde8fabb4",
+        "crop": [
+          706,
+          1865,
+          936,
+          3240
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Timber/column shadow side connects across the west ROI."
+    },
+    {
+      "side": "east",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-front-post-native-v001\\east-perimeter-100pct.png",
+        "sha256": "abc665f4ff5026ddf0b5a918e11afaba714cf39f6aba7d795deea421e457c5de",
+        "crop": [
+          1146,
+          1865,
+          1376,
+          3240
+        ],
+        "sha256Verified": true
+      },
+      "finding": "Adjacent gold door frame, post side and floor connect across the east ROI; the north kink is separately recorded."
+    }
+  ],
+  "selectedV013MatchesThisCandidate": true,
+  "selectionEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\selections\\right-r04c14-candidate-overlay-v013.json",
+    "sha256": "3d9f5b196c5ce7859c13a0901c8171a534e43f75c06664f9339046900ca0ecfd"
+  },
+  "excludedResidual": "Old paving grout step below y3125 lies beyond the repair and is not cleared here.",
+  "recommendation": "Retain as partial improvement only. Respect the recorded two-attempt stop; do not relabel local-pass.",
+  "externalEdgesStatus": "not assessed"
+}

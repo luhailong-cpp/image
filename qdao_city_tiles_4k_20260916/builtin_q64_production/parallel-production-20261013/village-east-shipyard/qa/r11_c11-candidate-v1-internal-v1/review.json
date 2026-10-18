@@ -1,0 +1,525 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-16T20:38:27.165648+00:00",
+  "tile": "r11_c11",
+  "candidate": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c11\\candidate\\r11_c11-4096-candidate-v1.png",
+  "candidateSha256": "d73b426f11addc21229877badf92823c53a7cf41692c61efeb117e1438ec518d",
+  "dimensions": [
+    4096,
+    4096
+  ],
+  "scope": "Fixed candidate internal seams/crossings and targeted layout only. No source/state/Git edits.",
+  "technicalChecks": {
+    "16SourceHashesMatch": true,
+    "16Native1254": true,
+    "16ExactCoreContributions": true
+  },
+  "evidenceManifest": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\qa\\r11_c11-candidate-v1-internal-v1\\evidence-manifest.json",
+  "actual100pctCoverage": {
+    "vertical12": {
+      "V11": {
+        "checked100pct": true,
+        "result": "geometry_continuous_material_M03"
+      },
+      "V12": {
+        "checked100pct": true,
+        "result": "G01_tray_break_lower_area"
+      },
+      "V13": {
+        "checked100pct": true,
+        "result": "G02_missing_net_tray_continuation"
+      },
+      "V21": {
+        "checked100pct": true,
+        "result": "geometry_continuous_material_M03"
+      },
+      "V22": {
+        "checked100pct": true,
+        "result": "G01_top_area"
+      },
+      "V23": {
+        "checked100pct": true,
+        "result": "G02_upper_corner"
+      },
+      "V31": {
+        "checked100pct": true,
+        "result": "G03_near_north_halo_boundary"
+      },
+      "V32": {
+        "checked100pct": true,
+        "result": "M01_hard_material_rectangle"
+      },
+      "V33": {
+        "checked100pct": true,
+        "result": "no_additional_structural_break_observed"
+      },
+      "V41": {
+        "checked100pct": true,
+        "result": "no_additional_structural_break_observed"
+      },
+      "V42": {
+        "checked100pct": true,
+        "result": "repaired_shoreline_continuous_M01_top_fragment"
+      },
+      "V43": {
+        "checked100pct": true,
+        "result": "no_additional_structural_break_observed"
+      }
+    },
+    "horizontal12": {
+      "H11": {
+        "checked100pct": true,
+        "result": "no_additional_structural_break_observed"
+      },
+      "H12": {
+        "checked100pct": true,
+        "result": "no_additional_structural_break_observed"
+      },
+      "H13": {
+        "checked100pct": true,
+        "result": "G01_near_west_edge"
+      },
+      "H14": {
+        "checked100pct": true,
+        "result": "G02_west_corner"
+      },
+      "H21": {
+        "checked100pct": true,
+        "result": "core_seam_continuous_G03_y2163_below"
+      },
+      "H22": {
+        "checked100pct": true,
+        "result": "G03_floor_end_junction_below_core_seam"
+      },
+      "H23": {
+        "checked100pct": true,
+        "result": "M01_lower_left_material_corner"
+      },
+      "H24": {
+        "checked100pct": true,
+        "result": "no_additional_structural_break_observed"
+      },
+      "H31": {
+        "checked100pct": true,
+        "result": "pillar_geometry_continuous_M02_above_core_seam"
+      },
+      "H32": {
+        "checked100pct": true,
+        "result": "no_additional_structural_break_observed"
+      },
+      "H33": {
+        "checked100pct": true,
+        "result": "M01_left_material_strip"
+      },
+      "H34": {
+        "checked100pct": true,
+        "result": "no_additional_structural_break_observed"
+      }
+    },
+    "crossings9": {
+      "X11": {
+        "checked100pct": true,
+        "result": "no_additional_structural_break_observed"
+      },
+      "X12": {
+        "checked100pct": true,
+        "result": "G01"
+      },
+      "X13": {
+        "checked100pct": true,
+        "result": "G02"
+      },
+      "X21": {
+        "checked100pct": true,
+        "result": "G03"
+      },
+      "X22": {
+        "checked100pct": true,
+        "result": "M01"
+      },
+      "X23": {
+        "checked100pct": true,
+        "result": "no_additional_structural_break_observed"
+      },
+      "X31": {
+        "checked100pct": true,
+        "result": "no_additional_structural_break_observed"
+      },
+      "X32": {
+        "checked100pct": true,
+        "result": "M01"
+      },
+      "X33": {
+        "checked100pct": true,
+        "result": "no_additional_structural_break_observed"
+      }
+    }
+  },
+  "contextView": "Full candidate viewed resized to1600 for context only; all listed seam/crossing evidence is exact1:1 crop/paste.",
+  "issues": [
+    {
+      "id": "G01",
+      "priority": "structure",
+      "status": "unpassed",
+      "location": "p12/p13 front tray, extending into top halos/cores of p22/p23",
+      "tileDefectBox": [
+        2010,
+        790,
+        2175,
+        1160
+      ],
+      "description": "At x2048 the gray wooden rim and gray inset terminate vertically into ice, with a second horizontal rectangular step near y1139. This breaks the tray border/occlusion topology, rather than merely changing wood color.",
+      "suggestedTileWindow": [
+        1840,
+        700,
+        2320,
+        1260
+      ],
+      "repairIntent": "Reconstruct one continuous tray rim/front side from the existing left corner/post to the right tray frame; keep ice inside the rim. Use the wider approved context to retain separate tray identities. Preserve both existing legs. Map the same native correction into all four intersecting sources/halos.",
+      "evidence": "tray-topology-detail-100pct.png",
+      "sourceNativeIntersections": [
+        {
+          "patch": "p12",
+          "nativeIntersection": [
+            931,
+            815,
+            1254,
+            1254
+          ]
+        },
+        {
+          "patch": "p13",
+          "nativeIntersection": [
+            0,
+            815,
+            387,
+            1254
+          ]
+        },
+        {
+          "patch": "p22",
+          "nativeIntersection": [
+            931,
+            0,
+            1254,
+            351
+          ]
+        },
+        {
+          "patch": "p23",
+          "nativeIntersection": [
+            0,
+            0,
+            387,
+            351
+          ]
+        }
+      ]
+    },
+    {
+      "id": "G02",
+      "priority": "layout",
+      "status": "unpassed",
+      "location": "p13/p14 net and rear tray transition",
+      "tileDefectBox": [
+        2690,
+        0,
+        3210,
+        1140
+      ],
+      "description": "At x3072 an empty floor ends in a vertical cut into hanging net and tray. The p13 guide also contains the original gray hanging net in its right region (roughly native x800..1254,y0..900), currently absent. A seam-only texture blend cannot restore the missing object footprint.",
+      "suggestedTileWindow": [
+        2690,
+        0,
+        3280,
+        1160
+      ],
+      "repairIntent": "Restore the missing left continuation of the existing net and the original rear tray edge using p14-v2 and the wider approved layout context. Do not extend the unrelated gray wooden table across the net footprint. Split upper net and lower tray repair if needed; retain object contours already correct to the east.",
+      "suggestedSubwindows": [
+        [
+          2690,
+          0,
+          3280,
+          650
+        ],
+        [
+          2800,
+          500,
+          3280,
+          1160
+        ]
+      ],
+      "externalBoundaryDependency": "Touches tile north y0. North halo/external neighbour was not validated in this QA; inspect and synchronize that dependency before claiming formal external seam readiness. Freezing an already incompatible north strip would leave a new horizontal cut.",
+      "evidence": "net-tray-transition-detail-100pct.png",
+      "layoutReferences": [
+        "r11_c11/layout-only/p13-v2-layout-only.png",
+        "r11_c11/layout-only/p14-v2-layout-context-target-box.png"
+      ],
+      "sourceNativeIntersections": [
+        {
+          "patch": "p13",
+          "nativeIntersection": [
+            757,
+            115,
+            1254,
+            1254
+          ]
+        },
+        {
+          "patch": "p14",
+          "nativeIntersection": [
+            0,
+            115,
+            323,
+            1254
+          ]
+        },
+        {
+          "patch": "p23",
+          "nativeIntersection": [
+            757,
+            0,
+            1254,
+            251
+          ]
+        },
+        {
+          "patch": "p24",
+          "nativeIntersection": [
+            0,
+            0,
+            323,
+            251
+          ]
+        }
+      ]
+    },
+    {
+      "id": "G03",
+      "priority": "structure",
+      "status": "unpassed",
+      "location": "p31 native y230 and nearby p22/p32 floor junction",
+      "tileDefectBox": [
+        0,
+        2120,
+        1420,
+        2240
+      ],
+      "description": "The main north/south core seam at y2048 is continuous, but 115px below it, at tile y2163 (p31 native y230), one plank direction is abruptly cut along a horizontal line and replaced by the other. At the east end near x1200..1400 several plank ends no longer form a coherent joint.",
+      "suggestedTileWindow": [
+        0,
+        2040,
+        1420,
+        2300
+      ],
+      "suggestedSubwindows": [
+        [
+          0,
+          2040,
+          1210,
+          2290
+        ],
+        [
+          1110,
+          2040,
+          1420,
+          2300
+        ]
+      ],
+      "repairIntent": "Create a coherent staggered board-end transition in the existing deck surface while retaining the existing pillar/rope silhouette. Correct the neighbouring p22/p32 end joints in the overlapping second window. Do not introduce a new raised crossbeam or repaint the whole deck.",
+      "externalBoundaryDependency": "The left end touches tile west x0. Preserve/match the verified west neighbour if used; this report does not accept the external boundary.",
+      "evidence": "floor-turn-detail-100pct.png",
+      "sourceNativeIntersections": [
+        {
+          "patch": "p21",
+          "nativeIntersection": [
+            115,
+            1131,
+            1254,
+            1254
+          ]
+        },
+        {
+          "patch": "p22",
+          "nativeIntersection": [
+            0,
+            1131,
+            511,
+            1254
+          ]
+        },
+        {
+          "patch": "p31",
+          "nativeIntersection": [
+            115,
+            107,
+            1254,
+            367
+          ]
+        },
+        {
+          "patch": "p32",
+          "nativeIntersection": [
+            0,
+            107,
+            511,
+            367
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M01",
+      "priority": "material",
+      "status": "pending_not_passed",
+      "location": "p32/p33 bright rectangle with continuation into p43 top halo",
+      "tileDefectBox": [
+        1900,
+        2120,
+        2200,
+        3200
+      ],
+      "description": "Bright rectangular floor material ends at tile x2163 and begins at y2163. Main board courses mostly continue, with small local groove steps near the rectangle edge; dominant defect is a conspicuous hard lighting/grain boundary, not a new terrain edge.",
+      "suggestedTileWindow": [
+        1900,
+        2120,
+        2300,
+        3225
+      ],
+      "repairIntent": "Unify native wood lighting and grain over the affected material strip while retaining board geometry. Synchronize p43 upper halo where intersected; no blur/rescale workaround.",
+      "evidence": [
+        "vertical-row-3-100pct.png",
+        "horizontal-row-3-100pct.png"
+      ],
+      "sourceNativeIntersections": [
+        {
+          "patch": "p22",
+          "nativeIntersection": [
+            991,
+            1211,
+            1254,
+            1254
+          ]
+        },
+        {
+          "patch": "p23",
+          "nativeIntersection": [
+            0,
+            1211,
+            367,
+            1254
+          ]
+        },
+        {
+          "patch": "p32",
+          "nativeIntersection": [
+            991,
+            187,
+            1254,
+            1254
+          ]
+        },
+        {
+          "patch": "p33",
+          "nativeIntersection": [
+            0,
+            187,
+            367,
+            1254
+          ]
+        },
+        {
+          "patch": "p42",
+          "nativeIntersection": [
+            991,
+            0,
+            1254,
+            268
+          ]
+        },
+        {
+          "patch": "p43",
+          "nativeIntersection": [
+            0,
+            0,
+            367,
+            268
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M02",
+      "priority": "material",
+      "status": "pending_not_passed",
+      "location": "p31 joint pillar shaft, above p31/p41 core seam",
+      "tileDefectBox": [
+        120,
+        2960,
+        670,
+        3010
+      ],
+      "description": "A thin horizontal grain/water-color band remains near tile y2983 (p31 native y1050). Pillar width and outline continue through it, and the foot is correctly down in p41.",
+      "suggestedTileWindow": [
+        120,
+        2930,
+        670,
+        3050
+      ],
+      "repairIntent": "Local native texture correction only; retain column outline and waterline. p41 overlapping halo must receive the same pixels.",
+      "evidence": "pillar-band-detail-100pct.png",
+      "sourceNativeIntersections": [
+        {
+          "patch": "p31",
+          "nativeIntersection": [
+            235,
+            997,
+            785,
+            1117
+          ]
+        },
+        {
+          "patch": "p41",
+          "nativeIntersection": [
+            235,
+            0,
+            785,
+            93
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M03",
+      "priority": "material",
+      "status": "pending_not_passed",
+      "location": "p11/p12 and p21/p22 floor tone/grain bands",
+      "tileDefectBox": [
+        960,
+        0,
+        1100,
+        2050
+      ],
+      "description": "Visible broad grain/lighting transition around x1024. This does not create a distinct deck height edge and is lower priority than G01-G03.",
+      "repairIntent": "Resolve only after structural edits; keep board directions/endpoints fixed.",
+      "evidence": [
+        "vertical-row-1-100pct.png",
+        "vertical-row-2-100pct.png"
+      ]
+    }
+  ],
+  "confirmedImprovements": [
+    "p31/p41 repaired column keeps continuous shaft and foot in p41; no early-foot layout block.",
+    "p42/p43 repaired dock lip/shoreline is geometrically continuous in inspected core seam and crossing.",
+    "p41 earlier large water-color line is no longer the dominant visible band."
+  ],
+  "retainedPriorPending": [
+    "p14 lid height/footprint deviation noted in prior short QA; not reclassified as a new adjacency block here."
+  ],
+  "internalReady": false,
+  "formalAccepted": false,
+  "externalSeams": "not_checked_not_passed",
+  "actualModel": null,
+  "actualModelEvidence": "not returned",
+  "nextAction": "Prioritize G01/G02 object topology, then G03 floor topology; material M01-M03 remain pending and do not justify propagation of a new geometry change. Windows are QA proposals requiring producer native repair and perimeter reinspection, not pass claims."
+}

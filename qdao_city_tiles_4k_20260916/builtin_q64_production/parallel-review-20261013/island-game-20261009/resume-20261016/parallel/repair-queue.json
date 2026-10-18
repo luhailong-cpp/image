@@ -1,0 +1,117 @@
+{
+  "issues": [
+    {
+      "id": "west-c03-trim-steps",
+      "tileId": "r02_c03",
+      "finding": "南侧金边和蓝瓦多处阶梯截断，s04_04仍HOLD。",
+      "status": "pending_repair",
+      "evidence": {
+        "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-review-20261013/island-game-20261009/resume-20261016/parallel/r02_c03-crossings-100pct.png",
+        "sha256": "be67cbf7359d771b56627f43169390b5570b639261c03f93268f4de579381cd3"
+      },
+      "formalAccepted": false,
+      "tileLocalBox": [
+        1800,
+        2800,
+        3300,
+        3300
+      ]
+    },
+    {
+      "id": "west-c03-south-retained-strip",
+      "tileId": "r02_c03",
+      "finding": "与r03_c03相接第1段仍有源保留带矩形截断。",
+      "status": "pending_repair",
+      "evidence": {
+        "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-review-20261013/island-game-20261009/resume-20261016/parallel/r02_c03-r03_c03-external-100pct.png",
+        "sha256": "afb49d4e8f96a809529b8402b160c20d8dc16b4c34faff7414a8e7394e1243c2"
+      },
+      "formalAccepted": false,
+      "tileLocalBox": [
+        0,
+        3840,
+        1024,
+        4096
+      ]
+    },
+    {
+      "id": "west-c04-gold-foliage",
+      "tileId": "r02_c04",
+      "finding": "金边切角/阶梯与树叶清晰度变化仍待修。",
+      "status": "pending_repair",
+      "evidence": {
+        "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-review-20261013/island-game-20261009/resume-20261016/parallel/r02_c04-h-internal-100pct.png",
+        "sha256": "a48f9a2035aa4cb09676987cb256869761ec32f1e4b8e488d2505c926ccd78e2"
+      },
+      "formalAccepted": false,
+      "tileLocalBox": [
+        512,
+        1792,
+        2048,
+        2304
+      ]
+    },
+    {
+      "id": "extension-r04-current-west",
+      "tileId": "r04_c05",
+      "finding": "s04_02_a02西侧石缝接通，笔触密度变化仍待材质复核。",
+      "status": "pending_repair",
+      "evidence": {
+        "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel-review-20261013/island-game-20261009/resume-20261016/parallel/r04_c05_s04_02_a02-west-100pct.png",
+        "sha256": "1cd20d211b575f2ce25ce4509a7390aac417501627369547982874382aa5d739"
+      },
+      "formalAccepted": false
+    }
+  ],
+  "producerHolds": [
+    {
+      "coordinate": "r02_c02_s04_02",
+      "bestPreservedAttempt": "a04",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\island-west-residences\\native\\r02_c02_s04_02_a04.png",
+      "sha256": "68f6b74d8f7db545777eeefb80f8fc556be5b966676ae91757993357e72fafa7",
+      "review": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\island-west-residences\\qa\\c02-geometry-review\\repair-02-a04\\review.json",
+      "reason": "Shaft south offset remains20-25px; arc remains displaced; two precise edits a03/a04 done. Not stable for propagation."
+    },
+    {
+      "coordinate": "r02_c02_s04_03",
+      "bestPreservedAttempt": "a02",
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\island-west-residences\\native\\r02_c02_s04_03_a02.png",
+      "sha256": "0f0a632b08dc4774b7eda071d75337f6cf5b17078880f47da13db52791ac70e6",
+      "reason": "West02 not stable; no new repair generated from wrong constraint. Existing pommel occluded by stripe and right edge53px notch remain.",
+      "reusedUnchangedQa": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\island-west-residences\\qa\\r02_c02_s04_03_a02.quick-review-v01.json",
+      "furtherRepairSequence": "Only rebuild03 guide after02 is approved; same adopted south anchor retained."
+    }
+  ],
+  "otherProducerPendingSurfaceIssues": [
+    {
+      "tileId": "r03_c05",
+      "producerQa": {
+        "internalStatus": "pending_local_surface_repairs",
+        "geometryStatus": "no gross disconnected architecture seen",
+        "findings": [
+          "vertical2-1 sharpness/texture transition",
+          "vertical1-4 and vertical2-4 repetitive paving texture changes",
+          "horizontal3-2 and horizontal3-3 texture boundary and slight joint discontinuity"
+        ],
+        "reviewedSeamCount": 24,
+        "allRecordedCropHashesUnchanged": true
+      }
+    },
+    {
+      "tileId": "r04_c05",
+      "producerQa": {
+        "internalStatus": "pending_local_surface_repairs",
+        "geometryStatus": "no remaining gross disconnected architecture seen; lantern hanging geometry repaired before propagation",
+        "findings": [
+          "vertical1-4 noticeable paving texture scale transition",
+          "vertical2-3 paving texture transition above red ornament",
+          "vertical2-4 lantern paper brightness transition across joint",
+          "paving fine repeated crosshatch persists in several cores; broader style refinement pending"
+        ],
+        "reviewedSeamCount": 24,
+        "allRecordedCropHashesUnchanged": true
+      }
+    }
+  ],
+  "formalAcceptedCount": 0
+}

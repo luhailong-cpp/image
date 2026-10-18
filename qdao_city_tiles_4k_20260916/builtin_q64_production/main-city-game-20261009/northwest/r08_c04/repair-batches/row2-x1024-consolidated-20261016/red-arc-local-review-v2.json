@@ -1,0 +1,64 @@
+{
+  "reviewer": "/root/resume_r08_audit_20261016",
+  "role": "producer_local_qa",
+  "actuallyViewed": true,
+  "status": "passed_native_halo_reselection_pending_root_independent_review",
+  "proposal": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r08_c04\\repair-batches\\row2-x1024-consolidated-20261016\\red-arc-existing-source-proposal-v2.json",
+    "sha256": "c7ffac981bb8c5e7145e25570a2b31caae6585340e80a63cbb68d7a0d96fd0c1"
+  },
+  "sourceSha256": "b1e0486322eb7dcec5d7fde0f158852cc377d91fb759c2661f9435f4fab69ccf",
+  "maskSha256": "67c0ab467a0ac6c46861863f93d845b5b174804ca29b51347830aab2313c84af",
+  "pixelCount": 1235,
+  "crops": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r08_c04\\repair-batches\\row2-x1024-consolidated-20261016\\v2-hardware.png",
+      "sha256": "140222d454dd2872c1b5ae457b12012b18c8c6e5708322d95f991fd8bf93bfa5",
+      "actuallyViewed": true,
+      "status": "passed_local_geometry_and_perimeter"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r08_c04\\repair-batches\\row2-x1024-consolidated-20261016\\v2-north.png",
+      "sha256": "083bbd48b698fa0b1d552f94976bdd1906f2886458e36c5ff61f6bb67a1293c2",
+      "actuallyViewed": true,
+      "status": "passed_local_geometry_and_perimeter"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r08_c04\\repair-batches\\row2-x1024-consolidated-20261016\\v2-south.png",
+      "sha256": "7ec9800df1f4a66b2d557365e29e6fe7f2832c55ecc194d1ee0aa8cb54169a0f",
+      "actuallyViewed": true,
+      "status": "passed_local_geometry_and_perimeter"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r08_c04\\repair-batches\\row2-x1024-consolidated-20261016\\v2-west.png",
+      "sha256": "7f52932d8bcba2aec79e237c7af2691bf8dceb0d481e2ec722ca12649654afab",
+      "actuallyViewed": true,
+      "status": "passed_local_geometry_and_perimeter"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r08_c04\\repair-batches\\row2-x1024-consolidated-20261016\\v2-east.png",
+      "sha256": "45aba65699a6421527f81f8f727729f6f9a81ec7bccabfd2f82c681161ba88e4",
+      "actuallyViewed": true,
+      "status": "passed_local_geometry_and_perimeter"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r08_c04\\repair-batches\\row2-x1024-consolidated-20261016\\v2-lower.png",
+      "sha256": "46d9c78e4043716fc72dd08ab684592cb1239e5703dfcb584059f0eab55289d4",
+      "actuallyViewed": true,
+      "status": "passed_local_geometry_and_perimeter"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r08_c04\\repair-batches\\row2-x1024-consolidated-20261016\\v2-bottom.png",
+      "sha256": "5ee2e7bad965fc19e748d925609194d664295364d885b9944292224a9bdecf26",
+      "actuallyViewed": true,
+      "status": "passed_local_geometry_and_perimeter"
+    }
+  ],
+  "finding": "The short detached red arc was inherited from the unchanged 24-source baseline, not introduced by the new row2 polygon. It is absent from the existing registered lower source at exactly the same world coordinates. A 65x19 binary native reselection removes the arc while preserving all complete red-ball pixels below the selected background strip. All four background perimeters and lower/bottom grout remain continuous.",
+  "existingOwnerIndex": 10,
+  "uniqueNativeSourceIncrement": 0,
+  "sourceResampled": false,
+  "sourceBlended": false,
+  "ballPixelsBelowMaskByteIdentical": true,
+  "formalAccepted": false
+}

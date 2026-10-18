@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 3,
+  "checkedAtUtc": "2026-10-16T15:12:58.773662+00:00",
+  "timezone": "America/New_York",
+  "unit": "4096x4096 formal map tile",
+  "sourceReport": "docs/MAP_PERIODIC_REPORT_20261016_110930.json",
+  "sourceReportSha256": "31f87b609aa1482d1cd87e17de4caa9001853243497762e390a36cb40389fbbd",
+  "sourceReportedAtUtc": "2026-10-16T15:09:30Z",
+  "maps": [
+    {
+      "map": "主城",
+      "target": 256,
+      "internalPassed": 32,
+      "remainingToInternalPass": 224,
+      "completeSelectedCandidates": 77,
+      "pendingCompleteCandidates": 45
+    },
+    {
+      "map": "渔村",
+      "target": 196,
+      "internalPassed": 59,
+      "remainingToInternalPass": 137,
+      "completeSelectedCandidates": 79,
+      "pendingCompleteCandidates": 20
+    },
+    {
+      "map": "八仙岛",
+      "target": 196,
+      "internalPassed": 53,
+      "remainingToInternalPass": 143,
+      "completeSelectedCandidates": 76,
+      "pendingCompleteCandidates": 23
+    }
+  ],
+  "total": {
+    "target": 648,
+    "internalPassed": 144,
+    "remainingToInternalPass": 504,
+    "completeSelectedCandidates": 232,
+    "completeSelectedPendingRepairOrReview": 88,
+    "missingCompleteSelectedCandidate": 416
+  },
+  "verifiedCurrentSelectionCorrections": [
+    {
+      "tile": "r05_c03",
+      "candidateSha256": "2bb8f0bf759878b8b22ab7500c2bf0115cee5c5d5bcdafea8f3974731cfa5b23",
+      "candidateMatchesReport": true,
+      "qaSha256": "299c503ff53d1dd1a157e45009d3854baa44a719fac35f072f17f6f0f42e33a3",
+      "qaMatchesReport": true,
+      "currentEntryStatuses": [
+        {
+          "internalClosurePassed": false,
+          "materialStatus": "PENDING"
+        }
+      ]
+    },
+    {
+      "tile": "r05_c04",
+      "candidateSha256": "496cf0c0019fed1cdd716b44891167a8d7eaae6c45272cd096d20e5201cbaa9b",
+      "candidateMatchesReport": true,
+      "qaSha256": "299c503ff53d1dd1a157e45009d3854baa44a719fac35f072f17f6f0f42e33a3",
+      "qaMatchesReport": true,
+      "currentEntryStatuses": [
+        {
+          "internalClosurePassed": false,
+          "materialStatus": "PENDING"
+        }
+      ]
+    }
+  ],
+  "correctionReason": "r05_c03 and r05_c04 adopted different candidates; material QA remains pending. Prior candidate acceptance is not inherited.",
+  "method": "Adopt verified periodic report counts; independently verify corrected candidate and QA hashes against current owner selection. No whole-map reinspection.",
+  "wholeMapAccepted": false,
+  "productionFilesModified": false,
+  "gitMutated": false,
+  "priorRootSnapshot": "docs/MAP_REMAINING_20261016_064856Z.json"
+}

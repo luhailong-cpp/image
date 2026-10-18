@@ -1,0 +1,91 @@
+{
+  "time": "2026-10-16T10:50:09.300057+00:00",
+  "scope": "Requested pillar count/extent only; not complete tile QA",
+  "evidence": [
+    {
+      "patch": "p13",
+      "sources": [
+        {
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\layout-only\\p13-v1-layout-only.png",
+          "sha256": "ec6d1f596a8affa914b4b2fb64726f431a5f4a9ea16c4735b11aca69e2eab2fd"
+        },
+        {
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p13-v1.png",
+          "sha256": "91870dbd7dd5da8f13ec7b3a3aeca00ae76fd8697d2097b5e336ae8f7063fadc"
+        }
+      ],
+      "crop": [
+        900,
+        150,
+        1254,
+        1100
+      ],
+      "order": "guide left/native right",
+      "resampled": false,
+      "evidence": "p13-guide-native-100pct.png"
+    },
+    {
+      "patch": "p12",
+      "sources": [
+        {
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\layout-only\\p12-v1-layout-only.png",
+          "sha256": "1e946dfebe892197be4e61b9a2752775abe4d8ac1c0b03c65a476ea5e82365cc"
+        },
+        {
+          "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\native\\p12-v1.png",
+          "sha256": "0b160c8715244e54a9143122702de3aab147367d6de296b74f159d9e6e065450"
+        }
+      ],
+      "crop": [
+        0,
+        350,
+        600,
+        1254
+      ],
+      "order": "guide left/native right",
+      "resampled": false,
+      "evidence": "p12-guide-native-100pct.png"
+    }
+  ],
+  "p13": {
+    "east": false,
+    "southRightCorner": "not cleared until original right pile extent corrected",
+    "extraSupports": [
+      [
+        945,
+        230,
+        980,
+        310
+      ],
+      [
+        984,
+        290,
+        1130,
+        440
+      ]
+    ],
+    "originalRightPile": "Native ends approximately y600; guide extends approximately y1000. Exact low-resolution edge is uncertain; material footprint clearly extends farther.",
+    "suggestedRepairWindow": [
+      900,
+      180,
+      1254,
+      1100
+    ],
+    "preserve": "Deck lip contour and other finished geometry; do not just remove extra supports while leaving original pile too short."
+  },
+  "p12": {
+    "south": false,
+    "observed": "Native golden cap at x80..190,y420..520, foot around y730. Guide cap around x300..450,y600..780 and body crosses bottom into p22 left-side pillar down to about y1000. Shortening and displacement are true geometry errors.",
+    "suggestedReviewRepairExtent": [
+      0,
+      360,
+      550,
+      1254
+    ],
+    "constraint": "West overlap may contain conflicting existing geometry; inspect immediate west alignment before repair. Do not freeze wrong west230 and invent a second post to its right.",
+    "p22Guide": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r11_c12\\layout-only\\p22-v1-layout-only.png",
+    "p22GuideSha256": "e82747c0a321732a625af558c03ec64158fa86f75abd86c66c2be7ed089a18ec"
+  },
+  "formalAccepted": false,
+  "stateModified": false
+}

@@ -1,0 +1,18 @@
+from pathlib import Path
+from datetime import datetime,timezone
+import json,hashlib
+R=Path(__file__).parent;Q=R.parent.parent/'qa/r12c07-resume2-north-hard-v1'
+def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def rec(p):return {'path':Path(p).as_posix(),'sha256':sha(p)}
+j=json.loads((Q/'assembly.json').read_text(encoding='utf-8'));focus=json.loads((Q/'focus-inputs.json').read_text(encoding='utf-8'))
+checks=[]
+statuses=['locally_passed','locally_passed','improved_pending','improved_pending']
+obs=['原核心水平切线已消除；新路径落在细小沙纹中，原尺度本段及J01未见明显断裂或新几何切口。','原核心水平切线及右侧浅色截断已消除；石块和沙纹连贯，原尺度本段及J01/J02未见明显硬缝。','原来的直线色阶截断明显改善；新边界附近仍可见细沙纹到较粗V形纹理的尺度跳变，东侧与N04交界更明显，保留待修。','原来的整段直线硬切改善，但新DP切线穿过深色沙斑，出现可见短斜切口；大面积细粗纹理跳变仍在，未通过。']
+for i in range(4):
+ a=j['qaStrips'][i];checks.append({'id':a['id'],'status':statuses[i],'scopeSouthContextBox':[115+1024*i,115,115+1024*(i+1),745],'observation':obs[i],'nativeView':a,'viewedAtNativeScale':True})
+pending=[{'id':'N03-texture-scale','contextBox':[2163,115,3187,245],'globalBox':[26624,45056,27648,45186],'description':'新切线附近细沙纹与粗V形纹理仍有尺度跳变；已改善但不通过。'}, {'id':'N04-diagonal-cut','contextBox':[3620,145,3690,205],'globalBox':[28081,45086,28151,45146],'description':'深色沙斑北缘出现清楚的短斜线切口，可在F04原尺度核实。'}, {'id':'N04-texture-scale','contextBox':[3187,135,4211,245],'globalBox':[27648,45076,28672,45186],'description':'细粗沙纹尺度及色深的过渡仍可辨认，东侧第4段保持pending。'}]
+qa={'schemaVersion':1,'createdAtUtc':datetime.now(timezone.utc).isoformat(),'tile':'r12_c07','status':'north_hard_candidate_improved_with_eastern_pending','formalAccepted':False,'assembly':rec(Q/'assembly.json'),'base':j['base'],'northAnchor':j['northAnchor'],'context':j['context'],'candidate':j['candidate'],'actualCoreNativeViews':4,'additionalNativeViews':5,'actualCoreViewsIncludeAtLeastPixelsBelowCut':min(x['atLeastPixelsBelowNewCut'] for x in j['qaStrips']),'checks':checks,'additionalViews':[dict(x,viewedAtNativeScale=True) for x in focus],'junctionObservations':{'J01':'局部通过，未见新增直线或几何切口。','J02':'原直线接缝消除，N03一侧纹理尺度跳变仍可见，沿N03保持pending。','J03':'细粗沙纹过渡明显，随N03/N04保留pending。','F03':'确认原直线切口已改善，但细粗纹理过渡仍存在。','F04':'确认短斜切口，未通过。'},'pending':pending,'proof':j['proof'],'scopeLimit':'North external join only. Internal checks are not re-run; baseline rows230 onward are identical. West/east/south external boundaries remain outside this review.','selectionRecommendation':'Keep this as an improved native candidate and reusable donor/mask. N01 and N02 locally pass. N03 and N04 remain pending; do not mark the entire north join or tile accepted.','replayScript':rec(R/'replay.py'),'reuseRule':j['reuseRule']}
+(Q/'review-v1.json').write_text(json.dumps(qa,ensure_ascii=False,indent=2),encoding='utf-8')
+manifest={'schemaVersion':1,'createdAtUtc':datetime.now(timezone.utc).isoformat(),'status':qa['status'],'formalAccepted':False,'context':j['context'],'candidate4096':j['candidate'],'assembly':rec(Q/'assembly.json'),'qa':rec(Q/'review-v1.json'),'base':j['base'],'northAnchor':j['northAnchor'],'donor':j['donor'],'mask':j['mask'],'cutPath':j['pathSearch']['cutPath'],'sourceIds':j['sourceIds'],'replayScript':rec(R/'replay.py'),'proof':j['proof'],'pending':pending,'locallyPassed':['N01','N02'],'improvedPending':['N03','N04'],'reuseRule':j['reuseRule']}
+(R/'delivery-manifest-v1.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
+print(json.dumps({'manifest':rec(R/'delivery-manifest-v1.json'),'qa':rec(Q/'review-v1.json'),'context':j['context'],'candidate':j['candidate'],'mask':j['mask'],'donor':rec(R/'donor-native-same-global-4326x230.png'),'replayScript':rec(R/'replay.py'),'minimumLowerInspectionPixels':qa['actualCoreViewsIncludeAtLeastPixelsBelowCut']},ensure_ascii=False))

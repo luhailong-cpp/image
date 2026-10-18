@@ -1,0 +1,74 @@
+{
+  "tile": "r12_c08",
+  "reviewedAtUtc": "2026-10-16T23:38:25.479Z",
+  "assembly": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/main-city-game-20261009/southwest/r12_c08/pipeline/output/583d5fd2cff421dd/assembly.json",
+  "sourceSha256": "7befca739bcbdf0d73c97c2b3a3da4d325069fb2e309fa3d819150be2a33304a",
+  "actualViewedPanels": [
+    "V-row1",
+    "V-row2",
+    "V-row3",
+    "V-row4",
+    "H-boundary1",
+    "H-boundary2",
+    "H-boundary3"
+  ],
+  "nativeCropCount": 24,
+  "allCropsNativeNoResampling": true,
+  "fullCorePreviewViewed": true,
+  "fullCorePreviewDisplayResize": [
+    1600,
+    1600
+  ],
+  "internalAccepted": false,
+  "externalAccepted": false,
+  "formalAccepted": false,
+  "mandatoryIssues": [
+    {
+      "id": "V3-row2-grey-band-step",
+      "location": "p02_03 / p02_04 horizontal band at vertical core boundary x3072",
+      "finding": "Grey horizontal band lower/upper edges change height and bevel at source join, visible small step and vertical cap across band.",
+      "status": "open"
+    },
+    {
+      "id": "V3-row3-dangling-divider",
+      "location": "p03_03 new y230 divider toward p03_04",
+      "finding": "Artificial horizontal grout at p03_03 y230 ends into pale ground before/at seam; absent continuation in p03_04. New source-strip separator not approved layout.",
+      "status": "open"
+    },
+    {
+      "id": "V2-width-jogs",
+      "location": "V2-row1 lower end; V2-row3 upper area; H2/H3-col2 right road margin",
+      "finding": "Grey vertical inlay and ivory margin have small width/position changes; top strip borders create steps and short dead-ended joints.",
+      "status": "open"
+    },
+    {
+      "id": "H1-col1-dangling-line",
+      "location": "p01_01 / p02_01 near left quarter",
+      "finding": "Short vertical grout from upper patch ends in pale field at native transition rather than connected stone joint.",
+      "status": "open"
+    },
+    {
+      "id": "H3-col2-blue-tone-front",
+      "location": "p03_02 / p04_02",
+      "finding": "Blue surface hue/brush phase changes at patch boundary, with a wedge-like tonal front; extra x230 vertical blue joint inherited from first row remains across all rows.",
+      "status": "open"
+    },
+    {
+      "id": "cloud-layout-and-relief",
+      "location": "p02_01,p03_01,p04_01",
+      "finding": "Generated dark cartouche has heavy raised bevel and extra lower G-like corner symbol; p04_01 pale cloud-scroll curls require correction to exact faint approved guide, not accepted by coarse resemblance.",
+      "status": "open"
+    },
+    {
+      "id": "material-fine-veins",
+      "location": "all16 native sources, strongest blue road and cartouche",
+      "finding": "Dense fine branching/white veins and small cellular texture remain, conflicts with quiet natural pale/blue-grey broad stone finish. Native pixels and dimensions alone do not pass quality.",
+      "status": "open"
+    }
+  ],
+  "externalLimitations": [
+    "r11_c08 has only first native row; no valid native upper anchor for r12_c08 first row at preparation.",
+    "r12_c07 native left neighbor missing; left side unaccepted. No experimental r12_c06 root repair anchor used."
+  ],
+  "nextAction": "Retain best originals and explicit failed QA; continue independent missing patches along geometry-stable edges. Consolidated exact geometry/material repair still required before acceptance."
+}

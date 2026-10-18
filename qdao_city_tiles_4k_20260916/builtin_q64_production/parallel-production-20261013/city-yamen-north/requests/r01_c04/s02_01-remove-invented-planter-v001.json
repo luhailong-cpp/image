@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 8,
+  "createdAtUTC": "2026-10-16T13:47:09.410041+00:00",
+  "tile": "r01_c04",
+  "patch": "s02_01",
+  "coordinates": {
+    "order": 49,
+    "phase": "r01_south_to_north",
+    "frontierOrder": 7,
+    "tile": "r01_c04",
+    "tileRow": 1,
+    "tileColumn": 4,
+    "patch": "s02_01",
+    "subrow": 2,
+    "subcolumn": 1,
+    "globalCoreRowOneBased": 2,
+    "globalCoreColumnOneBased": 13,
+    "tileWorldBox": [
+      12288,
+      0,
+      16384,
+      4096
+    ],
+    "coreWorldBox": [
+      12288,
+      1024,
+      13312,
+      2048
+    ],
+    "worldBoxWithHalo": [
+      12173,
+      909,
+      13427,
+      2163
+    ],
+    "expectedNativePixels": [
+      1254,
+      1254
+    ],
+    "nativeCoreCropLTRB": [
+      115,
+      115,
+      1139,
+      1139
+    ],
+    "corePasteXYInTile": [
+      0,
+      1024
+    ],
+    "nativePasteOriginXYInTile": [
+      -115,
+      909
+    ],
+    "corePasteXYInBatch": [
+      0,
+      1024
+    ],
+    "nativePasteOriginXYInBatch": [
+      -115,
+      909
+    ],
+    "worldBoxWithHaloClippedToArtCanvas": [
+      12173,
+      909,
+      13427,
+      2163
+    ],
+    "validCanvasCropLTRBWithinNative": [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "haloOutsideArtCanvas": false,
+    "southContinuationDependency": {
+      "tile": "r01_c04",
+      "patch": "s03_01",
+      "role": "previously prepared/generated southern frontier in this four-tile batch",
+      "withinBatch": true
+    },
+    "westContinuationDependency": {
+      "tile": "r01_c03",
+      "patch": "s02_04",
+      "withinBatch": false,
+      "role": "external western boundary; current source not assumed available"
+    },
+    "referenceStatus": "logical dependency coordinates only; actual source files not inspected or copied in this preparation",
+    "proposedFutureNativeFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\native\\s02_01.png",
+    "futureFileExistsAtPreparation": false,
+    "generationSubmitted": false
+  },
+  "prompt": "Use case: precise-object-edit.\nFix only the invented upper mini-fence and shrubbery in image1. This native1254x1254 crop must contain just ONE rear parapet (the existing large stone wall at the very top), ONE broad horizontal stone walkway, and ONE front coping with the existing single post near x710,y780. Remove ALL added greenery and the row of four small fence posts from the upper band x0..1023,y115..300. These objects are erroneous. In their place, continue the rear parapet's stone front face down to y200, then join the broad flat walkway directly to its foot, matching the correct sharp east230 strip. No planter, hedge, second railing or extra stone posts may remain across y115..300. The only front post to keep is the one down near y780; do not remove or redesign it.\nImage1 already has exact north115 pixels and exact east230 pixels restored at the same world coordinates; keep them fixed. Repaint only the upper erroneous region and join naturally without a rectangular edge. Preserve the remainder of the broad walkway, its slab joints, front coping, single front post, lower wall and cast shadows, all at their current size and location.\nImage2 is the accepted eastern neighbor for its CORRECT horizontal layer heights only; do not copy its central post into this crop. Images3/4 are confirmed Daoist chibi painted originals for material finish only, never UI/characters/text. No added objects, plants, fence, decorations, roofs or labels. Return exactly one opaque1254x1254 repaired crop, unchanged framing and zoom.",
+  "referenced_image_paths": [
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\requests\\r01_c04\\s02_01-remove-invented-planter-guide-v001.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\native\\s02_02-v002.png",
+    "D:\\work\\image\\designs\\mail-ui-v1\\01-mail-event.png",
+    "D:\\work\\image\\designs\\team-ui-v2\\team-ui-v2.png"
+  ],
+  "transparent_background": false,
+  "guide": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\requests\\r01_c04\\s02_01-remove-invented-planter-guide-v001.png",
+    "sha256": "78149baa4cdeec972bc1f3ba1ad4d4233e829594a0078c714a596fb80ec84314",
+    "productionNativeSource": false,
+    "editTargetBase": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\native\\s02_01-v002.png",
+    "editTargetBaseSHA256": "21679971d41bf01c1d8fb176af69288737efc863360865f4e98a2d47d79f8292",
+    "nativeContextPastes": [
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\native\\s02_02-v002.png",
+        "sha256": "2a09e42b9ad68b6beae4978c2022eb5040dd3e41b6049c09fdc819abf43a50d3",
+        "sourceCropLTRB": [
+          0,
+          0,
+          230,
+          1254
+        ],
+        "guidePasteXY": [
+          1024,
+          0
+        ],
+        "role": "accepted_geometry_east230",
+        "resampled": false
+      },
+      {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c04\\native\\s01_01-v001.png",
+        "sha256": "043c67b72fa8aaf7f2cc23000b422a58b698e1c48db06c8217709b5b3aa141dc",
+        "sourceCropLTRB": [
+          0,
+          1024,
+          1254,
+          1139
+        ],
+        "guidePasteXY": [
+          0,
+          0
+        ],
+        "role": "valid_north_core_top115",
+        "resampled": false
+      }
+    ]
+  },
+  "ownerGateAtPreparation": {
+    "file": "D:\\work\\image\\docs\\MAP_PARALLEL_SPLIT_20261013.json",
+    "sha256": "929a52abdb55e6022f83abbe9b48718182bc33fc8a0bc2d50a14f6232dd4e850",
+    "checkedAtUTC": "2026-10-16T13:21:07.006044+00:00",
+    "allocationValid": true,
+    "allocationStatus": "allocated_root_reserved",
+    "worker": "01a1338b-73d0-75c1-aa57-8059e93e85a1",
+    "ownerAcknowledged": false,
+    "ownerAcknowledgementRequiredAsGate": false,
+    "allocationDoesNotProveOwnerAcknowledgement": true,
+    "requestedTile": "r01_c04",
+    "ready": true,
+    "perTile": {
+      "r01_c04": {
+        "actualConflict": false,
+        "ready": true,
+        "originalOwnerNativeFiles": [],
+        "effectiveSelectedSources": [],
+        "currentProgressSourceFiles": [],
+        "activityHits": [],
+        "selectionFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\r01_c04\\selection.json",
+        "selectionSHA256": null
+      }
+    },
+    "progressFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\northwest\\progress.json",
+    "progressSHA256": "dc2f13fc64e14b78a74047a87707289434510bcb72b31e7496869a4e19d45af8",
+    "activityMarkers": [],
+    "scope": "Current published owner records and target files only; no unpublished in-flight inference"
+  },
+  "generationSubmitted": false,
+  "requestedModelPreference": "free/included2.5 preferred; existing builtin2.0 allowed; no paid API",
+  "actualModel": null,
+  "limitedWorkingReferenceCount": 0,
+  "limitedWorkingReferencesDoNotConferAcceptance": true,
+  "derivedFromPreparedRequest": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\requests\\r01_c04\\s02_01-v003.json",
+    "sha256": "ae8a5acd766f436b8214e2be57eae2bf75251640032b5358f90c34f13cd542eb"
+  },
+  "geometryRepair": {
+    "scopeOnly": "r01_c04/s02_01",
+    "attempt": 2,
+    "localRepair": 1,
+    "maxTwoIneffectiveLocalRepairs": true,
+    "selectionWritesAllowed": false
+  },
+  "ruleSnapshot": [
+    {
+      "file": "D:\\work\\image\\AGENTS.md",
+      "sha256": "57f1ad4f81fdb2256b843923d862308be228130917b99cfced375db256aff01a"
+    },
+    {
+      "file": "D:\\work\\image\\docs\\MAP_PARALLEL_SPLIT_20261013.json",
+      "sha256": "929a52abdb55e6022f83abbe9b48718182bc33fc8a0bc2d50a14f6232dd4e850"
+    }
+  ]
+}

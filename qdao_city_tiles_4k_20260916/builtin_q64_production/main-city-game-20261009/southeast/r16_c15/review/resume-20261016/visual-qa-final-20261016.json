@@ -1,0 +1,83 @@
+{
+  "tile": "r16_c15",
+  "reviewedAtUtc": "2026-10-16T08:47:20.548325+00:00",
+  "reviewer": "south_resume",
+  "candidate": {
+    "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\candidate\\r16_c15-4k-local-seams-20261016-v2.png",
+    "sha256": "91120a198c6d8d64bb3fd00ef8fbc1265a0ff2f613908b1b2d36cef0f51f8cc3"
+  },
+  "baseCandidate": {
+    "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\candidate\\r16_c15-4k-candidate-d0acddf200f95bec401a.png",
+    "sha256": "eb0925018a6772aa31f4baa8d634b1b1d525b5be81d9bfc548fe91b46444ac30"
+  },
+  "baseVisualReviewEvidence": {
+    "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\review\\resume-20261016\\evidence.json",
+    "sha256": "f91f105464db5fd09d12ab704e2d13172ba410ef328e1c633bb47993084a2cbf"
+  },
+  "baseViewed": {
+    "internalSeamSegments": 24,
+    "junctions": 9,
+    "eastCoreEdgeSegments": 4,
+    "southOuterEdgeSegments": 4,
+    "realNorthPairSegments": 4,
+    "realWestPairSegments": 4,
+    "totalNativeCrops": 49
+  },
+  "internalGeometryQA": "pass_after_I01_native_repair",
+  "internalArtQA": "pass_with_material_texture_watch",
+  "externalNeighborSeamQA": {
+    "north": "local_pass_against_647150_after_N01_native_repair",
+    "west": "local_pass_against_962ce4_after_W01_W02_native_repairs",
+    "east": "pending_root_r16_c16_real_pair_review",
+    "south": "canvas_outer_boundary_painted_edge_checked"
+  },
+  "findings": [
+    {
+      "id": "I01",
+      "status": "resolved",
+      "box": [
+        1580,
+        1930,
+        1690,
+        2190
+      ],
+      "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\repairs\\local-seams-20261016-v1\\trial-v2\\I01-unchanged.png",
+      "finding": "False blind vertical mortar fully removed; existing true horizontal course and lower vertical joint preserved."
+    },
+    {
+      "id": "W01",
+      "status": "resolved",
+      "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\repairs\\local-seams-20261016-v1\\trial-v2\\west-final-q0.png",
+      "finding": "West pair profiles continuous; lower 20-30px step removed; upper groove now closed into right frame after second native fix."
+    },
+    {
+      "id": "N01",
+      "status": "resolved",
+      "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\repairs\\local-seams-20261016-v1\\trial-v2\\north-final-local.png",
+      "finding": "Obsolete secondary column removed below repaired northern cap; existing inset panel extends naturally to true broad column; north cap profile and lower cornice continuous."
+    },
+    {
+      "id": "M01",
+      "status": "material_watch_not_formal_approval",
+      "finding": "Existing repeated fine diamond/grid surface motif remains in inherited limestone and dark base; overall material acceptance remains a separate review."
+    }
+  ],
+  "newVisualCrops": [
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\repairs\\local-seams-20261016-v1\\trial-v2\\I01-unchanged.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\repairs\\local-seams-20261016-v1\\trial-v2\\N01-local.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\repairs\\local-seams-20261016-v1\\trial-v2\\north-final-local.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\repairs\\local-seams-20261016-v1\\trial-v2\\north-final-q0.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\repairs\\local-seams-20261016-v1\\trial-v2\\north-final-q2.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\repairs\\local-seams-20261016-v1\\trial-v2\\W02-local.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r16_c15\\repairs\\local-seams-20261016-v1\\trial-v2\\west-final-q0.png"
+  ],
+  "reuseBasis": "Outside stored repair masks is byte-identical to reviewed base. Unchanged internal bands, junctions, west q1-3, north q1/3, east/south edges reused. North q1/3 new-neighbor strips verified byte-identical. Modified local masks and all surrounding joins inspected at native scale.",
+  "replay": {
+    "twoStageStoredAlphaExact": true,
+    "outsideMasksUnchanged": true,
+    "east384Unchanged": true,
+    "south384Unchanged": true,
+    "contextCoreExact": true
+  },
+  "formalAccepted": false
+}

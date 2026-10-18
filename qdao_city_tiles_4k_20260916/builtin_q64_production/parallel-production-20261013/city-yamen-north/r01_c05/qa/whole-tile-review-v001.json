@@ -1,0 +1,946 @@
+{
+  "createdAtUTC": "2026-10-17T04:20:33.592657+00:00",
+  "tile": "r01_c05",
+  "diagnosticDraft": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\r01_c05-draft-native4096.png",
+  "draftSHA256": "69e43868a29f85302672f2eb040f0454aa467ffb099b2813c7f1a2334ee033bb",
+  "formalAccepted": false,
+  "wholeTilePassed": false,
+  "sourceCoordinates": 16,
+  "nativeOriginals": 25,
+  "receipts": 25,
+  "effectiveQuickSelected": 12,
+  "pendingPatches": [
+    "s02_02",
+    "s04_01",
+    "s04_02",
+    "s04_04"
+  ],
+  "restartIngestionAudit": {
+    "all25RegisteredHostOutputHashesMatch": true,
+    "knownReturnedUnsavedOutputs": 0,
+    "lastKnownHostOutput": "C:\\Users\\luyua\\.codex\\generated_images\\01a1344d-b42e-7c30-b6d4-8e08a12f4a7e\\exec-5e33d7f9-88dd-4bb1-8560-355e252d8e08.png",
+    "noRepeatGenerationRequired": true
+  },
+  "compositionView": {
+    "actualViewScale": "4096 draft displayed1600 for composition only; native QA separately",
+    "layoutBroadStructure": "Broad wall-top walkway, front coping, short posts and golden crown silhouette now broadly match approved low-resolution layout. No missing wide-wall-top level.",
+    "materialIssue": "Dense cellular/honeycomb stone persists across multiple wall/walkway sources, strongest s02_02 and s04_01; local seam pass does not imply whole material pass.",
+    "identityUncertainty": "South r02_c05/s01_01 mixes rounded fan-lobed leaves at left and pointed maple at right. East worker confirmed this arose from cross-source matching, not approved evidence of two trees. Current s04_01 follows existing edge only; two-tree identity is NOT approved. Leaf-cluster scale/density require whole-map review.",
+    "contourTolerance": "Original layout1254 maps65536; one source pixel about52native, not precise object boundaries."
+  },
+  "seamCounts": {
+    "total": 24,
+    "exactPriorEvidenceReused": 17,
+    "newActualViews": 7,
+    "localGeometryContinuous": 19,
+    "geometryFailures": 5
+  },
+  "junctionCounts": {
+    "total": 9,
+    "actualNativeViews": 9,
+    "localContinuous": 4,
+    "localFailures": 5
+  },
+  "seams": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-x1024-segment1.png",
+      "sha256": "b9fd761fa1e5f60d55d7e6122f37793a4f2f890b7c5d7a6cbdd64d145e3d3333",
+      "axis": "x",
+      "position": 1024,
+      "segment": 1,
+      "sources": [
+        {
+          "patch": "s01_01",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s01_01-v001.png",
+          "sha256": "c6f42f33c5be7e6768fb12b63f9d0cf184a671ac60fb6503f53ad7c3d578bfcb",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s01_02",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s01_02-v001.png",
+          "sha256": "2adbc7b93a42cd1e6663efbd23d9a061a0cc7d89839d3c2fd913060a1817fc10",
+          "status": "local_quick_selected_not_formal"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        864,
+        0,
+        1184,
+        1024
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "exact source+crop hash reuse"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-x1024-segment2.png",
+      "sha256": "eabe3371370d95286b193af7ec0dec411be9326a946e49adb810788d0035dbc5",
+      "axis": "x",
+      "position": 1024,
+      "segment": 2,
+      "sources": [
+        {
+          "patch": "s02_01",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s02_01-v001.png",
+          "sha256": "1ac95e8f79ea96bd434f04f93b8bcf65a7c98c5d1303a8f2ff934a89f68daed1",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s02_02",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s02_02-v002.png",
+          "sha256": "c789ae00700d9af35cbbfc34f1603b323c824dfd5373adfe87670b886d87dad2",
+          "status": "PENDING_NOT_SELECTED"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        864,
+        1024,
+        1184,
+        2048
+      ],
+      "review": "FAIL_GEOMETRY",
+      "notes": "Paving courses and exposure jump at boundary; s02_02 was made before valid west source.",
+      "evidenceMode": "actual native100 view"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-x1024-segment3.png",
+      "sha256": "1cca3fffea045cea2c66db566e5ddac396bb8690317cdfcb6bbf0e334b1ac601",
+      "axis": "x",
+      "position": 1024,
+      "segment": 3,
+      "sources": [
+        {
+          "patch": "s03_01",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s03_01-v002.png",
+          "sha256": "b099ec2ae3204a0d2e7f10df0808cf3215b725646027a56f66f0c0c2d242d1b0",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s03_02",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s03_02-v001.png",
+          "sha256": "6ba2fbd2b691c184c218a73ea596ba509f64f8b524ed5fe832db1e38b8a7af18",
+          "status": "local_quick_selected_not_formal"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        864,
+        2048,
+        1184,
+        3072
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "exact source+crop hash reuse"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-x1024-segment4.png",
+      "sha256": "00c8a6562dde05ef0fb9fc443a4be20b13696c3900f0648db3fbc9f132c43ff8",
+      "axis": "x",
+      "position": 1024,
+      "segment": 4,
+      "sources": [
+        {
+          "patch": "s04_01",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s04_01-v001.png",
+          "sha256": "02afe85298bf1e453296557e024b0e9d5b22fae5bc94029d3e810f04de1bc22e",
+          "status": "PENDING_NOT_SELECTED"
+        },
+        {
+          "patch": "s04_02",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s04_02-v001.png",
+          "sha256": "7531d00013d42b1df14be0b862f11f55016344c0e18e8324cee94386e7c7cfe8",
+          "status": "PENDING_NOT_SELECTED"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        864,
+        3072,
+        1184,
+        4096
+      ],
+      "review": "FAIL_GEOMETRY",
+      "notes": "Independently produced foliage has cut branch/leaf phase across s04_01/02.",
+      "evidenceMode": "actual native100 view"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-x2048-segment1.png",
+      "sha256": "28e465e78cc2df543eaec1911a2ddf99c9ade207bcf5f4258d610e81dfa4e4ba",
+      "axis": "x",
+      "position": 2048,
+      "segment": 1,
+      "sources": [
+        {
+          "patch": "s01_02",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s01_02-v001.png",
+          "sha256": "2adbc7b93a42cd1e6663efbd23d9a061a0cc7d89839d3c2fd913060a1817fc10",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s01_03",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s01_03-v002.png",
+          "sha256": "6e010a0d66db50db49b6e2b92b904164b30cac2dafea2ba1331adf8cbb70a2c8",
+          "status": "local_quick_selected_not_formal"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        1888,
+        0,
+        2208,
+        1024
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "exact source+crop hash reuse"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-x2048-segment2.png",
+      "sha256": "5989b4711488c6894df2b20012fcf335f4b2d19b4d09f0d009197a922d429dbf",
+      "axis": "x",
+      "position": 2048,
+      "segment": 2,
+      "sources": [
+        {
+          "patch": "s02_02",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s02_02-v002.png",
+          "sha256": "c789ae00700d9af35cbbfc34f1603b323c824dfd5373adfe87670b886d87dad2",
+          "status": "PENDING_NOT_SELECTED"
+        },
+        {
+          "patch": "s02_03",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s02_03-v001.png",
+          "sha256": "ded3943e67abcf3a8a9ed0b5e8882fe815c6bb3fc93900178244b48d8915e749",
+          "status": "local_quick_selected_not_formal"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        1888,
+        1024,
+        2208,
+        2048
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "actual native100 view"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-x2048-segment3.png",
+      "sha256": "40f047097e89ab42afbfa34353c8cdf7d496e69879c220fcf8564fe2975f1678",
+      "axis": "x",
+      "position": 2048,
+      "segment": 3,
+      "sources": [
+        {
+          "patch": "s03_02",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s03_02-v001.png",
+          "sha256": "6ba2fbd2b691c184c218a73ea596ba509f64f8b524ed5fe832db1e38b8a7af18",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s03_03",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s03_03-v004.png",
+          "sha256": "1b55ee0fccc48c09534a95f6b6c9b5fefab1223f4dac6f9590d4da1637226c20",
+          "status": "local_quick_selected_not_formal"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        1888,
+        2048,
+        2208,
+        3072
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "exact source+crop hash reuse"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-x2048-segment4.png",
+      "sha256": "37f400a0f77f6ec1806915878ad99a6ee09f6304cb2b8afc49d1572e1c7dca50",
+      "axis": "x",
+      "position": 2048,
+      "segment": 4,
+      "sources": [
+        {
+          "patch": "s04_02",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s04_02-v001.png",
+          "sha256": "7531d00013d42b1df14be0b862f11f55016344c0e18e8324cee94386e7c7cfe8",
+          "status": "PENDING_NOT_SELECTED"
+        },
+        {
+          "patch": "s04_03",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s04_03-v001.png",
+          "sha256": "1622d6bd03316e5971653721317ba343a32b5c6d3090c13e995839632290640e",
+          "status": "local_quick_selected_not_formal"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        1888,
+        3072,
+        2208,
+        4096
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "exact source+crop hash reuse"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-x3072-segment1.png",
+      "sha256": "f9b79352508946591fb295d20be6aa49a353fda5a8b4a53fabfcf4b9d81afe2a",
+      "axis": "x",
+      "position": 3072,
+      "segment": 1,
+      "sources": [
+        {
+          "patch": "s01_03",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s01_03-v002.png",
+          "sha256": "6e010a0d66db50db49b6e2b92b904164b30cac2dafea2ba1331adf8cbb70a2c8",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s01_04",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s01_04-v001.png",
+          "sha256": "213e50cee249dc05fa47fc628675049344069b2e347c8b778d7d759efcb11305",
+          "status": "local_quick_selected_not_formal"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        2912,
+        0,
+        3232,
+        1024
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "exact source+crop hash reuse"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-x3072-segment2.png",
+      "sha256": "af43c24b90cd38d7003be84d0c2cd3a405e70d73054989ca1b7ced683cdb0411",
+      "axis": "x",
+      "position": 3072,
+      "segment": 2,
+      "sources": [
+        {
+          "patch": "s02_03",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s02_03-v001.png",
+          "sha256": "ded3943e67abcf3a8a9ed0b5e8882fe815c6bb3fc93900178244b48d8915e749",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s02_04",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s02_04-v001.png",
+          "sha256": "cdbbe4104166e18aa10757fbda8ff14bbf86a6f22be042730d49a0b31d6e1453",
+          "status": "local_quick_selected_not_formal"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        2912,
+        1024,
+        3232,
+        2048
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "exact source+crop hash reuse"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-x3072-segment3.png",
+      "sha256": "5d9219fb13c83fd0fa75ef30411e9305bf3a3ba82f5db24e6a93dc4b7a96b141",
+      "axis": "x",
+      "position": 3072,
+      "segment": 3,
+      "sources": [
+        {
+          "patch": "s03_03",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s03_03-v004.png",
+          "sha256": "1b55ee0fccc48c09534a95f6b6c9b5fefab1223f4dac6f9590d4da1637226c20",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s03_04",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s03_04-v003.png",
+          "sha256": "83e2427f592fa0ea50f9f71641c5ae00eb22860c542bb538602832e1b78b5e9d",
+          "status": "local_quick_selected_not_formal"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        2912,
+        2048,
+        3232,
+        3072
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "exact source+crop hash reuse"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-x3072-segment4.png",
+      "sha256": "d1b864a215df4ca0551d07d1020e411ccc7ed034c2a37cb81f8993dae7eb1c3c",
+      "axis": "x",
+      "position": 3072,
+      "segment": 4,
+      "sources": [
+        {
+          "patch": "s04_03",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s04_03-v001.png",
+          "sha256": "1622d6bd03316e5971653721317ba343a32b5c6d3090c13e995839632290640e",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s04_04",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s04_04-v002.png",
+          "sha256": "d998a0514371de012fc26b8881087e717ee036ae18ec3027422c3713eca16c38",
+          "status": "PENDING_NOT_SELECTED"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        2912,
+        3072,
+        3232,
+        4096
+      ],
+      "review": "FAIL_GEOMETRY",
+      "notes": "Independent s04_04 leaf/branch geometry does not align to s04_03 east edge.",
+      "evidenceMode": "actual native100 view"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-y1024-segment1.png",
+      "sha256": "36a2bb43f40e2f71f18a917f5f0c3a0d7672835429b2af3421d57a8617edb881",
+      "axis": "y",
+      "position": 1024,
+      "segment": 1,
+      "sources": [
+        {
+          "patch": "s01_01",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s01_01-v001.png",
+          "sha256": "c6f42f33c5be7e6768fb12b63f9d0cf184a671ac60fb6503f53ad7c3d578bfcb",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s02_01",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s02_01-v001.png",
+          "sha256": "1ac95e8f79ea96bd434f04f93b8bcf65a7c98c5d1303a8f2ff934a89f68daed1",
+          "status": "local_quick_selected_not_formal"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        0,
+        864,
+        1024,
+        1184
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "exact source+crop hash reuse"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-y1024-segment2.png",
+      "sha256": "f998d702d16a77df21c1c821e36c1017b0ed82d50ce9eb3b170a4934939a6c45",
+      "axis": "y",
+      "position": 1024,
+      "segment": 2,
+      "sources": [
+        {
+          "patch": "s01_02",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s01_02-v001.png",
+          "sha256": "2adbc7b93a42cd1e6663efbd23d9a061a0cc7d89839d3c2fd913060a1817fc10",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s02_02",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s02_02-v002.png",
+          "sha256": "c789ae00700d9af35cbbfc34f1603b323c824dfd5373adfe87670b886d87dad2",
+          "status": "PENDING_NOT_SELECTED"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        1024,
+        864,
+        2048,
+        1184
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "actual native100 view"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-y1024-segment3.png",
+      "sha256": "9796031e4c91eaf2c66b1cbe3996e5caf435eb7158e9f69c0ef533822b83d20a",
+      "axis": "y",
+      "position": 1024,
+      "segment": 3,
+      "sources": [
+        {
+          "patch": "s01_03",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s01_03-v002.png",
+          "sha256": "6e010a0d66db50db49b6e2b92b904164b30cac2dafea2ba1331adf8cbb70a2c8",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s02_03",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s02_03-v001.png",
+          "sha256": "ded3943e67abcf3a8a9ed0b5e8882fe815c6bb3fc93900178244b48d8915e749",
+          "status": "local_quick_selected_not_formal"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        2048,
+        864,
+        3072,
+        1184
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "exact source+crop hash reuse"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-y1024-segment4.png",
+      "sha256": "f403ee92390c1090369371d51cf723d3a5dfd24cce53379b0d170a5961224934",
+      "axis": "y",
+      "position": 1024,
+      "segment": 4,
+      "sources": [
+        {
+          "patch": "s01_04",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s01_04-v001.png",
+          "sha256": "213e50cee249dc05fa47fc628675049344069b2e347c8b778d7d759efcb11305",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s02_04",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s02_04-v001.png",
+          "sha256": "cdbbe4104166e18aa10757fbda8ff14bbf86a6f22be042730d49a0b31d6e1453",
+          "status": "local_quick_selected_not_formal"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        3072,
+        864,
+        4096,
+        1184
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "exact source+crop hash reuse"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-y2048-segment1.png",
+      "sha256": "3d8279524069ebb038e23e1dd1c6cc45d23fcb4fa07eed000810f210fb0f3c48",
+      "axis": "y",
+      "position": 2048,
+      "segment": 1,
+      "sources": [
+        {
+          "patch": "s02_01",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s02_01-v001.png",
+          "sha256": "1ac95e8f79ea96bd434f04f93b8bcf65a7c98c5d1303a8f2ff934a89f68daed1",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s03_01",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s03_01-v002.png",
+          "sha256": "b099ec2ae3204a0d2e7f10df0808cf3215b725646027a56f66f0c0c2d242d1b0",
+          "status": "local_quick_selected_not_formal"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        0,
+        1888,
+        1024,
+        2208
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "exact source+crop hash reuse"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-y2048-segment2.png",
+      "sha256": "0265bcad492bbd226c333e3c96764f02b0b5b8720bada2637e8fa2d3268f91c9",
+      "axis": "y",
+      "position": 2048,
+      "segment": 2,
+      "sources": [
+        {
+          "patch": "s02_02",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s02_02-v002.png",
+          "sha256": "c789ae00700d9af35cbbfc34f1603b323c824dfd5373adfe87670b886d87dad2",
+          "status": "PENDING_NOT_SELECTED"
+        },
+        {
+          "patch": "s03_02",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s03_02-v001.png",
+          "sha256": "6ba2fbd2b691c184c218a73ea596ba509f64f8b524ed5fe832db1e38b8a7af18",
+          "status": "local_quick_selected_not_formal"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        1024,
+        1888,
+        2048,
+        2208
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "actual native100 view"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-y2048-segment3.png",
+      "sha256": "5ba5a71f9d19d1ca7e58669668ee9f4961b0da3d099941e4c173ab668e786143",
+      "axis": "y",
+      "position": 2048,
+      "segment": 3,
+      "sources": [
+        {
+          "patch": "s02_03",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s02_03-v001.png",
+          "sha256": "ded3943e67abcf3a8a9ed0b5e8882fe815c6bb3fc93900178244b48d8915e749",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s03_03",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s03_03-v004.png",
+          "sha256": "1b55ee0fccc48c09534a95f6b6c9b5fefab1223f4dac6f9590d4da1637226c20",
+          "status": "local_quick_selected_not_formal"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        2048,
+        1888,
+        3072,
+        2208
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "exact source+crop hash reuse"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-y2048-segment4.png",
+      "sha256": "134cddb1462d9bb530582dccb9f311fd43763206142411225e98274b6d96ab7c",
+      "axis": "y",
+      "position": 2048,
+      "segment": 4,
+      "sources": [
+        {
+          "patch": "s02_04",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s02_04-v001.png",
+          "sha256": "cdbbe4104166e18aa10757fbda8ff14bbf86a6f22be042730d49a0b31d6e1453",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s03_04",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s03_04-v003.png",
+          "sha256": "83e2427f592fa0ea50f9f71641c5ae00eb22860c542bb538602832e1b78b5e9d",
+          "status": "local_quick_selected_not_formal"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        3072,
+        1888,
+        4096,
+        2208
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "exact source+crop hash reuse"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-y3072-segment1.png",
+      "sha256": "05014bd62634ef205b6364454f124c3c18ee40b21956942e77dce3aa5647afca",
+      "axis": "y",
+      "position": 3072,
+      "segment": 1,
+      "sources": [
+        {
+          "patch": "s03_01",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s03_01-v002.png",
+          "sha256": "b099ec2ae3204a0d2e7f10df0808cf3215b725646027a56f66f0c0c2d242d1b0",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s04_01",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s04_01-v001.png",
+          "sha256": "02afe85298bf1e453296557e024b0e9d5b22fae5bc94029d3e810f04de1bc22e",
+          "status": "PENDING_NOT_SELECTED"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        0,
+        2912,
+        1024,
+        3232
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "exact source+crop hash reuse"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-y3072-segment2.png",
+      "sha256": "4eba2239798177201ddfad6c5015d9640fc88c9e6f9d94b9fecf1becdcfdd2d8",
+      "axis": "y",
+      "position": 3072,
+      "segment": 2,
+      "sources": [
+        {
+          "patch": "s03_02",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s03_02-v001.png",
+          "sha256": "6ba2fbd2b691c184c218a73ea596ba509f64f8b524ed5fe832db1e38b8a7af18",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s04_02",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s04_02-v001.png",
+          "sha256": "7531d00013d42b1df14be0b862f11f55016344c0e18e8324cee94386e7c7cfe8",
+          "status": "PENDING_NOT_SELECTED"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        1024,
+        2912,
+        2048,
+        3232
+      ],
+      "review": "FAIL_GEOMETRY",
+      "notes": "s03_02 and earlier s04_02 were independent; leaf/branch phase cuts at seam.",
+      "evidenceMode": "actual native100 view"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-y3072-segment3.png",
+      "sha256": "cae475c8f7e0dd5b02fb08a7f0386993a29da858973d1dc9561a3f07b7ce00b7",
+      "axis": "y",
+      "position": 3072,
+      "segment": 3,
+      "sources": [
+        {
+          "patch": "s03_03",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s03_03-v004.png",
+          "sha256": "1b55ee0fccc48c09534a95f6b6c9b5fefab1223f4dac6f9590d4da1637226c20",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s04_03",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s04_03-v001.png",
+          "sha256": "1622d6bd03316e5971653721317ba343a32b5c6d3090c13e995839632290640e",
+          "status": "local_quick_selected_not_formal"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        2048,
+        2912,
+        3072,
+        3232
+      ],
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual native-scale or exact hash-bound prior actual evidence: core contours locally continuous; this does not pass material or whole tile.",
+      "evidenceMode": "exact source+crop hash reuse"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\internal-y3072-segment4.png",
+      "sha256": "45f25febcf5ef52f0ec571fd42e73bc0c0e954cc42cb8b33e9e27433393198b6",
+      "axis": "y",
+      "position": 3072,
+      "segment": 4,
+      "sources": [
+        {
+          "patch": "s03_04",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s03_04-v003.png",
+          "sha256": "83e2427f592fa0ea50f9f71641c5ae00eb22860c542bb538602832e1b78b5e9d",
+          "status": "local_quick_selected_not_formal"
+        },
+        {
+          "patch": "s04_04",
+          "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\native\\s04_04-v002.png",
+          "sha256": "d998a0514371de012fc26b8881087e717ee036ae18ec3027422c3713eca16c38",
+          "status": "PENDING_NOT_SELECTED"
+        }
+      ],
+      "nativePixelScale": 1,
+      "cropLTRB": [
+        3072,
+        2912,
+        4096,
+        3232
+      ],
+      "review": "FAIL_GEOMETRY",
+      "notes": "Known s04_04 north horizontal cut persists after one repair.",
+      "evidenceMode": "exact source+crop hash reuse"
+    }
+  ],
+  "junctions": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\junction-x1024-y1024.png",
+      "sha256": "2c5a9b92e0e758398140065dff895f58d2e21d71ee31e985efaa9bb9080beb3e",
+      "cropLTRB": [
+        864,
+        864,
+        1184,
+        1184
+      ],
+      "nativePixelScale": 1,
+      "review": "FAIL_LOCAL_CONTINUITY",
+      "notes": "Lower quadrants paving/rear-wall courses jump."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\junction-x2048-y1024.png",
+      "sha256": "6f089975b84360562222bda50872c57c0882ad2bdcc3f1f6d47b933ac79a163b",
+      "cropLTRB": [
+        1888,
+        864,
+        2208,
+        1184
+      ],
+      "nativePixelScale": 1,
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual320x320 native view: local contours connect, material acceptance separate."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\junction-x3072-y1024.png",
+      "sha256": "1a879dceec840f366f6a4c6646b2dda343054381ef70b8546443d52888ecadd5",
+      "cropLTRB": [
+        2912,
+        864,
+        3232,
+        1184
+      ],
+      "nativePixelScale": 1,
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual320x320 native view: local contours connect, material acceptance separate."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\junction-x1024-y2048.png",
+      "sha256": "7dcf5f3047d8bb83e0ff35caa060fad70f27614cab0e892c27335b30752f388c",
+      "cropLTRB": [
+        864,
+        1888,
+        1184,
+        2208
+      ],
+      "nativePixelScale": 1,
+      "review": "FAIL_LOCAL_CONTINUITY",
+      "notes": "Shadow and masonry treatment discontinuity below/front wall at x1024."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\junction-x2048-y2048.png",
+      "sha256": "817ed8c27ffb030834d5bcb993ca8527b3d7ff68ee03bd8aba769168a0d1f0e5",
+      "cropLTRB": [
+        1888,
+        1888,
+        2208,
+        2208
+      ],
+      "nativePixelScale": 1,
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual320x320 native view: local contours connect, material acceptance separate."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\junction-x3072-y2048.png",
+      "sha256": "712dab16a8e81ccaac891685ff0b2b1c1830ef335fab8732d4e8058a08e6e501",
+      "cropLTRB": [
+        2912,
+        1888,
+        3232,
+        2208
+      ],
+      "nativePixelScale": 1,
+      "review": "LOCAL_CORE_GEOMETRY_CONTINUOUS",
+      "notes": "Actual320x320 native view: local contours connect, material acceptance separate."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\junction-x1024-y3072.png",
+      "sha256": "44a626b41dc3e00fd5677255cd5b6b31359d259b9ef83bff91b06eaa8f22a548",
+      "cropLTRB": [
+        864,
+        2912,
+        1184,
+        3232
+      ],
+      "nativePixelScale": 1,
+      "review": "FAIL_LOCAL_CONTINUITY",
+      "notes": "Leaf/branch phase discontinuity across independent lower cores."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\junction-x2048-y3072.png",
+      "sha256": "2e3760a1d78ee7faa68434afbea3702797dca1bc90c1c6eff8a6c5b2ab13ccfd",
+      "cropLTRB": [
+        1888,
+        2912,
+        2208,
+        3232
+      ],
+      "nativePixelScale": 1,
+      "review": "FAIL_LOCAL_CONTINUITY",
+      "notes": "Upper/lower c02 leaf contour mismatch reaches junction, internal guide cutoff nearby."
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r01_c05\\qa\\draft-native4096-v001\\junction-x3072-y3072.png",
+      "sha256": "3bed68fcc9711cb521229f98639c8882b800eac637a5b1d4e3d7f8d00bb20971",
+      "cropLTRB": [
+        2912,
+        2912,
+        3232,
+        3232
+      ],
+      "nativePixelScale": 1,
+      "review": "FAIL_LOCAL_CONTINUITY",
+      "notes": "s04_04 north/west leaf geometry mismatch reaches junction."
+    }
+  ],
+  "priorityRepairs": [
+    {
+      "patch": "s04_02",
+      "bestExisting": "s04_02-v001.png",
+      "issues": [
+        "Internal x1024 foliage cut",
+        "New northern neighbor s03_02 requires leaf-phase connection",
+        "West with s04_01 independent edge"
+      ]
+    },
+    {
+      "patch": "s04_04",
+      "bestExisting": "s04_04-v002.png",
+      "issues": [
+        "North true-boundary horizontal cut",
+        "South true-boundary leaf phase",
+        "West with s04_03 independent edge"
+      ]
+    },
+    {
+      "patch": "s02_02",
+      "bestExisting": "s02_02-v002.png",
+      "issues": [
+        "Dense honeycomb material",
+        "West paving courses/exposure jump; now valid s02_01 available"
+      ]
+    },
+    {
+      "patch": "s04_01",
+      "bestExisting": "s04_01-v001.png",
+      "issues": [
+        "Dense repeated cellular stone texture",
+        "East foliage edge mismatch",
+        "Cross-source leaf identity unresolved"
+      ]
+    }
+  ]
+}

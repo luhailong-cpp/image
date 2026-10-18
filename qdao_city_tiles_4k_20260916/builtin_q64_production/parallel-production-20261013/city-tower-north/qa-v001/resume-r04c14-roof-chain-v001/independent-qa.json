@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-17T04:35:05.286013+00:00",
+  "reviewer": "tower_qa_resume",
+  "tile": "r04_c14",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-cap-native-v002\\r04_c14-candidate.png",
+    "sha256": "02c0b5d70d9fe9fd714ce3dee577274ff7f6074cc9f2023f9ef6fcd2d27a8bc1",
+    "sha256Verified": true
+  },
+  "integrations": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-junction-native-v001\\integration.json",
+      "sha256": "8b7db559c5cfe2df79ad0128e5de8cb3fe205e9086ef3c28dacad99751cdf71b"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-cap-native-v002\\integration.json",
+      "sha256": "bbf6baff1e044e3173c93a6bc700c1a4093c502a133ce42b56088518075586ed"
+    }
+  ],
+  "baseline": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-front-post-native-v001\\r04_c14-candidate.png",
+    "sha256": "e2dfcf0c3376dbec182bcb4f139a0e4a2cecfe6168ef17cabd6202f6d7368693",
+    "sha256Verified": true
+  },
+  "scope": "Independent QA of the roof-junction geometry and second small tile-cap correction, with final-candidate ROI transitions. No full-tile or all-material acceptance.",
+  "actualModel": null,
+  "actualModelEvidence": "not returned",
+  "targetGeometryStatus": "local-pass",
+  "targetVisualStatus": "local-pass-with-excluded-old-roof-material-join",
+  "finding": "The former approximately 100px eave phase jump is now a coherent rounded corner at the fixed roof end positions. Gold curl, red pillar and doors remain placed coherently. The second small native correction closes the previously split flower disk without moving the defect to its ROI edges.",
+  "editTileXYXY": [
+    [
+      400,
+      765,
+      1539,
+      1789
+    ],
+    [
+      325,
+      1170,
+      475,
+      1335
+    ]
+  ],
+  "finalJunctionContext": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\qa-v001\\resume-r04c14-roof-chain-v001\\final-junction-context-100pct.png",
+    "sha256": "38b2546fa555e834705be499736d562e9aa3ce55cf8aa5500cc18dcf39f2ce98",
+    "cropTileXYXY": [
+      400,
+      650,
+      1654,
+      1904
+    ]
+  },
+  "junctionPerimeterReview": [
+    {
+      "side": "north",
+      "targetGeometryStatus": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-junction-native-v001\\north-perimeter-100pct.png",
+        "sha256": "4afd7799bb4f8b5ac37052d86b7178b3f8098df43b4c5ef6f63a2912a99dc4cd",
+        "crop": [
+          285,
+          650,
+          1654,
+          880
+        ],
+        "sha256Verified": true
+      },
+      "evidenceMethod": "Prior first-ROI crop exactly unchanged in final candidate; visually reviewed at original pixels",
+      "observation": "Tile courses, red horizontal beam and top gold ridge transition are aligned."
+    },
+    {
+      "side": "south",
+      "targetGeometryStatus": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-junction-native-v001\\south-perimeter-100pct.png",
+        "sha256": "81ab3bc987514ca86438889b7cc682acb9e4c608912d0d62d12caa7ad6416bd1",
+        "crop": [
+          285,
+          1674,
+          1654,
+          1904
+        ],
+        "sha256Verified": true
+      },
+      "evidenceMethod": "Prior first-ROI crop exactly unchanged in final candidate; visually reviewed at original pixels",
+      "observation": "Door panels, gold trim and red column connect at the lower ROI."
+    },
+    {
+      "side": "west",
+      "targetGeometryStatus": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\qa-v001\\resume-r04c14-roof-chain-v001\\final-junction-west-perimeter-100pct.png",
+        "sha256": "512e518dd8ad970e34dc40a8e17e8a7fbe7b042d37db806bdff7d0042a7193fe",
+        "crop": [
+          285,
+          650,
+          515,
+          1904
+        ]
+      },
+      "evidenceMethod": "Recropped from final candidate after cap correction",
+      "observation": "Small flower disk is now whole and correctly rimmed. Known old horizontal roof-material seam above it remains outside the geometry claim."
+    },
+    {
+      "side": "east",
+      "targetGeometryStatus": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-junction-native-v001\\east-perimeter-100pct.png",
+        "sha256": "1f270ebd272c9ec7f6442a71e29d187228d4dd0529141271c7beba06bac91920",
+        "crop": [
+          1424,
+          650,
+          1654,
+          1904
+        ],
+        "sha256Verified": true
+      },
+      "evidenceMethod": "Prior first-ROI crop exactly unchanged in final candidate; visually reviewed at original pixels",
+      "observation": "Blue tile ends, gold curl, red carved eave and wood panel join continuously."
+    }
+  ],
+  "capPerimeterReview": [
+    {
+      "side": "north",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-cap-native-v002\\north-perimeter-100pct.png",
+        "sha256": "761a6eead59afbd5ab53af4f47bfc68ec377c54a28907e03dfd5faa941448497",
+        "crop": [
+          210,
+          1055,
+          590,
+          1285
+        ],
+        "sha256Verified": true
+      },
+      "observation": "Tile shading and grooves connect above the disk."
+    },
+    {
+      "side": "south",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-cap-native-v002\\south-perimeter-100pct.png",
+        "sha256": "ab60a4a0c309a9c482af77b39bb1c46281190d5299e79a6343e73e3025628ee2",
+        "crop": [
+          210,
+          1220,
+          590,
+          1450
+        ],
+        "sha256Verified": true
+      },
+      "observation": "Flower rim and red eave below remain connected."
+    },
+    {
+      "side": "west",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-cap-native-v002\\west-perimeter-100pct.png",
+        "sha256": "1b823fc1be4a3c40d642c30e18ee6065a2d697d559ef3ce5659955ed9a00c5b7",
+        "crop": [
+          210,
+          1055,
+          440,
+          1450
+        ],
+        "sha256Verified": true
+      },
+      "observation": "Left tile cap curve is whole and joins adjacent blue surface."
+    },
+    {
+      "side": "east",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-roof-cap-native-v002\\east-perimeter-100pct.png",
+        "sha256": "858a386ea073758efd95ef086b8a1f083d0b075b6c33ed146f23fb61cbb67bfd",
+        "crop": [
+          360,
+          1055,
+          590,
+          1450
+        ],
+        "sha256Verified": true
+      },
+      "observation": "Right disk rim and neighboring tile meet without a new vertical split."
+    }
+  ],
+  "mechanicalChecks": {
+    "candidate4096RGB": true,
+    "bothCandidateAndNativeHashesVerified": true,
+    "sequentialBaselineHashChainVerified": true,
+    "outsideEachRoiPixelIdentity": true,
+    "firstRoiNorthSouthEastCropIdentityInFinal": true,
+    "firstRoiWestRecroppedFromFinal": true,
+    "capFourCropsVerified": true
+  },
+  "reusedGeometryQaNote": "Only unchanged crop evidence is reused; stale first-ROI west image is not used as final evidence.",
+  "retainedUnpassedIssues": [
+    {
+      "id": "old-left-roof-horizontal-material-join",
+      "areaTilePixelsApprox": [
+        0,
+        1000,
+        400,
+        1050
+      ],
+      "status": "needs-repair",
+      "observation": "A horizontal change in roof tone/texture remains at y1024 to the left of the first ROI; the corrected flower disk at y1170..1335 does not fix it."
+    },
+    {
+      "id": "front-post-north-kink",
+      "status": "needs-repair",
+      "sourceQa": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\qa-v001\\resume-r04c14-front-post-v001-independent-v001.json",
+        "sha256": "cc408f37b67c74b97ad31bd9e68f9edee2299e36e7fd7be1c04d333dcc4c85fc"
+      }
+    }
+  ],
+  "sourceProductionQa": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\qa\\right-r04c14-roof-junction-after-v002.json",
+    "sha256": "fb004e4883639e261e95c5b5af013ef8df946202f440632de59f3886f41ed130"
+  },
+  "formalAcceptedCount": 0,
+  "fullTileAccepted": false,
+  "externalEdgesStatus": "not assessed",
+  "newImagesGenerated": 0,
+  "sourceOrSelectionMutation": false,
+  "qaArtifactsCreated": "Two integer 1:1 final-candidate inspection crops only."
+}

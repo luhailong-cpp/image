@@ -1,0 +1,57 @@
+{
+  "createdAtUTC": "2026-10-16T06:58:59.757005+00:00",
+  "scopeOnly": "r02_c04/s04_04",
+  "bestPending": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\r02_c04\\native\\s04_04-v003.png",
+    "sha256": "3d3ca338dca655a2831be000e4e0643f0e695f1110123d0a0acf6118d86c8b38",
+    "reason": "Large internal collage seams removed, north working and selected west local joins maintained; v004 adds no material improvement to east/south core joins.",
+    "selected": false,
+    "quickVisualPassed": false,
+    "formalAccepted": false
+  },
+  "issues": [
+    {
+      "id": "east_core_phase",
+      "blocking": true,
+      "currentBest": "v003",
+      "nativeBoundaryX": 1139,
+      "worldBoundaryX": 16384,
+      "spanNativeY": [
+        115,
+        1139
+      ],
+      "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\qa\\s04_04-independent-repair-v002\\east-hard-core.png",
+      "evidenceSeamX": 160,
+      "nativePixelScale": 1,
+      "observation": "At true core-to-core join the incoming eastern rounded collars and dark diagonal channels are stepped/duplicated rather than continuous; internal smoothing did not preserve the selected east endpoint phase.",
+      "nextRepair": "If a later dedicated pass is authorized, edit only the cyan roof in current-core right band roughly x850..1138, using east selected s04_01-v001 left230 at exact world mapping. Lock its real core entry at currentx1139, continue collars/highlights inside this patch; do not edit the east neighbor or shift the image."
+    },
+    {
+      "id": "south_canonical_phase",
+      "blocking": true,
+      "nativeBoundaryY": 1139,
+      "worldBoundaryY": 8192,
+      "spanNativeX": [
+        115,
+        1139
+      ],
+      "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\qa\\s04_04-independent-repair-v002\\south-canonical-hard-core.png",
+      "evidenceSeamY": 160,
+      "nativePixelScale": 1,
+      "observation": "The gold cone joins acceptably but ceramic collars/highlights either side of the true current-core/canonical boundary still show a horizontal phase discontinuity. Final local repair did not close this edge.",
+      "nextRepair": "Preserve only actual canonical bottom115 at y1139..1253, rebuild the preceding cyan tile rows in current-core y900..1138 to meet their collar positions. Exclude derived top halo y1024..1138 from all immutable inputs. Keep gold cone axis/tip and selected west/north endpoints unchanged."
+    }
+  ],
+  "generationBudget": {
+    "maximumNewCalls": 3,
+    "completedIncludingPreInterruptionBaseline": 3,
+    "newCallsThisResume": 2,
+    "remaining": 0,
+    "stopReason": "Explicit one new generation plus two local repairs reached; last repair did not resolve east/south blockers."
+  },
+  "quickVisualPassed": false,
+  "formalAccepted": false,
+  "selectionModified": false,
+  "report": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-yamen-north\\qa\\s04_04-independent-repair-v003\\outcome-review-v001.json",
+  "reportSHA256": "4167def138eac13775318fd1c699eb50525144d8a0f97285b5bf872d1e056d5a"
+}

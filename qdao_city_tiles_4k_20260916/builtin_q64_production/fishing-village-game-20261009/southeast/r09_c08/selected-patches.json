@@ -1,9 +1,157 @@
 {
   "tile": "r09_c08",
   "patches": {
-    "p44": "native/p44-v2.png"
+    "p44": "processed/jamb-joint-20261016-v2/p44-jamb-v1-surface-v2-native.png",
+    "p43": "processed/bracket-joint-20261013-v2/p43-bracket-joint-v2-native.png",
+    "p42": "native/p42-v1.png",
+    "p41": "native/p41-v1.png",
+    "p31": "native/p31-v2.png",
+    "p32": "native/p32-v1.png",
+    "p33": "native/p33-v2.png",
+    "p34": "native/p34-v1.png",
+    "p24": "native/p24-v1.png",
+    "p21": "native/p21-v1.png",
+    "p22": "native/p22-v2.png",
+    "p14": "native/p14-v1.png",
+    "p23": "native/p23-v1.png",
+    "p11": "native/p11-v1.png",
+    "p12": "native/p12-v1.png",
+    "p13": "native/p13-v2.png"
   },
-  "status": "native_production_and_internal_QA",
+  "status": "full_native_jamb_joint_adopted_other_QA_pending",
   "internalReady": false,
-  "formalAccepted": false
+  "formalAccepted": false,
+  "pendingIssues": [
+    {
+      "id": "r09_c08-p44-window-duplicate-flower",
+      "status": "resolved_local_geometry",
+      "description": "Window flower duplicates across r09_c08/r10_c08; two north-only attempts retained and rejected.",
+      "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\qa\\window-repair-20261013\\final-review-20261013-v1.json",
+      "resolutionEvidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\qa\\window-joint-20261016\\window-joint-v1.adoption-instructions.json",
+      "resolvedAtUtc": "2026-10-16T17:42:07.312513+00:00"
+    },
+    {
+      "id": "r09_c08-p43-p44-roof-fascia-color-seam",
+      "status": "pending",
+      "description": "Existing blue-roof and fascia tone seam remains outside the adopted bracket repair; whole-tile color and external checks pending."
+    },
+    {
+      "id": "stone-material-density",
+      "status": "pending",
+      "description": "Stone mineral texture differs between rows and across p22/p23/p24; p22-v2 retained repetitive fine lattice after targeted edit. Surface density and clarity transitions remain visible."
+    },
+    {
+      "id": "p13-east-paving",
+      "status": "pending",
+      "description": "p13-v2 improved the large right-edge groove discontinuity from v1, but stone edge/finish transitions against p14 remain visible; not accepted."
+    },
+    {
+      "id": "roof-fascia-color",
+      "status": "pending",
+      "description": "p43/p44 and adjacent roof highlights/fascia retain a color seam outside the adopted bracket repair."
+    },
+    {
+      "id": "window-external",
+      "status": "local_window_geometry_repaired_external_material_pending",
+      "description": "p44/r10_c08 p14 duplicated diamond window motif; independent joint repair assigned to north agent, no candidate adopted.",
+      "resolutionEvidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\qa\\window-joint-20261016\\window-joint-v1.adoption-instructions.json",
+      "remaining": "Right jamb color seam at global y 36864 and remaining external checks still pending."
+    },
+    {
+      "id": "external-seams",
+      "status": "pending",
+      "description": "New full tile requires current available external edge QA; absence of local west neighbor does not establish global absence."
+    },
+    {
+      "id": "window-right-jamb-color-seam",
+      "status": "resolved_local_surface",
+      "description": "Existing right jamb color discontinuity at global y 36864 lies outside the adopted window mask.",
+      "resolutionEvidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\qa\\jamb-joint-20261016\\jamb-v1-surface-v2.adoption-instructions.json",
+      "resolvedAtUtc": "2026-10-16T20:20:35.474606+00:00"
+    },
+    {
+      "id": "window-joint-external-qa",
+      "status": "pending",
+      "description": "Root to update affected south/north/east segment and corner evidence after joint adoption. Local window pass does not pass the whole edge."
+    },
+    {
+      "id": "jamb-right-brown-trim-tone",
+      "status": "pending",
+      "description": "Brown upright farther right outside frame x1022 retains a tone discontinuity at global y36864; outside bounded jamb/gray-trim repair."
+    },
+    {
+      "id": "jamb-joint-external-qa",
+      "status": "pending",
+      "description": "Root to update affected external segments/corner. Local jamb surface pass does not pass the whole edge."
+    }
+  ],
+  "updatedAt": "2026-10-16T20:20:35.474606+00:00",
+  "materialPending": true,
+  "bracketJointAdoption": {
+    "localGeometryPassed": true,
+    "tilePassed": false,
+    "adoptedAtUtc": "2026-10-13T17:24:19.159165+00:00",
+    "directory": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\processed\\bracket-joint-20261013-v2",
+    "review": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\qa\\bracket-joint-20261013\\bracket-joint-v2.adoption-instructions.json",
+    "sourceProof": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\qa\\bracket-joint-20261013\\bracket-joint-v2-proof.json",
+    "adoptionReplay": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\processed\\bracket-joint-20261013-v2\\adoption-time-independent-replay.json",
+    "previousSelection": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\processed\\bracket-joint-20261013-v2\\selection-before-bracket-joint-20261013-v2.json",
+    "previousSelectionSha256": "be11ba6669e71e9d0fdcac1b27c5101f2894e8999b5ebc7636913c10079fbdbe",
+    "actualModel": null,
+    "actualQuality": null
+  },
+  "candidate": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\processed\\jamb-joint-20261016-v2\\r09_c08-jamb-v1-surface-v2-candidate-4096.png",
+  "candidateSha256": "b79914043a0abdeb223cada02fb1203fc4d89e666c940935a48f865e79beeb89",
+  "internalReview": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\qa\\complete-native-20261013-v2\\independent-replay-and-review.json",
+  "historicalCandidates": [
+    {
+      "candidate": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\qa\\complete-native-20261013-v2\\candidate-4096.png",
+      "candidateSha256": "299ecf71b8d6e48f5f337d69ccf071e2e6d4529afd32f880b4021c852091871b",
+      "replacedAtUtc": "2026-10-16T17:42:07.312513+00:00",
+      "reason": "Exact same-coordinate window repair adopted in one selected core; new candidate assembled from all 16 current cores."
+    },
+    {
+      "candidate": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\processed\\window-joint-20261016-v1\\r09_c08-window-joint-v1-candidate-4096.png",
+      "candidateSha256": "ae2a359d276c204a842d5fd5b437853033bae8b0c663c261afe199c3f8cf44b5",
+      "replacedAtUtc": "2026-10-16T20:20:35.474606+00:00",
+      "reason": "Exact same-coordinate jamb surface and narrow gray trim repair adopted in one selected core; new candidate assembled from all 16 current cores."
+    }
+  ],
+  "internalEvidenceReuse": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\processed\\jamb-joint-20261016-v2\\internal-QA-pixel-reuse.json",
+  "windowJointAdoption": {
+    "adoptedAtUtc": "2026-10-16T17:42:07.312513+00:00",
+    "transactionId": "0bd0a92cbccb4eef852314181b207e7e",
+    "pairedTiles": [
+      "r09_c08",
+      "r10_c08"
+    ],
+    "localWindowGeometryPassed": true,
+    "rootSixNativeEvidenceViewed": true,
+    "wholeTilePassed": false,
+    "review": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\qa\\window-joint-20261016\\window-joint-v1.adoption-instructions.json",
+    "independentReplay": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\processed\\window-joint-20261016-v1\\adoption-time-independent-replay.json",
+    "sourceProof": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\qa\\window-joint-20261016\\window-joint-v1-proof.json",
+    "previousSelection": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\processed\\window-joint-20261016-v1\\selected-patches-before-window-joint-20261016-v1.json",
+    "previousSelectionSha256": "9c10d1dd646f683306e538f93993ccfe9b96ab1352d37a1dd09d46f418f41d78",
+    "actualModel": null,
+    "actualQuality": null
+  },
+  "jambJointAdoption": {
+    "adoptedAtUtc": "2026-10-16T20:20:35.474606+00:00",
+    "transactionId": "99f8c75378f547fd93d197a7fd0b1284",
+    "pairedTiles": [
+      "r09_c08",
+      "r10_c08"
+    ],
+    "localJambGeometryPassed": true,
+    "parentAdoptionTriggeredByExplicitExecution": true,
+    "wholeTilePassed": false,
+    "review": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\qa\\jamb-joint-20261016\\jamb-v1-surface-v2.adoption-instructions.json",
+    "independentReplay": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\processed\\jamb-joint-20261016-v2\\adoption-time-independent-replay.json",
+    "sourceProof": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\qa\\jamb-joint-20261016\\jamb-v1-surface-v2-proof.json",
+    "previousSelection": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\fishing-village-game-20261009\\southeast\\r09_c08\\processed\\jamb-joint-20261016-v2\\selected-patches-before-jamb-joint-20261016-v2.json",
+    "previousSelectionSha256": "a14e52c489409ede6fd28cb0f857a5eff5800c2bdf4e0d36d99674b6e41925d8",
+    "actualModel": null,
+    "actualQuality": null
+  }
 }

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "tile": "r04_c14",
+  "patch": "p21",
+  "issue": "south red diamond duplicated corner, independent from prior eave-phase repairs",
+  "attempts": [
+    {
+      "version": "v004",
+      "sha256": "ed86276ae2103051d851ea6e5228ceda4ad3014cc68763a35a5847c2930fab92",
+      "finding": "Early point moved only slightly; source bottom strip altered, actual p31 core assembly still produces two corners. No improvement."
+    },
+    {
+      "version": "v005",
+      "sha256": "ea79429100c6bc90a1bf9e26f5d9d76667043c92451a25fd1cf2fd1f6b75b988",
+      "finding": "Corner moved down to requested phase but widened about60px; actual core join leaves a horizontal ledge/kink rather than single clean diagonal. Not accepted."
+    }
+  ],
+  "bestRetained": "versions/right-r04c14-p21-native-v002/r04_c14/native/p21.png",
+  "status": "deferred_after_two_south_paper_repairs",
+  "formalAcceptedCount": 0,
+  "fullVisualAcceptance": false,
+  "evidence": [
+    "qa/right-r04c14-p21-v004-south-QA.png",
+    "qa/right-r04c14-p21-v005-south-QA.png"
+  ],
+  "unresolved": "South paper corner and pre-existing west/east eave height phase still blocking.",
+  "actualModel": null
+}

@@ -1,0 +1,1122 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-17T03:59:22.201212+00:00",
+  "reviewer": "tower_qa_resume",
+  "tile": "r03_c14",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\qa-resume\\right-lantern-material-native-v001\\r03_c14-candidate.png",
+    "sha256": "a050bd28e6b66731616e825d11bee3401881ad04da69302d5c59650074caa9b4",
+    "sha256Verified": true
+  },
+  "baseline": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r03c14-roof-corner-native-v001\\r03_c14-candidate.png",
+    "sha256": "300990362442f765b4c9e2682fa4484e0476e2d0e6733ebf356e0a7f88594aba",
+    "sha256Verified": true
+  },
+  "integration": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\qa-resume\\right-lantern-material-native-v001\\integration.json",
+    "sha256": "27ca370520000d3625d905a1f4277b37b05585da8cdf41b689f78be46943a123"
+  },
+  "nativeRepair": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\qa-resume\\right-lantern-material-native-v001\\native-repair.png",
+    "sha256": "aa51012087ab62b212e5cafecd5fd63c576765b6457a89b5f7f45f289fd2d28a",
+    "sha256Verified": true
+  },
+  "receipt": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\qa-resume\\right-lantern-material-native-v001\\receipt.json",
+    "sha256": "5414c45e7553644e109bfc66f2e67651f38dc4ff08e74a1e61dea7182ef925f5",
+    "sha256Verified": true
+  },
+  "prompt": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\prompts\\qa-resume\\right-lantern-material-v001.txt",
+    "sha256": "f5be6ef4dbed699d43cf39da7e8eb819b69b12277ec9e26079cb85b1d6928aa0",
+    "sha256Verified": true
+  },
+  "request": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\requests\\qa-resume\\right-lantern-material-v001.request.json",
+    "sha256": "81ac43ae3cee6b0e37b05795becc6e6505551464f03dea81d1add9c1499d8ba6",
+    "sha256Verified": true
+  },
+  "sourceInput": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\qa-resume\\right-lantern-material-prepare-v001\\repair-input.png",
+    "sha256": "d2e78c77f20b3c38cc22e15bcb4fd2df1c2421aeff3739a93d58bc82df0372c7",
+    "sha256Verified": true
+  },
+  "entryPoint": "existing included built-in image_gen",
+  "eventId": "exec-e529c962-a2a5-4598-9b75-cd8394f84ac4",
+  "actualModel": null,
+  "actualModelEvidence": "not returned",
+  "localAttemptCount": 1,
+  "additionalCoreCount": 0,
+  "formalAcceptedCount": 0,
+  "scope": "Only lantern material band and ROI transitions; no all-material/full-tile/external-edge acceptance.",
+  "roiStatus": "local-pass-pending-root-independent-review",
+  "editTileXYXY": [
+    2386,
+    1941,
+    3026,
+    2186
+  ],
+  "sourceNativeROIXYXY": [
+    380,
+    520,
+    1020,
+    765
+  ],
+  "nativePixels": [
+    1254,
+    1254
+  ],
+  "candidatePixels": [
+    4096,
+    4096
+  ],
+  "alphaPerimeterPixels": 16,
+  "noResize": true,
+  "noWarp": true,
+  "noImageBlur": true,
+  "outsideRoiPixelIdentityVerified": true,
+  "outer115pxFrameUnchanged": true,
+  "nativeEventBytesMatch": true,
+  "contextEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\qa-resume\\right-lantern-material-native-v001\\repaired-context-100pct.png",
+    "sha256": "a20ae1cb96a57e65d153fb017d9202cbdfab138506f92aa300548d34e44a3a33",
+    "sha256Verified": true
+  },
+  "observedResult": "The hard horizontal change in lantern texture/value at y2048 is removed. Fine painted material follows the curved lower body without relocating the horizontal boundary to the ROI perimeter.",
+  "geometryNoteForIndependentReview": "The existing central gold rib, which was visibly cut off at the old horizontal seam, now continues to the lower lantern cap. Existing upper rib positions, outer contour and lower cap position remain visually stable. This continuation is disclosed explicitly.",
+  "perimeterReview": [
+    {
+      "side": "north",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\qa-resume\\right-lantern-material-native-v001\\north-perimeter-100pct.png",
+        "sha256": "4169e0673a188880464815d9697730b653d11083ed1247086cf8bab60b09acf5",
+        "crop": [
+          2271,
+          1826,
+          3141,
+          2056
+        ],
+        "sha256Verified": true
+      },
+      "observation": "Fine red texture and gold ribs connect across the upper ROI; no new horizontal patch band."
+    },
+    {
+      "side": "south",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\qa-resume\\right-lantern-material-native-v001\\south-perimeter-100pct.png",
+        "sha256": "0f0d29c4df39828cf1dec0ba863bcb225bd5446b5e9c64bacc5f28d08ff1a79e",
+        "crop": [
+          2271,
+          2071,
+          3141,
+          2301
+        ],
+        "sha256Verified": true
+      },
+      "observation": "Lower curved red body and gold cap junction remain connected; no new bottom edge jump."
+    },
+    {
+      "side": "west",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\qa-resume\\right-lantern-material-native-v001\\west-perimeter-100pct.png",
+        "sha256": "2cee88becca684f0f5be699e6004d179d41eddcce3ef3af5dc38b47ab8f03d19",
+        "crop": [
+          2271,
+          1826,
+          2501,
+          2301
+        ],
+        "sha256Verified": true
+      },
+      "observation": "Lantern contour, left curved rib, timber and white pillar stay connected."
+    },
+    {
+      "side": "east",
+      "status": "local-pass",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\qa-resume\\right-lantern-material-native-v001\\east-perimeter-100pct.png",
+        "sha256": "750bdf2e3ed2893e121018d0d22e9b940bc2cd029a3ce8a072c6fe045dcf7f44",
+        "crop": [
+          2911,
+          1826,
+          3141,
+          2301
+        ],
+        "sha256Verified": true
+      },
+      "observation": "Right lantern contour and background transition remain continuous at ROI x3026. Existing paving tonal segmentation at x3072 is outside the edit and unchanged."
+    }
+  ],
+  "priorInternal24Report": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\qa-v001\\resume-r03c14-internal24-independent-v001.json",
+    "sha256": "4dbd8ea98557dd1f31184bf09792dc24e8c9617f4c23738bc7677a493ce273ee"
+  },
+  "unchangedFullSeamCropCount": 21,
+  "unchangedFullSeamCrops": [
+    {
+      "id": "horizontal-p11-p21",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\horizontal-p11-p21.png",
+        "sha256": "73639660c246b17f663652940d0aec80b11a8ce74bdc88a3238a3d3c8916b04c",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          1024,
+          384
+        ],
+        "pixelSha256": "e3128d2210e92b393c700d1ef4a98fa66954c80fc9389c3459261f6424fe8f85",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          0,
+          832,
+          1024,
+          1216
+        ],
+        "sourceIds": [
+          "p11",
+          "p21"
+        ],
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "horizontal-p12-p22",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\horizontal-p12-p22.png",
+        "sha256": "37c47b42535930d838354294dab6591efc43e9748b6928f941d27108dac774dd",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          1024,
+          384
+        ],
+        "pixelSha256": "300e7842dc6380b9f65c846191add65d04c88c0e40f4a81ca1ee7a5fbe3e5b51",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          1024,
+          832,
+          2048,
+          1216
+        ],
+        "sourceIds": [
+          "p12",
+          "p22"
+        ],
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "horizontal-p13-p23",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\horizontal-p13-p23.png",
+        "sha256": "160fb3bece16201e05fc96e9d3c80ca1ee6020dc30a1187035a8ea8dd9ddc1fe",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          1024,
+          384
+        ],
+        "pixelSha256": "08cb9d83009b8990c362bff64b3315b5ee2e69942b75b184460a3bde881eafc0",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          2048,
+          832,
+          3072,
+          1216
+        ],
+        "sourceIds": [
+          "p13",
+          "p23"
+        ],
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "horizontal-p14-p24",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\horizontal-p14-p24.png",
+        "sha256": "54c7b96e3e3ed1eb6cdd77b6707cc0408c846d0df6a6061fab908269f875b6e3",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          1024,
+          384
+        ],
+        "pixelSha256": "b0fef2ab2df9b1c7c32fe9fb1cb9c5f3c34183d8b0c21ce160446cf92126394d",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          3072,
+          832,
+          4096,
+          1216
+        ],
+        "sourceIds": [
+          "p14",
+          "p24"
+        ],
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "horizontal-p21-p31",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\horizontal-p21-p31.png",
+        "sha256": "1f96ad32701809fc6e3790daebb90ef084d0b7522130ace703743fd95b410a7c",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          1024,
+          384
+        ],
+        "pixelSha256": "f66f96d1c02e4eea3bc742c41dc88699c3fb0f322b3fac46d09b0de4ffc031d4",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          0,
+          1856,
+          1024,
+          2240
+        ],
+        "sourceIds": [
+          "p21",
+          "p31"
+        ],
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "horizontal-p22-p32",
+      "evidence": {
+        "name": "horizontal-p22-p32",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r03c14-roof-corner-native-v001\\horizontal-p22-p32-after-100pct.png",
+        "sha256": "cfee99d635f323b7f68192438434d40f5807d53306ce1118fce701348b08d0b0",
+        "cropTilePixels": [
+          1024,
+          1856,
+          2048,
+          2240
+        ],
+        "resized": false,
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "horizontal-p24-p34",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\horizontal-p24-p34.png",
+        "sha256": "55a306e6dba8010377aa7370b18f0b527b539e018084aa267e04af4538823781",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          1024,
+          384
+        ],
+        "pixelSha256": "206422f111ea8858c21a9eeab03f0e44be316d476667ab2ab7dae735d9bf8450",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          3072,
+          1856,
+          4096,
+          2240
+        ],
+        "sourceIds": [
+          "p24",
+          "p34"
+        ],
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "horizontal-p31-p41",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\horizontal-p31-p41.png",
+        "sha256": "4f3d9685190c1c539e5d907a9a4c4e060852f1ab9d6edc2788d63baf47125230",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          1024,
+          384
+        ],
+        "pixelSha256": "373683501db5cc01eb8a7532414bd7107eff9f708de9601b893745128c5ee242",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          0,
+          2880,
+          1024,
+          3264
+        ],
+        "sourceIds": [
+          "p31",
+          "p41"
+        ],
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "horizontal-p32-p42",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\horizontal-p32-p42.png",
+        "sha256": "de169ee7c9531fe5b21f4fd81bc9a4e12beb57341b25e6d7fb77cb961cbaa1f1",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          1024,
+          384
+        ],
+        "pixelSha256": "97d3aef961c9cff7b961e86d9f7c6ae0a90e06afc3efb9aebea754063abf9ff8",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          1024,
+          2880,
+          2048,
+          3264
+        ],
+        "sourceIds": [
+          "p32",
+          "p42"
+        ],
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "horizontal-p33-p43",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\horizontal-p33-p43.png",
+        "sha256": "7ba601f0bd6c419288a8b1e817ce506bddb0aff450bda252f3f0a2d75fcda5ff",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          1024,
+          384
+        ],
+        "pixelSha256": "061e2acb35e0aabf2f5ad3eaf7c4e1eeaa20bfed1c7664221988d6e467e4effb",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          2048,
+          2880,
+          3072,
+          3264
+        ],
+        "sourceIds": [
+          "p33",
+          "p43"
+        ],
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "horizontal-p34-p44",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\horizontal-p34-p44.png",
+        "sha256": "ef427186529984126c5254d306bb1a2a75429a9fbb1d3ea5e5de7a12170bf131",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          1024,
+          384
+        ],
+        "pixelSha256": "c9657681b589c9fbb97ba6560dfa1e9dbe91421bf49e9731f38cdedd39c7ee89",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          3072,
+          2880,
+          4096,
+          3264
+        ],
+        "sourceIds": [
+          "p34",
+          "p44"
+        ],
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "vertical-p11-p12",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\vertical-p11-p12.png",
+        "sha256": "83356385255af9215aaa4f30847f0cf7f02959379dc6540fc43bd92b6b482a88",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          384,
+          1024
+        ],
+        "pixelSha256": "e9689f2a1bef926a05361f33608de6928fba9c725e70361225ae370e121a4c06",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          832,
+          0,
+          1216,
+          1024
+        ],
+        "sourceIds": [
+          "p11",
+          "p12"
+        ],
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "vertical-p12-p13",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\vertical-p12-p13.png",
+        "sha256": "39a9b511f4c78f9cca88b82f200d05c1ab19d79c9852782682f749e0e331b392",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          384,
+          1024
+        ],
+        "pixelSha256": "b26617008d3845e1882fe07944b4b7f52a841064d850a513eda6ccfe0d23fb22",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          1856,
+          0,
+          2240,
+          1024
+        ],
+        "sourceIds": [
+          "p12",
+          "p13"
+        ],
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "vertical-p13-p14",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\vertical-p13-p14.png",
+        "sha256": "75fce65c9c4273643949846b9f186f31e19079981e7b7e6b96296a9fece62b5a",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          384,
+          1024
+        ],
+        "pixelSha256": "c5b6e695a0c69c10aa77a2f20483f83a0bc1a8e450dd2c78a947a534a886a6b1",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          2880,
+          0,
+          3264,
+          1024
+        ],
+        "sourceIds": [
+          "p13",
+          "p14"
+        ],
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "vertical-p21-p22",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\vertical-p21-p22.png",
+        "sha256": "4e00aec8ef71c40e0c4357a1c70dcdc10823f794ead8d75befcbaf6e4882c9da",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          384,
+          1024
+        ],
+        "pixelSha256": "b463492e8022512616f44692829b9af6f853c3bdc7adae80ece777e6f2807616",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          832,
+          1024,
+          1216,
+          2048
+        ],
+        "sourceIds": [
+          "p21",
+          "p22"
+        ],
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "vertical-p22-p23",
+      "evidence": {
+        "name": "vertical-p22-p23",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r03c14-roof-corner-native-v001\\vertical-p22-p23-after-100pct.png",
+        "sha256": "de2f031283f70aee632558f5b8fd959e4c428d8b9e2f156994c132b751998db4",
+        "cropTilePixels": [
+          1856,
+          1024,
+          2240,
+          2048
+        ],
+        "resized": false,
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "vertical-p31-p32",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\vertical-p31-p32.png",
+        "sha256": "88450607c8787df44ab1d766d718636f219c29e1f1a9cad0bfc689105dfc36f1",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          384,
+          1024
+        ],
+        "pixelSha256": "a2cdf121c664a77132a67b8f5e9be3083acd679fd8502b99a68a889e7a23030d",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          832,
+          2048,
+          1216,
+          3072
+        ],
+        "sourceIds": [
+          "p31",
+          "p32"
+        ],
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "vertical-p32-p33",
+      "evidence": {
+        "name": "vertical-p32-p33",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r03c14-roof-corner-native-v001\\vertical-p32-p33-after-100pct.png",
+        "sha256": "630739fcfe32fe3588e88c749ee1b6c890ac799f44c4e195946f4efba1dbb0b6",
+        "cropTilePixels": [
+          1856,
+          2048,
+          2240,
+          3072
+        ],
+        "resized": false,
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "vertical-p41-p42",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\vertical-p41-p42.png",
+        "sha256": "2aac6d4a5f3073784d6e5aa4a0591ee0ac04f18f0653cb07a43eafd10541e022",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          384,
+          1024
+        ],
+        "pixelSha256": "83265bc02e54e0796444cb963c5e260fe1bcb6b43411b7550551137060527b65",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          832,
+          3072,
+          1216,
+          4096
+        ],
+        "sourceIds": [
+          "p41",
+          "p42"
+        ],
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "vertical-p42-p43",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\vertical-p42-p43.png",
+        "sha256": "02fb70d462ca04d4199de9e184955c1884f665a47e25dd3a08b4022ad51ca250",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          384,
+          1024
+        ],
+        "pixelSha256": "9fe40a4e585d55c22e2f186874ba2125db8f4664e7b29f506c706b912aa1e660",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          1856,
+          3072,
+          2240,
+          4096
+        ],
+        "sourceIds": [
+          "p42",
+          "p43"
+        ],
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    },
+    {
+      "id": "vertical-p43-p44",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\vertical-p43-p44.png",
+        "sha256": "f5fb2d7b24fea36baee6210d975c74467336c53f391529e0572d0ae35a725842",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          384,
+          1024
+        ],
+        "pixelSha256": "6553bc45816ce9d1463b76b5c0fe9609f9a78abe6a37801ebd99c5f2ccbf8702",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          2880,
+          3072,
+          3264,
+          4096
+        ],
+        "sourceIds": [
+          "p43",
+          "p44"
+        ],
+        "sha256Verified": true
+      },
+      "exactCandidateCropPixelIdentity": true,
+      "previousStatus": "local-pass"
+    }
+  ],
+  "changedFullSeamCropCount": 3,
+  "changedFullSeamCrops": [
+    {
+      "id": "horizontal-p23-p33",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\qa-v001\\resume-right-lantern-material-v001\\horizontal-p23-p33-after-100pct.png",
+        "sha256": "510642bf2956828eb7cb82f49c4b980e837394a4c5cac586f0b47f35ce09dbf9",
+        "cropTilePixels": [
+          2048,
+          1856,
+          3072,
+          2240
+        ],
+        "resized": false
+      },
+      "previousEvidence": {
+        "name": "horizontal-p23-p33",
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r03c14-roof-corner-native-v001\\horizontal-p23-p33-after-100pct.png",
+        "sha256": "6410ed200653dcd3ef16b1a22784c1be0d9957a50204ab1df6c828f9a682a7dc",
+        "cropTilePixels": [
+          2048,
+          1856,
+          3072,
+          2240
+        ],
+        "resized": false,
+        "sha256Verified": true
+      },
+      "changedCropButActualSeamLineUnchanged": false
+    },
+    {
+      "id": "vertical-p23-p24",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\qa-v001\\resume-right-lantern-material-v001\\vertical-p23-p24-after-100pct.png",
+        "sha256": "819cc21ab26ce36980c4f3ad660867434c49da60e177b289eda475a6aab37872",
+        "cropTilePixels": [
+          2880,
+          1024,
+          3264,
+          2048
+        ],
+        "resized": false
+      },
+      "previousEvidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\vertical-p23-p24.png",
+        "sha256": "f41a76a47cd4f10b1bbca0b9c38eb43d407b0b65bd324428cbb4a4d49501f260",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          384,
+          1024
+        ],
+        "pixelSha256": "71944cf8a46f3e8e051878c4b632e946cffb452bb9c551e3541e6c30f805cec3",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          2880,
+          1024,
+          3264,
+          2048
+        ],
+        "sourceIds": [
+          "p23",
+          "p24"
+        ],
+        "sha256Verified": true
+      },
+      "changedCropButActualSeamLineUnchanged": true
+    },
+    {
+      "id": "vertical-p33-p34",
+      "evidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\qa-v001\\resume-right-lantern-material-v001\\vertical-p33-p34-after-100pct.png",
+        "sha256": "904d171da580ec1e40b664867189bbcbb3f2323eae00fdc96634f746b4d0b0a8",
+        "cropTilePixels": [
+          2880,
+          2048,
+          3264,
+          3072
+        ],
+        "resized": false
+      },
+      "previousEvidence": {
+        "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\seams-100pct\\vertical-p33-p34.png",
+        "sha256": "3b9d03deed79328a790a6db3a309f6743be5d6e0eb3ef8338949b9c2b9275acd",
+        "kind": "internal-seam-native-pixel-crop",
+        "pixels": [
+          384,
+          1024
+        ],
+        "pixelSha256": "9e2b333aa9cc326a54a9a2ef252c04b6c72258d2957d49c9be35b2a7eb147d23",
+        "resized": false,
+        "scale": 1,
+        "crop": [
+          2880,
+          2048,
+          3264,
+          3072
+        ],
+        "sourceIds": [
+          "p33",
+          "p34"
+        ],
+        "sha256Verified": true
+      },
+      "changedCropButActualSeamLineUnchanged": true
+    }
+  ],
+  "unchangedActual32pxSeamBandCount": 23,
+  "actualSeamBandProof": [
+    {
+      "id": "horizontal-p11-p21",
+      "exact32pxSeamBandTileXYXY": [
+        0,
+        1008,
+        1024,
+        1040
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "09025f93f41e23ff5ed0a13fd62be81f8a6398b44ea94e060c980f59e74b5409",
+      "afterPixelSha256": "09025f93f41e23ff5ed0a13fd62be81f8a6398b44ea94e060c980f59e74b5409"
+    },
+    {
+      "id": "horizontal-p12-p22",
+      "exact32pxSeamBandTileXYXY": [
+        1024,
+        1008,
+        2048,
+        1040
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "18945b391aec5a158e03a0b81b91759182b047217cdf39c3a5ed73686e147fd9",
+      "afterPixelSha256": "18945b391aec5a158e03a0b81b91759182b047217cdf39c3a5ed73686e147fd9"
+    },
+    {
+      "id": "horizontal-p13-p23",
+      "exact32pxSeamBandTileXYXY": [
+        2048,
+        1008,
+        3072,
+        1040
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "2fba74c6d2577fbefdaabf7ba87ca2541bceb8ccebf7de9ed4274d5c7d0652ee",
+      "afterPixelSha256": "2fba74c6d2577fbefdaabf7ba87ca2541bceb8ccebf7de9ed4274d5c7d0652ee"
+    },
+    {
+      "id": "horizontal-p14-p24",
+      "exact32pxSeamBandTileXYXY": [
+        3072,
+        1008,
+        4096,
+        1040
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "5497c387ccd18606c6748f46a1b11e437a8c46934fe417204cf4ad0f9e814438",
+      "afterPixelSha256": "5497c387ccd18606c6748f46a1b11e437a8c46934fe417204cf4ad0f9e814438"
+    },
+    {
+      "id": "horizontal-p21-p31",
+      "exact32pxSeamBandTileXYXY": [
+        0,
+        2032,
+        1024,
+        2064
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "74cd7c9dc07482f27fcb576f584c1de8e7b163f863569cfa321248dfdcb022c3",
+      "afterPixelSha256": "74cd7c9dc07482f27fcb576f584c1de8e7b163f863569cfa321248dfdcb022c3"
+    },
+    {
+      "id": "horizontal-p22-p32",
+      "exact32pxSeamBandTileXYXY": [
+        1024,
+        2032,
+        2048,
+        2064
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "404a2573f3117f8b544f851a371b36d3da14238949f4c462120d9b15ff253325",
+      "afterPixelSha256": "404a2573f3117f8b544f851a371b36d3da14238949f4c462120d9b15ff253325"
+    },
+    {
+      "id": "horizontal-p23-p33",
+      "exact32pxSeamBandTileXYXY": [
+        2048,
+        2032,
+        3072,
+        2064
+      ],
+      "pixelIdentityVerified": false,
+      "beforePixelSha256": "349d09aa2910d47969fb9f705cd1f3b19fa754a876d3a8b4f8c61cf62312cd73",
+      "afterPixelSha256": "c811016487357a5a75fd0209f629901452e459962f66873998e121eb7c55bd6f"
+    },
+    {
+      "id": "horizontal-p24-p34",
+      "exact32pxSeamBandTileXYXY": [
+        3072,
+        2032,
+        4096,
+        2064
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "e28efe914dfc1593f0cc00f6d148bc800725ee79342436e8a3f1f0cdc40a34d0",
+      "afterPixelSha256": "e28efe914dfc1593f0cc00f6d148bc800725ee79342436e8a3f1f0cdc40a34d0"
+    },
+    {
+      "id": "horizontal-p31-p41",
+      "exact32pxSeamBandTileXYXY": [
+        0,
+        3056,
+        1024,
+        3088
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "1e3dcaa53061a538d1074c57f67f675f99797c473fa3e423d24c736114482429",
+      "afterPixelSha256": "1e3dcaa53061a538d1074c57f67f675f99797c473fa3e423d24c736114482429"
+    },
+    {
+      "id": "horizontal-p32-p42",
+      "exact32pxSeamBandTileXYXY": [
+        1024,
+        3056,
+        2048,
+        3088
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "f1c436d3a610cb9e3b6ac55d57e41939c4faee6834f5cd4d6cc96e182993fbae",
+      "afterPixelSha256": "f1c436d3a610cb9e3b6ac55d57e41939c4faee6834f5cd4d6cc96e182993fbae"
+    },
+    {
+      "id": "horizontal-p33-p43",
+      "exact32pxSeamBandTileXYXY": [
+        2048,
+        3056,
+        3072,
+        3088
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "04f41994d64b8bde027879432836fbb7716299d106fd02350017ce4a6fd7c6ac",
+      "afterPixelSha256": "04f41994d64b8bde027879432836fbb7716299d106fd02350017ce4a6fd7c6ac"
+    },
+    {
+      "id": "horizontal-p34-p44",
+      "exact32pxSeamBandTileXYXY": [
+        3072,
+        3056,
+        4096,
+        3088
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "c9263984b87a66af4ed761befadbe8de6565de7e49c054a9bb2f442599c05af5",
+      "afterPixelSha256": "c9263984b87a66af4ed761befadbe8de6565de7e49c054a9bb2f442599c05af5"
+    },
+    {
+      "id": "vertical-p11-p12",
+      "exact32pxSeamBandTileXYXY": [
+        1008,
+        0,
+        1040,
+        1024
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "87513308d31bad59314c82eb45d77871ecead2c3b7dd5b56cfd7876264ab0df3",
+      "afterPixelSha256": "87513308d31bad59314c82eb45d77871ecead2c3b7dd5b56cfd7876264ab0df3"
+    },
+    {
+      "id": "vertical-p12-p13",
+      "exact32pxSeamBandTileXYXY": [
+        2032,
+        0,
+        2064,
+        1024
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "60e6fc7e4ed575892666d6fc72eb5175de8576acb967dc7b66512e60036e65a6",
+      "afterPixelSha256": "60e6fc7e4ed575892666d6fc72eb5175de8576acb967dc7b66512e60036e65a6"
+    },
+    {
+      "id": "vertical-p13-p14",
+      "exact32pxSeamBandTileXYXY": [
+        3056,
+        0,
+        3088,
+        1024
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "a9c7fb0c9f6a833de44c76e4164998c25530a7bf6c07b6320d1227a700352c90",
+      "afterPixelSha256": "a9c7fb0c9f6a833de44c76e4164998c25530a7bf6c07b6320d1227a700352c90"
+    },
+    {
+      "id": "vertical-p21-p22",
+      "exact32pxSeamBandTileXYXY": [
+        1008,
+        1024,
+        1040,
+        2048
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "366f067bef1ed5121489fb6e248600b7ad2c11b12987e66125c3be34e4e9810c",
+      "afterPixelSha256": "366f067bef1ed5121489fb6e248600b7ad2c11b12987e66125c3be34e4e9810c"
+    },
+    {
+      "id": "vertical-p22-p23",
+      "exact32pxSeamBandTileXYXY": [
+        2032,
+        1024,
+        2064,
+        2048
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "c7aad925602cbe860f8171f0d12756354e34f2cb6bd34068e7fff29ef473bdb8",
+      "afterPixelSha256": "c7aad925602cbe860f8171f0d12756354e34f2cb6bd34068e7fff29ef473bdb8"
+    },
+    {
+      "id": "vertical-p23-p24",
+      "exact32pxSeamBandTileXYXY": [
+        3056,
+        1024,
+        3088,
+        2048
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "29b2cfe3d2889b0a06da1cc79f3e932999eaa00dc5acdd06e4bd4cd5ea38baff",
+      "afterPixelSha256": "29b2cfe3d2889b0a06da1cc79f3e932999eaa00dc5acdd06e4bd4cd5ea38baff"
+    },
+    {
+      "id": "vertical-p31-p32",
+      "exact32pxSeamBandTileXYXY": [
+        1008,
+        2048,
+        1040,
+        3072
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "d2ccd059ac6d03f46559b2b27a0f6c225bfedae47c94a067c997a37617832176",
+      "afterPixelSha256": "d2ccd059ac6d03f46559b2b27a0f6c225bfedae47c94a067c997a37617832176"
+    },
+    {
+      "id": "vertical-p32-p33",
+      "exact32pxSeamBandTileXYXY": [
+        2032,
+        2048,
+        2064,
+        3072
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "63117586c5e9769bd7c75469666cba630a050f86e93307597d3d56a186f2cce6",
+      "afterPixelSha256": "63117586c5e9769bd7c75469666cba630a050f86e93307597d3d56a186f2cce6"
+    },
+    {
+      "id": "vertical-p33-p34",
+      "exact32pxSeamBandTileXYXY": [
+        3056,
+        2048,
+        3088,
+        3072
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "732a5f7fc6138de2a06341c8a7d8530d5a959387d78586677e73a79493c55cd8",
+      "afterPixelSha256": "732a5f7fc6138de2a06341c8a7d8530d5a959387d78586677e73a79493c55cd8"
+    },
+    {
+      "id": "vertical-p41-p42",
+      "exact32pxSeamBandTileXYXY": [
+        1008,
+        3072,
+        1040,
+        4096
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "99c37de098d2992b8d2e5cb0a55e98de4e77e0d01eb37ef1ceec83c636b5ca10",
+      "afterPixelSha256": "99c37de098d2992b8d2e5cb0a55e98de4e77e0d01eb37ef1ceec83c636b5ca10"
+    },
+    {
+      "id": "vertical-p42-p43",
+      "exact32pxSeamBandTileXYXY": [
+        2032,
+        3072,
+        2064,
+        4096
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "26b99ba46d0d64d3c1a5d9a5282f15cbd874bd1b5196ec8178b24878ae8735e9",
+      "afterPixelSha256": "26b99ba46d0d64d3c1a5d9a5282f15cbd874bd1b5196ec8178b24878ae8735e9"
+    },
+    {
+      "id": "vertical-p43-p44",
+      "exact32pxSeamBandTileXYXY": [
+        3056,
+        3072,
+        3088,
+        4096
+      ],
+      "pixelIdentityVerified": true,
+      "beforePixelSha256": "5c26222deb21cb9026b1c615ebfd47d2e8babf3d51e4994f99c63b948df62a0f",
+      "afterPixelSha256": "5c26222deb21cb9026b1c615ebfd47d2e8babf3d51e4994f99c63b948df62a0f"
+    }
+  ],
+  "internalSeamGeometryPassStatusInherited": 24,
+  "unrelatedExistingObservation": "Existing paved-background tone/texture boundaries at tile x3072 / y2048 remain visible in the right context. They were outside the lantern ROI and are not certified clear by this focused report.",
+  "fullTileAccepted": false,
+  "externalEdgesStatus": "unchanged; pending original external acceptance",
+  "nextAction": "Root independently inspect native repaired context/four perimeters and disclosed central rib continuation. Keep other QA scoped to their exact hashes; no second lantern generation needed unless a concrete defect is identified."
+}

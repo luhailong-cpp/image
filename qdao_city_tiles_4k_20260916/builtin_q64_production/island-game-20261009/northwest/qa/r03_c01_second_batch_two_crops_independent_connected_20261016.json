@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "/root/connected_continuation",
+  "createdAtUtc": "2026-10-16T17:06:25.494026+00:00",
+  "reviewMethod": "Actual original-resolution view_image inspection; no resizing, no montage-based inference.",
+  "scope": "Two precisely pinned existing QA images only; not a 33-crop or whole-tile closure.",
+  "items": [
+    {
+      "id": "lower_cliff_edge_a01_mask_v2",
+      "viewed": {
+        "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northwest/qa/r03_c01_lower_cliff_edge_20261016_a01_mask_v2/combined_native_crop.png",
+        "sha256": "3f9f1ac5ec349a5eae19722ff4cd19aefbe10ca667a25eb6677c6e22d6e893d2"
+      },
+      "size": [
+        1254,
+        1254
+      ],
+      "mask": {
+        "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northwest/qa/r03_c01_lower_cliff_edge_20261016_a01_mask_v2/source_selection_mask.png",
+        "sha256": "175b297d0575c2aab06b9349482ef968a8386df9eb7250f7dc5a38449d53f6c9",
+        "zeroSource": "target",
+        "value255Source": "repair"
+      },
+      "maskRecord": {
+        "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northwest/qa/r03_c01_lower_cliff_edge_20261016_a01_mask_v2/mask_selection.json",
+        "sha256": "ba981053723e247b4879e714ef0ebd0b8043c5fe59e1c95a1c988d1ee2a6e524"
+      },
+      "raw": {
+        "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northwest/native/r03_c01_lower_cliff_edge_20261016_a01.png",
+        "sha256": "76c3ff1a3e6b8fc24f96fdd97cf4d8e810287f3a49ba3cadb8ab61650ecec4be"
+      },
+      "target": {
+        "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northwest/guides/r03_c01_lower_cliff_edge_20261016_a01.native-crop.png",
+        "sha256": "7799723d6f1509ec9603a5e88420810a76c5600f4c71a7e73f779fc7a039ef8c"
+      },
+      "nativeSameCoordinateReplayPassed": true,
+      "geometryStatus": "PASS",
+      "note": "Complete 1254 crop viewed. Central channel rock edges and white water remain continuous from upper to lower crop; no new obvious geometric notch or split along the selected-region boundaries. This independently accepts the scoped lower cliff repair."
+    },
+    {
+      "id": "upper_water_pair_overlap",
+      "viewed": {
+        "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northwest/qa/r03_c01_upper_water_pair_masks_20261016_v1/joined_overlap_100pct.png",
+        "sha256": "ea9a7d9f59cd237e3d6fed5a26a4e7dd1877e015b38ded50fa78eced23844270"
+      },
+      "size": [
+        550,
+        700
+      ],
+      "masks": [
+        {
+          "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northwest/qa/r03_c01_upper_water_pair_masks_20261016_v1/r03_c01_upper_water_left_20261016_a01.mask.png",
+          "sha256": "a486dd20285e8754ecf64e4d0257bc4f13e93406eb618d1d62670cd0550120ec"
+        },
+        {
+          "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northwest/qa/r03_c01_upper_water_pair_masks_20261016_v1/r03_c01_upper_water_center_20261016_a01.mask.png",
+          "sha256": "f0a27ddf231af32aee203764a1bb12e1bc6ec2298610fe166fac3f50e7739a32"
+        }
+      ],
+      "derivation": {
+        "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northwest/qa/r03_c01_upper_water_pair_masks_20261016_v1/derivation.json",
+        "sha256": "8b9ed1899a1d51379bc134e0df7923bdfa0550bbe4297e47dbff1bb67abece23"
+      },
+      "geometryStatus": "PASS",
+      "note": "Actual 550 x 700 overlap review crop viewed. Water ripple network joins without an obvious straight cut, doubled edge, or geometric discontinuity in this inspected join. Scope is this overlap crop, not the entire two repaired 1254 regions."
+    }
+  ],
+  "materialStatus": "NOT_FULLY_ASSESSED",
+  "internalGeometryClosurePassed": false,
+  "internalClosurePassed": false,
+  "formalPassed": false
+}

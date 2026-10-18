@@ -1,0 +1,66 @@
+{
+  "status": "partial_local_improvement_recommended_root_review_required",
+  "reviewer": "/root/local_seams16",
+  "reviewedAtUtc": "2026-10-16T19:09:29.762687+00:00",
+  "newBuiltinCalls": 1,
+  "actualModel": null,
+  "actualQuality": null,
+  "tool": "image_gen.imagegen",
+  "route": "builtin",
+  "modelEvidence": "Tool returned image_url and output_hint only; actual model/quality metadata not returned; no paid API.",
+  "recommendedOverlay": {
+    "id": "r03_c09_cross_local_seams16_foliage_v1",
+    "source": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northeast/native/r03_c09_cross_local_seams16_foliage_v1.png",
+    "sha256": "be7dac7879a2baa3d28ee1e5a0402da9e90f8206c629458f984a3efb89f00cd3",
+    "nativeWidth": 1254,
+    "nativeHeight": 1254,
+    "nativeWorldBox": [
+      34074,
+      10125,
+      35328,
+      11379
+    ],
+    "coreCrop": [
+      400,
+      350,
+      800,
+      1040
+    ],
+    "coreWorldBox": [
+      34474,
+      10475,
+      34874,
+      11165
+    ],
+    "tileLocalPaste": [
+      1706,
+      2283
+    ]
+  },
+  "reviewRecord": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northeast/qa/local-seams16-foliage-20261016/foliage-only-crop/inspection.json",
+  "sourceChecks": [
+    {
+      "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northeast/native/r03_c09_p03_02.png",
+      "expectedSha256": "b3c00d67447b1ed8a52272707ed2b286c6b2d4e672895233911d1498ab9a4995",
+      "actualSha256": "b3c00d67447b1ed8a52272707ed2b286c6b2d4e672895233911d1498ab9a4995",
+      "unchanged": true
+    },
+    {
+      "file": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northeast/native/r03_c09_p03_03.png",
+      "expectedSha256": "d44eb6a52d2669df1a873e079bbbe7a1a73aafa6a73c8dff2197c0f73a46cbfe",
+      "actualSha256": "d44eb6a52d2669df1a873e079bbbe7a1a73aafa6a73c8dff2197c0f73a46cbfe",
+      "unchanged": true
+    }
+  ],
+  "operation": "Exact400x690 native crop/paste; no resizing, blending, filters or procedural artwork.",
+  "scope": "Foliage-only center crop, tilelocal[1706,2283,2106,2973]; source top/bottom anchors retained.",
+  "residualIssues": [
+    "Original straight darker-density line persists in sourcey115..350 and1040..1139 outside crop; full join remains pending."
+  ],
+  "allFourPerimetersAndCorners": "passed_visual_100pct_for_recommended_crop",
+  "selectionWritten": false,
+  "globalProgressWritten": false,
+  "sharedGitMutated": false,
+  "formalAccepted": false,
+  "prompt": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/island-game-20261009/northeast/prompts/r03_c09_cross_local_seams16_foliage_v1.prompt.txt"
+}

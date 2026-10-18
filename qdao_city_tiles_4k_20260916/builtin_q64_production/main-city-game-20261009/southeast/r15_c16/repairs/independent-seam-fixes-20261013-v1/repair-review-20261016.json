@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "tile": "r15_c16",
+  "reviewer": "/root/assembly_resume",
+  "recordedAt": "2026-10-16T04:18:40.134722+00:00",
+  "attempts": 2,
+  "selectedProposal": {
+    "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c16\\repairs\\independent-seam-fixes-20261013-v1\\I01-only-reviewed-20261016\\candidate-4096.png",
+    "sha256": "410a4d21041e155101848ed62738e47aa2130bced98c2269cad9e8605046a73a"
+  },
+  "selectedScope": "I01 only; preserve original west boundary pending W01",
+  "issues": [
+    {
+      "id": "I01",
+      "status": "passed_local_pending_root_review",
+      "coreBox": [
+        2010,
+        950,
+        2164,
+        1024
+      ],
+      "native": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c16\\repairs\\independent-seam-fixes-20261013-v1\\I01-blind-stone-grout\\actual-native-8b9dca6f4eff15a4.png",
+        "sha256": "8b9dca6f4eff15a4bf90bc3e322cbb6e38828f486e3abf6cf3052a391e29affd"
+      },
+      "evidence": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c16\\repairs\\independent-seam-fixes-20261013-v1\\I01-only-reviewed-20261016\\visual-qa.json",
+        "sha256": "e0a23e92645eb6472ab55c8c8f1e4c95f553d2feb1598f284cdf1758120d9ae5"
+      }
+    },
+    {
+      "id": "W01",
+      "status": "failed_pending_retained_original_after_two_native_attempts",
+      "coreBox": [
+        0,
+        3515,
+        140,
+        3705
+      ],
+      "trial1": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c16\\repairs\\independent-seam-fixes-20261013-v1\\trial-v1\\W01-west-capstone\\composition.json",
+        "sha256": "dc547c909007ae8c7eef503e3407ecfc17ef121110313fbc9a7b30e969a102b8"
+      },
+      "trial2": {
+        "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southeast\\r15_c16\\repairs\\independent-seam-fixes-20261013-v1\\trial-v2\\composition.json",
+        "sha256": "b6db53eb31a9ddd410ec0827af1f469c08eb7840d4ef910e7c3bae00f74c34a0"
+      },
+      "finding": "Trial1 removes original upper capstone shoulder but leaves a small lower bevel notch near child x20..60,y3670..3711 and the west material transition is still apparent. Trial2 raw native is straighter but protected y3712+ composite retains a short lower edge step; not accepted. Keep original west capstone, do not represent either trial as passed.",
+      "protectedCoreBox": [
+        0,
+        3712,
+        4096,
+        4096
+      ],
+      "nextAction": "Deferred per two-attempt limit; future repair must accommodate immutable southern anchor geometry or coordinated downstream revision. No further retry in this batch."
+    }
+  ],
+  "formalAccepted": false,
+  "activeSourcesModified": false,
+  "baseCandidateModified": false
+}

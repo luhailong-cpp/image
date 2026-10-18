@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "tile": "r03_c13",
+  "repairId": "U07-horizontal-p14-p24-duplicate-blue-strip",
+  "sourceCallCount": 1,
+  "additionalCoreCount": 0,
+  "formalAcceptedCount": 0,
+  "localQaStatus": "local-pass",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u07-integrated-v001\\r03_c13-candidate.png",
+    "sha256": "7d8df70a34f342687dd9c4a7fdfb2346c73c9a5fdf4b11bf507581c3e19ca133"
+  },
+  "baseline": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u06-integrated-v001\\r03_c13-candidate.png",
+    "sha256": "467db5ecec101f817412ac24a9ef22dc32e844c03a034c76e17f93386bc09ed3"
+  },
+  "integration": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u07-integrated-v001\\integration.json",
+  "sourceNativeROIXYXY": [
+    140,
+    610,
+    1254,
+    700
+  ],
+  "sourceROIIncludesHalo": true,
+  "editTileXYXY": [
+    2982,
+    1007,
+    4096,
+    1097
+  ],
+  "nativeOutputPixels": [
+    1254,
+    1254
+  ],
+  "outputPixels": [
+    4096,
+    4096
+  ],
+  "alphaPerimeterPixels": 16,
+  "unfeatheredPhysicalEdges": [
+    "east"
+  ],
+  "nativeEventBytesMatch": true,
+  "actualModel": null,
+  "entryPoint": "builtin image_gen.imagegen",
+  "noResize": true,
+  "noWarp": true,
+  "noImageBlur": true,
+  "unchangedOutsideEditVerified": true,
+  "visualObservation": "Duplicated turquoise strip and repeated tile notches inside the red beam at y1024 removed. Actual blue roof ends, gold support corner, upper red moulding and lower wide beam keep their positions. North/south/west and real east boundary examined.",
+  "evidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u07-integrated-v001\\repaired-context-100pct.png",
+    "sha256": "447473d874c3451a543b424ce2670f8bb57e49a467db4fcb4399c2a32e2de30e"
+  },
+  "prompt": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\prompts\\west-r03c13-u07-repair1.txt",
+  "externalEast": {
+    "neighbor": {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\root-r03c14-full-assembly-v002\\r03_c14\\assembly\\r03_c14-candidate.png",
+      "sha256": "82ce5772b6d0650e55200d6f0129526329b757f5ceb9575748e6ffe952f8e918"
+    },
+    "status": "not-passed",
+    "issue": "Existing horizontal red moulding/beam thickness disagreement remains across x4096 near y1024; deletion of duplicate blue strip improves the left half but does not align the two independently drawn beam profiles.",
+    "evidence": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\west-r03c13-u07-integrated-v001\\east-cross-tile-after-100pct-QA-only.png"
+  },
+  "externalSouth": "Unchanged; prior mismatch retained. Helper-generated south strip is reused old-neighbor reference, not a new latest-south acceptance check."
+}

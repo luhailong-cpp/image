@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-16T18:59:21.109680+00:00",
+  "scope": "Narrow advisory QA of r10_c11 p42/p43 joint floor repair; no source/selection/state changes",
+  "actualModel": null,
+  "actualModelEvidence": "not returned",
+  "status": "proposal_only_unpassed",
+  "internalReady": false,
+  "formalAccepted": false,
+  "views": [
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\joint-repairs\\r10_c11-p42-p43-floor-v1\\native-joint-target.png",
+      "sha256": "b1877a5ce587001c07997bc1177d2077d733579ccb676c2ee9052982eb1915f3",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "viewedOriginal": true,
+      "evidenceCrop": [
+        100,
+        400,
+        500,
+        930
+      ],
+      "evidencePasteAt": [
+        0,
+        0
+      ]
+    },
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\joint-repairs\\r10_c11-p42-p43-floor-v1\\raw-tool-output.png",
+      "sha256": "9e628cb0dcf8b9a35f00c470e37cfd65ceb2a8b91d15d5165bbbd4038adba2cb",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "viewedOriginal": true,
+      "evidenceCrop": [
+        100,
+        400,
+        500,
+        930
+      ],
+      "evidencePasteAt": [
+        400,
+        0
+      ]
+    },
+    {
+      "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\joint-repairs\\r10_c11-p42-p43-floor-v1\\bounded-native-candidate.png",
+      "sha256": "6a1749ff30ad87e2f829da8aaccffa461929346c63105751d98d892cc6619d7c",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "viewedOriginal": true,
+      "evidenceCrop": [
+        100,
+        400,
+        500,
+        930
+      ],
+      "evidencePasteAt": [
+        800,
+        0
+      ]
+    }
+  ],
+  "evidence": {
+    "path": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\qa\\r10_c11-p42-p43-joint-floor-v1-advice-v1\\left-boundary-three-way-100pct.png",
+    "scale": 1,
+    "resized": false,
+    "order": "left original target; middle raw; right bounded candidate"
+  },
+  "finding": "Raw improves old splice by extending the denser right-hand plank courses leftwards. Exact reinsertion [230,180,1024,900] creates a fresh hard boundary at x230. Plank count/spacing differs; this is not one constant 50px translation. Use staggered butt joints / T junctions to reconcile plank topology instead of continuing every groove.",
+  "suggestedEditBase": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\joint-repairs\\r10_c11-p42-p43-floor-v1\\bounded-native-candidate.png",
+  "suggestedJointWindow": [
+    140,
+    425,
+    460,
+    890
+  ],
+  "mapping": {
+    "worldWindow": [
+      42640,
+      40246,
+      42960,
+      40711
+    ],
+    "tileWindow": [
+      1680,
+      3382,
+      2000,
+      3847
+    ],
+    "p42NativeWindow": [
+      771,
+      425,
+      1091,
+      890
+    ],
+    "p43HaloIntersection": [
+      0,
+      425,
+      67,
+      890
+    ]
+  },
+  "preservation": "The new window touches joint left strip x140..230, which is internal p42 core. Joint north/south/east 230 and left x0..140 remain unchanged by this narrow step. Actual tile outer anchors are not touched. p42 east overlap and p43 west halo require exact synchronization wherever intersected.",
+  "suggestedStructuralAnchors": {
+    "upperButtJoint": [
+      [
+        205,
+        445
+      ],
+      [
+        310,
+        518
+      ]
+    ],
+    "lowerButtJoint": [
+      [
+        155,
+        566
+      ],
+      [
+        355,
+        780
+      ]
+    ],
+    "interpretation": "approximate geometry, not program-generated art"
+  },
+  "remainingQA": "After any model repair, inspect the whole bounded-work perimeter, both synchronized source views and original core seam. This advice does not validate the existing top/bottom/right work-window borders.",
+  "prompt": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\qa\\r10_c11-p42-p43-joint-floor-v1-advice-v1\\prompt-suggestion.txt"
+}

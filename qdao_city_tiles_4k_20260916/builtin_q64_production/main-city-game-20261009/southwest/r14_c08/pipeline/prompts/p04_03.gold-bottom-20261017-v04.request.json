@@ -1,0 +1,162 @@
+{
+  "prompt": "Use case: precise-object-edit. EDIT IMAGE1 ONLY. Same opaque native1254x1254PNG exact crop, no zoom/reframe. Correct only the BOTTOM gold roof/eave fragment horizontal placement: it is currently too far left, with leftmost gold aroundx430. Move that bottom fragment to the right until its leftmost gold is aroundx500, matching the exact1254x1254target layout in Image5. Keep its size, y position and curved roof form. Do not move the right-edge gold fragment, which is already correctly clipped; preserve it exactly. Repaint vacated ground with same quiet pale-grey stone and move only bottom fragment shadow consistently. Preserve the far-left continuous blue-grey inlay and all other stone geometry. No grout/grid/rectangle/brick segment seams, no new object or complete roof/building. Gold keeps same warm rounded handpainted material and daylight. Image2 city geometry only, no city output; image3 material finish only; image4 Daoist chibi style only, no UI/person/night. Image5 EXACT TARGET LAYOUT AT SAME CANVAS SCALE, use solely for bottom fragment x position. Output cropped fragment only, no text/watermark.",
+  "promptFile": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southwest\\r14_c08\\pipeline\\prompts\\p04_03.gold-bottom-20261017-v04.prompt.txt",
+  "promptSha256": "74673d3e9f0c23c9b5fee1496eae96d58a03d90ab2cd18768c385310904aede7",
+  "referenced_image_paths": [
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southwest\\r14_c08\\pipeline\\returned-originals\\p04_03.gold-placement-20261017-v03.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\daylight-only-20261009\\tianyong\\tianyong-spring-natural-stone-v9.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\daylight-only-20261009\\tianyong\\tianyong-natural-stone-detail-v1.png",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\daylight-only-20261009\\user-references-20261009\\mail-daoist-style.jpg",
+    "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southwest\\r14_c08\\guides\\p04_03.layout-only.png"
+  ],
+  "transparent_background": false,
+  "references": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southwest\\r14_c08\\pipeline\\returned-originals\\p04_03.gold-placement-20261017-v03.png",
+      "sha256": "144093b154fd4bda8cd4f493d06741c3afc21bb82f3fe82c461c8ae94fa94dcb",
+      "role": "edit target: actual native1254returned image; correct only bottom gold horizontal position"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\daylight-only-20261009\\tianyong\\tianyong-spring-natural-stone-v9.png",
+      "sha256": "47485b823db7dbe4e63883f9ae6d759f3f2fbb5897c72f16fa64e921bde6ccd7",
+      "role": "approved whole-city geometry only; no full scene output"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\daylight-only-20261009\\tianyong\\tianyong-natural-stone-detail-v1.png",
+      "sha256": "c10e878611dc2f373159257f5fc42d26957f04e35f19dee78fe1658e364e4809",
+      "role": "approved clean grey stone, daylight and material finish"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel_20261005\\daylight-only-20261009\\user-references-20261009\\mail-daoist-style.jpg",
+      "sha256": "c1ab2e50b271e5c5590a92fe68bd6cf7d2c64cbd0d369b25b4ff5c6619033b63",
+      "role": "current primary Daoist chibi style; copy no UI"
+    },
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southwest\\r14_c08\\guides\\p04_03.layout-only.png",
+      "sha256": "c2311722f11512139a009ae0198004d72d06353a595d8a663fbc848ed8aeb099",
+      "role": "exact1254target layout guidance only; bottom gold xposition, no artwork pixels reused"
+    }
+  ],
+  "neighborSources": [
+    {
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southwest\\r14_c08\\native\\p03_03.png",
+      "sha256": "a6612f120278af6f3e84794b1d652e469a7f480c1db5a15f1fe8810e981c5358",
+      "role": "exact selected top native strip",
+      "generationRecord": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southwest\\r14_c08\\native\\p03_03.png.generation.json",
+      "generationRecordSha256": "2a930370f71084579b85bb98857a3a006d8b5eb881f50f16fca3eabe2933ac1f",
+      "sourceTile": "r14_c08",
+      "sourcePatch": "p03_03",
+      "selectionEvidence": null,
+      "sourceCrop": [
+        0,
+        1024,
+        1254,
+        1254
+      ],
+      "sourceWorldBox": [
+        30605,
+        56205,
+        31859,
+        56435
+      ],
+      "sourceResampling": false,
+      "targetBox": [
+        0,
+        0,
+        1254,
+        230
+      ],
+      "effectiveTargetBox": [
+        0,
+        0,
+        1254,
+        230
+      ]
+    }
+  ],
+  "cornerTreatment": {
+    "priority": "upper",
+    "pasteOrder": [
+      "left when available",
+      "upper when available"
+    ],
+    "bothSourcesPresent": false,
+    "blendingOrResampling": false
+  },
+  "coordinates": {
+    "id": "p04_03",
+    "row": 4,
+    "column": 3,
+    "coreWorldBox": [
+      30720,
+      56320,
+      31744,
+      57344
+    ],
+    "contextWorldBox": [
+      30605,
+      56205,
+      31859,
+      57459
+    ],
+    "nativeCoreBox": [
+      115,
+      115,
+      1139,
+      1139
+    ]
+  },
+  "tile": "r14_c08",
+  "requestedNativePixels": [
+    1254,
+    1254
+  ],
+  "submittedParameters": {
+    "model": null,
+    "quality": null
+  },
+  "configSnapshot": {
+    "schema_version": 1,
+    "model": "gpt-image-2.5-sunburst",
+    "quality": "max",
+    "builtin_product": "ChatGPT Images 2.5",
+    "selection": "latest_verified",
+    "preferred_route": "builtin",
+    "verified_on": "2026-10-10",
+    "sources": {
+      "release": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "model": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+      "quality": "https://developers.openai.com/api/reference/resources/images/methods/generate"
+    }
+  },
+  "actualModel": null,
+  "actualQuality": null,
+  "preparedAtUtc": "2026-10-17T05:53:24.268441+00:00",
+  "productionResumeEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\resume-production-20261010\\production-resume.json",
+    "sha256": "57dc445fc3cd921dd9aa15e9cda1977f4192786d17a0240e06ac415597ef9a04"
+  },
+  "warnings": [
+    {
+      "kind": "independent_missing_internal_left_neighbor",
+      "sourceTile": "r14_c08",
+      "patch": "p04_02",
+      "side": "left",
+      "reason": "Upstream left sources unresolved or absent; missing native not invented. Independent stable native top continues."
+    },
+    {
+      "kind": "global_config_absent_using_previous_request_metadata",
+      "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southwest\\pipeline-tools\\image-generation.last-request-snapshot-20261012.json",
+      "sha256": "180ab671b30d5c54c440c9d96e095045ce16db8d25e1b8f63448713b61083fba",
+      "actualModel": null,
+      "actualQuality": null,
+      "note": "Exact historical request metadata only; builtin actual model/quality remain undisclosed, no parameters or global configuration changed."
+    }
+  ],
+  "requiresActualVisualInspectionBeforeToolCall": true,
+  "mechanicalGuideEvidence": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\main-city-game-20261009\\southwest\\r14_c08\\pipeline\\guides\\p04_03.restart-20261017-v01.continuity-seed.native-inlay-roof-guide.png.derivation.json",
+    "sha256": "016ddd94e096392e9079b6f5d14f878457f68fab3ee3d12023dcc1340430af53"
+  },
+  "retryReason": "Second targeted gold placement pass: right improved, bottom overshifted. After this retain best and continue independent missing cores."
+}

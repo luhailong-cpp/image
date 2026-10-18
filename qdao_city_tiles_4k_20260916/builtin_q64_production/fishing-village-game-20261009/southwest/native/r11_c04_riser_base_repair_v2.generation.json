@@ -1,0 +1,54 @@
+{
+  "createdAtUtc": "2026-10-16T20:02:36.677639+00:00",
+  "tool": "image_gen__imagegen",
+  "model": null,
+  "modelEvidence": "Actual model identifier not returned by built-in tool",
+  "paidApiUsed": false,
+  "output": {
+    "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/native/r11_c04_riser_base_repair_v2.png",
+    "sha256": "3b72a26f69659bbc229e63e6bc619af70e04bc676aa84327756eca5abbcb31cc"
+  },
+  "sha256": "3b72a26f69659bbc229e63e6bc619af70e04bc676aa84327756eca5abbcb31cc",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "references": [
+    {
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/fishing-village-game-20261009/southwest/qa/r11_c04-riser-base-repair-v1-source-native.png",
+      "role": "native local edit target",
+      "sha256": "8196fa4fb63edf2fe051dcf528526092d37d28369cc055f1c5a512523d73549b"
+    },
+    {
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/daylight-only-20261009/donghai-natural-stone-clear-routes-v10.png",
+      "role": "only current full-map layout reference",
+      "sha256": "cf450f0afe784b4700f2dfc19b3af35867765403e8f1d81741e78b3116583d42",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/daylight-only-20261009/donghai-natural-stone-detail-v1.png",
+      "role": "independent material and architecture style close-up, not a coordinate crop",
+      "sha256": "db47c3d1699c4163734fb4cd155cecc8529ea6adb56f3e7533d375764cf9152c",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    },
+    {
+      "path": "D:/work/image/qdao_city_tiles_4k_20260916/builtin_q64_production/parallel_20261005/daylight-only-20261009/user-references-20261009/mail-daoist-style.jpg",
+      "role": "primary user-provided approved Daoist Q painterly style, future requests from 2026-10-10; do not copy UI, figures or night lighting",
+      "sha256": "c1ab2e50b271e5c5590a92fe68bd6cf7d2c64cbd0d369b25b4ff5c6619033b63",
+      "dimensions": [
+        1932,
+        814
+      ]
+    }
+  ],
+  "prompt": "Use case: precise-object-edit. Image 1 is the exact local edit target, native 1254 by 1254 pixels. Repair the broken stone-to-sand bottom boundary of the UPPER broad stone stair riser. The lower-left stone face and its bottom edge are CORRECT; keep the entire left half, including its thickness and base position, absolutely unchanged. Near x620,y700 there is a sawtooth notch and a too-high stone base on the RIGHT. Extend the right-hand stone face DOWNWARD about 60 pixels into the sand so its lower edge continues the existing lower-left edge in one smooth straight diagonal, until it meets the right side wall/post. Remove the artificial horizontal stripe/double edge in this junction. Do not move the left bottom edge upward. Change only the right half of that first riser's lower edge and the immediately adjoining stone texture/shadow/sand, roughly x550-1000 y540-790. Keep its upper edge, step count, lower stairs, post, rope, original camera and every image outer edge unchanged. No other layout alteration. The other images are supporting style/layout references only. Same crisp hand-painted Daoist Q game-map stone and warm sand. No text, UI, people, watermark or grid. Opaque square, exact original framing.",
+  "transparent_background": false,
+  "selectionStatus": "not_selected_boundary_geometry_changed",
+  "review": "Central notch removed, but original lower-left edge raised about60px across left half; local replacement would transfer mismatch to patch boundary. Original 4096 candidate remains selected pending wider geometry repair."
+}

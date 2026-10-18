@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-16T20:53:01.506659+00:00",
+  "candidate": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\village-east-shipyard\\r10_c12\\candidate\\r10_c12-4096-candidate-v2.png",
+  "candidateSha256": "569f0ff8aced4a2456853ab0937f83a48b9e2eef4e99179d5b5e719b350c2bf6",
+  "scope": "Delta-only independent visual review; p41-v4 and p42-v3-derived. Reuse 14 unchanged source entries and prior full internal seam QA.",
+  "changedSourceHashesVerified": true,
+  "candidateDeltaBBox": [
+    0,
+    3072,
+    1139,
+    4096
+  ],
+  "outsideDeltaBBoxPixelIdenticalToV1": true,
+  "reusedReports": [
+    "qa/r10_c12-candidate-v1-internal-v1/review.json",
+    "qa/r10_c12-p41-v4-independent-short-v1/review.json",
+    "qa/r10_c12-provenance-v2/validation.json"
+  ],
+  "actualViews": [
+    "changed-oval-area-100pct.png",
+    "west-core-seam-100pct.png",
+    "north-pair-boundary-100pct.png",
+    "east-core-seam-100pct.png"
+  ],
+  "findings": [
+    {
+      "id": "G02",
+      "priorStatus": "blue/white oval expanded into a large painted panel",
+      "deltaStatus": "geometry_restored_for_continuation",
+      "description": "The blue/white oval contour is now coherent across the actual p41/p42 core seam. Its lower part crosses the tile south edge and closes within the native south halo, as recorded in the hash-identical p41-v4 short QA. A following tile must inherit that exact continuing contour; this is not a claim that the 4096 crop itself shows the whole oval.",
+      "p41SouthAnchorUsable": true,
+      "p41EastAnchorUsable": true
+    },
+    {
+      "id": "G01",
+      "deltaStatus": "unchanged_unpassed",
+      "description": "p21/p22 plank topology mismatch lies outside the delta bbox. The two unsuccessful repair attempts were not selected; prior full QA failure remains. No repeated inspection of unchanged G01."
+    },
+    {
+      "id": "M04",
+      "deltaStatus": "pending_not_passed",
+      "description": "A rectangular wood tone/grain transition remains at the p42 reinsertion boundaries: native x230 and y760, tile x1139 and y3717. Column outline and oval contour remain continuous, so this is a material cleanup item.",
+      "nativeAffectedPatch": "p42-v3-derived.png",
+      "suggestedNativeContext": [
+        110,
+        680,
+        380,
+        1254
+      ],
+      "evidence": "west-core-seam-100pct.png"
+    }
+  ],
+  "relatedBoundaries": {
+    "p31_p41_north": "no_new_structural_break_observed",
+    "p32_p42_north": "no_new_structural_break_observed",
+    "p41_p42_actual_core_seam": "oval_and_column_geometry_continuous",
+    "p42_p43_east": "unchanged_geometry_continuous",
+    "crossings_x1024_y3072_and_x2048_y3072": "no_new_structural_break_observed_in_panels"
+  },
+  "internalReady": false,
+  "formalAccepted": false,
+  "externalSeams": "not_formally_checked",
+  "actualModel": null,
+  "actualModelEvidence": "not returned",
+  "sourceStateChangedByReviewer": false
+}

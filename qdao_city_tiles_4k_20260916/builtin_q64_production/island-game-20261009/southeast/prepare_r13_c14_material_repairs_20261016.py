@@ -1,0 +1,22 @@
+from workflow import *
+from PIL import Image
+tid='r13_c14';rev='right-full-20261016-v01';q=ROOT/'qa'/f'{tid}-{rev}';src=ROOT/'tiles'/f'{tid}.candidate-{rev}.png'
+fail={'v11':'left mast retains horizontal guide material band at tile y1139','v31':'straight vertical lighting step across lower hull planks near tile x602','v22':'water caustic texture changes abruptly at bow side row boundary'}
+s=read(q/'seams.json')
+for e in s['entries']:e.update(status='not_passed' if e['id'] in fail else 'passed',note=fail.get(e['id'],'Contours and material continuation viewed; no objectionable cut.'),reviewedAt=now())
+s.update(passedCount=21,internalAccepted=False);write(q/'seams.json',s)
+js=[{'id':f'{r}{c}','file':str(q/f'junction_{r}{c}.png'),'sha256':sha(q/f'junction_{r}{c}.png'),'status':'not_passed' if (r,c)==(2,2) else 'passed'} for r in range(1,4) for c in range(1,4)]
+write(q/'actual-review.json',{'candidate':str(src),'candidateSha256':sha(src),'reviewedAt':now(),'all24SeamsAnd9JunctionsActuallyViewed':True,'seamsPassed':21,'seamsTotal':24,'junctionsPassed':8,'junctionsTotal':9,'junctions':js,'failedSeams':fail,'internalAccepted':False,'externalAccepted':False,'formalAccepted':False,'wholeImageReview':'Layout, spar, bow post and hull silhouette coherent. Three local material continuity issues need targeted native repair.'})
+base='Edit this exact native 1254 by 1254 image at identical crop, scale, position and perspective. Make only the narrowly specified material correction. Keep all genuine geometry, wood edges and every object in place, without adding details, shifting, rescaling, blurring or drawing a new scene. Return one opaque 1254 square with native hand-painted detail. '
+jobs=[('repair_hull',0,2445,'Remove the accidental straight vertical color division near x600 in the lower wooden hull planks, particularly y350 to750. This is an unwanted lighting patch across several planks, not a wood joint. Continue each real horizontal plank and its warm painted wood grain smoothly across this artificial vertical boundary. Keep the true left vertical plank joint near x120, the curved hull outline, dark horizontal plank joints and sea foam exactly. Preserve the outer 150-pixel frame exactly; change only the interior narrow color mismatch.',None),('repair_bowwater',1421,1421,'Remove the accidental horizontal and corner-shaped water material boundary near y627 in the right half (x550 to1100). Continue the same turquoise wave network naturally between the softer water above and sharper caustics below without a straight guide boundary or distinct rectangular window. Preserve all wooden boat geometry and all wood colors exactly. Preserve outer150pixel frame exactly. Change only the water near the unwanted straight texture transition.',None),('p21',None,None,'Remove the accidental horizontal shading/material seam on the upright wooden mast at y230, x0 to165. It is a guide edge, not a real horizontal wood joint. Continue vertical wood grain and consistent natural shading through that y230 line. Keep all real cast shadows, especially the diagonal shadow edge, the mast silhouette, gunwale and rib shapes exactly. Change only mast surface in x0..165,y170..350; preserve the remainder of the image exactly.',ROOT/'native/r13_c14_p21_v01.png')]
+for suffix,x,y,note,native in jobs:
+ pid=tid+'_'+suffix;v='v02' if suffix=='p21' else 'v01'
+ if native is None:
+  g=ROOT/'guides'/f'{pid}_{v}.candidate-only.png';assert not g.exists();Image.open(src).convert('RGB').crop((x,y,x+1254,y+1254)).save(g)
+  write(ROOT/'prompts'/f'{pid}_{v}.registered.json',{'id':pid,'tile':tid,'tileRelativeOrigin':[x,y],'nativeGlobalBox':[53248+x,49152+y,53248+x+1254,49152+y+1254],'sourceCore':[115,115,1139,1139],'destinationCore':[x+115,y+115,x+1139,y+1139],'derivedFromCandidate':str(src),'candidateSha256':sha(src),'operation':'exact native crop no resize; guide only'})
+ else:g=native
+ args={'prompt':base+note,'referenced_image_paths':[str(g)],'transparent_background':False}
+ write(ROOT/'prompts'/f'{pid}_{v}.material.args.json',args)
+ print(g)
+d=read(ROOT/'progress-r13_c14.json');d.update(selectedVersions=read(ROOT/'qa/r13_c14-right-full-20261016-v01.spec.json')['patchVersions'],generatedNativeCount=16,uniqueCoreCoverage=16,usableNativeCount=16,complete4kCount=1,currentCandidate=str(src),currentCandidateSha256=sha(src),missingPatchCoordinates=[],inFlightRequestCount=0,inFlight=[],internalReview=str(q/'actual-review.json'),status='full_candidate_three_material_repairs_pending',updatedAt=now());write(ROOT/'progress-r13_c14.json',d)
+

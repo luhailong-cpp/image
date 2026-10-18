@@ -1,0 +1,14 @@
+import json,hashlib
+from pathlib import Path
+B=Path(__file__).resolve().parent.parent
+def read(p):return json.loads(p.read_text(encoding='utf-8-sig'))
+def art(p):return {'file':str(p),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+def save(p,d):
+ with p.open('x',encoding='utf-8') as f:json.dump(d,f,ensure_ascii=False,indent=2)
+v=B/'versions/right-r04c14-jade-joint-native-v001';r=read(v/'integration.json')
+qa={'tile':'r04_c14','candidate':r['candidate'],'integration':art(v/'integration.json'),'issue':'p42-p43 paper/floor/jade vertical join x2048','status':'jade_and_paper_local_improvement_grout_phase_remaining','formalAcceptedCount':0,'fullVisualAcceptance':False,'actualNativeCallCount':1,'sourceROI':[250,260,935,1254],'editTileXYXY':[1671,3102,2356,4096],'finding':'Intact red paper and continuous jade top rim/crossbar now replace broken forms. Full jade object used from actual native source; old 10..20px jade steps removed. Floor grout left and right elevations still differ about16px under paper; do not claim full seam pass. Lower jade physicalS edge changed; externalS remains pending.','allFourPerimetersViewedAt100pct':True,'north':'Local floor texture boundary clean; original y3072 patch outside ROI remains','south':'Own jade edge clean; externalS unverified','west':'Stonepost/left jade side continuous','east':'Masonry/coping continuous','nativeEventBytesMatch':True,'outsideROIUnchanged':True,'noResizeWarpBlur':True,'actualModel':None,'externalSouthChangedWorldX':[1671,2356],'externalSouthAccepted':False,'rationale':'Independent localized fullobject repair after preceding independent door/shaft/roof repairs, instead of repeating old p42 core replacement strategy.'}
+q=B/'qa/right-r04c14-jade-joint-after-v001.json';save(q,qa)
+prev=B/'selections/right-r04c14-candidate-overlay-v015.json';sel=read(prev);sel.update(selectionVersion='right-r04c14-candidate-overlay-v016',candidate=r['candidate'],visualQa=art(q),status='jade_paper_improved_floorgrout_residual_externalSouth_pending',previousOverlaySelection=art(prev));sel['repairIntegrations'].append(art(v/'integration.json'));sel['knownJadeGroutResidual']='Floor grout elevations differ about16px beneath paper; jade geometry localimproved, not fullpass.'
+sp=B/'selections/right-r04c14-candidate-overlay-v016.json';save(sp,sel)
+c=read(B/'qa/right-r04c14-resume-checkpoint-v015.json');c.update(currentSelection=art(sp),currentCandidate=r['candidate'],noInFlightImageCall=True);c['subsequentLocalQa'].append(str(q));c['currentWorkingSourceChain'].append('jade-and-paper685x994nativeROIpartial');save(B/'qa/right-r04c14-resume-checkpoint-v016.json',c)
+print(json.dumps({'selection':art(sp),'candidate':r['candidate'],'qa':str(q),'coreCount':16,'formal':0}))

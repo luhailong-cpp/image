@@ -1,0 +1,29 @@
+{
+  "createdAt": "2026-10-16T04:45:11.301Z",
+  "tile": "r07_c12",
+  "selectedCoreCount": 3,
+  "internalPassed4kCount": 0,
+  "checks": [
+    {
+      "patch": "p44",
+      "status": "quick_geometry_pass",
+      "evidence": "qa/p44-v20261016/review.json"
+    },
+    {
+      "patch": "p34",
+      "status": "south_geometry_pass_east_local_P2",
+      "problem": "At southeast edge, rectangular light/dark wall transition inherited from fixed strips remains; foliage and red timber continuity otherwise coherent.",
+      "evidence": "qa/p34-v20261016/joins.json"
+    },
+    {
+      "patch": "p43",
+      "status": "quick_geometry_pass",
+      "problem": "Courtyard slab joints, masonry ornament and lantern edge align across east/south joins.",
+      "evidence": "qa/p43-v20261016/joins.json"
+    }
+  ],
+  "heldCoordinate": "p42",
+  "heldReason": "South and east native references prescribe two different x positions for blue inlay stripes; existing r08_c12 M02 geometry conflict. Do not propagate.",
+  "conflictEvidence": "layout-only/p42-mixed-context.png",
+  "next": "p24 independent roof/wall; then p14"
+}

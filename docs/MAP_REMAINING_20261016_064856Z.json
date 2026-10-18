@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 2,
+  "checkedAtUtc": "2026-10-16T06:48:56.183170+00:00",
+  "timezone": "America/New_York",
+  "unit": "4096x4096 formal map tile",
+  "maps": [
+    {
+      "map": "主城",
+      "key": "main-city-game-20261009",
+      "target": 256,
+      "completeSelected4096Candidates": 71,
+      "internalPassed": 31,
+      "missingCompleteSelectedCandidate": 185,
+      "completeSelectedPendingRepairOrReview": 40,
+      "remainingToInternalPass": 225
+    },
+    {
+      "map": "渔村",
+      "key": "fishing-village-game-20261009",
+      "target": 196,
+      "completeSelected4096Candidates": 74,
+      "internalPassed": 54,
+      "missingCompleteSelectedCandidate": 122,
+      "completeSelectedPendingRepairOrReview": 20,
+      "remainingToInternalPass": 142
+    },
+    {
+      "map": "八仙岛",
+      "key": "island-game-20261009",
+      "target": 196,
+      "completeSelected4096Candidates": 73,
+      "internalPassed": 52,
+      "missingCompleteSelectedCandidate": 123,
+      "completeSelectedPendingRepairOrReview": 21,
+      "remainingToInternalPass": 144
+    }
+  ],
+  "total": {
+    "target": 648,
+    "completeSelected4096Candidates": 218,
+    "complete4096CandidateFilesIncludingProvisional": 219,
+    "internalPassed": 137,
+    "missingCompleteSelectedCandidate": 430,
+    "completeSelectedPendingRepairOrReview": 81,
+    "remainingToInternalPass": 511
+  },
+  "provisionalExcludedFromCompleteSelected": {
+    "map": "island-game-20261009",
+    "tile": "r02_c12",
+    "reason": "Full-size provisional includes one unselected failed core; counted as a saved candidate file only, never passed"
+  },
+  "changeFromPreviousSnapshot": {
+    "previousInternalPassed": 129,
+    "currentInternalPassed": 137,
+    "previousRemaining": 519,
+    "currentRemaining": 511,
+    "reason": "Reconciled existing full internal QA evidence with stale aggregate fields; not8 newly generated or newly visually accepted tiles",
+    "cityAddedExistingQAEvidence": [
+      "r13_c15",
+      "r16_c13",
+      "r14_c13",
+      "r14_c15",
+      "r15_c13",
+      "r15_c14"
+    ],
+    "villageAddedExistingQAEvidence": [
+      "r07_c14",
+      "r14_c07"
+    ]
+  },
+  "currentMapEvidence": [
+    {
+      "path": "docs/count-audit-20261016/city-refresh.json",
+      "sha256": "d0ba6e78e03fcc634c71e9c1565de0f997d0a73f8bef8e3549a3505ac44f0e62"
+    },
+    {
+      "path": "docs/count-audit-20261016/city-southeast-root-two-checks.json",
+      "sha256": "a634dc25552cf8eb881db6c95207f330623fa4ecc225ae5ada13d4800fba17e9"
+    },
+    {
+      "path": "docs/count-audit-20261016/city-southeast-six-checks.json",
+      "sha256": "fbc9be990419f960357032cb785b2a0248e2f23da47b52cbf18f0aa0df9eecf2"
+    },
+    {
+      "path": "docs/count-audit-20261016/village-refresh.json",
+      "sha256": "7fa3ee269811b04f52175fc3e4bd467a0452c687447e7fdf12db7ddf59caa6e1"
+    },
+    {
+      "path": "docs/count-audit-20261016/island-refresh.json",
+      "sha256": "937ad3958ebaa853c41c6463b0d8a50f7c45ed38e97534519b1c533aad04f09a"
+    }
+  ],
+  "unresolved": {
+    "citySoutheast": [
+      "r13_c14",
+      "r14_c14"
+    ],
+    "reason": "Full QA/current source inheritance chain unresolved; remain pending, not passed"
+  },
+  "allocation": {
+    "reservedTileCount": 40.0,
+    "manifest": "docs/MAP_PARALLEL_SPLIT_20261013.json",
+    "manifestSha256": "929a52abdb55e6022f83abbe9b48718182bc33fc8a0bc2d50a14f6232dd4e850",
+    "newReservedTilesAreNotNewProductionOrTargetIncrease": true
+  },
+  "method": "Current-coordinate deduplication; source candidate dimensions and hashes verified; reused source-bound existing complete QA including changed-region inheritance. No new whole-map visual review, image generation, production source mutation, allocation mutation, or Git operation.",
+  "fullMapAccepted": false
+}

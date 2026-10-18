@@ -1,0 +1,66 @@
+{
+  "auditId": "r06_c13-layout-audit-20261017",
+  "reviewer": "bridge_layout_audit",
+  "createdAtUtc": "2026-10-17T05:03:23.191Z",
+  "scope": "Read-only independent layout QA. Only this audit file written; no selection, images or acceptance records changed.",
+  "agentsRead": "D:/work/image/AGENTS.md",
+  "selectedCoreCountAtRead": 9,
+  "formalAccepted": false,
+  "status": "layout_not_accepted_pending_cross_tile_post_scale_repair",
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "blocks_layout_acceptance_and_propagation_of_this_rail",
+      "coordinates": [
+        "r06_c13_p01_04",
+        "r06_c14_p01_01"
+      ],
+      "details": "p01_03 large ball post is close to its original layout crop. p01_04 right small complete ball post is inherited from r06_c14 p01_01. At equal native scale, left ball diameter is visually about 337 px versus right about 90 px; square caps about 480 versus 140 px (rough visual estimates, not segmentation measurements). The original p01_04 layout crop carries a broad right column/continuing wall, whereas native puts a small complete end-post lower in frame. Original whole-map/context does not support an abrupt 3.5x scale decrease in this short section.",
+      "evidence": [
+        "native/r06_c13_p01_03.png",
+        "native/r06_c13_p01_04.png",
+        "native/r06_c14_p01_01.png",
+        "guides/r06_c13.layout-context-nearest.png",
+        "guides/r06_c13_p01_03.layout-only.png",
+        "guides/r06_c13_p01_04.layout-only.png",
+        "guides/r06_c13_p01_04.anchored-layout-only.png",
+        "qa/r06_c13_p01_04.joins.json",
+        "prompts/r06_c13_p01_04.prompt.txt"
+      ],
+      "existingQA": "Recorded local joins pass, but reviewNote explicitly reserves different pre-existing end-post scales for whole-tile proportion review.",
+      "recommendation": "Jointly repair r06_c13 p01_04 right area and r06_c14 p01_01 left area against original layout, then recheck adjoining upper/lower joins. Do not shrink p01_03 just to match the inconsistent small anchor. Keep old images. This audit does not modify or authorize editing other worker records."
+    },
+    {
+      "id": "F2",
+      "severity": "pending_related_topology_review",
+      "coordinates": [
+        "r06_c13_p02_04",
+        "r06_c14_p02_01_v2"
+      ],
+      "details": "A second small ball post and short rail appears near p02_04 native x1120,y335; QA/prompt identify its right-anchor origin. Original layout crop instead shows planting/blossoms below the main wall without an obvious second parallel rail. Verify this footprint during F1 joint repair; this secondary issue remains pending, not a definitive deletion instruction.",
+      "evidence": [
+        "native/r06_c13_p02_04.png",
+        "guides/r06_c13_p02_04.layout-only.png",
+        "qa/r06_c13_p02_04.joins.json",
+        "prompts/r06_c13_p02_04.prompt.txt"
+      ]
+    }
+  ],
+  "otherSelectedCores": "All nine currently selected native images were viewed. Main paving, foliage and canopy subject areas broadly follow context. This limited audit is not a replacement for native seam/cross checks and grants no whole-tile pass.",
+  "neighborsViewed": [
+    "tiles/r05_c13.png",
+    "tiles/r06_c14-native-v1-20261013.png"
+  ],
+  "viewLimit": "4096 tile views displayed at 1600 for layout; 1254 native images separately viewed. No new overview or image written.",
+  "productionRecommendation": {
+    "canContinueIndependentMissingCores": [
+      "r06_c13_p03_02",
+      "r06_c13_p03_03",
+      "r06_c13_p04_02",
+      "r06_c13_p04_03"
+    ],
+    "keepLayoutFailureOpen": true,
+    "doNotPropagateSmallRightPostGeometry": true,
+    "returnedThreeCandidates": "Recovery QA remains responsible; no acceptance issued here."
+  }
+}

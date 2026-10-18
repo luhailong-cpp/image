@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "tile": "r15_c05",
+  "repair": "exported-inner-rim-20261016-v02",
+  "reviewScope": "changed target plus four native edges and right230 only; unchanged full-tile QA reused by input hashes",
+  "nativeSourceSha256": "e5278253bfd0d2355f13bed730533b5744fa7e105c778f07eb0da1c654459506",
+  "assembly": "integrated-masked-20261016-v01/assembly.json",
+  "assemblySha256": "27cd74a4ecfd30c8c1439d6519708c2d1196621ba4f08a4f8bb8f0c98b93c467",
+  "candidateSha256": "d91c3ddf97cafa2bb6de27eccdc72324fa8b754b9120c4b6c28a7eb368e12809",
+  "contextSha256": "fb99b1ec7eb3e314ecfd2959a2524d26ca8ceb7f54299f8ea214b208b733f390",
+  "sourceResampling": false,
+  "actualModel": null,
+  "actualQuality": null,
+  "apiUsed": false,
+  "maskInContext": [
+    3072,
+    1156,
+    4326,
+    1210
+  ],
+  "outsideMaskByteIdentical": true,
+  "outerBlueBoundaryRows1140to1155ByteIdentical": true,
+  "actuallyViewed": [
+    "integrated-native-target.png",
+    "stripe-before-after-panel.png",
+    "top.png",
+    "bottom.png",
+    "left.png",
+    "right.png",
+    "export-right230.png"
+  ],
+  "findings": [
+    {
+      "id": "inner-white-rim",
+      "result": "improved",
+      "detail": "Extra white line removed; original gray-to-blue outer edge fixed in original location."
+    },
+    {
+      "id": "blue-material-front",
+      "result": "fail",
+      "detail": "Horizontal blue tone/material front remains at lower mask boundary around patch y1210, visible in bottom/right230 crops; left changed region is also visibly flatter than untouched lower blue."
+    },
+    {
+      "id": "geometry-and-exterior",
+      "result": "unchanged",
+      "detail": "Gray grout geometry and true outer blue edge protected byte-identically."
+    }
+  ],
+  "localAccepted": false,
+  "internalAccepted": false,
+  "externalAccepted": false,
+  "formalAccepted": false,
+  "disposition": "Best available v02 retained as unaccepted repair candidate. Same-point two attempts completed; no third retry. Do not describe right230 as accepted external anchor.",
+  "reuse": "r15_c05/pipeline/qa/resume-20261016-v01/review.json retained for unchanged regions; no whole-tile historical rescan."
+}

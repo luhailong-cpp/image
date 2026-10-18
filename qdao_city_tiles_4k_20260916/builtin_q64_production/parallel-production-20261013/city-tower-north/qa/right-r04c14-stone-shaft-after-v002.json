@@ -1,0 +1,45 @@
+{
+  "tile": "r04_c14",
+  "candidate": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-stone-shaft-native-v002\\r04_c14-candidate.png",
+    "sha256": "02e9e83f3c051ff9363f9323e343c88ff6b6f40ea00a049fdce68bb0244391cd"
+  },
+  "integration": {
+    "file": "D:\\work\\image\\qdao_city_tiles_4k_20260916\\builtin_q64_production\\parallel-production-20261013\\city-tower-north\\versions\\right-r04c14-stone-shaft-native-v002\\integration.json",
+    "sha256": "3b424fccf7c17fc6f5cefbc502f4e22c217d6e8777080943dff3d8455f20aa3a"
+  },
+  "issue": "p24/p34 stonepost, leaves and diagonal railing horizontal splice",
+  "status": "production_local_pass_externalEast_unverified",
+  "formalAcceptedCount": 0,
+  "fullVisualAcceptance": false,
+  "actualNativeCallCount": 1,
+  "sameNativeAsV001": true,
+  "nativeSourceROI": [
+    185,
+    115,
+    1254,
+    1139
+  ],
+  "editTileXYXY": [
+    3027,
+    1350,
+    4096,
+    2374
+  ],
+  "finding": "Expanded same native source over whole right repair context removes horizontal leaf cut and diagonal railing step as well as shaft splice. Native1254 includes true115px east halo; no feather at physicalEast.",
+  "perimeters": {
+    "north": "Post collar, diagonal railing, leaf masses and upperright paving continuous across ROI boundary",
+    "south": "Foot, leaves, cloth and foreground stone cap continuous; no shifted cut",
+    "west": "Wood/paving and column edge continuous",
+    "east": "Own boundary strip continuous internally; no native r04_c15 neighbor exists at audited original-zone path, externalnotaccepted"
+  },
+  "allFourPerimetersAndContextViewedAt100pct": true,
+  "noResizeWarpBlur": true,
+  "outsideROIUnchanged": true,
+  "nativeEventBytesMatch": true,
+  "actualModel": null,
+  "unresolved": [
+    "Other prior internal failures remain",
+    "External tileEast pending native neighbor comparison"
+  ]
+}
